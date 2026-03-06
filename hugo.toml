@@ -1,0 +1,24 @@
+baseURL = "https://menshly-global.pages.dev/"
+languageCode = "en-us"
+title = "MenshlyGlobal | The 2026 Frontier"
+theme = "hugo-paper" # A clean, fast, professional theme
+
+[params]
+  description = "Elite investigative journalism and 2026 global forecasts."
+  twitter = "Olhmescraxes1"
+  author = "Menshly Intelligence Board"
+  
+[related]
+  # This handles your "Cross-Linking" automatically
+  threshold = 80
+  includeNewer = true
+  toLower = true
+  [[related.indices]]
+    name = "keywords"
+    weight = 100
+  [[related.indices]]
+    name = "category"
+    weight = 80
+
+[markup.goldmark.renderer]
+  unsafe = true # Required to render the HTML (iframe videos) from your script
