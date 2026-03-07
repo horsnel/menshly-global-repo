@@ -1,6 +1,6 @@
 baseURL = "https://menshly-global.pages.dev/"
 languageCode = "en-us"
-title = "MenshlyGlobal | 2026 Frontier"
+title = "MenshlyGlobal | The 2026 Frontier"
 theme = "paper"
 
 # --- SEO & Global Settings ---
@@ -8,17 +8,18 @@ theme = "paper"
   description = "Elite investigative journalism and 2026 global forecasts."
   author = "Menshly Intelligence Board"
   twitter = "Olhmescraxes1"
-  # This makes the theme look more like a high-end news portal
+  # Visual tweaks for a professional news look
   fullWidth = true
   centerHeader = true
+  footer = "© 2026 MenshlyGlobal Intelligence"
 
-# --- The Video Enabler (CRITICAL) ---
+# --- The Media Enabler (MANDATORY) ---
 [markup]
   [markup.goldmark]
     [markup.goldmark.renderer]
-      unsafe = true # This allows your script's <iframe> videos to work
+      unsafe = true # Allows <iframe> tags from your script to work
 
-# --- Automatic Cross-Linking Logic ---
+# --- Automatic News Cross-Linking ---
 [related]
   threshold = 80
   includeNewer = true
@@ -30,17 +31,21 @@ theme = "paper"
     name = "category"
     weight = 80
 
-# --- Menu Links (Optional) ---
+# --- Navigation Menu ---
 [[menu.main]]
   name = "Business"
   url = "/categories/business"
   weight = 1
 [[menu.main]]
-  name = "Tech"
+  name = "Technology"
   url = "/categories/technology"
   weight = 2
 [[menu.main]]
+  name = "World"
+  url = "/categories/world"
+  weight = 3
+[[menu.main]]
   name = "X (Twitter)"
   url = "https://x.com/Olhmescraxes1"
-  weight = 3
+  weight = 4
   
