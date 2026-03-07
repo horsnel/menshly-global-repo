@@ -1,15 +1,25 @@
 baseURL = "https://menshly-global.pages.dev/"
 languageCode = "en-us"
-title = "MenshlyGlobal | The 2026 Frontier"
-theme = "hugo-paper" # A clean, fast, professional theme
+title = "MenshlyGlobal | 2026 Frontier"
+theme = "paper"
 
+# --- SEO & Global Settings ---
 [params]
   description = "Elite investigative journalism and 2026 global forecasts."
-  twitter = "Olhmescraxes1"
   author = "Menshly Intelligence Board"
-  
+  twitter = "Olhmescraxes1"
+  # This makes the theme look more like a high-end news portal
+  fullWidth = true
+  centerHeader = true
+
+# --- The Video Enabler (CRITICAL) ---
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true # This allows your script's <iframe> videos to work
+
+# --- Automatic Cross-Linking Logic ---
 [related]
-  # This handles your "Cross-Linking" automatically
   threshold = 80
   includeNewer = true
   toLower = true
@@ -20,5 +30,17 @@ theme = "hugo-paper" # A clean, fast, professional theme
     name = "category"
     weight = 80
 
-[markup.goldmark.renderer]
-  unsafe = true # Required to render the HTML (iframe videos) from your script
+# --- Menu Links (Optional) ---
+[[menu.main]]
+  name = "Business"
+  url = "/categories/business"
+  weight = 1
+[[menu.main]]
+  name = "Tech"
+  url = "/categories/technology"
+  weight = 2
+[[menu.main]]
+  name = "X (Twitter)"
+  url = "https://x.com/Olhmescraxes1"
+  weight = 3
+  
