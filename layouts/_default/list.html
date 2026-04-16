@@ -1,4 +1,58 @@
 {{ define "main" }}
+{{/* === TAXONOMY TERM: /categories/science/ — posts in that category === */}}
+{{ if .Data.Term }}
+<div class="main-content">
+  <div class="content-grid">
+    <div class="main-column">
+      <div class="section-header">
+        <h2>{{ title .Data.Term }}</h2>
+      </div>
+      {{ $posts := .Pages }}
+      {{ $posts = where $posts "Section" "posts" }}
+      {{ $posts = $posts.ByDate.Reverse }}
+      {{ if gt (len $posts) 0 }}
+      {{ $hero := index $posts 0 }}
+      <a class="hero-article" href="{{ $hero.Permalink }}">
+        {{ with $hero.Params.image }}<img class="hero-image" src="{{ . }}" alt="{{ $hero.Title }}" loading="eager">{{ end }}
+        <div class="hero-body">
+          <span class="hero-category"><a href="{{ .Permalink }}" style="color:#fff;">{{ title .Data.Term }}</a></span>
+          <h2>{{ $hero.Title }}</h2>
+          <p>{{ $hero.Summary }}</p>
+          <span class="hero-meta">{{ $hero.Date.Format "Jan 2, 2006" }}</span>
+        </div>
+      </a>
+      {{ end }}
+      <div class="posts">
+        {{ range after 1 $posts }}
+        {{ $postTitle := .Title }}
+        {{ $postPermalink := .Permalink }}
+        {{ $postDate := .Date }}
+        {{ $postImage := .Params.image }}
+        <a class="post-card" href="{{ $postPermalink }}">
+          {{ with $postImage }}<img src="{{ . }}" alt="{{ $postTitle }}" loading="lazy">{{ end }}
+          <span class="meta">{{ title $.Data.Term }} &middot; {{ $postDate.Format "Jan 2, 2006" }}</span>
+          <h2>{{ $postTitle }}</h2>
+        </a>
+        {{ end }}
+      </div>
+      {{ if .Paginator }}
+      <div class="pagination">
+        <span class="current">{{ .Paginator.PageNumber }}/{{ .Paginator.TotalPages }}</span>
+        {{ if .Paginator.HasNext }}<a href="{{ .Paginator.Next.URL }}">Next &rarr;</a>{{ end }}
+      </div>
+      {{ end }}
+    </div>
+    <aside class="sidebar">
+      {{ partial "most-read-widget.html" . }}
+      {{ partial "tradingview-widget.html" . }}
+      {{ partial "trending-now-widget.html" . }}
+      {{ partial "categories-widget.html" . }}
+    </aside>
+  </div>
+</div>
+
+{{/* === HOME + SECTION + TAXONOMY LIST === */}}
+{{ else }}
 <div class="main-content">
   <div class="content-grid">
     <div class="main-column">
@@ -52,4 +106,5 @@
     </aside>
   </div>
 </div>
+{{ end }}
 {{ end }}
