@@ -54,3 +54,25 @@ Stage Summary:
 - 7 author pages with professional content at /author/{name}
 - TradingView live market charts fixed (no more Hugo build errors)
 - Site live at https://menshly-global.pages.dev
+
+---
+Task ID: 6
+Agent: Super Z (Main Agent)
+Task: Revert VelocTiq welcome page — remove pricing section, keep hero/subtitle/footer
+
+Work Log:
+- Audited current WelcomePage.tsx state
+- Confirmed hero text already set to "One command center." (single line)
+- Confirmed hero subtitle already "Real-time protection • Audience intel • Revenue optimization"
+- Confirmed nav already has no "Pricing" link
+- Confirmed hero already has no "View pricing" button
+- Confirmed footer already has only Terms, Privacy, Cookies (no Liminal Consent)
+- Removed Pricing Section (lines 682-737): TOKEN ECONOMY badge, "Pay as you grow", 5 pricing tier cards
+- TypeScript: 0 errors
+- Vite build: SUCCESS (1,660KB JS, 101KB CSS, 7.47s)
+- Git commit made locally; push + CF deploy blocked (no credentials)
+
+Stage Summary:
+- Pricing section removed from WelcomePage
+- All other welcome page elements preserved as-is
+- Build passes cleanly; needs manual push/deploy
