@@ -1,0 +1,45 @@
+baseURL = "https://menshly-global.pages.dev/"
+languageCode = "en-us"
+title = "MenshlyGlobal | The 2026 Frontier"
+theme = "paper"
+
+[params]
+  description = "Elite investigative journalism and 2026 global forecasts."
+  author = "Menshly Intelligence Board"
+  twitter = "Olhmescraxes1"
+  fullWidth = true
+  centerHeader = true
+  footer = "© 2026 MenshlyGlobal Intelligence"
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+
+[related]
+  threshold = 80
+  includeNewer = true
+  toLower = true
+  [[related.indices]]
+    name = "keywords"
+    weight = 100
+  [[related.indices]]
+    name = "category"
+    weight = 80
+
+[[menu.main]]
+  name = "Business"
+  url = "/categories/business"
+  weight = 1
+[[menu.main]]
+  name = "Technology"
+  url = "/categories/technology"
+  weight = 2
+[[menu.main]]
+  name = "World"
+  url = "/categories/world"
+  weight = 3
+[[menu.main]]
+  name = "X (Twitter)"
+  url = "https://x.com/Olhmescraxes1"
+  weight = 4
