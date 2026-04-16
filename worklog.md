@@ -29,3 +29,28 @@ Stage Summary:
 - 45 files changed, 1244 insertions, 213 deletions
 - Hugo build: 126 pages, 199ms build time
 - CloudFlare deployment: 225 files uploaded successfully
+
+---
+Task ID: 2
+Agent: Super Z (Main Agent)
+Task: Fix search page, create author pages with content, fix TradingView build error
+
+Work Log:
+- Fixed TradingView widget Hugo build error: JSON colons inside script tags were parsed by Hugo template engine. Created partial template `layouts/partials/tradingview-widget.html` that outputs JSON via JavaScript object literal instead of inline text.
+- Updated `layouts/_default/list.html` and `layouts/_default/single.html` to use the TradingView partial.
+- Created full search system: search icon button in header, Ctrl+K shortcut, full-screen search overlay with Fuse.js fuzzy search.
+- Created search index JSON template: `layouts/search/index.json.json` that outputs all posts as searchable JSON.
+- Created search landing page: `layouts/search/single.html` with search box, results area, and popular topics/tags suggestions.
+- Added search CSS: overlay, results items, landing page, search tags (150+ lines of CSS).
+- Created `data/authors.yaml` with 7 journalist profiles (Amara Okonkwo, James Chen, Sarah Mitchell, David Kiprop, Elena Vasquez, Marcus Webb, Fatima Al Hassan).
+- Created 7 author content pages in `content/author/` with rich bio, expertise, career highlights, and coverage areas.
+- Created author page layout: `layouts/author/single.html` with profile card (avatar, name, role, location, Twitter, contact button), content area, articles list, and all-authors sidebar.
+- Added author page CSS: profile card, avatar, grid layout, author links, contact button, sticky sidebar.
+- Built Hugo: 44 pages, 0 errors, 61ms.
+- Deployed to CloudFlare Pages: 54 files uploaded.
+
+Stage Summary:
+- Search system fully functional: overlay search (Ctrl+K), landing page at /search/, Fuse.js fuzzy matching
+- 7 author pages with professional content at /author/{name}
+- TradingView live market charts fixed (no more Hugo build errors)
+- Site live at https://menshly-global.pages.dev
