@@ -40,13 +40,6 @@ theme = "paper"
   threshold = 80
   includeNewer = true
   toLower = true
-  [[related.indices]]
-    name = "keywords"
-    weight = 100
-  [[related.indices]]
-    name = "category"
-    weight = 80
-
 [[menu.main]]
   name = "Business"
   url = "/categories/business"
@@ -67,12 +60,11 @@ theme = "paper"
   name = "Science"
   url = "/categories/science"
   weight = 5
-
-[[enu.main]]
+[[menu.main]]
   name = "Entertainment"
   url = "/categories/entertainment"
   weight = 6
-[[enu.main]]
+[[menu.main]]
   name = "Finance"
   url = "/categories/finance"
   weight = 7

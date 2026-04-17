@@ -102,3 +102,32 @@ Stage Summary:
 - Pope post category fixed from "undefined" to "world"
 - All category navigation links work correctly
 - Site deployed at https://menshly-global.pages.dev/
+
+---
+Task ID: 7
+Agent: Main Agent
+Task: Create GitHub Actions cron workflow for auto-publishing articles
+
+Work Log:
+- Created .github/workflows/auto-publish.yml with scheduled + manual trigger
+- Schedule: runs at 7 AM and 7 PM UTC daily (8 AM / 8 PM WAT)
+- Manual trigger supports optional category and topic inputs
+- Created scripts/auto-generate.py — full article generation script
+  - 7 categories with 12-15 trending topics each (84 total topics)
+  - Random topic selection with dedup (avoids recently used)
+  - Calls AI API (Cerebras/OpenAI-compatible) to generate articles
+  - Random tone/style variation per article
+  - Pexels API integration for auto images
+  - Hugo markdown output with proper front matter
+  - Duplicate slug detection (skips if article exists)
+  - 7 author pool for random attribution
+- Fixed missing urllib.parse import in generation script
+- Verified YAML and Python syntax
+- Committed and pushed to GitHub (c57687c)
+
+Stage Summary:
+- GitHub Actions workflow live at .github/workflows/auto-publish.yml
+- Auto-generates and publishes articles twice daily
+- User needs to configure GitHub Secrets: AI_API_KEY, PEXELS_API_KEY, AI_API_BASE, AI_MODEL
+- Manual trigger available via Actions tab with optional category/topic override
+- Pushed to https://github.com/horsnel/menshly-global-repo.git
