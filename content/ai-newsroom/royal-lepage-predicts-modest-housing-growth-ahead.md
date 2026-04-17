@@ -1,6 +1,6 @@
 ---
 title: "Royal LePage Predicts Modest Housing Growth Ahead"
-date: "2026-04-17T07:43:29Z"
+date: "2025-04-17T07:43:29Z"
 slug: "royal-lepage-predicts-modest-housing-growth-ahead"
 image: "https://pixabay.com/get/gd0e9835bbd68aca5f2992297225a8308d646280e1fbb64dac59959f74ee7d0d7e0999814295499465abf22443154f4944d24806a1cb7cbdd81c4743a1055b780_1280.jpg"
 categories: ["business"]

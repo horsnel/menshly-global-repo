@@ -745,7 +745,7 @@ CRITICAL RULES:
 # ── Build Hugo Markdown ───────────────────────────────────
 def build_markdown(article, topic, category_key, category_label, image_data):
     """Convert article to Hugo markdown with front matter."""
-    now = datetime.now(timezone.utc)
+    now = datetime.now(timezone.utc) - timedelta(hours=1)
     date_str = now.strftime("%Y-%m-%dT%H:%M:%SZ")
 
     slug = slugify(article.get("title", topic))

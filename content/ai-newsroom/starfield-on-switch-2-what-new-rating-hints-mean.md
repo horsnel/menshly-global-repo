@@ -1,6 +1,6 @@
 ---
 title: "Starfield on Switch 2? What New Rating Hints Mean"
-date: "2026-04-17T07:35:54Z"
+date: "2025-04-17T07:35:54Z"
 slug: "starfield-on-switch-2-what-new-rating-hints-mean"
 image: "https://pixabay.com/get/g26cbcf8200f2d5fd17eb4ebf1c6337f7d1b6840cc80a14dabda837be972f388c808e293366dd2571dd6cf1ac9185358056ca9a510bf63d452e19548923fd4ebd_1280.jpg"
 categories: ["entertainment"]
