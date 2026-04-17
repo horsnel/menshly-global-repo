@@ -67,7 +67,3 @@ theme = "paper"
   name = "Science"
   url = "/categories/science"
   weight = 5
-[[menu.main]]
-  name = "X (Twitter)"
-  url = "https://x.com/Olhmescraxes1"
-  weight = 6
