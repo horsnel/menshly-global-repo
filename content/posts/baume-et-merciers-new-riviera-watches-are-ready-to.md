@@ -2,7 +2,11 @@
 title: "Baume et Merciers New Riviera Watches are Ready to Party Like it's 1973"
 date: 2026-04-17T10:21:19.972Z
 image: "https://images.pexels.com/photos/11366392/pexels-photo-11366392.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
-category: "technology"
+categories: ["technology"]
+tags: ["2026", "MenshlyGlobal", "technology"]
+author: "Sarah Mitchell"
+description: ""
+
 ---
 
 <p><h2>Introduction to Baume et Mercier's New Riviera Watches</h2>

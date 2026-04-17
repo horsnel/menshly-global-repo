@@ -2,7 +2,10 @@
 title: "Research Questions Long-held Obesity Theory on Child BMI"
 date: 2026-04-17T10:24:10.510Z
 image: "https://images.pexels.com/photos/19813735/pexels-photo-19813735.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
-category: "undefined"
+categories: ["science"]
+tags: ["2026", "MenshlyGlobal", "science"]
+author: "Sarah Mitchell"
+description: ""
 ---
 
 <p><h2>Introduction to the Debate</h2>

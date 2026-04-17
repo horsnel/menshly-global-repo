@@ -2,7 +2,10 @@
 title: "Women Reservation Bill, Delimitation Debate, Special Sitting Begins"
 date: 2026-04-17T04:38:52.715Z
 image: "https://images.pexels.com/photos/19813735/pexels-photo-19813735.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
-category: "undefined"
+categories: ["world"]
+tags: ["2026", "MenshlyGlobal", "world"]
+author: "Sarah Mitchell"
+description: ""
 ---
 
 <p><h2>Introduction to the Women Reservation Bill</h2>

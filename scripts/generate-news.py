@@ -519,10 +519,60 @@ def build_news_markdown(article, category_key, category_label, image_data):
     return full, slug
 
 
+# ── Deduplication: Check existing posts ──────────────────
+def get_existing_post_titles():
+    """Read all existing post titles from content/posts/ to avoid duplicates.
+    This prevents both GitHub Actions and Google Apps Script from writing
+    about the same topic twice."""
+    existing = set()
+    posts_dir = "content/posts"
+    if not os.path.isdir(posts_dir):
+        return existing
+    for fname in os.listdir(posts_dir):
+        if not fname.endswith(".md"):
+            continue
+        try:
+            with open(os.path.join(posts_dir, fname), "r", encoding="utf-8") as f:
+                for line in f:
+                    if line.startswith("title:"):
+                        # Extract title from "title: \"Some Title\""
+                        t = line.replace("title:", "").strip().strip('"').lower()
+                        existing.add(t)
+                        break
+        except Exception:
+            pass
+    print(f"  [Dedup] Found {len(existing)} existing posts to avoid duplicating")
+    return existing
+
+
+def is_similar_to_existing(title, existing_titles):
+    """Check if a new title is too similar to any existing post title.
+    Uses word overlap to detect duplicates."""
+    new_words = set(title.lower().split())
+    # Remove common stop words for comparison
+    stop = {"the", "a", "an", "of", "in", "on", "for", "to", "and", "or",
+            "is", "are", "was", "were", "how", "what", "why", "new", "more"}
+    new_words -= stop
+    if not new_words:
+        return False
+    for existing in existing_titles:
+        ex_words = set(existing.lower().split()) - stop
+        if not ex_words:
+            continue
+        overlap = new_words & ex_words
+        # If 60%+ of the new title's key words match, consider it a duplicate
+        if len(overlap) / max(len(new_words), 1) >= 0.6:
+            print(f"  [Dedup] Too similar to existing: "{existing[:60]}..." (overlap: {overlap})")
+            return True
+    return False
+
+
 # ── Main ───────────────────────────────────────────────────
 def main():
     os.makedirs("output", exist_ok=True)
 
+    # Load existing titles for deduplication
+    existing_titles = get_existing_post_titles()
     generated = []
 
     for i in range(NEWS_COUNT):
@@ -572,11 +622,25 @@ def main():
 
         article_title = article.get("title", headline["title"])
 
+        # Check for duplicates — skip if too similar to existing posts
+        # This prevents GitHub Actions from duplicating Apps Script posts and vice versa
+        if is_similar_to_existing(article_title, existing_titles):
+            print(f"  SKIPPING: Title too similar to an existing post")
+            continue
+
+        # Also add the headline itself to the check (before AI rewrites it)
+        if is_similar_to_existing(headline["title"], existing_titles):
+            print(f"  SKIPPING: Headline too similar to an existing post")
+            continue
+
         # Fetch image
         image_data = fetch_best_image(headline["title"], category_key, article_title)
 
         # Build markdown
         markdown, slug = build_news_markdown(article, category_key, category_label, image_data)
+
+        # Add to existing titles so subsequent articles in this run don't duplicate
+        existing_titles.add(article_title.lower())
 
         # Check for duplicate
         post_path = f"content/posts/{slug}.md"
