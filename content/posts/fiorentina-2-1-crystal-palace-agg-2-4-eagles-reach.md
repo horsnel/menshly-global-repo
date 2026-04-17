@@ -2,7 +2,7 @@
 title: "Fiorentina 2-1 Crystal Palace (Agg: 2-4): Eagles reach Conference League semi-finals despite defeat in Florence"
 date: 2026-04-17T10:43:25.440Z
 image: "https://images.pexels.com/photos/19813735/pexels-photo-19813735.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
-category: "undefined"
+categories: ["technology"]
 ---
 
 <p><h2>Introduction to the Conference League Quarter-Finals</h2>
