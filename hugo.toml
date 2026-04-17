@@ -67,3 +67,12 @@ theme = "paper"
   name = "Science"
   url = "/categories/science"
   weight = 5
+
+[[enu.main]]
+  name = "Entertainment"
+  url = "/categories/entertainment"
+  weight = 6
+[[enu.main]]
+  name = "Money & Business"
+  url = "/categories/money-business"
+  weight = 7

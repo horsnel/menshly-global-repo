@@ -1,6 +1,6 @@
 /* ================================================================
-   AI Newsroom - Article Generator & Library
-   MenshlyGlobal AI Newsroom Client-Side Logic
+   AI Content Studio — Reviews, Analysis, Guides Generator
+   MenshlyGlobal Client-Side Logic
    ================================================================ */
 (function() {
   'use strict';
@@ -9,21 +9,26 @@
   var API_ENDPOINT = '/api/generate-article';
 
   var TRENDING_TOPICS = [
-    'Global fintech disruption and digital banking adoption in Africa',
-    'AI regulation policies and their impact on tech companies in 2026',
-    'Nigeria economic diversification: Beyond oil dependence',
-    'Climate change investment strategies for emerging markets',
-    'The future of remote work and its effect on commercial real estate',
-    'Central bank digital currencies: CBDC rollout across Africa',
-    'Space economy: Private sector growth and satellite internet expansion',
-    'Global supply chain resilience after recent disruptions',
-    'Electric vehicle market expansion in developing nations',
-    'Cybersecurity threats to financial institutions in 2026',
-    'The rise of African tech startups and venture capital flows',
-    'Geopolitical tensions and their effect on global trade routes',
-    'Healthcare innovation: AI-assisted diagnostics in Africa',
-    'Renewable energy transition challenges in oil-dependent economies',
-    'Social media regulation and free speech debates worldwide'
+    'Dune: Part Two — A visual masterpiece or style over substance?',
+    'Top 10 side hustles that can replace your 9-to-5 in 2026',
+    'Why African fintech startups attracted $2 billion in Q1 2026',
+    'Inside Out 2 review: Pixar delivers another emotional gut-punch',
+    'How to start a profitable e-commerce business with $500',
+    'The global electric vehicle market — statistics, trends, and forecasts',
+    'The Bear Season 4: Has the magic faded or gotten better?',
+    'Passive income ideas that actually work in 2026 — no scams',
+    'Remote work statistics 2026: How many people work from home?',
+    'Deadpool & Wolverine review: MCU fan service at its finest',
+    'Small business success rates by industry — what the data says',
+    'AI tools that can save entrepreneurs 20+ hours per week',
+    'Gladiator II review: Can Ridley Scott recapture the magic?',
+    'Dropshipping in 2026: Is it still profitable or too saturated?',
+    'The creator economy statistics — how much do creators actually earn?',
+    'Best AI-powered business ideas for beginners with no coding skills',
+    'Social media marketing ROI statistics for small businesses 2026',
+    'How to flip items on eBay, Facebook Marketplace, and Poshmark',
+    'Global startup funding trends — where the money is flowing',
+    'Shogun Season 2 preview: What to expect from the epic finale'
   ];
 
   /* ---- State ---- */
@@ -89,12 +94,12 @@
 
     var topic = (topicInput.value || '').trim();
     if (!topic) {
-      showStatus('error', 'Please enter a topic for the article.');
+      showStatus('error', 'Please enter a topic.');
       topicInput.focus();
       return;
     }
     if (topic.length < 3) {
-      showStatus('error', 'Topic must be at least 3 characters long.');
+      showStatus('error', 'Topic must be at least 3 characters.');
       topicInput.focus();
       return;
     }
@@ -107,7 +112,7 @@
     generateBtn.disabled = true;
     generateBtn.classList.add('ai-nr-generating');
     generateBtn.querySelector('span').textContent = 'Generating...';
-    showStatus('loading', 'AI is crafting your article. This may take 10-30 seconds...');
+    showStatus('loading', 'AI is crafting your content. This may take 10-30 seconds...');
     hideArticle();
 
     try {
@@ -122,21 +127,21 @@
       if (!response.ok || data.error) {
         var errMsg = data.error || 'Unknown error occurred';
         if (response.status === 503) {
-          errMsg += ' To set up: Go to Cloudflare Dashboard > Pages > Settings > Environment Variables, then add AI_API_KEY.';
+          errMsg += ' Set AI_API_KEY in Cloudflare env vars.';
         }
         throw new Error(errMsg);
       }
 
       currentArticle = data;
       displayArticle(data);
-      showStatus('success', 'Article generated successfully!');
+      showStatus('success', 'Content generated successfully!');
 
     } catch (err) {
-      showStatus('error', err.message || 'Failed to generate article. Please try again.');
+      showStatus('error', err.message || 'Failed to generate. Please try again.');
     } finally {
       generateBtn.disabled = false;
       generateBtn.classList.remove('ai-nr-generating');
-      generateBtn.querySelector('span').textContent = 'Generate Article';
+      generateBtn.querySelector('span').textContent = 'Generate Content';
     }
   }
 
@@ -156,13 +161,28 @@
       var summaryEl = getEl('aiNrArticleSummary');
       var readTimeEl = getEl('aiNrArticleReadTime');
       var bodyEl = getEl('aiNrArticleBody');
+      var imageWrap = getEl('aiNrArticleImage');
+      var imgEl = getEl('aiNrArticleImg');
+      var creditEl = getEl('aiNrImgCredit');
 
-      if (catEl) catEl.textContent = article.category || 'General';
+      if (catEl) catEl.textContent = article.category || 'Analysis';
       if (timeEl) timeEl.textContent = formatDate(article.generatedAt);
       if (titleEl) titleEl.textContent = article.title || article.topic;
       if (summaryEl) summaryEl.textContent = article.summary || '';
       if (readTimeEl) readTimeEl.textContent = (article.readTime || 3) + ' min read';
       if (bodyEl) bodyEl.innerHTML = article.content || '<p>No content generated.</p>';
+
+      /* Display image if available */
+      if (article.image && imgEl) {
+        imgEl.src = article.image;
+        imgEl.alt = article.title || article.topic;
+        if (creditEl) {
+          creditEl.innerHTML = 'Photo: <a href="' + (article.imageLink || '#') + '" target="_blank" rel="noopener">' + (article.imageCredit || 'Pexels') + '</a> via Pexels';
+        }
+        if (imageWrap) imageWrap.style.display = 'block';
+      } else if (imageWrap) {
+        imageWrap.style.display = 'none';
+      }
     }
   }
 
@@ -179,20 +199,15 @@
   /* ---- Library Management ---- */
   function saveArticle() {
     if (!currentArticle) return;
-
-    /* Check if already saved */
     var exists = savedArticles.some(function(a) { return a.id === currentArticle.id; });
     if (exists) {
-      showStatus('warning', 'This article is already in your library.');
+      showStatus('warning', 'Already saved in your library.');
       return;
     }
-
     savedArticles.unshift(currentArticle);
     if (savedArticles.length > 50) savedArticles = savedArticles.slice(0, 50);
     saveArticles();
-    showStatus('success', 'Article saved to your library!');
-
-    /* Update save button state */
+    showStatus('success', 'Saved to your library!');
     var saveBtn = getEl('aiNrSaveBtn');
     if (saveBtn) {
       saveBtn.disabled = true;
@@ -203,7 +218,7 @@
   function deleteArticle(id) {
     savedArticles = savedArticles.filter(function(a) { return a.id !== id; });
     saveArticles();
-    showStatus('success', 'Article removed from library.');
+    showStatus('success', 'Removed from library.');
   }
 
   function viewArticle(id) {
@@ -212,12 +227,10 @@
       currentArticle = article;
       displayArticle(article);
       window.scrollTo({ top: 300, behavior: 'smooth' });
-
-      /* Update save button */
       var saveBtn = getEl('aiNrSaveBtn');
       if (saveBtn) {
-        saveBtn.disabled = false;
-        saveBtn.querySelector('span').textContent = 'Save';
+        saveBtn.disabled = true;
+        saveBtn.querySelector('span').textContent = 'Saved';
       }
     }
   }
@@ -227,11 +240,10 @@
     var text = '# ' + (currentArticle.title || '') + '\n\n';
     text += (currentArticle.summary || '') + '\n\n';
     text += (currentArticle.content || '').replace(/<[^>]*>/g, '').replace(/\n{3,}/g, '\n\n');
-
     navigator.clipboard.writeText(text).then(function() {
-      showStatus('success', 'Article copied to clipboard!');
+      showStatus('success', 'Copied to clipboard!');
     }).catch(function() {
-      showStatus('error', 'Failed to copy. Try selecting the text manually.');
+      showStatus('error', 'Failed to copy.');
     });
   }
 
@@ -265,8 +277,8 @@
       } else {
         grid.innerHTML = '<div class="ai-newsroom-library-empty" id="aiLibraryEmpty">' +
           '<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg>' +
-          '<p>No saved articles yet</p>' +
-          '<span>Generated articles you save will appear here</span></div>';
+          '<p>No saved content yet</p>' +
+          '<span>Generated reviews, analysis, and guides will appear here</span></div>';
       }
       return;
     }
@@ -274,7 +286,10 @@
     var html = '';
     savedArticles.forEach(function(article) {
       html += '<div class="ai-library-card" data-id="' + article.id + '">';
-      html += '<div class="ai-library-card-cat">' + (article.category || 'General') + '</div>';
+      if (article.imageThumb) {
+        html += '<div class="ai-library-card-img"><img src="' + article.imageThumb + '" alt="" loading="lazy"></div>';
+      }
+      html += '<div class="ai-library-card-cat">' + (article.category || 'Analysis') + '</div>';
       html += '<h4 class="ai-library-card-title">' + (article.title || article.topic) + '</h4>';
       html += '<p class="ai-library-card-summary">' + (article.summary || '').substring(0, 120) + '</p>';
       html += '<div class="ai-library-card-footer">';
@@ -290,7 +305,6 @@
 
     grid.innerHTML = html;
 
-    /* Attach event listeners */
     grid.querySelectorAll('.ai-lib-view-btn').forEach(function(btn) {
       btn.addEventListener('click', function() {
         viewArticle(this.getAttribute('data-id'));
@@ -310,8 +324,6 @@
     var randomIndex = Math.floor(Math.random() * TRENDING_TOPICS.length);
     input.value = TRENDING_TOPICS[randomIndex];
     input.focus();
-
-    /* Animate the input */
     input.style.borderColor = 'var(--accent)';
     input.style.boxShadow = '0 0 0 3px rgba(192, 57, 43, 0.15)';
     setTimeout(function() {
@@ -327,7 +339,6 @@
       var d = new Date(isoStr);
       var now = new Date();
       var diff = now - d;
-
       if (diff < 60000) return 'Just now';
       if (diff < 3600000) return Math.floor(diff / 60000) + 'm ago';
       if (diff < 86400000) return Math.floor(diff / 3600000) + 'h ago';
@@ -355,7 +366,6 @@
       currentArticle = null;
       hideArticle();
       hideStatus();
-
       var saveBtn2 = getEl('aiNrSaveBtn');
       if (saveBtn2) {
         saveBtn2.disabled = false;
@@ -363,7 +373,6 @@
       }
     });
 
-    /* Enter key on topic input */
     var topicInput = getEl('aiTopicInput');
     if (topicInput) {
       topicInput.addEventListener('keydown', function(e) {

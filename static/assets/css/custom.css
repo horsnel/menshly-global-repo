@@ -2085,6 +2085,53 @@ img { max-width: 100%; height: auto; }
   margin-left: auto;
 }
 
+/* Article image */
+.ai-nr-article-image {
+  margin: 16px 0;
+  border-radius: var(--radius);
+  overflow: hidden;
+  position: relative;
+}
+.ai-nr-article-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: var(--radius);
+}
+.ai-nr-img-credit {
+  display: block;
+  text-align: right;
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  padding: 6px 0 0;
+}
+.ai-nr-img-credit a { color: var(--text-muted); text-decoration: underline; }
+
+/* Disclaimer badge */
+.ai-nr-disclaimer {
+  font-size: 0.65rem;
+  font-weight: 600;
+  color: #e67e22;
+  background: rgba(230,126,34,0.1);
+  padding: 2px 8px;
+  border-radius: 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+
+/* Library card image */
+.ai-library-card-img {
+  width: 100%;
+  height: 120px;
+  border-radius: var(--radius) var(--radius) 0 0;
+  overflow: hidden;
+}
+.ai-library-card-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
 .ai-nr-article-title {
   font-size: 1.6rem;
   font-weight: 800;
