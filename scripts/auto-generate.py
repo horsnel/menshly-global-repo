@@ -49,6 +49,45 @@ MANUAL_TOPIC = _clean(os.environ.get("MANUAL_TOPIC", ""))
 if not API_KEY:
     _err("AI_API_KEY not set. Add it in GitHub Secrets.")
 
+# ── Debug: print config (never expose secrets) ──────────────
+print(f"DEBUG — API_BASE: {API_BASE}")
+print(f"DEBUG — MODEL: '{MODEL}' (len={len(MODEL)})")
+print(f"DEBUG — API_KEY: {API_KEY[:6]}...{API_KEY[-4:]} (len={len(API_KEY)})")
+print(f"DEBUG — PEXELS: {'set' if PEXELS_KEY else 'not set'}")
+print(f"DEBUG — PIXABAY: {'set' if PIXABAY_KEY else 'not set'}")
+print(f"DEBUG — FREPIK: {'set' if FREPIK_KEY else 'not set'}")
+print(f"DEBUG — NEWSAPI: {'set' if NEWS_API_KEY else 'not set'}")
+
+# ── Validate model exists ───────────────────────────────────
+def validate_model():
+    """Check if the model exists by listing available models."""
+    try:
+        req = urllib.request.Request(
+            API_BASE + "/models",
+            headers={
+                "Authorization": "Bearer " + API_KEY,
+                "User-Agent": "MenshlyGlobal/1.0 (Bot; +https://menshly-global.pages.dev)"
+            }
+        )
+        with urllib.request.urlopen(req, timeout=15) as resp:
+            data = json.loads(resp.read().decode())
+        models = [m["id"] for m in data.get("data", [])]
+        print(f"DEBUG — Available models ({len(models)}): {', '.join(models[:20])}")
+        if MODEL not in models:
+            # Try to find closest match
+            matches = [m for m in models if "llama" in m.lower() and "70" in m]
+            if matches:
+                print(f"DEBUG — '{MODEL}' not found. Did you mean: {matches[0]}?")
+            else:
+                print(f"DEBUG — '{MODEL}' not found in available models.")
+            return False
+        return True
+    except Exception as e:
+        print(f"DEBUG — Could not list models: {e}")
+        return True  # Don't block if endpoint doesn't exist
+
+validate_model()
+
 # ── Authors pool ───────────────────────────────────────────
 AUTHORS = [
     "David Kiprop", "Sarah Mitchell", "Amara Okonkwo", "Marcus Webb",
