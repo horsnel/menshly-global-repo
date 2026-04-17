@@ -71,6 +71,14 @@ jobs:
               git config user.name "MenshlyGlobal News Bot"
               git config user.email "newsbot@menshly-global.pages.dev"
               
+              # Copy generated articles from output/ to content/posts/
+              for f in output/news-*.md; do
+                if [ -f "$f" ]; then
+                  cp "$f" content/posts/
+                  echo "Copied: $f → content/posts/"
+                fi
+              done
+              
               git add content/posts/*.md 2>/dev/null || true
               
               # Check if there are changes to commit
