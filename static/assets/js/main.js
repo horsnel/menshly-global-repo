@@ -21,21 +21,36 @@
     });
   })();
 
-  // Live clock
+  // Header date — full professional format
+  (function(){
+    var dateEl=document.getElementById("headerDate");
+    if(!dateEl)return;
+    function update(){
+      var now=new Date();
+      var days=["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
+      var months=["January","February","March","April","May","June","July","August","September","October","November","December"];
+      var day=days[now.getDay()];
+      var mon=months[now.getMonth()];
+      var date=now.getDate();
+      var year=now.getFullYear();
+      dateEl.textContent=day+', '+mon+' '+date+', '+year;
+    }
+    update();
+    setInterval(update,60000);
+  })();
+
+  // Live clock — 12h format with AM/PM
   (function(){
     var el=document.getElementById("liveClock");
     if(!el)return;
     function update(){
       var now=new Date();
-      var h=String(now.getHours()).padStart(2,"0");
+      var h=now.getHours();
       var m=String(now.getMinutes()).padStart(2,"0");
       var s=String(now.getSeconds()).padStart(2,"0");
-      var days=["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
-      var months=["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
-      var day=days[now.getDay()];
-      var mon=months[now.getMonth()];
-      var date=now.getDate();
-      el.innerHTML='<span class="clock-time">'+h+'</span><span class="clock-sep">:</span><span class="clock-time">'+m+'</span><span class="clock-sep">:</span><span class="clock-time">'+s+'</span> <small style="font-weight:400;color:var(--text-muted);margin-left:6px;">'+day+', '+mon+' '+date+'</small>';
+      var ampm=h>=12?"PM":"AM";
+      h=h%12||12;
+      el.innerHTML='<span class="clock-time">'+h+':'+m+':'+s+'</span> <span class="clock-ampm">'+ampm+'</span>';
     }
     update();
     setInterval(update,1000);
