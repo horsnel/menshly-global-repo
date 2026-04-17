@@ -108,20 +108,20 @@ CATEGORIES = {
     "entertainment": {
         "label": "Entertainment",
         "url": "/categories/entertainment",
-        "newsapi_q": "entertainment OR movies OR music OR celebrity",
+        "newsapi_q": "music OR celebrity OR entertainment industry",
         "topics": [
             "The evolution of Afrobeats on the global stage in 2026",
-            "How streaming platforms changed African cinema forever",
-            "Best upcoming movies to watch this month",
-            "The rise of Nollywood and its $1 billion valuation",
             "K-pop influence on African pop culture",
-            "Top 10 must-see series releasing this quarter",
             "How TikTok is reshaping the music industry",
             "The comeback of live concerts and music festivals",
             "Why African animations are gaining worldwide recognition",
             "Celebrity entrepreneurs building entertainment empires",
-            "The impact of AI on film production and visual effects",
-            "How social media created a new generation of influencers"
+            "How social media created a new generation of influencers",
+            "The business behind music streaming platforms",
+            "How African artists are dominating global charts",
+            "The rise of music festivals as economic drivers in Africa",
+            "How YouTube creators are building media empires",
+            "The cultural impact of African diaspora music"
         ]
     },
     "finance": {
@@ -305,12 +305,37 @@ def safe_fetch_json(url, headers=None, timeout=15):
         print(f"  Fetch failed: {e}")
         return None
 
+def extract_subject_words(topic, title=None):
+    """Extract the most important subject nouns from a topic/title for image search.
+    Strips common filler words and keeps the actual subject matter."""
+    text = (title or topic).lower()
+    # Remove common filler/stop words
+    stop_words = set([
+        "the", "a", "an", "of", "in", "on", "for", "to", "and", "or", "is",
+        "are", "was", "were", "be", "been", "being", "have", "has", "had",
+        "how", "what", "why", "when", "where", "who", "which", "that", "this",
+        "it", "its", "with", "from", "by", "at", "as", "but", "not", "no",
+        "can", "could", "will", "would", "should", "may", "might", "must",
+        "do", "does", "did", "about", "into", "over", "after", "before",
+        "between", "under", "through", "during", "without", "within",
+        "all", "each", "every", "both", "few", "more", "most", "other",
+        "some", "such", "than", "too", "very", "just", "also", "now",
+        "new", "your", "you", "we", "they", "our", "their", "my",
+        "best", "top", "guide", "tips", "ways", "ideas", "things",
+        "means", "could", "hints", "suggests", "heading", "future",
+        "complete", "practical", "simple", "expert", "ultimate"
+    ])
+    # Split and filter
+    words = [w.strip(".,!?;:'\"()-") for w in text.split()]
+    subjects = [w for w in words if w not in stop_words and len(w) > 2]
+    # Return top 4 most relevant words
+    return " ".join(subjects[:4]) if subjects else topic.split()[:2]
+
 def build_image_query(topic, category_key):
-    """Build a smart image search query from topic + category keywords."""
-    keywords = IMAGE_KEYWORDS.get(category_key, ["media"])
-    keyword = random.choice(keywords)
-    topic_words = " ".join(topic.split()[:4])
-    return f"{keyword} {topic_words}"
+    """Build a smart image search query using extracted subject words."""
+    # Use the actual subject words from the topic — no generic category keywords
+    subject = extract_subject_words(topic)
+    return subject
 
 def score_image_relevance(photo_data, topic, category_key):
     """Score how relevant an image is to the topic (0-100)."""
@@ -486,24 +511,27 @@ def fetch_freepik_image(topic, category_key):
 
 
 # ── Unified image fetcher with fallback chain ──────────────
-def fetch_best_image(topic, category_key):
-    """Try all 3 image sources, pick the highest-scoring result."""
-    print(f"\nSearching images for: {topic}")
+def fetch_best_image(topic, category_key, article_title=None):
+    """Try all 3 image sources, pick the highest-scoring result.
+    Uses article_title (if available) for better image relevance."""
+    # Use article title for image search — it's more specific than topic
+    search_text = article_title if article_title else topic
+    print(f"\nSearching images for: {search_text}")
 
     candidates = []
 
     # Source 1: Pexels
-    pexels_result = fetch_pexels_image(topic, category_key)
+    pexels_result = fetch_pexels_image(search_text, category_key)
     if pexels_result:
         candidates.append(pexels_result)
 
     # Source 2: Pixabay
-    pixabay_result = fetch_pixabay_image(topic, category_key)
+    pixabay_result = fetch_pixabay_image(search_text, category_key)
     if pixabay_result:
         candidates.append(pixabay_result)
 
     # Source 3: Freepik
-    freepik_result = fetch_freepik_image(topic, category_key)
+    freepik_result = fetch_freepik_image(search_text, category_key)
     if freepik_result:
         candidates.append(freepik_result)
 
@@ -780,10 +808,11 @@ def main():
 
     # Generate article
     article = generate_article(topic, category_key, category_label)
-    print(f"Title: {article.get('title', 'No title')}")
+    article_title = article.get("title", topic)
+    print(f"Title: {article_title}")
 
-    # Fetch best image from all 3 sources
-    image_data = fetch_best_image(topic, category_key)
+    # Fetch best image from all 3 sources — use article title for relevance
+    image_data = fetch_best_image(topic, category_key, article_title=article_title)
 
     # Build markdown
     markdown, slug = build_markdown(article, topic, category_key, category_label, image_data)
