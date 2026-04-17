@@ -59,10 +59,10 @@ print(f"DEBUG — FREPIK: {'set' if FREPIK_KEY else 'not set'}")
 print(f"DEBUG — NEWSAPI: {'set' if NEWS_API_KEY else 'not set'}")
 
 # ── Auto-detect best available model ────────────────────────
-# Priority order: prefer larger models for quality output
+# Only list models that actually work when called (some are listed but not accessible)
 MODEL_PREFERENCES = [
-    "gpt-oss-120b", "qwen-3-235b-a22b-instruct-2507",
-    "llama3.1-70b", "llama-3.3-70b", "llama3.1-8b",
+    "qwen-3-235b-a22b-instruct-2507",
+    "llama3.1-8b",
     "zai-glm-4.7"
 ]
 
@@ -81,15 +81,10 @@ def auto_detect_model():
         available = [m["id"] for m in data.get("data", [])]
         print(f"DEBUG — Available models: {', '.join(available)}")
 
-        # If user-specified model exists, use it
-        if MODEL in available:
-            print(f"DEBUG — Using configured model: {MODEL}")
-            return MODEL
-
-        # Otherwise pick the best from our preference list
+        # Pick from our verified preference list
         for pref in MODEL_PREFERENCES:
             if pref in available:
-                print(f"DEBUG — '{MODEL}' not found. Auto-selected: {pref}")
+                print(f"DEBUG — Auto-selected: {pref}")
                 return pref
 
         # Last resort: use first available
