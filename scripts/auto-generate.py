@@ -6,10 +6,14 @@ Called by GitHub Actions cron workflow.
 
 Required env vars:
   AI_API_KEY  — Cerebras / compatible API key
+
 Optional env vars:
-  PEXELS_API_KEY — Pexels API key for images
-  AI_API_BASE    — API base URL (default: https://api.cerebras.ai/v1)
-  AI_MODEL       — Model name (default: llama-3.3-70b)
+  PEXELS_API_KEY  — Pexels API key for images (source 1)
+  PIXABAY_API_KEY — Pixabay API key for images (source 2)
+  FREPIK_API_KEY  — Freepik API key for images (source 3)
+  NEWS_API_KEY    — NewsAPI.org key for trending topic inspiration
+  AI_API_BASE     — API base URL (default: https://api.cerebras.ai/v1)
+  AI_MODEL        — Model name (default: llama-3.3-70b)
   MANUAL_CATEGORY — Override category (from workflow_dispatch)
   MANUAL_TOPIC    — Override topic (from workflow_dispatch)
 """
@@ -31,6 +35,9 @@ API_KEY = os.environ.get("AI_API_KEY", "")
 API_BASE = (os.environ.get("AI_API_BASE") or "https://api.cerebras.ai/v1").rstrip("/")
 MODEL = os.environ.get("AI_MODEL") or "llama-3.3-70b"
 PEXELS_KEY = os.environ.get("PEXELS_API_KEY", "")
+PIXABAY_KEY = os.environ.get("PIXABAY_API_KEY", "")
+FREPIK_KEY = os.environ.get("FREPIK_API_KEY", "")
+NEWS_API_KEY = os.environ.get("NEWS_API_KEY", "")
 MANUAL_CATEGORY = os.environ.get("MANUAL_CATEGORY", "")
 MANUAL_TOPIC = os.environ.get("MANUAL_TOPIC", "")
 
@@ -48,6 +55,7 @@ CATEGORIES = {
     "entertainment": {
         "label": "Entertainment",
         "url": "/categories/entertainment",
+        "newsapi_q": "entertainment OR movies OR music OR celebrity",
         "topics": [
             "The evolution of Afrobeats on the global stage in 2026",
             "How streaming platforms changed African cinema forever",
@@ -66,6 +74,7 @@ CATEGORIES = {
     "finance": {
         "label": "Finance",
         "url": "/categories/finance",
+        "newsapi_q": "personal finance OR investing OR money OR savings",
         "topics": [
             "5 side hustles that can earn you $500 a month in 2026",
             "How to start investing with just $50",
@@ -87,6 +96,7 @@ CATEGORIES = {
     "technology": {
         "label": "Technology",
         "url": "/categories/technology",
+        "newsapi_q": "technology OR AI OR smartphone OR startup",
         "topics": [
             "Best productivity apps for remote workers in 2026",
             "How AI tools are changing everyday life for ordinary people",
@@ -108,6 +118,7 @@ CATEGORIES = {
     "business": {
         "label": "Business",
         "url": "/categories/business",
+        "newsapi_q": "business OR entrepreneurship OR startup OR economy",
         "topics": [
             "Small business ideas with low startup costs in 2026",
             "How to start an e-commerce store from scratch",
@@ -129,6 +140,7 @@ CATEGORIES = {
     "health": {
         "label": "Health",
         "url": "/categories/health",
+        "newsapi_q": "health OR wellness OR fitness OR mental health",
         "topics": [
             "Simple daily habits that dramatically improve your health",
             "Mental health awareness: signs you should not ignore",
@@ -150,6 +162,7 @@ CATEGORIES = {
     "science": {
         "label": "Science",
         "url": "/categories/science",
+        "newsapi_q": "science OR space OR research OR discovery",
         "topics": [
             "Recent breakthroughs in renewable energy technology",
             "How space exploration is advancing in 2026",
@@ -171,6 +184,7 @@ CATEGORIES = {
     "world": {
         "label": "World",
         "url": "/categories/world",
+        "newsapi_q": "world OR Africa OR global OR international",
         "topics": [
             "How climate migration is reshaping global populations",
             "The growing influence of African nations on the world stage",
@@ -191,16 +205,17 @@ CATEGORIES = {
     }
 }
 
-# ── Category-to-Pexels keywords ────────────────────────────
-PEXELS_KEYWORDS = {
-    "entertainment": ["cinema", "music concert", "celebrity", "film set", "stage performance"],
-    "finance": ["finance", "money savings", "investment chart", "banking", "wallet coins"],
-    "technology": ["technology", "computer laptop", "digital innovation", "smartphone", "coding"],
-    "business": ["business meeting", "office corporate", "entrepreneur", "startup team", "handshake"],
-    "health": ["health fitness", "yoga wellness", "healthy food", "medical care", "exercise"],
-    "science": ["science laboratory", "space galaxy", "microscope research", "chemistry", "nature"],
-    "world": ["world map globe", "city skyline", "diverse culture", "african landscape", "travel"]
+# ── Image search keywords per category ─────────────────────
+IMAGE_KEYWORDS = {
+    "entertainment": ["cinema", "music concert", "celebrity", "film set", "stage performance", "movie theater", "red carpet"],
+    "finance": ["finance", "money savings", "investment chart", "banking", "wallet coins", "stock market", "gold coins"],
+    "technology": ["technology", "computer laptop", "digital innovation", "smartphone", "coding", "circuit board", "robot"],
+    "business": ["business meeting", "office corporate", "entrepreneur", "startup team", "handshake", "office desk", "corporate"],
+    "health": ["health fitness", "yoga wellness", "healthy food", "medical care", "exercise", "running", "meditation"],
+    "science": ["science laboratory", "space galaxy", "microscope research", "chemistry", "nature", "telescope", "DNA"],
+    "world": ["world map globe", "city skyline", "diverse culture", "african landscape", "travel", "earth from space", "global"]
 }
+
 
 # ── Utility functions ──────────────────────────────────────
 def _err(msg):
@@ -226,23 +241,308 @@ def fetch_json(url, headers=None, timeout=30):
     with urllib.request.urlopen(req, timeout=timeout, context=ctx) as resp:
         return json.loads(resp.read().decode())
 
-def pick_topic(category):
-    """Pick a random topic, avoiding recent ones."""
-    topics = CATEGORIES[category]["topics"]
+def safe_fetch_json(url, headers=None, timeout=15):
+    """Fetch JSON from URL — returns None on failure instead of crashing."""
+    try:
+        ctx = ssl.create_default_context()
+        req = urllib.request.Request(url, headers=headers or {})
+        with urllib.request.urlopen(req, timeout=timeout, context=ctx) as resp:
+            return json.loads(resp.read().decode())
+    except Exception as e:
+        print(f"  Fetch failed: {e}")
+        return None
+
+def build_image_query(topic, category_key):
+    """Build a smart image search query from topic + category keywords."""
+    keywords = IMAGE_KEYWORDS.get(category_key, ["media"])
+    keyword = random.choice(keywords)
+    topic_words = " ".join(topic.split()[:4])
+    return f"{keyword} {topic_words}"
+
+def score_image_relevance(photo_data, topic, category_key):
+    """Score how relevant an image is to the topic (0-100)."""
+    score = 50  # Base score
+
+    # Check if tags/description match topic words
+    topic_lower = topic.lower()
+    topic_words = set(topic_lower.split())
+
+    # Extract text from the photo data
+    tags = []
+    description = ""
+
+    if isinstance(photo_data, dict):
+        if photo_data.get("tags"):
+            tags = [str(t).lower() for t in photo_data["tags"]]
+        if photo_data.get("description"):
+            description = str(photo_data["description"]).lower()
+        if photo_data.get("alt"):
+            description += " " + str(photo_data["alt"]).lower()
+
+    all_text = " ".join(tags) + " " + description
+
+    # +15 for each topic word found in image metadata
+    for word in topic_words:
+        if len(word) > 3 and word in all_text:
+            score += 15
+
+    # Category keyword match
+    cat_keywords = IMAGE_KEYWORDS.get(category_key, [])
+    for kw in cat_keywords[:3]:
+        if kw in all_text:
+            score += 5
+
+    # Penalize if the image has no useful metadata at all
+    if not tags and not description:
+        score -= 20
+
+    return min(score, 100)
+
+
+# ── Pexels Image Source ────────────────────────────────────
+def fetch_pexels_image(topic, category_key):
+    """Source 1: Fetch image from Pexels."""
+    if not PEXELS_KEY:
+        return None
+
+    query = build_image_query(topic, category_key)
+    url = f"https://api.pexels.com/v1/search?query={urllib.parse.quote(query)}&per_page=5&orientation=landscape"
+
+    print(f"  [Pexels] Searching: {query}")
+    data = safe_fetch_json(url, headers={"Authorization": PEXELS_KEY}, timeout=15)
+    if not data or not data.get("photos"):
+        print("  [Pexels] No results")
+        return None
+
+    # Score top 5 results and pick the best
+    best = None
+    best_score = 0
+    for photo in data["photos"][:5]:
+        s = score_image_relevance(photo, topic, category_key)
+        if s > best_score:
+            best_score = s
+            best = photo
+
+    if best:
+        print(f"  [Pexels] Best match scored {best_score}/100")
+        return {
+            "url": best["src"]["large"],
+            "thumb": best["src"]["medium"],
+            "credit": best["photographer"],
+            "credit_url": best["photographer_url"],
+            "source": "Pexels",
+            "score": best_score
+        }
+    return None
+
+
+# ── Pixabay Image Source ───────────────────────────────────
+def fetch_pixabay_image(topic, category_key):
+    """Source 2: Fetch image from Pixabay."""
+    if not PIXABAY_KEY:
+        return None
+
+    query = build_image_query(topic, category_key)
+    url = f"https://pixabay.com/api/?key={PIXABAY_KEY}&q={urllib.parse.quote(query)}&image_type=photo&orientation=horizontal&per_page=5&safesearch=true"
+
+    print(f"  [Pixabay] Searching: {query}")
+    data = safe_fetch_json(url, timeout=15)
+    if not data or not data.get("hits"):
+        print("  [Pixabay] No results")
+        return None
+
+    # Score top 5 and pick best
+    best = None
+    best_score = 0
+    for hit in data["hits"][:5]:
+        s = score_image_relevance(hit, topic, category_key)
+        if s > best_score:
+            best_score = s
+            best = hit
+
+    if best:
+        print(f"  [Pixabay] Best match scored {best_score}/100")
+        # Pick large image, fallback to webformatURL
+        img_url = best.get("largeImageURL") or best.get("webformatURL", "")
+        if not img_url:
+            return None
+        return {
+            "url": img_url,
+            "thumb": best.get("webformatURL", img_url),
+            "credit": best.get("user", "Pixabay User"),
+            "credit_url": f"https://pixabay.com/users/{best.get('user_id', '')}-{best.get('user', '')}/",
+            "source": "Pixabay",
+            "score": best_score
+        }
+    return None
+
+
+# ── Freepik Image Source ───────────────────────────────────
+def fetch_freepik_image(topic, category_key):
+    """Source 3: Fetch image from Freepik API."""
+    if not FREPIK_KEY:
+        return None
+
+    query = build_image_query(topic, category_key)
+    url = f"https://api.freepik.com/v1/resources?locale=en-US&phrase={urllib.parse.quote(query)}&image_type=photo&orientation=landscape&limit=5&order=relevance"
+
+    print(f"  [Freepik] Searching: {query}")
+    data = safe_fetch_json(url, headers={
+        "Accept-Language": "en-US",
+        "Accept": "application/json",
+        "Authorization": f"Bearer {FREPIK_KEY}"
+    }, timeout=15)
+
+    if not data or not data.get("data"):
+        print("  [Freepik] No results")
+        return None
+
+    best = None
+    best_score = 0
+    for item in data["data"][:5]:
+        s = score_image_relevance(item, topic, category_key)
+        if s > best_score:
+            best_score = s
+            best = item
+
+    if best:
+        print(f"  [Freepik] Best match scored {best_score}/100")
+        # Extract best image URL from Freepik response
+        thumbs = best.get("thumbnails", [])
+        img_url = ""
+        for t in thumbs:
+            if t.get("width", 0) >= 1280:
+                img_url = t.get("url", "")
+                break
+        if not img_url and thumbs:
+            img_url = thumbs[-1].get("url", "")
+        if not img_url:
+            return None
+
+        thumb_url = thumbs[0].get("url", img_url) if thumbs else img_url
+
+        return {
+            "url": img_url,
+            "thumb": thumb_url,
+            "credit": best.get("creator", {}).get("name", "Freepik Contributor"),
+            "credit_url": best.get("creator", {}).get("url", ""),
+            "source": "Freepik",
+            "score": best_score
+        }
+    return None
+
+
+# ── Unified image fetcher with fallback chain ──────────────
+def fetch_best_image(topic, category_key):
+    """Try all 3 image sources, pick the highest-scoring result."""
+    print(f"\nSearching images for: {topic}")
+
+    candidates = []
+
+    # Source 1: Pexels
+    pexels_result = fetch_pexels_image(topic, category_key)
+    if pexels_result:
+        candidates.append(pexels_result)
+
+    # Source 2: Pixabay
+    pixabay_result = fetch_pixabay_image(topic, category_key)
+    if pixabay_result:
+        candidates.append(pixabay_result)
+
+    # Source 3: Freepik
+    freepik_result = fetch_freepik_image(topic, category_key)
+    if freepik_result:
+        candidates.append(freepik_result)
+
+    if not candidates:
+        print("  No images found from any source")
+        return None
+
+    # Pick the highest scoring image
+    candidates.sort(key=lambda x: x.get("score", 0), reverse=True)
+    winner = candidates[0]
+    print(f"  Winner: {winner['source']} (score {winner.get('score', 0)}/100)")
+    print(f"  Photo by: {winner['credit']}")
+    return winner
+
+
+# ── NewsAPI trending topic inspiration ─────────────────────
+def get_trending_from_newsapi(category_key):
+    """Use NewsAPI to find trending headlines for topic inspiration."""
+    if not NEWS_API_KEY:
+        return None
+
+    cat_info = CATEGORIES.get(category_key, {})
+    query = cat_info.get("newsapi_q", category_key)
+
+    # Only grab from the last 3 days to keep it fresh
+    from_date = (datetime.now(timezone.utc) - __import__('datetime').timedelta(days=3)).strftime("%Y-%m-%d")
+
+    url = (
+        f"https://newsapi.org/v2/everything?"
+        f"q={urllib.parse.quote(query)}"
+        f"&language=en"
+        f"&sortBy=publishedAt"
+        f"&pageSize=10"
+        f"&from={from_date}"
+        f"&apiKey={NEWS_API_KEY}"
+    )
+
+    print(f"  [NewsAPI] Fetching trends for: {query}")
+    data = safe_fetch_json(url, timeout=15)
+
+    if not data or data.get("status") != "ok" or not data.get("articles"):
+        print(f"  [NewsAPI] No results: {data.get('message', 'unknown') if data else 'fetch failed'}")
+        return None
+
+    # Extract headline themes — convert to opinion/analysis angles
+    headlines = []
+    for article in data["articles"][:10]:
+        title = article.get("title", "").strip()
+        if title and len(title) > 15:
+            headlines.append(title)
+
+    if not headlines:
+        return None
+
+    # Pick a random headline and convert to an opinion/analysis topic
+    chosen_headline = random.choice(headlines)
+    print(f"  [NewsAPI] Trending headline: {chosen_headline}")
+
+    # Convert to analysis/opinion angle
+    analysis_topics = [
+        f"An analysis of: {chosen_headline}",
+        f"What {chosen_headline} means for the future",
+        f"Expert take: why {chosen_headline} matters",
+        f"The bigger picture behind {chosen_headline}",
+        f"Understanding the implications of {chosen_headline}",
+    ]
+    return random.choice(analysis_topics)
+
+
+# ── Topic picking ──────────────────────────────────────────
+def pick_topic(category_key):
+    """Pick a topic: try NewsAPI first, fallback to curated pool."""
+    # Try NewsAPI for trending inspiration (50% chance to use it)
+    if NEWS_API_KEY and random.random() < 0.5:
+        newsapi_topic = get_trending_from_newsapi(category_key)
+        if newsapi_topic:
+            return newsapi_topic
+
+    # Fallback to curated topic pool
+    topics = CATEGORIES[category_key]["topics"]
     try:
         with open("output/recent_topics.json", "r") as f:
             recent = json.load(f)
     except (FileNotFoundError, json.JSONDecodeError):
         recent = []
 
-    # Filter out recently used topics
     available = [t for t in topics if t not in recent]
     if not available:
-        available = topics[:]  # Reset if all used
+        available = topics[:]
 
     chosen = random.choice(available)
 
-    # Save to recent (keep last 30)
     recent.append(chosen)
     recent = recent[-30:]
     os.makedirs("output", exist_ok=True)
@@ -251,10 +551,11 @@ def pick_topic(category):
 
     return chosen
 
+
 # ── AI Article Generation ──────────────────────────────────
 def generate_article(topic, category_key, category_label):
     """Call AI API to generate an article."""
-    print(f"Generating article: [{category_label}] {topic}")
+    print(f"\nGenerating article: [{category_label}] {topic}")
 
     tone = random.choice([
         "detailed review with clear verdict and actionable takeaways",
@@ -324,7 +625,6 @@ CRITICAL RULES:
     try:
         article = json.loads(raw)
     except json.JSONDecodeError:
-        # Fallback: wrap raw text
         article = {
             "title": topic,
             "summary": raw[:200],
@@ -333,50 +633,16 @@ CRITICAL RULES:
 
     return article
 
-# ── Pexels Image ───────────────────────────────────────────
-def fetch_pexels_image(topic, category_key):
-    """Fetch a relevant image from Pexels."""
-    if not PEXELS_KEY:
-        return None
-
-    keywords = PEXELS_KEYWORDS.get(category_key, ["media"])
-    keyword = random.choice(keywords)
-    # Combine with first few words from topic
-    topic_words = " ".join(topic.split()[:3])
-    query = f"{keyword} {topic_words}"
-
-    url = f"https://api.pexels.com/v1/search?query={urllib.parse.quote(query)}&per_page=1&orientation=landscape"
-
-    try:
-        req = urllib.request.Request(url, headers={"Authorization": PEXELS_KEY})
-        with urllib.request.urlopen(req, timeout=15) as resp:
-            data = json.loads(resp.read().decode())
-
-        if data.get("photos") and len(data["photos"]) > 0:
-            photo = data["photos"][0]
-            return {
-                "url": photo["src"]["large"],
-                "thumb": photo["src"]["medium"],
-                "credit": photo["photographer"],
-                "credit_url": photo["photographer_url"]
-            }
-    except Exception as e:
-        print(f"Pexels fetch failed (non-fatal): {e}")
-
-    return None
 
 # ── Build Hugo Markdown ───────────────────────────────────
-def build_markdown(article, topic, category_key, category_label):
+def build_markdown(article, topic, category_key, category_label, image_data):
     """Convert article to Hugo markdown with front matter."""
     now = datetime.now(timezone.utc)
     date_str = now.strftime("%Y-%m-%dT%H:%M:%SZ")
 
     slug = slugify(article.get("title", topic))
     author = random.choice(AUTHORS)
-    title = article.get("title", topic).strip()
-
-    # Clean up quotes in title
-    title = title.replace('"', "'")
+    title = article.get("title", topic).strip().replace('"', "'")
 
     # Tags from topic words
     words = topic.lower().split()
@@ -393,9 +659,8 @@ def build_markdown(article, topic, category_key, category_label):
         f'slug: "{slug}"',
     ]
 
-    # Image from Pexels if available
-    if hasattr(build_markdown, '_image') and build_markdown._image:
-        fm_lines.append(f'image: "{build_markdown._image["url"]}"')
+    if image_data:
+        fm_lines.append(f'image: "{image_data["url"]}"')
 
     fm_lines.extend([
         f'categories: ["{category_key}"]',
@@ -406,16 +671,11 @@ def build_markdown(article, topic, category_key, category_label):
         "",
     ])
 
-    # Content body — convert markdown to HTML for Hugo
-    content = article.get("content", "")
-    # Hugo renders markdown natively, so keep it as markdown
-    # But wrap in proper structure
-
-    body = article.get("summary", "") + "\n\n" + content
-
+    body = article.get("summary", "") + "\n\n" + article.get("content", "")
     full = "\n".join(fm_lines) + body
 
     return full, slug
+
 
 # ── Main ───────────────────────────────────────────────────
 def main():
@@ -442,20 +702,18 @@ def main():
     article = generate_article(topic, category_key, category_label)
     print(f"Title: {article.get('title', 'No title')}")
 
-    # Fetch image
-    build_markdown._image = fetch_pexels_image(topic, category_key)
-    if build_markdown._image:
-        print(f"Image: {build_markdown._image['credit']} via Pexels")
+    # Fetch best image from all 3 sources
+    image_data = fetch_best_image(topic, category_key)
 
     # Build markdown
-    markdown, slug = build_markdown(article, topic, category_key, category_label)
+    markdown, slug = build_markdown(article, topic, category_key, category_label, image_data)
 
     # Check for duplicate slugs
     post_path = f"content/posts/{slug}.md"
     if os.path.exists(post_path):
-        print(f"Article '{slug}' already exists — skipping to avoid overwrite.")
+        print(f"\nArticle '{slug}' already exists — skipping to avoid overwrite.")
         os.makedirs("output", exist_ok=True)
-        open("output/article.md", "w").close()  # empty = skip commit
+        open("output/article.md", "w").close()
         return
 
     # Write output
@@ -463,8 +721,10 @@ def main():
     with open("output/article.md", "w") as f:
         f.write(markdown)
 
-    print(f"\nArticle saved: output/article.md")
+    img_info = f" | Image: {image_data['source']} by {image_data['credit']}" if image_data else ""
+    print(f"\nArticle saved: output/article.md{img_info}")
     print(f"Will be committed to: {post_path}")
+
 
 if __name__ == "__main__":
     main()
