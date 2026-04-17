@@ -79,8 +79,8 @@ jobs:
           SLUG=$(head -10 output/article.md | grep "^slug:" | sed 's/slug: *//' | tr -d '"')
           git config user.name "MenshlyGlobal Bot"
           git config user.email "bot@menshly-global.pages.dev"
-          cp output/article.md "content/posts/${SLUG}.md"
-          git add "content/posts/${SLUG}.md"
+          cp output/article.md "content/ai-newsroom/${SLUG}.md"
+          git add "content/ai-newsroom/${SLUG}.md"
           git commit -m "Auto: publish ${SLUG}"
           git push
 

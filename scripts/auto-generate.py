@@ -818,7 +818,7 @@ def main():
     markdown, slug = build_markdown(article, topic, category_key, category_label, image_data)
 
     # Check for duplicate slugs
-    post_path = f"content/posts/{slug}.md"
+    post_path = f"content/ai-newsroom/{slug}.md"
     if os.path.exists(post_path):
         print(f"\nArticle '{slug}' already exists — skipping to avoid overwrite.")
         os.makedirs("output", exist_ok=True)
