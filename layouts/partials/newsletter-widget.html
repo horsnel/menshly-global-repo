@@ -1,0 +1,9 @@
+<div class="sidebar-widget newsletter-widget">
+  <h3>&#9993; Newsletter</h3>
+  <p class="newsletter-text">Get breaking news and exclusive analysis delivered to your inbox every morning.</p>
+  <form class="newsletter-form" onsubmit="event.preventDefault(); this.querySelector('button').textContent='Subscribed!'; this.querySelector('button').disabled=true; this.querySelector('input').disabled=true;">
+    <input type="email" placeholder="Your email address" required aria-label="Email address">
+    <button type="submit">Subscribe</button>
+  </form>
+  <p class="newsletter-disclaimer">No spam. Unsubscribe anytime.</p>
+</div>

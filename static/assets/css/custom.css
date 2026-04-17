@@ -923,6 +923,165 @@ img { max-width: 100%; height: auto; }
   .author-header { flex-direction: column; text-align: center; }
 }
 
+/* === Weather Widget === */
+.weather-loading, .premium-loading {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  text-align: center;
+  padding: 12px 0;
+}
+.weather-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+.weather-city {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px;
+  padding: 8px 6px;
+  border-bottom: 1px solid var(--border);
+  font-size: 0.78rem;
+}
+.weather-city:last-child { border-bottom: none; }
+.weather-city-name {
+  font-weight: 700;
+  color: var(--text-primary);
+  min-width: 60px;
+}
+.weather-temp {
+  font-weight: 700;
+  color: var(--accent);
+  font-size: 0.85rem;
+}
+.weather-desc {
+  color: var(--text-muted);
+  font-size: 0.7rem;
+  flex: 1 1 100%;
+}
+.weather-icon { font-size: 1rem; }
+.weather-updated {
+  font-size: 0.65rem;
+  color: var(--text-muted);
+  text-align: right;
+  margin-top: 6px;
+}
+
+/* === Newsletter Widget === */
+.newsletter-text {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  margin-bottom: 12px;
+  line-height: 1.5;
+}
+.newsletter-form {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.newsletter-form input {
+  padding: 10px 12px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  outline: none;
+  transition: border-color 0.2s;
+  background: var(--bg);
+  color: var(--text-primary);
+}
+.newsletter-form input:focus { border-color: var(--accent); }
+.newsletter-form button {
+  padding: 10px;
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  border-radius: var(--radius);
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.newsletter-form button:hover { background: var(--accent-dark); }
+.newsletter-form button:disabled {
+  background: #27ae60;
+  cursor: default;
+}
+.newsletter-disclaimer {
+  font-size: 0.65rem;
+  color: var(--text-muted);
+  margin-top: 8px;
+}
+
+/* === Premium News Widget === */
+.premium-feed {
+  max-height: 420px;
+  overflow-y: auto;
+}
+.premium-item {
+  display: flex;
+  gap: 10px;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--border);
+  transition: background 0.2s;
+}
+.premium-item:last-child { border-bottom: none; }
+.premium-item:hover h4 { color: var(--accent); }
+.premium-item img {
+  width: 70px;
+  height: 50px;
+  object-fit: cover;
+  border-radius: var(--radius);
+  flex-shrink: 0;
+}
+.premium-item-body { flex: 1; min-width: 0; }
+.premium-item-source {
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  color: var(--accent);
+  font-weight: 700;
+  letter-spacing: 0.3px;
+}
+.premium-item-body h4 {
+  font-size: 0.78rem;
+  font-weight: 600;
+  line-height: 1.35;
+  margin: 2px 0;
+  display: -webkit-box;
+  -webkit-box-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  transition: color 0.2s;
+}
+.premium-item-time {
+  font-size: 0.65rem;
+  color: var(--text-muted);
+}
+.premium-sources {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 10px;
+  padding-top: 8px;
+  border-top: 1px solid var(--border);
+}
+.premium-src-label {
+  font-size: 0.65rem;
+  color: var(--text-muted);
+  font-weight: 600;
+}
+.premium-src {
+  font-size: 0.6rem;
+  padding: 2px 6px;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 3px;
+  color: var(--text-muted);
+  font-weight: 600;
+}
+
 /* === Dark Mode Additions === */
 [data-theme="dark"] .site-header {
   background: var(--bg-white);
@@ -931,3 +1090,10 @@ img { max-width: 100%; height: auto; }
 [data-theme="dark"] .breaking-alert {
   background: #8b0000;
 }
+[data-theme="dark"] .newsletter-form input {
+  background: #1a1a1a;
+  color: #e8e8e8;
+  border-color: #444;
+}
+[data-theme="dark"] .premium-item img { opacity: 0.85; }
+[data-theme="dark"] .premium-src { background: #1a1a1a; border-color: #444; }
