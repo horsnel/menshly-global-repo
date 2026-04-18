@@ -9,6 +9,7 @@
   var STORAGE_KEY = 'menshly_ai_articles';
   var API_ENDPOINT = '/api/generate-article';
   var PUBLISH_ENDPOINT = '/api/publish-article';
+  var DELETE_ENDPOINT = '/api/delete-article';
 
   var TRENDING_TOPICS = [
     'Dune: Part Two — A visual masterpiece or style over substance?',
@@ -737,6 +738,70 @@
     }
   }
 
+  /* ================================================================
+     DELETE PUBLISHED ARTICLE
+     ================================================================ */
+  async function deletePublishedArticle(slug, title) {
+    if (!slug) return;
+
+    var confirmed = confirm('Delete this article permanently?\n\nTitle: ' + (title || slug) + '\n\nThis cannot be undone. The article will be removed within 1-2 minutes.');
+    if (!confirmed) return;
+
+    // Find the delete button and disable it
+    var deleteBtn = document.querySelector('.ai-nr-pub-delete-btn[data-slug="' + slug + '"]');
+    if (deleteBtn) {
+      deleteBtn.disabled = true;
+      deleteBtn.querySelector('svg') && (deleteBtn.innerHTML = '<svg class="ai-nr-spinner" width="14" height="14" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2" fill="none" stroke-dasharray="30 70"/></svg> Deleting...');
+    }
+
+    try {
+      var response = await fetch(DELETE_ENDPOINT, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ slug: slug, section: 'ai-newsroom' })
+      });
+
+      var data = await response.json();
+
+      if (!response.ok || data.error) {
+        throw new Error(data.error || 'Delete failed');
+      }
+
+      // Remove the card from the DOM
+      var cardWrap = document.querySelector('.ai-nr-pub-card-wrap[data-slug="' + slug + '"]');
+      if (cardWrap) {
+        cardWrap.style.transition = 'opacity 0.3s, transform 0.3s';
+        cardWrap.style.opacity = '0';
+        cardWrap.style.transform = 'scale(0.95)';
+        setTimeout(function() {
+          cardWrap.remove();
+          // Update the count
+          var grid = document.getElementById('aiNewsroomPublishedGrid');
+          if (grid) {
+            var remaining = grid.querySelectorAll('.ai-nr-pub-card-wrap');
+            var countEl = grid.parentElement.querySelector('.ai-newsroom-library-count');
+            if (countEl) countEl.textContent = remaining.length + ' article' + (remaining.length !== 1 ? 's' : '');
+            // Show empty state if no articles left
+            if (remaining.length === 0) {
+              var publishedSection = grid.closest('.ai-newsroom-published');
+              if (publishedSection) publishedSection.remove();
+            }
+          }
+        }, 300);
+      }
+
+      showStatus('success', 'Article deleted. It will be removed from the site within 1-2 minutes.');
+
+    } catch (err) {
+      showStatus('error', 'Delete failed: ' + (err.message || 'Unknown error'));
+      // Reset the button
+      if (deleteBtn) {
+        deleteBtn.disabled = false;
+        deleteBtn.innerHTML = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg> Delete';
+      }
+    }
+  }
+
   /* ---- Event Listeners ---- */
   function setupEventListeners() {
     // Tab switching
@@ -815,6 +880,20 @@
 
     var clearBtn = getEl('manualClearBtn');
     if (clearBtn) clearBtn.addEventListener('click', clearManualForm);
+
+    // Published articles — delete buttons
+    var publishedGrid = getEl('aiNewsroomPublishedGrid');
+    if (publishedGrid) {
+      publishedGrid.querySelectorAll('.ai-nr-pub-delete-btn').forEach(function(btn) {
+        btn.addEventListener('click', function(e) {
+          e.preventDefault();
+          e.stopPropagation();
+          var slug = this.getAttribute('data-slug');
+          var title = this.getAttribute('data-title');
+          deletePublishedArticle(slug, title);
+        });
+      });
+    }
   }
 
   /* ---- Init ---- */

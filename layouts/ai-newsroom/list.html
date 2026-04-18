@@ -312,19 +312,26 @@ You can use Markdown formatting:
         </h3>
         <div class="ai-newsroom-library-count">{{ len $nrPages }} articles</div>
       </div>
-      <div class="ai-newsroom-published-grid">
+      <div class="ai-newsroom-published-grid" id="aiNewsroomPublishedGrid">
         {{ range $_, $p := $nrPages }}
         {{ $img := $p.Params.image }}
         {{ $cats := $p.Params.categories }}
         {{ $cat := "" }}{{ with $cats }}{{ $cat = index . 0 }}{{ end }}
-        <a class="ai-nr-pub-card" href="{{ $p.Permalink }}">
-          {{ with $img }}<img src="{{ . }}" alt="{{ $p.Title }}" loading="lazy">{{ end }}
-          <div class="ai-nr-pub-body">
-            {{ with $cat }}<span class="ai-nr-pub-cat">{{ . }}</span>{{ end }}
-            <h4>{{ $p.Title }}</h4>
-            <span class="ai-nr-pub-date">{{ $p.Date.Format "Jan 2, 2006" }}</span>
-          </div>
-        </a>
+        {{ $slug := $p.Params.slug }}
+        <div class="ai-nr-pub-card-wrap" data-slug="{{ $slug }}" data-title="{{ $p.Title }}">
+          <a class="ai-nr-pub-card" href="{{ $p.Permalink }}">
+            {{ with $img }}<img src="{{ . }}" alt="{{ $p.Title }}" loading="lazy">{{ end }}
+            <div class="ai-nr-pub-body">
+              {{ with $cat }}<span class="ai-nr-pub-cat">{{ . }}</span>{{ end }}
+              <h4>{{ $p.Title }}</h4>
+              <span class="ai-nr-pub-date">{{ $p.Date.Format "Jan 2, 2006" }}</span>
+            </div>
+          </a>
+          <button class="ai-nr-pub-delete-btn" data-slug="{{ $slug }}" data-title="{{ $p.Title }}" title="Delete this article">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>
+            Delete
+          </button>
+        </div>
         {{ end }}
       </div>
     </div>
