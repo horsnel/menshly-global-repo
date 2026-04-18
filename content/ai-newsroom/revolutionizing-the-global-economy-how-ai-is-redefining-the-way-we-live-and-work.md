@@ -2,7 +2,7 @@
 title: "Revolutionizing the Global Economy: How AI is Redefining the Way We Live and Work"
 date: "2026-04-18T17:05:57.971Z"
 slug: "revolutionizing-the-global-economy-how-ai-is-redefining-the-way-we-live-and-work"
-image: "https://images.pexels.com/photos/30869149/pexels-photo-30869149.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+image: "https://bernardmarr.com/img/The%20Economics%20Of%20Artificial%20Intelligence%20-%20How%20Cheaper%20Predictions%20Will%20Change%20The%20World.png"
 author: "Marcus Webb"
 description: "**Summary:** Artificial Intelligence (AI) is transforming the world's largest economy, bringing immense benefits and challenges alike. From automation to intell"
 categories: ["finance"]
