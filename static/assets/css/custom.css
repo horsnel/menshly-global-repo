@@ -3888,3 +3888,63 @@ img { max-width: 100%; height: auto; }
   color: #e8a0a5;
   border-color: #c0392b;
 }
+
+  /* Edit Post Tab Styles */
+  /* ================================================================ */
+  .ai-nr-edit-select {
+    width: 100%;
+    padding: 12px 14px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    background: var(--bg-white);
+    color: var(--text-primary);
+    font-size: 14px;
+    font-family: inherit;
+    cursor: pointer;
+    transition: border-color 0.2s;
+    appearance: auto;
+  }
+  .ai-nr-edit-select:focus {
+    outline: none;
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px rgba(192, 57, 43, 0.1);
+  }
+  .ai-nr-pub-card-actions {
+    display: flex;
+    gap: 6px;
+    align-items: center;
+    margin-top: 6px;
+    padding: 0 12px 10px;
+  }
+  .ai-nr-pub-edit-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 4px 10px;
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--accent);
+    background: transparent;
+    border: 1px solid var(--accent);
+    border-radius: 4px;
+    cursor: pointer;
+    opacity: 0;
+    transform: translateY(4px);
+    transition: all 0.2s;
+    font-family: inherit;
+  }
+  .ai-nr-pub-card-wrap:hover .ai-nr-pub-edit-btn {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .ai-nr-pub-edit-btn:hover {
+    background: var(--accent);
+    color: #fff;
+  }
+  #editFormContainer {
+    animation: aiNrFadeIn 0.3s ease;
+  }
+  @keyframes aiNrFadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }

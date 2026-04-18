@@ -804,6 +804,249 @@
     }
   }
 
+  /* ================================================================
+     EDIT POST FUNCTIONS
+     ================================================================ */
+  var GET_ARTICLE_ENDPOINT = "/api/get-article";
+  var UPDATE_ARTICLE_ENDPOINT = "/api/update-article";
+  var editArticleData = null; /* Stores fetched article data + SHA */
+
+  function populateEditSelect() {
+    var select = getEl("editArticleSelect");
+    if (!select) return;
+
+    /* Clear existing options except first */
+    while (select.options.length > 1) select.remove(1);
+
+    /* Get published articles from the DOM */
+    var cards = document.querySelectorAll(".ai-nr-pub-card-wrap");
+    cards.forEach(function(card) {
+      var slug = card.getAttribute("data-slug") || "";
+      var title = card.getAttribute("data-title") || slug;
+      if (slug) {
+        var opt = document.createElement("option");
+        opt.value = slug;
+        opt.textContent = title.length > 60 ? title.substring(0, 57) + "..." : title;
+        select.appendChild(opt);
+      }
+    });
+  }
+
+  async function loadArticleForEditing() {
+    var select = getEl("editArticleSelect");
+    var formContainer = getEl("editFormContainer");
+    var loadStatus = getEl("editLoadStatus");
+    if (!select || !select.value) {
+      if (formContainer) formContainer.style.display = "none";
+      return;
+    }
+
+    var slug = select.value;
+    showStatus("loading", "Loading article content from GitHub...", "editLoadStatus");
+
+    try {
+      var response = await fetch(GET_ARTICLE_ENDPOINT, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ slug: slug, section: "ai-newsroom" })
+      });
+
+      var data = await response.json();
+
+      if (!response.ok || data.error) {
+        throw new Error(data.error || "Failed to load article");
+      }
+
+      editArticleData = data;
+
+      /* Populate form fields */
+      var fm = data.frontMatter || {};
+      if (getEl("editTitle")) getEl("editTitle").value = fm.title || slug;
+      if (getEl("editCategory")) getEl("editCategory").value = (fm.categories && fm.categories[0]) || "";
+      if (getEl("editAuthor")) getEl("editAuthor").value = fm.author || "";
+      if (getEl("editDescription")) getEl("editDescription").value = fm.description || "";
+      if (getEl("editTags")) getEl("editTags").value = Array.isArray(fm.tags) ? fm.tags.join(", ") : (fm.tags || "");
+      if (getEl("editImage")) getEl("editImage").value = fm.image || "";
+      if (getEl("editBody")) getEl("editBody").value = data.body || "";
+
+      if (formContainer) formContainer.style.display = "block";
+      hideStatus("editLoadStatus");
+      updateEditWordCount();
+
+    } catch (err) {
+      showStatus("error", "Failed to load: " + (err.message || "Unknown error"), "editLoadStatus");
+    }
+  }
+
+  function updateEditWordCount() {
+    var textarea = getEl("editBody");
+    var counter = getEl("editWordCount");
+    if (!textarea || !counter) return;
+    var text = textarea.value.trim();
+    var words = text ? text.split(/\s+/).length : 0;
+    counter.textContent = words + " word" + (words !== 1 ? "s" : "");
+  }
+
+  function previewEditChanges() {
+    var title = (getEl("editTitle").value || "").trim();
+    var body = (getEl("editBody").value || "").trim();
+    var category = (getEl("editCategory").value || "").trim();
+    var author = (getEl("editAuthor").value || "").trim();
+    var image = (getEl("editImage").value || "").trim();
+
+    var catEl = getEl("editPreviewCat");
+    var titleEl = getEl("editPreviewTitle");
+    var authorEl = getEl("editPreviewAuthor");
+    var bodyEl = getEl("editPreviewBody");
+    var imageWrap = getEl("editPreviewImageWrap");
+    var imageEl = getEl("editPreviewImage");
+    var panel = getEl("editPreviewPanel");
+
+    if (catEl) catEl.textContent = category.charAt(0).toUpperCase() + category.slice(1);
+    if (titleEl) titleEl.textContent = title || "Untitled";
+    if (authorEl) authorEl.textContent = author || "";
+    if (bodyEl) bodyEl.innerHTML = markdownToHtml(body);
+
+    if (image && imageEl) {
+      imageEl.src = image;
+      if (imageWrap) imageWrap.style.display = "block";
+    } else if (imageWrap) {
+      imageWrap.style.display = "none";
+    }
+
+    if (panel) {
+      panel.style.display = "block";
+      panel.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  }
+
+  function closeEditPreview() {
+    var panel = getEl("editPreviewPanel");
+    if (panel) panel.style.display = "none";
+  }
+
+  async function saveEditedArticle() {
+    if (!editArticleData) {
+      showStatus("error", "No article loaded for editing.", "editSaveStatus");
+      return;
+    }
+
+    var title = (getEl("editTitle").value || "").trim();
+    var body = (getEl("editBody").value || "").trim();
+    var author = (getEl("editAuthor").value || "").trim();
+    var description = (getEl("editDescription").value || "").trim();
+    var tagsStr = (getEl("editTags").value || "").trim();
+    var image = (getEl("editImage").value || "").trim();
+
+    if (!title) {
+      showStatus("error", "Title is required.", "editSaveStatus");
+      return;
+    }
+    if (body.length < 50) {
+      showStatus("error", "Content too short (min 50 chars).", "editSaveStatus");
+      return;
+    }
+
+    var confirmed = confirm("Save changes to:\n\n" + title + "\n\nThe site will rebuild with your edits in 1-2 minutes.");
+    if (!confirmed) return;
+
+    var saveBtn = getEl("editSaveBtn");
+    if (saveBtn) {
+      saveBtn.disabled = true;
+      saveBtn.querySelector("span").textContent = "Saving...";
+    }
+    showStatus("loading", "Saving changes to GitHub...", "editSaveStatus");
+
+    /* Build updated front matter */
+    var fm = Object.assign({}, editArticleData.frontMatter);
+    fm.title = title;
+    fm.author = author || fm.author;
+    fm.description = description || fm.description;
+    if (image) fm.image = image;
+    if (tagsStr) {
+      fm.tags = tagsStr.split(",").map(function(t) { return t.trim(); }).filter(function(t) { return t.length > 0; });
+    }
+
+    try {
+      var response = await fetch(UPDATE_ARTICLE_ENDPOINT, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          slug: editArticleData.slug,
+          sha: editArticleData.sha,
+          frontMatter: fm,
+          body: body,
+          section: "ai-newsroom"
+        })
+      });
+
+      var data = await response.json();
+
+      if (!response.ok || data.error) {
+        throw new Error(data.error || "Update failed");
+      }
+
+      var resultEl = getEl("editSaveResult");
+      if (resultEl) {
+        resultEl.style.display = "block";
+        resultEl.className = "ai-nr-publish-result ai-nr-publish-success";
+        resultEl.innerHTML = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg><span>Updated! Commit <strong>' + (data.commitSha || "") + '</strong>. Changes live in 1-2 min.</span>';
+      }
+
+      showStatus("success", "Article updated successfully!", "editSaveStatus");
+
+      /* Refresh the SHA in case they want to edit again */
+      if (data.sha) editArticleData.sha = data.sha;
+
+    } catch (err) {
+      showStatus("error", "Save failed: " + (err.message || "Unknown"), "editSaveStatus");
+    } finally {
+      if (saveBtn) {
+        saveBtn.disabled = false;
+        saveBtn.querySelector("span").textContent = "Save Changes";
+      }
+    }
+  }
+
+  function cancelEdit() {
+    if (getEl("editFormContainer")) getEl("editFormContainer").style.display = "none";
+    closeEditPreview();
+    editArticleData = null;
+    hideStatus("editSaveStatus");
+    var resultEl = getEl("editSaveResult");
+    if (resultEl) resultEl.style.display = "none";
+  }
+
+  /* Open Edit tab from published article Edit button */
+  function openEditForSlug(slug, title) {
+    /* Switch to Edit tab */
+    var tabs = document.querySelectorAll(".ai-nr-tab");
+    tabs.forEach(function(t) { t.classList.remove("ai-nr-tab-active"); });
+    document.querySelectorAll(".ai-nr-tab-content").forEach(function(c) {
+      c.classList.remove("ai-nr-tab-content-active");
+      c.style.display = "none";
+    });
+    var editTab = document.querySelector('.ai-nr-tab[data-tab="edit"]');
+    if (editTab) editTab.classList.add("ai-nr-tab-active");
+    var editContent = getEl("tab-edit");
+    if (editContent) {
+      editContent.classList.add("ai-nr-tab-content-active");
+      editContent.style.display = "";
+    }
+
+    /* Select the article in dropdown */
+    var select = getEl("editArticleSelect");
+    if (select) {
+      select.value = slug;
+      loadArticleForEditing();
+    }
+
+    /* Scroll to edit tab */
+    if (editContent) {
+      editContent.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  }
+
   /* ---- Event Listeners ---- */
   function setupEventListeners() {
     // Tab switching
@@ -898,6 +1141,39 @@
     }
   }
 
+    // Edit Post tab
+    var editSelect = getEl("editArticleSelect");
+    if (editSelect) editSelect.addEventListener("change", loadArticleForEditing);
+
+    var editPreviewBtn = getEl("editPreviewBtn");
+    if (editPreviewBtn) editPreviewBtn.addEventListener("click", previewEditChanges);
+
+    var editClosePreviewBtn = getEl("editClosePreview");
+    if (editClosePreviewBtn) editClosePreviewBtn.addEventListener("click", closeEditPreview);
+
+    var editSaveBtn = getEl("editSaveBtn");
+    if (editSaveBtn) editSaveBtn.addEventListener("click", saveEditedArticle);
+
+    var editCancelBtn = getEl("editCancelBtn");
+    if (editCancelBtn) editCancelBtn.addEventListener("click", cancelEdit);
+
+    var editBodyEl = getEl("editBody");
+    if (editBodyEl) editBodyEl.addEventListener("input", updateEditWordCount);
+
+    // Published articles - edit buttons
+    var publishedGrid = getEl("aiNewsroomPublishedGrid");
+    if (publishedGrid) {
+      publishedGrid.querySelectorAll(".ai-nr-pub-edit-btn").forEach(function(btn) {
+        btn.addEventListener("click", function(e) {
+          e.preventDefault();
+          e.stopPropagation();
+          var slug = this.getAttribute("data-slug");
+          var title = this.getAttribute("data-title");
+          openEditForSlug(slug, title);
+        });
+      });
+    }
+
   /* ---- Init ---- */
   function init() {
     if (!document.querySelector('.ai-newsroom-page')) return;
@@ -905,6 +1181,7 @@
     setupEventListeners();
     renderLibrary();
     updateWordCount();
+    populateEditSelect();
   }
 
   if (document.readyState === 'loading') {

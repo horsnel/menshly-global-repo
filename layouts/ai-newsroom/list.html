@@ -22,6 +22,10 @@
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
         <span>Manual Post</span>
       </button>
+      <button class="ai-nr-tab" data-tab="edit">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+        <span>Edit Post</span>
+      </button>
     </div>
 
     <!-- ========== TAB 1: AI Content Studio ========== -->
@@ -301,6 +305,115 @@ You can use Markdown formatting:
       </div>
     </div>
 
+    <!-- ========== TAB 3: Edit Post ========== -->
+    <div class="ai-nr-tab-content" id="tab-edit" style="display:none;">
+      <div class="ai-newsroom-panel">
+        <div class="ai-newsroom-panel-header">
+          <div class="ai-newsroom-panel-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+          </div>
+          <div>
+            <h2>Edit Published Post</h2>
+            <p>Select an article below to load, edit, and re-publish</p>
+          </div>
+        </div>
+
+        <!-- Article Selector -->
+        <div class="ai-newsroom-field">
+          <label for="editArticleSelect">Select Article to Edit</label>
+          <select id="editArticleSelect" class="ai-nr-edit-select">
+            <option value="">-- Choose a published article --</option>
+          </select>
+        </div>
+
+        <!-- Loading indicator -->
+        <div class="ai-newsroom-status" id="editLoadStatus" style="display:none;"></div>
+
+        <!-- Edit Form (hidden until article selected) -->
+        <div id="editFormContainer" style="display:none;">
+          <form id="editPostForm" onsubmit="return false;">
+            <div class="ai-newsroom-field">
+              <label for="editTitle">Article Title</label>
+              <input type="text" id="editTitle" class="ai-nr-manual-input" placeholder="Article title">
+            </div>
+
+            <div class="ai-newsroom-row">
+              <div class="ai-newsroom-field">
+                <label for="editCategory">Category</label>
+                <input type="text" id="editCategory" class="ai-nr-manual-input" placeholder="e.g. technology" readonly>
+              </div>
+              <div class="ai-newsroom-field">
+                <label for="editAuthor">Author</label>
+                <input type="text" id="editAuthor" class="ai-nr-manual-input" placeholder="Author name">
+              </div>
+            </div>
+
+            <div class="ai-newsroom-field">
+              <label for="editDescription">Description / Summary</label>
+              <input type="text" id="editDescription" class="ai-nr-manual-input" placeholder="Brief description">
+            </div>
+
+            <div class="ai-newsroom-field">
+              <label for="editTags">Tags</label>
+              <input type="text" id="editTags" class="ai-nr-manual-input" placeholder="Comma-separated tags">
+            </div>
+
+            <div class="ai-newsroom-field">
+              <label for="editImage">Image URL</label>
+              <input type="url" id="editImage" class="ai-nr-manual-input" placeholder="https://example.com/image.jpg">
+            </div>
+
+            <div class="ai-newsroom-field">
+              <label for="editBody">Article Content <span class="ai-nr-hint">(Markdown format)</span></label>
+              <textarea id="editBody" class="ai-nr-manual-textarea" rows="18" placeholder="Article body in markdown..."></textarea>
+            </div>
+
+            <div class="ai-nr-word-count">
+              <span id="editWordCount">0 words</span>
+            </div>
+
+            <div class="ai-nr-manual-actions">
+              <button type="button" class="ai-nr-manual-preview-btn" id="editPreviewBtn">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+                <span>Preview Changes</span>
+              </button>
+              <button type="button" class="ai-newsroom-generate-btn" id="editSaveBtn" style="max-width:300px;">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/><polyline points="7 3 7 8 15 8"/></svg>
+                <span>Save Changes</span>
+              </button>
+              <button type="button" class="ai-nr-action-btn" id="editCancelBtn" style="height:48px;">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                <span>Cancel</span>
+              </button>
+            </div>
+
+            <!-- Status -->
+            <div class="ai-newsroom-status" id="editSaveStatus" style="display:none;"></div>
+            <div class="ai-nr-publish-result" id="editSaveResult" style="display:none;"></div>
+          </form>
+
+          <!-- Edit Preview Panel -->
+          <div class="ai-nr-manual-preview-panel" id="editPreviewPanel" style="display:none;">
+            <div class="ai-nr-manual-preview-header">
+              <h3>Preview</h3>
+              <button type="button" id="editClosePreview" class="ai-nr-close-preview">&times;</button>
+            </div>
+            <div class="ai-nr-article-header">
+              <span class="ai-nr-article-cat" id="editPreviewCat"></span>
+            </div>
+            <div class="ai-nr-article-image" id="editPreviewImageWrap" style="display:none;">
+              <img id="editPreviewImage" src="" alt="">
+            </div>
+            <h2 class="ai-nr-article-title" id="editPreviewTitle"></h2>
+            <div class="ai-nr-article-meta">
+              <span id="editPreviewAuthor"></span>
+            </div>
+            <div class="ai-nr-article-body" id="editPreviewBody"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <!-- Published Articles from ai-newsroom section -->
     {{ $nrPages := where .Site.RegularPages "Section" "ai-newsroom" }}
     {{ if gt (len $nrPages) 0 }}
@@ -327,10 +440,16 @@ You can use Markdown formatting:
               <span class="ai-nr-pub-date">{{ $p.Date.Format "Jan 2, 2006" }}</span>
             </div>
           </a>
-          <button class="ai-nr-pub-delete-btn" data-slug="{{ $slug }}" data-title="{{ $p.Title }}" title="Delete this article">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>
-            Delete
-          </button>
+          <div class="ai-nr-pub-card-actions">
+            <button class="ai-nr-pub-edit-btn" data-slug="{{ $slug }}" data-title="{{ $p.Title }}" title="Edit this article">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+              Edit
+            </button>
+            <button class="ai-nr-pub-delete-btn" data-slug="{{ $slug }}" data-title="{{ $p.Title }}" title="Delete this article">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>
+              Delete
+            </button>
+          </div>
         </div>
         {{ end }}
       </div>

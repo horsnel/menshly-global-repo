@@ -189,9 +189,9 @@ Do NOT output JSON. Do NOT output any code blocks or schema descriptions. Output
         var searchQueries = buildImageQueries(topic, category);
         for (var qi = 0; qi < searchQueries.length && !imageFetched; qi++) {
           var sq = searchQueries[qi];
-          var randomPage = Math.floor(Math.random() * 5) + 1;
+          var randomPage = Math.floor(Math.random() * 10) + 1;
           var imgResp = await fetch(
-            "https://api.pexels.com/v1/search?query=" + encodeURIComponent(sq) + "&per_page=3&page=" + randomPage + "&orientation=landscape",
+            "https://api.pexels.com/v1/search?query=" + encodeURIComponent(sq) + "&per_page=5&page=" + randomPage + "&orientation=landscape",
             { headers: { "Authorization": pexelsKey } }
           );
           if (imgResp.ok) {
@@ -401,21 +401,28 @@ async function getAvailableModels(apiKey, apiBase) {
   }
 }
 
-/* Build multiple image search queries (broad to specific) for Pexels */
+/* Build image search queries: topic-specific first (unique per article), then category fallbacks */
 function buildImageQueries(topic, category) {
+  /* Always start with the topic itself for maximum uniqueness */
+  var queries = [];
+  var topicWords = topic.split(/\s+/).filter(function(w) { return w.length > 2; });
+  /* Full topic as first query */
+  if (topicWords.length >= 2) queries.push(topic);
+  /* Key words only as second query */
+  var keywords = topicWords.filter(function(w) { return w.length > 3; }).slice(0, 4).join(" ");
+  if (keywords && keywords !== topic) queries.push(keywords);
+  /* Then category fallbacks only if we still need more */
   var categoryKeywords = {
-    "film-review": ["cinema movie", "film director", "movie theater"],
-    "entertainment": ["entertainment culture", "music concert", "art gallery"],
-    "personal-finance": ["finance money", "investment portfolio", "savings budget"],
-    "market-analysis": ["business analytics", "stock market charts", "data analysis"],
-    "business-strategy": ["business office", "corporate meeting", "entrepreneur"],
-    "technology": ["technology digital", "computer innovation", "futuristic tech"],
-    "commentary": ["journalism news", "thought leader", "analysis report"]
+    "film-review": ["cinema movie scene", "film production"],
+    "entertainment": ["entertainment culture", "music concert stage"],
+    "personal-finance": ["finance investment", "money savings"],
+    "market-analysis": ["business data analytics", "stock market"],
+    "business-strategy": ["business strategy office", "corporate team"],
+    "technology": ["technology innovation digital", "futuristic computer"],
+    "commentary": ["news journalism analysis", "editorial writing"]
   };
-  var queries = categoryKeywords[category] || ["media news", "business professional"];
-  /* Add topic-specific query at the end */
-  var topicWords = topic.split(/\s+/).filter(function(w) { return w.length > 3; }).slice(0, 5).join(" ");
-  if (topicWords) queries.push(topicWords);
+  var catQs = categoryKeywords[category] || ["media news professional", "business office"];
+  for (var i = 0; i < catQs.length; i++) queries.push(catQs[i]);
   return queries;
 }
 
