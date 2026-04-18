@@ -3,12 +3,11 @@ title: "Small Business Failure Rates by Industry — What the Data Says"
 date: "2026-04-18T01:40:12.643Z"
 slug: "small-business-failure-rates-by-industry-what-the-data-says"
 image: "https://images.pexels.com/photos/7948047/pexels-photo-7948047.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
-categories: ["finance"]
-tags: ["small","business","failure","rates","2026","MenshlyGlobal"]
 author: "James Chen"
 description: "Not all industries are created equal when it comes to small business survival. This deep dive explores failure rates across key sectors, backed by government an"
+categories: ["finance"]
+tags: ["small","business","failure","rates","2026","MenshlyGlobal"]
 ---
-
 Not all industries are created equal when it comes to small business survival. This deep dive explores failure rates across key sectors, backed by government and private data, and reveals what aspiring entrepreneurs should know before launching.
 
 Starting a small business is often seen as the ultimate path to financial independence. But while the dream is universal, the reality varies dramatically—especially by industry. Contrary to the oft-cited myth that “90% of small businesses fail,” the truth is more nuanced: **overall, about 20% of new businesses fail within their first year, and roughly half don’t survive past five years**, according to the U.S. Bureau of Labor Statistics (BLS). But when you break it down by sector, the picture changes significantly—some industries are far riskier than others.
