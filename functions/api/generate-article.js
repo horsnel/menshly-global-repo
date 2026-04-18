@@ -33,12 +33,34 @@ export async function onRequestPost(context) {
     /* Strip invisible Unicode chars that break auth (same as Python script) */
     const apiKey = rawKey.replace(/[\u200b-\u200f\u2028-\u202e\ufeff\u00ad]/g, '').trim();
 
-    /* === Auto-detect model — skip if API key looks wrong === */
+    /* === Auto-detect available models === */
+    let availableModels = await getAvailableModels(apiKey, apiBase);
     let model = configuredModel;
-    if (!model) {
-      model = await autoDetectModel(apiKey, apiBase);
-      if (!model) model = 'llama-3.3-70b';
+
+    // If a model is configured, verify it exists
+    if (model && availableModels.length > 0 && !availableModels.includes(model)) {
+      console.log('Configured model not found, auto-detecting...');
+      model = null;
     }
+
+    // Pick best available model from preference list
+    if (!model && availableModels.length > 0) {
+      const MODEL_PREFERENCES = [
+        'llama3.1-8b',
+        'llama-3.3-70b',
+        'qwen-3-235b-a22b-instruct-2507',
+        'deepseek-r1-distill-llama-70b'
+      ];
+      for (const pref of MODEL_PREFERENCES) {
+        if (availableModels.includes(pref)) {
+          model = pref;
+          break;
+        }
+      }
+      if (!model) model = availableModels[0];
+    }
+
+    if (!model) model = 'llama3.1-8b'; // last resort default
 
     /* === Category Map === */
     const categoryMap = {
@@ -98,45 +120,19 @@ FORMAT: Return a JSON object with these keys:
 
     const userPrompt = `Write a ${catLabel} piece about: "${topic}"`;
 
-    /* === Call AI API — try with JSON mode first, fallback to plain === */
+    /* === Call AI API — try models until one works === */
     let rawContent = null;
-    let usedJsonMode = false;
 
-    // Attempt 1: With response_format: json_object
-    try {
-      const aiResponse = await fetch(apiBase + '/chat/completions', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': 'Bearer ' + apiKey
-        },
-        body: JSON.stringify({
-          model: model,
-          messages: [
-            { role: 'system', content: systemPrompt },
-            { role: 'user', content: userPrompt }
-          ],
-          max_tokens: 3000,
-          temperature: 0.75,
-          response_format: { type: 'json_object' }
-        })
-      });
-
-      if (aiResponse.ok) {
-        const aiData = await aiResponse.json();
-        rawContent = aiData.choices?.[0]?.message?.content;
-        if (rawContent) usedJsonMode = true;
-      } else {
-        // JSON mode not supported by this model — try without
-        const errText = await aiResponse.text();
-        console.log('JSON mode failed:', aiResponse.status, errText.substring(0, 200));
+    // Build list of models to try: chosen model first, then all available
+    let modelsToTry = [model];
+    if (availableModels.length > 0) {
+      for (const m of availableModels) {
+        if (m !== model) modelsToTry.push(m);
       }
-    } catch (e) {
-      console.log('JSON mode error:', e.message);
     }
 
-    // Attempt 2: Without response_format (plain text mode)
-    if (!rawContent) {
+    for (const tryModel of modelsToTry) {
+      // Try with JSON mode
       try {
         const aiResponse = await fetch(apiBase + '/chat/completions', {
           method: 'POST',
@@ -145,7 +141,40 @@ FORMAT: Return a JSON object with these keys:
             'Authorization': 'Bearer ' + apiKey
           },
           body: JSON.stringify({
-            model: model,
+            model: tryModel,
+            messages: [
+              { role: 'system', content: systemPrompt },
+              { role: 'user', content: userPrompt }
+            ],
+            max_tokens: 3000,
+            temperature: 0.75,
+            response_format: { type: 'json_object' }
+          })
+        });
+
+        if (aiResponse.ok) {
+          const aiData = await aiResponse.json();
+          rawContent = aiData.choices?.[0]?.message?.content;
+          if (rawContent) {
+            model = tryModel; // remember which model worked
+            break;
+          }
+        }
+        // If 404 model not found, skip to next model
+        if (aiResponse.status === 404) continue;
+        // If 400 bad request (e.g. json_object not supported), try without json mode below
+      } catch (e) { continue; }
+
+      // Try without JSON mode
+      try {
+        const aiResponse = await fetch(apiBase + '/chat/completions', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer ' + apiKey
+          },
+          body: JSON.stringify({
+            model: tryModel,
             messages: [
               { role: 'system', content: systemPrompt },
               { role: 'user', content: userPrompt }
@@ -155,29 +184,29 @@ FORMAT: Return a JSON object with these keys:
           })
         });
 
-        if (!aiResponse.ok) {
-          const errText = await aiResponse.text();
-          let errMsg = 'AI API returned status ' + aiResponse.status;
-          try {
-            const errJson = JSON.parse(errText);
-            errMsg = errJson.error?.message || errJson.message || errMsg;
-          } catch (e) {}
-          // If 401, add helpful hint
-          if (aiResponse.status === 401) {
-            errMsg += '. Check that AI_API_KEY is correct in Cloudflare env vars.';
+        if (aiResponse.ok) {
+          const aiData = await aiResponse.json();
+          rawContent = aiData.choices?.[0]?.message?.content;
+          if (rawContent) {
+            model = tryModel;
+            break;
           }
-          return jsonResponse({ error: errMsg }, 500);
         }
-
-        const aiData = await aiResponse.json();
-        rawContent = aiData.choices?.[0]?.message?.content;
-      } catch (e) {
-        return jsonResponse({ error: 'Failed to reach AI API: ' + e.message }, 500);
-      }
+        // 404 = model not found, try next
+        // 401 = auth error, stop trying
+        if (aiResponse.status === 401) {
+          return jsonResponse({
+            error: 'Authentication failed (401). Check that AI_API_KEY is correct in Cloudflare env vars.'
+          }, 500);
+        }
+      } catch (e) { continue; }
     }
 
     if (!rawContent) {
-      return jsonResponse({ error: 'AI returned empty response. Try a different topic.' }, 500);
+      return jsonResponse({
+        error: 'Could not generate content. No compatible AI model found. Tried: ' + modelsToTry.slice(0, 3).join(', ') + (modelsToTry.length > 3 ? '...' : ''),
+        hint: 'Check AI_API_KEY and AI_API_BASE in Cloudflare env vars. Make sure your key has access to at least one model.'
+      }, 500);
     }
 
     /* === Parse response — handle multiple formats === */
@@ -322,15 +351,8 @@ function ensureHtml(text) {
   return html;
 }
 
-/* === Auto-detect best model === */
-const MODEL_PREFERENCES = [
-  'llama-3.3-70b',
-  'llama3.1-8b',
-  'deepseek-r1-distill-llama-70b',
-  'qwen-3-235b-a22b-instruct-2507'
-];
-
-async function autoDetectModel(apiKey, apiBase) {
+/* === Get available models from API === */
+async function getAvailableModels(apiKey, apiBase) {
   try {
     const resp = await fetch(apiBase + '/models', {
       headers: {
@@ -338,18 +360,17 @@ async function autoDetectModel(apiKey, apiBase) {
         'User-Agent': 'MenshlyGlobal/1.0'
       }
     });
-    if (!resp.ok) return null;
-    const data = await resp.json();
-    const available = (data.data || []).map(m => m.id);
-    console.log('Available models:', available.join(', '));
-
-    for (const pref of MODEL_PREFERENCES) {
-      if (available.includes(pref)) return pref;
+    if (!resp.ok) {
+      console.log('Model list failed:', resp.status);
+      return [];
     }
-    return available[0] || null;
+    const data = await resp.json();
+    const models = (data.data || []).map(m => m.id);
+    console.log('Available models:', models.join(', '));
+    return models;
   } catch (e) {
     console.log('Model detection failed:', e.message);
-    return null;
+    return [];
   }
 }
 
