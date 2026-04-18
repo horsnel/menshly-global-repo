@@ -10,6 +10,7 @@
   var API_ENDPOINT = '/api/generate-article';
   var PUBLISH_ENDPOINT = '/api/publish-article';
   var DELETE_ENDPOINT = '/api/delete-article';
+  var TRENDING_ENDPOINT = '/api/trending-topics';
 
   var TRENDING_TOPICS = [
     'Dune: Part Two — A visual masterpiece or style over substance?',
@@ -275,16 +276,35 @@
     });
   }
 
+  function shareToX(publishUrl, articleTitle) {
+    var url = publishUrl || (currentArticle && currentArticle.publishUrl) || window.location.href;
+    var title = articleTitle || (currentArticle && currentArticle.title) || '';
+    var text = encodeURIComponent(title);
+    var encodedUrl = encodeURIComponent(url);
+    window.open('https://twitter.com/intent/tweet?text=' + text + '&url=' + encodedUrl + '&via=MenshlyGlobal', '_blank', 'width=600,height=400');
+  }
+
+  function copyShareLink(publishUrl) {
+    var url = publishUrl || (currentArticle && currentArticle.publishUrl) || window.location.href;
+    navigator.clipboard.writeText(url).then(function() {
+      showStatus('success', 'Link copied to clipboard!');
+    }).catch(function() {
+      showStatus('error', 'Failed to copy link.');
+    });
+  }
+
   function shareArticle() {
     if (!currentArticle) return;
+    var url = currentArticle.publishUrl || window.location.href;
+    var title = currentArticle.title || '';
     if (navigator.share) {
       navigator.share({
-        title: currentArticle.title,
+        title: title,
         text: currentArticle.summary,
-        url: window.location.href
+        url: url
       }).catch(function() {});
     } else {
-      copyArticle();
+      shareToX(url, title);
     }
   }
 
@@ -592,6 +612,11 @@
       if (author) payload.author = author;
       // Include tags if provided
       if (tags) payload.tags = tags;
+      // Include series if provided
+      var series = (getEl('manualSeries').value || '').trim();
+      if (series) payload.series = series;
+      var seriesOrder = (getEl('manualSeriesOrder').value || '').trim();
+      if (seriesOrder) payload.series_order = parseInt(seriesOrder);
 
       var response = await fetch(PUBLISH_ENDPOINT, {
         method: 'POST',
@@ -609,15 +634,23 @@
         throw new Error(errMsg);
       }
 
-      // Show success
+      // Show success with share buttons
       var resultEl = getEl('manualPublishResult');
       if (resultEl) {
         resultEl.style.display = 'block';
         resultEl.className = 'ai-nr-publish-result ai-nr-publish-success';
         resultEl.innerHTML =
+          '<div class="ai-nr-pub-success-main">' +
           '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>' +
           '<span>Published successfully! Commit <strong>' + (data.commitSha || '') + '</strong>. ' +
-          '<a href="' + (data.url || '#') + '" target="_blank" rel="noopener">View article</a> (live in 1-2 min)</span>';
+          '<a href="' + (data.url || '#') + '" target="_blank" rel="noopener">View article</a></span></div>' +
+          '<div class="ai-nr-pub-share-actions">' +
+          '<button class="ai-nr-share-x-btn" onclick="window._nr_shareToX('' + (data.url || '') + '','' + title.replace(/'/g, "\'") + '')" type="button">' +
+          '<svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>' +
+          ' Share to X</button>' +
+          '<button class="ai-nr-copy-link-btn" onclick="window._nr_copyShareLink('' + (data.url || '') + '')" type="button">' +
+          '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>' +
+          ' Copy Link</button></div>';
       }
 
       showStatus('success', 'Article published! It will appear on the site within 1-2 minutes.', 'manualPostStatus');
@@ -638,6 +671,235 @@
     }
   }
 
+
+  /* ================================================================
+     HEADLINE REWRITER
+     ================================================================ */
+  var REWRITE_ENDPOINT = "/api/rewrite-headline";
+
+  async function rewriteHeadline() {
+    var titleInput = getEl("editTitle");
+    var btn = getEl("rewriteTitleBtn");
+    var chipsContainer = getEl("headlineSuggestions");
+    var statusEl = getEl("headlineStatus");
+
+    if (!titleInput || !btn) return;
+    var title = (titleInput.value || "").trim();
+    if (title.length < 5) {
+      showStatus("error", "Enter a title first (at least 5 characters).", "headlineStatus");
+      titleInput.focus();
+      return;
+    }
+
+    btn.disabled = true;
+    btn.style.opacity = "0.5";
+    if (chipsContainer) chipsContainer.style.display = "none";
+    showStatus("loading", "Generating alternative headlines...", "headlineStatus");
+
+    try {
+      var response = await fetch(REWRITE_ENDPOINT, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ title: title })
+      });
+
+      var data = await response.json();
+      if (!response.ok || data.error) {
+        throw new Error(data.error || "Failed to generate headlines");
+      }
+
+      if (data.headlines && data.headlines.length > 0 && chipsContainer) {
+        var html = "";
+        data.headlines.forEach(function(h) {
+          html += '<button class="ai-nr-headline-chip" data-headline="' + h.replace(/"/g, "&quot;") + '">' + h + '</button>';
+        });
+        chipsContainer.innerHTML = html;
+        chipsContainer.style.display = "flex";
+        hideStatus("headlineStatus");
+
+        chipsContainer.querySelectorAll(".ai-nr-headline-chip").forEach(function(chip) {
+          chip.addEventListener("click", function() {
+            var val = this.getAttribute("data-headline");
+            if (titleInput) titleInput.value = val;
+            chipsContainer.style.display = "none";
+          });
+        });
+      } else {
+        showStatus("error", "No headlines generated. Try again.", "headlineStatus");
+      }
+    } catch (err) {
+      showStatus("error", "Rewrite failed: " + (err.message || "Unknown error"), "headlineStatus");
+    } finally {
+      btn.disabled = false;
+      btn.style.opacity = "1";
+    }
+  }
+
+  /* ================================================================
+     BREAKING NEWS ADMIN
+     ================================================================ */
+  var BREAKING_NEWS_ENDPOINT = "/api/breaking-news";
+
+  async function loadBreakingNews() {
+    var headlineInput = getEl("breakingHeadlineInput");
+    var linkInput = getEl("breakingLinkInput");
+    if (!headlineInput) return;
+
+    try {
+      var response = await fetch(BREAKING_NEWS_ENDPOINT, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ action: "get" })
+      });
+      var data = await response.json();
+      if (data.active && data.headline) {
+        headlineInput.value = data.headline;
+        if (linkInput) linkInput.value = data.link || "";
+      }
+    } catch (e) {
+      // Silent fail - just leave inputs empty
+    }
+  }
+
+  async function activateBreakingNews() {
+    var headlineInput = getEl("breakingHeadlineInput");
+    var linkInput = getEl("breakingLinkInput");
+    var btn = getEl("breakingActivateBtn");
+
+    if (!headlineInput) return;
+    var headline = (headlineInput.value || "").trim();
+    if (!headline) {
+      showStatus("error", "Please enter a breaking news headline.", "breakingNewsStatus");
+      headlineInput.focus();
+      return;
+    }
+
+    var confirmed = confirm("Activate breaking news alert site-wide?\n\nHeadline: " + headline + "\n\nThis will appear on every page immediately.");
+    if (!confirmed) return;
+
+    btn.disabled = true;
+    btn.querySelector("span").textContent = "Activating...";
+    showStatus("loading", "Saving breaking news to GitHub...", "breakingNewsStatus");
+
+    try {
+      var response = await fetch(BREAKING_NEWS_ENDPOINT, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          action: "set",
+          headline: headline,
+          link: (linkInput ? (linkInput.value || "").trim() : "")
+        })
+      });
+      var data = await response.json();
+      if (!response.ok || data.error) {
+        throw new Error(data.error || "Failed to save breaking news");
+      }
+      showStatus("success", "Breaking news activated! It will appear site-wide within 1-2 minutes.", "breakingNewsStatus");
+      btn.querySelector("span").textContent = "Activated!";
+    } catch (err) {
+      showStatus("error", "Failed: " + (err.message || "Unknown error"), "breakingNewsStatus");
+    } finally {
+      btn.disabled = false;
+      btn.querySelector("span").textContent = "Activate";
+    }
+  }
+
+  async function clearBreakingNews() {
+    var headlineInput = getEl("breakingHeadlineInput");
+    var linkInput = getEl("breakingLinkInput");
+    var confirmed = confirm("Clear the breaking news alert?");
+    if (!confirmed) return;
+
+    showStatus("loading", "Clearing breaking news...", "breakingNewsStatus");
+    try {
+      var response = await fetch(BREAKING_NEWS_ENDPOINT, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ action: "clear" })
+      });
+      var data = await response.json();
+      if (!response.ok || data.error) {
+        throw new Error(data.error || "Failed to clear breaking news");
+      }
+      if (headlineInput) headlineInput.value = "";
+      if (linkInput) linkInput.value = "";
+      showStatus("success", "Breaking news cleared.", "breakingNewsStatus");
+    } catch (err) {
+      showStatus("error", "Failed: " + (err.message || "Unknown error"), "breakingNewsStatus");
+    }
+  }
+
+  /* ================================================================
+     TRENDING TOPICS
+     ================================================================ */
+  async function fetchTrendingTopics() {
+    var container = getEl('aiTrendingChips');
+    var refreshBtn = getEl('aiTrendingRefresh');
+    if (!container) return;
+
+    if (refreshBtn) {
+      refreshBtn.style.opacity = '0.5';
+      refreshBtn.style.pointerEvents = 'none';
+    }
+    container.innerHTML = '<span class="ai-trending-loading"><div class="ai-nr-spinner" style="width:14px;height:14px;"></div> Loading topics...</span>';
+
+    try {
+      var response = await fetch(TRENDING_ENDPOINT, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ category: '' })
+      });
+
+      var data = await response.json();
+      if (data.topics && data.topics.length > 0) {
+        renderTopicChips(data.topics);
+      } else {
+        container.innerHTML = '<span class="ai-trending-loading">No topics available. Try again.</span>';
+      }
+    } catch (err) {
+      container.innerHTML = '<span class="ai-trending-loading">Could not load topics. Click refresh to retry.</span>';
+    }
+
+    if (refreshBtn) {
+      refreshBtn.style.opacity = '1';
+      refreshBtn.style.pointerEvents = '';
+    }
+  }
+
+  function renderTopicChips(topics) {
+    var container = getEl('aiTrendingChips');
+    if (!container) return;
+
+    var html = '';
+    topics.forEach(function(t) {
+      var cat = (t.category || '').charAt(0).toUpperCase() + (t.category || '').slice(1).toLowerCase();
+      html += '<button class="ai-trending-chip" data-topic="' + (t.topic || '').replace(/"/g, '&quot;') + '" title="' + (t.reason || '') + '">';
+      html += '<span class="ai-trending-chip-cat">' + cat + '</span>';
+      html += '<span class="ai-trending-chip-text">' + (t.topic || '') + '</span>';
+      html += '</button>';
+    });
+    container.innerHTML = html;
+
+    // Add click handlers
+    container.querySelectorAll('.ai-trending-chip').forEach(function(chip) {
+      chip.addEventListener('click', function() {
+        var topic = this.getAttribute('data-topic');
+        var input = getEl('aiTopicInput');
+        if (input && topic) {
+          input.value = topic;
+          input.focus();
+          input.style.borderColor = 'var(--accent)';
+          input.style.boxShadow = '0 0 0 3px rgba(192, 57, 43, 0.15)';
+          setTimeout(function() {
+            input.style.borderColor = '';
+            input.style.boxShadow = '';
+          }, 1500);
+        }
+      });
+    });
+  }
+
   function clearManualForm() {
     if (getEl('manualTitle')) getEl('manualTitle').value = '';
     if (getEl('manualContent')) getEl('manualContent').value = '';
@@ -645,6 +907,8 @@
     if (getEl('manualAuthor')) getEl('manualAuthor').value = '';
     if (getEl('manualImage')) getEl('manualImage').value = '';
     if (getEl('manualTags')) getEl('manualTags').value = '';
+    if (getEl('manualSeries')) getEl('manualSeries').value = '';
+    if (getEl('manualSeriesOrder')) getEl('manualSeriesOrder').value = '';
     removeImagePreview();
     closeManualPreview();
     updateWordCount();
@@ -709,9 +973,17 @@
         resultEl.style.display = 'block';
         resultEl.className = 'ai-nr-publish-result ai-nr-publish-success';
         resultEl.innerHTML =
+          '<div class="ai-nr-pub-success-main">' +
           '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>' +
           '<span>Published successfully! Commit <strong>' + (data.commitSha || '') + '</strong>. ' +
-          '<a href="' + (data.url || '#') + '" target="_blank" rel="noopener">View article</a> (live in 1-2 min)</span>';
+          '<a href="' + (data.url || '#') + '" target="_blank" rel="noopener">View article</a></span></div>' +
+          '<div class="ai-nr-pub-share-actions">' +
+          '<button class="ai-nr-share-x-btn" onclick="window._nr_shareToX('' + (data.url || '') + '','' + (currentArticle.title || '').replace(/'/g, "\'") + '')" type="button">' +
+          '<svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>' +
+          ' Share to X</button>' +
+          '<button class="ai-nr-copy-link-btn" onclick="window._nr_copyShareLink('' + (data.url || '') + '')" type="button">' +
+          '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>' +
+          ' Copy Link</button></div>';
       }
 
       var exists = savedArticles.some(function(a) { return a.id === currentArticle.id; });
@@ -867,6 +1139,8 @@
       if (getEl("editDescription")) getEl("editDescription").value = fm.description || "";
       if (getEl("editTags")) getEl("editTags").value = Array.isArray(fm.tags) ? fm.tags.join(", ") : (fm.tags || "");
       if (getEl("editImage")) getEl("editImage").value = fm.image || "";
+      if (getEl("editSeries")) getEl("editSeries").value = fm.series || "";
+      if (getEl("editSeriesOrder")) getEl("editSeriesOrder").value = fm.series_order || "";
       if (getEl("editBody")) getEl("editBody").value = data.body || "";
 
       if (formContainer) formContainer.style.display = "block";
@@ -963,6 +1237,16 @@
     fm.author = author || fm.author;
     fm.description = description || fm.description;
     if (image) fm.image = image;
+    if (getEl("editSeries")) {
+      var editSeries = (getEl("editSeries").value || "").trim();
+      if (editSeries) fm.series = editSeries;
+      else delete fm.series;
+    }
+    if (getEl("editSeriesOrder")) {
+      var editSeriesOrder = (getEl("editSeriesOrder").value || "").trim();
+      if (editSeriesOrder) fm.series_order = parseInt(editSeriesOrder);
+      else delete fm.series_order;
+    }
     if (tagsStr) {
       fm.tags = tagsStr.split(",").map(function(t) { return t.trim(); }).filter(function(t) { return t.length > 0; });
     }
@@ -1157,6 +1441,22 @@
     var editCancelBtn = getEl("editCancelBtn");
     if (editCancelBtn) editCancelBtn.addEventListener("click", cancelEdit);
 
+    // Headline rewriter
+    var rewriteTitleBtn = getEl("rewriteTitleBtn");
+    if (rewriteTitleBtn) rewriteTitleBtn.addEventListener("click", rewriteHeadline);
+
+    // Trending topics
+    var trendingRefreshBtn = getEl("aiTrendingRefresh");
+    if (trendingRefreshBtn) trendingRefreshBtn.addEventListener("click", fetchTrendingTopics);
+
+    // Breaking news admin
+    var breakingActivateBtn = getEl("breakingActivateBtn");
+    if (breakingActivateBtn) breakingActivateBtn.addEventListener("click", activateBreakingNews);
+    var breakingClearBtn = getEl("breakingClearBtn");
+    if (breakingClearBtn) breakingClearBtn.addEventListener("click", clearBreakingNews);
+    // Load current breaking news state
+    loadBreakingNews();
+
     var editBodyEl = getEl("editBody");
     if (editBodyEl) editBodyEl.addEventListener("input", updateEditWordCount);
 
@@ -1174,7 +1474,171 @@
       });
     }
 
+
+  /* ================================================================
+     CONTENT CALENDAR
+     ================================================================ */
+  var calYear = new Date().getFullYear();
+  var calMonth = new Date().getMonth();
+  var calArticleDates = {}; /* key: "YYYY-MM-DD", value: [{title, href, cat, img}] */
+
+  function getArticleDates() {
+    calArticleDates = {};
+    var cards = document.querySelectorAll('.ai-nr-pub-card-wrap[data-date]');
+    cards.forEach(function(card) {
+      var dateStr = card.getAttribute('data-date') || '';
+      var title = card.getAttribute('data-title') || '';
+      var href = card.querySelector('a') ? card.querySelector('a').getAttribute('href') : '#';
+      var catEl = card.querySelector('.ai-nr-pub-cat');
+      var cat = catEl ? catEl.textContent : '';
+      var imgEl = card.querySelector('a img');
+      var img = imgEl ? imgEl.getAttribute('src') : '';
+
+      if (!calArticleDates[dateStr]) calArticleDates[dateStr] = [];
+      calArticleDates[dateStr].push({ title: title, href: href, cat: cat, img: img });
+    });
+  }
+
+  function renderCalendar(year, month) {
+    calYear = year;
+    calMonth = month;
+
+    var labelEl = getEl('aiNrCalMonthLabel');
+    if (labelEl) {
+      var monthNames = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+      labelEl.textContent = monthNames[month] + ' ' + year;
+    }
+
+    var bodyEl = getEl('aiNrCalBody');
+    if (!bodyEl) return;
+
+    var today = new Date();
+    var todayStr = today.getFullYear() + '-' +
+      String(today.getMonth() + 1).padStart(2, '0') + '-' +
+      String(today.getDate()).padStart(2, '0');
+
+    var firstDay = new Date(year, month, 1).getDay();
+    var daysInMonth = new Date(year, month + 1, 0).getDate();
+    var daysInPrevMonth = new Date(year, month, 0).getDate();
+
+    var html = '';
+
+    /* Previous month trailing days */
+    for (var i = firstDay - 1; i >= 0; i--) {
+      var day = daysInPrevMonth - i;
+      html += '<div class="ai-nr-cal-day ai-nr-cal-other">' + day + '</div>';
+    }
+
+    /* Current month days */
+    for (var d = 1; d <= daysInMonth; d++) {
+      var dateStr = year + '-' + String(month + 1).padStart(2, '0') + '-' + String(d).padStart(2, '0');
+      var hasArticles = calArticleDates[dateStr] && calArticleDates[dateStr].length > 0;
+      var isToday = dateStr === todayStr;
+      var classes = 'ai-nr-cal-day';
+      if (isToday) classes += ' ai-nr-cal-today';
+      if (hasArticles) classes += ' ai-nr-cal-has-articles';
+
+      var dotHtml = '';
+      if (hasArticles) {
+        var count = calArticleDates[dateStr].length;
+        dotHtml = '<span class="ai-nr-cal-dot">' + count + '</span>';
+      }
+
+      html += '<div class="' + classes + '" data-date="' + dateStr + '">' +
+        '<span class="ai-nr-cal-day-num">' + d + '</span>' + dotHtml + '</div>';
+    }
+
+    /* Next month leading days */
+    var totalCells = firstDay + daysInMonth;
+    var remaining = totalCells % 7 === 0 ? 0 : 7 - (totalCells % 7);
+    for (var r = 1; r <= remaining; r++) {
+      html += '<div class="ai-nr-cal-day ai-nr-cal-other">' + r + '</div>';
+    }
+
+    bodyEl.innerHTML = html;
+
+    /* Attach click handlers to clickable days */
+    bodyEl.querySelectorAll('.ai-nr-cal-has-articles').forEach(function(cell) {
+      cell.addEventListener('click', function() {
+        showCalendarDetail(this.getAttribute('data-date'));
+      });
+    });
+  }
+
+  function showCalendarDetail(dateStr) {
+    var detailEl = getEl('aiNrCalDetail');
+    var titleEl = getEl('aiNrCalDetailTitle');
+    var articlesEl = getEl('aiNrCalDetailArticles');
+    if (!detailEl || !articlesEl) return;
+
+    var articles = calArticleDates[dateStr] || [];
+    if (articles.length === 0) {
+      detailEl.style.display = 'none';
+      return;
+    }
+
+    /* Parse date for display */
+    var parts = dateStr.split('-');
+    var dateObj = new Date(parseInt(parts[0]), parseInt(parts[1]) - 1, parseInt(parts[2]));
+    var displayDate = dateObj.toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric', year: 'numeric' });
+
+    if (titleEl) titleEl.textContent = displayDate;
+
+    var html = '';
+    articles.forEach(function(article) {
+      html += '<a class="ai-nr-cal-article" href="' + article.href + '">';
+      if (article.img) {
+        html += '<img src="' + article.img + '" alt="" loading="lazy">';
+      }
+      html += '<div class="ai-nr-cal-article-body">';
+      if (article.cat) {
+        html += '<span class="ai-nr-pub-cat">' + article.cat + '</span>';
+      }
+      html += '<h5>' + article.title + '</h5>';
+      html += '</div></a>';
+    });
+    articlesEl.innerHTML = html;
+
+    detailEl.style.display = 'block';
+    detailEl.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  }
+
+  function setupCalendar() {
+    getArticleDates();
+    renderCalendar(calYear, calMonth);
+
+    var prevBtn = getEl('aiNrCalPrev');
+    if (prevBtn) {
+      prevBtn.addEventListener('click', function() {
+        calMonth--;
+        if (calMonth < 0) { calMonth = 11; calYear--; }
+        renderCalendar(calYear, calMonth);
+      });
+    }
+
+    var nextBtn = getEl('aiNrCalNext');
+    if (nextBtn) {
+      nextBtn.addEventListener('click', function() {
+        calMonth++;
+        if (calMonth > 11) { calMonth = 0; calYear++; }
+        renderCalendar(calYear, calMonth);
+      });
+    }
+
+    var closeBtn = getEl('aiNrCalDetailClose');
+    if (closeBtn) {
+      closeBtn.addEventListener('click', function() {
+        var detailEl = getEl('aiNrCalDetail');
+        if (detailEl) detailEl.style.display = 'none';
+      });
+    }
+  }
+
   /* ---- Init ---- */
+  /* Expose share functions globally for inline onclick handlers */
+  window._nr_shareToX = shareToX;
+  window._nr_copyShareLink = copyShareLink;
+
   function init() {
     if (!document.querySelector('.ai-newsroom-page')) return;
     loadArticles();
@@ -1182,6 +1646,7 @@
     renderLibrary();
     updateWordCount();
     populateEditSelect();
+    setupCalendar();
   }
 
   if (document.readyState === 'loading') {

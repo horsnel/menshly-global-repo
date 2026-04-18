@@ -3,7 +3,7 @@
   <!-- Hero Header -->
   <div class="ai-newsroom-hero">
     <div class="ai-newsroom-hero-inner">
-      <div class="ai-newsroom-badge">MenshlyGlobal Editorial</div>
+      <div class="ai-newsroom-badge">MenshlyGlobal Newsroom</div>
       <h1>The Briefing Room</h1>
       <p class="ai-newsroom-hero-desc">Generate professional reviews, market analysis, personal finance guides, and editorial commentary. Or write and publish posts manually.</p>
     </div>
@@ -25,6 +25,10 @@
       <button class="ai-nr-tab" data-tab="edit">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
         <span>Edit Post</span>
+      </button>
+      <button class="ai-nr-tab" data-tab="calendar">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+        <span>Calendar</span>
       </button>
     </div>
 
@@ -97,6 +101,20 @@
 
           <!-- Status Messages -->
           <div class="ai-newsroom-status" id="aiNewsroomStatus" style="display:none;"></div>
+
+          <!-- Trending Ideas -->
+          <div class="ai-trending-panel">
+            <div class="ai-trending-header">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+              <span>Trending Ideas</span>
+              <button class="ai-trending-refresh" id="aiTrendingRefresh" title="Get fresh topic suggestions">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/></svg>
+              </button>
+            </div>
+            <div class="ai-trending-chips" id="aiTrendingChips">
+              <span class="ai-trending-loading">Click the refresh button to load trending topics</span>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -133,7 +151,7 @@
         <div class="ai-newsroom-article" id="aiNewsroomArticle" style="display:none;">
           <div class="ai-nr-article-header">
             <span class="ai-nr-article-cat" id="aiNrArticleCat"></span>
-            <span class="ai-nr-article-badge">Editorial</span>
+            
             <span class="ai-nr-article-time" id="aiNrArticleTime"></span>
           </div>
           <div class="ai-nr-article-image" id="aiNrArticleImage" style="display:none;">
@@ -143,7 +161,7 @@
           <h2 class="ai-nr-article-title" id="aiNrArticleTitle"></h2>
           <p class="ai-nr-article-summary" id="aiNrArticleSummary"></p>
           <div class="ai-nr-article-meta">
-            <span>MenshlyGlobal Editorial Board</span>
+            <span>MenshlyGlobal Newsroom Board</span>
             <span class="ai-nr-disclaimer">Opinion / Analysis</span>
             <span id="aiNrArticleReadTime"></span>
           </div>
@@ -241,6 +259,16 @@
             <input type="text" id="manualTags" class="ai-nr-manual-input" placeholder="Comma-separated: technology, AI, 2026">
           </div>
 
+          <div class="ai-newsroom-row">
+            <div class="ai-newsroom-field">
+              <label for="manualSeries">Series</label>
+              <input type="text" id="manualSeries" class="ai-nr-manual-input" placeholder="e.g. AI Weekly Report">
+            </div>
+            <div class="ai-newsroom-field">
+              <label for="manualSeriesOrder">Series Order</label>
+              <input type="number" id="manualSeriesOrder" class="ai-nr-manual-input" placeholder="1" min="1">
+            </div>
+          </div>
           <div class="ai-newsroom-field">
             <label for="manualContent">Article Content * <span class="ai-nr-hint">(Markdown supported)</span></label>
             <textarea id="manualContent" class="ai-nr-manual-textarea" placeholder="Write your article here...
@@ -307,6 +335,38 @@ You can use Markdown formatting:
 
     <!-- ========== TAB 3: Edit Post ========== -->
     <div class="ai-nr-tab-content" id="tab-edit" style="display:none;">
+      <!-- Breaking News Admin Panel -->
+      <div class="ai-newsroom-panel" style="margin-bottom:20px;">
+        <div class="ai-newsroom-panel-header">
+          <div class="ai-newsroom-panel-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+          </div>
+          <div>
+            <h2>Breaking News</h2>
+            <p>Manage the site-wide breaking news alert</p>
+          </div>
+        </div>
+        <div class="ai-newsroom-field">
+          <label for="breakingHeadlineInput">Headline</label>
+          <input type="text" id="breakingHeadlineInput" class="ai-nr-manual-input" placeholder="e.g. Major election results just announced">
+        </div>
+        <div class="ai-newsroom-field">
+          <label for="breakingLinkInput">Link URL (optional)</label>
+          <input type="url" id="breakingLinkInput" class="ai-nr-manual-input" placeholder="https://example.com/article">
+        </div>
+        <div class="ai-nr-manual-actions">
+          <button type="button" class="ai-newsroom-generate-btn" id="breakingActivateBtn" style="background:var(--accent);max-width:200px;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+            <span>Activate</span>
+          </button>
+          <button type="button" class="ai-nr-action-btn" id="breakingClearBtn" style="height:48px;max-width:200px;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>
+            <span>Clear</span>
+          </button>
+        </div>
+        <div class="ai-newsroom-status" id="breakingNewsStatus" style="display:none;"></div>
+      </div>
+
       <div class="ai-newsroom-panel">
         <div class="ai-newsroom-panel-header">
           <div class="ai-newsroom-panel-icon">
@@ -334,7 +394,14 @@ You can use Markdown formatting:
           <form id="editPostForm" onsubmit="return false;">
             <div class="ai-newsroom-field">
               <label for="editTitle">Article Title</label>
-              <input type="text" id="editTitle" class="ai-nr-manual-input" placeholder="Article title">
+              <div class="ai-newsroom-input-wrap">
+                <input type="text" id="editTitle" class="ai-nr-manual-input" placeholder="Article title">
+                <button type="button" class="ai-newsroom-quick-btn" id="rewriteTitleBtn" title="Suggest alternative headlines">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-4.879-4.879a2 2 0 0 0-2.828 2.828l8.485 8.485A4 4 0 0 1 8 21a4 4 0 0 0 3-5H4z"/><path d="M12.22 2h2L4 10H2l8.22 8z"/><path d="M14.13 4.13L20 10"/><path d="M18 2h2v2"/><path d="M15 5h2v2"/><path d="M20 10h2v2"/></svg>
+                </button>
+              </div>
+              <div id="headlineSuggestions" class="ai-nr-headline-chips" style="display:none;"></div>
+              <div id="headlineStatus" class="ai-newsroom-status" style="display:none;"></div>
             </div>
 
             <div class="ai-newsroom-row">
@@ -358,6 +425,16 @@ You can use Markdown formatting:
               <input type="text" id="editTags" class="ai-nr-manual-input" placeholder="Comma-separated tags">
             </div>
 
+            <div class="ai-newsroom-row">
+              <div class="ai-newsroom-field">
+                <label for="editSeries">Series</label>
+                <input type="text" id="editSeries" class="ai-nr-manual-input" placeholder="e.g. AI Weekly Report">
+              </div>
+              <div class="ai-newsroom-field">
+                <label for="editSeriesOrder">Series Order</label>
+                <input type="number" id="editSeriesOrder" class="ai-nr-manual-input" placeholder="1" min="1">
+              </div>
+            </div>
             <div class="ai-newsroom-field">
               <label for="editImage">Image URL</label>
               <input type="url" id="editImage" class="ai-nr-manual-input" placeholder="https://example.com/image.jpg">
@@ -414,6 +491,51 @@ You can use Markdown formatting:
       </div>
     </div>
 
+    <!-- ========== TAB 4: Calendar ========== -->
+    <div class="ai-nr-tab-content" id="tab-calendar" style="display:none;">
+      <div class="ai-newsroom-panel">
+        <div class="ai-newsroom-panel-header">
+          <div class="ai-newsroom-panel-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          </div>
+          <div>
+            <h2>Content Calendar</h2>
+            <p>Visual schedule of published articles</p>
+          </div>
+        </div>
+
+        <!-- Calendar Navigation -->
+        <div class="ai-nr-cal-nav" id="aiNrCalNav">
+          <button class="ai-nr-cal-nav-btn" id="aiNrCalPrev" title="Previous month">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
+          </button>
+          <span class="ai-nr-cal-month-label" id="aiNrCalMonthLabel"></span>
+          <button class="ai-nr-cal-nav-btn" id="aiNrCalNext" title="Next month">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+          </button>
+        </div>
+
+        <!-- Calendar Grid -->
+        <div class="ai-nr-calendar" id="aiNrCalendar">
+          <div class="ai-nr-cal-header">
+            <span>Sun</span><span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span>
+          </div>
+          <div class="ai-nr-cal-body" id="aiNrCalBody">
+            <!-- Days rendered by JS -->
+          </div>
+        </div>
+
+        <!-- Day Detail Panel -->
+        <div class="ai-nr-cal-detail" id="aiNrCalDetail" style="display:none;">
+          <div class="ai-nr-cal-detail-header">
+            <h4 id="aiNrCalDetailTitle"></h4>
+            <button class="ai-nr-cal-detail-close" id="aiNrCalDetailClose">&times;</button>
+          </div>
+          <div class="ai-nr-cal-detail-articles" id="aiNrCalDetailArticles"></div>
+        </div>
+      </div>
+    </div>
+
     <!-- Published Articles from ai-newsroom section -->
     {{ $nrPages := where .Site.RegularPages "Section" "ai-newsroom" }}
     {{ if gt (len $nrPages) 0 }}
@@ -431,7 +553,7 @@ You can use Markdown formatting:
         {{ $cats := $p.Params.categories }}
         {{ $cat := "" }}{{ with $cats }}{{ $cat = index . 0 }}{{ end }}
         {{ $slug := $p.Params.slug }}
-        <div class="ai-nr-pub-card-wrap" data-slug="{{ $slug }}" data-title="{{ $p.Title }}">
+        <div class="ai-nr-pub-card-wrap" data-slug="{{ $slug }}" data-title="{{ $p.Title }}" data-date="{{ $p.Date.Format "2006-01-02" }}">
           <a class="ai-nr-pub-card" href="{{ $p.Permalink }}">
             {{ with $img }}<img src="{{ . }}" alt="{{ $p.Title }}" loading="lazy">{{ end }}
             <div class="ai-nr-pub-body">

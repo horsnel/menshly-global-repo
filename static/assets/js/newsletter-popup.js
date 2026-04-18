@@ -2,17 +2,38 @@
  * Newsletter Popup Controller
  * - Shows after 12 seconds on first visit (scroll-triggered)
  * - Cookie-based: once dismissed or subscribed, won't show for 30 days
+ * - Session-based: also checks localStorage for session-level dismissal
  * - Integrates with Formspree
+ * - Email validation before submission
  */
 (function () {
   'use strict';
 
   var COOKIE_NAME = 'menshly_nl_popup';
   var COOKIE_DAYS = 30;
-  var SHOW_DELAY = 12000; // 12 seconds
-  var SCROLL_THRESHOLD = 0.25; // show after scrolling 25% of page
+  var SESSION_KEY = 'menshly_nl_session';
+  var SHOW_DELAY = 12000;
+  var SCROLL_THRESHOLD = 0.25;
 
   var overlay, popup, closeBtn, dismissBtn, form, submitBtn, emailInput, errorEl;
+
+  function isValidEmail(email) {
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+  }
+
+  function hasSessionShown() {
+    try {
+      return sessionStorage.getItem(SESSION_KEY) === 'shown';
+    } catch (e) {
+      return false;
+    }
+  }
+
+  function markSessionShown() {
+    try {
+      sessionStorage.setItem(SESSION_KEY, 'shown');
+    } catch (e) {}
+  }
 
   function init() {
     overlay = document.getElementById('nlPopupOverlay');
@@ -28,8 +49,8 @@
 
     if (!popup) return;
 
-    // Don't show if cookie is set
-    if (getCookie(COOKIE_NAME)) return;
+    // Don't show if cookie is set or already shown this session
+    if (getCookie(COOKIE_NAME) || hasSessionShown()) return;
 
     // Bind events
     closeBtn.addEventListener('click', closePopup);
@@ -63,9 +84,9 @@
   }
 
   function showPopup() {
+    markSessionShown();
     overlay.classList.add('nl-popup-visible');
     document.body.style.overflow = 'hidden';
-    // Focus the email input after animation
     setTimeout(function () {
       if (emailInput) emailInput.focus();
     }, 400);
@@ -82,7 +103,22 @@
     if (!form) return;
 
     var email = emailInput ? emailInput.value.trim() : '';
-    if (!email) return;
+
+    // Email validation
+    if (!email) {
+      showError('Please enter your email address.');
+      if (emailInput) { emailInput.focus(); emailInput.style.borderColor = '#e74c3c'; }
+      return;
+    }
+
+    if (!isValidEmail(email)) {
+      showError('Please enter a valid email address.');
+      if (emailInput) { emailInput.focus(); emailInput.style.borderColor = '#e74c3c'; }
+      return;
+    }
+
+    // Reset error styling
+    if (emailInput) emailInput.style.borderColor = '';
 
     // UI: loading state
     var btnText = submitBtn.querySelector('.nl-popup-btn-text');
@@ -104,17 +140,17 @@
     })
     .then(function (response) {
       if (response.ok) {
-        // Success
+        // Success state
         if (btnLoading) btnLoading.style.display = 'none';
         if (btnSuccess) btnSuccess.style.display = 'inline-flex';
         submitBtn.style.background = '#27ae60';
         submitBtn.style.borderColor = '#27ae60';
         if (emailInput) {
-          emailInput.value = 'You\'re subscribed!';
+          emailInput.value = "You're subscribed!";
           emailInput.style.color = '#27ae60';
+          emailInput.style.borderColor = '#27ae60';
         }
         setCookie(COOKIE_NAME, 'subscribed', COOKIE_DAYS);
-        // Auto close after 2 seconds
         setTimeout(function () {
           overlay.classList.remove('nl-popup-visible');
           document.body.style.overflow = '';
@@ -133,11 +169,15 @@
       if (btnText) btnText.style.display = 'inline';
       submitBtn.disabled = false;
       if (emailInput) emailInput.disabled = false;
-      if (errorEl) {
-        errorEl.textContent = err.message || 'Something went wrong. Please try again.';
-        errorEl.style.display = 'block';
-      }
+      showError(err.message || 'Something went wrong. Please try again.');
     });
+  }
+
+  function showError(msg) {
+    if (errorEl) {
+      errorEl.textContent = msg;
+      errorEl.style.display = 'block';
+    }
   }
 
   /* Cookie helpers */

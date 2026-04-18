@@ -9,7 +9,7 @@
 
 export async function onRequestPost(context) {
   try {
-    const { title, summary, content, category, image, imageCredit, imageLink, topic, tone, author: reqAuthor, tags: reqTags } = await context.request.json();
+    const { title, summary, content, category, image, imageCredit, imageLink, topic, tone, author: reqAuthor, tags: reqTags, series: reqSeries, series_order: reqSeriesOrder } = await context.request.json();
 
     if (!title || !title.trim()) return jsonResponse({ error: "Article title is required" }, 400);
     if (!content || content.trim().length < 50) return jsonResponse({ error: "Article content too short (min 50 chars)" }, 400);
@@ -49,6 +49,8 @@ export async function onRequestPost(context) {
     fm += "tags: " + JSON.stringify(tags) + "\n";
     fm += "author: " + JSON.stringify(author) + "\n";
     fm += "description: " + JSON.stringify((summary || "").substring(0, 160)) + "\n";
+    if (reqSeries && reqSeries.trim()) fm += "series: " + JSON.stringify(reqSeries.trim()) + "\n";
+    if (reqSeriesOrder) fm += "series_order: " + JSON.stringify(parseInt(reqSeriesOrder) || 1) + "\n";
     fm += "---\n\n";
 
     let bodyMd = content ? htmlToMd(content) : "";

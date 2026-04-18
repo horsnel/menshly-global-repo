@@ -26,7 +26,7 @@ export async function onRequestPost(context) {
 
     /* Build markdown file from front matter + body */
     var fmLines = ["---"];
-    var fields = ["title", "date", "slug", "image", "author", "description"];
+    var fields = ["title", "date", "slug", "image", "author", "description", "series", "series_order"];
     var arrayFields = ["categories", "tags"];
     for (var i = 0; i < fields.length; i++) {
       var key = fields[i];

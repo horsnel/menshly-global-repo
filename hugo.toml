@@ -18,6 +18,7 @@ title = "MenshlyGlobal | The 2026 Frontier"
   tag = "tags"
   category = "categories"
   author = "authors"
+  series = "series"
 
 [outputs]
   home = ["HTML", "RSS", "JSON"]
@@ -31,14 +32,24 @@ title = "MenshlyGlobal | The 2026 Frontier"
   isPlainText = true
 
 [markup]
-  [markup.goldmark]
-    [markup.goldmark.renderer]
+  [m[markup.goldmark]
+    [m[m[markup.goldmark.renderer]
       unsafe = true
 
 [related]
   threshold = 80
   includeNewer = true
   toLower = true
+  [[related.indices]]
+    name = "categories"
+    weight = 100
+  [[related.indices]]
+    name = "tags"
+    weight = 80
+  [[related.indices]]
+    name = "date"
+    weight = 10
+
 [[menu.main]]
   name = "Business"
   url = "/categories/business"

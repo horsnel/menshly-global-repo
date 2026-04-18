@@ -34,7 +34,13 @@
     fetch("/index.json").then(function(e) { return e.json(); }).then(function(data) {
       sm = data;
       sa = new Fuse(data, {
-        keys: ["title", "summary", "categories", "tags"],
+        keys: [
+          { name: "title", weight: 0.3 },
+          { name: "summary", weight: 0.2 },
+          { name: "content", weight: 0.2 },
+          { name: "categories", weight: 0.15 },
+          { name: "tags", weight: 0.15 }
+        ],
         threshold: 0.35,
         ignoreLocation: true,
         includeScore: true
@@ -59,7 +65,7 @@
         var max = Math.min(results.length, 10);
         for (var i = 0; i < max; i++) {
           var item = results[i].item;
-          var cat = (item.categories && item.categories.length) ? item.categories[0] : "";
+          var cat = (item.categories && item.categories.length) ? item.categories[0] : item.categories || "";
           var dateStr = item.date ? new Date(item.date).toLocaleDateString("en-US", {month:"short", day:"numeric", year:"numeric"}) : "";
           html += '<a class="search-result-item" href="' + item.permalink + '">';
           if (item.image) html += '<img src="' + item.image + '" alt="" />';
