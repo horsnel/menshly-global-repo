@@ -18,22 +18,26 @@ export async function onRequestPost(context) {
       return jsonResponse({ error: 'Please provide a topic (at least 3 characters)' }, 400);
     }
 
-    const apiKey = context.env.AI_API_KEY || '';
+    const rawKey = context.env.AI_API_KEY || '';
     const apiBase = (context.env.AI_API_BASE || 'https://api.cerebras.ai/v1').replace(/\/+$/, '');
     const configuredModel = context.env.AI_MODEL || '';
     const pexelsKey = context.env.PEXELS_API_KEY || '';
 
-    if (!apiKey) {
+    if (!rawKey) {
       return jsonResponse({
         error: 'AI API key not configured. Set AI_API_KEY in Cloudflare Pages environment variables.',
         hint: 'Go to Cloudflare Dashboard > Pages > your site > Settings > Environment variables'
       }, 503);
     }
 
-    /* === Auto-detect model (like the Python script) === */
+    /* Strip invisible Unicode chars that break auth (same as Python script) */
+    const apiKey = rawKey.replace(/[\u200b-\u200f\u2028-\u202e\ufeff\u00ad]/g, '').trim();
+
+    /* === Auto-detect model — skip if API key looks wrong === */
     let model = configuredModel;
     if (!model) {
-      model = await autoDetectModel(apiKey, apiBase) || 'llama-3.3-70b';
+      model = await autoDetectModel(apiKey, apiBase);
+      if (!model) model = 'llama-3.3-70b';
     }
 
     /* === Category Map === */
@@ -156,8 +160,12 @@ FORMAT: Return a JSON object with these keys:
           let errMsg = 'AI API returned status ' + aiResponse.status;
           try {
             const errJson = JSON.parse(errText);
-            errMsg = errJson.error?.message || errMsg;
+            errMsg = errJson.error?.message || errJson.message || errMsg;
           } catch (e) {}
+          // If 401, add helpful hint
+          if (aiResponse.status === 401) {
+            errMsg += '. Check that AI_API_KEY is correct in Cloudflare env vars.';
+          }
           return jsonResponse({ error: errMsg }, 500);
         }
 
