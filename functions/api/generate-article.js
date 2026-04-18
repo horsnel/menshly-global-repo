@@ -178,27 +178,49 @@ Do NOT output JSON. Do NOT output any code blocks or schema descriptions. Output
     article.generatedAt = new Date().toISOString();
     article.readTime = Math.max(2, Math.ceil((article.content || "").split(/\s+/).length / 200));
 
-    /* === Fetch Image from Pexels === */
+    /* === Fetch Image - try Pexels first, then fallback === */
+    article.imageStatus = "none";
+    var imageFetched = false;
+
     if (pexelsKey) {
       try {
-        const searchQuery = buildImageQuery(topic, category);
-        const imgResponse = await fetch(
-          "https://api.pexels.com/v1/search?query=" + encodeURIComponent(searchQuery) + "&per_page=1&orientation=landscape",
-          { headers: { "Authorization": pexelsKey } }
-        );
-        if (imgResponse.ok) {
-          const imgData = await imgResponse.json();
-          if (imgData.photos && imgData.photos.length > 0) {
-            const photo = imgData.photos[0];
-            article.image = photo.src.large;
-            article.imageThumb = photo.src.medium;
-            article.imageCredit = photo.photographer;
-            article.imageLink = photo.photographer_url;
+        /* Try category-specific search first */
+        var searchQueries = buildImageQueries(topic, category);
+        for (var qi = 0; qi < searchQueries.length && !imageFetched; qi++) {
+          var sq = searchQueries[qi];
+          var imgResp = await fetch(
+            "https://api.pexels.com/v1/search?query=" + encodeURIComponent(sq) + "&per_page=3&orientation=landscape",
+            { headers: { "Authorization": pexelsKey } }
+          );
+          if (imgResp.ok) {
+            var imgData = await imgResp.json();
+            if (imgData.photos && imgData.photos.length > 0) {
+              var photo = imgData.photos[0];
+              article.image = photo.src.large;
+              article.imageThumb = photo.src.medium;
+              article.imageCredit = photo.photographer;
+              article.imageLink = photo.photographer_url;
+              article.imageStatus = "pexels";
+              imageFetched = true;
+            }
           }
         }
+        if (!imageFetched) article.imageStatus = "pexels-no-results";
       } catch (imgErr) {
-        /* Image fetch failed - article is still valid */
+        article.imageStatus = "pexels-error:" + (imgErr.message || "unknown");
       }
+    } else {
+      article.imageStatus = "no-pexels-key";
+    }
+
+    /* Fallback: use Lorem Picsum for a consistent photo */
+    if (!imageFetched) {
+      var imgSeed = imgSlugify(topic);
+      article.image = "https://picsum.photos/seed/" + imgSeed + "/1200/630";
+      article.imageThumb = "https://picsum.photos/seed/" + imgSeed + "/600/400";
+      article.imageCredit = "Picsum";
+      article.imageLink = "https://picsum.photos";
+      if (article.imageStatus === "none") article.imageStatus = "fallback-picsum";
     }
 
     return jsonResponse(article, 200);
@@ -377,20 +399,28 @@ async function getAvailableModels(apiKey, apiBase) {
   }
 }
 
-/* Build a search query for Pexels based on topic + category */
-function buildImageQuery(topic, category) {
-  const categoryKeywords = {
-    "film-review": "cinema movie film",
-    "entertainment": "entertainment culture music",
-    "personal-finance": "finance money business",
-    "market-analysis": "business charts data analytics",
-    "business-strategy": "business office corporate",
-    "technology": "technology digital innovation",
-    "commentary": "analysis thought leadership"
+/* Build multiple image search queries (broad to specific) for Pexels */
+function buildImageQueries(topic, category) {
+  var categoryKeywords = {
+    "film-review": ["cinema movie", "film director", "movie theater"],
+    "entertainment": ["entertainment culture", "music concert", "art gallery"],
+    "personal-finance": ["finance money", "investment portfolio", "savings budget"],
+    "market-analysis": ["business analytics", "stock market charts", "data analysis"],
+    "business-strategy": ["business office", "corporate meeting", "entrepreneur"],
+    "technology": ["technology digital", "computer innovation", "futuristic tech"],
+    "commentary": ["journalism news", "thought leader", "analysis report"]
   };
-  const prefix = categoryKeywords[category] || "media";
-  const topicWords = topic.split(/\s+/).slice(0, 4).join(" ");
-  return prefix + " " + topicWords;
+  var queries = categoryKeywords[category] || ["media news", "business professional"];
+  /* Add topic-specific query at the end */
+  var topicWords = topic.split(/\s+/).filter(function(w) { return w.length > 3; }).slice(0, 5).join(" ");
+  if (topicWords) queries.push(topicWords);
+  return queries;
+}
+
+/* Simple slugify for image seeds */
+function imgSlugify(text) {
+  var s = (text || "article").toLowerCase().trim().replace(/[^a-z0-9\s-]/g, "").replace(/[\s_]+/g, "-").replace(/^-+|-+$/g, "");
+  return s.substring(0, 60) || "article";
 }
 
 /* Handle CORS preflight */

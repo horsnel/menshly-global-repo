@@ -203,7 +203,9 @@
         imgEl.src = article.image;
         imgEl.alt = article.title || article.topic;
         if (creditEl) {
-          creditEl.innerHTML = 'Photo: <a href="' + (article.imageLink || '#') + '" target="_blank" rel="noopener">' + (article.imageCredit || 'Pexels') + '</a> via Pexels';
+          var creditText = (article.imageCredit || 'Source');
+          var viaText = article.imageStatus === 'pexels' ? 'via Pexels' : '';
+          creditEl.innerHTML = 'Photo: <a href="' + (article.imageLink || '#') + '" target="_blank" rel="noopener">' + creditText + '</a> ' + viaText;
         }
         if (imageWrap) imageWrap.style.display = 'block';
       } else if (imageWrap) {
