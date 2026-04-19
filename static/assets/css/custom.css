@@ -4323,7 +4323,7 @@ img { max-width: 100%; height: auto; }
 [data-theme="dark"] .nl-popup-features li {
   color: #b0b0b0;
 }
-[data-popup-close .nl-popup-close:hover {
+[data-theme="dark"] .nl-popup-close:hover {
   background: rgba(255,255,255,0.1);
 }
 [data-theme="dark"] .nl-popup-input-row {
@@ -5520,7 +5520,8 @@ img { max-width: 100%; height: auto; }
 
 /* Container */
 #audio-player-wrap {
-  margin: 16px 0 0;
+  margin: 20px 0 12px;
+  padding: 2px 0;
 }
 
 /* ---- Listen Button (pill with headphones + wave bars) ---- */
