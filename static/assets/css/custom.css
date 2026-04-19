@@ -5530,7 +5530,7 @@ img { max-width: 100%; height: auto; }
   gap: 10px;
   padding: 8px 16px 8px 8px;
   background: var(--bg-white);
-  border: 1px solid var(--border);
+  border: 2px solid var(--accent);
   border-radius: 50px;
   cursor: pointer;
   transition: all 0.25s ease;
@@ -5632,16 +5632,17 @@ img { max-width: 100%; height: auto; }
 
 .audio-wave span {
   width: 3px;
-  background: currentColor;
+  background: var(--accent);
   border-radius: 2px;
   animation: audio-wave-anim 1.2s ease infinite;
-  opacity: 0.3;
+  opacity: 0.6;
   transition: opacity 0.3s;
 }
 
 .audio-player:hover .audio-wave span,
 .audio-player.audio-speaking .audio-wave span {
   opacity: 1;
+  background: currentColor;
 }
 
 .audio-wave span:nth-child(1) { height: 8px; animation-delay: 0s; }
@@ -5739,7 +5740,7 @@ img { max-width: 100%; height: auto; }
 /* ---- Dark Mode ---- */
 [data-theme="dark"] .audio-player {
   background: #2a2a3e;
-  border-color: #3a3a4e;
+  border-color: #e94560;
   color: #e8e8e8;
 }
 
