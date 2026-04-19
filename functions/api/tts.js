@@ -1,13 +1,15 @@
 /**
- * Cloudflare Pages Function: Professional TTS API v2.0
- * Generates natural-sounding audio from text using AI neural voices.
+ * Cloudflare Pages Function: Professional TTS API v2.1
+ * Generates natural-sounding audio from text using AI voices.
  *
  * Engine priority:
  *   1. OpenAI-compatible API (if TTS_API_KEY + TTS_API_URL env vars set) — premium
- *   2. Microsoft Edge TTS (free neural voices, no API key needed) — default
+ *   2. Microsoft Edge TTS via WebSocket (free neural voices) — high quality
+ *   3. Google Translate TTS (free, simple HTTP) — reliable fallback
  *
- * Edge TTS voices are the same high-quality neural voices used by
- * Microsoft Edge's "Read Aloud" feature — professional, natural, free.
+ * Edge TTS voices are the same neural voices used by Microsoft Edge's
+ * "Read Aloud" feature. Google Translate TTS provides decent quality
+ * as a universal fallback that requires no configuration.
  *
  * Configure via Cloudflare Pages Environment Variables (optional):
  *   TTS_API_KEY  - API key for premium TTS service
@@ -16,7 +18,7 @@
  *
  * POST /api/tts
  *   action: "ping"              -> check if TTS is available
- *   action: "voices"            -> list available Edge TTS voices
+ *   action: "voices"            -> list available voices
  *   action: "generate"          -> generate audio from text
  *     text: "text to speak"     -> text content (max 1000 chars)
  *     voice: "voice_name"       -> optional voice selection
@@ -29,25 +31,21 @@ const EDGE_TTS_WSS = 'wss://speech.platform.bing.com/consumer/speech/synthesize/
 const DEFAULT_VOICE = 'en-US-AriaNeural';
 const OUTPUT_FORMAT = 'audio-24khz-48kbitrate-mono-mp3';
 
-/* Available Edge Neural voices */
+/* Available voices (across engines) */
 const VOICE_LIST = {
   'en-US-AriaNeural':     'Aria (Female, US) — Default',
   'en-US-JennyNeural':    'Jenny (Female, US)',
   'en-US-MichelleNeural': 'Michelle (Female, US)',
-  'en-US-JaneNeural':     'Jane (Female, US)',
   'en-US-DavisNeural':    'Davis (Male, US)',
   'en-US-JasonNeural':    'Jason (Male, US)',
-  'en-US-TonyNeural':     'Tony (Male, US)',
   'en-US-GuyNeural':      'Guy (Male, US)',
-  'en-US-ChristopherNeural': 'Christopher (Male, US)',
-  'en-US-EricNeural':     'Eric (Male, US)',
+  'en-US-TonyNeural':     'Tony (Male, US)',
   'en-GB-SoniaNeural':    'Sonia (Female, UK)',
   'en-GB-RyanNeural':     'Ryan (Male, UK)',
   'en-GB-LibbyNeural':    'Libby (Female, UK)',
   'en-AU-NatashaNeural':  'Natasha (Female, AU)',
-  'en-AU-WilliamNeural':  'William (Male, AU)',
-  'en-CA-ClaraNeural':    'Clara (Female, CA)',
   'en-IN-NeerjaNeural':   'Neerja (Female, India)',
+  'google-en':             'Google English (Fallback)',
 };
 
 /* ---- Utility Functions ---- */
@@ -81,29 +79,30 @@ function jsonResponse(data, status) {
 }
 
 /* ================================================================
-   Edge TTS via WebSocket — Free Neural Voices
+   Engine 1: Edge TTS via WebSocket — Free Neural Voices
    Uses the same API as Microsoft Edge's "Read Aloud" feature.
+   Requires `new WebSocket()` support in Workers runtime.
    ================================================================ */
 async function synthesizeEdgeTTS(text, voice, speed) {
   const reqId = uuid();
   const connId = uuid();
   const wsUrl = EDGE_TTS_WSS + '?TrustedClientToken=' + EDGE_TTS_TOKEN + '&ConnectionId=' + connId;
 
-  /* Connect via WebSocket (Cloudflare Workers supports fetch with upgrade) */
-  const resp = await fetch(wsUrl, {
-    headers: { Upgrade: 'websocket' }
-  });
-
-  const ws = resp.webSocket;
-  if (!ws) {
-    throw new Error('WebSocket upgrade failed');
+  /* Try native WebSocket constructor (supported in newer Workers runtime) */
+  if (typeof WebSocket === 'undefined') {
+    throw new Error('WebSocket not available in this runtime');
   }
 
-  ws.accept();
+  const ws = new WebSocket(wsUrl, {
+    headers: {
+      'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36'
+    }
+  });
 
   return new Promise((resolve, reject) => {
     const audioParts = [];
     let resolved = false;
+    let wsReady = false;
 
     const timeout = setTimeout(() => {
       if (!resolved) {
@@ -117,53 +116,55 @@ async function synthesizeEdgeTTS(text, voice, speed) {
       }
     }, 20000);
 
-    /* Send configuration message */
-    const timestamp = new Date().toISOString();
-    ws.send(
-      'X-Timestamp:' + timestamp + '\r\n' +
-      'Content-Type:application/json; charset=utf-8\r\n' +
-      'Path:speech.config\r\n\r\n' +
-      JSON.stringify({
-        context: {
-          synthesis: {
-            audio: {
-              metadataoptions: {
-                sentenceBoundaryEnabled: 'false',
-                wordBoundaryEnabled: 'true'
-              },
-              outputFormat: OUTPUT_FORMAT
+    ws.addEventListener('open', () => {
+      wsReady = true;
+
+      /* Send configuration message */
+      const timestamp = new Date().toISOString();
+      ws.send(
+        'X-Timestamp:' + timestamp + '\r\n' +
+        'Content-Type:application/json; charset=utf-8\r\n' +
+        'Path:speech.config\r\n\r\n' +
+        JSON.stringify({
+          context: {
+            synthesis: {
+              audio: {
+                metadataoptions: {
+                  sentenceBoundaryEnabled: 'false',
+                  wordBoundaryEnabled: 'true'
+                },
+                outputFormat: OUTPUT_FORMAT
+              }
             }
           }
-        }
-      })
-    );
+        })
+      );
 
-    /* Send SSML message */
-    const ssml =
-      "<speak version='1.0' xmlns='http://www.w3.org/2001/10/synthesis' xml:lang='en-US'>" +
-      "<voice name='" + voice + "'>" +
-      "<prosody rate='" + ratePercent(speed) + "'>" +
-      escapeXml(text) +
-      "</prosody>" +
-      "</voice>" +
-      "</speak>";
+      /* Send SSML message */
+      const ssml =
+        "<speak version='1.0' xmlns='http://www.w3.org/2001/10/synthesis' xml:lang='en-US'>" +
+        "<voice name='" + voice + "'>" +
+        "<prosody rate='" + ratePercent(speed) + "'>" +
+        escapeXml(text) +
+        "</prosody>" +
+        "</voice>" +
+        "</speak>";
 
-    ws.send(
-      'X-RequestId:' + reqId + '\r\n' +
-      'Content-Type:application/ssml+xml\r\n' +
-      'X-Timestamp:' + timestamp + 'Z\r\n' +
-      'Path:ssml\r\n\r\n' +
-      ssml
-    );
+      ws.send(
+        'X-RequestId:' + reqId + '\r\n' +
+        'Content-Type:application/ssml+xml\r\n' +
+        'X-Timestamp:' + timestamp + 'Z\r\n' +
+        'Path:ssml\r\n\r\n' +
+        ssml
+      );
+    });
 
     /* Handle incoming messages */
     ws.addEventListener('message', (event) => {
       const data = event.data;
 
       if (typeof data === 'string') {
-        /* Text message — could contain audio data (base64) or control signals */
         if (data.indexOf('Path:turn.end') !== -1) {
-          /* Synthesis complete */
           if (!resolved) {
             resolved = true;
             clearTimeout(timeout);
@@ -171,11 +172,10 @@ async function synthesizeEdgeTTS(text, voice, speed) {
             if (audioParts.length > 0) {
               resolve(combineAudio(audioParts));
             } else {
-              reject(new Error('Edge TTS returned no audio data'));
+              reject(new Error('Edge TTS returned no audio'));
             }
           }
         } else if (data.indexOf('Path:audio') !== -1) {
-          /* Audio chunk — extract base64 payload after double CRLF */
           const headerEnd = data.indexOf('\r\n\r\n');
           if (headerEnd !== -1) {
             const payload = data.substring(headerEnd + 4).trim();
@@ -187,14 +187,11 @@ async function synthesizeEdgeTTS(text, voice, speed) {
                   bytes[i] = binaryStr.charCodeAt(i);
                 }
                 audioParts.push(bytes);
-              } catch (e) {
-                /* Ignore base64 decode errors — might be partial data */
-              }
+              } catch (e) { /* ignore decode errors */ }
             }
           }
         }
       } else if (data instanceof ArrayBuffer) {
-        /* Binary message — raw audio data */
         audioParts.push(new Uint8Array(data));
       }
     });
@@ -203,7 +200,7 @@ async function synthesizeEdgeTTS(text, voice, speed) {
       if (!resolved) {
         resolved = true;
         clearTimeout(timeout);
-        reject(new Error('Edge TTS WebSocket connection error'));
+        reject(new Error('Edge TTS WebSocket error'));
       }
     });
 
@@ -214,7 +211,7 @@ async function synthesizeEdgeTTS(text, voice, speed) {
         if (audioParts.length > 0) {
           resolve(combineAudio(audioParts));
         } else {
-          reject(new Error('Edge TTS WebSocket closed without audio (code: ' + event.code + ')'));
+          reject(new Error('Edge TTS closed without audio (code: ' + event.code + ')'));
         }
       }
     });
@@ -233,7 +230,32 @@ function combineAudio(parts) {
 }
 
 /* ================================================================
-   OpenAI-Compatible TTS — Premium Fallback
+   Engine 2: Google Translate TTS — Free HTTP Fallback
+   Reliable, no API key, works everywhere. Decent voice quality.
+   Speed control via URL parameter (ttsspeed=0.5-2.0).
+   ================================================================ */
+async function synthesizeGoogleTTS(text, speed) {
+  const encoded = encodeURIComponent(text.substring(0, 200));
+  const ttsSpeed = Math.max(0.5, Math.min(2.0, speed));
+  const url = 'https://translate.google.com/translate_tts?ie=UTF-8&q=' + encoded +
+    '&tl=en&client=tw-ob&ttsspeed=' + ttsSpeed;
+
+  const response = await fetch(url, {
+    headers: {
+      'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+      'Referer': 'https://translate.google.com/'
+    }
+  });
+
+  if (!response.ok) {
+    throw new Error('Google TTS error: ' + response.status);
+  }
+
+  return await response.arrayBuffer();
+}
+
+/* ================================================================
+   Engine 3: OpenAI-Compatible TTS — Premium
    Used when TTS_API_KEY + TTS_API_URL are configured.
    ================================================================ */
 async function synthesizeOpenAI(text, voice, speed, apiKey, apiUrl) {
@@ -271,15 +293,22 @@ export async function onRequestPost(context) {
     /* ---- Ping: Check if TTS is available ---- */
     if (action === 'ping') {
       const hasOpenAI = !!(context.env.TTS_API_KEY && context.env.TTS_API_URL);
+      const hasWebSocket = typeof WebSocket !== 'undefined';
+      let engine = 'google-tts';
+      if (hasOpenAI) engine = 'openai';
+      else if (hasWebSocket) engine = 'edge-tts';
+
       return jsonResponse({
-        available: true,  /* Always available — Edge TTS is free */
-        engine: hasOpenAI ? 'openai' : 'edge-tts',
+        available: true,
+        engine: engine,
         defaultVoice: context.env.TTS_VOICE || DEFAULT_VOICE,
-        openai: hasOpenAI
+        openai: hasOpenAI,
+        edgeTTS: hasWebSocket,
+        googleTTS: true
       });
     }
 
-    /* ---- Voices: List available Edge TTS voices ---- */
+    /* ---- Voices: List available voices ---- */
     if (action === 'voices') {
       return jsonResponse({
         voices: VOICE_LIST,
@@ -299,33 +328,42 @@ export async function onRequestPost(context) {
 
       const ttsSpeed = Math.max(0.5, Math.min(2.0, parseFloat(speed) || 1.0));
       const ttsVoice = voice || context.env.TTS_VOICE || DEFAULT_VOICE;
-
-      /* Validate voice name for Edge TTS */
       const validEdgeVoice = VOICE_LIST[ttsVoice] ? ttsVoice : DEFAULT_VOICE;
-
       let audioBuffer;
+      let usedEngine = 'google-tts';
 
-      /* Try OpenAI-compatible API first (if configured) */
+      /* Engine 1: Try OpenAI-compatible API (if configured) */
       const apiKey = (context.env.TTS_API_KEY || '').replace(/[\u200b-\u200f\u2028-\u202e\ufeff\u00ad]/g, '').trim();
       const apiUrl = (context.env.TTS_API_URL || '').replace(/\/+$/, '');
 
       if (apiKey && apiUrl) {
         try {
           audioBuffer = await synthesizeOpenAI(text.trim(), ttsVoice, ttsSpeed, apiKey, apiUrl);
+          usedEngine = 'openai';
         } catch (e) {
-          console.warn('OpenAI TTS failed, falling back to Edge TTS:', e.message);
-          /* Fall through to Edge TTS */
+          console.warn('OpenAI TTS failed:', e.message);
         }
       }
 
-      /* Use Edge TTS (free, no API key needed) */
-      if (!audioBuffer) {
+      /* Engine 2: Try Edge TTS via WebSocket (free neural voices) */
+      if (!audioBuffer && typeof WebSocket !== 'undefined') {
         try {
           audioBuffer = await synthesizeEdgeTTS(text.trim(), validEdgeVoice, ttsSpeed);
+          usedEngine = 'edge-tts';
         } catch (e) {
-          console.error('Edge TTS failed:', e.message);
+          console.warn('Edge TTS failed:', e.message);
+        }
+      }
+
+      /* Engine 3: Google Translate TTS (free, reliable fallback) */
+      if (!audioBuffer) {
+        try {
+          audioBuffer = await synthesizeGoogleTTS(text.trim(), ttsSpeed);
+          usedEngine = 'google-tts';
+        } catch (e) {
+          console.error('Google TTS failed:', e.message);
           return jsonResponse({
-            error: 'TTS generation failed: ' + e.message,
+            error: 'All TTS engines failed. Last error: ' + e.message,
             fallback: 'browser'
           }, 502);
         }
@@ -339,8 +377,8 @@ export async function onRequestPost(context) {
           'Content-Length': audioBuffer.byteLength.toString(),
           'Cache-Control': 'public, max-age=86400',
           'Access-Control-Allow-Origin': '*',
-          'X-TTS-Engine': apiKey && apiUrl ? 'openai' : 'edge-tts',
-          'X-TTS-Voice': validEdgeVoice
+          'X-TTS-Engine': usedEngine,
+          'X-TTS-Voice': usedEngine === 'google-tts' ? 'google-en' : validEdgeVoice
         }
       });
     }
