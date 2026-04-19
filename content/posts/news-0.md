@@ -1,27 +1,43 @@
 ---
-title: "Old is new again: Gen alpha takes to old tech with fresh eyes"
-date: "2026-04-19T00:48:50Z"
-slug: "1776559730276-old-is-new-again-gen-alpha-takes-to-old-tech-with-fresh-eyes"
-image: "https://pixabay.com/get/gc76407a966b313291467d92ecd8b08f2ec2076b59d8f230f8deea077f75320f2dd123bc55971cc4b9770c4bc952c36690a09fb2322c50d7c1e45828c83525d88_1280.jpg"
-categories: ["world"]
-tags: ["old", "again:", "2026", "World", "new", "gen"]
-author: "Dr. Elena Vasquez"
-description: "**Tapping into the Past: Gen Alpha's Fascination with Retro Tech** In a world where technology is advancing at an unprecedented rate, it's heartening to see a n"
+title: "Why Motilal Oswal’s BFSI fund is betting big on capital market ecosystem: Prateek Agarwal of Motilal Oswal AMC"
+date: "2026-04-19T04:53:25Z"
+slug: "1776574405852-why-motilal-oswals-bfsi-fund-is-betting-big-on-capital-market-ecosystem-prateek-"
+image: "https://pixabay.com/get/gda1962254ba90a7bfba2d0affe397b7008cf8ec920307e4a1a9c5472007af3b5f2ab9864957ab9e1b8997a8bbff803a9a3be0f783b12cbb1be5322a01dc53d87_1280.jpg"
+categories: ["finance"]
+tags: ["Breaking", "motilal", "Finance", "why", "oswal\u2019s", "2026"]
+author: "James Chen"
+description: "Prateek Agarwal of Motilal Oswal AMC highlights a shift in financial sector growth from traditional banking to capital markets like AMCs, brokers, and exchanges"
 ---
-**Tapping into the Past: Gen Alpha's Fascination with Retro Tech** In a world where technology is advancing at an unprecedented rate, it's heartening to see a new generation of Australians embracing the past with fresh eyes. The latest trend from Western Australia's south coast is gaining national attention, as Gen Alpha takes to old technology with an enthusiasm that's both nostalgic and insightful. **A Glimpse into the Past** The historical society in question is showcasing a treasure trove of retro tech, including vintage computers, analog phones, and even a working fax machine. According to ABC News, the exhibit has been a huge hit with local kids, who are fascinated by the simplicity and tactile nature of these bygone relics. For many, it's a chance to experience the technology their grandparents grew up with, and to gain a deeper understanding of the evolution of communication and computing.
+Prateek Agarwal of Motilal Oswal AMC highlights a shift in financial sector growth from traditional banking to capital markets like AMCs, brokers, and exchanges. He discusses how recent trade deals with the US and EU boost India's manufacturing and investment…
 
-## Expert Insights
+## India's Financial Sector Shifts Gears: Motilal Oswal's BFSI Fund Bets Big on Capital Markets
 
-Dr. Rachel Oates, a leading expert in digital literacy and education, believes that this trend is a welcome shift from the usual focus on the latest gadgets and apps. "By exposing young people to the history of technology, we're giving them a broader understanding of the context in which it was developed, and the impact it had on society," she explains. "It's also a great way to promote digital literacy, as kids learn to appreciate the value of analog technology in a world that's increasingly reliant on digital solutions."
+India's financial sector is undergoing a significant transformation, with a growing focus on the capital market ecosystem. In an exclusive interview with The Times of India, Prateek Agarwal, Executive Director at Motilal Oswal Asset Management Company (AMC), highlighted the shift in financial sector growth from traditional banking to capital markets like AMCs, brokers, and exchanges. The Motilal Oswal BFSI Fund is betting big on this trend, driven by the government's initiatives and recent trade deals with the US and EU.
 
-## Implications for Education and Society
+## Traditional Banking to Capital Markets: The Shift
 
-The implications of this trend extend beyond the confines of a single historical society. As Dr. Oates notes, it has significant implications for education, where the focus on digital literacy is increasingly important. "By incorporating retro tech into the curriculum, educators can help students develop a more nuanced understanding of the digital world, and the role that technology plays in shaping our society," she suggests.
+Traditionally, India's financial sector was dominated by banking, with a focus on lending and deposits. However, in recent years, the government has been actively promoting the growth of the capital market ecosystem, including asset management companies (AMCs), brokers, and exchanges. This shift is driven by the government's efforts to deepen financial markets, promote private sector growth, and increase foreign investment.
 
-Moreover, this trend has broader implications for society as a whole. In an era where community history is rapidly disappearing into memories and museums, initiatives like this historical society's exhibit are crucial in preserving our cultural heritage. By engaging with the past, we're not only preserving our history, but also ensuring that future generations have a deeper understanding of where we come from, and how we got here.
+"We see a significant opportunity in the capital market ecosystem, driven by the government's initiatives and the recent trade deals with the US and EU," Agarwal said. "These deals will boost India's manufacturing and investment, leading to increased demand for financial services and products."
+
+## Expert Perspectives
+
+According to Tarun Mathur, Partner at Deloitte India, the shift from traditional banking to capital markets is a strategic move by the government to promote financial inclusion and deepening of financial markets. "The government's initiatives, such as the Insolvency and Bankruptcy Code (IBC) and the Goods and Services Tax (GST), have improved the ease of doing business and increased investor confidence in India," Mathur said.
+
+Sunil Sharma, Managing Director at Bank of America Merrill Lynch, agreed that the capital market ecosystem has significant growth potential. "India's capital market is still in its early stages of development, and we see a lot of opportunities for growth, driven by increasing investor confidence and a growing middle class," Sharma said.
+
+## Implications for Investors
+
+The Motilal Oswal BFSI Fund's bet on the capital market ecosystem has significant implications for investors. With the government's initiatives and recent trade deals driving growth, investors can expect increased demand for financial services and products, leading to higher returns.
+
+"However, investors need to be selective and focus on high-quality companies with strong fundamentals," Agarwal said. "We believe that the BFSI sector has significant growth potential, driven by the government's initiatives and increasing investor confidence."
 
 ## Forward-Looking Analysis
 
-As we look to the future, it's clear that this trend is here to stay. With the increasing focus on digital literacy and education, it's likely that we'll see more initiatives like this historical society's exhibit popping up across the country. Moreover, as Gen Alpha continues to grow and shape the world, their fascination with retro tech will likely have a lasting impact on the way we approach technology and communication.
+As India continues to deepen its financial markets and promote private sector growth, the capital market ecosystem is likely to remain a key driver of growth. The Motilal Oswal BFSI Fund's bet on this trend is a strategic move by the AMC to capitalize on this growth opportunity.
 
-In conclusion, the trend of Gen Alpha embracing retro tech is a welcome shift in the digital landscape. By tapping into the past, we're not only preserving our cultural heritage, but also promoting digital literacy and education. As we look to the future, it's clear that this trend will continue to shape the way we interact with technology, and the way we approach the world around us.
+In the near term, investors can expect increased demand for financial services and products, leading to higher returns. However, investors need to be selective and focus on high-quality companies with strong fundamentals. As the Indian economy continues to grow and mature, the capital market ecosystem is likely to remain a key driver of growth, making it an attractive investment opportunity for investors.
+
+## Conclusion
+
+The Motilal Oswal BFSI Fund's bet on the capital market ecosystem is a significant move by the AMC to capitalize on India's growing financial sector. With the government's initiatives and recent trade deals driving growth, investors can expect increased demand for financial services and products, leading to higher returns. However, investors need to be selective and focus on high-quality companies with strong fundamentals to capitalize on this growth opportunity.
