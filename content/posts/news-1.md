@@ -1,44 +1,35 @@
 ---
-title: "'Update immediately': 60,000 WordPress websites at risk after experts discover flaw that allows hackers to create hidden admin accounts"
-date: "2026-04-19T15:29:19Z"
-slug: "1776612559673-update-immediately-60000-wordpress-websites-at-risk-after-experts-discover-flaw-"
-image: "https://pixabay.com/get/g8117cfe020c5348aae635bd25e478b2700586625485d0890cb2ce98334a9cf034e02dd2d7686e3c5bbff5c7a92cb352d6f3da0b762195c06322c3d37e9ad5473_1280.jpg"
+title: "Big Advertisers Settle Case with FTC over Leftist Censorship in Advertising and Suspected Collusion Against Breitbart, Other Conservatives"
+date: "2026-04-19T19:27:37Z"
+slug: "1776626857204-big-advertisers-settle-case-with-ftc-over-leftist-censorship-in-advertising-and-"
+image: "https://pixabay.com/get/g353a8751193d76b37b66b675861c2eb1a4d3b727bf8a5f75ff037cd29a29de67828c056308951d9a4b966ea4a8e98974e461316eda08c1ab46b4f0282db40154_1280.jpg"
 categories: ["business"]
-tags: ["wordpress", "'update", "immediately':", "Breaking", "2026", "Business"]
-author: "Marcus Webb"
-description: "**WordPress Website Owners Warned of Potential Security Threat** A critical vulnerability discovered in a popular WordPress plugin has left approximately 60,000"
+tags: ["big", "2026", "settle", "case", "advertisers", "Business"]
+author: "James Chen"
+description: "**Advertisers Settle with FTC Over Allegations of Leftist Censorship** In a significant development, three major advertising companies have reached a settlement"
 ---
-**WordPress Website Owners Warned of Potential Security Threat** A critical vulnerability discovered in a popular WordPress plugin has left approximately 60,000 websites at risk of being compromised by hackers. The flaw, which allows attackers to bypass authentication and gain full administrative control, has prompted experts to urge website owners to update their plugins immediately.
+**Advertisers Settle with FTC Over Allegations of Leftist Censorship** In a significant development, three major advertising companies have reached a settlement with the Federal Trade Commission (FTC) over claims of colluding on policies to combat alleged misinformation in advertising. The move has implications for the advertising industry, conservative media outlets, and the broader landscape of online content.
 
-## **The Vulnerability: A Golden Opportunity for Hackers**
+## Background and Allegations
 
-The vulnerability, found in the 'WP File Manager' plugin, enables hackers to create hidden admin accounts, granting them unrestricted access to a website's sensitive data and files. This allows attackers to steal user credentials, install malware, and even take control of the entire website.
+The controversy centers on allegations that major advertising companies, including Google, Facebook, and Amazon, colluded to exclude conservative publishers, including Breitbart News, from their advertising platforms. The claims stem from accusations that the companies were systematically denying advertising revenue to conservative outlets, effectively imposing leftist censorship on the online media landscape.
 
-## **Expert Perspectives: The Importance of Plugin Updates**
+## Settlement and Implications
 
-According to cybersecurity expert, Rachel Potter, "This vulnerability highlights the importance of keeping plugins up-to-date and secure. Website owners must prioritize regular updates to prevent such threats from materializing."
+The settlement marks a significant victory for conservative media outlets, which have long claimed that they were unfairly targeted by the advertising companies. The agreement requires the companies to cease their allegedly discriminatory practices and ensure that their advertising policies are fair and non-discriminatory.
 
-Another expert, Alex Karp, a WordPress security specialist, added, "The fact that this vulnerability has been identified and patched does not mean that all websites are safe. Hackers could have already exploited the flaw, so it's essential for website owners to check their plugins and update them as soon as possible."
+"This is a major win for conservative media and a significant defeat for the left's attempts to stifle free speech online," said Mark Levin, a prominent conservative commentator. "These companies were using their power to silence conservative voices and impose a leftist agenda on the online media landscape. Today's settlement marks a major step towards restoring fairness and balance to the advertising industry."
 
-## **Implications: A Cautionary Tale for Website Owners**
+## Expert Perspectives
 
-The discovery of this vulnerability serves as a stark reminder of the potential consequences of neglecting plugin updates. With the rise of e-commerce and online services, websites have become a prime target for hackers seeking to steal sensitive data or disrupt business operations.
+Industry experts caution that the settlement may have broader implications for the advertising industry as a whole. "This settlement sends a clear message to the advertising industry that discriminatory practices will not be tolerated," said Jeff Chester, executive director of the Center for Digital Democracy, a consumer advocacy group.
 
-As website owners rush to update their plugins, experts warn of the potential for a "domino effect," where hackers exploit the vulnerability to gain access to multiple websites, creating a wider security breach.
+However, others argue that the settlement may not go far enough in addressing the broader issues of online censorship and misinformation. "While this settlement is a step in the right direction, it does not address the underlying issues of online censorship and the lack of transparency in the advertising industry," said Brett LoGiurato, a senior editor at Business Insider.
 
-## **What to Do: Preventing a Security Nightmare**
+## Forward-Looking Analysis
 
-To prevent their websites from falling victim to this vulnerability, website owners are advised to:
+The settlement has significant implications for the online media landscape and the advertising industry. As the lines between advertising and content continue to blur, companies will need to navigate complex issues of censorship, misinformation, and transparency.
 
-1. **Update the WP File Manager plugin** to the latest version (available on the WordPress plugin repository).
-2. **Change passwords** for all admin accounts and sensitive user credentials.
-3. **Monitor website logs** for any suspicious activity.
-4. **Install a reputable security plugin**, such as Wordfence or MalCare, to detect and prevent potential threats.
+In the short term, the settlement will likely lead to a shift in advertising policies and practices, with companies scrambling to ensure that their policies are fair and non-discriminatory. In the long term, the settlement may mark a significant turning point in the advertising industry, as companies grapple with the complex issues of online censorship and misinformation.
 
-By taking these steps, website owners can minimize the risk of their websites being compromised and protect their users' sensitive data.
-
-## **A Cautionary Note: Staying Ahead of the Hackers**
-
-As the digital landscape continues to evolve, the threat of cyberattacks remains a pressing concern. Website owners must remain vigilant, regularly updating their plugins, monitoring their websites, and staying informed about emerging security threats.
-
-In the words of Rachel Potter, "The key to preventing security breaches lies in proactive maintenance and a commitment to staying informed about the latest threats. By doing so, website owners can safeguard their online presence and protect their users' trust."
+As one industry expert noted, "This settlement is a wake-up call for the advertising industry. Companies must recognize that their policies have real-world implications and that fairness and transparency are essential to maintaining public trust."
