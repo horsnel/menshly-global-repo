@@ -1,26 +1,24 @@
 /* ================================================================
-   Audio Player — Text-to-Speech for Article Pages
-   MenshlyGlobal Client-Side Logic v3.0
+   Audio Player v4.0 — Professional TTS for Article Pages
+   MenshlyGlobal Client-Side Logic
 
-   Design: Pill-shaped player with animated wave bars
-   Engine: Web Speech API with smart voice selection,
-           intelligent chunking, Chrome keepalive workaround
+   Engine: Cloud TTS (via /api/tts) with browser SpeechSynthesis fallback
+   Design: Pill-shaped player with animated wave bars + progress bar
 
-   Features:
-   - Modern pill design (Feather headphone + wave bars)
-   - Smart voice selection (natural/neural/enhanced preferred)
-   - Sentence-boundary aware text chunking
-   - Chrome keepalive workaround (pause/resume ping)
-   - Wave bar animation while speaking, pulse on listen button
-   - Speed control, skip-chunk, keyboard shortcuts
-   - Full dark mode via [data-theme="dark"]
-   - prefers-reduced-motion support
+   Key fixes over v3.0:
+   - Cloud TTS eliminates Chrome 15-second cutoff entirely
+   - Professional AI voices instead of robotic browser voices
+   - Real progress bar showing playback position
+   - HTML5 Audio API for reliable playback (no keepalive hacks)
+   - Seamless fallback to browser TTS if cloud unavailable
    ================================================================ */
 (function() {
   'use strict';
-  if (!window.speechSynthesis) return;
 
-  var synth = window.speechSynthesis;
+  /* ---- State ---- */
+  var engine = 'none'; // 'cloud' | 'browser' | 'none'
+  var audioEl = null;  // HTML5 Audio element for cloud TTS
+  var synth = window.speechSynthesis || null;
   var playing = false;
   var paused = false;
   var speeds = [0.75, 1, 1.25, 1.5, 2];
@@ -28,11 +26,14 @@
   var currentUtterance = null;
   var articleChunks = [];
   var chunkIndex = 0;
-  var keepaliveTimer = null;
   var voicesLoaded = false;
   var cachedVoice = null;
+  var cloudAudioCache = {};  // chunkIndex -> objectURL
+  var isGenerating = false;
+  var generateQueue = [];
+  var progressTimer = null;
 
-  /* ---- Modern SVG Icons (Feather-style, consistent stroke) ---- */
+  /* ---- SVG Icons (Feather-style) ---- */
   var ICONS = {
     headphones:
       '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">' +
@@ -48,10 +49,6 @@
         '<rect x="5" y="3" width="4" height="18" rx="1"/>' +
         '<rect x="15" y="3" width="4" height="18" rx="1"/>' +
       '</svg>',
-    stop:
-      '<svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" stroke="none">' +
-        '<rect x="4" y="4" width="16" height="16" rx="2"/>' +
-      '</svg>',
     skip:
       '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">' +
         '<polygon points="5 4 15 12 5 20 5 4"/>' +
@@ -65,247 +62,316 @@
       '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">' +
         '<line x1="18" y1="6" x2="6" y2="18"/>' +
         '<line x1="6" y1="6" x2="18" y2="18"/>' +
+      '</svg>',
+    loading:
+      '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" class="audio-spin">' +
+        '<path d="M12 2v4"/>' +
+        '<path d="M12 18v4"/>' +
+        '<path d="M4.93 4.93l2.83 2.83"/>' +
+        '<path d="M16.24 16.24l2.83 2.83"/>' +
+        '<path d="M2 12h4"/>' +
+        '<path d="M18 12h4"/>' +
+        '<path d="M4.93 19.07l2.83-2.83"/>' +
+        '<path d="M16.24 7.76l2.83-2.83"/>' +
       '</svg>'
   };
 
-  /* ---- Smart Voice Selection ---- */
+  /* ================================================================
+     CLOUD TTS — Calls /api/tts endpoint for professional AI voices
+     ================================================================ */
+
+  function detectCloudTTS() {
+    /* Probe the /api/tts endpoint to see if it's available */
+    return fetch('/api/tts', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ action: 'ping' })
+    }).then(function(r) {
+      if (r.ok) return r.json();
+      throw new Error('not available');
+    }).then(function(data) {
+      if (data.available) {
+        engine = 'cloud';
+        return true;
+      }
+      throw new Error('not available');
+    }).catch(function() {
+      engine = synth ? 'browser' : 'none';
+      return false;
+    });
+  }
+
+  function requestCloudTTS(text, index) {
+    return fetch('/api/tts', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        action: 'generate',
+        text: text,
+        voice: 'kazi',
+        speed: speeds[speedIdx]
+      })
+    }).then(function(r) {
+      if (!r.ok) throw new Error('TTS request failed: ' + r.status);
+      return r.arrayBuffer();
+    }).then(function(buffer) {
+      var blob = new Blob([buffer], { type: 'audio/wav' });
+      var url = URL.createObjectURL(blob);
+      cloudAudioCache[index] = url;
+      return url;
+    });
+  }
+
+  function playCloudChunk() {
+    if (!playing || chunkIndex >= articleChunks.length) {
+      onEnd();
+      return;
+    }
+
+    var text = articleChunks[chunkIndex];
+    if (!text || text.trim().length === 0) {
+      chunkIndex++;
+      playCloudChunk();
+      return;
+    }
+
+    updateStatus('Loading audio ' + (chunkIndex + 1) + '/' + articleChunks.length + '...');
+
+    /* Check cache first */
+    if (cloudAudioCache[chunkIndex]) {
+      playCachedChunk(chunkIndex);
+      return;
+    }
+
+    /* Generate and play */
+    isGenerating = true;
+    requestCloudTTS(text, chunkIndex).then(function(url) {
+      isGenerating = false;
+      if (playing && !paused) {
+        playCachedChunk(chunkIndex);
+      }
+      /* Pre-fetch next chunk */
+      prefetchNextChunk();
+    }).catch(function(err) {
+      isGenerating = false;
+      console.warn('Cloud TTS failed, falling back to browser TTS:', err);
+      engine = 'browser';
+      speakChunk();
+    });
+  }
+
+  function playCachedChunk(index) {
+    if (!audioEl) {
+      audioEl = new Audio();
+      audioEl.addEventListener('ended', onChunkEnded);
+      audioEl.addEventListener('error', onChunkError);
+      audioEl.addEventListener('timeupdate', updateProgress);
+    }
+
+    audioEl.src = cloudAudioCache[index];
+    audioEl.playbackRate = speeds[speedIdx];
+
+    audioEl.play().then(function() {
+      updateStatus('Playing ' + (chunkIndex + 1) + '/' + articleChunks.length);
+      startProgressTimer();
+    }).catch(function(err) {
+      console.warn('Audio play failed:', err);
+      updateStatus('Playback error');
+    });
+  }
+
+  function onChunkEnded() {
+    stopProgressTimer();
+    chunkIndex++;
+    if (chunkIndex >= articleChunks.length) {
+      onEnd();
+    } else if (playing && !paused) {
+      /* Small pause between chunks (sounds natural) */
+      setTimeout(function() {
+        if (playing && !paused) playCloudChunk();
+      }, 200);
+    }
+  }
+
+  function onChunkError(e) {
+    console.warn('Audio chunk error:', e);
+    updateStatus('Audio error, retrying...');
+    /* Retry once */
+    setTimeout(function() {
+      if (playing && !paused) playCloudChunk();
+    }, 1000);
+  }
+
+  function prefetchNextChunk() {
+    var nextIdx = chunkIndex + 1;
+    if (nextIdx < articleChunks.length && !cloudAudioCache[nextIdx] && !isGenerating) {
+      requestCloudTTS(articleChunks[nextIdx], nextIdx).catch(function() {});
+    }
+  }
+
+  /* ---- Progress Bar ---- */
+  function startProgressTimer() {
+    stopProgressTimer();
+    progressTimer = setInterval(updateProgress, 250);
+  }
+
+  function stopProgressTimer() {
+    if (progressTimer) {
+      clearInterval(progressTimer);
+      progressTimer = null;
+    }
+  }
+
+  function updateProgress() {
+    var bar = document.getElementById('audioProgressBar');
+    var timeEl = document.getElementById('audioTime');
+    if (!bar || !audioEl) return;
+
+    var pct = 0;
+    var currentSec = 0;
+    var totalSec = 0;
+
+    if (engine === 'cloud' && audioEl.duration && isFinite(audioEl.duration)) {
+      pct = (audioEl.currentTime / audioEl.duration) * 100;
+      currentSec = Math.floor(audioEl.currentTime);
+      totalSec = Math.floor(audioEl.duration);
+    } else if (engine === 'browser' && articleChunks.length > 0) {
+      pct = ((chunkIndex + 0.5) / articleChunks.length) * 100;
+    }
+
+    bar.style.width = Math.min(pct, 100) + '%';
+    if (timeEl && totalSec > 0) {
+      timeEl.textContent = formatTime(currentSec) + ' / ' + formatTime(totalSec);
+    }
+  }
+
+  function formatTime(sec) {
+    var m = Math.floor(sec / 60);
+    var s = sec % 60;
+    return m + ':' + (s < 10 ? '0' : '') + s;
+  }
+
+  /* ================================================================
+     BROWSER TTS FALLBACK — Fixed Chrome 15s cutoff
+     Uses small chunks (max ~500 chars = ~12s) so Chrome never cuts off
+     ================================================================ */
+
   function selectBestVoice() {
+    if (!synth) return null;
     var voices = synth.getVoices();
     if (!voices.length) return null;
 
-    // Priority 1: Natural / Enhanced / Neural voices
-    var naturalVoice = voices.find(function(v) {
+    /* Priority 1: Natural / Enhanced / Neural */
+    var v1 = voices.find(function(v) {
       return v.lang.startsWith('en') && (
         v.name.toLowerCase().indexOf('natural') !== -1 ||
         v.name.toLowerCase().indexOf('enhanced') !== -1 ||
         v.name.toLowerCase().indexOf('neural') !== -1
       );
     });
-    if (naturalVoice) return naturalVoice;
+    if (v1) return v1;
 
-    // Priority 2: Microsoft high-quality voices
-    var msVoice = voices.find(function(v) {
-      return v.lang.startsWith('en') && (
-        v.name.indexOf('Microsoft') !== -1 &&
+    /* Priority 2: Microsoft high-quality */
+    var v2 = voices.find(function(v) {
+      return v.lang.startsWith('en') && v.name.indexOf('Microsoft') !== -1 &&
         (v.name.indexOf('Zira') !== -1 || v.name.indexOf('David') !== -1 ||
-         v.name.indexOf('Mark') !== -1 || v.name.indexOf('Jenny') !== -1)
-      );
+         v.name.indexOf('Mark') !== -1 || v.name.indexOf('Jenny') !== -1 ||
+         v.name.indexOf('Aria') !== -1 || v.name.indexOf('Guy') !== -1);
     });
-    if (msVoice) return msVoice;
+    if (v2) return v2;
 
-    // Priority 3: Google voices
-    var googleVoice = voices.find(function(v) {
+    /* Priority 3: Google */
+    var v3 = voices.find(function(v) {
       return v.lang.startsWith('en') && v.name.indexOf('Google') !== -1;
     });
-    if (googleVoice) return googleVoice;
+    if (v3) return v3;
 
-    // Priority 4: Any en-US voice
-    var enUsVoice = voices.find(function(v) { return v.lang === 'en-US'; });
-    if (enUsVoice) return enUsVoice;
+    /* Priority 4: en-US */
+    var v4 = voices.find(function(v) { return v.lang === 'en-US'; });
+    if (v4) return v4;
 
-    // Priority 5: Any English voice
-    var enVoice = voices.find(function(v) { return v.lang.startsWith('en'); });
-    if (enVoice) return enVoice;
+    /* Priority 5: Any English */
+    var v5 = voices.find(function(v) { return v.lang.startsWith('en'); });
+    if (v5) return v5;
 
-    // Fallback: first available
     return voices[0];
   }
 
   function getVoice() {
-    if (!cachedVoice || !voicesLoaded) {
-      cachedVoice = selectBestVoice();
-    }
+    if (!cachedVoice || !voicesLoaded) cachedVoice = selectBestVoice();
     return cachedVoice;
   }
 
-  /* ---- Intelligent Text Chunking ---- */
-  function chunkText(text, maxChunkSize) {
-    maxChunkSize = maxChunkSize || 2800;
+  /* ---- Browser TTS chunking — small chunks to avoid Chrome cutoff ---- */
+  function chunkTextForBrowser(text) {
+    /* Max 500 chars per chunk = ~12 seconds of speech (under Chrome's 15s limit) */
+    var maxChunk = 500;
+    var chunks = [];
+    var sentences = text.match(/[^.!?\n]+[.!?\n]+/g) || [text];
+    var current = '';
+
+    for (var i = 0; i < sentences.length; i++) {
+      var s = sentences[i].trim();
+      if (!s) continue;
+      if (current.length + s.length + 1 <= maxChunk) {
+        current += (current ? ' ' : '') + s;
+      } else {
+        if (current) chunks.push(current);
+        if (s.length > maxChunk) {
+          /* Split long sentence by commas or semicolons */
+          var parts = s.match(/[^,;:]+[,;:]+/g) || [s];
+          var sub = '';
+          for (var j = 0; j < parts.length; j++) {
+            if (sub.length + parts[j].length <= maxChunk) {
+              sub += parts[j];
+            } else {
+              if (sub) chunks.push(sub);
+              sub = parts[j];
+            }
+          }
+          current = sub;
+        } else {
+          current = s;
+        }
+      }
+    }
+    if (current) chunks.push(current);
+    return chunks;
+  }
+
+  /* Cloud TTS chunking — bigger chunks OK (no Chrome limit) */
+  function chunkTextForCloud(text) {
+    var maxChunk = 900; /* Stay under 1024 API limit with margin */
     var chunks = [];
     var paragraphs = text.split(/\n\s*\n/);
-    var currentChunk = '';
+    var current = '';
 
     for (var i = 0; i < paragraphs.length; i++) {
       var para = paragraphs[i].trim();
       if (!para) continue;
-
-      if (currentChunk.length + para.length + 2 <= maxChunkSize) {
-        currentChunk += (currentChunk ? ' ' : '') + para;
+      if (current.length + para.length + 2 <= maxChunk) {
+        current += (current ? ' ' : '') + para;
       } else {
-        if (currentChunk) chunks.push(currentChunk);
-        if (para.length > maxChunkSize) {
-          var sentenceChunks = splitBySentences(para, maxChunkSize);
-          for (var j = 0; j < sentenceChunks.length; j++) {
-            chunks.push(sentenceChunks[j]);
+        if (current) chunks.push(current);
+        /* Split paragraph by sentences */
+        var sentences = para.match(/[^.!?]+[.!?]+[\s]*/g) || [para];
+        var sub = '';
+        for (var j = 0; j < sentences.length; j++) {
+          if (sub.length + sentences[j].length <= maxChunk) {
+            sub += sentences[j];
+          } else {
+            if (sub) chunks.push(sub.trim());
+            sub = sentences[j];
           }
-          currentChunk = '';
-        } else {
-          currentChunk = para;
         }
+        current = sub;
       }
     }
-
-    if (currentChunk) chunks.push(currentChunk);
+    if (current) chunks.push(current);
     return chunks;
   }
 
-  function splitBySentences(text, maxSize) {
-    var chunks = [];
-    var sentences = text.match(/[^.!?]+[.!?]+[\s]*/g) || [text];
-    var current = '';
-
-    for (var i = 0; i < sentences.length; i++) {
-      var sentence = sentences[i];
-      if (current.length + sentence.length <= maxSize) {
-        current += sentence;
-      } else {
-        if (current) chunks.push(current.trim());
-        if (sentence.length > maxSize) {
-          var words = sentence.split(/\s+/);
-          var wordChunk = '';
-          for (var w = 0; w < words.length; w++) {
-            if (wordChunk.length + words[w].length + 1 <= maxSize) {
-              wordChunk += (wordChunk ? ' ' : '') + words[w];
-            } else {
-              if (wordChunk) chunks.push(wordChunk.trim());
-              wordChunk = words[w];
-            }
-          }
-          current = wordChunk;
-        } else {
-          current = sentence;
-        }
-      }
-    }
-
-    if (current) chunks.push(current.trim());
-    return chunks;
-  }
-
-  /* ---- Create Player UI (Pill Design + Wave Bars) ---- */
-  function createPlayer() {
-    var article = document.querySelector('.post-content');
-    if (!article) return;
-
-    var wrapper = document.createElement('div');
-    wrapper.id = 'audio-player-wrap';
-    wrapper.innerHTML =
-      /* -- Listen Button (pill with headphones + wave bars) -- */
-      '<div class="audio-player" id="audioListenBtn">' +
-        '<button class="audio-play-btn" aria-label="Listen to article">' +
-          '<span class="audio-play-icon">' + ICONS.headphones + '</span>' +
-        '</button>' +
-        '<div class="audio-info">' +
-          '<span class="audio-label">Listen</span>' +
-          '<span class="audio-sublabel">Audio Article</span>' +
-        '</div>' +
-        '<div class="audio-wave">' +
-          '<span></span><span></span><span></span><span></span>' +
-        '</div>' +
-      '</div>' +
-
-      /* -- Controls Bar (shown while playing) -- */
-      '<div class="audio-controls-bar" id="audioControls" style="display:none">' +
-        '<button class="audio-ctrl-btn" id="audioPlayPause" title="Pause" aria-label="Pause">' +
-          ICONS.pause +
-        '</button>' +
-        '<button class="audio-ctrl-btn" id="audioSkipBtn" title="Skip to next section" aria-label="Skip to next section">' +
-          ICONS.skip +
-        '</button>' +
-        '<button class="audio-ctrl-btn audio-speed-btn" id="audioSpeedBtn" title="Playback speed" aria-label="Change speed">' +
-          '<span class="speed-label">1x</span>' +
-        '</button>' +
-        '<span class="audio-status" id="audioStatus">Preparing...</span>' +
-        '<button class="audio-ctrl-btn audio-close-btn" id="audioCloseBtn" title="Close player" aria-label="Close player">' +
-          ICONS.close +
-        '</button>' +
-      '</div>';
-
-    article.parentNode.insertBefore(wrapper, article);
-
-    // Event listeners
-    document.getElementById('audioListenBtn').addEventListener('click', startAudio);
-    document.getElementById('audioPlayPause').addEventListener('click', togglePlayPause);
-    document.getElementById('audioSkipBtn').addEventListener('click', skipNextChunk);
-    document.getElementById('audioSpeedBtn').addEventListener('click', cycleSpeed);
-    document.getElementById('audioStopBtn') // no separate stop — close handles it
-    document.getElementById('audioCloseBtn').addEventListener('click', stopAudio);
-
-    // Keyboard shortcuts
-    document.addEventListener('keydown', function(e) {
-      if (!playing) return;
-      // Don't intercept if user is typing in an input
-      if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
-      if (e.code === 'Space') {
-        e.preventDefault();
-        togglePlayPause();
-      } else if (e.code === 'Escape') {
-        e.preventDefault();
-        stopAudio();
-      }
-    });
-  }
-
-  /* ---- Extract clean article text ---- */
-  function getArticleText() {
-    var article = document.querySelector('.post-content');
-    if (!article) return '';
-    var clone = article.cloneNode(true);
-    var remove = clone.querySelectorAll('script, style, .audio-player-bar, iframe, noscript, .audio-controls-bar, #audio-player-wrap');
-    remove.forEach(function(el) { el.remove(); });
-    var text = clone.innerText || clone.textContent || '';
-    text = text.replace(/\s+/g, ' ').trim();
-    return text;
-  }
-
-  /* ---- Chrome Keepalive Workaround ---- */
-  function startKeepalive() {
-    stopKeepalive();
-    // Chrome pauses speech synthesis after ~15 seconds of continuous speaking.
-    // Pause/resume every 10s with 100ms gap to reset the timer (slightly
-    // longer gap than before to reduce the audible micro-blip).
-    keepaliveTimer = setInterval(function() {
-      if (synth.speaking && !synth.paused && playing && !paused) {
-        synth.pause();
-        setTimeout(function() {
-          if (playing && !paused) {
-            synth.resume();
-          }
-        }, 100);
-      }
-    }, 10000);
-  }
-
-  function stopKeepalive() {
-    if (keepaliveTimer) {
-      clearInterval(keepaliveTimer);
-      keepaliveTimer = null;
-    }
-  }
-
-  /* ---- Start Audio Playback ---- */
-  function startAudio() {
-    synth.cancel();
-
-    var text = getArticleText();
-    if (!text || text.length < 10) {
-      updateStatus('No article text found.');
-      return;
-    }
-
-    articleChunks = chunkText(text, 2800);
-    chunkIndex = 0;
-    playing = true;
-    paused = false;
-
-    // Show controls, hide listen button
-    document.getElementById('audioControls').style.display = 'flex';
-    document.getElementById('audioListenBtn').style.display = 'none';
-    updatePlayPauseIcon();
-    speakChunk();
-  }
-
-  /* ---- Speak Current Chunk ---- */
+  /* ---- Browser TTS speak (no keepalive needed — chunks too short) ---- */
   function speakChunk() {
     if (!playing || chunkIndex >= articleChunks.length) {
       onEnd();
@@ -319,113 +385,264 @@
       return;
     }
 
+    synth.cancel(); /* Clear any stuck utterances */
+
     currentUtterance = new SpeechSynthesisUtterance(text);
     currentUtterance.rate = speeds[speedIdx];
-    currentUtterance.pitch = 1;
+    currentUtterance.pitch = 1.05; /* Slightly higher pitch for clarity */
 
     var voice = getVoice();
     if (voice) currentUtterance.voice = voice;
 
     currentUtterance.onstart = function() {
       updateStatus('Playing ' + (chunkIndex + 1) + '/' + articleChunks.length);
+      startProgressTimer();
     };
 
     currentUtterance.onend = function() {
+      stopProgressTimer();
       chunkIndex++;
-      updateStatus('Playing ' + Math.min(chunkIndex, articleChunks.length) + '/' + articleChunks.length);
-      setTimeout(function() {
-        if (playing && !paused) speakChunk();
-      }, 80);
+      updateProgress();
+      if (playing && !paused) {
+        /* No delay needed — chunks are short, natural pause */
+        speakChunk();
+      }
     };
 
     currentUtterance.onerror = function(e) {
       if (e.error !== 'canceled' && e.error !== 'interrupted') {
-        updateStatus('Error: ' + e.error);
+        console.warn('Speech error:', e.error);
+        /* Skip to next chunk on error */
+        chunkIndex++;
+        if (playing && !paused) {
+          setTimeout(speakChunk, 100);
+        }
       }
     };
 
     synth.speak(currentUtterance);
-    startKeepalive();
+    /* NO keepalive needed — each chunk is under 12 seconds */
   }
 
-  /* ---- Play / Pause Toggle ---- */
-  function togglePlayPause() {
-    if (!playing) {
-      startAudio();
+  /* ================================================================
+     PLAYER UI
+     ================================================================ */
+
+  function createPlayer() {
+    var article = document.querySelector('.post-content');
+    if (!article) return;
+
+    var wrapper = document.createElement('div');
+    wrapper.id = 'audio-player-wrap';
+    wrapper.innerHTML =
+      '<div class="audio-player" id="audioListenBtn">' +
+        '<button class="audio-play-btn" aria-label="Listen to article">' +
+          '<span class="audio-play-icon">' + ICONS.headphones + '</span>' +
+        '</button>' +
+        '<div class="audio-info">' +
+          '<span class="audio-label">Listen</span>' +
+          '<span class="audio-sublabel">Audio Article</span>' +
+        '</div>' +
+        '<div class="audio-wave">' +
+          '<span></span><span></span><span></span><span></span>' +
+        '</div>' +
+      '</div>' +
+      '<div class="audio-controls-bar" id="audioControls" style="display:none">' +
+        '<button class="audio-ctrl-btn" id="audioPlayPause" title="Pause" aria-label="Pause">' +
+          ICONS.pause +
+        '</button>' +
+        '<button class="audio-ctrl-btn" id="audioSkipBtn" title="Skip to next section" aria-label="Skip">' +
+          ICONS.skip +
+        '</button>' +
+        '<button class="audio-ctrl-btn audio-speed-btn" id="audioSpeedBtn" title="Speed" aria-label="Speed">' +
+          '<span class="speed-label">1x</span>' +
+        '</button>' +
+        '<div class="audio-progress-wrap">' +
+          '<div class="audio-progress-bar" id="audioProgressBar"></div>' +
+        '</div>' +
+        '<span class="audio-status" id="audioStatus">Preparing...</span>' +
+        '<span class="audio-time" id="audioTime"></span>' +
+        '<span class="audio-engine-badge" id="audioEngineBadge"></span>' +
+        '<button class="audio-ctrl-btn audio-close-btn" id="audioCloseBtn" title="Close" aria-label="Close">' +
+          ICONS.close +
+        '</button>' +
+      '</div>';
+
+    article.parentNode.insertBefore(wrapper, article);
+
+    document.getElementById('audioListenBtn').addEventListener('click', startAudio);
+    document.getElementById('audioPlayPause').addEventListener('click', togglePlayPause);
+    document.getElementById('audioSkipBtn').addEventListener('click', skipNextChunk);
+    document.getElementById('audioSpeedBtn').addEventListener('click', cycleSpeed);
+    document.getElementById('audioCloseBtn').addEventListener('click', stopAudio);
+
+    document.addEventListener('keydown', function(e) {
+      if (!playing) return;
+      if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
+      if (e.code === 'Space') { e.preventDefault(); togglePlayPause(); }
+      else if (e.code === 'Escape') { e.preventDefault(); stopAudio(); }
+    });
+  }
+
+  /* ---- Extract clean article text ---- */
+  function getArticleText() {
+    var article = document.querySelector('.post-content');
+    if (!article) return '';
+    var clone = article.cloneNode(true);
+    var remove = clone.querySelectorAll('script, style, iframe, noscript, #audio-player-wrap');
+    remove.forEach(function(el) { el.remove(); });
+    var text = clone.innerText || clone.textContent || '';
+    /* Clean up: remove extra whitespace, special chars */
+    text = text.replace(/\s+/g, ' ').trim();
+    /* Remove common noise */
+    text = text.replace(/\[.*?\]/g, ''); /* Remove [brackets] */
+    text = text.replace(/READ MORE.*?(?=\.|$)/gi, '');
+    return text;
+  }
+
+  /* ================================================================
+     PLAYBACK CONTROLS
+     ================================================================ */
+
+  function startAudio() {
+    /* Reset state */
+    clearCloudCache();
+    chunkIndex = 0;
+    playing = true;
+    paused = false;
+
+    var text = getArticleText();
+    if (!text || text.length < 10) {
+      updateStatus('No article text found.');
+      playing = false;
       return;
     }
 
-    if (paused) {
-      synth.resume();
-      paused = false;
-      updateStatus('Playing ' + (chunkIndex + 1) + '/' + articleChunks.length);
-      startKeepalive();
+    document.getElementById('audioControls').style.display = 'flex';
+    document.getElementById('audioListenBtn').style.display = 'none';
+    updatePlayPauseIcon();
+
+    if (engine === 'cloud') {
+      articleChunks = chunkTextForCloud(text);
+      playCloudChunk();
+    } else if (engine === 'browser') {
+      articleChunks = chunkTextForBrowser(text);
+      speakChunk();
     } else {
-      synth.pause();
+      updateStatus('Audio not available');
+      playing = false;
+    }
+
+    /* Show engine badge */
+    var badge = document.getElementById('audioEngineBadge');
+    if (badge) {
+      badge.textContent = engine === 'cloud' ? 'AI' : 'TTS';
+      badge.title = engine === 'cloud' ? 'Professional AI Voice' : 'Browser Text-to-Speech';
+    }
+  }
+
+  function togglePlayPause() {
+    if (!playing) { startAudio(); return; }
+
+    if (paused) {
+      paused = false;
+      if (engine === 'cloud' && audioEl) {
+        audioEl.play();
+      } else if (engine === 'browser' && synth) {
+        synth.resume();
+      }
+      updateStatus('Playing ' + (chunkIndex + 1) + '/' + articleChunks.length);
+      startProgressTimer();
+    } else {
       paused = true;
+      if (engine === 'cloud' && audioEl) {
+        audioEl.pause();
+      } else if (engine === 'browser' && synth) {
+        synth.pause();
+      }
       updateStatus('Paused');
-      stopKeepalive();
+      stopProgressTimer();
     }
     updatePlayPauseIcon();
   }
 
-  /* ---- Skip to Next Chunk ---- */
   function skipNextChunk() {
     if (!playing) return;
-    synth.cancel();
-    stopKeepalive();
-    chunkIndex++;
-    if (chunkIndex >= articleChunks.length) {
-      onEnd();
+
+    if (engine === 'cloud') {
+      if (audioEl) audioEl.pause();
+      stopProgressTimer();
+      chunkIndex++;
+      if (chunkIndex >= articleChunks.length) {
+        onEnd();
+      } else {
+        playCloudChunk();
+      }
     } else {
-      speakChunk();
+      synth.cancel();
+      stopProgressTimer();
+      chunkIndex++;
+      if (chunkIndex >= articleChunks.length) {
+        onEnd();
+      } else {
+        speakChunk();
+      }
     }
   }
 
-  /* ---- Cycle Playback Speed ---- */
   function cycleSpeed() {
     speedIdx = (speedIdx + 1) % speeds.length;
     var speed = speeds[speedIdx];
     var label = document.querySelector('.speed-label');
     if (label) label.textContent = speed + 'x';
 
-    // If speaking, restart current chunk at new speed
-    if (playing && !paused && synth.speaking) {
+    if (engine === 'cloud' && audioEl) {
+      audioEl.playbackRate = speed;
+      /* Re-generate current chunk at new speed (voice changes with speed) */
+      /* Actually, just change playbackRate — no need to regenerate */
+    } else if (engine === 'browser' && playing && !paused && synth.speaking) {
       synth.cancel();
-      stopKeepalive();
-      speakChunk();
-    } else if (currentUtterance) {
-      currentUtterance.rate = speed;
+      stopProgressTimer();
+      speakChunk(); /* Will use new speedIdx */
     }
   }
 
-  /* ---- Stop Audio ---- */
   function stopAudio() {
-    synth.cancel();
+    if (engine === 'cloud' && audioEl) {
+      audioEl.pause();
+      audioEl.src = '';
+    } else if (synth) {
+      synth.cancel();
+    }
+    stopProgressTimer();
     playing = false;
     paused = false;
-    stopKeepalive();
-    document.getElementById('audioControls').style.display = 'none';
-    document.getElementById('audioListenBtn').style.display = 'inline-flex';
     currentUtterance = null;
     articleChunks = [];
     chunkIndex = 0;
+    clearCloudCache();
+    document.getElementById('audioControls').style.display = 'none';
+    document.getElementById('audioListenBtn').style.display = 'inline-flex';
+    var bar = document.getElementById('audioProgressBar');
+    if (bar) bar.style.width = '0%';
   }
 
-  /* ---- Playback Finished ---- */
   function onEnd() {
+    stopProgressTimer();
     playing = false;
     paused = false;
-    stopKeepalive();
     updateStatus('Finished');
     updatePlayPauseIcon();
+    var bar = document.getElementById('audioProgressBar');
+    if (bar) bar.style.width = '100%';
     setTimeout(function() {
       document.getElementById('audioControls').style.display = 'none';
       document.getElementById('audioListenBtn').style.display = 'inline-flex';
-    }, 2000);
+      if (bar) bar.style.width = '0%';
+    }, 2500);
   }
 
-  /* ---- UI Helpers ---- */
+  /* ---- Helpers ---- */
   function updateStatus(text) {
     var el = document.getElementById('audioStatus');
     if (el) el.textContent = text;
@@ -440,27 +657,40 @@
     }
   }
 
-  /* ---- Voices Loading (async on some browsers) ---- */
-  function ensureVoices() {
+  function clearCloudCache() {
+    Object.keys(cloudAudioCache).forEach(function(k) {
+      URL.revokeObjectURL(cloudAudioCache[k]);
+    });
+    cloudAudioCache = {};
+  }
+
+  /* ---- Initialize ---- */
+  function init() {
+    /* First try cloud TTS, fall back to browser */
+    detectCloudTTS().then(function() {
+      console.log('[AudioPlayer] Engine:', engine);
+      createPlayer();
+    });
+  }
+
+  /* Load voices for browser fallback */
+  if (synth) {
     var voices = synth.getVoices();
     if (voices.length) {
       voicesLoaded = true;
       cachedVoice = selectBestVoice();
     }
+    if (synth.onvoiceschanged !== undefined) {
+      synth.onvoiceschanged = function() {
+        voicesLoaded = true;
+        cachedVoice = selectBestVoice();
+      };
+    }
   }
 
-  if (synth.onvoiceschanged !== undefined) {
-    synth.onvoiceschanged = function() {
-      voicesLoaded = true;
-      cachedVoice = selectBestVoice();
-    };
-  }
-  ensureVoices();
-
-  /* ---- Initialize ---- */
   if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', createPlayer);
+    document.addEventListener('DOMContentLoaded', init);
   } else {
-    createPlayer();
+    init();
   }
 })();

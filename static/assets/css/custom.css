@@ -5734,6 +5734,61 @@ img { max-width: 100%; height: auto; }
   white-space: nowrap;
 }
 
+/* Progress bar */
+.audio-progress-wrap {
+  flex: 1;
+  height: 4px;
+  background: var(--border);
+  border-radius: 2px;
+  overflow: hidden;
+  min-width: 60px;
+  margin: 0 4px;
+  align-self: center;
+}
+
+.audio-progress-bar {
+  height: 100%;
+  width: 0%;
+  background: var(--accent);
+  border-radius: 2px;
+  transition: width 0.3s ease;
+}
+
+.audio-time {
+  font-size: 0.68rem;
+  color: var(--text-muted);
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+/* Engine badge (AI / TTS) */
+.audio-engine-badge {
+  font-size: 0.6rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding: 1px 5px;
+  border-radius: 3px;
+  background: #1a1a2e;
+  color: #e94560;
+  white-space: nowrap;
+}
+
+[data-theme="dark"] .audio-engine-badge {
+  background: #e94560;
+  color: #fff;
+}
+
+/* Loading spinner */
+@keyframes audio-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.audio-spin {
+  animation: audio-spin 1s linear infinite;
+}
+
 .audio-close-btn {
   margin-left: auto;
 }
@@ -5803,5 +5858,12 @@ img { max-width: 100%; height: auto; }
   .audio-ctrl-btn {
     width: 28px;
     height: 28px;
+  }
+  .audio-progress-wrap {
+    min-width: 40px;
+  }
+  .audio-time,
+  .audio-engine-badge {
+    display: none;
   }
 }
