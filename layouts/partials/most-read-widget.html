@@ -1,5 +1,5 @@
 <div class="sidebar-widget most-read-widget">
-  <h3><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#c0392b" stroke-width="2"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/></svg> Most Read</h3>
+  <h3><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/></svg> Most Read</h3>
   {{ $posts := where .Site.RegularPages "Section" "posts" }}
   {{ $counter := 1 }}
   {{ range first 8 $posts }}
