@@ -1,12 +1,20 @@
 /* ================================================================
    Audio Player — Text-to-Speech for Article Pages
-   MenshlyGlobal Client-Side Logic v2.0
-   - Modern headphone icon (Feather-based)
-   - Smart voice selection (natural/enhanced voices preferred)
-   - Intelligent text chunking (sentence-boundary aware)
+   MenshlyGlobal Client-Side Logic v3.0
+
+   Design: Pill-shaped player with animated wave bars
+   Engine: Web Speech API with smart voice selection,
+           intelligent chunking, Chrome keepalive workaround
+
+   Features:
+   - Modern pill design (Feather headphone + wave bars)
+   - Smart voice selection (natural/neural/enhanced preferred)
+   - Sentence-boundary aware text chunking
    - Chrome keepalive workaround (pause/resume ping)
-   - Pulse animation while speaking
-   - Clean CSS class-based styling
+   - Wave bar animation while speaking, pulse on listen button
+   - Speed control, skip-chunk, keyboard shortcuts
+   - Full dark mode via [data-theme="dark"]
+   - prefers-reduced-motion support
    ================================================================ */
 (function() {
   'use strict';
@@ -27,7 +35,7 @@
   /* ---- Modern SVG Icons (Feather-style, consistent stroke) ---- */
   var ICONS = {
     headphones:
-      '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">' +
+      '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">' +
         '<path d="M3 18v-6a9 9 0 0 1 18 0v6"/>' +
         '<path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"/>' +
       '</svg>',
@@ -41,11 +49,11 @@
         '<rect x="15" y="3" width="4" height="18" rx="1"/>' +
       '</svg>',
     stop:
-      '<svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" stroke="none">' +
+      '<svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" stroke="none">' +
         '<rect x="4" y="4" width="16" height="16" rx="2"/>' +
       '</svg>',
     skip:
-      '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">' +
+      '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">' +
         '<polygon points="5 4 15 12 5 20 5 4"/>' +
         '<line x1="19" y1="5" x2="19" y2="19"/>' +
       '</svg>',
@@ -65,7 +73,7 @@
     var voices = synth.getVoices();
     if (!voices.length) return null;
 
-    // Priority 1: Natural / Enhanced voices (Siri, Microsoft Natural, etc.)
+    // Priority 1: Natural / Enhanced / Neural voices
     var naturalVoice = voices.find(function(v) {
       return v.lang.startsWith('en') && (
         v.name.toLowerCase().indexOf('natural') !== -1 ||
@@ -75,31 +83,28 @@
     });
     if (naturalVoice) return naturalVoice;
 
-    // Priority 2: Microsoft Edge / Windows voices (generally high quality)
+    // Priority 2: Microsoft high-quality voices
     var msVoice = voices.find(function(v) {
       return v.lang.startsWith('en') && (
         v.name.indexOf('Microsoft') !== -1 &&
-        (v.name.indexOf('Zira') !== -1 || v.name.indexOf('David') !== -1 || v.name.indexOf('Mark') !== -1 || v.name.indexOf('Jenny') !== -1)
+        (v.name.indexOf('Zira') !== -1 || v.name.indexOf('David') !== -1 ||
+         v.name.indexOf('Mark') !== -1 || v.name.indexOf('Jenny') !== -1)
       );
     });
     if (msVoice) return msVoice;
 
-    // Priority 3: Google voices (Chrome default but decent)
+    // Priority 3: Google voices
     var googleVoice = voices.find(function(v) {
       return v.lang.startsWith('en') && v.name.indexOf('Google') !== -1;
     });
     if (googleVoice) return googleVoice;
 
     // Priority 4: Any en-US voice
-    var enUsVoice = voices.find(function(v) {
-      return v.lang === 'en-US';
-    });
+    var enUsVoice = voices.find(function(v) { return v.lang === 'en-US'; });
     if (enUsVoice) return enUsVoice;
 
     // Priority 5: Any English voice
-    var enVoice = voices.find(function(v) {
-      return v.lang.startsWith('en');
-    });
+    var enVoice = voices.find(function(v) { return v.lang.startsWith('en'); });
     if (enVoice) return enVoice;
 
     // Fallback: first available
@@ -117,8 +122,6 @@
   function chunkText(text, maxChunkSize) {
     maxChunkSize = maxChunkSize || 2800;
     var chunks = [];
-
-    // First split by paragraphs (double newlines)
     var paragraphs = text.split(/\n\s*\n/);
     var currentChunk = '';
 
@@ -130,8 +133,6 @@
         currentChunk += (currentChunk ? ' ' : '') + para;
       } else {
         if (currentChunk) chunks.push(currentChunk);
-
-        // If single paragraph exceeds max, split by sentences
         if (para.length > maxChunkSize) {
           var sentenceChunks = splitBySentences(para, maxChunkSize);
           for (var j = 0; j < sentenceChunks.length; j++) {
@@ -159,7 +160,6 @@
         current += sentence;
       } else {
         if (current) chunks.push(current.trim());
-        // If single sentence is too long, hard-split
         if (sentence.length > maxSize) {
           var words = sentence.split(/\s+/);
           var wordChunk = '';
@@ -182,7 +182,7 @@
     return chunks;
   }
 
-  /* ---- Create Player UI ---- */
+  /* ---- Create Player UI (Pill Design + Wave Bars) ---- */
   function createPlayer() {
     var article = document.querySelector('.post-content');
     if (!article) return;
@@ -190,33 +190,60 @@
     var wrapper = document.createElement('div');
     wrapper.id = 'audio-player-wrap';
     wrapper.innerHTML =
-      '<button class="audio-listen-btn" id="audioListenBtn" title="Listen to this article">' +
-        '<span class="audio-listen-icon">' + ICONS.headphones + '</span>' +
-        '<span class="audio-listen-text">Listen to Article</span>' +
-      '</button>' +
-      '<div class="audio-controls" id="audioControls" style="display:none">' +
-        '<button class="audio-ctrl-btn" id="audioPlayPause" title="Play/Pause">' +
+      /* -- Listen Button (pill with headphones + wave bars) -- */
+      '<div class="audio-player" id="audioListenBtn">' +
+        '<button class="audio-play-btn" aria-label="Listen to article">' +
+          '<span class="audio-play-icon">' + ICONS.headphones + '</span>' +
+        '</button>' +
+        '<div class="audio-info">' +
+          '<span class="audio-label">Listen</span>' +
+          '<span class="audio-sublabel">Audio Article</span>' +
+        '</div>' +
+        '<div class="audio-wave">' +
+          '<span></span><span></span><span></span><span></span>' +
+        '</div>' +
+      '</div>' +
+
+      /* -- Controls Bar (shown while playing) -- */
+      '<div class="audio-controls-bar" id="audioControls" style="display:none">' +
+        '<button class="audio-ctrl-btn" id="audioPlayPause" title="Pause" aria-label="Pause">' +
           ICONS.pause +
         '</button>' +
-        '<button class="audio-ctrl-btn" id="audioStopBtn" title="Stop">' +
-          ICONS.stop +
+        '<button class="audio-ctrl-btn" id="audioSkipBtn" title="Skip to next section" aria-label="Skip to next section">' +
+          ICONS.skip +
         '</button>' +
-        '<button class="audio-ctrl-btn audio-speed-btn" id="audioSpeedBtn" title="Playback speed">' +
+        '<button class="audio-ctrl-btn audio-speed-btn" id="audioSpeedBtn" title="Playback speed" aria-label="Change speed">' +
           '<span class="speed-label">1x</span>' +
         '</button>' +
         '<span class="audio-status" id="audioStatus">Preparing...</span>' +
-        '<button class="audio-ctrl-btn audio-close-btn" id="audioCloseBtn" title="Close player">' +
+        '<button class="audio-ctrl-btn audio-close-btn" id="audioCloseBtn" title="Close player" aria-label="Close player">' +
           ICONS.close +
         '</button>' +
       '</div>';
 
     article.parentNode.insertBefore(wrapper, article);
 
+    // Event listeners
     document.getElementById('audioListenBtn').addEventListener('click', startAudio);
     document.getElementById('audioPlayPause').addEventListener('click', togglePlayPause);
+    document.getElementById('audioSkipBtn').addEventListener('click', skipNextChunk);
     document.getElementById('audioSpeedBtn').addEventListener('click', cycleSpeed);
-    document.getElementById('audioStopBtn').addEventListener('click', stopAudio);
+    document.getElementById('audioStopBtn') // no separate stop — close handles it
     document.getElementById('audioCloseBtn').addEventListener('click', stopAudio);
+
+    // Keyboard shortcuts
+    document.addEventListener('keydown', function(e) {
+      if (!playing) return;
+      // Don't intercept if user is typing in an input
+      if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
+      if (e.code === 'Space') {
+        e.preventDefault();
+        togglePlayPause();
+      } else if (e.code === 'Escape') {
+        e.preventDefault();
+        stopAudio();
+      }
+    });
   }
 
   /* ---- Extract clean article text ---- */
@@ -224,7 +251,7 @@
     var article = document.querySelector('.post-content');
     if (!article) return '';
     var clone = article.cloneNode(true);
-    var remove = clone.querySelectorAll('script, style, .audio-player-bar, iframe, noscript, .audio-controls, #audio-player-wrap');
+    var remove = clone.querySelectorAll('script, style, .audio-player-bar, iframe, noscript, .audio-controls-bar, #audio-player-wrap');
     remove.forEach(function(el) { el.remove(); });
     var text = clone.innerText || clone.textContent || '';
     text = text.replace(/\s+/g, ' ').trim();
@@ -235,7 +262,8 @@
   function startKeepalive() {
     stopKeepalive();
     // Chrome pauses speech synthesis after ~15 seconds of continuous speaking.
-    // This workaround pauses and immediately resumes every 10 seconds to reset the timer.
+    // Pause/resume every 10s with 100ms gap to reset the timer (slightly
+    // longer gap than before to reduce the audible micro-blip).
     keepaliveTimer = setInterval(function() {
       if (synth.speaking && !synth.paused && playing && !paused) {
         synth.pause();
@@ -243,7 +271,7 @@
           if (playing && !paused) {
             synth.resume();
           }
-        }, 50);
+        }, 100);
       }
     }, 10000);
   }
@@ -252,18 +280,6 @@
     if (keepaliveTimer) {
       clearInterval(keepaliveTimer);
       keepaliveTimer = null;
-    }
-  }
-
-  /* ---- Pulse Animation Control ---- */
-  function setPlayingState(isSpeaking) {
-    var listenBtn = document.getElementById('audioListenBtn');
-    if (listenBtn) {
-      if (isSpeaking) {
-        listenBtn.classList.add('audio-speaking');
-      } else {
-        listenBtn.classList.remove('audio-speaking');
-      }
     }
   }
 
@@ -277,16 +293,15 @@
       return;
     }
 
-    // Intelligent chunking
     articleChunks = chunkText(text, 2800);
     chunkIndex = 0;
     playing = true;
     paused = false;
 
+    // Show controls, hide listen button
     document.getElementById('audioControls').style.display = 'flex';
     document.getElementById('audioListenBtn').style.display = 'none';
     updatePlayPauseIcon();
-    setPlayingState(true);
     speakChunk();
   }
 
@@ -308,14 +323,16 @@
     currentUtterance.rate = speeds[speedIdx];
     currentUtterance.pitch = 1;
 
-    // Smart voice selection
     var voice = getVoice();
     if (voice) currentUtterance.voice = voice;
 
+    currentUtterance.onstart = function() {
+      updateStatus('Playing ' + (chunkIndex + 1) + '/' + articleChunks.length);
+    };
+
     currentUtterance.onend = function() {
       chunkIndex++;
-      updateStatus('Playing (' + Math.min(chunkIndex, articleChunks.length) + '/' + articleChunks.length + ')');
-      // Small delay before next chunk to prevent glitches
+      updateStatus('Playing ' + Math.min(chunkIndex, articleChunks.length) + '/' + articleChunks.length);
       setTimeout(function() {
         if (playing && !paused) speakChunk();
       }, 80);
@@ -328,7 +345,6 @@
     };
 
     synth.speak(currentUtterance);
-    updateStatus('Playing (' + (chunkIndex + 1) + '/' + articleChunks.length + ')');
     startKeepalive();
   }
 
@@ -342,7 +358,7 @@
     if (paused) {
       synth.resume();
       paused = false;
-      updateStatus('Playing (' + (chunkIndex + 1) + '/' + articleChunks.length + ')');
+      updateStatus('Playing ' + (chunkIndex + 1) + '/' + articleChunks.length);
       startKeepalive();
     } else {
       synth.pause();
@@ -353,6 +369,19 @@
     updatePlayPauseIcon();
   }
 
+  /* ---- Skip to Next Chunk ---- */
+  function skipNextChunk() {
+    if (!playing) return;
+    synth.cancel();
+    stopKeepalive();
+    chunkIndex++;
+    if (chunkIndex >= articleChunks.length) {
+      onEnd();
+    } else {
+      speakChunk();
+    }
+  }
+
   /* ---- Cycle Playback Speed ---- */
   function cycleSpeed() {
     speedIdx = (speedIdx + 1) % speeds.length;
@@ -360,7 +389,7 @@
     var label = document.querySelector('.speed-label');
     if (label) label.textContent = speed + 'x';
 
-    // If currently speaking, restart with new speed
+    // If speaking, restart current chunk at new speed
     if (playing && !paused && synth.speaking) {
       synth.cancel();
       stopKeepalive();
@@ -378,7 +407,6 @@
     stopKeepalive();
     document.getElementById('audioControls').style.display = 'none';
     document.getElementById('audioListenBtn').style.display = 'inline-flex';
-    setPlayingState(false);
     currentUtterance = null;
     articleChunks = [];
     chunkIndex = 0;
@@ -389,7 +417,6 @@
     playing = false;
     paused = false;
     stopKeepalive();
-    setPlayingState(false);
     updateStatus('Finished');
     updatePlayPauseIcon();
     setTimeout(function() {
@@ -409,6 +436,7 @@
     if (btn) {
       btn.innerHTML = paused ? ICONS.play : ICONS.pause;
       btn.title = paused ? 'Resume' : 'Pause';
+      btn.setAttribute('aria-label', paused ? 'Resume' : 'Pause');
     }
   }
 
@@ -427,7 +455,6 @@
       cachedVoice = selectBestVoice();
     };
   }
-  // Try to load voices immediately (some browsers have them ready)
   ensureVoices();
 
   /* ---- Initialize ---- */
