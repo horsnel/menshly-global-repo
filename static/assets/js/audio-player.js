@@ -372,9 +372,9 @@
     return chunks;
   }
 
-  /* Cloud TTS chunking — bigger chunks OK (no Chrome limit) */
+  /* Cloud TTS chunking — moderate chunks for fast generation */
   function chunkTextForCloud(text) {
-    var maxChunk = 900; /* Stay under 1000 API limit with margin */
+    var maxChunk = 600; /* Smaller chunks = faster per-chunk generation */
     var chunks = [];
     var paragraphs = text.split(/\n\s*\n/);
     var current = '';

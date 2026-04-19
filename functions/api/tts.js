@@ -235,10 +235,80 @@ function combineAudio(parts) {
    Speed control via URL parameter (ttsspeed=0.5-2.0).
    ================================================================ */
 async function synthesizeGoogleTTS(text, speed) {
-  const encoded = encodeURIComponent(text.substring(0, 200));
+  /* Google Translate TTS has a ~200 char limit per request.
+     Split longer text into sentence-aligned sub-chunks and concatenate audio. */
+  const maxLen = 200;
   const ttsSpeed = Math.max(0.5, Math.min(2.0, speed));
+
+  if (text.length <= maxLen) {
+    return fetchGoogleChunk(text, ttsSpeed);
+  }
+
+  /* Split into sub-chunks at sentence boundaries */
+  const subChunks = splitForGoogle(text, maxLen);
+  const audioParts = [];
+
+  for (const chunk of subChunks) {
+    try {
+      const buf = await fetchGoogleChunk(chunk, ttsSpeed);
+      audioParts.push(new Uint8Array(buf));
+    } catch (e) {
+      console.warn('Google TTS sub-chunk failed:', e.message);
+      /* Continue with remaining chunks */
+    }
+  }
+
+  if (audioParts.length === 0) {
+    throw new Error('All Google TTS sub-chunks failed');
+  }
+
+  /* Combine all audio parts */
+  const totalLen = audioParts.reduce((sum, p) => sum + p.length, 0);
+  const result = new Uint8Array(totalLen);
+  let offset = 0;
+  for (const part of audioParts) {
+    result.set(part, offset);
+    offset += part.length;
+  }
+  return result.buffer;
+}
+
+function splitForGoogle(text, maxLen) {
+  const chunks = [];
+  const sentences = text.match(/[^.!?]+[.!?]+\s*/g) || [text];
+  let current = '';
+
+  for (const s of sentences) {
+    if (current.length + s.length <= maxLen) {
+      current += s;
+    } else {
+      if (current) chunks.push(current.trim());
+      /* If single sentence is too long, split by commas */
+      if (s.length > maxLen) {
+        const parts = s.match(/[^,;:]+[,;:]?\s*/g) || [s];
+        let sub = '';
+        for (const p of parts) {
+          if (sub.length + p.length <= maxLen) {
+            sub += p;
+          } else {
+            if (sub) chunks.push(sub.trim());
+            sub = p;
+          }
+        }
+        current = sub;
+      } else {
+        current = s;
+      }
+    }
+  }
+  if (current) chunks.push(current.trim());
+  return chunks;
+}
+
+async function fetchGoogleChunk(text, speed) {
+  const encoded = encodeURIComponent(text);
   const url = 'https://translate.google.com/translate_tts?ie=UTF-8&q=' + encoded +
-    '&tl=en&client=tw-ob&ttsspeed=' + ttsSpeed;
+    '&tl=en&client=tw-ob&ttsspeed=' + speed;
 
   const response = await fetch(url, {
     headers: {
