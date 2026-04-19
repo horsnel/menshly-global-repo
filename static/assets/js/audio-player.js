@@ -1,16 +1,17 @@
 /* ================================================================
-   Audio Player v4.0 — Professional TTS for Article Pages
+   Audio Player v4.1 — Professional TTS for Article Pages
    MenshlyGlobal Client-Side Logic
 
-   Engine: Cloud TTS (via /api/tts) with browser SpeechSynthesis fallback
+   Engine: Edge TTS Neural Voices (via /api/tts) with browser fallback
    Design: Pill-shaped player with animated wave bars + progress bar
 
-   Key fixes over v3.0:
+   Key improvements over v3.0:
+   - Edge TTS provides professional neural voices (no API key needed)
    - Cloud TTS eliminates Chrome 15-second cutoff entirely
-   - Professional AI voices instead of robotic browser voices
    - Real progress bar showing playback position
    - HTML5 Audio API for reliable playback (no keepalive hacks)
    - Seamless fallback to browser TTS if cloud unavailable
+   - Voice selection with multiple neural voice options
    ================================================================ */
 (function() {
   'use strict';
@@ -30,8 +31,10 @@
   var cachedVoice = null;
   var cloudAudioCache = {};  // chunkIndex -> objectURL
   var isGenerating = false;
-  var generateQueue = [];
   var progressTimer = null;
+  var selectedVoice = 'en-US-AriaNeural';  // Default neural voice
+  var availableVoices = {};  // Populated from server
+  var voiceMenuOpen = false;
 
   /* ---- SVG Icons (Feather-style) ---- */
   var ICONS = {
@@ -63,16 +66,16 @@
         '<line x1="18" y1="6" x2="6" y2="18"/>' +
         '<line x1="6" y1="6" x2="18" y2="18"/>' +
       '</svg>',
-    loading:
-      '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" class="audio-spin">' +
-        '<path d="M12 2v4"/>' +
-        '<path d="M12 18v4"/>' +
-        '<path d="M4.93 4.93l2.83 2.83"/>' +
-        '<path d="M16.24 16.24l2.83 2.83"/>' +
-        '<path d="M2 12h4"/>' +
-        '<path d="M18 12h4"/>' +
-        '<path d="M4.93 19.07l2.83-2.83"/>' +
-        '<path d="M16.24 7.76l2.83-2.83"/>' +
+    voice:
+      '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">' +
+        '<path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/>' +
+        '<path d="M19 10v2a7 7 0 0 1-14 0v-2"/>' +
+        '<line x1="12" y1="19" x2="12" y2="23"/>' +
+        '<line x1="8" y1="23" x2="16" y2="23"/>' +
+      '</svg>',
+    chevronDown:
+      '<svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">' +
+        '<polyline points="6 9 12 15 18 9"/>' +
       '</svg>'
   };
 
@@ -92,6 +95,9 @@
     }).then(function(data) {
       if (data.available) {
         engine = 'cloud';
+        if (data.defaultVoice) selectedVoice = data.defaultVoice;
+        /* Fetch available voices */
+        fetchVoices();
         return true;
       }
       throw new Error('not available');
@@ -101,6 +107,16 @@
     });
   }
 
+  function fetchVoices() {
+    fetch('/api/tts', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ action: 'voices' })
+    }).then(function(r) { return r.json(); }).then(function(data) {
+      if (data.voices) availableVoices = data.voices;
+    }).catch(function() {});
+  }
+
   function requestCloudTTS(text, index) {
     return fetch('/api/tts', {
       method: 'POST',
@@ -108,14 +124,22 @@
       body: JSON.stringify({
         action: 'generate',
         text: text,
-        voice: 'kazi',
+        voice: selectedVoice,
         speed: speeds[speedIdx]
       })
     }).then(function(r) {
-      if (!r.ok) throw new Error('TTS request failed: ' + r.status);
+      if (!r.ok) {
+        /* If cloud TTS fails, throw to trigger fallback */
+        return r.json().then(function(err) {
+          throw new Error(err.error || 'TTS request failed: ' + r.status);
+        }).catch(function(e) {
+          if (e.message && e.message.indexOf('TTS request failed') === -1) throw e;
+          throw new Error('TTS request failed: ' + r.status);
+        });
+      }
       return r.arrayBuffer();
     }).then(function(buffer) {
-      var blob = new Blob([buffer], { type: 'audio/wav' });
+      var blob = new Blob([buffer], { type: 'audio/mpeg' });
       var url = URL.createObjectURL(blob);
       cloudAudioCache[index] = url;
       return url;
@@ -156,6 +180,11 @@
       isGenerating = false;
       console.warn('Cloud TTS failed, falling back to browser TTS:', err);
       engine = 'browser';
+      /* Re-chunk for browser (smaller chunks) */
+      var fullText = articleChunks.join(' ');
+      articleChunks = chunkTextForBrowser(fullText);
+      /* Start from approximate position */
+      chunkIndex = 0;
       speakChunk();
     });
   }
@@ -169,7 +198,7 @@
     }
 
     audioEl.src = cloudAudioCache[index];
-    audioEl.playbackRate = speeds[speedIdx];
+    audioEl.playbackRate = 1;  /* Speed is handled server-side for cloud TTS */
 
     audioEl.play().then(function() {
       updateStatus('Playing ' + (chunkIndex + 1) + '/' + articleChunks.length);
@@ -186,10 +215,10 @@
     if (chunkIndex >= articleChunks.length) {
       onEnd();
     } else if (playing && !paused) {
-      /* Small pause between chunks (sounds natural) */
+      /* Small pause between chunks for natural sound */
       setTimeout(function() {
         if (playing && !paused) playCloudChunk();
-      }, 200);
+      }, 250);
     }
   }
 
@@ -225,16 +254,20 @@
   function updateProgress() {
     var bar = document.getElementById('audioProgressBar');
     var timeEl = document.getElementById('audioTime');
-    if (!bar || !audioEl) return;
+    if (!bar) return;
 
     var pct = 0;
     var currentSec = 0;
     var totalSec = 0;
 
-    if (engine === 'cloud' && audioEl.duration && isFinite(audioEl.duration)) {
+    if (engine === 'cloud' && audioEl && audioEl.duration && isFinite(audioEl.duration)) {
       pct = (audioEl.currentTime / audioEl.duration) * 100;
       currentSec = Math.floor(audioEl.currentTime);
       totalSec = Math.floor(audioEl.duration);
+      /* Add progress from previous chunks */
+      var chunkProgress = (chunkIndex / articleChunks.length) * 100;
+      var chunkRange = (1 / articleChunks.length) * 100;
+      pct = chunkProgress + (pct / 100) * chunkRange;
     } else if (engine === 'browser' && articleChunks.length > 0) {
       pct = ((chunkIndex + 0.5) / articleChunks.length) * 100;
     }
@@ -253,7 +286,7 @@
 
   /* ================================================================
      BROWSER TTS FALLBACK — Fixed Chrome 15s cutoff
-     Uses small chunks (max ~500 chars = ~12s) so Chrome never cuts off
+     Uses small chunks (max ~450 chars = ~10s) so Chrome never cuts off
      ================================================================ */
 
   function selectBestVoice() {
@@ -304,8 +337,8 @@
 
   /* ---- Browser TTS chunking — small chunks to avoid Chrome cutoff ---- */
   function chunkTextForBrowser(text) {
-    /* Max 500 chars per chunk = ~12 seconds of speech (under Chrome's 15s limit) */
-    var maxChunk = 500;
+    /* Max 450 chars per chunk = ~10 seconds of speech (safely under Chrome's 15s limit) */
+    var maxChunk = 450;
     var chunks = [];
     var sentences = text.match(/[^.!?\n]+[.!?\n]+/g) || [text];
     var current = '';
@@ -341,7 +374,7 @@
 
   /* Cloud TTS chunking — bigger chunks OK (no Chrome limit) */
   function chunkTextForCloud(text) {
-    var maxChunk = 900; /* Stay under 1024 API limit with margin */
+    var maxChunk = 900; /* Stay under 1000 API limit with margin */
     var chunks = [];
     var paragraphs = text.split(/\n\s*\n/);
     var current = '';
@@ -404,7 +437,7 @@
       chunkIndex++;
       updateProgress();
       if (playing && !paused) {
-        /* No delay needed — chunks are short, natural pause */
+        /* Small gap between chunks for natural pacing */
         speakChunk();
       }
     };
@@ -421,8 +454,71 @@
     };
 
     synth.speak(currentUtterance);
-    /* NO keepalive needed — each chunk is under 12 seconds */
+    /* NO keepalive needed — each chunk is under 10 seconds */
   }
+
+  /* ================================================================
+     VOICE SELECTION DROPDOWN
+     ================================================================ */
+
+  function toggleVoiceMenu() {
+    var dropdown = document.getElementById('audioVoiceDropdown');
+    if (!dropdown) return;
+
+    voiceMenuOpen = !voiceMenuOpen;
+    dropdown.style.display = voiceMenuOpen ? 'block' : 'none';
+
+    if (voiceMenuOpen && Object.keys(availableVoices).length === 0) {
+      /* Voices not loaded yet, use defaults */
+      availableVoices = {
+        'en-US-AriaNeural': 'Aria (Female, US)',
+        'en-US-JennyNeural': 'Jenny (Female, US)',
+        'en-US-GuyNeural': 'Guy (Male, US)',
+        'en-US-DavisNeural': 'Davis (Male, US)',
+        'en-GB-SoniaNeural': 'Sonia (Female, UK)',
+        'en-GB-RyanNeural': 'Ryan (Male, UK)'
+      };
+    }
+
+    /* Populate dropdown */
+    if (voiceMenuOpen && dropdown.children.length === 0) {
+      var voiceKeys = Object.keys(availableVoices);
+      for (var i = 0; i < voiceKeys.length; i++) {
+        var key = voiceKeys[i];
+        var item = document.createElement('div');
+        item.className = 'audio-voice-item' + (key === selectedVoice ? ' active' : '');
+        item.textContent = availableVoices[key];
+        item.setAttribute('data-voice', key);
+        item.addEventListener('click', function(e) {
+          selectedVoice = this.getAttribute('data-voice');
+          voiceMenuOpen = false;
+          dropdown.style.display = 'none';
+          /* Update voice button label */
+          var voiceBtn = document.getElementById('audioVoiceBtn');
+          if (voiceBtn) {
+            voiceBtn.title = 'Voice: ' + availableVoices[selectedVoice];
+          }
+          /* Clear cache if we're switching voices mid-play */
+          if (playing) {
+            clearCloudCache();
+          }
+        });
+        dropdown.appendChild(item);
+      }
+    }
+  }
+
+  /* Close voice menu when clicking outside */
+  document.addEventListener('click', function(e) {
+    if (voiceMenuOpen) {
+      var voiceBtn = document.getElementById('audioVoiceBtn');
+      var dropdown = document.getElementById('audioVoiceDropdown');
+      if (voiceBtn && dropdown && !voiceBtn.contains(e.target) && !dropdown.contains(e.target)) {
+        voiceMenuOpen = false;
+        dropdown.style.display = 'none';
+      }
+    }
+  });
 
   /* ================================================================
      PLAYER UI
@@ -457,6 +553,10 @@
         '<button class="audio-ctrl-btn audio-speed-btn" id="audioSpeedBtn" title="Speed" aria-label="Speed">' +
           '<span class="speed-label">1x</span>' +
         '</button>' +
+        (engine === 'cloud' ?
+          '<button class="audio-ctrl-btn audio-voice-btn" id="audioVoiceBtn" title="Voice: Aria (Female, US)" aria-label="Select voice">' +
+            ICONS.voice +
+          '</button>' : '') +
         '<div class="audio-progress-wrap">' +
           '<div class="audio-progress-bar" id="audioProgressBar"></div>' +
         '</div>' +
@@ -466,7 +566,8 @@
         '<button class="audio-ctrl-btn audio-close-btn" id="audioCloseBtn" title="Close" aria-label="Close">' +
           ICONS.close +
         '</button>' +
-      '</div>';
+      '</div>' +
+      '<div class="audio-voice-dropdown" id="audioVoiceDropdown" style="display:none"></div>';
 
     article.parentNode.insertBefore(wrapper, article);
 
@@ -475,6 +576,12 @@
     document.getElementById('audioSkipBtn').addEventListener('click', skipNextChunk);
     document.getElementById('audioSpeedBtn').addEventListener('click', cycleSpeed);
     document.getElementById('audioCloseBtn').addEventListener('click', stopAudio);
+
+    var voiceBtn = document.getElementById('audioVoiceBtn');
+    if (voiceBtn) voiceBtn.addEventListener('click', function(e) {
+      e.stopPropagation();
+      toggleVoiceMenu();
+    });
 
     document.addEventListener('keydown', function(e) {
       if (!playing) return;
@@ -597,9 +704,13 @@
     if (label) label.textContent = speed + 'x';
 
     if (engine === 'cloud' && audioEl) {
-      audioEl.playbackRate = speed;
-      /* Re-generate current chunk at new speed (voice changes with speed) */
-      /* Actually, just change playbackRate — no need to regenerate */
+      /* For cloud TTS, we need to regenerate audio at new speed.
+         Changing playbackRate works but distorts quality.
+         Best approach: re-generate current chunk at new speed. */
+      clearCloudCache();
+      if (playing && !paused) {
+        playCloudChunk();
+      }
     } else if (engine === 'browser' && playing && !paused && synth.speaking) {
       synth.cancel();
       stopProgressTimer();
@@ -668,7 +779,7 @@
   function init() {
     /* First try cloud TTS, fall back to browser */
     detectCloudTTS().then(function() {
-      console.log('[AudioPlayer] Engine:', engine);
+      console.log('[AudioPlayer] Engine:', engine, '| Voice:', selectedVoice);
       createPlayer();
     });
   }

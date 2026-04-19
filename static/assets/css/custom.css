@@ -5671,6 +5671,10 @@ img { max-width: 100%; height: auto; }
 }
 
 /* ---- Controls Bar (shown while playing) ---- */
+#audio-player-wrap {
+  position: relative;
+}
+
 .audio-controls-bar {
   display: flex;
   align-items: center;
@@ -5791,6 +5795,71 @@ img { max-width: 100%; height: auto; }
 
 .audio-close-btn {
   margin-left: auto;
+}
+
+/* Voice selection button */
+.audio-voice-btn {
+  position: relative;
+  opacity: 0.8;
+}
+
+.audio-voice-btn:hover {
+  opacity: 1;
+}
+
+/* Voice dropdown */
+.audio-voice-dropdown {
+  position: absolute;
+  bottom: 100%;
+  right: 10px;
+  margin-bottom: 8px;
+  background: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+  min-width: 200px;
+  max-height: 240px;
+  overflow-y: auto;
+  z-index: 1000;
+  padding: 4px 0;
+}
+
+.audio-voice-item {
+  padding: 8px 14px;
+  font-size: 0.8rem;
+  cursor: pointer;
+  color: #333;
+  white-space: nowrap;
+  transition: background 0.15s;
+}
+
+.audio-voice-item:hover {
+  background: #f0f0f5;
+}
+
+.audio-voice-item.active {
+  background: #1a1a2e;
+  color: #e94560;
+  font-weight: 600;
+}
+
+[data-theme="dark"] .audio-voice-dropdown {
+  background: #2a2a3e;
+  border-color: #3a3a4e;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+}
+
+[data-theme="dark"] .audio-voice-item {
+  color: #d0d0d0;
+}
+
+[data-theme="dark"] .audio-voice-item:hover {
+  background: #3a3a4e;
+}
+
+[data-theme="dark"] .audio-voice-item.active {
+  background: #e94560;
+  color: #fff;
 }
 
 /* ---- Dark Mode ---- */
