@@ -1,18 +1,18 @@
-baseURL = "https://menshly-global.pages.dev/"
+baseURL = "https://kivora.pages.dev/"
 languageCode = "en-us"
-title = "MenshlyGlobal | The 2026 Frontier"
+title = "Kivora | Build. Automate. Monetize. Scale."
 [pagination]
   pagerSize = 9
 
 [params]
-  description = "Elite investigative journalism and 2026 global forecasts."
-  author = "Menshly Intelligence Board"
+  description = "Documentary-style founder stories, money-making playbooks, and automation guides for builders who ship."
+  author = "Kivora Editorial"
   twitter = "Olhmescraxes1"
   fullWidth = true
   centerHeader = true
-  footer = "© 2026 MenshlyGlobal Intelligence. All rights reserved."
-  breakingHeadline = "Nigeria's public debt hits record high at 159.28 trillion naira, raising fresh concerns about fiscal sustainability."
-  breakingLink = "/posts/investors-are-expecting-donald-trump-to-back-down-/"
+  footer = "© 2026 Kivora. Build. Automate. Monetize. Scale."
+  breakingHeadline = "New founder stories just dropped — real patterns, raw details, no hype."
+  breakingLink = "/stories/"
 
 [taxonomies]
   tag = "tags"
@@ -51,30 +51,26 @@ title = "MenshlyGlobal | The 2026 Frontier"
     weight = 10
 
 [[menu.main]]
-  name = "Business"
-  url = "/categories/business"
+  name = "Stories"
+  url = "/stories/"
   weight = 1
 [[menu.main]]
-  name = "Technology"
-  url = "/categories/technology"
+  name = "Build"
+  url = "/categories/build"
   weight = 2
 [[menu.main]]
-  name = "World"
-  url = "/categories/world"
+  name = "Automate"
+  url = "/categories/automate"
   weight = 3
 [[menu.main]]
-  name = "Health"
-  url = "/categories/health"
+  name = "Monetize"
+  url = "/categories/monetize"
   weight = 4
 [[menu.main]]
-  name = "Science"
-  url = "/categories/science"
+  name = "Scale"
+  url = "/categories/scale"
   weight = 5
 [[menu.main]]
-  name = "Entertainment"
-  url = "/categories/entertainment"
+  name = "Newsletter"
+  url = "/newsletter/"
   weight = 6
-[[menu.main]]
-  name = "Finance"
-  url = "/categories/finance"
-  weight = 7
