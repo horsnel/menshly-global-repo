@@ -1,39 +1,37 @@
 ---
-title: "‘You are running a 1980s operating system in a 2026 body’: Mumbai nutritionist explains 4 traditional eating habits that no longer work"
-date: "2026-04-20T12:07:36Z"
-slug: "1776686856976-you-are-running-a-1980s-operating-system-in-a-2026-body-mumbai-nutritionist-expl"
-image: "https://pixabay.com/get/g8b63326091e8b67ff06c9af240fcf9cbd73f4298454570ce0c180ca250c79f55512ad493f91cd219c442052d90a1f01ac26da0a6967a12dea0a0f0f8090416f9_1280.jpg"
+title: "Edo gov reaffirms commitment to women’s welfare"
+date: "2026-04-20T15:55:45Z"
+slug: "1776700545552-edo-gov-reaffirms-commitment-to-womens-welfare"
+image: "https://pixabay.com/get/g4ec84b4eb67632316b30b308bafc9c6b78508a6f5ea6486fcc59c822321563df9ec4cd6d4f79ac606ae8f4f39cc68d0fffaf4d81e9855f958ff2c2014e40f5f4_1280.jpg"
 categories: ["health"]
-tags: ["2026", "Health", "running", "\u2018you", "1980s", "operating"]
-author: "Dr. Fatima Al-Hassan"
-description: "**Traditional Eating Habits in Modern India: A Harmful Legacy of Scarcity** A recent article in The Times of India highlights the persistence of outdated eating"
+tags: ["Health", "gov", "2026", "commitment", "edo", "Breaking"]
+author: "Sarah Mitchell"
+description: "**Edo Governor's Reaffirmation of Commitment to Women's Welfare Marks a Milestone in Women's Empowerment** The recent reaffirmation by Edo State Governor, Okpeb"
 ---
-**Traditional Eating Habits in Modern India: A Harmful Legacy of Scarcity** A recent article in The Times of India highlights the persistence of outdated eating habits in modern India, where many individuals continue to follow childhood food rules that were once necessary for survival but are now detrimental to their health.
+**Edo Governor's Reaffirmation of Commitment to Women's Welfare Marks a Milestone in Women's Empowerment** The recent reaffirmation by Edo State Governor, Okpebholo, of his commitment to policies prioritizing women's welfare, safety, and empowerment has sent a strong signal that the state is moving in the right direction towards achieving gender equality. This commitment, outlined in his Strategic Healthcare, Improved Nutrition and Economic Empowerment (SHINE) agenda for families, marks a significant milestone in the ongoing efforts to promote women's empowerment in Nigeria.
 
-## The Legacy of Scarcity
+## **A Step in the Right Direction**
 
-According to Mumbai-based nutritionist, Dr. Rohini Pande, many Indians still cling to eating habits that were shaped by the scarcity of food during their childhood. "You are running a 1980s operating system in a 2026 body," Dr. Pande explains. "These old habits were once necessary for survival, but now they are causing more harm than good." Dr. Pande cites four traditional eating habits that no longer work: finishing all food, fearing waste, linking food with strength, and a lack of food autonomy in childhood.
+The SHINE agenda is a comprehensive framework aimed at improving the healthcare and economic outcomes of families in Edo State. One of the key components of this agenda is the emphasis on women's welfare, which includes initiatives such as maternal healthcare, education, and economic empowerment. By prioritizing women's welfare, the governor is recognizing the critical role that women play in the development of families and communities.
 
-## Finishing All Food: A Toxic Mindset
+"It's a step in the right direction," said Dr. Nneoma Eze, a public health expert and women's rights advocate. "Women's empowerment is essential for achieving sustainable development. When women are empowered, they are more likely to invest in their families and communities, leading to improved health, education, and economic outcomes."
 
-Dr. Pande notes that the mindset of finishing all food on the plate is a remnant of a time when food was scarce and every bite was precious. However, this habit has become a source of stress and anxiety for many Indians, leading to overeating and poor digestion. "This mindset is not only unhealthy but also perpetuates the idea that food is a luxury rather than a necessity," Dr. Pande says. "It's time to rewire our brains and focus on nourishing our bodies rather than just consuming food."
+## **Expert Perspectives on the SHINE Agenda**
 
-## Fearing Waste: A Wasteful Legacy
+Experts in the field of women's empowerment and public health have welcomed the governor's commitment to the SHINE agenda. According to Dr. Eze, the agenda has the potential to significantly improve the lives of women and families in Edo State.
 
-The fear of waste is another outdated habit that persists in modern India. Dr. Pande explains that this fear is rooted in the scarcity of food during childhood, when every meal was a struggle. However, in today's world, where food is abundant and readily available, this fear can lead to overeating and poor food choices. "We need to reframe our relationship with food and see it as a source of nourishment rather than a source of guilt and anxiety," Dr. Pande says.
+"The SHINE agenda is a comprehensive framework that addresses the key issues affecting women's health and economic empowerment," said Dr. Eze. "It's a holistic approach that recognizes the interconnectedness of healthcare, education, and economic empowerment."
 
-## Linking Food with Strength: A Misconception
+## **Implications for Women's Empowerment in Nigeria**
 
-Dr. Pande notes that the idea that food is directly linked to strength is a common misconception in Indian culture. "This idea is based on the notion that a larger stomach means a stronger body," Dr. Pande explains. "However, the truth is that a healthy body requires balanced nutrition, not just a large stomach." This misconception can lead to overeating and poor food choices, as individuals try to fuel their bodies with large amounts of food in the hopes of building strength.
+The Edo State government's commitment to women's welfare and empowerment has significant implications for women's empowerment in Nigeria. It sets a precedent for other states to prioritize women's welfare and empowerment, leading to a more inclusive and equitable society.
 
-## The Impact of Lack of Food Autonomy
+"This is a wake-up call for other states and the federal government to prioritize women's empowerment," said Mrs. Adaora Onyenso, a women's rights activist. "Women's empowerment is not just a moral imperative, but a developmental necessity. It's time for us to recognize the critical role that women play in shaping the future of our country."
 
-Dr. Pande also notes that the lack of food autonomy in childhood can have a lasting impact on adult choices. "When we don't have the freedom to choose our own food, we are more likely to follow unhealthy habits and make poor food choices," Dr. Pande says. "This lack of autonomy can lead to a lifetime of disordered eating and poor health outcomes."
+## **A New Era for Women's Empowerment in Nigeria**
 
-## Implications for Public Health
+The reaffirmation by Governor Okpebholo of his commitment to women's welfare and empowerment marks a new era for women's empowerment in Nigeria. It's a signal that the state is moving in the right direction towards achieving gender equality.
 
-The persistence of outdated eating habits in modern India has significant implications for public health. Dr. Pande notes that these habits are contributing to a range of health problems, including obesity, diabetes, and heart disease. "It's time for Indians to rewire their relationship with food and focus on nourishing their bodies rather than just consuming food," Dr. Pande says. "By making small changes to our eating habits, we can prevent a range of health problems and live healthier, happier lives."
+"As we move forward, it's essential that we continue to prioritize women's welfare and empowerment," said Dr. Eze. "Women's empowerment is a journey, not a destination. We must continue to work together to create a more inclusive and equitable society for all."
 
-## Conclusion
-
-The persistence of outdated eating habits in modern India is a legacy of scarcity that no longer serves us. By recognizing the harm caused by these habits and making small changes to our eating habits, we can prevent a range of health problems and live healthier, happier lives. As Dr. Pande says, "It's time to upgrade our operating system and focus on nourishing our bodies rather than just consuming food."
+The commitment by Governor Okpebholo to the SHINE agenda is a significant milestone in the ongoing efforts to promote women's empowerment in Nigeria. It sets a precedent for other states and the federal government to prioritize women's welfare and empowerment, leading to a more inclusive and equitable society.
