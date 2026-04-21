@@ -1,18 +1,18 @@
 #!/bin/bash
-# Kivora — Build Script
+# MenshlyGlobal — Build Script
 # Auto-fixes content files then runs Hugo
 # This runs on Cloudflare Pages before every build
 
 set -e
 
-echo "=== Kivora Build ==="
+echo "=== MenshlyGlobal Build ==="
 
 # Auto-fix content whitespace and format issues
 echo "Cleaning content files..."
 python3 -c "
 import os, re
 
-for directory in ['content/posts']:
+for directory in ['content/posts', 'content/ai-newsroom']:
     if not os.path.isdir(directory):
         continue
     for fname in os.listdir(directory):
@@ -47,4 +47,4 @@ print('Content cleanup complete.')
 
 echo "Running Hugo..."
 hugo --minify
-echo "=== Kivora Build Successful ==="
+echo "=== Build Successful ==="

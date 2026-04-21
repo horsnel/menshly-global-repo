@@ -1,18 +1,18 @@
-baseURL = "https://kivora.pages.dev/"
+baseURL = "https://menshly-global.pages.dev/"
 languageCode = "en-us"
-title = "Kivora | Build. Automate. Monetize. Scale."
+title = "MenshlyGlobal | The 2026 Frontier"
 [pagination]
   pagerSize = 9
 
 [params]
-  description = "Documentary-style founder stories, money-making playbooks, and automation guides for builders who ship."
-  author = "Kivora Editorial"
+  description = "Elite investigative journalism and 2026 global forecasts."
+  author = "Menshly Intelligence Board"
   twitter = "Olhmescraxes1"
   fullWidth = true
   centerHeader = true
-  footer = "© 2026 Kivora. Build. Automate. Monetize. Scale."
-  breakingHeadline = "New founder stories just dropped — real patterns, raw details, no hype."
-  breakingLink = "/stories/"
+  footer = "© 2026 MenshlyGlobal Intelligence. All rights reserved."
+  breakingHeadline = "Nigeria's public debt hits record high at 159.28 trillion naira, raising fresh concerns about fiscal sustainability."
+  breakingLink = "/posts/investors-are-expecting-donald-trump-to-back-down-/"
 
 [taxonomies]
   tag = "tags"
@@ -51,26 +51,30 @@ title = "Kivora | Build. Automate. Monetize. Scale."
     weight = 10
 
 [[menu.main]]
-  name = "Stories"
-  url = "/stories/"
+  name = "Business"
+  url = "/categories/business"
   weight = 1
 [[menu.main]]
-  name = "Build"
-  url = "/categories/build"
+  name = "Technology"
+  url = "/categories/technology"
   weight = 2
 [[menu.main]]
-  name = "Automate"
-  url = "/categories/automate"
+  name = "World"
+  url = "/categories/world"
   weight = 3
 [[menu.main]]
-  name = "Monetize"
-  url = "/categories/monetize"
+  name = "Health"
+  url = "/categories/health"
   weight = 4
 [[menu.main]]
-  name = "Scale"
-  url = "/categories/scale"
+  name = "Science"
+  url = "/categories/science"
   weight = 5
 [[menu.main]]
-  name = "Newsletter"
-  url = "/newsletter/"
+  name = "Entertainment"
+  url = "/categories/entertainment"
   weight = 6
+[[menu.main]]
+  name = "Finance"
+  url = "/categories/finance"
+  weight = 7
