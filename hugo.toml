@@ -43,23 +43,23 @@ title = "MenshlyGlobal | The 2026 Frontier"
     name = "categories"
     weight = 100
   [[related.indices]]
-  name = "authors"
+    name = "authors"
     weight = 80
   [[related.indices]]
     name = "date"
     weight = 10
 
 [[menu.main]]
+  name = "World"
+  url = "/categories/world"
+  weight = 1
+[[menu.main]]
   name = "Business"
   url = "/categories/business"
-  weight = 1
+  weight = 2
 [[menu.main]]
   name = "Technology"
   url = "/categories/technology"
-  weight = 2
-[[menu.main]]
-  name = "World"
-  url = "/categories/world"
   weight = 3
 [[menu.main]]
   name = "Health"

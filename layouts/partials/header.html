@@ -1,20 +1,40 @@
-<header class="site-header">
-  <div class="header-inner">
-    <a class="site-logo" href="{{ .Site.BaseURL }}">Menshly<span>Global</span></a>
-    <div class="header-center">
-      <div class="header-date" id="headerDate"></div>
-      <div class="live-clock" id="liveClock"></div>
-    </div>
-    <div class="header-actions">
-      <a href="{{ "index.xml" | absURL }}" class="header-btn rss-btn" aria-label="RSS Feed" title="Subscribe to RSS Feed">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 11a9 9 0 0 1 9 9"/><path d="M4 4a16 16 0 0 1 16 16"/><circle cx="5" cy="19" r="1" fill="currentColor"/></svg>
-        <span>RSS</span>
-      </a>
-      <button class="header-btn search-btn" id="search-toggle" aria-label="Search" title="Search Articles (Ctrl+K)">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-        <span>Search</span>
-        <kbd class="search-shortcut">Ctrl+K</kbd>
+<!-- Masthead Top Bar: Date + Weather -->
+<div class="masthead-topbar">
+  <span class="masthead-date" id="headerDate"></span>
+  <span class="masthead-weather" id="mastheadWeather">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+    <span id="weatherText">Loading...</span>
+  </span>
+</div>
+
+<!-- Masthead Main: Logo + Subscribe -->
+<div class="masthead-main">
+  <div class="masthead-main-inner">
+    <div class="masthead-actions">
+      <button class="masthead-search-btn" id="search-toggle" aria-label="Search" title="Search Articles (Ctrl+K)">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
       </button>
+    </div>
+
+    <div class="masthead-logo">
+      <a href="{{ .Site.BaseURL }}" class="masthead-logo-text">Menshly Global</a>
+      <div class="masthead-tagline">The 2026 Frontier</div>
+    </div>
+
+    <div class="masthead-actions">
+      <div style="position:relative;">
+        <button class="subscribe-btn" id="subscribe-toggle">Subscribe</button>
+        <div class="subscribe-dropdown" id="subscribe-dropdown">
+          <h4>The Frontier Dispatch</h4>
+          <p>Get The Daily Brief — Free. No spam. Unsubscribe anytime.</p>
+          <form class="nl-form" id="mastheadNlForm" action="https://formspree.io/f/xreawkow" method="POST">
+            <input type="hidden" name="_subject" value="New Newsletter Subscriber — Menshly Global (Masthead)">
+            <input type="hidden" name="form_name" value="newsletter-masthead">
+            <input type="email" name="email" placeholder="Your email address" required aria-label="Email address">
+            <button type="submit">Subscribe Free &rarr;</button>
+          </form>
+        </div>
+      </div>
       <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode" title="Toggle dark mode">
         <svg class="sun-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
         <svg class="moon-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
@@ -22,4 +42,21 @@
       <button class="mobile-toggle" id="menu-toggle" aria-label="Menu"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button>
     </div>
   </div>
-</header>
+</div>
+
+<!-- Sticky Masthead (appears on scroll) -->
+<div class="masthead-sticky" id="masthead-sticky">
+  <div class="masthead-sticky-inner">
+    <a href="{{ .Site.BaseURL }}" class="masthead-sticky-logo">Menshly Global</a>
+    <div class="masthead-sticky-nav">
+      <a href="/categories/world">World</a>
+      <a href="/categories/business">Business</a>
+      <a href="/categories/technology">Tech</a>
+      <a href="/categories/health">Health</a>
+      <a href="/categories/entertainment">Entertainment</a>
+    </div>
+    <div class="masthead-sticky-actions">
+      <button class="subscribe-btn" onclick="document.getElementById('subscribe-toggle').click()">Subscribe</button>
+    </div>
+  </div>
+</div>

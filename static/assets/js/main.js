@@ -39,23 +39,6 @@
     setInterval(update,60000);
   })();
 
-  // Live clock - 12h format with AM/PM
-  (function(){
-    var el=document.getElementById("liveClock");
-    if(!el)return;
-    function update(){
-      var now=new Date();
-      var h=now.getHours();
-      var m=String(now.getMinutes()).padStart(2,"0");
-      var s=String(now.getSeconds()).padStart(2,"0");
-      var ampm=h>=12?"PM":"AM";
-      h=h%12||12;
-      el.innerHTML='<span class="clock-time">'+h+':'+m+':'+s+'</span> <span class="clock-ampm">'+ampm+'</span>';
-    }
-    update();
-    setInterval(update,1000);
-  })();
-
   // Cookie consent
   var cc=localStorage.getItem("cookie_consent");
   if(cc==="accepted"&&typeof gtag==="function"){gtag("consent","update",{analytics_storage:"granted"})}
@@ -75,13 +58,105 @@
       bar.style.width = progress + "%";
     });
   })();
-})();
+
+  // Sticky masthead on scroll
+  (function(){
+    var sticky = document.getElementById("masthead-sticky");
+    if (!sticky) return;
+    window.addEventListener("scroll", function(){
+      if (window.scrollY > 250) {
+        sticky.classList.add("visible");
+      } else {
+        sticky.classList.remove("visible");
+      }
+    });
+  })();
+
+  // Subscribe dropdown
+  (function(){
+    var toggle = document.getElementById("subscribe-toggle");
+    var dropdown = document.getElementById("subscribe-dropdown");
+    if (!toggle || !dropdown) return;
+    toggle.addEventListener("click", function(e){
+      e.stopPropagation();
+      dropdown.classList.toggle("active");
+    });
+    document.addEventListener("click", function(e){
+      if (!dropdown.contains(e.target) && e.target !== toggle) {
+        dropdown.classList.remove("active");
+      }
+    });
+    // Handle form submission
+    var form = document.getElementById("mastheadNlForm");
+    if (form) {
+      form.addEventListener("submit", function(e){
+        e.preventDefault();
+        var email = form.querySelector('input[type="email"]');
+        var btn = form.querySelector('button');
+        var fd = new FormData(form);
+        fetch(form.action, {method:'POST', body:fd, headers:{'Accept':'application/json'}})
+        .then(function(r){
+          if(r.ok){
+            btn.textContent = 'Subscribed!';
+            btn.style.background = '#27ae60';
+            email.value = '';
+            setTimeout(function(){ btn.textContent = 'Subscribe Free \u2192'; btn.style.background = ''; }, 3000);
+          }
+        }).catch(function(){});
+      });
+    }
+  })();
+
+  // Mobile nav toggle
+  (function(){
+    var menuToggle = document.getElementById("menu-toggle");
+    var navBar = document.getElementById("nav-bar");
+    if (!menuToggle || !navBar) return;
+    menuToggle.addEventListener("click", function(){
+      navBar.classList.toggle("mobile-open");
+    });
+  })();
+
+  // Exit intent modal (desktop only)
+  (function(){
+    var modal = document.getElementById("exitIntentModal");
+    var closeBtn = document.getElementById("exitIntentClose");
+    if (!modal) return;
+    var shown = localStorage.getItem("exit_intent_shown");
+    if (shown) return;
+    document.addEventListener("mouseout", function(e){
+      if (e.clientY < 5 && !localStorage.getItem("exit_intent_shown")) {
+        modal.classList.add("active");
+        localStorage.setItem("exit_intent_shown", "1");
+      }
+    });
+    if (closeBtn) {
+      closeBtn.addEventListener("click", function(){
+        modal.classList.remove("active");
+      });
+    }
+    modal.addEventListener("click", function(e){
+      if (e.target === modal) modal.classList.remove("active");
+    });
+  })();
+
+  // Mobile subscribe bar dismiss
+  (function(){
+    var bar = document.getElementById("mobileSubscribeBar");
+    var dismiss = document.getElementById("mobileSubscribeDismiss");
+    if (!bar || !dismiss) return;
+    var dismissed = localStorage.getItem("mobile_sub_dismissed");
+    if (dismissed) { bar.style.display = "none"; return; }
+    dismiss.addEventListener("click", function(){
+      bar.style.display = "none";
+      localStorage.setItem("mobile_sub_dismissed", "1");
+    });
+  })();
 
   // Breaking news dynamic loader
   (function(){
     var alert = document.getElementById("breaking-alert");
     if (!alert) return;
-    // Only fetch if no static headline is set (param-based fallback already rendered)
     var existingText = alert.querySelector(".breaking-alert-text");
     if (existingText && existingText.textContent.trim()) return;
     fetch("/api/breaking-news", {
@@ -111,3 +186,27 @@
       }
     }).catch(function(){});
   })();
+
+  // Handle all newsletter forms
+  document.querySelectorAll('.nl-form').forEach(function(form){
+    if (form.dataset.bound) return;
+    form.dataset.bound = '1';
+    // Skip if already handled (masthead form)
+    if (form.id === 'mastheadNlForm') return;
+    form.addEventListener('submit', function(e){
+      e.preventDefault();
+      var email = form.querySelector('input[type="email"]');
+      var btn = form.querySelector('button');
+      if (!email || !email.value) return;
+      var fd = new FormData(form);
+      fetch(form.action, {method:'POST', body:fd, headers:{'Accept':'application/json'}})
+      .then(function(r){
+        if(r.ok){
+          if (btn) { btn.textContent = 'Subscribed!'; btn.style.background = '#27ae60'; }
+          email.value = '';
+          setTimeout(function(){ if(btn){ btn.textContent = 'Subscribe Free \u2192'; btn.style.background = ''; } }, 3000);
+        }
+      }).catch(function(){});
+    });
+  });
+})();

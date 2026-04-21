@@ -21,6 +21,8 @@ on:
     paths:
       - 'content/posts/**'
       - 'content/ai-newsroom/**'
+    branches:
+      - main
   workflow_dispatch:
     inputs:
       fix:

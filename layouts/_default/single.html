@@ -6,13 +6,14 @@
       {{ partial "breadcrumbs.html" . }}
       <article>
         <div class="post-header">
-          {{ with .Params.categories }}{{ $cat := index . 0 }}<span class="post-category"><a href="/categories/{{ $cat | urlize }}" style="color:#fff;">{{ $cat }}</a></span>{{ end }}
+          {{ with .Params.categories }}{{ $cat := index . 0 }}<span class="post-category"><a href="/categories/{{ $cat | urlize }}">{{ $cat }}</a></span>{{ end }}
           <h1>{{ .Title }}</h1>
           <div class="post-meta">
-            <span>{{ .Date.Format "January 2, 2006" }}</span>
-            {{ with .Params.author }}<span>By <a href="/authors/{{ . | urlize }}" style="color:var(--accent);">{{ . }}</a></span>{{ end }}
+            {{ with .Params.author }}<span class="byline">By <a href="/authors/{{ . | urlize }}" style="color:var(--accent);">{{ . }}</a></span>{{ end }}
+            <span>{{ .Date.Format "January 2, 2006, 3:04 p.m. ET" }}</span>
             {{ $wordCount := .WordCount }}
             {{ $readingTime := math.Round (div (float $wordCount) 200.0) }}
+            {{ if lt $readingTime 1 }}{{ $readingTime = 1 }}{{ end }}
             <span>{{ $readingTime }} min read</span>
             <span class="article-view-count" id="articleViewCount" style="display:none;">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align:-2px;"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
@@ -22,12 +23,26 @@
         </div>
         {{ with .Params.image }}
         <div class="post-featured-image">
-          <img src="{{ . }}" alt="{{ $.Title }}" loading="lazy">
+          <img src="{{ . }}" alt="{{ $.Title }}" loading="eager">
+          <div class="image-caption">Photo credit: Menshlyglobal Editorials</div>
         </div>
         {{ end }}
         <div class="post-content">
           {{ .Content }}
         </div>
+
+        {{/* Article-end Newsletter Banner */}}
+        <div class="article-newsletter-banner">
+          <h3>Get The Frontier Dispatch</h3>
+          <p>Join 12,400+ readers. The stories that shape tomorrow, delivered every morning.</p>
+          <form class="nl-form" action="https://formspree.io/f/xreawkow" method="POST">
+            <input type="hidden" name="_subject" value="New Newsletter Subscriber — Menshly Global (Article)">
+            <input type="hidden" name="form_name" value="newsletter-article">
+            <input type="email" name="email" placeholder="Your email address" required aria-label="Email address">
+            <button type="submit">Subscribe Free &rarr;</button>
+          </form>
+        </div>
+
         {{ partial "social-share.html" . }}
         {{ partial "author-bio.html" . }}
         {{ partial "series-nav.html" . }}
@@ -36,14 +51,8 @@
     </div>
     <aside class="sidebar">
       {{ partial "most-read-widget.html" . }}
-      {{ partial "tradingview-widget.html" . }}
       {{ partial "trending-now-widget.html" . }}
       {{ partial "categories-widget.html" . }}
-      {{ partial "weather-widget.html" . }}
-      {{ partial "premium-news-widget.html" . }}
-      {{ partial "ai-analysis-widget.html" . }}
-      {{ partial "pro-analysis-widget.html" . }}
-      {{ partial "writing-assistant-widget.html" . }}
     </aside>
   </div>
 </article>
