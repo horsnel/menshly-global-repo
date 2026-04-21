@@ -71,31 +71,8 @@ jobs:
             if [ "$ARTICLES" -gt 0 ]; then
               git config user.name "MenshlyGlobal News Bot"
               git config user.email "newsbot@menshly-global.pages.dev"
-              
-              # Copy generated articles from output/ to content/posts/ using manifest
-              # Also verify each article has an image before copying
-              python3 -c "
-import json, shutil, os
-manifest = json.load(open('output/manifest.json'))
-copied = 0
-for article in manifest:
-    src = article['file']
-    dst = os.path.join('content/posts', os.path.basename(src))
-    if os.path.exists(src):
-        with open(src, 'r') as f:
-            head = f.read(500)
-        if 'image:' in head:
-            shutil.copy2(src, dst)
-            print(f'Copied: {src} -> {dst}')
-            copied += 1
-        else:
-            print(f'SKIPPED (no image): {src}')
-print(f'Total copied: {copied}')
-"
-              
+              python3 scripts/copy-articles.py
               git add content/posts/*.md 2>/dev/null || true
-              
-              # Check if there are changes to commit
               CHANGED=$(git diff --cached --name-only | wc -l)
               if [ "$CHANGED" -gt 0 ]; then
                 git commit -m "News: publish ${ARTICLES} dispatch(es) [auto]"

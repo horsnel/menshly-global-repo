@@ -11,6 +11,7 @@
   var PUBLISH_ENDPOINT = '/api/publish-article';
   var DELETE_ENDPOINT = '/api/delete-article';
   var TRENDING_ENDPOINT = '/api/trending-topics';
+  var PROMOTE_ENDPOINT = '/api/promote-to-homepage';
 
   var TRENDING_TOPICS = [
     'Dune: Part Two — A visual masterpiece or style over substance?',
@@ -1029,6 +1030,55 @@
   /* ================================================================
      DELETE PUBLISHED ARTICLE
      ================================================================ */
+  /* ---- Promote Article to Homepage ---- */
+  async function promoteToHomepage(slug, title, btn) {
+    if (!slug) return;
+
+    var confirmed = confirm('Promote this article to the homepage?\n\nTitle: ' + (title || slug) + '\n\nThe article will appear on the front page within 1-2 minutes. A copy will remain in the newsroom.');
+    if (!confirmed) return;
+
+    if (btn) {
+      btn.disabled = true;
+      var origHTML = btn.innerHTML;
+      btn.innerHTML = '<svg class="ai-nr-spinner" width="14" height="14" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2" fill="none" stroke-dasharray="30 70"/></svg> Promoting...';
+    }
+
+    try {
+      var response = await fetch(PROMOTE_ENDPOINT, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ slug: slug })
+      });
+
+      var data = await response.json();
+
+      if (!response.ok || data.error) {
+        var errMsg = data.error || 'Promote failed';
+        if (response.status === 503) {
+          errMsg += ' Set GITHUB_TOKEN and GITHUB_REPO in Cloudflare env vars.';
+        }
+        throw new Error(errMsg);
+      }
+
+      showStatus('success', 'Article promoted to homepage! It will appear on the front page within 1-2 minutes. Commit: ' + (data.commitSha || ''));
+
+      if (btn) {
+        btn.innerHTML = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg> Promoted!';
+        btn.classList.add('ai-nr-promoted');
+        btn.style.background = '#27ae60';
+        btn.style.color = '#fff';
+        btn.style.borderColor = '#27ae60';
+      }
+
+    } catch (err) {
+      showStatus('error', 'Promote failed: ' + (err.message || 'Unknown error'));
+      if (btn) {
+        btn.disabled = false;
+        btn.innerHTML = origHTML || '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 14.899A7 7 0 1 1 15.71 8h1.79a4.5 4.5 0 0 1 2.5 8.242"/><polyline points="12 12 17 17"/><polyline points="12 17 17 12"/></svg> Promote to Homepage';
+      }
+    }
+  }
+
   async function deletePublishedArticle(slug, title) {
     if (!slug) return;
 
@@ -1419,8 +1469,21 @@
     var clearBtn = getEl('manualClearBtn');
     if (clearBtn) clearBtn.addEventListener('click', clearManualForm);
 
-    // Published articles — delete buttons
+    // Published articles — promote buttons
     var publishedGrid = getEl('aiNewsroomPublishedGrid');
+    if (publishedGrid) {
+      publishedGrid.querySelectorAll('.ai-nr-pub-promote-btn').forEach(function(btn) {
+        btn.addEventListener('click', function(e) {
+          e.preventDefault();
+          e.stopPropagation();
+          var slug = this.getAttribute('data-slug');
+          var title = this.getAttribute('data-title');
+          promoteToHomepage(slug, title, this);
+        });
+      });
+    }
+
+    // Published articles — delete buttons
     if (publishedGrid) {
       publishedGrid.querySelectorAll('.ai-nr-pub-delete-btn').forEach(function(btn) {
         btn.addEventListener('click', function(e) {
