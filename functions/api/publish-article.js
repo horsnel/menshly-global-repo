@@ -46,7 +46,6 @@ export async function onRequestPost(context) {
     fm += "slug: " + JSON.stringify(slug) + "\n";
     if (image) fm += "image: " + JSON.stringify(image) + "\n";
     fm += "categories: " + JSON.stringify([hugoCat]) + "\n";
-    fm += "tags: " + JSON.stringify(tags) + "\n";
     fm += "author: " + JSON.stringify(author) + "\n";
     fm += "description: " + JSON.stringify((summary || "").substring(0, 160)) + "\n";
     if (reqSeries && reqSeries.trim()) fm += "series: " + JSON.stringify(reqSeries.trim()) + "\n";

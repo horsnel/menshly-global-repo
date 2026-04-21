@@ -780,7 +780,7 @@ def build_markdown(article, topic, category_key, category_label, image_data):
 
     fm_lines.extend([
         f'categories: ["{category_key}"]',
-        f'tags: {json.dumps(tags)}',
+        
         f'author: "{author}"',
         f'description: "{article.get("summary", "")[:160].replace(chr(34), "")}"',
         "---",
