@@ -1,11 +1,12 @@
 ---
 title: "Fiorentina 2-1 Crystal Palace (Agg: 2-4): Eagles reach Conference League semi-finals despite defeat in Florence"
-date: 2026-04-17T10:43:25.440Z
+date: "2026-04-17T10:43:25.440Z"
 image: "https://images.pexels.com/photos/19813735/pexels-photo-19813735.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
 categories: ["entertainment"]
-author: "Menshly Intelligence Board"
+author: "Menshlyglobal Editorials"
 authors:
-- "menshly-intelligence-board"
+- "menshlyglobal-editorials"
+description: "Analysis and insights on Fiorentina 2-1 Crystal Palace (Agg: 2-4): Eagles reach Conference League semi-finals despite defeat in Florence."
 ---
 <p><h2>Introduction to the Conference League Quarter-Finals</h2>
 <p>The Conference League quarter-finals have been nothing short of exhilarating, with top-notch teams from across Europe clashing in a bid to claim the coveted title. One such thrilling encounter was the Fiorentina vs Crystal Palace matchup, which saw the Eagles from London take on the Italian outfit in a two-legged affair. Despite suff</p>

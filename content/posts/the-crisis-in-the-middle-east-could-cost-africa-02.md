@@ -1,11 +1,12 @@
 ---
 title: "The Crisis In The Middle East Could Cost Africa 0.2 Percent In Economic Growth In 2026"
-date: 2026-04-17T10:21:54.985Z
+date: "2026-04-17T10:21:54.985Z"
 image: "https://images.pexels.com/photos/29556472/pexels-photo-29556472.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
 categories: ["world"]
-author: "Sarah Mitchell"
+author: "Menshlyglobal Editorials"
 authors:
-- "sarah-mitchell"
+- "menshlyglobal-editorials"
+description: "Analysis and insights on The Crisis In The Middle East Could Cost Africa 0.2 Percent In Economic Growth In 2026."
 ---
 <p><h2>The Crisis In The Middle East Could Cost Africa 0.2 Percent In Economic Growth In 2026</h2>
 <p>The ongoing crisis in the Middle East has far-reaching implications that extend beyond the region, affecting economies and communities worldwide. A recent report by the African Development Bank has revealed that the crisis could have a significant impact on Africa's economic growth, potentially costi</p>

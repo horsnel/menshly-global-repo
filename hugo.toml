@@ -5,12 +5,12 @@ title = "MenshlyGlobal | The 2026 Frontier"
   pagerSize = 9
 
 [params]
-  description = "Elite investigative journalism and 2026 global forecasts."
-  author = "Menshly Intelligence Board"
+  description = "We use the best AI models to analyse news articles from verified sources before they hit your homepage."
+  author = "Menshlyglobal Editorials"
   twitter = "Olhmescraxes1"
   fullWidth = true
   centerHeader = true
-  footer = "© 2026 MenshlyGlobal Intelligence. All rights reserved."
+  footer = "© 2026 Menshlyglobal Editorials. We use the best AI models to analyse news articles from verified sources before they hit your homepage."
   breakingHeadline = "Nigeria's public debt hits record high at 159.28 trillion naira, raising fresh concerns about fiscal sustainability."
   breakingLink = "/posts/investors-are-expecting-donald-trump-to-back-down-/"
 

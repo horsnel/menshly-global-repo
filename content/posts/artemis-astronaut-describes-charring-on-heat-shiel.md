@@ -1,11 +1,12 @@
 ---
 title: "Artemis astronaut describes charring on heat shield during crew's fiery return to Earth"
-date: 2026-04-17T10:22:44.243Z
+date: "2026-04-17T10:22:44.243Z"
 image: "https://images.pexels.com/photos/30869149/pexels-photo-30869149.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
 categories: ["science"]
-author: "Sarah Mitchell"
+author: "Menshlyglobal Editorials"
 authors:
-- "sarah-mitchell"
+- "menshlyglobal-editorials"
+description: "Analysis and insights on Artemis astronaut describes charring on heat shield during crew's fiery return to Earth."
 ---
 <p><h2>Introduction to the Artemis Mission</h2>
 <p>The Artemis mission, a historic endeavor by NASA, has been making headlines with its groundbreaking achievements. The mission aims to return humans to the lunar surface by 2025 and establish a sustainable presence on the Moon. Recently, the crew of the Artemis mission returned to Earth, marking a significant milestone in the program. However, their r</p>

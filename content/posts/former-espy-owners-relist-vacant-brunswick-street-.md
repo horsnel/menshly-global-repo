@@ -1,11 +1,12 @@
 ---
 title: "Former Espy owners relist vacant Brunswick Street venue for 6-7 million"
-date: 2026-04-17T10:21:00.310Z
+date: "2026-04-17T10:21:00.310Z"
 image: "https://images.pexels.com/photos/935979/pexels-photo-935979.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
 categories: ["business"]
-author: "Sarah Mitchell"
+author: "Menshlyglobal Editorials"
 authors:
-- "sarah-mitchell"
+- "menshlyglobal-editorials"
+description: "Analysis and insights on Former Espy owners relist vacant Brunswick Street venue for 6-7 million."
 ---
 <p><h2>Introduction to the Relisting of the Former Espy Venue</h2>
 <p>The former Espy owners have recently relisted the vacant Brunswick Street venue, sparking interest and speculation among potential buyers and investors. The iconic venue, which has been a staple of the local entertainment and nightlife scene, is now on the market for a reported $6-7 million. This move has significant implications f</p>

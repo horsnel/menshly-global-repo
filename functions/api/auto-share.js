@@ -70,7 +70,7 @@ export async function onRequestPost(context) {
             description: excerpt ? (excerpt.length > 350 ? excerpt.substring(0, 347) + '...' : excerpt) : '',
             color: 0xc0392b,
             footer: {
-              text: author ? `By ${author}` : 'MenshlyGlobal Intelligence Board'
+              text: author ? `By ${author}` : 'Menshlyglobal Editorials'
             },
             fields: category ? [{ name: 'Category', value: category, inline: true }] : [],
             image: image ? { url: image } : undefined,

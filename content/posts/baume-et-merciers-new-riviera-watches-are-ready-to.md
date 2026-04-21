@@ -1,11 +1,12 @@
 ---
 title: "Baume et Merciers New Riviera Watches are Ready to Party Like it's 1973"
-date: 2026-04-17T10:21:19.972Z
+date: "2026-04-17T10:21:19.972Z"
 image: "https://images.pexels.com/photos/11366392/pexels-photo-11366392.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
 categories: ["technology"]
-author: "Sarah Mitchell"
+author: "Menshlyglobal Editorials"
 authors:
-- "sarah-mitchell"
+- "menshlyglobal-editorials"
+description: "Analysis and insights on Baume et Merciers New Riviera Watches are Ready to Party Like it's 1973."
 ---
 <p><h2>Introduction to Baume et Mercier's New Riviera Watches</h2>
 <p>Baume et Mercier, the renowned Swiss watchmaker, has recently unveiled its new Riviera watches, paying homage to the iconic timepieces of the 1970s. The new collection is a modern reinterpretation of the brand's classic Riviera watch, which was first introduced in 1973. With its sleek design, advanced features, and nostalgic charm,</p>

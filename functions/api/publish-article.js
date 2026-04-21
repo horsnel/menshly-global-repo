@@ -24,8 +24,8 @@ export async function onRequestPost(context) {
 
     const slug = slugify(title);
     const dateStr = new Date().toISOString();
-    const authorPool = ["David Kiprop","Sarah Mitchell","Amara Okonkwo","Marcus Webb","James Chen","Dr. Elena Vasquez","Dr. Fatima Al-Hassan"];
-    const author = (reqAuthor && reqAuthor.trim()) ? reqAuthor.trim() : authorPool[Math.floor(Math.random() * authorPool.length)];
+    const authorPool = ["Menshlyglobal Editorials"];
+    const author = (reqAuthor && reqAuthor.trim()) ? reqAuthor.trim() : "Menshlyglobal Editorials";
 
     const catMap = {"Film & TV Review":"entertainment","Arts & Culture":"entertainment","Personal Finance":"finance","Market Analysis":"business","Business Strategy":"business","Tech & Innovation":"technology","Expert Commentary":"world","World News":"world","Technology":"technology","Business":"business","Finance":"finance","Entertainment":"entertainment","Sports":"sports","Science":"science","Health":"health","Opinion":"opinion"};
     const validSlugs = ["world","technology","business","finance","entertainment","sports","science","health","opinion"];

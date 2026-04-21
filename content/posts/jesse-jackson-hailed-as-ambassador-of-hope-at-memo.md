@@ -3,9 +3,9 @@ title: "Jesse Jackson hailed as ‘ambassador of hope’ at memorial attended by
 date: "2026-03-07T11:03:48.461Z"
 image: "https://images.pexels.com/photos/32417524/pexels-photo-32417524.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
 categories: ["world"]
-author: "David Kiprop"
+author: "Menshlyglobal Editorials"
 authors:
-- "david-kiprop"
+- "menshlyglobal-editorials"
 description: "Jesse Jackson memorial service attended by Clintons, Obama, and Biden celebrates the legacy of a civil rights icon."
 ---
 <p><h2>Strategic Implications</h2>

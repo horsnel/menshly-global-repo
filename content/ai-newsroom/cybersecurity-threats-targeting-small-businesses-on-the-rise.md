@@ -4,7 +4,7 @@ date: "2026-04-21T16:02:12.800Z"
 slug: "cybersecurity-threats-targeting-small-businesses-on-the-rise"
 image: "https://images.pexels.com/photos/5926379/pexels-photo-5926379.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
 categories: ["business"]
-author: "Dr. Fatima Al-Hassan"
+author: "Menshlyglobal Editorials"
 description: "Small businesses are increasingly becoming prime targets for cyberattacks due to weaker defenses and limited resources, with ransomware, phishing, and supply ch"
 ---
 

@@ -1,0 +1,146 @@
+# ============================================================
+# Menshlyglobal Editorials — Article QA Verification
+# Runs automatically when articles are pushed to content/posts/
+# or content/ai-newsroom/, and can be triggered manually.
+# Checks articles for ripped/fake/low-quality content,
+# verifies images, auto-fixes issues, and rejects bad articles.
+#
+# SETUP: Add these secrets in GitHub → Settings → Secrets and variables → Actions
+#   AI_API_KEY      — AI API key (Cerebras or compatible)
+#   AI_API_BASE     — API base URL (default: https://api.cerebras.ai/v1)
+#   AI_MODEL        — Model name (optional, auto-detects)
+#   PEXELS_API_KEY  — Pexels API key (optional, for image replacement)
+#   PIXABAY_API_KEY — Pixabay API key (optional, for image replacement)
+#   FREPIK_API_KEY  — Freepik API key (optional, for image replacement)
+# ============================================================
+
+name: Article QA Verification
+
+on:
+  push:
+    paths:
+      - 'content/posts/**'
+      - 'content/ai-newsroom/**'
+  workflow_dispatch:
+    inputs:
+      fix:
+        description: 'Auto-fix issues (true/false)'
+        required: false
+        default: 'true'
+      reject:
+        description: 'Delete bad articles (true/false)'
+        required: false
+        default: 'true'
+      directory:
+        description: 'Directory to check (content/posts/ or content/ai-newsroom/ or both)'
+        required: false
+        default: 'both'
+
+permissions:
+  contents: write
+
+jobs:
+  verify-articles:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Determine flags
+        id: flags
+        run: |
+          # Default to true for auto-triggered runs
+          FIX="${{ inputs.fix || 'true' }}"
+          REJECT="${{ inputs.reject || 'true' }}"
+          DIR="${{ inputs.directory || 'both' }}"
+          
+          FIX_FLAG=""
+          REJECT_FLAG=""
+          
+          if [ "$FIX" = "true" ]; then
+            FIX_FLAG="--fix"
+          fi
+          if [ "$REJECT" = "true" ]; then
+            REJECT_FLAG="--reject"
+          fi
+          
+          echo "fix_flag=$FIX_FLAG" >> $GITHUB_OUTPUT
+          echo "reject_flag=$REJECT_FLAG" >> $GITHUB_OUTPUT
+          echo "directory=$DIR" >> $GITHUB_OUTPUT
+          echo "Flags: fix=$FIX_FLAG reject=$REJECT_FLAG dir=$DIR"
+
+      - name: QA Verify — content/posts/
+        if: steps.flags.outputs.directory == 'both' || steps.flags.outputs.directory == 'content/posts/'
+        env:
+          AI_API_KEY: ${{ secrets.AI_API_KEY }}
+          AI_API_BASE: ${{ secrets.AI_API_BASE }}
+          AI_MODEL: ${{ secrets.AI_MODEL }}
+          PEXELS_API_KEY: ${{ secrets.PEXELS_API_KEY }}
+          PIXABAY_API_KEY: ${{ secrets.PIXABAY_API_KEY }}
+          FREPIK_API_KEY: ${{ secrets.FREPIK_API_KEY }}
+        continue-on-error: true
+        run: |
+          echo "=== QA Verification: content/posts/ ==="
+          python scripts/article-qa.py --dir content/posts/ ${{ steps.flags.outputs.fix_flag }} ${{ steps.flags.outputs.reject_flag }} || true
+
+      - name: QA Verify — content/ai-newsroom/
+        if: steps.flags.outputs.directory == 'both' || steps.flags.outputs.directory == 'content/ai-newsroom/'
+        env:
+          AI_API_KEY: ${{ secrets.AI_API_KEY }}
+          AI_API_BASE: ${{ secrets.AI_API_BASE }}
+          AI_MODEL: ${{ secrets.AI_MODEL }}
+          PEXELS_API_KEY: ${{ secrets.PEXELS_API_KEY }}
+          PIXABAY_API_KEY: ${{ secrets.PIXABAY_API_KEY }}
+          FREPIK_API_KEY: ${{ secrets.FREPIK_API_KEY }}
+        continue-on-error: true
+        run: |
+          echo "=== QA Verification: content/ai-newsroom/ ==="
+          python scripts/article-qa.py --dir content/ai-newsroom/ ${{ steps.flags.outputs.fix_flag }} ${{ steps.flags.outputs.reject_flag }} || true
+
+      - name: Commit and push fixes/rejections
+        run: |
+          git config user.name "Menshlyglobal QA Bot"
+          git config user.email "qa-bot@menshly-global.pages.dev"
+          
+          # Add any modified articles (fixes) and removed articles (rejections)
+          git add content/posts/*.md content/ai-newsroom/*.md 2>/dev/null || true
+          git add output/rejected/ 2>/dev/null || true
+          
+          CHANGED=$(git diff --cached --name-only | wc -l)
+          if [ "$CHANGED" -gt 0 ]; then
+            # Summarize changes
+            FIXED=$(git diff --cached --name-only -- 'content/**/*.md' | grep -v 'output/rejected' | wc -l)
+            REJECTED=$(git diff --cached --name-only -- 'output/rejected/' | wc -l)
+            # Use [skip ci] to prevent infinite loop — QA workflow won't re-trigger
+            git commit -m "QA: ${FIXED} article(s) fixed, ${REJECTED} rejected [skip ci]"
+            git push
+            echo "Committed QA changes: ${FIXED} fixed, ${REJECTED} rejected"
+          else
+            echo "No QA changes to commit"
+          fi
+
+      - name: Log QA report
+        if: always()
+        run: |
+          echo "========== QA REPORT =========="
+          if [ -f output/qa-report.json ]; then
+            echo "--- QA Summary ---"
+            python3 scripts/qa-log-report.py 2>/dev/null || cat output/qa-report.json
+          else
+            echo "No QA report generated"
+          fi
+          if [ -d output/rejected/ ]; then
+            echo "--- Rejected Articles ---"
+            ls -la output/rejected/ 2>/dev/null || echo "No rejected articles"
+          fi
+          echo "================================"

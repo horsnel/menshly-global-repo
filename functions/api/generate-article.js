@@ -92,13 +92,15 @@ export async function onRequestPost(context) {
     const lengthLabel = lengthMap[length] || "600-800 words";
 
     /* === System Prompt - ask for structured plain text === */
-    const systemPrompt = `You are a senior content creator for MenshlyGlobal, a premium international media platform. You write reviews, analysis, opinions, guides, and commentary.
+    const systemPrompt = `You are a senior content creator for Menshlyglobal Editorials, a premium international media platform. We use the best AI models to analyse news articles from verified sources before they hit your homepage. You write reviews, analysis, opinions, guides, and commentary.
 
 Rules:
 - Style: ${toneLabel}
 - Target length: ${lengthLabel}
 - Category: ${catLabel}
 - Be specific with concrete examples, numbers, and real-world references
+- Never fabricate quotes, statistics, or specific data points
+- Clearly distinguish between verified facts and analysis/opinion
 - End with a clear conclusion or actionable takeaway
 - Use proper markdown formatting: ## for subheadings, - or * for bullet points, **bold** for emphasis
 

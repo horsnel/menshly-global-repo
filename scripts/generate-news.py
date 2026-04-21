@@ -103,8 +103,7 @@ ACTIVE_MODEL = auto_detect_model()
 
 # ── Authors pool ───────────────────────────────────────────
 AUTHORS = [
-    "David Kiprop", "Sarah Mitchell", "Amara Okonkwo", "Marcus Webb",
-    "James Chen", "Dr. Elena Vasquez", "Dr. Fatima Al-Hassan"
+    "Menshlyglobal Editorials"
 ]
 
 # ── Categories for news ───────────────────────────────────
@@ -398,7 +397,7 @@ def generate_news_article(headline, category_key, category_label):
     angles = NEWS_CATEGORIES[category_key]["angles"]
     angle = random.choice(angles)
 
-    system_prompt = f"""You are a senior news correspondent for MenshlyGlobal. Write a news analysis about the provided headline.
+    system_prompt = f"""You are a senior news correspondent for Menshlyglobal Editorials. We use the best AI models to analyse news articles from verified sources before they hit your homepage. Write a news analysis about the provided headline.
 
 Rules:
 - Category: {category_label}
@@ -406,6 +405,8 @@ Rules:
 - Use markdown ## subheadings for structure
 - Write in journalistic third-person style
 - Include expert perspectives and forward-looking analysis
+- Never fabricate quotes, statistics, or specific data points
+- Clearly distinguish between verified facts and analysis/opinion
 - Start your response with a 1-2 sentence summary, then continue with the full article using ## headings
 - Do NOT wrap your response in JSON or code blocks
 - Just write the article directly in markdown"""

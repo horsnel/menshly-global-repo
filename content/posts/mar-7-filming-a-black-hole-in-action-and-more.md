@@ -3,9 +3,9 @@ title: "Mar 7: Filming a black hole in action, and more…"
 date: "2026-03-07T10:51:46.799Z"
 image: "https://images.pexels.com/photos/32417524/pexels-photo-32417524.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
 categories: ["science"]
-author: "Dr. Elena Vasquez"
+author: "Menshlyglobal Editorials"
 authors:
-- "dr-elena-vasquez"
+- "menshlyglobal-editorials"
 description: "The historic achievement of filming a black hole in action marks a new era for astrophysics and space exploration."
 ---
 <p><h2>Strategic Implications</h2>

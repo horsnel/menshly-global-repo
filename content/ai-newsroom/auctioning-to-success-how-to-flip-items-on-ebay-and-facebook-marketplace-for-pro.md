@@ -3,7 +3,7 @@ title: "Auctioning to Success: How to Flip Items on eBay and Facebook Marketplac
 date: "2026-04-21T15:13:42.391Z"
 slug: "auctioning-to-success-how-to-flip-items-on-ebay-and-facebook-marketplace-for-pro"
 image: "https://images.pexels.com/photos/14820410/pexels-photo-14820410.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
-author: "Marcus Webb"
+author: "Menshlyglobal Editorials"
 description: "**SUMMARY:** \\\"How to Flip Items on eBay and Facebook Marketplace for Profit\\\" is an informative documentary-style series that provides an inside look at the worl"
 categories: ["entertainment"]
 ---

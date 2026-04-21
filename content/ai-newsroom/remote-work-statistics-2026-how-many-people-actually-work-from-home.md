@@ -4,7 +4,7 @@ date: "2026-04-21T16:01:24.409Z"
 slug: "remote-work-statistics-2026-how-many-people-actually-work-from-home"
 image: "https://images.pexels.com/photos/4050320/pexels-photo-4050320.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
 categories: ["business"]
-author: "James Chen"
+author: "Menshlyglobal Editorials"
 description: "**Summary:** With the rise of remote work, it's becoming increasingly difficult to determine the actual number of people working from home. In this market analy"
 ---
 

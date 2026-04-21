@@ -3,9 +3,9 @@ title: "Bessent Says US May ‘Unsanction’ More Russia Oil Post India Move"
 date: "2026-03-07T10:50:55.482Z"
 image: "https://images.pexels.com/photos/32417524/pexels-photo-32417524.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
 categories: ["world"]
-author: "James Chen"
+author: "Menshlyglobal Editorials"
 authors:
-- "james-chen"
+- "menshlyglobal-editorials"
 description: "Analysis of the strategic implications as the US considers unsanctioning more Russian oil following India's increased imports."
 ---
 <p><h2>Strategic Implications</h2>

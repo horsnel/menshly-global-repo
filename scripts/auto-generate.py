@@ -114,8 +114,7 @@ ACTIVE_MODEL = auto_detect_model()
 
 # ── Authors pool ───────────────────────────────────────────
 AUTHORS = [
-    "David Kiprop", "Sarah Mitchell", "Amara Okonkwo", "Marcus Webb",
-    "James Chen", "Dr. Elena Vasquez", "Dr. Fatima Al-Hassan"
+    "Menshlyglobal Editorials"
 ]
 
 # ── Categories & topics ────────────────────────────────────
@@ -658,7 +657,7 @@ def generate_article(topic, category_key, category_label):
     lengths = ["300-400", "500-700", "700-900"]
     length = random.choice(lengths)
 
-    system_prompt = f"""You are a content creator for MenshlyGlobal, a premium international media platform. You write ONLY reviews, analysis, opinions, guides, and commentary. You NEVER write breaking news or factual news reporting.
+    system_prompt = f"""You are a content creator for Menshlyglobal Editorials, a premium international media platform. We use the best AI models to analyse news articles from verified sources before they hit your homepage. You write ONLY reviews, analysis, opinions, guides, and commentary. You NEVER write breaking news or factual news reporting.
 
 CRITICAL RULES:
 - Write in {tone} style
@@ -670,6 +669,7 @@ CRITICAL RULES:
 - Use markdown subheadings (##) for structure
 - Be specific with concrete examples, numbers, and real-world references
 - Never claim to report facts that need verification
+- Never fabricate quotes, statistics, or specific data points
 - End with a clear conclusion or actionable takeaway
 - Return ONLY valid JSON with these exact keys:
   "title": string (headline),

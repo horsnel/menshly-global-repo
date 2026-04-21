@@ -1,7 +1,7 @@
 # ============================================================
-# MenshlyGlobal — Auto Article Publisher
+# Menshlyglobal Editorials — Auto Article Publisher
 # Runs on schedule + manual trigger
-# Generates AI articles and commits to repo → triggers Hugo build
+# Generates AI articles → QA verifies → commits to repo → Hugo build
 #
 # SETUP: Add these secrets in GitHub → Settings → Secrets and variables → Actions
 #   AI_API_KEY      — Your Cerebras (or compatible) API key
@@ -36,7 +36,7 @@ permissions:
 jobs:
   generate-and-publish:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 15
 
     steps:
       - name: Checkout repository
@@ -79,6 +79,23 @@ jobs:
             echo "No article was generated (possibly duplicate or error)"
           fi
 
+      - name: QA Verify generated article
+        if: steps.check.outputs.created == 'true'
+        env:
+          AI_API_KEY: ${{ secrets.AI_API_KEY }}
+          PEXELS_API_KEY: ${{ secrets.PEXELS_API_KEY }}
+          PIXABAY_API_KEY: ${{ secrets.PIXABAY_API_KEY }}
+          FREPIK_API_KEY: ${{ secrets.FREPIK_API_KEY }}
+          AI_API_BASE: ${{ secrets.AI_API_BASE }}
+          AI_MODEL: ${{ secrets.AI_MODEL }}
+        run: |
+          echo "Running QA verification on generated article..."
+          python scripts/article-qa.py --file output/article.md --fix || echo "QA completed with warnings"
+          if [ -f output/qa-report.json ]; then
+            echo "--- QA REPORT ---"
+            cat output/qa-report.json
+          fi
+
       - name: Commit and push article
         if: steps.check.outputs.created == 'true'
         run: |
@@ -87,11 +104,11 @@ jobs:
             echo "ERROR: Empty slug, cannot publish article"
             exit 1
           fi
-          git config user.name "MenshlyGlobal Bot"
+          git config user.name "Menshlyglobal Bot"
           git config user.email "bot@menshly-global.pages.dev"
           cp output/article.md "content/ai-newsroom/${SLUG}.md"
           git add "content/ai-newsroom/${SLUG}.md"
-          git commit -m "Auto: publish ${SLUG}"
+          git commit -m "Auto: AI-verified article ${SLUG}"
           git push
 
       - name: Log result
@@ -107,4 +124,8 @@ jobs:
           if [ -f output/error.log ]; then
             echo "--- ERROR LOG ---"
             cat output/error.log
+          fi
+          if [ -f output/qa-report.json ]; then
+            echo "--- QA REPORT ---"
+            cat output/qa-report.json
           fi

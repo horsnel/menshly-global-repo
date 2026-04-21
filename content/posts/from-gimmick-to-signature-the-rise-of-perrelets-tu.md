@@ -3,9 +3,9 @@ title: "From Gimmick to Signature: The Rise of Perrelet’s Turbine"
 date: "2026-03-07T11:03:11.351Z"
 image: "https://images.pexels.com/photos/32417524/pexels-photo-32417524.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
 categories: ["technology"]
-author: "Sarah Mitchell"
+author: "Menshlyglobal Editorials"
 authors:
-- "sarah-mitchell"
+- "menshlyglobal-editorials"
 description: "How Perrelet transformed its Turbine from a gimmick into a signature collection defining Swiss luxury watchmaking."
 ---
 <p><h2>Introduction to Perrelet's Turbine</h2>

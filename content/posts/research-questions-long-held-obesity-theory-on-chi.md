@@ -1,11 +1,12 @@
 ---
 title: "Research Questions Long-held Obesity Theory on Child BMI"
-date: 2026-04-17T10:24:10.510Z
+date: "2026-04-17T10:24:10.510Z"
 image: "https://images.pexels.com/photos/19813735/pexels-photo-19813735.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
 categories: ["science"]
-author: "Sarah Mitchell"
+author: "Menshlyglobal Editorials"
 authors:
-- "sarah-mitchell"
+- "menshlyglobal-editorials"
+description: "Analysis and insights on Research Questions Long-held Obesity Theory on Child BMI."
 ---
 <p><h2>Introduction to the Debate</h2>
 <p>For decades, the medical community has widely accepted the theory that childhood obesity is directly linked to an individual's Body Mass Index (BMI) later in life. This notion has been the cornerstone of numerous public health initiatives and interventions aimed at curbing the rising tide of obesity among children and adolescents. However, recent research has</p>
