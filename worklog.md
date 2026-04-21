@@ -200,3 +200,39 @@ Stage Summary:
 - Author bios now appear on article pages
 - View count shows correct grammar
 - Related articles have correct alt text
+
+---
+Task ID: 3
+Agent: Main Agent
+Task: Fix content and dead images — check all article files, fix front matter, clean up
+
+Work Log:
+- Audited all 55 article .md files in content/posts/ (45) and content/ai-newsroom/ (9 + _index.md)
+- Checked every file for: missing image field, broken/empty image URLs, tags field, empty descriptions, malformed front matter, missing categories
+- Found 0 articles needing deletion (all had valid image URLs — none were missing, empty, "undefined", or "null")
+- Found 0 tags fields in any article
+- Found 39 files with front matter issues that needed fixing:
+  - 24 auto-generated posts had TWO separate front matter blocks (author/authors were between a second pair of --- delimiters, outside the actual front matter)
+  - 29 posts were missing `categories` field entirely
+  - 5 posts had empty `description: ""` fields removed
+  - 1 post (Fiorentina football) had wrong category `["technology"]` changed to `["entertainment"]`
+  - 2 ai-newsroom files had author/authors slug mismatch (authors slug didn't match author display name)
+  - 17 files had display-name slugs in authors list instead of proper slug format (e.g., "David Kiprop" → "david-kiprop")
+  - 2 ai-newsroom files had author name but authors slug was "menshly-intelligence-board" instead of matching the author
+- Merged all two-block front matter into single proper blocks
+- Added categories to all posts that were missing them (technology, business, health, science, world, entertainment)
+- Added missing author/authors fields to 5 auto-generated posts
+- Removed empty description fields from 5 posts
+- Fixed author/authors consistency across all ai-newsroom files
+- Verified all 62 files clean with Python validation script (0 issues)
+- Hugo build: 108 pages, 0 errors, 255ms
+- Committed and pushed to GitHub (571dd56)
+
+Stage Summary:
+- 55 articles checked, 0 deleted (all had valid images), 39 fixed
+- All front matter now properly formatted with single --- block
+- All articles have categories, author, and authors fields
+- No tags fields remain in any article
+- No empty/broken image URLs found
+- Hugo build clean: 108 pages
+- Pushed to https://github.com/horsnel/menshly-global-repo.git
