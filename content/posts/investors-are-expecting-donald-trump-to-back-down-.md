@@ -3,7 +3,6 @@ title: "Investors are expecting Donald Trump to back down in the war with Iran -
 date: "2026-03-07T11:02:52.435Z"
 image: "https://images.pexels.com/photos/36244576/pexels-photo-36244576.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
 categories: ["business"]
-tags: ['2026', 'MenshlyGlobal', 'business']
 author: "James Chen"
 authors:
 - "james-chen"

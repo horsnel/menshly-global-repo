@@ -16,7 +16,6 @@ theme = "paper"
   breakingLink = "/posts/investors-are-expecting-donald-trump-to-back-down-/"
 
 [taxonomies]
-
   category = "categories"
   author = "authors"
   series = "series"

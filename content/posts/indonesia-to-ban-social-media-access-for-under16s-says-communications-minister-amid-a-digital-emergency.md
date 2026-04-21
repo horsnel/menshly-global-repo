@@ -3,7 +3,6 @@ title: "Indonesia to ban social media access for under-16s, says communications 
 date: "2026-03-06T23:57:59.725Z"
 image: "https://images.pexels.com/photos/8424930/pexels-photo-8424930.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
 categories: ["world"]
-tags: ['2026', 'MenshlyGlobal', 'world']
 author: "Amara Okonkwo"
 authors:
 - "amara-okonkwo"

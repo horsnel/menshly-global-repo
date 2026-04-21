@@ -3,7 +3,6 @@ title: "Artemis astronaut describes charring on heat shield during crew's fiery 
 date: 2026-04-17T10:22:44.243Z
 image: "https://images.pexels.com/photos/30869149/pexels-photo-30869149.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
 categories: ["science"]
-tags: ["2026", "MenshlyGlobal", "science"]
 author: "Sarah Mitchell"
 authors:
 - "sarah-mitchell"

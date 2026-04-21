@@ -3,7 +3,6 @@ title: "Former Espy owners relist vacant Brunswick Street venue for 6-7 million"
 date: 2026-04-17T10:21:00.310Z
 image: "https://images.pexels.com/photos/935979/pexels-photo-935979.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
 categories: ["business"]
-tags: ["2026", "MenshlyGlobal", "business"]
 author: "Sarah Mitchell"
 authors:
 - "sarah-mitchell"

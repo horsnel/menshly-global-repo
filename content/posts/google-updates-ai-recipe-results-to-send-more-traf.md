@@ -3,7 +3,6 @@ title: "Google Updates AI Recipe Results To Send More Traffic"
 date: "2026-03-07T10:50:19.904Z"
 image: "https://images.pexels.com/photos/32417524/pexels-photo-32417524.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
 categories: ["technology"]
-tags: ['2026', 'MenshlyGlobal', 'technology']
 author: "Sarah Mitchell"
 authors:
 - "sarah-mitchell"

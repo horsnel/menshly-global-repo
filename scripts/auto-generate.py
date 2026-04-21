@@ -760,13 +760,6 @@ def build_markdown(article, topic, category_key, category_label, image_data):
     author = random.choice(AUTHORS)
     title = article.get("title", topic).strip().replace('"', "'")
 
-    # Tags from topic words
-    words = topic.lower().split()
-    tags = random.sample(words, min(4, len(words)))
-    tags.append(str(datetime.now(timezone.utc).year))
-    tags.append("MenshlyGlobal")
-    tags = list(set(tags))[:6]
-
     # Build front matter
     fm_lines = [
         "---",

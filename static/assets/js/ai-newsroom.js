@@ -554,7 +554,6 @@
     var category = getEl('manualCategory').value;
     var author = (getEl('manualAuthor').value || '').trim();
     var image = (getEl('manualImage').value || '').trim();
-    var tags = (getEl('manualTags').value || '').trim();
 
     // Validation
     if (!title) {
@@ -610,8 +609,6 @@
       };
       // Include author if provided
       if (author) payload.author = author;
-      // Include tags if provided
-      if (tags) payload.tags = tags;
       // Include series if provided
       var series = (getEl('manualSeries').value || '').trim();
       if (series) payload.series = series;
@@ -915,7 +912,6 @@
     if (getEl('manualSummary')) getEl('manualSummary').value = '';
     if (getEl('manualAuthor')) getEl('manualAuthor').value = '';
     if (getEl('manualImage')) getEl('manualImage').value = '';
-    if (getEl('manualTags')) getEl('manualTags').value = '';
     if (getEl('manualSeries')) getEl('manualSeries').value = '';
     if (getEl('manualSeriesOrder')) getEl('manualSeriesOrder').value = '';
     removeImagePreview();
@@ -1155,7 +1151,6 @@
       if (getEl("editCategory")) getEl("editCategory").value = (fm.categories && fm.categories[0]) || "";
       if (getEl("editAuthor")) getEl("editAuthor").value = fm.author || "";
       if (getEl("editDescription")) getEl("editDescription").value = fm.description || "";
-      if (getEl("editTags")) getEl("editTags").value = Array.isArray(fm.tags) ? fm.tags.join(", ") : (fm.tags || "");
       if (getEl("editImage")) getEl("editImage").value = fm.image || "";
       if (getEl("editSeries")) getEl("editSeries").value = fm.series || "";
       if (getEl("editSeriesOrder")) getEl("editSeriesOrder").value = fm.series_order || "";
@@ -1227,7 +1222,6 @@
     var body = (getEl("editBody").value || "").trim();
     var author = (getEl("editAuthor").value || "").trim();
     var description = (getEl("editDescription").value || "").trim();
-    var tagsStr = (getEl("editTags").value || "").trim();
     var image = (getEl("editImage").value || "").trim();
 
     if (!title) {
@@ -1264,9 +1258,6 @@
       var editSeriesOrder = (getEl("editSeriesOrder").value || "").trim();
       if (editSeriesOrder) fm.series_order = parseInt(editSeriesOrder);
       else delete fm.series_order;
-    }
-    if (tagsStr) {
-      fm.tags = tagsStr.split(",").map(function(t) { return t.trim(); }).filter(function(t) { return t.length > 0; });
     }
 
     try {

@@ -3,7 +3,6 @@ title: "[Press release] Scripps Research Institute: Nanoparticle vaccine approac
 date: "2026-03-07T11:05:44.857Z"
 image: "https://images.pexels.com/photos/32417524/pexels-photo-32417524.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
 categories: ["health"]
-tags: ['2026', 'MenshlyGlobal', 'health']
 author: "Dr. Fatima Al-Hassan"
 authors:
 - "dr-fatima-al-hassan"

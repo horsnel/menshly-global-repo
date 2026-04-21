@@ -3,7 +3,6 @@ title: "The Crisis In The Middle East Could Cost Africa 0.2 Percent In Economic 
 date: 2026-04-17T10:21:54.985Z
 image: "https://images.pexels.com/photos/29556472/pexels-photo-29556472.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
 categories: ["world"]
-tags: ["2026", "MenshlyGlobal", "world"]
 author: "Sarah Mitchell"
 authors:
 - "sarah-mitchell"

@@ -4,7 +4,6 @@ date: "2026-04-18T01:43:17.689Z"
 slug: "why-african-fintech-attracted-2-billion-in-q1-2026"
 image: "https://images.pexels.com/photos/5849594/pexels-photo-5849594.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
 categories: ["business"]
-tags: ["african","fintech","attracted","billion","2026","MenshlyGlobal"]
 author: "Amara Okonkwo"
 authors:
 - "Amara Okonkwo"
