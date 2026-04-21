@@ -55,7 +55,7 @@
         {{ $img := .Params.image }}{{ $cat := "" }}{{ with (index .Params.categories 0) }}{{ $cat = . }}{{ end }}
         <a class="post-card" href="{{ .Permalink }}">{{ with $img }}<img src="{{ . }}" alt="{{ .Title }}" loading="lazy">{{ end }}<div class="post-card-body"><span class="meta">{{ with $cat }}{{ . }} &middot; {{ end }}{{ .Date.Format "Jan 2, 2006" }}</span><h2>{{ .Title }}</h2></div></a>
       {{ end }}</div>
-      {{ else }}<div class="static-page" style="text-align:center;padding:60px 20px;"><p style="color:var(--text-muted);">No articles with this tag.</p></div>{{ end }}
+      {{ else }}<div class="static-page" style="text-align:center;padding:60px 20px;"><p style="color:var(--text-muted);">No articles found.</p></div>{{ end }}
       {{ end }}
     </div>
     <aside class="sidebar">
@@ -73,7 +73,7 @@
 </div>
 
 {{ else if and $isTaxonomy (ne $pageKind "taxonomyTerm") }}
-{{/* ===== TAXONOMY LISTING (e.g. /authors/, /tags/) ===== */}}
+{{/* ===== TAXONOMY LISTING (e.g. /authors/, /categories/) ===== */}}
 {{ $singular := .Data.Singular }}
 <div class="main-content">
   <div class="content-grid">
@@ -84,9 +84,6 @@
       <div class="taxonomy-grid author-grid">{{ range $name, $count := $authorMap }}
         <a class="taxonomy-card author-card" href="{{ "/authors/" | relLangURL }}{{ $name | urlize }}"><div class="author-card-avatar">{{ substr $name 0 1 }}</div><div class="author-card-info"><h3>{{ $name }}</h3><span class="author-card-count">{{ $count }} article{{ if gt $count 1 }}s{{ end }}</span></div></a>
       {{ end }}</div>
-      {{ else if eq $singular "tag" }}
-      <div class="section-header"><h2>Tags</h2><span class="see-all">{{ len .Data.Terms }} tags</span></div>
-      <div class="tags-cloud">{{ range $term, $pages := .Data.Terms }}<a class="tag-pill" href="{{ "/tags/" | relLangURL }}{{ $term | urlize }}">{{ $term }} <small>({{ len $pages }})</small></a>{{ end }}</div>
       {{ else }}
       <div class="section-header"><h2>{{ .Title }}</h2></div>
       <div class="taxonomy-grid category-grid">{{ range $term, $pages := .Data.Terms }}

@@ -30,9 +30,6 @@
         </div>
         {{ partial "social-share.html" . }}
         {{ partial "author-bio.html" . }}
-        {{ with .Params.tags }}
-        <div class="post-tags">
-          {{ range . }}<a href="/tags/{{ . | urlize }}" class="tag-pill">{{ . }}</a>{{ end }}
         </div>
         {{ end }}
         {{ partial "series-nav.html" . }}

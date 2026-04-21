@@ -9,7 +9,7 @@
   <div class="content-grid">
     <div class="main-column">
 
-      {{/* ===== INDIVIDUAL TERM: /authors/james-chen/, /categories/technology/, /tags/ai/ ===== */}}
+      {{/* ===== INDIVIDUAL TERM: /authors/james-chen/, /categories/technology/ ===== */}}
       {{ if $isTerm }}
       {{ if eq $singular "author" }}
       {{ $authorName := "" }}{{ $authorRole := "" }}{{ $authorBio := "" }}
@@ -48,17 +48,18 @@
       {{ else }}<div class="static-page" style="text-align:center;padding:60px 20px;"><p style="color:var(--text-muted);">No articles in this category yet.</p></div>{{ end }}
 
       {{ else }}
+      {{/* Fallback for any other taxonomy term */}}
       {{ $posts := .Pages.ByDate.Reverse }}{{ $tc := len $posts }}
-      <div class="section-header"><h2>Tagged: {{ $term }}</h2><span class="see-all">{{ $tc }} articles</span></div>
+      <div class="section-header"><h2>{{ title $term }}</h2><span class="see-all">{{ $tc }} articles</span></div>
       {{ if gt $tc 0 }}
       <div class="posts">{{ range $posts }}
         {{ $img := .Params.image }}{{ $cat := "" }}{{ with (index .Params.categories 0) }}{{ $cat = . }}{{ end }}
         <a class="post-card" href="{{ .Permalink }}">{{ with $img }}<img src="{{ . }}" alt="" loading="lazy">{{ end }}<div class="post-card-body"><span class="meta">{{ with $cat }}{{ . }} &middot; {{ end }}{{ .Date.Format "Jan 2, 2006" }}</span><h2>{{ .Title }}</h2></div></a>
       {{ end }}</div>
-      {{ else }}<div class="static-page" style="text-align:center;padding:60px 20px;"><p style="color:var(--text-muted);">No articles with this tag.</p></div>{{ end }}
+      {{ else }}<div class="static-page" style="text-align:center;padding:60px 20px;"><p style="color:var(--text-muted);">No articles found.</p></div>{{ end }}
       {{ end }}
 
-      {{/* ===== TAXONOMY LISTING: /authors/, /categories/, /tags/ ===== */}}
+      {{/* ===== TAXONOMY LISTING: /authors/, /categories/ ===== */}}
       {{ else }}
       {{ if eq $singular "author" }}
       {{/* Build author listing from taxonomy terms, enriched with data/authors.yaml */}}
@@ -79,12 +80,6 @@
           </div>
         </a>
       {{ end }}</div>
-      {{ end }}
-
-      {{ else if eq $singular "tag" }}
-      <div class="section-header"><h2>Tags</h2>{{ if $hasTerms }}<span class="see-all">{{ len $terms }} tags</span>{{ end }}</div>
-      {{ if $hasTerms }}
-      <div class="tags-cloud">{{ range $term, $pages := $terms }}<a class="tag-pill" href="{{ "/tags/" | relLangURL }}{{ $term | urlize }}">{{ $term }} <small>({{ len $pages }})</small></a>{{ end }}</div>
       {{ end }}
 
       {{ else if $hasTerms }}

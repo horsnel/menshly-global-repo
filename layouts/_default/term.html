@@ -12,7 +12,6 @@
 
       {{/* ===== AUTHOR PAGE ===== */}}
       {{ if eq $singular "author" }}
-      {{/* $term is now a slug like "james-chen" — look up display name + bio from data/authors.yaml */}}
       {{ $authorName := "" }}
       {{ $authorRole := "" }}
       {{ $authorBio := "" }}
@@ -28,7 +27,6 @@
         {{ $authorRole = .role }}
         {{ $authorBio = .bio }}
       {{ end }}
-      {{/* Fallback: use the term itself as display name if no data found */}}
       {{ if not $authorName }}{{ $authorName = $term }}{{ end }}
 
       <div class="author-header">
@@ -106,10 +104,10 @@
       </div>
       {{ end }}
 
-      {{/* ===== TAG PAGE ===== */}}
+      {{/* ===== FALLBACK FOR OTHER TAXONOMY TERMS ===== */}}
       {{ else }}
       <div class="section-header">
-        <h2>Tagged: {{ $term }}</h2>
+        <h2>{{ title $term }}</h2>
         <span class="see-all">{{ $totalCount }} articles</span>
       </div>
 
@@ -130,7 +128,7 @@
       </div>
       {{ else }}
       <div class="static-page" style="text-align:center;padding:60px 20px;">
-        <p style="color:var(--text-muted);">No articles with this tag.</p>
+        <p style="color:var(--text-muted);">No articles found.</p>
       </div>
       {{ end }}
       {{ end }}

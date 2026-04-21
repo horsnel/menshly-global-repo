@@ -19,7 +19,6 @@
 {{ with .Date }}<meta property="article:published_time" content="{{ .Format "2006-01-02T15:04:05Z07:00" }}">{{ end }}
 {{ with .Params.author }}<meta property="article:author" content="{{ . }}">{{ end }}
 {{ with .Params.categories }}{{ range first 1 . }}<meta property="article:section" content="{{ . }}">{{ end }}{{ end }}
-{{ with .Params.tags }}{{ range first 5 . }}<meta property="article:tag" content="{{ . }}">{{ end }}{{ end }}
 {{- end }}
 <meta name="twitter:card" content="{{ if and .Params.image (not .IsHome) }}summary_large_image{{ else }}summary{{ end }}">
 <meta name="twitter:site" content="{{ with .Site.Params.twitter }}@{{ . }}{{ end }}">

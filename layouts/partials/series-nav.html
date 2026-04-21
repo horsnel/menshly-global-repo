@@ -15,7 +15,7 @@
 
 <div class="series-info">
   <span class="series-label">Part of Series</span>
-  <a class="series-title" href="/tags/{{ $currentSeries | urlize }}">{{ $currentSeries }}</a>
+  <a class="series-title" href="/series/{{ $currentSeries | urlize }}">{{ $currentSeries }}</a>
   {{ with $.Params.series_order }}<span class="series-part">Part {{ . }}</span>{{ end }}
 </div>
 
@@ -27,7 +27,7 @@
     <div class="series-collection-info">
       <span class="series-collection-label">Article Series</span>
       <h3 class="series-collection-title">
-        <a href="/tags/{{ $currentSeries | urlize }}" style="color:inherit;text-decoration:underline;text-underline-offset:2px;">{{ $currentSeries }}</a>
+        <a href="/series/{{ $currentSeries | urlize }}" style="color:inherit;text-decoration:underline;text-underline-offset:2px;">{{ $currentSeries }}</a>
       </h3>
     </div>
     {{ if gt $total 1 }}
