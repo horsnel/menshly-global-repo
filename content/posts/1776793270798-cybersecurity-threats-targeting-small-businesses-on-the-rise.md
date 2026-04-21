@@ -2,7 +2,7 @@
 title: "Cybersecurity Threats Targeting Small Businesses on the Rise"
 date: "2026-04-21T16:02:12.800Z"
 slug: "1776793270798-cybersecurity-threats-targeting-small-businesses-on-the-rise"
-image: "https://images.pexels.com/photos/5926379/pexels-photo-5926379.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+image: "https://pixabay.com/get/g7412d533fb35366b0a20db545589a52d537099cb9b89a6b11870304f20fd40fa7473c5f251f3b06600d67342f866666805204ecb3dd9c3dd1d87cd873130e446_1280.jpg"
 categories: ["business"]
 author: "Menshlyglobal Editorials"
 description: "Small businesses are increasingly becoming prime targets for cyberattacks due to weaker defenses and limited resources, with ransomware, phishing, and supply ch"

@@ -2,7 +2,7 @@
 title: "Remote work statistics 2026: How many people actually work from home?"
 date: "2026-04-21T16:01:24.409Z"
 slug: "1776793277913-remote-work-statistics-2026-how-many-people-actually-work-from-home"
-image: "https://images.pexels.com/photos/4050320/pexels-photo-4050320.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+image: "https://pixabay.com/get/g382d7fd118ba2f3c686f949a276d8d5e61a4a7cb8acd2362c0ee47e9b9de86ae6406d6442c6ec3e52561424a9cd58b65c283f480b41c863b6c7bd23f9082e6f4_1280.jpg"
 categories: ["business"]
 author: "Menshlyglobal Editorials"
 description: "**Summary:** With the rise of remote work, it's becoming increasingly difficult to determine the actual number of people working from home. In this market analy"
