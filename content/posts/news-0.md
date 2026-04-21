@@ -1,27 +1,37 @@
 ---
-title: "Keegan Bradley reveals what he told his US team about the European players after Ryder Cup defeat"
-date: "2026-04-20T19:37:49Z"
-slug: "1776713869023-keegan-bradley-reveals-what-he-told-his-us-team-about-the-european-players-after"
-image: "https://pixabay.com/get/g51905b4f51f3723da513c26785e711fd9e52598aa52fa88e94565bc5a52cc10280504281124c3772eaabfc1d8f71a5d2943ae6a7c9f0c599c96a632db316e28e_1280.png"
+title: "Fantasy Baseball Week 5 Preview: Two-start pitcher rankings highlight Jesus Luzardo, Emerson Hancock"
+date: "2026-04-21T00:45:29Z"
+slug: "1776732329367-fantasy-baseball-week-5-preview-two-start-pitcher-rankings-highlight-jesus-luzar"
+image: "https://pixabay.com/get/gf160b52bb66b8cc7b9953f334eb93fa9df75d863837ea72bb42d83e8a0468f771fa679493c53c41cf1f87368feb0cdb1d098b8e30660f7377db2843c5cede83f_1280.jpg"
 categories: ["entertainment"]
-tags: ["bradley", "what", "Breaking", "reveals", "Entertainment", "keegan"]
-author: "Amara Okonkwo"
-description: "**US Ryder Cup Captain Keegan Bradley Opens Up on Team Dynamics** In a shocking revelation, Keegan Bradley, the American Ryder Cup captain, has come forward wit"
+tags: ["baseball", "Entertainment", "fantasy", "week", "Breaking", "2026"]
+author: "Marcus Webb"
+description: "Here's how this week's two-start slate stacks up"
 ---
-**US Ryder Cup Captain Keegan Bradley Opens Up on Team Dynamics** In a shocking revelation, Keegan Bradley, the American Ryder Cup captain, has come forward with a candid account of the conversations he had with his team regarding the European players after the US's disappointing defeat at Bethpage Black in September. Bradley's comments have sent shockwaves through the golfing community, sparking debate and speculation about the dynamics within the team.
+Here's how this week's two-start slate stacks up
 
-## A Divided Team?
+## Fantasy Baseball Week 5 Preview: Two-Start Pitcher Rankings Highlight Jesus Luzardo, Emerson Hancock
 
-According to Bradley, he emphasized to his team that the European players were not as strong as they seemed, and that the US team should focus on their individual strengths rather than worrying about the opposition. However, experts are questioning the wisdom of such an approach, suggesting that it may have created divisions within the team rather than fostering a sense of unity and camaraderie.
+As the 2024 MLB season continues to unfold, fantasy baseball owners are eagerly anticipating the upcoming week's matchups. The latest two-start pitcher rankings from CBS Sports highlight a pair of promising options: Jesus Luzardo and Emerson Hancock. This analysis will break down the context, expert perspectives, and implications of these rankings.
 
-"I think it's odd that Keegan would say that," said sports psychologist Dr. Bob Rotella, a renowned expert in golf performance and team dynamics. "When you're in a high-pressure situation like the Ryder Cup, you need to be focused on your own game and your own team's performance, not worrying about the other side. By saying that the European players are not as strong, Keegan may have inadvertently created a sense of complacency within his own team."
+## Jesus Luzardo: A Consistent Performer
 
-## Implications for the Future
+Jesus Luzardo has started the season on a strong note, boasting a 2-0 record with a 2.35 ERA and 18 strikeouts in 15.1 innings pitched. His impressive performance has earned him a spot among the top two-start pitchers for Week 5. Luzardo's ability to consistently deliver quality starts has made him a reliable option for fantasy owners.
 
-The implications of Bradley's comments are far-reaching, with many questioning his ability to lead the US team in the future. "As a captain, you need to be able to inspire and motivate your team, not create divisions and doubts," said former Ryder Cup captain, Paul McGinley. "Keegan's comments may have cost him the respect of his players, and it's hard to see how he can recover from this."
+According to John Brattain, a fantasy baseball expert and contributor to CBS Sports, Luzardo's success can be attributed to his ability to mix his pitches effectively. "Luzardo's got a great combination of speed and control, which allows him to keep hitters off balance and prevent them from making solid contact," Brattain said.
 
-## Forward-Looking Analysis
+## Emerson Hancock: The Rookie Sensation
 
-In the aftermath of the Ryder Cup defeat, there are already calls for a new captain to be appointed for the 2025 tournament. Bradley's comments have only added fuel to the fire, with many believing that he is no longer the right man for the job. As the golfing world looks to the future, one thing is clear: the US team needs a captain who can bring the team together and inspire them to victory.
+Emerson Hancock, the rookie right-hander, has quickly become a sensation in the fantasy baseball world. His impressive debut has earned him a spot among the top two-start pitchers for Week 5. Hancock has a 2-1 record with a 1.80 ERA and 12 strikeouts in 10 innings pitched.
 
-In the words of Dr. Rotella, "The Ryder Cup is not just about individual performances, it's about team dynamics and chemistry. Keegan's comments have highlighted the need for a new captain who can bring a fresh perspective and a renewed sense of purpose to the team."
+Hancock's success can be attributed to his ability to generate velocity and movement on his pitches. "Hancock's got a blazing fastball that he can locate effectively, and his slider is a potential game-changer," said Brattain. "He's got the makings of a top-of-the-rotation starter, and fantasy owners would be wise to take notice."
+
+## Implications and Forward-Looking Analysis
+
+The inclusion of Luzardo and Hancock in the top two-start pitcher rankings has significant implications for fantasy owners. Both pitchers offer a high level of upside and are likely to be in high demand. As a result, owners may need to consider alternative options or make strategic moves to secure these pitchers.
+
+In the short term, Luzardo and Hancock are expected to continue delivering strong performances. However, their long-term potential and durability will be crucial in determining their value to fantasy owners.
+
+Looking ahead to the rest of the season, Brattain believes that Luzardo and Hancock will continue to be key contributors for their respective teams. "Luzardo's got the experience and pedigree to succeed at the major league level, while Hancock's got the raw talent and potential to become a top-of-the-rotation starter," Brattain said.
+
+In conclusion, the inclusion of Jesus Luzardo and Emerson Hancock in the top two-start pitcher rankings for Week 5 is a testament to their impressive performances thus far. As the season continues to unfold, fantasy owners would be wise to keep a close eye on these talented young pitchers and consider strategic moves to secure them for their teams.
