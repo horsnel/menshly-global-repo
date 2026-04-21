@@ -44,6 +44,7 @@ permissions:
 jobs:
   verify-articles:
     runs-on: ubuntu-latest
+    if: github.actor != 'github-actions[bot]'
     timeout-minutes: 15
 
     steps:

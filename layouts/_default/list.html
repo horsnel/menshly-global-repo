@@ -30,8 +30,8 @@
       {{ if gt $tc 0 }}
       <div class="section-header"><h2>Articles by {{ $term }}</h2><span class="see-all">{{ $tc }} articles</span></div>
       <div class="posts">{{ range $allPosts.ByDate.Reverse }}
-        {{ $img := .Params.image }}{{ $cat := "" }}{{ with (index .Params.categories 0) }}{{ $cat = . }}{{ end }}
-        <a class="story-card" href="{{ .Permalink }}">{{ with $img }}<img class="story-card-image" src="{{ . }}" alt="{{ .Title }}" loading="lazy">{{ end }}<span class="story-card-category">{{ with $cat }}{{ . }}{{ end }}</span><span class="story-card-headline">{{ .Title }}</span><span class="story-card-meta">{{ .Date.Format "Jan 2, 2006" }}</span></a>
+        {{ $img := .Params.image }}{{ $cat := "" }}{{ $title := .Title }}{{ with (index .Params.categories 0) }}{{ $cat = . }}{{ end }}
+        <a class="story-card" href="{{ .Permalink }}">{{ with $img }}<img class="story-card-image" src="{{ . }}" alt="{{ $title }}" loading="lazy">{{ end }}<span class="story-card-category">{{ with $cat }}{{ . }}{{ end }}</span><span class="story-card-headline">{{ .Title }}</span><span class="story-card-meta">{{ .Date.Format "Jan 2, 2006" }}</span></a>
       {{ end }}</div>
       {{ else }}<div class="static-page" style="text-align:center;padding:60px 20px;"><p style="color:var(--text-muted);">No articles yet by this author.</p></div>{{ end }}
 
@@ -54,8 +54,8 @@
         </a>
       </div>
       <div class="section-stories-grid">{{ range after 1 $posts }}
-        {{ $img := .Params.image }}{{ $cat := "" }}{{ with (index .Params.categories 0) }}{{ $cat = . }}{{ end }}
-        <a class="story-card" href="{{ .Permalink }}">{{ with $img }}<img class="story-card-image" src="{{ . }}" alt="{{ .Title }}" loading="lazy">{{ end }}<span class="story-card-category">{{ with $cat }}{{ . }}{{ end }}</span><span class="story-card-headline">{{ .Title }}</span><span class="story-card-meta">{{ .Date.Format "Jan 2, 2006" }}</span></a>
+        {{ $img := .Params.image }}{{ $cat := "" }}{{ $title := .Title }}{{ with (index .Params.categories 0) }}{{ $cat = . }}{{ end }}
+        <a class="story-card" href="{{ .Permalink }}">{{ with $img }}<img class="story-card-image" src="{{ . }}" alt="{{ $title }}" loading="lazy">{{ end }}<span class="story-card-category">{{ with $cat }}{{ . }}{{ end }}</span><span class="story-card-headline">{{ .Title }}</span><span class="story-card-meta">{{ .Date.Format "Jan 2, 2006" }}</span></a>
       {{ end }}</div>
       {{ else }}<div class="static-page" style="text-align:center;padding:60px 20px;"><p style="color:var(--text-muted);">No articles in this category yet.</p></div>{{ end }}
 
@@ -64,8 +64,8 @@
       <div class="section-header"><h2>{{ title $term }}</h2><span class="see-all">{{ $tc }} articles</span></div>
       {{ if gt $tc 0 }}
       <div class="posts">{{ range $posts }}
-        {{ $img := .Params.image }}{{ $cat := "" }}{{ with (index .Params.categories 0) }}{{ $cat = . }}{{ end }}
-        <a class="story-card" href="{{ .Permalink }}">{{ with $img }}<img class="story-card-image" src="{{ . }}" alt="{{ .Title }}" loading="lazy">{{ end }}<span class="story-card-category">{{ with $cat }}{{ . }}{{ end }}</span><span class="story-card-headline">{{ .Title }}</span><span class="story-card-meta">{{ .Date.Format "Jan 2, 2006" }}</span></a>
+        {{ $img := .Params.image }}{{ $cat := "" }}{{ $title := .Title }}{{ with (index .Params.categories 0) }}{{ $cat = . }}{{ end }}
+        <a class="story-card" href="{{ .Permalink }}">{{ with $img }}<img class="story-card-image" src="{{ . }}" alt="{{ $title }}" loading="lazy">{{ end }}<span class="story-card-category">{{ with $cat }}{{ . }}{{ end }}</span><span class="story-card-headline">{{ .Title }}</span><span class="story-card-meta">{{ .Date.Format "Jan 2, 2006" }}</span></a>
       {{ end }}</div>
       {{ else }}<div class="static-page" style="text-align:center;padding:60px 20px;"><p style="color:var(--text-muted);">No articles found.</p></div>{{ end }}
       {{ end }}
@@ -149,7 +149,7 @@
   <div class="secondary-stories">
     {{ range $secSlice }}
     <a class="secondary-story-link" href="{{ .Permalink }}">
-      {{ with .Params.image }}<img class="secondary-story-image" src="{{ . }}" alt="{{ .Title }}" loading="lazy">{{ end }}
+      {{ $title := .Title }}{{ with .Params.image }}<img class="secondary-story-image" src="{{ . }}" alt="{{ $title }}" loading="lazy">{{ end }}
       <span class="secondary-story-category">{{ with .Params.categories }}{{ index . 0 }}{{ end }}</span>
       <h3 class="secondary-story-headline">{{ .Title }}</h3>
       <p class="secondary-story-summary">{{ with .Params.description }}{{ . }}{{ else }}{{ .Summary | plainify | truncate 120 }}{{ end }}</p>
@@ -184,7 +184,7 @@
     <div class="section-stories-grid">
       {{ range first 3 $catPosts.ByDate.Reverse }}
       <a class="story-card" href="{{ .Permalink }}">
-        {{ with .Params.image }}<img class="story-card-image" src="{{ . }}" alt="{{ .Title }}" loading="lazy">{{ end }}
+        {{ $title := .Title }}{{ with .Params.image }}<img class="story-card-image" src="{{ . }}" alt="{{ $title }}" loading="lazy">{{ end }}
         <span class="story-card-category">{{ title $cat }}</span>
         <span class="story-card-headline">{{ .Title }}</span>
         <span class="story-card-meta">
@@ -206,9 +206,9 @@
   </div>
   <div class="posts">
     {{ range $morePosts }}
-    {{ $img := .Params.image }}{{ $cat := "" }}{{ with (index .Params.categories 0) }}{{ $cat = . }}{{ end }}
+    {{ $img := .Params.image }}{{ $cat := "" }}{{ $title := .Title }}{{ with (index .Params.categories 0) }}{{ $cat = . }}{{ end }}
     <a class="story-card" href="{{ .Permalink }}">
-      {{ with $img }}<img class="story-card-image" src="{{ . }}" alt="{{ .Title }}" loading="lazy">{{ end }}
+      {{ with $img }}<img class="story-card-image" src="{{ . }}" alt="{{ $title }}" loading="lazy">{{ end }}
       <span class="story-card-category">{{ with $cat }}{{ . }}{{ end }}</span>
       <span class="story-card-headline">{{ .Title }}</span>
       <span class="story-card-meta">{{ .Date.Format "Jan 2, 2006" }}</span>

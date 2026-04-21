@@ -1,6 +1,6 @@
 ---
 title: "Posts"
 _build:
-  list: false
-  render: false
+list: false
+render: false
 ---
