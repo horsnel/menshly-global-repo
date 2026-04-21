@@ -42,8 +42,7 @@ FREPIK_KEY = _clean(os.environ.get("FREPIK_API_KEY", ""))
 NEWS_API_KEY = _clean(os.environ.get("NEWS_API_KEY", ""))
 NEWS_COUNT = int(os.environ.get("NEWS_COUNT", "3"))
 
-if not API_KEY:
-    _err("AI_API_KEY not set. Add it in GitHub Secrets.")
+# Config validation happens after _err() is defined below
 
 # ── Debug config ───────────────────────────────────────────
 print(f"DEBUG — API_BASE: {API_BASE}")
@@ -198,6 +197,16 @@ def _err(msg):
     print(f"ERROR: {msg}")
     sys.exit(1)
 
+# Now validate config
+if not API_KEY:
+    _err("AI_API_KEY not set. Add it in GitHub Secrets.")
+
+# Validate NEWS_COUNT bounds
+try:
+    NEWS_COUNT = max(1, min(5, int(os.environ.get("NEWS_COUNT", "3"))))
+except (ValueError, TypeError):
+    NEWS_COUNT = 3
+
 def slugify(text):
     """Convert text to URL-safe slug."""
     s = text.lower().strip()
@@ -280,7 +289,8 @@ def fetch_pexels_image(topic, category_key):
     if not data or not data.get("photos"):
         return None
     best = max(data["photos"][:3], key=lambda p: score_image_relevance(p, topic, category_key))
-    return {"url": best["src"]["large"], "credit": best["photographer"], "source": "Pexels"}
+    score = score_image_relevance(best, topic, category_key)
+    return {"url": best["src"]["large"], "credit": best["photographer"], "source": "Pexels", "score": score}
 
 def fetch_pixabay_image(topic, category_key):
     """Fetch image from Pixabay."""
@@ -296,7 +306,8 @@ def fetch_pixabay_image(topic, category_key):
     img_url = best.get("largeImageURL") or best.get("webformatURL", "")
     if not img_url:
         return None
-    return {"url": img_url, "credit": best.get("user", "Pixabay User"), "source": "Pixabay"}
+    score = score_image_relevance(best, topic, category_key)
+    return {"url": img_url, "credit": best.get("user", "Pixabay User"), "source": "Pixabay", "score": score}
 
 def fetch_freepik_image(topic, category_key):
     """Fetch image from Freepik API."""
@@ -323,7 +334,8 @@ def fetch_freepik_image(topic, category_key):
         img_url = thumbs[-1].get("url", "")
     if not img_url:
         return None
-    return {"url": img_url, "credit": best.get("creator", {}).get("name", "Freepik"), "source": "Freepik"}
+    score = score_image_relevance(best, topic, category_key)
+    return {"url": img_url, "credit": best.get("creator", {}).get("name", "Freepik"), "source": "Freepik", "score": score}
 
 def fetch_best_image(topic, category_key, article_title=None):
     """Try all image sources, pick the best."""
@@ -452,7 +464,7 @@ Write a comprehensive news analysis with context, expert perspectives, and impli
 
     # Format 2: JSON in markdown code block
     if not article:
-        json_match = re.search(r'```(?:json)?\s*({.+?})\s*```', raw, re.DOTALL)
+        json_match = re.search(r'```(?:json)?\s*({.+})\s*```', raw, re.DOTALL)
         if json_match:
             try:
                 parsed = json.loads(json_match.group(1))
@@ -543,7 +555,7 @@ def build_news_markdown(article, category_key, category_label, image_data):
     words = title.lower().split()
     stop = {"the", "a", "an", "of", "in", "on", "for", "to", "and", "or", "is", "are"}
     tags = [w for w in words if w not in stop and len(w) > 2][:4]
-    tags.extend([category_label, "2026", "Breaking"])
+    tags.extend([category_label, str(datetime.now(timezone.utc).year)])
     tags = list(set(tags))[:6]
 
     summary = article.get("summary", "")[:160].replace('"', "").replace("\n", " ")
@@ -703,8 +715,8 @@ def main():
             print(f"  Article '{slug}' already exists — skipping.")
             continue
 
-        # Save
-        output_path = f"output/news-{i}.md"
+        # Save with slug-based filename to prevent overwrites
+        output_path = f"output/{slug}.md"
         with open(output_path, "w") as f:
             f.write(markdown)
 
@@ -729,7 +741,8 @@ def main():
 
     if not generated:
         print("\nNo articles generated this run.")
-        open("output/error.log", "w").write("No articles generated from any source.\n")
+        with open("output/error.log", "w") as ef:
+            ef.write("No articles generated from any source.\n")
 
 
 if __name__ == "__main__":

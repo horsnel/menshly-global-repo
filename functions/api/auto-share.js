@@ -32,7 +32,7 @@ export async function onRequestPost(context) {
       case 'x': {
         // For Twitter/X, send to a webhook proxy (IFTTT, n8n, Zapier, etc.)
         if (!webhookUrl) {
-          result.shareUrl = `https://twitter.com/intent/tweet?text=${encodedTitle}&url=${encodedUrl}`;
+          result.shareUrl = `https://x.com/intent/tweet?text=${encodedTitle}&url=${encodedUrl}`;
           result.success = true;
           result.method = 'redirect';
         } else {
@@ -49,7 +49,9 @@ export async function onRequestPost(context) {
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(payload)
           });
-          result = await resp.json();
+          const respText = await resp.text();
+          try { result = { success: resp.ok, response: JSON.parse(respText) }; }
+          catch { result = { success: resp.ok, response: respText }; }
         }
         break;
       }
@@ -117,8 +119,8 @@ export async function onRequestPost(context) {
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(slackPayload)
         });
-        const respData = await resp.json();
-        result = { success: respData.ok === true, response: respData };
+        const respText = await resp.text();
+        result = { success: respText === 'ok' || resp.ok, response: respText };
         break;
       }
 
@@ -139,8 +141,9 @@ export async function onRequestPost(context) {
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(tgPayload)
         });
-        const respData = await resp.json();
-        result = { success: respData.ok === true, response: respData };
+        const respText = await resp.text();
+        try { const respData = JSON.parse(respText); result = { success: respData.ok === true, response: respData }; }
+        catch { result = { success: resp.ok, response: respText }; }
         break;
       }
 

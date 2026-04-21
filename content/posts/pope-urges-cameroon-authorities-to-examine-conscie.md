@@ -1,5 +1,5 @@
 ---
-title: "Pope urges Cameroon authorities to examine 'conscience'"
+title: "Pope urges Cameroon authorities to examine 'conscience''"
 date: 2026-04-16T06:18:31.111Z
 image: "https://images.pexels.com/photos/19813735/pexels-photo-19813735.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
 categories: ["world"]

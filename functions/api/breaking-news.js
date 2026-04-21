@@ -158,9 +158,9 @@ function jsonResponse(data, status) {
 }
 
 function encodeBase64(str) {
-  return Buffer.from(str, "utf-8").toString("base64");
+  return btoa(unescape(encodeURIComponent(str)));
 }
 
 function decodeBase64(str) {
-  return Buffer.from(str, "base64").toString("utf-8");
+  return decodeURIComponent(escape(atob(str)));
 }

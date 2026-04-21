@@ -22,7 +22,7 @@ export async function onRequestPost(context) {
     switch ((platform || 'twitter').toLowerCase()) {
       case 'twitter':
       case 'x':
-        shareUrl = `https://twitter.com/intent/tweet?text=${encodedTitle}&url=${encodedUrl}`;
+        shareUrl = `https://x.com/intent/tweet?text=${encodedTitle}&url=${encodedUrl}`;
         break;
       case 'linkedin':
         shareUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${encodedUrl}`;
@@ -40,7 +40,7 @@ export async function onRequestPost(context) {
         shareUrl = url;
         break;
       default:
-        shareUrl = `https://twitter.com/intent/tweet?text=${encodedTitle}&url=${encodedUrl}`;
+        shareUrl = `https://x.com/intent/tweet?text=${encodedTitle}&url=${encodedUrl}`;
     }
 
     return new Response(JSON.stringify({ success: true, shareUrl, platform }), {

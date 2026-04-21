@@ -76,7 +76,7 @@ async function loadStats(context) {
     );
     if (!res.ok) return {};
     const data = await res.json();
-    const content = atob(data.content);
+    const content = decodeURIComponent(escape(atob(data.content)));
     return JSON.parse(content);
   } catch {
     return {};
@@ -87,7 +87,7 @@ async function saveStats(context, stats) {
   const { GITHUB_TOKEN, GITHUB_REPO } = context.env;
   if (!GITHUB_TOKEN || !GITHUB_REPO) return;
 
-  const content = btoa(JSON.stringify(stats, null, 2));
+  const content = btoa(unescape(encodeURIComponent(JSON.stringify(stats, null, 2))));
 
   // Get current file SHA
   let sha = null;
@@ -108,7 +108,7 @@ async function saveStats(context, stats) {
     }
   } catch {}
 
-  await fetch(
+  const putResp = await fetch(
     `https://api.github.com/repos/${GITHUB_REPO}/contents/content/data/stats.json`,
     {
       method: 'PUT',
@@ -120,10 +120,14 @@ async function saveStats(context, stats) {
       body: JSON.stringify({
         message: 'stats: update view counts [' + new Date().toISOString().slice(0, 10) + ']',
         content,
-        sha
+        ...(sha && { sha })
       })
     }
   );
+  if (!putResp.ok) {
+    const errText = await putResp.text().catch(() => '');
+    console.error('Stats write failed:', putResp.status, errText);
+  }
 }
 
 function jsonResponse(data, status = 200) {

@@ -77,6 +77,10 @@ jobs:
         if: steps.check.outputs.created == 'true'
         run: |
           SLUG=$(head -10 output/article.md | grep "^slug:" | sed 's/slug: *//' | tr -d '"')
+          if [ -z "$SLUG" ]; then
+            echo "ERROR: Empty slug, cannot publish article"
+            exit 1
+          fi
           git config user.name "MenshlyGlobal Bot"
           git config user.email "bot@menshly-global.pages.dev"
           cp output/article.md "content/ai-newsroom/${SLUG}.md"

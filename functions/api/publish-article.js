@@ -37,7 +37,7 @@ export async function onRequestPost(context) {
     } else {
       var tw = (topic || title).toLowerCase().split(/\s+/).filter(w => w.length > 3);
       var s2 = {}; var u2 = []; tw.slice(0,4).forEach(t => { if (!s2[t]) { s2[t] = true; u2.push(t); } });
-      u2.push("2026","MenshlyGlobal"); tags = u2.slice(0, 6);
+      u2.push(new Date().getFullYear().toString(),"MenshlyGlobal"); tags = u2.slice(0, 6);
     }
 
     let fm = "---\n";

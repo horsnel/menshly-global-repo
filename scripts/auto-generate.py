@@ -46,13 +46,19 @@ NEWS_API_KEY = _clean(os.environ.get("NEWS_API_KEY", ""))
 MANUAL_CATEGORY = _clean(os.environ.get("MANUAL_CATEGORY", ""))
 MANUAL_TOPIC = _clean(os.environ.get("MANUAL_TOPIC", ""))
 
+# Validate API key after all definitions
+def _validate_config():
+    if not API_KEY:
+        _err("AI_API_KEY not set. Add it in GitHub Secrets.")
+
 if not API_KEY:
-    _err("AI_API_KEY not set. Add it in GitHub Secrets.")
+    # Will call _err after it's defined (see below)
+    pass
 
 # ── Debug: print config (never expose secrets) ──────────────
 print(f"DEBUG — API_BASE: {API_BASE}")
 print(f"DEBUG — MODEL: '{MODEL}' (len={len(MODEL)})")
-print(f"DEBUG — API_KEY: {API_KEY[:6]}...{API_KEY[-4:]} (len={len(API_KEY)})")
+print(f"DEBUG — API_KEY: {'set' if API_KEY else 'not set'} (len={len(API_KEY)})")
 print(f"DEBUG — PEXELS: {'set' if PEXELS_KEY else 'not set'}")
 print(f"DEBUG — PIXABAY: {'set' if PIXABAY_KEY else 'not set'}")
 print(f"DEBUG — FREPIK: {'set' if FREPIK_KEY else 'not set'}")
@@ -295,13 +301,6 @@ def slugify(text):
     s = re.sub(r'-+', '-', s)
     s = s.strip('-')
     return s[:80] if len(s) > 80 else s
-
-def fetch_json(url, headers=None, timeout=30):
-    """Fetch JSON from URL."""
-    ctx = ssl.create_default_context()
-    req = urllib.request.Request(url, headers=headers or {})
-    with urllib.request.urlopen(req, timeout=timeout, context=ctx) as resp:
-        return json.loads(resp.read().decode())
 
 def safe_fetch_json(url, headers=None, timeout=15):
     """Fetch JSON from URL — returns None on failure instead of crashing."""
@@ -566,7 +565,7 @@ def get_trending_from_newsapi(category_key):
     query = cat_info.get("newsapi_q", category_key)
 
     # Only grab from the last 3 days to keep it fresh
-    from_date = (datetime.now(timezone.utc) - __import__('datetime').timedelta(days=3)).strftime("%Y-%m-%d")
+    from_date = (datetime.now(timezone.utc) - timedelta(days=3)).strftime("%Y-%m-%d")
 
     url = (
         f"https://newsapi.org/v2/everything?"
@@ -725,7 +724,7 @@ CRITICAL RULES:
 
     # If JSON parse failed, try to extract JSON from markdown code blocks
     if not article:
-        json_match = re.search(r'```(?:json)?\s*({.*?})\s*```', raw, re.DOTALL)
+        json_match = re.search(r'```(?:json)?\s*({.+})\s*```', raw, re.DOTALL)
         if json_match:
             try:
                 article = json.loads(json_match.group(1))
@@ -764,7 +763,7 @@ def build_markdown(article, topic, category_key, category_label, image_data):
     # Tags from topic words
     words = topic.lower().split()
     tags = random.sample(words, min(4, len(words)))
-    tags.append("2026")
+    tags.append(str(datetime.now(timezone.utc).year))
     tags.append("MenshlyGlobal")
     tags = list(set(tags))[:6]
 
