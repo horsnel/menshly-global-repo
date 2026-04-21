@@ -6,10 +6,7 @@ categories: ["business"]
 author: "Sarah Mitchell"
 authors:
 - "sarah-mitchell"
-description: ""
-
 ---
-
 <p><h2>Introduction to the Relisting of the Former Espy Venue</h2>
 <p>The former Espy owners have recently relisted the vacant Brunswick Street venue, sparking interest and speculation among potential buyers and investors. The iconic venue, which has been a staple of the local entertainment and nightlife scene, is now on the market for a reported $6-7 million. This move has significant implications f</p>
 <img src="https://images.pexels.com/photos/19856609/pexels-photo-19856609.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" style="width:100%;border-radius:8px;margin:20px 0;">

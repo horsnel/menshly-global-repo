@@ -6,10 +6,9 @@ image: "https://images.pexels.com/photos/7654180/pexels-photo-7654180.jpeg?auto=
 categories: ["finance"]
 author: "James Chen"
 authors:
-- "James Chen"
+- "james-chen"
 description: "Despite rising competition and platform fees, e-commerce remains profitable for new sellers in 2026—if approached strategically with niche targeting, automation"
 ---
-
 Despite rising competition and platform fees, e-commerce remains profitable for new sellers in 2026—if approached strategically with niche targeting, automation, and brand differentiation.
 
 ## The State of E-commerce in 2026

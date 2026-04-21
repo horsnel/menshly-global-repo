@@ -8,9 +8,6 @@ authors:
 - "david-kiprop"
 description: "Jesse Jackson memorial service attended by Clintons, Obama, and Biden celebrates the legacy of a civil rights icon."
 ---
-
-
-
 <p><h2>Strategic Implications</h2>
 <p>The recent memorial service for Jesse Jackson, attended by prominent figures such as the Clintons, Obama, and Biden, has highlighted the significant impact of his legacy on American politics and social justice. As an iconic figure in the civil rights movement, Jackson's passing has sparked an outpouring of tributes and reflections on his tireless efforts to promo</p>
 <img src="https://images.pexels.com/photos/4963428/pexels-photo-4963428.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" style="width:100%; border-radius:8px; margin:20px 0;">

@@ -8,9 +8,6 @@ authors:
 - "james-chen"
 description: "Investors brace for potential escalation as expectations grow that Trump may not back down in US-Iran tensions."
 ---
-
-
-
 <p><h2>Introduction to the Looming Crisis</h2>
 <p>The ongoing tensions between the United States and Iran have been a significant concern for investors and geopolitical analysts alike. The situation has been escalating, with both sides engaging in a war of words and actions that have raised fears of a potential conflict. However, many investors are expecting Donald Trump to back down in the war with </p>
 <img src="https://images.pexels.com/photos/7793741/pexels-photo-7793741.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" style="width:100%; border-radius:8px; margin:20px 0;">

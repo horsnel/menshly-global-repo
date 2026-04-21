@@ -5,7 +5,7 @@ slug: "small-business-failure-rates-by-industry-what-the-data-says"
 image: "https://images.pexels.com/photos/7948047/pexels-photo-7948047.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
 author: "James Chen"
 authors:
-- "James Chen"
+- "james-chen"
 description: "Not all industries are created equal when it comes to small business survival. This deep dive explores failure rates across key sectors, backed by government an"
 categories: ["finance"]
 ---

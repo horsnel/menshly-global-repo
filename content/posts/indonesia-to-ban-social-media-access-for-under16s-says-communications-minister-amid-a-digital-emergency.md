@@ -8,9 +8,6 @@ authors:
 - "amara-okonkwo"
 description: "Expert 2026 analysis on Indonesia to ban social media access for under-16s, says communications minister amid a ?digital emergency?."
 ---
-
-
-
 <h1>Indonesia's Digital Clampdown: The $150 Billion Social Media Ban That's Sending Shockwaves Around the World</h1>
 
 <p>In a move that's being hailed as a drastic measure to combat the rising concerns of digital addiction and online safety, Indonesia's communications minister has announced plans to ban social media access for all citizens under the age of 16. This decision comes amid a self-proclaimed "digital emergency" that's seen the country's youth spend increasingly large amounts of time glued to their screens. As the world's fourth most populous country, Indonesia's actions are being closely watched by governments and tech giants alike, with many wondering if this is the start of a global trend.</p>

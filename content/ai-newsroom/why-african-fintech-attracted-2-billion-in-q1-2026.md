@@ -6,10 +6,9 @@ image: "https://images.pexels.com/photos/5849594/pexels-photo-5849594.jpeg?auto=
 categories: ["business"]
 author: "Amara Okonkwo"
 authors:
-- "Amara Okonkwo"
+- "amara-okonkwo"
 description: "African fintech startups raised a record $2 billion in the first quarter of 2026, driven by rising digital adoption, favorable regulation, and growing demand fo"
 ---
-
 African fintech startups raised a record $2 billion in the first quarter of 2026, driven by rising digital adoption, favorable regulation, and growing demand for financial inclusion—marking a pivotal shift in global investor sentiment toward the continent’s tech ecosystem.
 
 ## A Watershed Moment for African Innovation  

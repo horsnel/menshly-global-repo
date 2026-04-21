@@ -8,9 +8,6 @@ authors:
 - "james-chen"
 description: "Analysis of the strategic implications as the US considers unsanctioning more Russian oil following India's increased imports."
 ---
-
-
-
 <p><h2>Strategic Implications</h2>
 <p>The recent statement by Bessent, a prominent figure in the financial sector, has sparked a heated debate about the potential unsanctioning of Russian oil by the US. This move is largely seen as a response to India's decision to increase its oil imports from Russia, despite the ongoing sanctions. The strategic implications of such a move are far-reaching and could</p>
 <img src="https://images.pexels.com/photos/4963428/pexels-photo-4963428.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" style="width:100%; border-radius:8px; margin:20px 0;">

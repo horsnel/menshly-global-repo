@@ -49,7 +49,7 @@
 
       {{ else }}
       {{ $posts := .Pages.ByDate.Reverse }}{{ $tc := len $posts }}
-      <div class="section-header"><h2>Tagged: {{ $term }}</h2><span class="see-all">{{ $tc }} articles</span></div>
+      <div class="section-header"><h2>{{ title $term }}</h2><span class="see-all">{{ $tc }} articles</span></div>
       {{ if gt $tc 0 }}
       <div class="posts">{{ range $posts }}
         {{ $img := .Params.image }}{{ $cat := "" }}{{ with (index .Params.categories 0) }}{{ $cat = . }}{{ end }}

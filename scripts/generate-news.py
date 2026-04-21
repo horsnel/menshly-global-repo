@@ -22,6 +22,7 @@ import os
 import random
 import re
 import sys
+import time
 import urllib.parse
 import urllib.request
 import urllib.error
@@ -40,8 +41,7 @@ PEXELS_KEY = _clean(os.environ.get("PEXELS_API_KEY", ""))
 PIXABAY_KEY = _clean(os.environ.get("PIXABAY_API_KEY", ""))
 FREPIK_KEY = _clean(os.environ.get("FREPIK_API_KEY", ""))
 NEWS_API_KEY = _clean(os.environ.get("NEWS_API_KEY", ""))
-NEWS_COUNT = int(os.environ.get("NEWS_COUNT", "3"))
-
+MANUAL_CATEGORY = _clean(os.environ.get("MANUAL_CATEGORY", ""))
 # Config validation happens after _err() is defined below
 
 # ── Debug config ───────────────────────────────────────────
@@ -50,7 +50,6 @@ print(f"DEBUG — PEXELS: {'set' if PEXELS_KEY else 'not set'}")
 print(f"DEBUG — PIXABAY: {'set' if PIXABAY_KEY else 'not set'}")
 print(f"DEBUG — FREPIK: {'set' if FREPIK_KEY else 'not set'}")
 print(f"DEBUG — NEWSAPI: {'set' if NEWS_API_KEY else 'not set'}")
-print(f"DEBUG — NEWS_COUNT: {NEWS_COUNT}")
 
 # ── Model auto-detection ──────────────────────────────────
 # Always auto-detect the best model from the API.
@@ -206,6 +205,8 @@ try:
     NEWS_COUNT = max(1, min(5, int(os.environ.get("NEWS_COUNT", "3"))))
 except (ValueError, TypeError):
     NEWS_COUNT = 3
+
+print(f"DEBUG — NEWS_COUNT: {NEWS_COUNT}")
 
 def slugify(text):
     """Convert text to URL-safe slug."""
@@ -551,3 +552,129 @@ def build_news_markdown(article, category_key, category_label, image_data):
     author = random.choice(AUTHORS)
     title = article.get("title", "").strip().replace('"', "'")
 
+    # Build front matter — NO tags, only categories
+    fm_lines = [
+        "---",
+        f'title: "{title}"',
+        f'date: "{date_str}"',
+        f'slug: "{slug}"',
+    ]
+
+    if image_data:
+        fm_lines.append(f'image: "{image_data["url"]}"')
+
+    fm_lines.extend([
+        f'categories: ["{category_key}"]',
+        f'author: "{author}"',
+        f'description: "{article.get("summary", "")[:160].replace(chr(34), "")}"',
+        "---",
+        "",
+    ])
+
+    body = article.get("summary", "") + "\n\n" + article.get("content", "")
+    full = "\n".join(fm_lines) + body
+
+    return full, slug
+
+
+# ── Main ───────────────────────────────────────────────────
+def main():
+    """Generate multiple news dispatches based on trending headlines."""
+    os.makedirs("output", exist_ok=True)
+    manifest = []
+
+    cat_keys = list(NEWS_CATEGORIES.keys())
+
+    # Support MANUAL_CATEGORY override from workflow
+    if MANUAL_CATEGORY and MANUAL_CATEGORY.lower() in NEWS_CATEGORIES:
+        cat_keys = [MANUAL_CATEGORY.lower()]
+        print(f"  MANUAL_CATEGORY override: {MANUAL_CATEGORY}")
+
+    random.shuffle(cat_keys)  # Randomize category order
+
+    # Track how many articles we've generated
+    articles_generated = 0
+
+    for i in range(NEWS_COUNT):
+        print(f"\n{'='*50}")
+        print(f"  Article {i+1} of {NEWS_COUNT}")
+        print(f"{'='*50}")
+
+        # Pick a category (round-robin through shuffled categories)
+        category_key = cat_keys[i % len(cat_keys)]
+        cat_info = NEWS_CATEGORIES[category_key]
+        category_label = cat_info["label"]
+
+        print(f"  Category: {category_label}")
+
+        # Try to get trending headlines from NewsAPI
+        headlines = get_trending_headlines(category_key)
+
+        if not headlines:
+            print(f"  No trending headlines for {category_label}. Skipping.")
+            continue
+
+        # Pick a random headline
+        headline = random.choice(headlines)
+        print(f"  Headline: {headline['title'][:80]}...")
+
+        # Generate the article
+        article = generate_news_article(headline, category_key, category_label)
+
+        if not article:
+            print(f"  Failed to generate article. Skipping.")
+            continue
+
+        # Fetch image — REQUIRED for article to be saved
+        article_title = article.get("title", headline["title"])
+        image_data = fetch_best_image(headline["title"], category_key, article_title=article_title)
+
+        if not image_data:
+            print(f"  WARNING: No image found for article. Skipping (articles require images).")
+            continue
+
+        # Build markdown
+        markdown, slug = build_news_markdown(article, category_key, category_label, image_data)
+
+        # Check for duplicate slugs
+        post_path = f"content/posts/{slug}.md"
+        if os.path.exists(post_path):
+            print(f"  Article '{slug}' already exists — skipping duplicate.")
+            continue
+
+        # Save article file
+        article_file = f"output/{slug}.md"
+        with open(article_file, "w") as f:
+            f.write(markdown)
+
+        manifest.append({
+            "file": article_file,
+            "slug": slug,
+            "title": article.get("title", ""),
+            "category": category_key,
+            "image_source": image_data.get("source", "unknown")
+        })
+
+        articles_generated += 1
+        print(f"  Saved: {article_file}")
+        print(f"  Image: {image_data['source']} by {image_data['credit']}")
+
+        # Small delay between articles to avoid API rate limits
+        if i < NEWS_COUNT - 1:
+            time.sleep(2)
+
+    # Write manifest for the workflow to use
+    with open("output/manifest.json", "w") as f:
+        json.dump(manifest, f, indent=2)
+
+    print(f"\n{'='*50}")
+    print(f"  Generation complete: {articles_generated} article(s) saved")
+    print(f"{'='*50}")
+
+    if articles_generated == 0:
+        with open("output/error.log", "w") as f:
+            f.write("No articles were generated. Check API keys and connectivity.\n")
+
+
+if __name__ == "__main__":
+    main()

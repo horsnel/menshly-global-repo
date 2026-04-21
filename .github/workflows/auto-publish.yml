@@ -58,16 +58,22 @@ jobs:
           NEWS_API_KEY: ${{ secrets.NEWS_API_KEY }}
           AI_API_BASE: ${{ secrets.AI_API_BASE }}
           AI_MODEL: ${{ secrets.AI_MODEL }}
-          MANUAL_CATEGORY: ${{ github.event.inputs.category }}
-          MANUAL_TOPIC: ${{ github.event.inputs.topic }}
+          MANUAL_CATEGORY: ${{ inputs.category }}
+          MANUAL_TOPIC: ${{ inputs.topic }}
         run: python scripts/auto-generate.py
 
       - name: Check if article was created
         id: check
         run: |
           if [ -s output/article.md ]; then
-            echo "created=true" >> $GITHUB_OUTPUT
-            echo "Article generated successfully"
+            # Verify article has an image in front matter
+            if grep -q "^image:" output/article.md; then
+              echo "created=true" >> $GITHUB_OUTPUT
+              echo "Article generated successfully with image"
+            else
+              echo "created=false" >> $GITHUB_OUTPUT
+              echo "Article has no image — rejecting"
+            fi
           else
             echo "created=false" >> $GITHUB_OUTPUT
             echo "No article was generated (possibly duplicate or error)"

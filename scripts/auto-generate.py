@@ -815,6 +815,14 @@ def main():
     # Fetch best image from all 3 sources — use article title for relevance
     image_data = fetch_best_image(topic, category_key, article_title=article_title)
 
+    # CRITICAL: Articles MUST have a valid image — do not save without one
+    if not image_data:
+        print("\nERROR: No image found for article. Article will NOT be saved without an image.")
+        os.makedirs("output", exist_ok=True)
+        with open("output/error.log", "w") as f:
+            f.write("No image found for article. Article rejected.\n")
+        return
+
     # Build markdown
     markdown, slug = build_markdown(article, topic, category_key, category_label, image_data)
 

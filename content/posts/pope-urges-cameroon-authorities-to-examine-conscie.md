@@ -8,8 +8,6 @@ authors:
 - "david-kiprop"
 description: "The Pope's public plea to Cameroon authorities to examine their conscience amid rising tensions and humanitarian crisis."
 ---
-
-
 <p><h2>Pope Urges Cameroon Authorities to Examine 'Conscience' Amidst Rising Tensions</h2>
 <p>The Pope has recently made a public plea to the authorities in Cameroon, urging them to examine their conscience in light of the ongoing turmoil and violence that has been plaguing the country. This statement comes at a time when the world is watching the unfolding crisis in Cameroon with great concern, and </p>
 <img src="https://images.pexels.com/photos/19856609/pexels-photo-19856609.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" style="width:100%;border-radius:8px;margin:20px 0;">

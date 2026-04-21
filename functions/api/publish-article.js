@@ -13,6 +13,8 @@ export async function onRequestPost(context) {
 
     if (!title || !title.trim()) return jsonResponse({ error: "Article title is required" }, 400);
     if (!content || content.trim().length < 50) return jsonResponse({ error: "Article content too short (min 50 chars)" }, 400);
+    if (!image || !image.trim()) return jsonResponse({ error: "Article image is required — articles cannot be published without a valid image" }, 400);
+    if (image.includes("picsum.photos")) return jsonResponse({ error: "Placeholder images (Picsum) are not allowed — provide a real image URL" }, 400);
 
     const githubToken = context.env.GITHUB_TOKEN || "";
     const githubRepo = context.env.GITHUB_REPO || "";
@@ -35,6 +37,7 @@ export async function onRequestPost(context) {
     fm += "slug: " + JSON.stringify(slug) + "\n";
     if (image) fm += "image: " + JSON.stringify(image) + "\n";
     fm += "categories: " + JSON.stringify([hugoCat]) + "\n";
+    // NOTE: No "tags:" in front matter — only categories are used
     fm += "author: " + JSON.stringify(author) + "\n";
     fm += "description: " + JSON.stringify((summary || "").substring(0, 160)) + "\n";
     if (reqSeries && reqSeries.trim()) fm += "series: " + JSON.stringify(reqSeries.trim()) + "\n";

@@ -1,7 +1,6 @@
 baseURL = "https://menshly-global.pages.dev/"
 languageCode = "en-us"
 title = "MenshlyGlobal | The 2026 Frontier"
-theme = "paper"
 [pagination]
   pagerSize = 9
 

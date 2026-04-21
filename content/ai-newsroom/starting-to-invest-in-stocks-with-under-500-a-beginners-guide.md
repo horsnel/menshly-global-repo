@@ -6,10 +6,9 @@ image: "https://images.pexels.com/photos/7876656/pexels-photo-7876656.jpeg?auto=
 categories: ["finance"]
 author: "Dr. Elena Vasquez"
 authors:
-- "Dr. Elena Vasquez"
+- "dr-elena-vasquez"
 description: "Summary: With the rise of mobile trading apps and online brokerages, investing in stocks has become more accessible than ever. This article provides a step-by-s"
 ---
-
 Summary: With the rise of mobile trading apps and online brokerages, investing in stocks has become more accessible than ever. This article provides a step-by-step guide on how to start investing in stocks with under $500, helping beginners navigate the world of investing without breaking the bank.
 
 **Understanding the Basics**

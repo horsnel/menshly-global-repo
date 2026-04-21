@@ -5,7 +5,7 @@ slug: "social-media-marketing-roi-for-small-businesses-in-2026-is-it-still-worth
 image: "https://vendinglab.tech/storage/2025/06/business-ideas-768x432.webp"
 author: "Dr. Fatima Al-Hassan"
 authors:
-- "Dr. Fatima Al-Hassan"
+- "dr-fatima-al-hassan"
 description: "In 2026, social media marketing remains a powerful tool for small businesses, but rising competition, algorithm changes, and ad costs are reshaping ROI. This de"
 categories: ["finance"]
 ---

@@ -6,8 +6,9 @@ image: "https://images.pexels.com/photos/35251423/pexels-photo-35251423.jpeg?aut
 categories: ["business"]
 author: "Marcus Webb"
 description: "Summary: The global startup funding landscape is evolving, with emerging markets and new technologies driving investment growth. This article provides an in-dep"
+authors:
+- "marcus-webb"
 ---
-
 Summary: The global startup funding landscape is evolving, with emerging markets and new technologies driving investment growth. This article provides an in-depth analysis of the current trends and key regions where startups are securing funding.
 
 ## The Shift Towards Emerging Markets

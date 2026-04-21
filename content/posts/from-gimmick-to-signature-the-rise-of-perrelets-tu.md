@@ -8,9 +8,6 @@ authors:
 - "sarah-mitchell"
 description: "How Perrelet transformed its Turbine from a gimmick into a signature collection defining Swiss luxury watchmaking."
 ---
-
-
-
 <p><h2>Introduction to Perrelet's Turbine</h2>
 <p>Perrelet, a Swiss luxury watch brand, has been making waves in the industry with its innovative Turbine collection. What started as a gimmick has now become a signature feature for the brand, setting it apart from its competitors. The Turbine collection features a unique dial design that resembles a miniature turbine engine, complete with spinning bla</p>
 <img src="https://images.pexels.com/photos/34987129/pexels-photo-34987129.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" style="width:100%; border-radius:8px; margin:20px 0;">

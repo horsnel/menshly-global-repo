@@ -60,7 +60,8 @@ jobs:
           NEWS_API_KEY: ${{ secrets.NEWS_API_KEY }}
           AI_API_BASE: ${{ secrets.AI_API_BASE }}
           AI_MODEL: ${{ secrets.AI_MODEL }}
-          NEWS_COUNT: ${{ github.event.inputs.count || '3' }}
+          NEWS_COUNT: ${{ inputs.count || '3' }}
+          MANUAL_CATEGORY: ${{ inputs.category }}
         run: python scripts/generate-news.py
 
       - name: Commit and push articles
@@ -72,15 +73,24 @@ jobs:
               git config user.email "newsbot@menshly-global.pages.dev"
               
               # Copy generated articles from output/ to content/posts/ using manifest
+              # Also verify each article has an image before copying
               python3 -c "
 import json, shutil, os
 manifest = json.load(open('output/manifest.json'))
+copied = 0
 for article in manifest:
     src = article['file']
     dst = os.path.join('content/posts', os.path.basename(src))
     if os.path.exists(src):
-        shutil.copy2(src, dst)
-        print(f'Copied: {src} → {dst}')
+        with open(src, 'r') as f:
+            head = f.read(500)
+        if 'image:' in head:
+            shutil.copy2(src, dst)
+            print(f'Copied: {src} -> {dst}')
+            copied += 1
+        else:
+            print(f'SKIPPED (no image): {src}')
+print(f'Total copied: {copied}')
 "
               
               git add content/posts/*.md 2>/dev/null || true

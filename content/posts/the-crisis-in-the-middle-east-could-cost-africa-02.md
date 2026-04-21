@@ -6,10 +6,7 @@ categories: ["world"]
 author: "Sarah Mitchell"
 authors:
 - "sarah-mitchell"
-description: ""
-
 ---
-
 <p><h2>The Crisis In The Middle East Could Cost Africa 0.2 Percent In Economic Growth In 2026</h2>
 <p>The ongoing crisis in the Middle East has far-reaching implications that extend beyond the region, affecting economies and communities worldwide. A recent report by the African Development Bank has revealed that the crisis could have a significant impact on Africa's economic growth, potentially costi</p>
 <img src="https://images.pexels.com/photos/11264965/pexels-photo-11264965.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" style="width:100%;border-radius:8px;margin:20px 0;">
