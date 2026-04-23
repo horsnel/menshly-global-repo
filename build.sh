@@ -12,7 +12,7 @@ echo "Cleaning content files..."
 python3 -c "
 import os, re
 
-for directory in ['content/posts', 'content/ai-newsroom']:
+for directory in ['content/posts', 'content/ai-newsroom', 'content/opportunities', 'content/playbooks', 'content/intelligence']:
     if not os.path.isdir(directory):
         continue
     for fname in os.listdir(directory):
