@@ -2,7 +2,7 @@
 title: "The AI Automation Agency Playbook"
 date: 2026-04-24
 category: "Playbook"
-price: "$97"
+price: "$47"
 readTime: "90 MIN"
 excerpt: "The most advanced AI automation agency blueprint ever created. 12 modules, 47 step-by-step procedures, interactive check-ins at every stage, complete tech stacks, client delivery frameworks, and scaling systems. From zero to $50K/month."
 ---
