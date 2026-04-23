@@ -23,7 +23,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 import random
 
-from image_utils import generate_article_image
+from image_utils import generate_article_image, generate_hero_image
 
 AI_API_KEY = os.environ.get("AI_API_KEY", "")
 AI_API_BASE = os.environ.get("AI_API_BASE", "https://api.openai.com/v1")
@@ -287,6 +287,13 @@ if __name__ == "__main__":
         section="playbooks",
     )
 
+    # Generate premium hero/OG image via Pollination AI
+    hero_path = generate_hero_image(
+        topic=topic,
+        slug=slug,
+        section="playbooks",
+    )
+
     front_matter = f"""---
 title: "{title}"
 date: {now.strftime("%Y-%m-%d")}
@@ -295,6 +302,7 @@ price: "{price}"
 readTime: "{read_time}"
 excerpt: "{excerpt}"
 image: "{image_path}"
+heroImage: "{hero_path}"
 ---
 
 """

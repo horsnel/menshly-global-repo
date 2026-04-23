@@ -6,6 +6,7 @@ difficulty: "ADVANCED"
 readTime: "26 MIN"
 excerpt: "The complete execution guide for building an AI-powered content business. From content strategy to production pipeline to distribution to monetization — every step, every tool, every configuration."
 image: "/images/articles/intelligence/ai-content-business-guide.png"
+heroImage: "/images/heroes/intelligence/ai-content-business-guide.png"
 ---
 
 An AI content business is not about replacing writers with chatbots. It is about building a content production system that leverages AI for speed and scale while maintaining the quality standards that audiences demand. This guide covers the complete execution path — from setting up your production environment to collecting your first dollar. Every step is actionable. Every tool is named. Every configuration is specified.

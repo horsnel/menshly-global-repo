@@ -5,6 +5,7 @@ category: "AI Opportunity"
 readTime: "14 MIN"
 excerpt: "Every stack, every hack, every ugly truth — the complete deep dive on building an AI lead generation system that fills pipelines on autopilot."
 image: "/images/articles/opportunities/ai-lead-generation-machine.png"
+heroImage: "/images/heroes/opportunities/ai-lead-generation-machine.png"
 ---
 
 Every business has the same problem: not enough qualified leads. They'll tell you it's marketing, or branding, or product-market fit. But strip away the jargon and the fundamental issue is always the same — they don't have enough conversations with people who might buy what they're selling. Lead generation is the lifeblood of every business, and it's also the task that most businesses are worst at. They run ads that burn cash. They post on social media and hope. They cold-call and get rejected. The old methods are expensive, slow, and demoralizing. AI changes all of that.

@@ -6,6 +6,7 @@ difficulty: "ADVANCED"
 readTime: "28 MIN"
 excerpt: "The complete execution guide for building, configuring, and deploying AI voice agents that handle phone calls for businesses. From Vapi setup to first paying client."
 image: "/images/articles/intelligence/build-ai-voice-agent-system.png"
+heroImage: "/images/heroes/intelligence/build-ai-voice-agent-system.png"
 ---
 
 Voice agents are not chatbots with a microphone. They are real-time, full-duplex conversational systems that listen, think, and speak on a phone line — and businesses will pay significantly more for them because they replace a human sitting at a desk answering calls. This guide covers every step: provisioning phone numbers, configuring the voice model, building call-handling logic, connecting business tools, testing for production quality, pricing the service, and scaling past yourself. Follow it in order. Do not skip steps.

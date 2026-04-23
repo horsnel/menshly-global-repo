@@ -6,6 +6,7 @@ difficulty: "ADVANCED"
 readTime: "26 MIN"
 excerpt: "The complete execution guide for building an AI-powered SEO agency. From technical audit automation to content production to client delivery."
 image: "/images/articles/intelligence/build-ai-seo-agency-workflows.png"
+heroImage: "/images/heroes/intelligence/build-ai-seo-agency-workflows.png"
 ---
 
 Running an SEO agency without automation is a death march of manual audits, spreadsheet rank tracking, and content that takes days to produce. You bill for strategy but spend your hours on drudgery. This guide builds the opposite: an AI-augmented SEO operation where audits run themselves, content flows through a production pipeline, and client reports generate on a schedule without you touching them. Follow it in order. Do not skip steps.

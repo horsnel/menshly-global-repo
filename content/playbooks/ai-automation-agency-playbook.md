@@ -6,6 +6,7 @@ price: "$47"
 readTime: "90 MIN"
 excerpt: "The most advanced AI automation agency blueprint ever created. 12 modules, 47 step-by-step procedures, interactive check-ins at every stage, complete tech stacks, client delivery frameworks, and scaling systems. From zero to $50K/month."
 image: "/images/articles/playbooks/ai-automation-agency-playbook.png"
+heroImage: "/images/heroes/playbooks/ai-automation-agency-playbook.png"
 ---
 
 This is not a blog post condensed into a PDF. This is an operating system for building an AI automation agency from zero to $50,000/month in recurring revenue. Every module contains exact procedures — not theories, not possibilities, not "consider doing X." You will do X, in this order, with these tools, and you will verify it worked before moving on.

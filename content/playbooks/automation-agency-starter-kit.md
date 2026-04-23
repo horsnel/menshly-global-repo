@@ -6,6 +6,7 @@ price: "$29"
 readTime: "12 MIN"
 excerpt: "Everything you need to launch an automation agency. Includes client acquisition scripts, project templates, and a pricing calculator."
 image: "/images/articles/playbooks/automation-agency-starter-kit.png"
+heroImage: "/images/heroes/playbooks/automation-agency-starter-kit.png"
 ---
 
 ## Why an Automation Agency

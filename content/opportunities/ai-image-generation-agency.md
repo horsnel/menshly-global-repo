@@ -5,6 +5,7 @@ category: "AI Opportunity"
 readTime: "14 MIN"
 excerpt: "Every tool, every hack, every ugly truth — the complete deep dive on building an AI image generation agency that produces stunning visual content for businesses."
 image: "/images/articles/opportunities/ai-image-generation-agency.png"
+heroImage: "/images/heroes/opportunities/ai-image-generation-agency.png"
 ---
 
 Every business needs visuals. Product photos, social media graphics, website banners, ad creatives, email headers, blog illustrations, pitch deck slides — the demand for visual content is infinite and insatiable. Traditionally, getting professional visuals meant hiring a photographer ($200-500/hour), a graphic designer ($50-150/hour), or buying stock photos ($10-50 per image). All three options are slow, expensive, or generic — often all three. AI image generation has created a fourth option: custom, professional-quality visuals produced in minutes for pennies. And the agency that delivers these visuals at scale is sitting on a goldmine.
