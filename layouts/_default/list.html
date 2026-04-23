@@ -5,118 +5,115 @@
 {{ $isTerm := false }}{{ with .Data.Term }}{{ $isTerm = true }}{{ end }}
 
 {{ if and (eq $pageKind "taxonomyTerm") (not $isTaxonomy) }}
-{{/* ===== INDIVIDUAL TAXONOMY TERM (category/author page) ===== */}}
+{{/* ===== INDIVIDUAL TAXONOMY TERM ===== */}}
 {{ $singular := .Data.Singular }}
 {{ $term := .Data.Term }}
 <div class="main-content">
   <div class="content-grid">
     <div class="main-column">
-      {{ if eq $singular "author" }}
-      {{ $authorRole := "" }}{{ $authorBio := "" }}{{ $authorSlug := $term | urlize }}
-      {{ $authorSlugClean := replace $authorSlug "." "-" }}
-      {{ with index site.Data.authors $authorSlug }}{{ $authorRole = .role }}{{ $authorBio = .bio }}{{ end }}
-      {{ with index site.Data.authors $authorSlugClean }}{{ $authorRole = .role }}{{ $authorBio = .bio }}{{ end }}
-      {{ $allPosts := where .Site.RegularPages "Params.author" $term }}
-      {{ $tc := len $allPosts }}
-      <div class="author-header">
-        <div class="author-avatar">{{ substr $term 0 1 }}</div>
-        <div class="author-info">
-          <h1>{{ $term }}</h1>
-          {{ with $authorRole }}<span class="author-role">{{ . }}</span>{{ else }}<span class="author-role">Contributing Writer</span>{{ end }}
-          <span class="author-bio">{{ $tc }} article{{ if gt $tc 1 }}s{{ end }} published</span>
-        </div>
-      </div>
-      {{ with $authorBio }}<div class="author-full-bio">{{ . | markdownify }}</div>{{ end }}
-      {{ if gt $tc 0 }}
-      <div class="section-header"><h2>Articles by {{ $term }}</h2><span class="see-all">{{ $tc }} articles</span></div>
-      <div class="posts">{{ range $allPosts.ByDate.Reverse }}
-        {{ $img := .Params.image }}{{ $cat := "" }}{{ $title := .Title }}{{ with (index .Params.categories 0) }}{{ $cat = . }}{{ end }}
-        <a class="story-card" href="{{ .Permalink }}">{{ with $img }}<img class="story-card-image" src="{{ . }}" alt="{{ $title }}" loading="lazy">{{ end }}<span class="story-card-category">{{ with $cat }}{{ . }}{{ end }}</span><span class="story-card-headline">{{ .Title }}</span><span class="story-card-meta">{{ .Date.Format "Jan 2, 2006" }}</span></a>
-      {{ end }}</div>
-      {{ else }}<div class="static-page" style="text-align:center;padding:60px 20px;"><p style="color:var(--text-muted);">No articles yet by this author.</p></div>{{ end }}
-
-      {{ else if eq $singular "category" }}
+      <div class="section-header"><h2>{{ title $term }}</h2></div>
       {{ $posts := .Pages.ByDate.Reverse }}{{ $tc := len $posts }}
-      <div class="section-header"><h2>{{ title $term }}</h2><span class="see-all">{{ $tc }} articles</span></div>
-      {{ if gt $tc 0 }}
-      {{ $hero := index $posts 0 }}
-      <div class="lead-story">
-        <a class="lead-story-link" href="{{ $hero.Permalink }}">
-          {{ with $hero.Params.image }}<img class="lead-story-image" src="{{ . }}" alt="{{ $hero.Title }}" loading="eager">{{ end }}
-          <span class="lead-story-category">{{ title $term }}</span>
-          <h2 class="lead-story-headline">{{ $hero.Title }}</h2>
-          <p class="lead-story-deck">{{ with $hero.Params.description }}{{ . }}{{ else }}{{ $hero.Summary | plainify | truncate 160 }}{{ end }}</p>
-          <div class="lead-story-meta">
-            {{ with $hero.Params.author }}<span class="byline">By {{ . }}</span>{{ end }}
-            <span>{{ $hero.Date.Format "January 2, 2006" }}</span>
-            {{ $wordCount := $hero.WordCount }}{{ $readingTime := math.Round (div (float $wordCount) 200.0) }}{{ if lt $readingTime 1 }}{{ $readingTime = 1 }}{{ end }}<span class="reading-time">{{ $readingTime }} min read</span>
-          </div>
-        </a>
-      </div>
-      <div class="section-stories-grid">{{ range after 1 $posts }}
-        {{ $img := .Params.image }}{{ $cat := "" }}{{ $title := .Title }}{{ with (index .Params.categories 0) }}{{ $cat = . }}{{ end }}
-        <a class="story-card" href="{{ .Permalink }}">{{ with $img }}<img class="story-card-image" src="{{ . }}" alt="{{ $title }}" loading="lazy">{{ end }}<span class="story-card-category">{{ with $cat }}{{ . }}{{ end }}</span><span class="story-card-headline">{{ .Title }}</span><span class="story-card-meta">{{ .Date.Format "Jan 2, 2006" }}</span></a>
-      {{ end }}</div>
-      {{ else }}<div class="static-page" style="text-align:center;padding:60px 20px;"><p style="color:var(--text-muted);">No articles in this category yet.</p></div>{{ end }}
-
-      {{ else }}
-      {{ $posts := .Pages.ByDate.Reverse }}{{ $tc := len $posts }}
-      <div class="section-header"><h2>{{ title $term }}</h2><span class="see-all">{{ $tc }} articles</span></div>
       {{ if gt $tc 0 }}
       <div class="posts">{{ range $posts }}
         {{ $img := .Params.image }}{{ $cat := "" }}{{ $title := .Title }}{{ with (index .Params.categories 0) }}{{ $cat = . }}{{ end }}
         <a class="story-card" href="{{ .Permalink }}">{{ with $img }}<img class="story-card-image" src="{{ . }}" alt="{{ $title }}" loading="lazy">{{ end }}<span class="story-card-category">{{ with $cat }}{{ . }}{{ end }}</span><span class="story-card-headline">{{ .Title }}</span><span class="story-card-meta">{{ .Date.Format "Jan 2, 2006" }}</span></a>
       {{ end }}</div>
       {{ else }}<div class="static-page" style="text-align:center;padding:60px 20px;"><p style="color:var(--text-muted);">No articles found.</p></div>{{ end }}
-      {{ end }}
     </div>
     <aside class="sidebar">
       {{ partial "most-read-widget.html" . }}
-      {{ partial "tradingview-widget.html" . }}
-      {{ partial "trending-now-widget.html" . }}
       {{ partial "categories-widget.html" . }}
+      {{ partial "trending-now-widget.html" . }}
     </aside>
   </div>
 </div>
 
 {{ else if and $isTaxonomy (ne $pageKind "taxonomyTerm") }}
 {{/* ===== TAXONOMY LISTING ===== */}}
-{{ $singular := .Data.Singular }}
 <div class="main-content">
   <div class="content-grid">
     <div class="main-column">
-      {{ if eq $singular "author" }}
-      {{ $authorMap := dict }}{{ range .Site.RegularPages }}{{ with .Params.author }}{{ $c := 0 }}{{ with (index $authorMap .) }}{{ $c = . }}{{ end }}{{ $authorMap = merge $authorMap (dict . (add $c 1)) }}{{ end }}{{ end }}
-      <div class="section-header"><h2>Our Authors</h2><span class="see-all">{{ len $authorMap }} writers</span></div>
-      <div class="taxonomy-grid author-grid">{{ range $name, $count := $authorMap }}
-        <a class="author-card" href="{{ "/authors/" | relLangURL }}{{ $name | urlize }}"><div class="author-card-avatar">{{ substr $name 0 1 }}</div><div class="author-card-info"><h3>{{ $name }}</h3><span class="author-card-count">{{ $count }} article{{ if gt $count 1 }}s{{ end }}</span></div></a>
-      {{ end }}</div>
-      {{ else }}
       <div class="section-header"><h2>{{ .Title }}</h2></div>
       <div class="taxonomy-grid category-grid">{{ range $term, $pages := .Data.Terms }}
-        <a class="author-card" href="{{ "/" | relLangURL }}{{ $singular }}/{{ $term | urlize }}"><div class="author-card-avatar" style="background:var(--accent);">{{ substr (title $term) 0 1 }}</div><div class="author-card-info"><h3>{{ title $term }}</h3><span class="author-card-count">{{ len $pages }} article{{ if gt (len $pages) 1 }}s{{ end }}</span></div></a>
+        <a class="author-card" href="{{ "/" | relLangURL }}{{ $.Data.Singular }}/{{ $term | urlize }}"><div class="author-card-avatar" style="background:var(--accent);">{{ substr (title $term) 0 1 }}</div><div class="author-card-info"><h3>{{ title $term }}</h3><span class="author-card-count">{{ len $pages }} article{{ if gt (len $pages) 1 }}s{{ end }}</span></div></a>
       {{ end }}</div>
-      {{ end }}
     </div>
     <aside class="sidebar">{{ partial "most-read-widget.html" . }}{{ partial "categories-widget.html" . }}{{ partial "trending-now-widget.html" . }}</aside>
   </div>
 </div>
 
 {{ else if .IsHome }}
-{{/* ===== HOMEPAGE — NYT Editorial Grid ===== */}}
-{{ $posts := where .Site.RegularPages "Section" "posts" }}
-{{ if gt (len $posts) 0 }}
+{{/* ===== HOMEPAGE — AI Monetization Blog ===== */}}
 
-{{ $hero := index $posts 0 }}
-{{ $secondary := after 1 $posts }}
+{{/* Hero: Welcome Banner */}}
+<div class="main-content">
+  <div class="home-hero-banner">
+    <div class="home-hero-content">
+      <h1>Where AI Meets Revenue</h1>
+      <p>Discover opportunities, grab playbooks, use free tools, and get the deep intelligence you need to build profitable AI businesses.</p>
+      <div class="home-hero-actions">
+        <a href="/opportunities" class="hero-cta-btn">Explore Opportunities</a>
+        <a href="/tools" class="hero-cta-btn hero-cta-secondary">Free Tools</a>
+      </div>
+    </div>
+  </div>
+</div>
 
-{{/* Lead Story + Trending Sidebar */}}
+{{/* Section Cards Row — 4 categories */}}
+<div class="main-content">
+  <div class="category-cards-row">
+    <a href="/opportunities" class="category-card category-card-opportunities">
+      <div class="category-card-icon">
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+      </div>
+      <h3>Opportunities</h3>
+      <p>Discover new AI models, ideas & automation systems</p>
+      <span class="category-card-cta">Explore &rarr;</span>
+    </a>
+    <a href="/playbooks" class="category-card category-card-playbooks">
+      <div class="category-card-icon">
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
+      </div>
+      <h3>Playbooks</h3>
+      <p>Ebooks, templates & ready-made materials</p>
+      <span class="category-card-cta">Browse &rarr;</span>
+    </a>
+    <a href="/tools" class="category-card category-card-tools">
+      <div class="category-card-icon">
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg>
+      </div>
+      <h3>Tools</h3>
+      <p>Free calculators, generators & matchers</p>
+      <span class="category-card-cta">Use Tools &rarr;</span>
+    </a>
+    <a href="/intelligence" class="category-card category-card-intelligence">
+      <div class="category-card-icon">
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/></svg>
+      </div>
+      <h3>Intelligence</h3>
+      <p>Deep implementation guides & full-stack tutorials</p>
+      <span class="category-card-cta">Read Guides &rarr;</span>
+    </a>
+  </div>
+</div>
+
+{{/* Gather all articles from the 3 content sections */}}
+{{ $oppPosts := where .Site.RegularPages "Section" "opportunities" }}
+{{ $intPosts := where .Site.RegularPages "Section" "intelligence" }}
+{{ $allPosts := $oppPosts | append $intPosts }}
+
+{{ if gt (len $allPosts) 0 }}
+{{/* Lead Story from latest across all sections */}}
+{{ $sorted := sort $allPosts "Date" "desc" }}
+{{ $hero := index $sorted 0 }}
+{{ $secondary := after 1 $sorted }}
+
 <div class="main-content">
   <div class="hero-editorial-row">
     <div class="lead-story">
       <a class="lead-story-link" href="{{ $hero.Permalink }}">
         {{ with $hero.Params.image }}<img class="lead-story-image" src="{{ . }}" alt="{{ $hero.Title }}" loading="eager">{{ end }}
-        <span class="lead-story-category">{{ with $hero.Params.categories }}{{ index . 0 }}{{ end }}</span>
+        <span class="lead-story-category">{{ with $hero.Params.categories }}{{ index . 0 }}{{ else }}{{ title $hero.Section }}{{ end }}</span>
         <h2 class="lead-story-headline">{{ $hero.Title }}</h2>
         <p class="lead-story-deck">{{ with $hero.Params.description }}{{ . }}{{ else }}{{ $hero.Summary | plainify | truncate 200 }}{{ end }}</p>
         <div class="lead-story-meta">
@@ -127,30 +124,28 @@
       </a>
     </div>
     <div class="trending-sidebar">
-      <div class="trending-sidebar-header">Most Read</div>
+      <div class="trending-sidebar-header">Latest</div>
       <ol class="trending-list">
-        {{ $counter := 1 }}
         {{ range first 5 $secondary }}
         <li class="trending-list-item">
           <a href="{{ .Permalink }}">{{ .Title }}</a>
-          <div class="trending-list-meta">{{ with .Params.categories }}{{ index . 0 }}{{ end }} &middot; {{ .Date.Format "Jan 2" }}</div>
+          <div class="trending-list-meta">{{ title .Section }} &middot; {{ .Date.Format "Jan 2" }}</div>
         </li>
-        {{ $counter = add $counter 1 }}
         {{ end }}
       </ol>
     </div>
   </div>
 </div>
 
-{{/* Secondary Stories — 3 column */}}
-{{ $secSlice := first 3 (after 1 $posts) }}
+{{/* Secondary Stories */}}
+{{ $secSlice := first 3 $secondary }}
 {{ if gt (len $secSlice) 0 }}
 <div class="main-content">
   <div class="secondary-stories">
     {{ range $secSlice }}
     <a class="secondary-story-link" href="{{ .Permalink }}">
       {{ $title := .Title }}{{ with .Params.image }}<img class="secondary-story-image" src="{{ . }}" alt="{{ $title }}" loading="lazy">{{ end }}
-      <span class="secondary-story-category">{{ with .Params.categories }}{{ index . 0 }}{{ end }}</span>
+      <span class="secondary-story-category">{{ title .Section }}</span>
       <h3 class="secondary-story-headline">{{ .Title }}</h3>
       <p class="secondary-story-summary">{{ with .Params.description }}{{ . }}{{ else }}{{ .Summary | plainify | truncate 120 }}{{ end }}</p>
       <span class="secondary-story-meta">{{ with .Params.author }}By {{ . }} &middot; {{ end }}{{ .Date.Format "Jan 2, 2006" }}</span>
@@ -163,10 +158,10 @@
 {{/* Newsletter Banner */}}
 <div class="newsletter-banner">
   <div class="newsletter-banner-inner">
-    <h3>Get The Frontier Dispatch</h3>
-    <p>The stories that shape tomorrow, in your inbox every morning.</p>
+    <h3>The Revenue Dispatch</h3>
+    <p>AI monetization insights — in your inbox every week.</p>
     <form class="nl-form" action="https://formspree.io/f/xreawkow" method="POST">
-      <input type="hidden" name="_subject" value="New Newsletter Subscriber — Menshly Global (Homepage Banner)">
+      <input type="hidden" name="_subject" value="New Newsletter Subscriber — Menshly Global (Homepage)">
       <input type="hidden" name="form_name" value="newsletter-homepage">
       <input type="email" name="email" placeholder="Your email address" required aria-label="Email address">
       <button type="submit">Subscribe Free &rarr;</button>
@@ -175,57 +170,56 @@
 </div>
 
 {{/* Section-based Grids */}}
-{{ $categories := slice "world" "business" "technology" "health" "entertainment" }}
-{{ range $cat := $categories }}
-  {{ $catPosts := where (where $.Site.RegularPages "Section" "posts") "Params.categories" "intersect" (slice $cat) }}
-  {{ if gt (len $catPosts) 0 }}
-  <div class="main-content">
-    <div class="section-divider">{{ title $cat }}</div>
-    <div class="section-stories-grid">
-      {{ range first 3 $catPosts.ByDate.Reverse }}
-      <a class="story-card" href="{{ .Permalink }}">
-        {{ $title := .Title }}{{ with .Params.image }}<img class="story-card-image" src="{{ . }}" alt="{{ $title }}" loading="lazy">{{ end }}
-        <span class="story-card-category">{{ title $cat }}</span>
-        <span class="story-card-headline">{{ .Title }}</span>
-        <span class="story-card-meta">
-          {{ with .Params.author }}<span class="byline">{{ . }}</span> &middot; {{ end }}{{ .Date.Format "Jan 2, 2006" }}
-        </span>
-      </a>
-      {{ end }}
-    </div>
-  </div>
-  {{ end }}
-{{ end }}
-
-{{/* More Stories fallback */}}
-{{ $morePosts := after 4 $posts }}
-{{ if gt (len $morePosts) 0 }}
+{{ if gt (len $oppPosts) 0 }}
 <div class="main-content">
-  <div class="section-header">
-    <h2>More Stories</h2>
-  </div>
-  <div class="posts">
-    {{ range $morePosts }}
-    {{ $img := .Params.image }}{{ $cat := "" }}{{ $title := .Title }}{{ with (index .Params.categories 0) }}{{ $cat = . }}{{ end }}
+  <div class="section-divider">Opportunities</div>
+  <div class="section-stories-grid">
+    {{ range first 3 $oppPosts.ByDate.Reverse }}
+    {{ $title := .Title }}
     <a class="story-card" href="{{ .Permalink }}">
-      {{ with $img }}<img class="story-card-image" src="{{ . }}" alt="{{ $title }}" loading="lazy">{{ end }}
-      <span class="story-card-category">{{ with $cat }}{{ . }}{{ end }}</span>
+      {{ with .Params.image }}<img class="story-card-image" src="{{ . }}" alt="{{ $title }}" loading="lazy">{{ end }}
+      <span class="story-card-category">Opportunity</span>
       <span class="story-card-headline">{{ .Title }}</span>
       <span class="story-card-meta">{{ .Date.Format "Jan 2, 2006" }}</span>
     </a>
     {{ end }}
   </div>
-
-  {{ if .Paginator }}
-  <div class="pagination">
-    {{ if .Paginator.HasPrev }}<a href="{{ .Paginator.Prev.URL }}">&larr; Prev</a>{{ end }}
-    <span class="current">{{ .Paginator.PageNumber }}/{{ .Paginator.TotalPages }}</span>
-    {{ if .Paginator.HasNext }}<a href="{{ .Paginator.Next.URL }}">Next &rarr;</a>{{ end }}
-  </div>
-  {{ end }}
 </div>
 {{ end }}
 
+{{ if gt (len $intPosts) 0 }}
+<div class="main-content">
+  <div class="section-divider">Intelligence</div>
+  <div class="section-stories-grid">
+    {{ range first 3 $intPosts.ByDate.Reverse }}
+    {{ $title := .Title }}
+    <a class="story-card" href="{{ .Permalink }}">
+      {{ with .Params.image }}<img class="story-card-image" src="{{ . }}" alt="{{ $title }}" loading="lazy">{{ end }}
+      <span class="story-card-category">Intelligence</span>
+      <span class="story-card-headline">{{ .Title }}</span>
+      <span class="story-card-meta">{{ .Date.Format "Jan 2, 2006" }}</span>
+    </a>
+    {{ end }}
+  </div>
+</div>
+{{ end }}
+
+{{ else }}
+{{/* No articles yet — Show the category cards and CTA */}}
+<div class="main-content">
+  <div class="newsletter-banner" style="margin-top:20px;">
+    <div class="newsletter-banner-inner">
+      <h3>Content Coming Soon</h3>
+      <p>We're building the best AI monetization resource. Subscribe to be the first to know when we launch.</p>
+      <form class="nl-form" action="https://formspree.io/f/xreawkow" method="POST">
+        <input type="hidden" name="_subject" value="New Subscriber — Menshly Global Launch">
+        <input type="hidden" name="form_name" value="newsletter-launch">
+        <input type="email" name="email" placeholder="Your email address" required aria-label="Email address">
+        <button type="submit">Notify Me &rarr;</button>
+      </form>
+    </div>
+  </div>
+</div>
 {{ end }}
 
 {{ else }}
@@ -239,7 +233,7 @@
         {{ $img := $p.Params.image }}{{ $cats := $p.Params.categories }}{{ $cat := "" }}{{ with $cats }}{{ $cat = index . 0 }}{{ end }}
         <a class="story-card" href="{{ $p.Permalink }}">
           {{ with $img }}<img class="story-card-image" src="{{ . }}" alt="{{ $p.Title }}" loading="lazy">{{ end }}
-          <span class="story-card-category">{{ with $cat }}{{ . }}{{ end }}</span>
+          <span class="story-card-category">{{ with $cat }}{{ . }}{{ else }}{{ title $p.Section }}{{ end }}</span>
           <span class="story-card-headline">{{ $p.Title }}</span>
           <span class="story-card-meta">{{ $p.Date.Format "Jan 2, 2006" }}</span>
         </a>

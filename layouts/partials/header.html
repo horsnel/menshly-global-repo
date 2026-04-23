@@ -1,10 +1,7 @@
-<!-- Masthead Top Bar: Date + Weather -->
+<!-- Masthead Top Bar: Date + Edition -->
 <div class="masthead-topbar">
   <span class="masthead-date" id="headerDate"></span>
-  <span class="masthead-weather" id="mastheadWeather">
-    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
-    <span id="weatherText">Loading...</span>
-  </span>
+  <span class="masthead-edition">AI Revenue Edition</span>
 </div>
 
 <!-- Masthead Main: Logo + Subscribe -->
@@ -18,15 +15,15 @@
 
     <div class="masthead-logo">
       <a href="{{ .Site.BaseURL }}" class="masthead-logo-text">Menshly Global</a>
-      <div class="masthead-tagline">The 2026 Frontier</div>
+      <div class="masthead-tagline">Where AI Meets Revenue</div>
     </div>
 
     <div class="masthead-actions">
       <div style="position:relative;">
         <button class="subscribe-btn" id="subscribe-toggle">Subscribe</button>
         <div class="subscribe-dropdown" id="subscribe-dropdown">
-          <h4>The Frontier Dispatch</h4>
-          <p>Get The Daily Brief — Free. No spam. Unsubscribe anytime.</p>
+          <h4>The Revenue Dispatch</h4>
+          <p>Get AI monetization insights — Free. No spam. Unsubscribe anytime.</p>
           <form class="nl-form" id="mastheadNlForm" action="https://formspree.io/f/xreawkow" method="POST">
             <input type="hidden" name="_subject" value="New Newsletter Subscriber — Menshly Global (Masthead)">
             <input type="hidden" name="form_name" value="newsletter-masthead">
@@ -49,11 +46,10 @@
   <div class="masthead-sticky-inner">
     <a href="{{ .Site.BaseURL }}" class="masthead-sticky-logo">Menshly Global</a>
     <div class="masthead-sticky-nav">
-      <a href="/categories/world">World</a>
-      <a href="/categories/business">Business</a>
-      <a href="/categories/technology">Tech</a>
-      <a href="/categories/health">Health</a>
-      <a href="/categories/entertainment">Entertainment</a>
+      <a href="/opportunities">Opportunities</a>
+      <a href="/playbooks">Playbooks</a>
+      <a href="/tools">Tools</a>
+      <a href="/intelligence">Intelligence</a>
     </div>
     <div class="masthead-sticky-actions">
       <button class="subscribe-btn" onclick="document.getElementById('subscribe-toggle').click()">Subscribe</button>

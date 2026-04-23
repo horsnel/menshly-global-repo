@@ -4,11 +4,21 @@
     Explore Topics
   </h3>
   <div class="categories-grid">
-    {{ range $name, $taxonomy := .Site.Taxonomies.categories }}
-    <a class="category-tag-item" href="/categories/{{ $name | urlize }}">
-      <span class="category-tag-name">{{ title $name }}</span>
-      <span class="category-tag-count">{{ len $taxonomy }}</span>
+    <a class="category-tag-item" href="/opportunities">
+      <span class="category-tag-name">Opportunities</span>
+      <span class="category-tag-count">{{ len (where .Site.RegularPages "Section" "opportunities") }}</span>
     </a>
-    {{ end }}
+    <a class="category-tag-item" href="/playbooks">
+      <span class="category-tag-name">Playbooks</span>
+      <span class="category-tag-count">{{ len (where .Site.RegularPages "Section" "playbooks") }}</span>
+    </a>
+    <a class="category-tag-item" href="/tools">
+      <span class="category-tag-name">Tools</span>
+      <span class="category-tag-count">5</span>
+    </a>
+    <a class="category-tag-item" href="/intelligence">
+      <span class="category-tag-name">Intelligence</span>
+      <span class="category-tag-count">{{ len (where .Site.RegularPages "Section" "intelligence") }}</span>
+    </a>
   </div>
 </div>

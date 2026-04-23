@@ -1,23 +1,24 @@
 baseURL = "https://menshly-global.pages.dev/"
 languageCode = "en-us"
-title = "MenshlyGlobal | The 2026 Frontier"
+title = "MenshlyGlobal | Where AI Meets Revenue"
 [pagination]
-  pagerSize = 9
+  pagerSize = 12
 
 [params]
-  description = "We use the best AI models to analyse news articles from verified sources before they hit your homepage."
+  description = "Where AI Meets Revenue — Discover opportunities, playbooks, tools, and deep intelligence for building profitable AI businesses."
   author = "Menshlyglobal Editorials"
   twitter = "Olhmescraxes1"
   fullWidth = true
   centerHeader = true
-  footer = "© 2026 Menshlyglobal Editorials. We use the best AI models to analyse news articles from verified sources before they hit your homepage."
-  breakingHeadline = "Nigeria's public debt hits record high at 159.28 trillion naira, raising fresh concerns about fiscal sustainability."
-  breakingLink = "/posts/investors-are-expecting-donald-trump-to-back-down-/"
+  footer = "© 2026 Menshlyglobal. Where AI Meets Revenue."
+  tagline = "Where AI Meets Revenue"
+  breakingHeadline = "AI Monetization is the new frontier — discover how to turn artificial intelligence into real revenue."
+  breakingLink = "/opportunities/"
 
 [taxonomies]
   category = "categories"
+  tag = "tags"
   author = "authors"
-  series = "series"
 
 [outputs]
   home = ["HTML", "RSS", "JSON"]
@@ -40,40 +41,28 @@ title = "MenshlyGlobal | The 2026 Frontier"
   includeNewer = true
   toLower = true
   [[related.indices]]
-    name = "categories"
+    name = "tags"
     weight = 100
   [[related.indices]]
-    name = "authors"
+    name = "categories"
     weight = 80
   [[related.indices]]
     name = "date"
     weight = 10
 
 [[menu.main]]
-  name = "World"
-  url = "/categories/world"
+  name = "Opportunities"
+  url = "/opportunities"
   weight = 1
 [[menu.main]]
-  name = "Business"
-  url = "/categories/business"
+  name = "Playbooks"
+  url = "/playbooks"
   weight = 2
 [[menu.main]]
-  name = "Technology"
-  url = "/categories/technology"
+  name = "Tools"
+  url = "/tools"
   weight = 3
 [[menu.main]]
-  name = "Health"
-  url = "/categories/health"
+  name = "Intelligence"
+  url = "/intelligence"
   weight = 4
-[[menu.main]]
-  name = "Science"
-  url = "/categories/science"
-  weight = 5
-[[menu.main]]
-  name = "Entertainment"
-  url = "/categories/entertainment"
-  weight = 6
-[[menu.main]]
-  name = "Finance"
-  url = "/categories/finance"
-  weight = 7

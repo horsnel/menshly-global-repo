@@ -1,0 +1,71 @@
+# ============================================================
+# Menshly Global — Auto Generate Opportunities Articles
+# Posts discovery articles about new AI models, ideas & automation
+# Target: content/opportunities/
+# ============================================================
+
+name: Generate Opportunities Article
+
+on:
+  schedule:
+    # Runs at 6:00 AM UTC daily (7 AM WAT)
+    - cron: '0 6 * * *'
+  workflow_dispatch:
+    inputs:
+      topic:
+        description: 'Specific topic (leave empty for auto-pick)'
+        required: false
+        default: ''
+
+permissions:
+  contents: write
+
+jobs:
+  generate-opportunity:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    if: github.actor != 'github-actions[bot]'
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Generate Opportunities article
+        env:
+          AI_API_KEY: ${{ secrets.AI_API_KEY }}
+          PEXELS_API_KEY: ${{ secrets.PEXELS_API_KEY }}
+          PIXABAY_API_KEY: ${{ secrets.PIXABAY_API_KEY }}
+          AI_API_BASE: ${{ secrets.AI_API_BASE }}
+          AI_MODEL: ${{ secrets.AI_MODEL }}
+          MANUAL_TOPIC: ${{ inputs.topic }}
+        run: python scripts/generate-opportunities.py
+
+      - name: Check if article was created
+        id: check
+        run: |
+          if [ -s output/article.md ]; then
+            echo "created=true" >> $GITHUB_OUTPUT
+            echo "Opportunity article generated successfully"
+          else
+            echo "created=false" >> $GITHUB_OUTPUT
+            echo "No article was generated"
+          fi
+
+      - name: Commit and push article
+        if: steps.check.outputs.created == 'true'
+        run: |
+          SECTION=$(cat output/target_section.txt)
+          SLUG=$(cat output/target_slug.txt)
+          git config user.name "Menshlyglobal Bot"
+          git config user.email "bot@menshly-global.pages.dev"
+          cp output/article.md "content/${SECTION}/${SLUG}.md"
+          git add "content/${SECTION}/${SLUG}.md"
+          git commit -m "Auto: Opportunities article ${SLUG} [skip ci]"
+          git push

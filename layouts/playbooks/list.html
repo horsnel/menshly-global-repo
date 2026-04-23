@@ -1,0 +1,90 @@
+{{ define "main" }}
+{{/* PLAYBOOKS SECTION — App Store / Marketplace for ebooks and ready-made materials */}}
+<div class="main-content">
+  <div class="section-hero-banner section-hero-playbooks">
+    <div class="section-hero-content">
+      <h1>Playbooks</h1>
+      <p>Ready-made ebooks, templates, and materials for instant download. Your AI monetization marketplace.</p>
+    </div>
+  </div>
+
+  {{/* Playbook Categories Filter */}}
+  <div class="playbooks-filter-bar" style="margin-top:40px;">
+    <button class="playbooks-filter-btn active" data-filter="all">All</button>
+    <button class="playbooks-filter-btn" data-filter="ebook">Ebooks</button>
+    <button class="playbooks-filter-btn" data-filter="template">Templates</button>
+    <button class="playbooks-filter-btn" data-filter="course">Mini-Courses</button>
+    <button class="playbooks-filter-btn" data-filter="toolkit">Toolkits</button>
+  </div>
+
+  {{ $playbooks := where .Site.RegularPages "Section" "playbooks" }}
+  {{ if gt (len $playbooks) 0 }}
+
+  {{/* Featured Playbook */}}
+  {{ $featured := where $playbooks "Params.featured" true }}
+  {{ if gt (len $featured) 0 }}
+  {{ $feat := index $featured 0 }}
+  <div class="playbook-featured-card">
+    <div class="playbook-featured-image">
+      {{ with $feat.Params.image }}<img src="{{ . }}" alt="{{ $feat.Title }}">{{ end }}
+      {{ with $feat.Params.badge }}<span class="playbook-badge">{{ . }}</span>{{ end }}
+    </div>
+    <div class="playbook-featured-info">
+      <span class="playbook-type">{{ with $feat.Params.type }}{{ . }}{{ else }}Ebook{{ end }}</span>
+      <h2>{{ $feat.Title }}</h2>
+      <p class="playbook-excerpt">{{ with $feat.Params.description }}{{ . }}{{ else }}{{ $feat.Summary | plainify | truncate 200 }}{{ end }}</p>
+      <div class="playbook-meta-row">
+        {{ with $feat.Params.author }}<span class="playbook-author">By {{ . }}</span>{{ end }}
+        {{ with $feat.Params.pages }}<span class="playbook-pages">{{ . }} pages</span>{{ end }}
+        {{ with $feat.Params.readTime }}<span class="playbook-readtime">{{ . }}</span>{{ end }}
+      </div>
+      <div class="playbook-price-row">
+        {{ with $feat.Params.price }}<span class="playbook-price">{{ . }}</span>{{ else }}<span class="playbook-price playbook-free">Free</span>{{ end }}
+        {{ with $feat.Params.downloadUrl }}<a href="{{ . }}" class="playbook-download-btn" download>Download</a>{{ else }}<a href="{{ $feat.Permalink }}" class="playbook-download-btn">Get It</a>{{ end }}
+      </div>
+    </div>
+  </div>
+  {{ end }}
+
+  {{/* Playbook Grid */}}
+  <div class="playbooks-grid">
+    {{ range $playbooks }}
+    {{ if and (gt (len $featured) 0) (eq .Params.featured true) }}{{ else }}
+    {{ $ctx := . }}
+    <div class="playbook-card" data-type="{{ with .Params.type }}{{ . | lower }}{{ else }}ebook{{ end }}">
+      <div class="playbook-card-image">
+        {{ with .Params.image }}<img src="{{ . }}" alt="{{ $ctx.Title }}">{{ else }}<div class="playbook-card-placeholder">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
+        </div>{{ end }}
+        {{ with .Params.badge }}<span class="playbook-badge">{{ . }}</span>{{ end }}
+      </div>
+      <div class="playbook-card-body">
+        <span class="playbook-type">{{ with .Params.type }}{{ . }}{{ else }}Ebook{{ end }}</span>
+        <h3><a href="{{ .Permalink }}">{{ .Title }}</a></h3>
+        <p class="playbook-excerpt">{{ with .Params.description }}{{ . | truncate 100 }}{{ else }}{{ .Summary | plainify | truncate 100 }}{{ end }}</p>
+        <div class="playbook-price-row">
+          {{ with .Params.price }}<span class="playbook-price">{{ . }}</span>{{ else }}<span class="playbook-price playbook-free">Free</span>{{ end }}
+          {{ with .Params.downloadUrl }}<a href="{{ . }}" class="playbook-download-btn" download>Download</a>{{ else }}<a href="{{ .Permalink }}" class="playbook-download-btn">Get It</a>{{ end }}
+        </div>
+      </div>
+    </div>
+    {{ end }}
+    {{ end }}
+  </div>
+
+  {{ else }}
+  <div class="empty-section">
+    <div class="empty-section-icon">
+      <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
+    </div>
+    <h2>Playbooks Coming Soon</h2>
+    <p>We're crafting battle-tested playbooks for AI monetization. Subscribe to be notified when they drop.</p>
+    <form class="nl-form" action="https://formspree.io/f/xreawkow" method="POST" style="max-width:400px;margin:0 auto;">
+      <input type="hidden" name="_subject" value="New Subscriber — Playbooks Section">
+      <input type="email" name="email" placeholder="Your email address" required aria-label="Email">
+      <button type="submit">Notify Me</button>
+    </form>
+  </div>
+  {{ end }}
+</div>
+{{ end }}

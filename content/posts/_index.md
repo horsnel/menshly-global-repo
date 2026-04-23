@@ -1,6 +1,5 @@
 ---
-title: "Posts"
-_build:
-list: false
-render: false
+title: "Latest"
+description: "All articles from across Menshly Global"
+hidden: true
 ---
