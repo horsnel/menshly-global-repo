@@ -1,5 +1,5 @@
 ---
-title: "AI Social Media Management Agency: The Content Machine"
+title: "How to Start an AI Social Media Agency in 2026 (100+ Posts Per Week)"
 date: 2026-04-23
 category: "AI Opportunity"
 readTime: "14 MIN"

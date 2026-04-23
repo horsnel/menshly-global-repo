@@ -1,5 +1,5 @@
 ---
-title: "AI-Powered Lead Generation: The Outbound Machine"
+title: "How to Build an AI Lead Generation System in 2026 (Fill Your Pipeline on Autopilot)"
 date: 2026-04-23
 category: "AI Opportunity"
 readTime: "14 MIN"

@@ -1,5 +1,5 @@
 ---
-title: "AI Copywriting Agency: Words That Sell, At Scale"
+title: "How to Start an AI Copywriting Agency in 2026 (Words That Sell at Scale)"
 date: 2026-04-23
 category: "AI Opportunity"
 readTime: "14 MIN"

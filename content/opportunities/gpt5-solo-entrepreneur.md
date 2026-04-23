@@ -1,5 +1,5 @@
 ---
-title: "GPT-5 and the Solo Entrepreneur Revolution"
+title: "How to Build a One-Person Business With GPT-5 in 2026 (Solo Entrepreneur Guide)"
 date: 2026-04-20
 category: "AI Opportunity"
 readTime: "15 MIN"

@@ -1,5 +1,5 @@
 ---
-title: "AI Course Creation: Package What You Know, Sell It Forever"
+title: "How to Create and Sell AI-Powered Online Courses in 2026 (Passive Income Blueprint)"
 date: 2026-04-23
 category: "AI Opportunity"
 readTime: "14 MIN"

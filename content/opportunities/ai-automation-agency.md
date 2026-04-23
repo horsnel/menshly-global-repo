@@ -1,5 +1,5 @@
 ---
-title: "The AI Automation Agency: Build Once, Get Paid Forever"
+title: "How to Start an AI Automation Agency in 2026 (Build Once, Get Paid Forever)"
 date: 2026-04-23
 category: "AI Opportunity"
 readTime: "16 MIN"

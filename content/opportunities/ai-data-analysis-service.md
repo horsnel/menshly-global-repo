@@ -1,5 +1,5 @@
 ---
-title: "AI Data Analysis Service: Turn Spreadsheets Into Revenue"
+title: "How to Start an AI Data Analysis Service in 2026 (Turn Spreadsheets Into Revenue)"
 date: 2026-04-23
 category: "AI Opportunity"
 readTime: "14 MIN"

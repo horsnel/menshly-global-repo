@@ -1,5 +1,5 @@
 ---
-title: "AI Agent Marketplaces: The New Gold Rush"
+title: "How to Make Money Selling AI Agents on Marketplaces in 2026 (Complete Guide)"
 date: 2026-04-22
 category: "AI Opportunity"
 readTime: "16 MIN"

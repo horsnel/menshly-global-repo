@@ -1,5 +1,5 @@
 ---
-title: "AI SEO Agency: Rank and Bank on Autopilot"
+title: "How to Start an AI SEO Agency in 2026 (Rank Clients on Autopilot)"
 date: 2026-04-23
 category: "AI Opportunity"
 readTime: "14 MIN"

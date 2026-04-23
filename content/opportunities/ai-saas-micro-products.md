@@ -1,5 +1,5 @@
 ---
-title: "AI SaaS Micro-Products: The $50K/Month Wrapper Play"
+title: "How to Build AI SaaS Micro-Products in 2026 (The $50K/Month Wrapper Play)"
 date: 2026-04-23
 category: "AI Opportunity"
 readTime: "15 MIN"

@@ -1,5 +1,5 @@
 ---
-title: "AI Chatbot Agency for E-Commerce: The Silent Sales Machine"
+title: "How to Build an AI Chatbot Agency for E-Commerce Stores in 2026"
 date: 2026-04-23
 category: "AI Opportunity"
 readTime: "15 MIN"

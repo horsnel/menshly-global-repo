@@ -1,5 +1,5 @@
 ---
-title: "AI Image Generation Agency: Visual Content at Scale"
+title: "How to Start an AI Image Generation Agency in 2026 (Visual Content at Scale)"
 date: 2026-04-23
 category: "AI Opportunity"
 readTime: "14 MIN"
