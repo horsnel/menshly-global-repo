@@ -1,52 +1,8 @@
-<!DOCTYPE html>
-<html lang="{{ .Site.Language.Lang }}" dir="ltr">
-<head>
-  {{ partial "head.html" . }}
-</head>
+{{ partial "head.html" . }}
 <body>
-  {{ partial "breaking-ticker.html" . }}
-  {{ partial "header.html" . }}
-  {{ partial "nav-bar.html" . }}
-  {{ partial "search-modal.html" . }}
-  {{ partial "breaking-alert.html" . }}
+  {{ partial "nav.html" . }}
   {{ block "main" . }}{{ end }}
+  {{ partial "newsletter.html" . }}
   {{ partial "footer.html" . }}
-  {{ partial "cookie-consent.html" . }}
-
-  {{/* Exit Intent Modal */}}
-  <div class="exit-intent-modal" id="exitIntentModal">
-    <div class="exit-intent-inner">
-      <button class="exit-intent-close" id="exitIntentClose">&times;</button>
-      <h3>Before you go</h3>
-      <p>Get The Frontier Dispatch — the stories that shape tomorrow, delivered to your inbox every morning.</p>
-      <form class="nl-form" action="https://formspree.io/f/xreawkow" method="POST">
-        <input type="hidden" name="_subject" value="New Newsletter Subscriber — Menshly Global (Exit Intent)">
-        <input type="hidden" name="form_name" value="newsletter-exit">
-        <input type="email" name="email" placeholder="Your email address" required aria-label="Email address">
-        <button type="submit">Subscribe Free &rarr;</button>
-      </form>
-    </div>
-  </div>
-
-  {{/* Mobile Subscribe Bar */}}
-  <div class="mobile-subscribe-bar" id="mobileSubscribeBar">
-    <p>Get The Frontier Dispatch — Free</p>
-    <form action="https://formspree.io/f/xreawkow" method="POST" style="display:flex;gap:4px;">
-      <input type="hidden" name="_subject" value="New Newsletter Subscriber — Menshly Global (Mobile)">
-      <input type="hidden" name="form_name" value="newsletter-mobile">
-      <input type="email" name="email" placeholder="Email" required aria-label="Email address">
-      <button type="submit">Subscribe</button>
-    </form>
-    <button class="dismiss-btn" id="mobileSubscribeDismiss">&times;</button>
-  </div>
-
-  <button class="back-to-top" id="backToTop" title="Back to top"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="19" x2="12" y2="5"/><polyline points="5 12 12 5 19 12"/></svg></button>
-  <script src="https://cdn.jsdelivr.net/npm/fuse.js@7.0.0/dist/fuse.min.js" defer></script>
-  <script src="/assets/js/nav.js" defer></script>
-  <script src="/assets/js/search.js" defer></script>
-  <script src="/assets/js/main.js" defer></script>
-  <script src="/assets/js/weather.js" defer></script>
-  <script src="/assets/js/newsletter-popup.js" defer></script>
-  {{ partial "newsletter-popup.html" . }}
 </body>
 </html>

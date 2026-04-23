@@ -1,68 +1,29 @@
-baseURL = "https://menshly-global.pages.dev/"
+baseURL = "https://menshly-global-enz.pages.dev/"
 languageCode = "en-us"
-title = "MenshlyGlobal | Where AI Meets Revenue"
-[pagination]
-  pagerSize = 12
+title = "MENSHLY GLOBAL"
+copyright = "2026 MENSHLY GLOBAL. ALL RIGHTS RESERVED."
+
+disableKinds = ["taxonomy", "term"]
 
 [params]
-  description = "Where AI Meets Revenue — Discover opportunities, playbooks, tools, and deep intelligence for building profitable AI businesses."
-  author = "Menshlyglobal Editorials"
-  twitter = "Olhmescraxes1"
-  fullWidth = true
-  centerHeader = true
-  footer = "© 2026 Menshlyglobal. Where AI Meets Revenue."
-  tagline = "Where AI Meets Revenue"
-  breakingHeadline = "AI Monetization is the new frontier — discover how to turn artificial intelligence into real revenue."
-  breakingLink = "/opportunities/"
+  description = "Where AI Meets Revenue"
+  tagline = "WHERE AI MEETS REVENUE"
+  brand = "MENSHLY GLOBAL"
 
-[taxonomies]
-  category = "categories"
-  tag = "tags"
-  author = "authors"
-
-[outputs]
-  home = ["HTML", "RSS", "JSON"]
-  section = ["HTML", "RSS"]
-  taxonomy = ["HTML", "RSS"]
-  term = ["HTML", "RSS"]
-
-[outputFormats.JSON]
-  mediaType = "application/json"
-  baseName = "index"
-  isPlainText = true
-
-[markup]
-  [markup.goldmark]
-    [markup.goldmark.renderer]
-      unsafe = true
-
-[related]
-  threshold = 80
-  includeNewer = true
-  toLower = true
-  [[related.indices]]
-    name = "tags"
-    weight = 100
-  [[related.indices]]
-    name = "categories"
-    weight = 80
-  [[related.indices]]
-    name = "date"
-    weight = 10
-
-[[menu.main]]
-  name = "Opportunities"
-  url = "/opportunities"
-  weight = 1
-[[menu.main]]
-  name = "Playbooks"
-  url = "/playbooks"
-  weight = 2
-[[menu.main]]
-  name = "Tools"
-  url = "/tools"
-  weight = 3
-[[menu.main]]
-  name = "Intelligence"
-  url = "/intelligence"
-  weight = 4
+[menu]
+  [[menu.main]]
+    name = "OPPORTUNITIES"
+    url = "/opportunities/"
+    weight = 1
+  [[menu.main]]
+    name = "PLAYBOOKS"
+    url = "/playbooks/"
+    weight = 2
+  [[menu.main]]
+    name = "TOOLS"
+    url = "/tools/"
+    weight = 3
+  [[menu.main]]
+    name = "INTELLIGENCE"
+    url = "/intelligence/"
+    weight = 4

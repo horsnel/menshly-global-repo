@@ -1,357 +1,337 @@
 {{ define "main" }}
-<div class="main-content">
-  <div class="section-hero-banner section-hero-tools">
-    <div class="section-hero-content">
-      <h1>Tools</h1>
-      <p>Free utility tools to accelerate your AI business — from idea generators to pricing calculators.</p>
-    </div>
-  </div>
+{{ partial "section-hero.html" (dict "label" "Free Utilities" "title" "TOOLS" "desc" "Free interactive tools to accelerate your AI revenue. Click any tool to expand and start using it immediately.") }}
 
-  <div class="tools-grid" style="margin-top:40px;">
+<section class="section">
+  <div class="section-inner">
 
-    {{/* Tool 1: AI Side Hustle Idea Generator */}}
-    <div class="tool-card tool-card-featured" id="tool-idea-generator">
+    <!-- TOOL 1: AI Side Hustle Idea Generator -->
+    <div class="tool-card" id="tool-1" style="margin-bottom:-1.5px;">
       <div class="tool-card-header">
-        <div class="tool-icon">
-          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/></svg>
+        <div>
+          <span class="tool-card-icon">💡</span>
+          <span class="tool-card-name">AI Side Hustle Idea Generator</span>
         </div>
-        <span class="tool-badge-viral">Most Popular</span>
+        <button class="tool-toggle-btn" onclick="toggleTool('tool-1')" style="width:auto;margin:0;">EXPAND</button>
       </div>
-      <h2>AI Side Hustle Idea Generator</h2>
-      <p>Tell us your skills and interests — we'll generate AI-powered side hustle ideas tailored to you.</p>
-      <div class="tool-form">
-        <div class="tool-input-group">
-          <label for="idea-skills">Your Skills (e.g. writing, coding, design)</label>
-          <input type="text" id="idea-skills" placeholder="writing, coding, marketing...">
-        </div>
-        <div class="tool-input-group">
-          <label for="idea-budget">Budget to Start</label>
-          <select id="idea-budget">
-            <option value="0">$0 (Free)</option>
-            <option value="100">Under $100</option>
-            <option value="500">Under $500</option>
-            <option value="1000">Under $1,000</option>
-            <option value="5000">$1,000+</option>
-          </select>
-        </div>
-        <div class="tool-input-group">
-          <label for="idea-time">Time Available</label>
-          <select id="idea-time">
-            <option value="5">5 hrs/week</option>
-            <option value="10">10 hrs/week</option>
-            <option value="20">20 hrs/week</option>
-            <option value="40">Full-time</option>
-          </select>
-        </div>
-        <button class="tool-generate-btn" onclick="generateIdeas()">Generate Ideas</button>
+      <div class="tool-card-body">
+        <p class="tool-card-desc">Select your skills and interests to generate AI side hustle ideas tailored to you.</p>
       </div>
-      <div class="tool-results" id="idea-results"></div>
-    </div>
-
-    {{/* Tool 2: Automation Agency Pricing Calculator */}}
-    <div class="tool-card" id="tool-pricing-calc">
-      <div class="tool-card-header">
-        <div class="tool-icon">
-          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>
+      <div class="tool-card-form">
+        <div class="tool-form-group">
+          <label>Your Skills</label>
+          <select class="input-brutal" id="idea-skills">
+            <option value="writing">Writing & Content</option>
+            <option value="coding">Coding & Development</option>
+            <option value="design">Design & Creative</option>
+            <option value="marketing">Marketing & Sales</option>
+            <option value="data">Data & Analytics</option>
+            <option value="video">Video & Audio</option>
+          </select>
         </div>
+        <div class="tool-form-group">
+          <label>Time Available</label>
+          <select class="input-brutal" id="idea-time">
+            <option value="5h">5 hours/week</option>
+            <option value="10h">10 hours/week</option>
+            <option value="20h">20 hours/week</option>
+            <option value="40h">Full-time</option>
+          </select>
+        </div>
+        <div class="tool-form-group">
+          <label>Budget</label>
+          <select class="input-brutal" id="idea-budget">
+            <option value="0">$0 (Start free)</option>
+            <option value="50">$50/month</option>
+            <option value="200">$200/month</option>
+            <option value="500">$500+/month</option>
+          </select>
+        </div>
+        <button class="btn-brutal btn-yellow" style="width:100%;justify-content:center;" onclick="generateIdea()">GENERATE IDEAS</button>
+        <div class="tool-result" id="idea-result" style="display:none;"></div>
       </div>
-      <h2>Automation Agency Pricing Calculator</h2>
-      <p>Calculate what to charge for AI automation services based on project scope, complexity, and market rates.</p>
-      <div class="tool-form">
-        <div class="tool-input-group">
-          <label for="pricing-type">Service Type</label>
-          <select id="pricing-type">
-            <option value="chatbot">AI Chatbot</option>
-            <option value="workflow">Workflow Automation</option>
-            <option value="data">Data Pipeline</option>
-            <option value="content">Content Automation</option>
-            <option value="custom">Custom AI Solution</option>
-          </select>
-        </div>
-        <div class="tool-input-group">
-          <label for="pricing-complexity">Complexity</label>
-          <select id="pricing-complexity">
-            <option value="simple">Simple</option>
-            <option value="moderate">Moderate</option>
-            <option value="complex">Complex</option>
-            <option value="enterprise">Enterprise</option>
-          </select>
-        </div>
-        <div class="tool-input-group">
-          <label for="pricing-delivery">Delivery Model</label>
-          <select id="pricing-delivery">
-            <option value="one-time">One-Time Project</option>
-            <option value="retainer">Monthly Retainer</option>
-            <option value="hybrid">Hybrid (Setup + Retainer)</option>
-          </select>
-        </div>
-        <button class="tool-generate-btn" onclick="calculatePricing()">Calculate Pricing</button>
-      </div>
-      <div class="tool-results" id="pricing-results"></div>
     </div>
 
-    {{/* Tool 3: Freelance Rate Calculator */}}
-    <div class="tool-card" id="tool-freelance-calc">
+    <!-- TOOL 2: Automation Agency Pricing Calculator -->
+    <div class="tool-card" id="tool-2" style="margin-bottom:-1.5px;">
       <div class="tool-card-header">
-        <div class="tool-icon">
-          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16"/></svg>
+        <div>
+          <span class="tool-card-icon">💰</span>
+          <span class="tool-card-name">Automation Agency Pricing Calculator</span>
         </div>
+        <button class="tool-toggle-btn" onclick="toggleTool('tool-2')" style="width:auto;margin:0;">EXPAND</button>
       </div>
-      <h2>Freelance Rate Calculator</h2>
-      <p>Find your ideal hourly rate based on your target income, expenses, and billable hours.</p>
-      <div class="tool-form">
-        <div class="tool-input-group">
-          <label for="freelance-income">Desired Annual Income ($)</label>
-          <input type="number" id="freelance-income" placeholder="80000" value="80000">
-        </div>
-        <div class="tool-input-group">
-          <label for="freelance-expenses">Annual Business Expenses ($)</label>
-          <input type="number" id="freelance-expenses" placeholder="15000" value="15000">
-        </div>
-        <div class="tool-input-group">
-          <label for="freelance-hours">Billable Hours Per Week</label>
-          <input type="number" id="freelance-hours" placeholder="30" value="30">
-        </div>
-        <div class="tool-input-group">
-          <label for="freelance-vacation">Vacation Weeks Per Year</label>
-          <input type="number" id="freelance-vacation" placeholder="4" value="4">
-        </div>
-        <button class="tool-generate-btn" onclick="calculateFreelanceRate()">Calculate Rate</button>
+      <div class="tool-card-body">
+        <p class="tool-card-desc">Calculate competitive pricing for your automation agency services based on project scope and complexity.</p>
       </div>
-      <div class="tool-results" id="freelance-results"></div>
+      <div class="tool-card-form">
+        <div class="tool-form-group">
+          <label>Project Type</label>
+          <select class="input-brutal" id="pricing-type">
+            <option value="simple">Simple Workflow (Zapier/Make)</option>
+            <option value="moderate">Moderate Automation (Multi-step)</option>
+            <option value="complex">Complex System (Custom API + AI)</option>
+            <option value="enterprise">Enterprise Solution</option>
+          </select>
+        </div>
+        <div class="tool-form-group">
+          <label>Number of Integrations</label>
+          <input type="number" class="input-brutal" id="pricing-integrations" value="3" min="1" max="20">
+        </div>
+        <div class="tool-form-group">
+          <label>Monthly Maintenance (hours)</label>
+          <input type="number" class="input-brutal" id="pricing-maintenance" value="5" min="0" max="40">
+        </div>
+        <button class="btn-brutal btn-yellow" style="width:100%;justify-content:center;" onclick="calculatePricing()">CALCULATE PRICE</button>
+        <div class="tool-result" id="pricing-result" style="display:none;"></div>
+      </div>
     </div>
 
-    {{/* Tool 4: AI Tool Stack Matcher */}}
-    <div class="tool-card" id="tool-stack-matcher">
+    <!-- TOOL 3: Freelance Rate Calculator -->
+    <div class="tool-card" id="tool-3" style="margin-bottom:-1.5px;">
       <div class="tool-card-header">
-        <div class="tool-icon">
-          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+        <div>
+          <span class="tool-card-icon">📊</span>
+          <span class="tool-card-name">Freelance Rate Calculator</span>
         </div>
-        <span class="tool-badge-affiliate">Affiliate Picks</span>
+        <button class="tool-toggle-btn" onclick="toggleTool('tool-3')" style="width:auto;margin:0;">EXPAND</button>
       </div>
-      <h2>AI Tool Stack Matcher</h2>
-      <p>Tell us what you're building — we'll recommend the perfect AI tool stack for your use case.</p>
-      <div class="tool-form">
-        <div class="tool-input-group">
-          <label for="stack-goal">What are you building?</label>
-          <select id="stack-goal">
-            <option value="saas">SaaS Product</option>
+      <div class="tool-card-body">
+        <p class="tool-card-desc">Find your ideal hourly and project rate based on your expenses, goals, and available time.</p>
+      </div>
+      <div class="tool-card-form">
+        <div class="tool-form-group">
+          <label>Desired Annual Income ($)</label>
+          <input type="number" class="input-brutal" id="rate-income" value="80000" min="10000" step="5000">
+        </div>
+        <div class="tool-form-group">
+          <label>Annual Business Expenses ($)</label>
+          <input type="number" class="input-brutal" id="rate-expenses" value="12000" min="0" step="1000">
+        </div>
+        <div class="tool-form-group">
+          <label>Billable Hours Per Week</label>
+          <input type="number" class="input-brutal" id="rate-hours" value="30" min="10" max="60">
+        </div>
+        <div class="tool-form-group">
+          <label>Vacation Weeks Per Year</label>
+          <input type="number" class="input-brutal" id="rate-vacation" value="4" min="0" max="12">
+        </div>
+        <button class="btn-brutal btn-yellow" style="width:100%;justify-content:center;" onclick="calculateRate()">CALCULATE RATE</button>
+        <div class="tool-result" id="rate-result" style="display:none;"></div>
+      </div>
+    </div>
+
+    <!-- TOOL 4: AI Tool Stack Matcher -->
+    <div class="tool-card" id="tool-4" style="margin-bottom:-1.5px;">
+      <div class="tool-card-header">
+        <div>
+          <span class="tool-card-icon">🔧</span>
+          <span class="tool-card-name">AI Tool Stack Matcher</span>
+        </div>
+        <button class="tool-toggle-btn" onclick="toggleTool('tool-4')" style="width:auto;margin:0;">EXPAND</button>
+      </div>
+      <div class="tool-card-body">
+        <p class="tool-card-desc">Match the right AI tools to your business model and workflow needs.</p>
+      </div>
+      <div class="tool-card-form">
+        <div class="tool-form-group">
+          <label>Business Type</label>
+          <select class="input-brutal" id="stack-business">
+            <option value="content">Content Creator</option>
             <option value="agency">Automation Agency</option>
-            <option value="content">Content Business</option>
-            <option value="ecommerce">E-Commerce Store</option>
-            <option value="consulting">AI Consulting</option>
-            <option value="freelance">Freelance Services</option>
+            <option value="freelance">AI Freelancer</option>
+            <option value="saas">AI SaaS Builder</option>
+            <option value="ecommerce">E-commerce + AI</option>
           </select>
         </div>
-        <div class="tool-input-group">
-          <label for="stack-stage">Current Stage</label>
-          <select id="stack-stage">
-            <option value="idea">Idea Phase</option>
-            <option value="mvp">Building MVP</option>
-            <option value="launch">Ready to Launch</option>
-            <option value="scale">Scaling</option>
+        <div class="tool-form-group">
+          <label>Primary Need</label>
+          <select class="input-brutal" id="stack-need">
+            <option value="content-gen">Content Generation</option>
+            <option value="automation">Workflow Automation</option>
+            <option value="analytics">Analytics & Insights</option>
+            <option value="customer">Customer Support AI</option>
+            <option value="sales">Sales & Outreach</option>
           </select>
         </div>
-        <div class="tool-input-group">
-          <label for="stack-budget">Monthly Tool Budget</label>
-          <select id="stack-budget">
-            <option value="0">$0 (Free tools only)</option>
-            <option value="50">Under $50/mo</option>
-            <option value="200">Under $200/mo</option>
-            <option value="500">$200-500/mo</option>
-            <option value="1000">$500+/mo</option>
-          </select>
-        </div>
-        <button class="tool-generate-btn" onclick="matchStack()">Find My Stack</button>
+        <button class="btn-brutal btn-yellow" style="width:100%;justify-content:center;" onclick="matchStack()">FIND MY STACK</button>
+        <div class="tool-result" id="stack-result" style="display:none;"></div>
       </div>
-      <div class="tool-results" id="stack-results"></div>
     </div>
 
-    {{/* Tool 5: AI Article Generator (card -> newsroom) */}}
-    <div class="tool-card tool-card-nav" id="tool-article-generator">
+    <!-- TOOL 5: AI Article Generator Card -->
+    <div class="tool-card" id="tool-5" style="margin-bottom:-1.5px;">
       <div class="tool-card-header">
-        <div class="tool-icon">
-          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+        <div>
+          <span class="tool-card-icon">✍️</span>
+          <span class="tool-card-name">AI Article Generator</span>
         </div>
-        <span class="tool-badge-ai">AI Powered</span>
       </div>
-      <h2>AI Article Generator</h2>
-      <p>Generate AI-powered articles on any topic. Jump into the Newsroom to start creating content instantly.</p>
-      <div class="tool-nav-action">
-        <a href="/ai-newsroom/" class="tool-nav-btn">
-          Open AI Newsroom
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-        </a>
+      <div class="tool-card-body">
+        <p class="tool-card-desc">Generate AI-powered articles for your content business. Access our full AI newsroom to create, edit, and publish content at scale.</p>
+        <a href="/intelligence/" class="btn-brutal btn-red" style="width:100%;justify-content:center;margin-top:12px;">VISIT AI NEWSROOM →</a>
       </div>
     </div>
 
   </div>
-</div>
+</section>
 
 <script>
-{{/* === TOOL 1: AI Side Hustle Idea Generator === */}}
-const ideaDB = [
-  {title:"AI Content Agency",desc:"Use ChatGPT + Canva to create social media content packages for small businesses. Charge $500-2000/mo per client.",skills:["writing","marketing","design"],budget:100,time:10},
-  {title:"Chatbot Builder Service",desc:"Build custom AI chatbots for local businesses using Botpress or Voiceflow. $300-1500 per bot.",skills:["coding","communication","sales"],budget:100,time:10},
-  {title:"AI Resume Writing",desc:"Use AI to optimize and rewrite resumes. Charge $50-200 per resume with 1-hour turnaround.",skills:["writing","hr","communication"],budget:0,time:5},
-  {title:"Automated Dropshipping Store",desc:"Set up AI-powered product research, listing generation, and customer service bots for e-commerce.",skills:["marketing","sales","ecommerce"],budget:500,time:20},
-  {title:"AI SEO Content Farm",desc:"Generate SEO-optimized blog posts at scale using AI. Sell content packages or run niche sites.",skills:["writing","seo","marketing"],budget:100,time:10},
-  {title:"AI Art Print-on-Demand",desc:"Generate AI artwork and sell on Redbubble, Society6, or your own Shopify store.",skills:["design","art","marketing"],budget:100,time:5},
-  {title:"AI Voiceover Service",desc:"Use ElevenLabs or similar to create voiceovers for videos, podcasts, and ads.",skills:["audio","video","communication"],budget:100,time:5},
-  {title:"Workflow Automation Consultant",desc:"Help businesses automate repetitive tasks with Zapier, Make, and AI. $100-300/hr.",skills:["coding","automation","consulting"],budget:500,time:20},
-  {title:"AI-Powered Newsletter",desc:"Curate and summarize industry news using AI. Monetize with sponsorships and premium tiers.",skills:["writing","marketing","research"],budget:100,time:10},
-  {title:"Custom GPT Development",desc:"Build and sell custom GPTs on the GPT Store or as private solutions for businesses.",skills:["coding","ai","consulting"],budget:0,time:10},
-  {title:"AI Translation Service",desc:"Offer fast AI-assisted translation with human review. Premium quality at competitive rates.",skills:["languages","writing","communication"],budget:0,time:10},
-  {title:"AI Data Analysis Freelancing",desc:"Use AI tools to analyze datasets and create reports for businesses. $75-250/hr.",skills:["data","analytics","coding"],budget:0,time:10},
-  {title:"AI Social Media Manager",desc:"Manage multiple brands' social media using AI scheduling and content generation tools.",skills:["marketing","writing","design"],budget:100,time:20},
-  {title:"AI Course Creator",desc:"Create and sell online courses teaching AI tools and monetization strategies.",skills:["teaching","writing","video"],budget:500,time:20},
-  {title:"AI-Powered Lead Gen Agency",desc:"Use AI scraping and outreach tools to generate leads for B2B companies. $1-5 per lead.",skills:["sales","coding","marketing"],budget:500,time:20}
-];
-
-function generateIdeas(){
-  const skills=document.getElementById('idea-skills').value.toLowerCase();
-  const budget=parseInt(document.getElementById('idea-budget').value);
-  const time=parseInt(document.getElementById('idea-time').value);
-  const resultsEl=document.getElementById('idea-results');
-
-  let filtered=ideaDB.filter(idea=>{
-    const skillMatch=!skills||idea.skills.some(s=>skills.includes(s));
-    const budgetMatch=idea.budget<=budget+100;
-    const timeMatch=idea.time<=time+5;
-    return skillMatch&&budgetMatch&&timeMatch;
-  });
-
-  if(filtered.length===0) filtered=ideaDB.slice(0,5);
-
-  const scored=filtered.map(idea=>{
-    let score=0;
-    if(skills){idea.skills.forEach(s=>{if(skills.includes(s))score+=2;});}
-    if(idea.budget<=budget)score+=1;
-    if(idea.time<=time)score+=1;
-    return {...idea,score};
-  }).sort((a,b)=>b.score-a.score).slice(0,6);
-
-  resultsEl.innerHTML=scored.map(idea=>`
-    <div class="tool-result-card">
-      <h4>${idea.title}</h4>
-      <p>${idea.desc}</p>
-      <div class="tool-result-tags">
-        ${idea.skills.map(s=>`<span class="tool-tag">${s}</span>`).join('')}
-      </div>
-    </div>
-  `).join('');
-  resultsEl.style.display='grid';
+function toggleTool(id) {
+  const card = document.getElementById(id);
+  card.classList.toggle('expanded');
+  const btn = card.querySelector('.tool-toggle-btn');
+  btn.textContent = card.classList.contains('expanded') ? 'COLLAPSE' : 'EXPAND';
 }
 
-{{/* === TOOL 2: Automation Agency Pricing Calculator === */}}
-const pricingDB={
-  chatbot:{simple:[800,1500],moderate:[1500,4000],complex:[4000,10000],enterprise:[10000,30000]},
-  workflow:{simple:[500,1200],moderate:[1200,3500],complex:[3500,8000],enterprise:[8000,25000]},
-  data:{simple:[1000,2500],moderate:[2500,6000],complex:[6000,15000],enterprise:[15000,40000]},
-  content:{simple:[300,800],moderate:[800,2000],complex:[2000,5000],enterprise:[5000,15000]},
-  custom:{simple:[2000,5000],moderate:[5000,12000],complex:[12000,30000],enterprise:[30000,75000]}
+// Tool 1: Idea Generator
+const ideaDB = {
+  writing: {
+    "5h": ["AI blog writing service — Use ChatGPT to draft SEO articles for small businesses", "Newsletter ghostwriter — Curate and write AI newsletters for executives"],
+    "10h": ["AI content agency — Offer bulk content packages using AI + human editing", "Technical documentation service — Use AI to generate and format API docs"],
+    "20h": ["Full-service content studio — AI-powered blog + social + email for brands", "AI ebook creation — Write and sell niche ebooks using AI research tools"],
+    "40h": ["Content publishing empire — Launch multiple AI-assisted niche media sites"]
+  },
+  coding: {
+    "5h": ["AI chatbot templates — Build and sell ChatGPT-powered bot templates", "Custom GPT creation service — Build specialized GPTs for businesses"],
+    "10h": ["AI automation scripts — Sell Make/Zapier automation templates", "WordPress + AI plugin service — Add AI features to existing WP sites"],
+    "20h": ["AI SaaS micro-product — Build a single-feature AI tool and charge monthly", "AI API integration service — Connect businesses to OpenAI/Claude APIs"],
+    "40h": ["AI agency — Full-stack development of custom AI solutions for enterprises"]
+  },
+  design: {
+    "5h": ["AI art print-on-demand — Generate AI art for Redbubble/Society6", "AI logo service — Quick logo generation with AI + custom refinement"],
+    "10h": ["AI thumbnail service — YouTube thumbnails using Midjourney + text", "AI brand kit service — Full identity packages using AI-generated assets"],
+    "20h": ["AI-powered design agency — Website + brand + social packages at scale", "AI stock asset store — Sell AI-generated design assets on marketplaces"],
+    "40h": ["AI design studio — Full creative agency powered by AI workflows"]
+  },
+  marketing: {
+    "5h": ["AI ad copy service — Generate and test ad variations with AI", "AI social media manager — Schedule and create AI-assisted content"],
+    "10h": ["AI SEO audit service — Use AI tools to audit and optimize websites", "AI email sequence writer — Create conversion-focused email funnels"],
+    "20h": ["AI growth agency — Data-driven marketing with AI analytics", "AI lead generation service — Build AI-powered prospecting systems"],
+    "40h": ["AI marketing automation agency — Full-funnel AI marketing solutions"]
+  },
+  data: {
+    "5h": ["AI data analysis service — Quick insights using ChatGPT Code Interpreter", "AI report generator — Create automated business reports"],
+    "10h": ["AI dashboard builder — Custom dashboards with AI-generated insights", "AI data cleaning service — Use AI to clean and structure messy datasets"],
+    "20h": ["AI analytics consultancy — Full data strategy + AI implementation", "AI prediction service — Build forecasting models for small businesses"],
+    "40h": ["AI data science agency — End-to-end data solutions for enterprises"]
+  },
+  video: {
+    "5h": ["AI video editor — Quick edits using AI tools like CapCut + AI scripts", "AI voiceover service — Use ElevenLabs for professional voiceovers"],
+    "10h": ["AI YouTube automation — Faceless channels using AI scripts + voice + video", "AI podcast production — AI-assisted editing, show notes, and distribution"],
+    "20h": ["AI video agency — Full video production with AI-powered workflows", "AI course creator — Build and sell video courses using AI for content"],
+    "40h": ["AI media studio — Full-scale content production with AI at every step"]
+  }
 };
 
-function calculatePricing(){
-  const type=document.getElementById('pricing-type').value;
-  const complexity=document.getElementById('pricing-complexity').value;
-  const delivery=document.getElementById('pricing-delivery').value;
-  const resultsEl=document.getElementById('pricing-results');
-
-  const range=pricingDB[type][complexity];
-  const low=range[0];
-  const high=range[1];
-  const mid=Math.round((low+high)/2);
-
-  let html=`
-    <div class="tool-result-card tool-result-pricing">
-      <h4>Recommended Pricing</h4>
-      <div class="pricing-range">
-        <div class="pricing-tier"><span class="pricing-label">Entry</span><span class="pricing-value">$${low.toLocaleString()}</span></div>
-        <div class="pricing-tier pricing-tier-mid"><span class="pricing-label">Sweet Spot</span><span class="pricing-value">$${mid.toLocaleString()}</span></div>
-        <div class="pricing-tier"><span class="pricing-label">Premium</span><span class="pricing-value">$${high.toLocaleString()}</span></div>
-      </div>`;
-
-  if(delivery==='retainer'||delivery==='hybrid'){
-    const monthly=Math.round(mid*0.15);
-    html+=`<div class="pricing-retainer"><span class="pricing-label">Monthly Retainer</span><span class="pricing-value">$${monthly.toLocaleString()}/mo</span></div>`;
-  }
-  if(delivery==='hybrid'){
-    html+=`<div class="pricing-retainer"><span class="pricing-label">Hybrid Setup Fee</span><span class="pricing-value">$${Math.round(mid*0.6).toLocaleString()} + $${Math.round(mid*0.1).toLocaleString()}/mo</span></div>`;
-  }
-
-  html+=`</div>`;
-  resultsEl.innerHTML=html;
-  resultsEl.style.display='block';
+function generateIdea() {
+  const skills = document.getElementById('idea-skills').value;
+  const time = document.getElementById('idea-time').value;
+  const budget = document.getElementById('idea-budget').value;
+  const ideas = ideaDB[skills]?.[time] || ["AI consulting — Help businesses understand and adopt AI tools"];
+  const result = document.getElementById('idea-result');
+  result.style.display = 'block';
+  result.innerHTML = '<strong>YOUR AI SIDE HUSTLES:</strong><br><br>' +
+    ideas.map((idea, i) => `<strong>${i+1}.</strong> ${idea}`).join('<br>') +
+    `<br><br><span style="font-size:11px;color:rgba(26,26,26,0.6);">BUDGET: $${budget}/month | TIME: ${time}/week</span>`;
 }
 
-{{/* === TOOL 3: Freelance Rate Calculator === */}}
-function calculateFreelanceRate(){
-  const income=parseInt(document.getElementById('freelance-income').value)||80000;
-  const expenses=parseInt(document.getElementById('freelance-expenses').value)||15000;
-  const hours=parseInt(document.getElementById('freelance-hours').value)||30;
-  const vacation=parseInt(document.getElementById('freelance-vacation').value)||4;
-  const resultsEl=document.getElementById('freelance-results');
+// Tool 2: Pricing Calculator
+function calculatePricing() {
+  const type = document.getElementById('pricing-type').value;
+  const integrations = parseInt(document.getElementById('pricing-integrations').value);
+  const maintenance = parseInt(document.getElementById('pricing-maintenance').value);
 
-  const workingWeeks=52-vacation;
-  const totalNeeded=income+expenses;
-  const totalBillableHours=hours*workingWeeks;
-  const hourlyRate=Math.ceil(totalNeeded/totalBillableHours);
-  const dailyRate=hourlyRate*8;
-  const weeklyRate=hourlyRate*hours;
+  const basePrices = { simple: 1500, moderate: 3500, complex: 8000, enterprise: 20000 };
+  const perIntegration = { simple: 200, moderate: 400, complex: 700, enterprise: 1200 };
+  const hourlyRate = 150;
 
-  resultsEl.innerHTML=`
-    <div class="tool-result-card tool-result-pricing">
-      <h4>Your Ideal Rates</h4>
-      <div class="pricing-range">
-        <div class="pricing-tier"><span class="pricing-label">Hourly</span><span class="pricing-value">$${hourlyRate}</span></div>
-        <div class="pricing-tier pricing-tier-mid"><span class="pricing-label">Daily</span><span class="pricing-value">$${dailyRate.toLocaleString()}</span></div>
-        <div class="pricing-tier"><span class="pricing-label">Weekly</span><span class="pricing-value">$${weeklyRate.toLocaleString()}</span></div>
-      </div>
-      <div class="pricing-breakdown">
-        <p><strong>Total needed:</strong> $${totalNeeded.toLocaleString()}/yr</p>
-        <p><strong>Billable hours:</strong> ${totalBillableHours.toLocaleString()}/yr</p>
-        <p><strong>Working weeks:</strong> ${workingWeeks}/yr</p>
-      </div>
-    </div>`;
-  resultsEl.style.display='block';
+  const setupPrice = basePrices[type] + (integrations * perIntegration[type]);
+  const monthlyPrice = maintenance * hourlyRate;
+  const totalFirstYear = setupPrice + (monthlyPrice * 12);
+
+  const result = document.getElementById('pricing-result');
+  result.style.display = 'block';
+  result.innerHTML =
+    `<strong>PROJECT PRICING BREAKDOWN:</strong><br><br>` +
+    `SETUP FEE: $${setupPrice.toLocaleString()}<br>` +
+    `MONTHLY MAINTENANCE: $${monthlyPrice.toLocaleString()}/mo<br>` +
+    `FIRST YEAR TOTAL: $${totalFirstYear.toLocaleString()}<br><br>` +
+    `<span style="font-size:11px;color:rgba(26,26,26,0.6);">RECOMMENDED: Quote $${setupPrice.toLocaleString()} setup + $${monthlyPrice.toLocaleString()}/mo retainer</span>`;
 }
 
-{{/* === TOOL 4: AI Tool Stack Matcher === */}}
-const stackDB={
-  saas:{idea:["ChatGPT Plus","Cursor","Vercel","Supabase Free"],mvp:["Claude Pro","Cursor","Vercel Pro","Supabase Pro","Stripe"],launch:["Claude Team","GitHub Copilot","AWS/Cloudflare","PostHog","Resend"],scale:["OpenAI API","Anthropic API","Kubernetes","Datadog","Customer.io"]},
-  agency:{idea:["ChatGPT Plus","Make.com","Notion","Calendly"],mvp:["Claude Pro","Make.com","Zapier","Notion Team","Loom"],launch:["Claude Team","Make.com","Zapier","HubSpot","Proposify"],scale:["OpenAI API","Custom Automation","Salesforce","ClickUp","DocuSign"]},
-  content:{idea:["ChatGPT Plus","Canva Free","Medium","Substack"],mvp:["Claude Pro","Canva Pro","WordPress","ConvertKit","Descript"],launch:["Claude Team","Adobe CC","Ghost","ConvertKit Pro","TubeBuddy"],scale:["GPT-4 API","Custom CMS","Beehiiv","Sprout Social","Ahrefs"]},
-  ecommerce:{idea:["ChatGPT Plus","Shopify Starter","Canva Free","Mailchimp Free"],mvp:["Claude Pro","Shopify Basic","Canva Pro","Klaviyo","Zendrop"],launch:["Claude Team","Shopify Pro","Klaviyo Pro","Recharge","Yotpo"],scale:["Custom AI","Shopify Plus","Klaviyo Enterprise","Gorgias","Attentive"]},
-  consulting:{idea:["ChatGPT Plus","Notion","Calendly","LinkedIn Premium"],mvp:["Claude Pro","Notion Team","Calendly Pro","Loom","Proposify"],launch:["Claude Team","HubSpot","Acuity","Zoom Pro","PandaDoc"],scale:["OpenAI API","Salesforce","Zoom Business","Tableau","HighLevel"]},
-  freelance:{idea:["ChatGPT Plus","Notion","Google Workspace","Upwork"],mvp:["Claude Pro","Notion Pro","FreshBooks","HoneyBook","Loom"],launch:["Claude Team","QuickBooks","Bonsai","Dubsado","Porter"],scale:["OpenAI API","Custom Tools","QuickBooks Advanced","Bench","Deel"]}
+// Tool 3: Freelance Rate Calculator
+function calculateRate() {
+  const income = parseInt(document.getElementById('rate-income').value);
+  const expenses = parseInt(document.getElementById('rate-expenses').value);
+  const hours = parseInt(document.getElementById('rate-hours').value);
+  const vacation = parseInt(document.getElementById('rate-vacation').value);
+
+  const workingWeeks = 52 - vacation;
+  const billableHours = workingWeeks * hours;
+  const overhead = (income + expenses) * 0.3;
+  const totalNeeded = income + expenses + overhead;
+  const hourlyRate = Math.ceil(totalNeeded / billableHours);
+  const dailyRate = hourlyRate * 8;
+  const monthlyRetainer = hourlyRate * hours * 4;
+
+  const result = document.getElementById('rate-result');
+  result.style.display = 'block';
+  result.innerHTML =
+    `<strong>YOUR RATES:</strong><br><br>` +
+    `HOURLY RATE: $${hourlyRate}/hr<br>` +
+    `DAILY RATE: $${dailyRate.toLocaleString()}/day<br>` +
+    `MONTHLY RETAINER: $${monthlyRetainer.toLocaleString()}/mo<br><br>` +
+    `<span style="font-size:11px;color:rgba(26,26,26,0.6);">Based on ${billableHours} billable hours/year with 30% overhead buffer</span>`;
+}
+
+// Tool 4: Stack Matcher
+const stackDB = {
+  "content-gen": {
+    content: ["ChatGPT Plus — Primary writing engine", "Jasper AI — Long-form content at scale", "Canva AI — Social graphics and thumbnails"],
+    agency: ["Make.com — Orchestrate content pipelines", "ChatGPT API — Bulk generation via API", "Notion AI — Project management + content"],
+    freelance: ["Claude Pro — Research and long-form writing", "Grammarly — Editing and tone adjustment", "Surfer SEO — SEO optimization"],
+    saas: ["OpenAI API — Core content generation", "LangChain — Build custom content workflows", "Pinecone — Content search and retrieval"],
+    ecommerce: ["Copy.ai — Product descriptions at scale", "Jasper — Marketing copy and emails", "Canva AI — Product visuals and ads"]
+  },
+  automation: {
+    content: ["Make.com — Automate publishing workflows", "Zapier — Connect content tools together", "Airtable — Content calendar and tracking"],
+    agency: ["Make.com — Core automation platform", "n8n — Self-hosted automation option", "Activepieces — Open-source automation"],
+    freelance: ["Make.com — Client workflow automation", "Zapier — Quick integrations", "Trello + Butler — Project automation"],
+    saas: ["n8n — Self-hosted automation engine", "Temporal — Workflow orchestration", "BullMQ — Job queue management"],
+    ecommerce: ["Make.com — Order and inventory automation", "Shopify Flow — E-commerce automation", "Zapier — Connect store to marketing tools"]
+  },
+  analytics: {
+    content: ["Google Analytics 4 — Traffic insights", "Hotjar — User behavior tracking", "ChatGPT — Data analysis and reports"],
+    agency: ["Mixpanel — Client analytics dashboards", "Looker Studio — Automated reports", "ChatGPT Advanced Analytics — Data insights"],
+    freelance: ["Toggl Track — Time and project tracking", "Google Analytics — Client reporting", "Notion — Data organization"],
+    saas: ["PostHog — Product analytics", "Amplitude — User behavior analysis", "Metabase — Self-hosted dashboards"],
+    ecommerce: ["Google Analytics 4 — E-commerce tracking", "Hotjar — Conversion optimization", "Triple Whale — Ad ROI analytics"]
+  },
+  customer: {
+    content: ["Tidio — AI chatbot for websites", "Intercom — Customer messaging", "ChatGPT — Email response drafts"],
+    agency: ["Voiceflow — Custom AI chatbot builder", "Intercom — Client communication hub", "Make.com — Automate support workflows"],
+    freelance: ["Crisp — Live chat + AI bot", "ChatGPT — Quick response drafting", "Calendly — Automated scheduling"],
+    saas: ["OpenAI API — Custom chatbot backend", "Pinecone — Knowledge base search", "LangChain — RAG pipeline builder"],
+    ecommerce: ["Tidio — Shopify AI chatbot", "Gorgias — E-commerce helpdesk", "Zendesk AI — Ticket management"]
+  },
+  sales: {
+    content: ["Instantly.ai — AI cold email at scale", "Clay — AI prospecting and enrichment", "ChatGPT — Personalized outreach drafts"],
+    agency: ["Clay — Lead enrichment platform", "Instantly.ai — Email outreach automation", "Apollo.io — B2B contact database"],
+    freelance: ["Lemlist — Personalized cold outreach", "Hunter.io — Find decision-maker emails", "ChatGPT — Proposal and pitch writing"],
+    saas: ["Apollo.io — Full sales stack", "Lemlist — Multi-channel outreach", "Clay — Data enrichment + personalization"],
+    ecommerce: ["Klaviyo — AI-powered email marketing", "Attentive — SMS marketing automation", "Rebuy — AI product recommendations"]
+  }
 };
 
-const stackPrices={"ChatGPT Plus":"$20/mo","Claude Pro":"$20/mo","Claude Team":"$30/mo","ChatGPT Team":"$25/mo","Cursor":"$20/mo","Vercel":"Free-$20/mo","Vercel Pro":"$20/mo","Supabase Free":"Free","Supabase Pro":"$25/mo","Stripe":"Pay-as-you-go","Make.com":"$9/mo","Zapier":"$20/mo","Notion":"Free","Notion Team":"$10/mo","Notion Pro":"$10/mo","Canva Free":"Free","Canva Pro":"$13/mo","Adobe CC":"$55/mo","Calendly":"Free","Calendly Pro":"$12/mo","Loom":"$13/mo","HubSpot":"Free-$500/mo","FreshBooks":"$17/mo","QuickBooks":"$30/mo","WordPress":"Free","Shopify Starter":"$5/mo","Shopify Basic":"$39/mo","Shopify Pro":"$299/mo","Shopify Plus":"$2000/mo","Klaviyo":"Free-$45/mo","Klaviyo Pro":"$45/mo","Klaviyo Enterprise":"Custom","ConvertKit":"Free","ConvertKit Pro":"$25/mo","Ghost":"$9/mo","Substack":"Free","Medium":"Free","Mailchimp Free":"Free","Upwork":"Free","HoneyBook":"$8/mo","Bonsai":"$17/mo","Dubsado":"$20/mo","Proposify":"$49/mo","PandaDoc":"$35/mo","GitHub Copilot":"$10/mo","AWS/Cloudflare":"Pay-as-you-go","PostHog":"Free","Resend":"Free","OpenAI API":"Pay-as-you-go","Anthropic API":"Pay-as-you-go","GPT-4 API":"Pay-as-you-go","Custom Automation":"Custom","Custom CMS":"Custom","Custom AI":"Custom","Customer.io":"$100/mo","Datadog":"$15/mo","Kubernetes":"Pay-as-you-go","Salesforce":"$25/mo","ClickUp":"$7/mo","DocuSign":"$10/mo","Recharge":"$60/mo","Yotpo":"Custom","Gorgias":"$10/mo","Attentive":"Custom","Zendrop":"$49/mo","TubeBuddy":"$8/mo","Sprout Social":"$249/mo","Ahrefs":"$99/mo","Beehiiv":"Free","Acuity":"$16/mo","Zoom Pro":"$14/mo","Zoom Business":"$20/mo","Tableau":"$70/mo","HighLevel":"$97/mo","Porter":"Custom","QuickBooks Advanced":"$100/mo","Bench":"$299/mo","Deel":"Custom","LinkedIn Premium":"$30/mo","Google Workspace":"$6/mo"};
-
-function matchStack(){
-  const goal=document.getElementById('stack-goal').value;
-  const stage=document.getElementById('stack-stage').value;
-  const budget=parseInt(document.getElementById('stack-budget').value);
-  const resultsEl=document.getElementById('stack-results');
-
-  const tools=stackDB[goal][stage]||stackDB[goal].mvp;
-
-  resultsEl.innerHTML=`
-    <div class="tool-result-card">
-      <h4>Recommended AI Tool Stack</h4>
-      <p class="stack-subtitle">For your <strong>${goal}</strong> at the <strong>${stage}</strong> stage</p>
-      <div class="stack-list">
-        ${tools.map(tool=>`
-          <div class="stack-item">
-            <div class="stack-item-name">${tool}</div>
-            <div class="stack-item-price">${stackPrices[tool]||"Custom"}</div>
-          </div>
-        `).join('')}
-      </div>
-      ${budget<200?'<p class="stack-tip">Tip: Start with free tiers and upgrade as you generate revenue.</p>':''}
-    </div>`;
-  resultsEl.style.display='block';
+function matchStack() {
+  const business = document.getElementById('stack-business').value;
+  const need = document.getElementById('stack-need').value;
+  const tools = stackDB[need]?.[business] || ["ChatGPT — Universal AI assistant", "Make.com — Workflow automation", "Notion — Project management"];
+  const result = document.getElementById('stack-result');
+  result.style.display = 'block';
+  result.innerHTML =
+    `<strong>YOUR RECOMMENDED STACK:</strong><br><br>` +
+    tools.map((tool, i) => `<strong>${i+1}.</strong> ${tool}`).join('<br>');
 }
 </script>
 {{ end }}

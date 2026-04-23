@@ -1,258 +1,319 @@
 {{ define "main" }}
-{{/* Detect page type */}}
-{{ $pageKind := .Kind }}
-{{ $isTaxonomy := false }}{{ with .Data.Terms }}{{ $isTaxonomy = true }}{{ end }}
-{{ $isTerm := false }}{{ with .Data.Term }}{{ $isTerm = true }}{{ end }}
+{{ if .IsHome }}
 
-{{ if and (eq $pageKind "taxonomyTerm") (not $isTaxonomy) }}
-{{/* ===== INDIVIDUAL TAXONOMY TERM ===== */}}
-{{ $singular := .Data.Singular }}
-{{ $term := .Data.Term }}
-<div class="main-content">
-  <div class="content-grid">
-    <div class="main-column">
-      <div class="section-header"><h2>{{ title $term }}</h2></div>
-      {{ $posts := .Pages.ByDate.Reverse }}{{ $tc := len $posts }}
-      {{ if gt $tc 0 }}
-      <div class="posts">{{ range $posts }}
-        {{ $img := .Params.image }}{{ $cat := "" }}{{ $title := .Title }}{{ with (index .Params.categories 0) }}{{ $cat = . }}{{ end }}
-        <a class="story-card" href="{{ .Permalink }}">{{ with $img }}<img class="story-card-image" src="{{ . }}" alt="{{ $title }}" loading="lazy">{{ end }}<span class="story-card-category">{{ with $cat }}{{ . }}{{ end }}</span><span class="story-card-headline">{{ .Title }}</span><span class="story-card-meta">{{ .Date.Format "Jan 2, 2006" }}</span></a>
-      {{ end }}</div>
-      {{ else }}<div class="static-page" style="text-align:center;padding:60px 20px;"><p style="color:var(--text-muted);">No articles found.</p></div>{{ end }}
-    </div>
-    <aside class="sidebar">
-      {{ partial "most-read-widget.html" . }}
-      {{ partial "categories-widget.html" . }}
-      {{ partial "trending-now-widget.html" . }}
-    </aside>
-  </div>
-</div>
-
-{{ else if and $isTaxonomy (ne $pageKind "taxonomyTerm") }}
-{{/* ===== TAXONOMY LISTING ===== */}}
-<div class="main-content">
-  <div class="content-grid">
-    <div class="main-column">
-      <div class="section-header"><h2>{{ .Title }}</h2></div>
-      <div class="taxonomy-grid category-grid">{{ range $term, $pages := .Data.Terms }}
-        <a class="author-card" href="{{ "/" | relLangURL }}{{ $.Data.Singular }}/{{ $term | urlize }}"><div class="author-card-avatar" style="background:var(--accent);">{{ substr (title $term) 0 1 }}</div><div class="author-card-info"><h3>{{ title $term }}</h3><span class="author-card-count">{{ len $pages }} article{{ if gt (len $pages) 1 }}s{{ end }}</span></div></a>
-      {{ end }}</div>
-    </div>
-    <aside class="sidebar">{{ partial "most-read-widget.html" . }}{{ partial "categories-widget.html" . }}{{ partial "trending-now-widget.html" . }}</aside>
-  </div>
-</div>
-
-{{ else if .IsHome }}
-{{/* ===== HOMEPAGE — AI Monetization Blog ===== */}}
-
-{{/* Hero: Welcome Banner */}}
-<div class="main-content">
-  <div class="home-hero-banner">
-    <div class="home-hero-content">
-      <h1>Where AI Meets Revenue</h1>
-      <p>Discover opportunities, grab playbooks, use free tools, and get the deep intelligence you need to build profitable AI businesses.</p>
-      <div class="home-hero-actions">
-        <a href="/opportunities" class="hero-cta-btn">Explore Opportunities</a>
-        <a href="/tools" class="hero-cta-btn hero-cta-secondary">Free Tools</a>
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-left">
+    <div style="max-width:560px;">
+      <span class="hero-badge">AI Monetization Blog</span>
+      <h1 class="hero-title">WHERE AI MEETS REVENUE</h1>
+      <p class="hero-desc">Menshly Global connects builders, freelancers, and entrepreneurs with AI opportunities, ready-made playbooks, free tools, and deep implementation guides. Structured knowledge. Bold outcomes.</p>
+      <div class="hero-buttons">
+        <a href="/opportunities/" class="btn-brutal btn-yellow">EXPLORE OPPORTUNITIES →</a>
+        <a href="/playbooks/" class="btn-brutal btn-black">VIEW PLAYBOOKS</a>
       </div>
-    </div>
-  </div>
-</div>
-
-{{/* Section Cards Row — 4 categories */}}
-<div class="main-content">
-  <div class="category-cards-row">
-    <a href="/opportunities" class="category-card category-card-opportunities">
-      <div class="category-card-icon">
-        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
-      </div>
-      <h3>Opportunities</h3>
-      <p>Discover new AI models, ideas & automation systems</p>
-      <span class="category-card-cta">Explore &rarr;</span>
-    </a>
-    <a href="/playbooks" class="category-card category-card-playbooks">
-      <div class="category-card-icon">
-        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
-      </div>
-      <h3>Playbooks</h3>
-      <p>Ebooks, templates & ready-made materials</p>
-      <span class="category-card-cta">Browse &rarr;</span>
-    </a>
-    <a href="/tools" class="category-card category-card-tools">
-      <div class="category-card-icon">
-        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg>
-      </div>
-      <h3>Tools</h3>
-      <p>Free calculators, generators & matchers</p>
-      <span class="category-card-cta">Use Tools &rarr;</span>
-    </a>
-    <a href="/intelligence" class="category-card category-card-intelligence">
-      <div class="category-card-icon">
-        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/></svg>
-      </div>
-      <h3>Intelligence</h3>
-      <p>Deep implementation guides & full-stack tutorials</p>
-      <span class="category-card-cta">Read Guides &rarr;</span>
-    </a>
-  </div>
-</div>
-
-{{/* Gather all articles from the 3 content sections */}}
-{{ $oppPosts := where .Site.RegularPages "Section" "opportunities" }}
-{{ $intPosts := where .Site.RegularPages "Section" "intelligence" }}
-{{ $allPosts := $oppPosts | append $intPosts }}
-
-{{ if gt (len $allPosts) 0 }}
-{{/* Lead Story from latest across all sections */}}
-{{ $sorted := sort $allPosts "Date" "desc" }}
-{{ $hero := index $sorted 0 }}
-{{ $secondary := after 1 $sorted }}
-
-<div class="main-content">
-  <div class="hero-editorial-row">
-    <div class="lead-story">
-      <a class="lead-story-link" href="{{ $hero.Permalink }}">
-        {{ with $hero.Params.image }}<img class="lead-story-image" src="{{ . }}" alt="{{ $hero.Title }}" loading="eager">{{ end }}
-        <span class="lead-story-category">{{ with $hero.Params.categories }}{{ index . 0 }}{{ else }}{{ title $hero.Section }}{{ end }}</span>
-        <h2 class="lead-story-headline">{{ $hero.Title }}</h2>
-        <p class="lead-story-deck">{{ with $hero.Params.description }}{{ . }}{{ else }}{{ $hero.Summary | plainify | truncate 200 }}{{ end }}</p>
-        <div class="lead-story-meta">
-          {{ with $hero.Params.author }}<span class="byline">By {{ . }}</span>{{ end }}
-          <span>{{ $hero.Date.Format "January 2, 2006" }}</span>
-          {{ $readingTime := math.Round (div (float $hero.WordCount) 200.0) }}{{ if lt $readingTime 1 }}{{ $readingTime = 1 }}{{ end }}<span class="reading-time">{{ $readingTime }} min read</span>
+      <div class="stats-bar">
+        <div>
+          <div class="stats-number">50+</div>
+          <div class="stats-label">IDEAS</div>
         </div>
-      </a>
-    </div>
-    <div class="trending-sidebar">
-      <div class="trending-sidebar-header">Latest</div>
-      <ol class="trending-list">
-        {{ range first 5 $secondary }}
-        <li class="trending-list-item">
-          <a href="{{ .Permalink }}">{{ .Title }}</a>
-          <div class="trending-list-meta">{{ title .Section }} &middot; {{ .Date.Format "Jan 2" }}</div>
-        </li>
-        {{ end }}
-      </ol>
-    </div>
-  </div>
-</div>
-
-{{/* Secondary Stories */}}
-{{ $secSlice := first 3 $secondary }}
-{{ if gt (len $secSlice) 0 }}
-<div class="main-content">
-  <div class="secondary-stories">
-    {{ range $secSlice }}
-    <a class="secondary-story-link" href="{{ .Permalink }}">
-      {{ $title := .Title }}{{ with .Params.image }}<img class="secondary-story-image" src="{{ . }}" alt="{{ $title }}" loading="lazy">{{ end }}
-      <span class="secondary-story-category">{{ title .Section }}</span>
-      <h3 class="secondary-story-headline">{{ .Title }}</h3>
-      <p class="secondary-story-summary">{{ with .Params.description }}{{ . }}{{ else }}{{ .Summary | plainify | truncate 120 }}{{ end }}</p>
-      <span class="secondary-story-meta">{{ with .Params.author }}By {{ . }} &middot; {{ end }}{{ .Date.Format "Jan 2, 2006" }}</span>
-    </a>
-    {{ end }}
-  </div>
-</div>
-{{ end }}
-
-{{/* Newsletter Banner */}}
-<div class="newsletter-banner">
-  <div class="newsletter-banner-inner">
-    <h3>The Revenue Dispatch</h3>
-    <p>AI monetization insights — in your inbox every week.</p>
-    <form class="nl-form" action="https://formspree.io/f/xreawkow" method="POST">
-      <input type="hidden" name="_subject" value="New Newsletter Subscriber — Menshly Global (Homepage)">
-      <input type="hidden" name="form_name" value="newsletter-homepage">
-      <input type="email" name="email" placeholder="Your email address" required aria-label="Email address">
-      <button type="submit">Subscribe Free &rarr;</button>
-    </form>
-  </div>
-</div>
-
-{{/* Section-based Grids */}}
-{{ if gt (len $oppPosts) 0 }}
-<div class="main-content">
-  <div class="section-divider">Opportunities</div>
-  <div class="section-stories-grid">
-    {{ range first 3 $oppPosts.ByDate.Reverse }}
-    {{ $title := .Title }}
-    <a class="story-card" href="{{ .Permalink }}">
-      {{ with .Params.image }}<img class="story-card-image" src="{{ . }}" alt="{{ $title }}" loading="lazy">{{ end }}
-      <span class="story-card-category">Opportunity</span>
-      <span class="story-card-headline">{{ .Title }}</span>
-      <span class="story-card-meta">{{ .Date.Format "Jan 2, 2006" }}</span>
-    </a>
-    {{ end }}
-  </div>
-</div>
-{{ end }}
-
-{{ if gt (len $intPosts) 0 }}
-<div class="main-content">
-  <div class="section-divider">Intelligence</div>
-  <div class="section-stories-grid">
-    {{ range first 3 $intPosts.ByDate.Reverse }}
-    {{ $title := .Title }}
-    <a class="story-card" href="{{ .Permalink }}">
-      {{ with .Params.image }}<img class="story-card-image" src="{{ . }}" alt="{{ $title }}" loading="lazy">{{ end }}
-      <span class="story-card-category">Intelligence</span>
-      <span class="story-card-headline">{{ .Title }}</span>
-      <span class="story-card-meta">{{ .Date.Format "Jan 2, 2006" }}</span>
-    </a>
-    {{ end }}
-  </div>
-</div>
-{{ end }}
-
-{{ else }}
-{{/* No articles yet — Show the category cards and CTA */}}
-<div class="main-content">
-  <div class="newsletter-banner" style="margin-top:20px;">
-    <div class="newsletter-banner-inner">
-      <h3>Content Coming Soon</h3>
-      <p>We're building the best AI monetization resource. Subscribe to be the first to know when we launch.</p>
-      <form class="nl-form" action="https://formspree.io/f/xreawkow" method="POST">
-        <input type="hidden" name="_subject" value="New Subscriber — Menshly Global Launch">
-        <input type="hidden" name="form_name" value="newsletter-launch">
-        <input type="email" name="email" placeholder="Your email address" required aria-label="Email address">
-        <button type="submit">Notify Me &rarr;</button>
-      </form>
-    </div>
-  </div>
-</div>
-{{ end }}
-
-{{ else }}
-{{/* ===== STANDARD LIST PAGE ===== */}}
-<div class="main-content">
-  <div class="content-grid">
-    <div class="main-column">
-      <div class="section-header"><h2>{{ .Title }}</h2></div>
-      <div class="posts">
-        {{ range $i, $p := .Pages }}
-        {{ $img := $p.Params.image }}{{ $cats := $p.Params.categories }}{{ $cat := "" }}{{ with $cats }}{{ $cat = index . 0 }}{{ end }}
-        <a class="story-card" href="{{ $p.Permalink }}">
-          {{ with $img }}<img class="story-card-image" src="{{ . }}" alt="{{ $p.Title }}" loading="lazy">{{ end }}
-          <span class="story-card-category">{{ with $cat }}{{ . }}{{ else }}{{ title $p.Section }}{{ end }}</span>
-          <span class="story-card-headline">{{ $p.Title }}</span>
-          <span class="story-card-meta">{{ $p.Date.Format "Jan 2, 2006" }}</span>
-        </a>
-        {{ end }}
+        <div>
+          <div class="stats-number">5</div>
+          <div class="stats-label">TOOLS</div>
+        </div>
+        <div>
+          <div class="stats-number">12</div>
+          <div class="stats-label">GUIDES</div>
+        </div>
       </div>
-      {{ if .Paginator }}
-      <div class="pagination">
-        {{ if .Paginator.HasPrev }}<a href="{{ .Paginator.Prev.URL }}">&larr; Prev</a>{{ end }}
-        <span class="current">{{ .Paginator.PageNumber }}/{{ .Paginator.TotalPages }}</span>
-        {{ if .Paginator.HasNext }}<a href="{{ .Paginator.Next.URL }}">Next &rarr;</a>{{ end }}
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-visual">
+      <div class="hero-visual-content">
+        <div class="hero-visual-icon">MG</div>
+        <div class="hero-visual-sub">AI Monetization</div>
       </div>
+    </div>
+    <div class="hero-right-badge">
+      <span>NOW LIVE — 2026</span>
+    </div>
+  </div>
+</section>
+
+<!-- LATEST OPPORTUNITIES -->
+{{ $opps := where .Site.RegularPages "Section" "opportunities" }}
+{{ if $opps }}
+<section class="section">
+  <div class="section-inner">
+    <div class="section-header">
+      <div>
+        <span class="section-label">Latest Discoveries</span>
+        <h2 class="section-title">OPPORTUNITIES</h2>
+      </div>
+      <span class="section-count hide-mobile">{{ len $opps }} ARTICLES</span>
+    </div>
+    <div class="card-grid">
+      {{ range first 3 $opps }}
+      {{ partial "article-card.html" . }}
       {{ end }}
     </div>
-    <aside class="sidebar">
-      {{ partial "most-read-widget.html" . }}
-      {{ partial "categories-widget.html" . }}
-      {{ partial "trending-now-widget.html" . }}
-    </aside>
   </div>
-</div>
+</section>
+{{ end }}
+
+<!-- FEATURED PLAYBOOKS -->
+{{ $playbooks := where .Site.RegularPages "Section" "playbooks" }}
+{{ if $playbooks }}
+<section class="section" style="background:var(--off-white);">
+  <div class="section-inner">
+    <div class="section-header">
+      <div>
+        <span class="section-label">Ready-Made Materials</span>
+        <h2 class="section-title">PLAYBOOKS</h2>
+      </div>
+      <span class="section-count hide-mobile">{{ len $playbooks }} ITEMS</span>
+    </div>
+    <div class="card-grid">
+      {{ range first 3 $playbooks }}
+      <a href="{{ .RelPermalink }}" class="playbook-card">
+        {{ with .Params.image }}
+        <img src="{{ . }}" alt="{{ $.Title }}" style="width:100%;aspect-ratio:3/2;object-fit:cover;border-bottom:3px solid var(--black);background:var(--off-white);">
+        {{ else }}
+        <div style="width:100%;aspect-ratio:3/2;background:var(--off-white);display:flex;align-items:center;justify-content:center;border-bottom:3px solid var(--black);">
+          <span style="font-family:var(--font-heading);font-size:48px;color:rgba(26,26,26,0.1);font-weight:700;">{{ substr $.Title 0 1 }}</span>
+        </div>
+        {{ end }}
+        <div class="playbook-price-badge">{{ .Params.price | default "FREE" }}</div>
+        <div class="playbook-card-body">
+          <div class="playbook-card-title">{{ .Title }}</div>
+          <div class="playbook-card-excerpt">{{ .Params.excerpt | default (truncate 100 .Summary) }}</div>
+        </div>
+        <div class="playbook-card-action">
+          <span class="article-card-date">{{ .Date.Format "Jan 02, 2006" }}</span>
+          <button class="playbook-btn playbook-btn-{{ if eq .Params.price "FREE" }}download{{ else }}buy{{ end }}">{{ if eq .Params.price "FREE" }}DOWNLOAD{{ else }}BUY{{ end }}</button>
+        </div>
+      </a>
+      {{ end }}
+    </div>
+  </div>
+</section>
+{{ end }}
+
+<!-- TOOLS PREVIEW -->
+<section class="section">
+  <div class="section-inner">
+    <div class="section-header">
+      <div>
+        <span class="section-label">Free Utilities</span>
+        <h2 class="section-title">TOOLS</h2>
+      </div>
+      <a href="/tools/" class="btn-brutal btn-yellow hide-mobile" style="padding:8px 16px;font-size:11px;">VIEW ALL →</a>
+    </div>
+    <div class="card-grid card-grid-5">
+      <div class="tool-card">
+        <div class="tool-card-header">
+          <span class="tool-card-icon">💡</span>
+          <span class="tool-card-name">Idea Generator</span>
+        </div>
+        <div class="tool-card-body">
+          <p class="tool-card-desc">Generate AI side hustle ideas based on your skills and interests.</p>
+        </div>
+      </div>
+      <div class="tool-card">
+        <div class="tool-card-header">
+          <span class="tool-card-icon">💰</span>
+          <span class="tool-card-name">Pricing Calculator</span>
+        </div>
+        <div class="tool-card-body">
+          <p class="tool-card-desc">Calculate competitive pricing for your automation agency services.</p>
+        </div>
+      </div>
+      <div class="tool-card">
+        <div class="tool-card-header">
+          <span class="tool-card-icon">📊</span>
+          <span class="tool-card-name">Rate Calculator</span>
+        </div>
+        <div class="tool-card-body">
+          <p class="tool-card-desc">Find your ideal freelance rate based on expenses and goals.</p>
+        </div>
+      </div>
+      <div class="tool-card">
+        <div class="tool-card-header">
+          <span class="tool-card-icon">🔧</span>
+          <span class="tool-card-name">Stack Matcher</span>
+        </div>
+        <div class="tool-card-body">
+          <p class="tool-card-desc">Match the right AI tools to your business model and workflow.</p>
+        </div>
+      </div>
+      <div class="tool-card">
+        <div class="tool-card-header">
+          <span class="tool-card-icon">✍️</span>
+          <span class="tool-card-name">Article Generator</span>
+        </div>
+        <div class="tool-card-body">
+          <p class="tool-card-desc">Generate AI-powered articles for your content business.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 4 CATEGORIES PROCESS SECTION -->
+<section class="process-section">
+  <div class="process-grid">
+    <div class="process-left">
+      <span class="section-label">What We Cover</span>
+      <h2 class="section-title">OUR<br>CATEGORIES</h2>
+      <p>Four pillars of AI monetization knowledge, each designed to move you from discovery to execution.</p>
+      <div class="process-progress">
+        <div class="process-progress-bar active"></div>
+        <div class="process-progress-bar"></div>
+        <div class="process-progress-bar"></div>
+        <div class="process-progress-bar"></div>
+      </div>
+    </div>
+    <div class="process-right">
+      <!-- 01 OPPORTUNITIES -->
+      <div class="process-step">
+        <div class="process-step-inner">
+          <div>
+            <span class="process-step-number">01</span>
+            <span class="process-step-badge yellow">DISCOVER</span>
+            <h3 class="process-step-title">OPPORTUNITIES</h3>
+            <p class="process-step-desc">Discover new AI models, ideas, and automation systems before everyone else. We track emerging platforms, untapped markets, and revenue gaps you can exploit today.</p>
+          </div>
+          <div>
+            <div class="process-detail-list">
+              <div class="process-detail-item">
+                <span class="process-detail-num">01.1</span>
+                <span class="process-detail-text">New AI Platform Tracking</span>
+              </div>
+              <div class="process-detail-item">
+                <span class="process-detail-num">01.2</span>
+                <span class="process-detail-text">Market Gap Analysis</span>
+              </div>
+              <div class="process-detail-item">
+                <span class="process-detail-num">01.3</span>
+                <span class="process-detail-text">Revenue Opportunity Alerts</span>
+              </div>
+              <div class="process-detail-item">
+                <span class="process-detail-num">01.4</span>
+                <span class="process-detail-text">Automation Breakthroughs</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- 02 PLAYBOOKS -->
+      <div class="process-step">
+        <div class="process-step-inner">
+          <div>
+            <span class="process-step-number">02</span>
+            <span class="process-step-badge red">DOWNLOAD</span>
+            <h3 class="process-step-title">PLAYBOOKS</h3>
+            <p class="process-step-desc">Ready-made ebooks, templates, and materials you can download or purchase. Battle-tested strategies packaged for immediate execution — no theory, just action.</p>
+          </div>
+          <div>
+            <div class="process-detail-list">
+              <div class="process-detail-item">
+                <span class="process-detail-num">02.1</span>
+                <span class="process-detail-text">Step-by-Step Ebooks</span>
+              </div>
+              <div class="process-detail-item">
+                <span class="process-detail-num">02.2</span>
+                <span class="process-detail-text">Template Libraries</span>
+              </div>
+              <div class="process-detail-item">
+                <span class="process-detail-num">02.3</span>
+                <span class="process-detail-text">Prompt Collections</span>
+              </div>
+              <div class="process-detail-item">
+                <span class="process-detail-num">02.4</span>
+                <span class="process-detail-text">Workflow Blueprints</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- 03 TOOLS -->
+      <div class="process-step">
+        <div class="process-step-inner">
+          <div>
+            <span class="process-step-number">03</span>
+            <span class="process-step-badge yellow">USE FREE</span>
+            <h3 class="process-step-title">TOOLS</h3>
+            <p class="process-step-desc">Free interactive utilities to accelerate your AI revenue. From idea generators to pricing calculators — every tool is built to give you an immediate advantage.</p>
+          </div>
+          <div>
+            <div class="process-detail-list">
+              <div class="process-detail-item">
+                <span class="process-detail-num">03.1</span>
+                <span class="process-detail-text">AI Side Hustle Idea Generator</span>
+              </div>
+              <div class="process-detail-item">
+                <span class="process-detail-num">03.2</span>
+                <span class="process-detail-text">Automation Pricing Calculator</span>
+              </div>
+              <div class="process-detail-item">
+                <span class="process-detail-num">03.3</span>
+                <span class="process-detail-text">Freelance Rate Calculator</span>
+              </div>
+              <div class="process-detail-item">
+                <span class="process-detail-num">03.4</span>
+                <span class="process-detail-text">AI Tool Stack Matcher</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- 04 INTELLIGENCE -->
+      <div class="process-step">
+        <div class="process-step-inner">
+          <div>
+            <span class="process-step-number">04</span>
+            <span class="process-step-badge red">EXECUTE</span>
+            <h3 class="process-step-title">INTELLIGENCE</h3>
+            <p class="process-step-desc">Deep implementation guides that cover every detail — full stack, end-to-end execution. If you want to actually build it, not just read about it, this is your section.</p>
+          </div>
+          <div>
+            <div class="process-detail-list">
+              <div class="process-detail-item">
+                <span class="process-detail-num">04.1</span>
+                <span class="process-detail-text">Agency Building Playbooks</span>
+              </div>
+              <div class="process-detail-item">
+                <span class="process-detail-num">04.2</span>
+                <span class="process-detail-text">Automation Workflow Deep Dives</span>
+              </div>
+              <div class="process-detail-item">
+                <span class="process-detail-num">04.3</span>
+                <span class="process-detail-text">Content Business Execution</span>
+              </div>
+              <div class="process-detail-item">
+                <span class="process-detail-num">04.4</span>
+                <span class="process-detail-text">Full-Stack Implementation</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{{ else }}
+<!-- Generic list page for non-home -->
+{{ partial "section-hero.html" (dict "label" "Archive" "title" .Title "desc" .Params.description) }}
+<section class="section">
+  <div class="section-inner">
+    <div class="card-grid">
+      {{ range .Paginator.Pages }}
+      {{ partial "article-card.html" . }}
+      {{ end }}
+    </div>
+  </div>
+</section>
 {{ end }}
 {{ end }}

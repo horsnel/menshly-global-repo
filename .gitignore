@@ -1,3 +1,4 @@
-public/
-public/\nresources/\n.hugo_build.lock
-scripts/__pycache__/
+.env
+output/
+node_modules/
+.hugo_build.lock

@@ -1,77 +1,13 @@
 {{ define "main" }}
-{{/* OPPORTUNITIES SECTION — Discovery of new AI models, ideas, automation systems */}}
-<div class="main-content">
-  <div class="section-hero-banner section-hero-opportunities">
-    <div class="section-hero-content">
-      <h1>Opportunities</h1>
-      <p>Discover new AI models, ideas, and automation systems. We break down what's new, why it matters, and where the money is.</p>
+{{ partial "section-hero.html" (dict "label" "Latest Discoveries" "title" "OPPORTUNITIES" "desc" "Discover new AI models, ideas, and automation systems before everyone else. We track emerging platforms, untapped markets, and revenue gaps you can exploit today.") }}
+
+<section class="section">
+  <div class="section-inner">
+    <div class="card-grid">
+      {{ range .Pages }}
+      {{ partial "article-card.html" . }}
+      {{ end }}
     </div>
   </div>
-
-  {{ $posts := where .Site.RegularPages "Section" "opportunities" }}
-  {{ if gt (len $posts) 0 }}
-
-  {{ $hero := index $posts 0 }}
-  {{ $rest := after 1 $posts }}
-
-  {{/* Lead Story */}}
-  <div class="hero-editorial-row" style="margin-top:40px;">
-    <div class="lead-story">
-      <a class="lead-story-link" href="{{ $hero.Permalink }}">
-        {{ with $hero.Params.image }}<img class="lead-story-image" src="{{ . }}" alt="{{ $hero.Title }}" loading="eager">{{ end }}
-        <span class="lead-story-category">Opportunity</span>
-        <h2 class="lead-story-headline">{{ $hero.Title }}</h2>
-        <p class="lead-story-deck">{{ with $hero.Params.description }}{{ . }}{{ else }}{{ $hero.Summary | plainify | truncate 200 }}{{ end }}</p>
-        <div class="lead-story-meta">
-          {{ with $hero.Params.author }}<span class="byline">By {{ . }}</span>{{ end }}
-          <span>{{ $hero.Date.Format "January 2, 2006" }}</span>
-          {{ $readingTime := math.Round (div (float $hero.WordCount) 200.0) }}{{ if lt $readingTime 1 }}{{ $readingTime = 1 }}{{ end }}<span class="reading-time">{{ $readingTime }} min read</span>
-        </div>
-      </a>
-    </div>
-    <div class="trending-sidebar">
-      <div class="trending-sidebar-header">Latest Opportunities</div>
-      <ol class="trending-list">
-        {{ range first 5 $rest }}
-        <li class="trending-list-item">
-          <a href="{{ .Permalink }}">{{ .Title }}</a>
-          <div class="trending-list-meta">{{ .Date.Format "Jan 2" }}</div>
-        </li>
-        {{ end }}
-      </ol>
-    </div>
-  </div>
-
-  {{/* More Stories Grid */}}
-  {{ $morePosts := after 6 $posts }}
-  {{ if gt (len $morePosts) 0 }}
-  <div class="section-divider">More Opportunities</div>
-  <div class="section-stories-grid">
-    {{ range $morePosts }}
-    {{ $title := .Title }}
-    <a class="story-card" href="{{ .Permalink }}">
-      {{ with .Params.image }}<img class="story-card-image" src="{{ . }}" alt="{{ $title }}" loading="lazy">{{ end }}
-      <span class="story-card-category">Opportunity</span>
-      <span class="story-card-headline">{{ .Title }}</span>
-      <span class="story-card-meta">{{ .Date.Format "Jan 2, 2006" }}</span>
-    </a>
-    {{ end }}
-  </div>
-  {{ end }}
-
-  {{ else }}
-  <div class="empty-section">
-    <div class="empty-section-icon">
-      <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
-    </div>
-    <h2>Opportunities Coming Soon</h2>
-    <p>We're scouting the best AI monetization opportunities. Subscribe to be the first to know when we publish.</p>
-    <form class="nl-form" action="https://formspree.io/f/xreawkow" method="POST" style="max-width:400px;margin:0 auto;">
-      <input type="hidden" name="_subject" value="New Subscriber — Opportunities Section">
-      <input type="email" name="email" placeholder="Your email address" required aria-label="Email">
-      <button type="submit">Notify Me</button>
-    </form>
-  </div>
-  {{ end }}
-</div>
+</section>
 {{ end }}
