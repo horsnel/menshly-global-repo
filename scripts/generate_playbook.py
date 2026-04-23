@@ -23,6 +23,8 @@ from datetime import datetime, timezone
 from pathlib import Path
 import random
 
+from image_utils import generate_article_image
+
 AI_API_KEY = os.environ.get("AI_API_KEY", "")
 AI_API_BASE = os.environ.get("AI_API_BASE", "https://api.openai.com/v1")
 AI_MODEL = os.environ.get("AI_MODEL", "gpt-4o")
@@ -278,6 +280,13 @@ if __name__ == "__main__":
     slug = slugify(title)
     now = datetime.now(timezone.utc)
 
+    # Generate playbook thumbnail via Pollination AI
+    image_path = generate_article_image(
+        topic=topic,
+        slug=slug,
+        section="playbooks",
+    )
+
     front_matter = f"""---
 title: "{title}"
 date: {now.strftime("%Y-%m-%d")}
@@ -285,6 +294,7 @@ category: "Playbook"
 price: "{price}"
 readTime: "{read_time}"
 excerpt: "{excerpt}"
+image: "{image_path}"
 ---
 
 """
