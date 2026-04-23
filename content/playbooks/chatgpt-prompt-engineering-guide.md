@@ -5,6 +5,7 @@ category: "Playbook"
 price: "$49"
 readTime: "15 MIN"
 excerpt: "Master prompt engineering for business. 200+ battle-tested prompts for content, sales, automation, and strategy — with explanations."
+image: "/images/articles/playbooks/chatgpt-prompt-engineering-guide.png"
 ---
 
 ## The Art and Science of Prompts

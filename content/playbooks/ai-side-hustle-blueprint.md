@@ -5,6 +5,7 @@ category: "Playbook"
 price: "$19"
 readTime: "8 MIN"
 excerpt: "The complete blueprint for launching an AI side hustle from zero. Includes 25 validated business models, pricing templates, and a 30-day launch plan."
+image: "/images/articles/playbooks/ai-side-hustle-blueprint.png"
 ---
 
 ## What's Inside
