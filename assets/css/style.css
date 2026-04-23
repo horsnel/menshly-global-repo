@@ -1184,6 +1184,19 @@ img {
   background: var(--off-white);
 }
 
+/* Hero with background image */
+.section-page-hero[style*="background-image"] .section-label,
+.section-page-hero[style*="background-image"] .section-title,
+.section-page-hero[style*="background-image"] p {
+  color: #fff;
+}
+.section-page-hero[style*="background-image"] .section-title {
+  color: var(--yellow);
+}
+.section-page-hero[style*="background-image"] p {
+  color: rgba(255,255,255,0.8);
+}
+
 @media (min-width: 768px) {
   .section-page-hero {
     padding: 120px 48px 64px;

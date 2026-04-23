@@ -1,5 +1,16 @@
+{{ if .image }}
+<div class="section-page-hero" style="background-image:url('{{ .image }}');background-size:cover;background-position:center;position:relative;">
+  <div style="position:absolute;inset:0;background:rgba(26,26,26,0.85);"></div>
+  <div style="position:relative;z-index:1;">
+    <span class="section-label">{{ .label }}</span>
+    <h1 class="section-title">{{ .title }}</h1>
+    <p>{{ .desc }}</p>
+  </div>
+</div>
+{{ else }}
 <div class="section-page-hero">
   <span class="section-label">{{ .label }}</span>
   <h1 class="section-title">{{ .title }}</h1>
   <p>{{ .desc }}</p>
 </div>
+{{ end }}
