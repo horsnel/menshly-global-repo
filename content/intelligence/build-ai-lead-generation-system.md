@@ -1,6 +1,6 @@
 ---
 title: "Build and Automate an AI Lead Generation System with Make.com and OpenAI"
-date: 2026-04-24
+date: 2026-04-18
 category: "Implementation"
 difficulty: "INTERMEDIATE"
 readTime: "26 MIN"

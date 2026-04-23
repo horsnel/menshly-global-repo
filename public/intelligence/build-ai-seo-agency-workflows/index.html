@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Where AI Meets Revenue">
+  <meta name="theme-color" content="#1a1a1a">
+  <title>Build and Scale an AI SEO Agency with Automated Workflows — MENSHLY GLOBAL</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Oswald:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  
+  <link rel="stylesheet" href="/css/style.min.19987e160841c6c96900d5fa3859cfb635b9ea3684b07601eedc0a998d9be47f.css">
+  <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+  <link rel="icon" type="image/png" sizes="1024x1024" href="/images/favicon.png">
+</head>
+
+<body>
+  <nav class="nav-bar" id="nav">
+  
+  <div class="nav-desktop">
+    <div class="nav-brand">
+      <a href="/"><img src="/images/logo.png" alt="Menshly Global" class="nav-logo" style="height:28px;width:auto;margin-right:8px;vertical-align:middle;"><span style="vertical-align:middle;">MENSHLY GLOBAL</span></a>
+    </div>
+    <div class="nav-links">
+      
+      <a href="/opportunities/" class="">OPPORTUNITIES</a>
+      
+      <a href="/playbooks/" class="">PLAYBOOKS</a>
+      
+      <a href="/tools/" class="">TOOLS</a>
+      
+      <a href="/intelligence/" class="">INTELLIGENCE</a>
+      
+    </div>
+    <div class="nav-actions">
+      <a href="#newsletter" class="btn-brutal btn-yellow" style="padding:8px 16px;font-size:11px;">SUBSCRIBE</a>
+    </div>
+  </div>
+
+  
+  <div class="nav-mobile-trigger">
+    <span><a href="/" style="color:inherit;text-decoration:none;"><img src="/images/logo.png" alt="" style="height:20px;width:auto;vertical-align:middle;margin-right:6px;">MENSHLY GLOBAL</a></span>
+    <button onclick="document.getElementById('mobileMenu').classList.toggle('open')" aria-label="Menu">☰</button>
+  </div>
+  <div class="nav-mobile-menu" id="mobileMenu">
+    
+    <a href="/opportunities/">OPPORTUNITIES</a>
+    
+    <a href="/playbooks/">PLAYBOOKS</a>
+    
+    <a href="/tools/">TOOLS</a>
+    
+    <a href="/intelligence/">INTELLIGENCE</a>
+    
+    <a href="#newsletter" class="btn-brutal btn-yellow" style="margin:12px 20px;text-align:center;font-size:13px;">SUBSCRIBE</a>
+  </div>
+</nav>
+
+<script>
+  
+  window.addEventListener('scroll', function() {
+    const nav = document.getElementById('nav');
+    if (window.scrollY > 50) {
+      nav.classList.add('scrolled');
+    } else {
+      nav.classList.remove('scrolled');
+    }
+  });
+</script>
+
+  
+<article>
+  <div class="article-header">
+    <div class="article-category">INTELLIGENCE</div>
+    <h1 class="article-title">Build and Scale an AI SEO Agency with Automated Workflows</h1>
+    <div class="article-meta-bar">
+      <span class="article-meta-item">Apr 19, 2026</span>
+      <span class="article-meta-item">MENSHLY GLOBAL</span>
+      <span class="article-meta-item">26 MIN</span>
+      
+      <span class="article-meta-item" style="background:var(--red);color:var(--white);">ADVANCED</span>
+      
+    </div>
+  </div>
+  <div class="article-content">
+    <p>Running an SEO agency without automation is a death march of manual audits, spreadsheet rank tracking, and content that takes days to produce. You bill for strategy but spend your hours on drudgery. This guide builds the opposite: an AI-augmented SEO operation where audits run themselves, content flows through a production pipeline, and client reports generate on a schedule without you touching them. Follow it in order. Do not skip steps.</p>
+<h2 id="prerequisites">Prerequisites</h2>
+<p>Before you start, you need the following:</p>
+<ul>
+<li>A laptop with a modern browser (Chrome or Firefox)</li>
+<li>A Screaming Frog license ($259/yr) — download from screamingfrog.co.uk</li>
+<li>An Ahrefs account (Standard plan $99/mo) or Semrush account (Pro plan $129/mo) — pick one, not both</li>
+<li>A Surfer SEO account (Essential plan $89/mo) — go to surferseo.com and sign up</li>
+<li>An OpenAI API key ($20 minimum credit) — go to platform.openai.com/api-keys</li>
+<li>A Make.com account (Free tier works for your first 2 clients) — go to make.com and sign up</li>
+<li>A Google Workspace account for Drive, Docs, and Sheets — go to workspace.google.com</li>
+<li>Google Search Console and Google Analytics access for your first test client</li>
+<li>8-10 hours of uninterrupted time for your first full build</li>
+</ul>
+<p>Total upfront cost: $259 (Screaming Frog) + $99 (Ahrefs) + $89 (Surfer SEO) + $20 (OpenAI) = ~$467. This is your tool stack. You will recoup it on your first client.</p>
+<h2 id="step-1-set-up-your-seo-tech-stack">Step 1: Set Up Your SEO Tech Stack</h2>
+<p>Open your browser. You are going to connect five tools. Do them in this order. Each connection builds on the last.</p>
+<h3 id="sign-up-for-screaming-frog">Sign Up for Screaming Frog</h3>
+<p>Go to screamingfrog.co.uk and download the SEO Spider application for your OS. Install it. Open the application. You should see a dark interface with a URL bar at the top and a series of tabs below (Internal, External, Images, etc.).</p>
+<p>Do you see that interface? You should see the URL bar and tab structure if you are in the right place. Go back if you see only a license prompt without the main interface — click <strong>Enter License Key</strong> and paste the key from your purchase confirmation email.</p>
+<p>In the top menu, click <strong>Configuration → API Access → Google Analytics</strong>. A dialog will appear asking you to connect your Google account. Click <strong>Connect</strong> and select the Google account with your Analytics access. Grant permissions. You should see &ldquo;Connected&rdquo; with your account email. Do you see it? If you see &ldquo;Access Denied,&rdquo; go to Google Analytics and ensure your account has Editor or higher access on at least one property.</p>
+<p>Repeat this for <strong>Google Search Console</strong> under the same API Access menu. Connect the same Google account. Grant permissions. You should see &ldquo;Connected&rdquo; for both GA and GSC.</p>
+<h3 id="sign-up-for-ahrefs">Sign Up for Ahrefs</h3>
+<p>Go to ahrefs.com and create your account. After logging in, you should see the Ahrefs dashboard with a domain search bar at the top.</p>
+<p>Click your profile icon in the top-right, then click <strong>API</strong>. You should see a page with your API token. Copy it. You will need this for Make.com in Step 2.</p>
+<p>If you see &ldquo;API access requires Standard plan or above,&rdquo; upgrade your account. The API is non-negotiable — without it, you cannot automate keyword research or backlink monitoring.</p>
+<h3 id="sign-up-for-surfer-seo">Sign Up for Surfer SEO</h3>
+<p>Go to surferseo.com and sign up. After logging in, you should see the Surfer dashboard with options like &ldquo;Content Editor,&rdquo; &ldquo;SERP Analyzer,&rdquo; and &ldquo;Audit.&rdquo;</p>
+<p>Click your profile icon in the bottom-left, then click <strong>Integrations</strong>. Look for the <strong>API</strong> section. Copy your API key. Surfer&rsquo;s API lets you programmatically create content briefs and pull NLP term recommendations — you will wire this into your content pipeline in Step 3.</p>
+<p>If you do not see an Integrations or API option, your plan does not include API access. Upgrade to the Essential plan or higher.</p>
+<h3 id="connect-google-search-console-and-analytics">Connect Google Search Console and Analytics</h3>
+<p>Go to search.google.com/search-console. Add a property for your test client&rsquo;s domain (or your own domain if you are practicing). Verify ownership using the HTML tag method or DNS verification.</p>
+<p>Do you see &ldquo;Property added successfully&rdquo; and a dashboard with Performance data? If you see &ldquo;Verification failed,&rdquo; the HTML tag is missing or in the wrong location. Place it immediately after the opening <code>&lt;head&gt;</code> tag and try again.</p>
+<p>Now go to analytics.google.com. Create a GA4 property for the same domain. Install the GA4 tracking tag on the site. Wait 24-48 hours for data to populate — you should see at least a few sessions in the Real-Time report before moving on.</p>
+<h3 id="set-up-makecom">Set Up Make.com</h3>
+<p>Go to make.com and create your account. After logging in, you should see the Make dashboard with a &ldquo;Create a new scenario&rdquo; button.</p>
+<p>Click <strong>Create a new scenario</strong>. You should see a blank canvas with a large &ldquo;+&rdquo; button in the center. If you see this, you are in the right place. If you see a templates gallery instead, click <strong>Skip</strong> or <strong>Create from scratch</strong>.</p>
+<p>Click the &ldquo;+&rdquo; button. Search for <strong>Google Sheets</strong> and select it. This confirms your Make account can connect to Google services. Click <strong>Create a connection</strong> and authenticate with your Google Workspace account. You should see your Google account listed as a connected service.</p>
+<p>Now do the same for <strong>HTTP (Make a request)</strong> — this is how you will call the Ahrefs and Surfer APIs. You do not need to authenticate yet; just confirm the module appears in your scenario.</p>
+<h3 id="step-1-check-in">Step 1 Check-In</h3>
+<p>Verify each of these before moving on:</p>
+<ol>
+<li>Screaming Frog shows GA and GSC as &ldquo;Connected&rdquo; under API Access</li>
+<li>Ahrefs API token is copied and saved (store it in a password manager)</li>
+<li>Surfer SEO API key is copied and saved</li>
+<li>Google Search Console shows your test property with verification confirmed</li>
+<li>Google Analytics shows your test property with the GA4 tag installed</li>
+<li>Make.com shows Google Sheets and HTTP modules available in a new scenario</li>
+</ol>
+<p>Do you see all 6? Go back and fix any that are missing. Every automation in this guide depends on these connections working.</p>
+<h2 id="step-2-build-the-automated-technical-audit">Step 2: Build the Automated Technical Audit</h2>
+<p>This is your first money-making workflow. You will build a Make.com scenario that triggers a Screaming Frog crawl, parses the results, generates a prioritized fix list, and creates a client-facing report in Google Docs — automatically.</p>
+<h3 id="configure-screaming-frog-for-automated-crawls">Configure Screaming Frog for Automated Crawls</h3>
+<p>Open Screaming Frog. In the top menu, click <strong>File → Settings → Crawl Config</strong>. Set the following:</p>
+<ul>
+<li><strong>Max crawl depth:</strong> 10</li>
+<li><strong>Max URLs:</strong> 10,000</li>
+<li><strong>Crawl budget:</strong> Enabled</li>
+<li><strong>Render JavaScript:</strong> Yes (critical for modern SPAs)</li>
+<li><strong>User-agent:</strong> Googlebot (desktop)</li>
+</ul>
+<p>Click <strong>OK</strong>. Now click <strong>File → Save Config As</strong> and name it <code>audit-default</code>. This becomes your standard crawl configuration.</p>
+<p>Screaming Frog has a CLI (command-line interface) that allows headless crawls. Open your terminal and run:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>screamingfrogseospider --headless --save-crawl --output-folder <span style="color:#e6db74">&#34;/path/to/audit-output&#34;</span> --config-file <span style="color:#e6db74">&#34;audit-default&#34;</span> --crawl <span style="color:#e6db74">&#34;https://your-test-client.com&#34;</span>
+</span></span></code></pre></div><p>You should see crawl progress printed to the terminal. Wait for it to complete. When finished, you should find CSV files in your output folder:</p>
+<pre tabindex="0"><code>audit-output/
+  internal_all.csv
+  internal_html.csv
+  redirect_chains.csv
+  broken_links.csv
+  page_titles.csv
+  meta_description.csv
+  h1.csv
+</code></pre><p>Do you see these files? If you see an empty output folder, the crawl URL is wrong or unreachable. Verify the URL in a browser. If the site blocks Screaming Frog&rsquo;s user-agent, switch to a custom user-agent in the config.</p>
+<h3 id="build-the-makecom-scenario">Build the Make.com Scenario</h3>
+<p>Go back to Make.com. Create a new scenario. Name it &ldquo;SEO Technical Audit.&rdquo;</p>
+<p><strong>Module 1: HTTP — Trigger the Crawl</strong></p>
+<p>Click the &ldquo;+&rdquo; and add an <strong>HTTP — Make a request</strong> module. Configure:</p>
+<ul>
+<li><strong>URL:</strong> <code>http://localhost:8080/crawl</code> (Screaming Frog&rsquo;s API endpoint — enable it under <strong>Configuration → API</strong> in the SF app, set a port)</li>
+<li><strong>Method:</strong> POST</li>
+<li><strong>Headers:</strong>
+<pre tabindex="0"><code>Content-Type: application/json
+Authorization: Bearer YOUR_SF_API_KEY
+</code></pre></li>
+<li><strong>Body (JSON):</strong>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;url&#34;</span>: <span style="color:#e6db74">&#34;{{1.clientUrl}}&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;config&#34;</span>: <span style="color:#e6db74">&#34;audit-default&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;output_format&#34;</span>: <span style="color:#e6db74">&#34;csv&#34;</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div></li>
+</ul>
+<p>If you see &ldquo;Connection refused&rdquo; when testing, Screaming Frog is not running or the API is not enabled. Open Screaming Frog, go to <strong>Configuration → API</strong>, check &ldquo;Enable API,&rdquo; set the port to 8080, and set an API key. Restart the application. Test again.</p>
+<p><strong>Module 2: HTTP — Poll for Completion</strong></p>
+<p>Add a second HTTP module. Configure it to GET the crawl status:</p>
+<ul>
+<li><strong>URL:</strong> <code>http://localhost:8080/crawl/status</code></li>
+<li><strong>Method:</strong> GET</li>
+<li><strong>Headers:</strong>
+<pre tabindex="0"><code>Authorization: Bearer YOUR_SF_API_KEY
+</code></pre></li>
+</ul>
+<p>Add a <strong>Filter</strong> between Module 1 and Module 2. Set the filter to: <code>status</code> <code>Equal to</code> <code>complete</code>. Add a <strong>Sleep</strong> module before the filter set to 60 seconds — this gives the crawl time to finish. Make.com will retry up to your scenario&rsquo;s limit (set this to 20 iterations under scenario settings).</p>
+<p>Do you see the scenario waiting and retrying? If it errors immediately, the crawl ID is not being passed correctly. Check that Module 1&rsquo;s output includes a <code>crawl_id</code> field and that Module 2 uses it in the URL: <code>http://localhost:8080/crawl/{{1.crawl_id}}/status</code>.</p>
+<p><strong>Module 3: Google Sheets — Parse Results</strong></p>
+<p>Add a <strong>Google Sheets — Add Multiple Rows</strong> module. Map the CSV data from the completed crawl into a structured Google Sheet. Create a sheet called &ldquo;Audit Raw Data&rdquo; with these columns:</p>
+<table>
+  <thead>
+      <tr>
+          <th>URL</th>
+          <th>Status Code</th>
+          <th>Title</th>
+          <th>Meta Description</th>
+          <th>H1</th>
+          <th>Word Count</th>
+          <th>Load Time</th>
+          <th>Indexability</th>
+          <th>Issues</th>
+      </tr>
+  </thead>
+  <tbody>
+  </tbody>
+</table>
+<p>Map each field from the crawl output. The &ldquo;Issues&rdquo; column should concatenate any detected problems: missing title, missing meta description, duplicate H1, 404 status, redirect chain, slow load time (&gt;3s), noindex tag.</p>
+<p><strong>Module 4: Google Docs — Generate Report</strong></p>
+<p>Add a <strong>Google Docs — Create a Document</strong> module. Use a template document in your Google Drive called &ldquo;SEO Audit Report Template.&rdquo; This template should have placeholder variables:</p>
+<pre tabindex="0"><code>{{client_name}} — Technical SEO Audit
+Date: {{audit_date}}
+
+Executive Summary:
+{{total_issues}} issues detected across {{total_urls}} pages.
+
+Critical Issues ({{critical_count}}):
+{{critical_issues_list}}
+
+Warnings ({{warning_count}}):
+{{warning_issues_list}}
+
+Opportunities ({{opportunity_count}}):
+{{opportunity_list}}
+
+Detailed Findings:
+{{detailed_table}}
+</code></pre><p>Map each variable from the parsed Google Sheets data. Critical issues = 404s, server errors, noindex on important pages. Warnings = missing titles, duplicate meta descriptions, redirect chains. Opportunities = pages with high impressions but low CTR, orphan pages, unoptimized images.</p>
+<h3 id="step-2-check-in">Step 2 Check-In</h3>
+<p>Run the full scenario against your test client&rsquo;s website. Then check your Google Drive. Do you see a completed &ldquo;SEO Audit Report&rdquo; document with real data?</p>
+<p>You should see:</p>
+<ul>
+<li>A populated executive summary with actual issue counts</li>
+<li>A list of critical issues with specific URLs</li>
+<li>A prioritized fix list sorted by impact</li>
+</ul>
+<p>If you see a document with blank variables (like <code>{{total_issues}}</code>), the mapping between the Sheets data and the Docs template is broken. Open the Make.com scenario, click the Google Docs module, and verify each variable is mapped to the correct Sheets column. If you see &ldquo;No data&rdquo; in the Sheets, the crawl did not complete — go back to Module 2 and check the status endpoint.</p>
+<h2 id="step-3-build-the-ai-content-production-pipeline">Step 3: Build the AI Content Production Pipeline</h2>
+<p>Technical audits win clients. Content production retains them. This is where most SEO agencies choke — they cannot produce enough optimized content at a quality level that ranks. You will build a pipeline that does.</p>
+<h3 id="keyword-research-automation-with-ahrefs-api">Keyword Research Automation with Ahrefs API</h3>
+<p>In Make.com, create a new scenario called &ldquo;Keyword Research Pipeline.&rdquo;</p>
+<p><strong>Module 1: Google Sheets — Read Target Topics</strong></p>
+<p>Create a Google Sheet called &ldquo;Content Pipeline&rdquo; with these columns: Topic | Status | Keyword | Volume | Difficulty | Intent | Assigned | Published. Add 10 topic ideas in the Topic column. Set Status to &ldquo;New&rdquo; for all.</p>
+<p>Add a <strong>Google Sheets — Search Rows</strong> module. Filter where Status = &ldquo;New&rdquo;. This gives you a list of topics that need keyword research.</p>
+<p><strong>Module 2: HTTP — Ahrefs Keywords Explorer API</strong></p>
+<p>Add an HTTP module. Configure:</p>
+<ul>
+<li><strong>URL:</strong> <code>https://api.ahrefs.com/v3/keywords-explorer</code></li>
+<li><strong>Method:</strong> POST</li>
+<li><strong>Headers:</strong>
+<pre tabindex="0"><code>Content-Type: application/json
+Authorization: Bearer YOUR_AHREFS_API_KEY
+</code></pre></li>
+<li><strong>Body (JSON):</strong>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;target&#34;</span>: <span style="color:#e6db74">&#34;{{2.topic}}&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;location&#34;</span>: <span style="color:#e6db74">&#34;us&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;output_fields&#34;</span>: <span style="color:#e6db74">&#34;volume,keyword_difficulty,intent,serp_features&#34;</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div></li>
+</ul>
+<p>You should get a response like:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;keywords&#34;</span>: [
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;keyword&#34;</span>: <span style="color:#e6db74">&#34;best seo tools for small business&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;volume&#34;</span>: <span style="color:#ae81ff">3200</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;difficulty&#34;</span>: <span style="color:#ae81ff">45</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;intent&#34;</span>: <span style="color:#e6db74">&#34;informational&#34;</span>
+</span></span><span style="display:flex;"><span>    },
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;keyword&#34;</span>: <span style="color:#e6db74">&#34;seo tools comparison&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;volume&#34;</span>: <span style="color:#ae81ff">1800</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;difficulty&#34;</span>: <span style="color:#ae81ff">52</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;intent&#34;</span>: <span style="color:#e6db74">&#34;commercial&#34;</span>
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  ]
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Do you see keyword data with volume and difficulty scores? If you see &ldquo;401 Unauthorized,&rdquo; your Ahrefs API key is wrong. Go back to ahrefs.com → Profile → API and copy the exact token. If you see &ldquo;429 Too Many Requests,&rdquo; you are hitting rate limits. Add a <strong>Sleep</strong> module set to 2 seconds between API calls.</p>
+<p><strong>Module 3: Iterator + Google Sheets — Write Results</strong></p>
+<p>Add an <strong>Iterator</strong> module to loop through the keyword results. Then add a <strong>Google Sheets — Update Row</strong> module that writes each keyword, its volume, difficulty, and intent back to your Content Pipeline sheet. Update the Status column from &ldquo;New&rdquo; to &ldquo;Researched.&rdquo;</p>
+<h3 id="content-brief-generation-workflow">Content Brief Generation Workflow</h3>
+<p>In the same scenario (or a new one called &ldquo;Content Brief Generator&rdquo;), add these modules after the keyword research step:</p>
+<p><strong>Module 4: HTTP — Surfer SEO Content Editor API</strong></p>
+<ul>
+<li><strong>URL:</strong> <code>https://api.surferseo.com/v1/content-editor</code></li>
+<li><strong>Method:</strong> POST</li>
+<li><strong>Headers:</strong>
+<pre tabindex="0"><code>Content-Type: application/json
+Authorization: Bearer YOUR_SURFER_API_KEY
+</code></pre></li>
+<li><strong>Body (JSON):</strong>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;keyword&#34;</span>: <span style="color:#e6db74">&#34;{{3.keyword}}&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;location&#34;</span>: <span style="color:#e6db74">&#34;us&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;language&#34;</span>: <span style="color:#e6db74">&#34;en&#34;</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div></li>
+</ul>
+<p>You should get a response containing NLP terms, recommended word count, heading structure, and competitor URLs. It looks like:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;content_brief&#34;</span>: {
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;keyword&#34;</span>: <span style="color:#e6db74">&#34;best seo tools for small business&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;recommended_word_count&#34;</span>: <span style="color:#ae81ff">2400</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;nlp_terms&#34;</span>: [<span style="color:#e6db74">&#34;seo software&#34;</span>, <span style="color:#e6db74">&#34;keyword research&#34;</span>, <span style="color:#e6db74">&#34;rank tracking&#34;</span>, <span style="color:#e6db74">&#34;backlink analysis&#34;</span>, <span style="color:#e6db74">&#34;site audit&#34;</span>],
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;suggested_headings&#34;</span>: [<span style="color:#e6db74">&#34;What Are SEO Tools?&#34;</span>, <span style="color:#e6db74">&#34;Top SEO Tools for Small Businesses&#34;</span>, <span style="color:#e6db74">&#34;How to Choose the Right SEO Tool&#34;</span>, <span style="color:#e6db74">&#34;Pricing Comparison&#34;</span>],
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;competitor_urls&#34;</span>: [<span style="color:#e6db74">&#34;https://example.com/seo-tools&#34;</span>, <span style="color:#e6db74">&#34;https://example2.com/best-seo&#34;</span>]
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p><strong>Module 5: OpenAI — Generate Content Brief Document</strong></p>
+<p>Add an <strong>OpenAI — Create a Chat Completion</strong> module. Use <code>gpt-4o</code>. Set the system prompt:</p>
+<pre tabindex="0"><code>You are an SEO content strategist. Given the following keyword data and Surfer SEO content brief, generate a detailed content brief for a writer. Include:
+1. Target keyword and secondary keywords
+2. Recommended word count
+3. Article outline with H2/H3 headings
+4. NLP terms to include naturally
+5. Competitor content gaps to exploit
+6. Search intent and angle recommendation
+
+Output as clean, structured markdown.
+</code></pre><p>Set the user message to: <code>Keyword: {{3.keyword}}, Surfer Data: {{4.content_brief}}</code></p>
+<p>You should get back a structured content brief. If the output is too short or generic, add this to the system prompt: &ldquo;Be specific. Include exact heading text, not generic placeholders. List at least 8 NLP terms. Identify at least 2 content gaps from competitor analysis.&rdquo;</p>
+<p><strong>Module 6: Google Docs — Save the Brief</strong></p>
+<p>Add a Google Docs module to create a document titled <code>[Keyword] — Content Brief</code> and save it to a &ldquo;Client Content Briefs&rdquo; folder in your Drive.</p>
+<h3 id="ai-content-generation-with-quality-control">AI Content Generation with Quality Control</h3>
+<p>Now build the content production step. Create a new Make.com scenario called &ldquo;Content Production.&rdquo;</p>
+<p><strong>Module 1: Google Sheets — Read Briefs Ready for Production</strong></p>
+<p>Search your Content Pipeline sheet where Status = &ldquo;Briefed.&rdquo;</p>
+<p><strong>Module 2: OpenAI — Generate Article</strong></p>
+<p>Use <code>gpt-4o</code>. System prompt:</p>
+<pre tabindex="0"><code>You are an expert SEO content writer. Write a comprehensive, well-researched article based on the provided content brief. Follow these rules:
+- Match the exact heading structure from the brief
+- Include all NLP terms naturally — do not force them
+- Write in a professional but approachable tone
+- Include specific data points, examples, and actionable advice
+- The article must be at least the recommended word count
+- Add a meta title (under 60 characters) and meta description (under 155 characters) at the top
+- Do not use generic filler phrases like &#34;In today&#39;s digital landscape&#34; or &#34;It goes without saying&#34;
+</code></pre><p><strong>Module 3: Surfer SEO — Score the Content</strong></p>
+<p>After generating the article, send it to Surfer&rsquo;s Content Score API:</p>
+<ul>
+<li><strong>URL:</strong> <code>https://api.surferseo.com/v1/content-score</code></li>
+<li><strong>Method:</strong> POST</li>
+<li><strong>Body:</strong>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;keyword&#34;</span>: <span style="color:#e6db74">&#34;{{1.keyword}}&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;content&#34;</span>: <span style="color:#e6db74">&#34;{{2.article_text}}&#34;</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div></li>
+</ul>
+<p>You should get a score from 0-100. Target: 75 or above. If the score is below 75, the content needs revision.</p>
+<p><strong>Module 4: Router — Score Gate</strong></p>
+<p>Add a <strong>Router</strong> module. Path A: Score &gt;= 75 → route to &ldquo;Ready for Review&rdquo; (update Google Sheet Status to &ldquo;Review&rdquo;). Path B: Score &lt; 75 → route back to OpenAI with a refinement prompt:</p>
+<pre tabindex="0"><code>The article scored {{3.score}}/100 on Surfer SEO. It needs to be at least 75. Improve it by:
+1. Adding more NLP terms naturally (missing terms: {{3.missing_terms}})
+2. Expanding thin sections
+3. Adding more specific examples and data
+4. Increasing word count to at least {{3.recommended_word_count}}
+</code></pre><p>Loop this up to 3 times. If it still scores below 75 after 3 attempts, route to &ldquo;Manual Review Needed&rdquo; and flag it in your sheet.</p>
+<h3 id="step-3-check-in">Step 3 Check-In</h3>
+<p>Run the keyword research module against one topic. Do you see keyword data populated in your Content Pipeline sheet? Then run the brief generation. Do you see a Content Brief document in your Google Drive? Then run content production. Does the generated article score 75+ on Surfer?</p>
+<p>If keyword data is empty, your Ahrefs API call is failing — check the exact endpoint URL and request format in the Ahrefs API docs. If the brief is generic, your Surfer API call returned empty data — verify your API key and that the keyword has enough search volume for Surfer to generate recommendations. If the article scores below 75 consistently, your OpenAI prompt needs more constraints — add &ldquo;Use every NLP term at least once&rdquo; and &ldquo;Write at least [X] words.&rdquo;</p>
+<h2 id="step-4-set-up-rank-tracking-and-reporting">Step 4: Set Up Rank Tracking and Reporting</h2>
+<p>Content without tracking is content without accountability. Clients stay when they see progress. This step makes progress visible — automatically.</p>
+<h3 id="configure-automated-rank-tracking">Configure Automated Rank Tracking</h3>
+<p>In Ahrefs, go to <strong>Rank Tracker</strong>. Add your test client&rsquo;s domain. Add their target keywords (the ones from your Content Pipeline sheet). Set the tracking location to match your client&rsquo;s target market. Enable weekly tracking.</p>
+<p>Ahrefs will start collecting rank data. After the first week, you should see position data in the Rank Tracker dashboard. If you see &ldquo;No data yet,&rdquo; wait — Ahrefs needs at least one tracking cycle to populate.</p>
+<p>Now build the reporting automation in Make.com. Create a scenario called &ldquo;Weekly SEO Report.&rdquo;</p>
+<p><strong>Module 1: Schedule — Weekly Trigger</strong></p>
+<p>Set the scenario to run every Monday at 8:00 AM in your client&rsquo;s timezone.</p>
+<p><strong>Module 2: HTTP — Pull Ahrefs Rank Data</strong></p>
+<ul>
+<li><strong>URL:</strong> <code>https://api.ahrefs.com/v3/rank-tracker</code></li>
+<li><strong>Method:</strong> GET</li>
+<li><strong>Query params:</strong>
+<pre tabindex="0"><code>project_id=YOUR_PROJECT_ID
+date_from={{formatDate(addDays(now; -7); &#34;YYYY-MM-DD&#34;)}}
+date_to={{formatDate(now; &#34;YYYY-MM-DD&#34;)}}
+</code></pre></li>
+</ul>
+<p><strong>Module 3: HTTP — Pull Google Search Console Data</strong></p>
+<ul>
+<li><strong>URL:</strong> <code>https://www.googleapis.com/webmasters/v3/sites/{{siteUrl}}/searchAnalytics/query</code></li>
+<li><strong>Method:</strong> POST</li>
+<li><strong>Body:</strong>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;startDate&#34;</span>: <span style="color:#e6db74">&#34;{{formatDate(addDays(now; -7); &#39;YYYY-MM-DD&#39;)}}&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;endDate&#34;</span>: <span style="color:#e6db74">&#34;{{formatDate(now; &#39;YYYY-MM-DD&#39;)}}&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;dimensions&#34;</span>: [<span style="color:#e6db74">&#34;query&#34;</span>, <span style="color:#e6db74">&#34;page&#34;</span>],
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;rowLimit&#34;</span>: <span style="color:#ae81ff">100</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div></li>
+</ul>
+<p><strong>Module 4: Google Sheets — Compile Data</strong></p>
+<p>Write the combined Ahrefs + GSC data to a &ldquo;Weekly Report Data&rdquo; sheet. Columns:</p>
+<p>| Keyword | Previous Position | Current Position | Change | Impressions | Clicks | CTR | URL |</p>
+<p><strong>Module 5: Google Docs — Generate Client Report</strong></p>
+<p>Create a report from your &ldquo;Weekly SEO Report Template.&rdquo; Include:</p>
+<ul>
+<li><strong>Summary:</strong> Total keywords tracked, average position change, total clicks, total impressions</li>
+<li><strong>Wins:</strong> Keywords that moved up 3+ positions</li>
+<li><strong>Losses:</strong> Keywords that dropped 3+ positions</li>
+<li><strong>New Keywords:</strong> Keywords that appeared in GSC that were not previously tracked</li>
+<li><strong>Content Performance:</strong> Which published articles are driving traffic</li>
+</ul>
+<h3 id="set-up-alert-systems-for-ranking-changes">Set Up Alert Systems for Ranking Changes</h3>
+<p>In the same scenario, add alert modules after the report generation:</p>
+<p><strong>Module 6: Slack or Email — Rank Drop Alert</strong></p>
+<p>Add a <strong>Filter</strong> that triggers only when any keyword drops 5+ positions. Send an alert to your Slack channel or email:</p>
+<pre tabindex="0"><code>⚠️ RANK DROP ALERT — {{client_name}}
+Keyword: {{keyword}}
+Previous: Position {{prev_position}}
+Current: Position {{current_position}}
+Change: -{{change}} positions
+Check: {{url}}
+</code></pre><p><strong>Module 7: Slack or Email — Page 1 Achievement Alert</strong></p>
+<p>Add a <strong>Filter</strong> for keywords that entered the top 10. Send a win notification:</p>
+<pre tabindex="0"><code>🏆 PAGE 1 ACHIEVEMENT — {{client_name}}
+Keyword: {{keyword}}
+Position: {{current_position}} (was {{prev_position}})
+This is a client-facing win. Include it in the next report.
+</code></pre><h3 id="step-4-check-in">Step 4 Check-In</h3>
+<p>Run the weekly report scenario manually. Check your Google Drive. Do you see a completed &ldquo;Weekly SEO Report&rdquo; document with real data from your test client?</p>
+<p>You should see:</p>
+<ul>
+<li>A summary section with total keywords, average position, and total clicks</li>
+<li>At least a few keywords with position data (even if the site is new, GSC should show impressions)</li>
+<li>The report date matches the current week</li>
+</ul>
+<p>If all metrics show zero, your API connections are not pulling data. Check that your GSC property has at least 7 days of data. Check that your Ahrefs project has completed at least one tracking cycle. If the report has data but positions are missing, the keyword mapping between Ahrefs and GSC is off — ensure the exact same keyword strings are used in both tools.</p>
+<h2 id="step-5-price-and-deliver-seo-services">Step 5: Price and Deliver SEO Services</h2>
+<p>You have the stack. You have the automations. Now you package it into something clients buy.</p>
+<h3 id="pricing-table">Pricing Table</h3>
+<table>
+  <thead>
+      <tr>
+          <th>Tier</th>
+          <th>Monthly Retainer</th>
+          <th>What&rsquo;s Included</th>
+          <th>Your Cost</th>
+          <th>Your Margin</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Starter</td>
+          <td>$1,500/mo</td>
+          <td>Technical audit (quarterly), 4 articles/mo, rank tracking, monthly report</td>
+          <td>~$400</td>
+          <td>~73%</td>
+      </tr>
+      <tr>
+          <td>Growth</td>
+          <td>$3,000/mo</td>
+          <td>Monthly audit, 8 articles/mo, rank tracking, weekly reports, rank drop alerts</td>
+          <td>~$800</td>
+          <td>~73%</td>
+      </tr>
+      <tr>
+          <td>Enterprise</td>
+          <td>$5,000/mo</td>
+          <td>Weekly audit, 16 articles/mo, rank tracking, daily monitoring, dedicated Slack, strategy calls</td>
+          <td>~$1,400</td>
+          <td>~72%</td>
+      </tr>
+  </tbody>
+</table>
+<p>Your costs include: tool subscriptions allocated per client, OpenAI API usage, and 3-5 hours of human review time per month at your effective hourly rate.</p>
+<h3 id="delivery-process">Delivery Process</h3>
+<p>Follow this sequence for every new client:</p>
+<p><strong>Week 1: Audit → Strategy</strong></p>
+<p>Run the automated technical audit from Step 2. Review the report manually — AI generates 90% of it, but you validate the 10% that matters (is the client&rsquo;s site structure actually broken, or did the crawler hit a redirect loop?). Present the audit on a 30-minute call. During the call, identify the client&rsquo;s top 5 priority keywords and their existing content gaps. Build the strategy document: which keywords to target first, what content to produce, and what technical fixes to prioritize.</p>
+<p><strong>Week 2-3: Content Production</strong></p>
+<p>Feed the priority keywords into your Content Pipeline from Step 3. Generate briefs, produce articles, score them, and review them. Do not send AI content to a client without reading it. You are the quality gate. Check for: factual accuracy, brand voice alignment, NLP term stuffing (it should sound natural), and missing sections. Edit as needed. Delivery: 2 articles per week for Growth tier.</p>
+<p><strong>Week 4: Monitor → Report</strong></p>
+<p>The automated reporting from Step 4 handles this. Add your strategic commentary to the generated report: why positions moved, what to do next, what content is in the pipeline. Send the report to the client. Schedule a 15-minute check-in call.</p>
+<p>This cycle repeats monthly. The automation does the heavy lifting. You add the strategic layer that justifies the retainer.</p>
+<h2 id="step-6-scale-the-agency">Step 6: Scale the Agency</h2>
+<p>You can run 3-4 clients solo with this system. To go beyond that, you need to remove yourself from the operational loop.</p>
+<h3 id="sops-for-each-service-type">SOPs for Each Service Type</h3>
+<p>Document every workflow as a Standard Operating Procedure in Notion. Each SOP should include:</p>
+<ol>
+<li>
+<p><strong>Technical Audit SOP:</strong> How to run the Make.com scenario, how to review the generated report, what to flag for manual review, how to present findings to a client. Include screenshots of every Make.com module configuration. Include the exact Google Docs template URL.</p>
+</li>
+<li>
+<p><strong>Content Production SOP:</strong> How to add topics to the Content Pipeline sheet, how to trigger the brief generation, how to review AI-generated content (the 5-point checklist: accuracy, voice, NLP integration, completeness, readability), how to deliver content to the client.</p>
+</li>
+<li>
+<p><strong>Reporting SOP:</strong> How to verify the weekly report ran correctly, how to add strategic commentary, how to handle rank drop alerts, how to run client check-in calls.</p>
+</li>
+<li>
+<p><strong>Client Onboarding SOP:</strong> How to set up GSC and GA access, how to create the Ahrefs project, how to configure the Make.com scenarios for a new client, how to run the first audit.</p>
+</li>
+</ol>
+<p>Each SOP should be detailed enough that someone with basic SEO knowledge can follow it without asking you questions. If they have to ask, the SOP is incomplete.</p>
+<h3 id="hiring-plan">Hiring Plan</h3>
+<p><strong>Hire 1: Virtual Assistant (Month 2-3)</strong></p>
+<p>Cost: $8-15/hr, 20 hrs/week = $640-1,200/mo</p>
+<p>The VA runs the Make.com scenarios, does first-pass review on generated content, updates the Content Pipeline sheet, and handles client onboarding step-by-step using your SOPs. This frees you to focus on sales and strategy.</p>
+<p><strong>Hire 2: SEO Specialist (Month 5-6)</strong></p>
+<p>Cost: $25-40/hr, 30 hrs/week = $3,000-4,800/mo</p>
+<p>The specialist does second-pass content review (the quality gate), handles technical SEO fixes that the audit identifies, manages the Ahrefs and Surfer configurations, and runs strategy calls with clients. You move to pure business development.</p>
+<p><strong>Hire 3: Content Editor (Month 8-10)</strong></p>
+<p>Cost: $20-30/hr, 20 hrs/week = $1,600-2,400/mo</p>
+<p>The editor polishes AI-generated content before delivery. They ensure brand voice, fix factual errors, and add the human touch that AI cannot replicate. This role exists because the #1 reason clients churn is content that reads like AI wrote it.</p>
+<h3 id="margin-analysis-at-scale">Margin Analysis at Scale</h3>
+<table>
+  <thead>
+      <tr>
+          <th>Clients</th>
+          <th>Revenue/mo</th>
+          <th>Team Cost/mo</th>
+          <th>Tool Cost/mo</th>
+          <th>Profit/mo</th>
+          <th>Margin</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>3 (solo)</td>
+          <td>$4,500</td>
+          <td>$0</td>
+          <td>$500</td>
+          <td>$4,000</td>
+          <td>89%</td>
+      </tr>
+      <tr>
+          <td>6 (+ VA)</td>
+          <td>$12,000</td>
+          <td>$1,200</td>
+          <td>$900</td>
+          <td>$9,900</td>
+          <td>83%</td>
+      </tr>
+      <tr>
+          <td>10 (+ Specialist)</td>
+          <td>$24,000</td>
+          <td>$5,000</td>
+          <td>$1,400</td>
+          <td>$17,600</td>
+          <td>73%</td>
+      </tr>
+      <tr>
+          <td>15 (+ Editor)</td>
+          <td>$40,500</td>
+          <td>$8,600</td>
+          <td>$2,000</td>
+          <td>$29,900</td>
+          <td>74%</td>
+      </tr>
+  </tbody>
+</table>
+<p>These are conservative numbers based on Growth-tier pricing ($3,000/mo) for all clients. In practice, you will have a mix of tiers. The margins hold because automation keeps your variable cost per client low.</p>
+<h2 id="cost-breakdown">Cost Breakdown</h2>
+<table>
+  <thead>
+      <tr>
+          <th>Item</th>
+          <th>Free Tier</th>
+          <th>Paid Tier</th>
+          <th>When to Upgrade</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Screaming Frog</td>
+          <td>500 URL limit</td>
+          <td>$259/yr</td>
+          <td>Immediately — real audits need unlimited URLs</td>
+      </tr>
+      <tr>
+          <td>Ahrefs</td>
+          <td>No free tier</td>
+          <td>$99/mo (Standard)</td>
+          <td>Immediately — you need the API</td>
+      </tr>
+      <tr>
+          <td>Semrush (alternative)</td>
+          <td>10 queries/day</td>
+          <td>$129/mo (Pro)</td>
+          <td>If you prefer Semrush over Ahrefs</td>
+      </tr>
+      <tr>
+          <td>Surfer SEO</td>
+          <td>No free tier</td>
+          <td>$89/mo (Essential)</td>
+          <td>Immediately — content optimization requires it</td>
+      </tr>
+      <tr>
+          <td>OpenAI API</td>
+          <td>Pay per use</td>
+          <td>~$30-80/mo</td>
+          <td>Scales with content volume</td>
+      </tr>
+      <tr>
+          <td>Make.com</td>
+          <td>1,000 ops/mo</td>
+          <td>$10/mo (Core)</td>
+          <td>At 3+ clients — you will exceed free tier operations</td>
+      </tr>
+      <tr>
+          <td>Google Workspace</td>
+          <td>Free Gmail</td>
+          <td>$7.20/mo</td>
+          <td>Immediately — you need Drive, Docs, Sheets for clients</td>
+      </tr>
+      <tr>
+          <td>Notion</td>
+          <td>Free</td>
+          <td>$10/mo (Plus)</td>
+          <td>At 5+ clients for team collaboration</td>
+      </tr>
+      <tr>
+          <td>Slack</td>
+          <td>Free</td>
+          <td>$8.75/mo (Pro)</td>
+          <td>When you hire your first team member</td>
+      </tr>
+      <tr>
+          <td>Domain for agency site</td>
+          <td>—</td>
+          <td>$12/yr</td>
+          <td>Immediately</td>
+      </tr>
+      <tr>
+          <td>Hosting for agency site</td>
+          <td>—</td>
+          <td>Free (Netlify/Vercel)</td>
+          <td>Immediately</td>
+      </tr>
+  </tbody>
+</table>
+<p><strong>Total monthly cost at launch:</strong> ~$340/mo
+<strong>Total monthly cost at 10 clients:</strong> ~$600/mo (tools only, excluding team)</p>
+<h2 id="production-checklist">Production Checklist</h2>
+<p>Before delivering any SEO service to a client, verify every item:</p>
+<ul>
+<li><input disabled="" type="checkbox"> Technical audit has been reviewed manually — no false positives in critical issues</li>
+<li><input disabled="" type="checkbox"> All AI-generated content reads naturally with no detectable AI patterns</li>
+<li><input disabled="" type="checkbox"> Every article scores 75+ on Surfer SEO Content Score before delivery</li>
+<li><input disabled="" type="checkbox"> Google Search Console and Analytics are connected and tracking correctly</li>
+<li><input disabled="" type="checkbox"> Rank tracking is active for all target keywords in Ahrefs</li>
+<li><input disabled="" type="checkbox"> Weekly reporting scenario has been tested and produces accurate reports</li>
+<li><input disabled="" type="checkbox"> Rank drop alerts are configured and sending to the correct Slack channel or email</li>
+<li><input disabled="" type="checkbox"> Client-facing report template includes strategic commentary, not just raw data</li>
+<li><input disabled="" type="checkbox"> Content Pipeline sheet is up to date with production status for all articles</li>
+<li><input disabled="" type="checkbox"> Client onboarding checklist is complete (GSC, GA, Ahrefs project, Make.com scenarios)</li>
+</ul>
+<h2 id="what-to-do-next">What to Do Next</h2>
+<p>Once you have 5+ clients on automated workflows, expand your operation:</p>
+<ul>
+<li><strong>Add local SEO as a service</strong> — Automate Google Business Profile audits, citation consistency checks, and local rank tracking. Local businesses pay $2,000-4,000/mo for this and the automation is nearly identical.</li>
+<li><strong>Build a client portal</strong> — Use Notion or a simple web app where clients can view their reports, submit content requests, and track keyword rankings in real time. This reduces &ldquo;where&rsquo;s my report?&rdquo; emails by 90%.</li>
+<li><strong>Integrate backlink outreach automation</strong> — Use Ahrefs API to find link opportunities, then build a Make.com scenario that generates personalized outreach emails. Backlink services command $1,000-3,000/mo on top of existing retainers.</li>
+<li><strong>White-label your agency</strong> — Let other marketing agencies resell your SEO services under their brand. You handle delivery, they handle the client relationship. Typical revenue split: 60/40 in your favor.</li>
+<li><strong>Productize the audit as a lead magnet</strong> — Run the automated audit for free on prospects&rsquo; websites. Send them the report with a &ldquo;Fix these issues&rdquo; offer. This converts at 20-30% because the value is proven before the sales conversation starts.</li>
+</ul>
+
+  </div>
+</article>
+
+  <section class="newsletter-section" id="newsletter">
+  <div class="newsletter-inner">
+    <span class="section-label">Stay Ahead</span>
+    <h2 class="newsletter-title">JOIN THE INTELLIGENCE</h2>
+    <p class="newsletter-desc">Get the latest AI monetization opportunities, playbooks, and tools delivered straight to your inbox. No fluff. Pure signal.</p>
+    <div class="newsletter-form">
+      <input type="email" class="input-brutal" placeholder="YOUR EMAIL ADDRESS">
+      <button class="btn-brutal btn-yellow">SUBSCRIBE</button>
+    </div>
+  </div>
+</section>
+
+  <footer class="footer">
+  <div class="footer-grid">
+    <div class="footer-col">
+      <div class="footer-brand-name">MENSHLY GLOBAL</div>
+      <p class="footer-brand-desc">WHERE AI MEETS REVENUE — Discover AI opportunities, download ready-made playbooks, use free tools, and follow deep implementation guides. Built for builders.</p>
+    </div>
+    <div class="footer-col">
+      <div class="footer-heading">Navigate</div>
+      <a href="/" class="footer-link">Home</a>
+      <a href="/opportunities/" class="footer-link">Opportunities</a>
+      <a href="/playbooks/" class="footer-link">Playbooks</a>
+      <a href="/tools/" class="footer-link">Tools</a>
+      <a href="/intelligence/" class="footer-link">Intelligence</a>
+    </div>
+    <div class="footer-col">
+      <div class="footer-heading">Categories</div>
+      <span class="footer-link">AI Discovery</span>
+      <span class="footer-link">Automation</span>
+      <span class="footer-link">Side Hustles</span>
+      <span class="footer-link">Freelancing</span>
+      <span class="footer-link">Agency Building</span>
+    </div>
+    <div class="footer-col">
+      <div class="footer-heading">Social</div>
+      <span class="footer-link">Twitter / X</span>
+      <span class="footer-link">LinkedIn</span>
+      <span class="footer-link">YouTube</span>
+      <span class="footer-link">GitHub</span>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>&copy; 2026 MENSHLY GLOBAL. ALL RIGHTS RESERVED.</span>
+    <span>BUILT FOR THE FUTURE</span>
+  </div>
+</footer>
+
+</body>
+</html>

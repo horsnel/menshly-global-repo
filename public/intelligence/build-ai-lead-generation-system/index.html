@@ -1,0 +1,783 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Where AI Meets Revenue">
+  <meta name="theme-color" content="#1a1a1a">
+  <title>Build and Automate an AI Lead Generation System with Make.com and OpenAI — MENSHLY GLOBAL</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Oswald:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  
+  <link rel="stylesheet" href="/css/style.min.19987e160841c6c96900d5fa3859cfb635b9ea3684b07601eedc0a998d9be47f.css">
+  <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+  <link rel="icon" type="image/png" sizes="1024x1024" href="/images/favicon.png">
+</head>
+
+<body>
+  <nav class="nav-bar" id="nav">
+  
+  <div class="nav-desktop">
+    <div class="nav-brand">
+      <a href="/"><img src="/images/logo.png" alt="Menshly Global" class="nav-logo" style="height:28px;width:auto;margin-right:8px;vertical-align:middle;"><span style="vertical-align:middle;">MENSHLY GLOBAL</span></a>
+    </div>
+    <div class="nav-links">
+      
+      <a href="/opportunities/" class="">OPPORTUNITIES</a>
+      
+      <a href="/playbooks/" class="">PLAYBOOKS</a>
+      
+      <a href="/tools/" class="">TOOLS</a>
+      
+      <a href="/intelligence/" class="">INTELLIGENCE</a>
+      
+    </div>
+    <div class="nav-actions">
+      <a href="#newsletter" class="btn-brutal btn-yellow" style="padding:8px 16px;font-size:11px;">SUBSCRIBE</a>
+    </div>
+  </div>
+
+  
+  <div class="nav-mobile-trigger">
+    <span><a href="/" style="color:inherit;text-decoration:none;"><img src="/images/logo.png" alt="" style="height:20px;width:auto;vertical-align:middle;margin-right:6px;">MENSHLY GLOBAL</a></span>
+    <button onclick="document.getElementById('mobileMenu').classList.toggle('open')" aria-label="Menu">☰</button>
+  </div>
+  <div class="nav-mobile-menu" id="mobileMenu">
+    
+    <a href="/opportunities/">OPPORTUNITIES</a>
+    
+    <a href="/playbooks/">PLAYBOOKS</a>
+    
+    <a href="/tools/">TOOLS</a>
+    
+    <a href="/intelligence/">INTELLIGENCE</a>
+    
+    <a href="#newsletter" class="btn-brutal btn-yellow" style="margin:12px 20px;text-align:center;font-size:13px;">SUBSCRIBE</a>
+  </div>
+</nav>
+
+<script>
+  
+  window.addEventListener('scroll', function() {
+    const nav = document.getElementById('nav');
+    if (window.scrollY > 50) {
+      nav.classList.add('scrolled');
+    } else {
+      nav.classList.remove('scrolled');
+    }
+  });
+</script>
+
+  
+<article>
+  <div class="article-header">
+    <div class="article-category">INTELLIGENCE</div>
+    <h1 class="article-title">Build and Automate an AI Lead Generation System with Make.com and OpenAI</h1>
+    <div class="article-meta-bar">
+      <span class="article-meta-item">Apr 18, 2026</span>
+      <span class="article-meta-item">MENSHLY GLOBAL</span>
+      <span class="article-meta-item">26 MIN</span>
+      
+      <span class="article-meta-item" style="background:var(--red);color:var(--white);">INTERMEDIATE</span>
+      
+    </div>
+  </div>
+  <div class="article-content">
+    <p>Lead generation is the lifeblood of every business. Most businesses do it manually — searching LinkedIn, copying emails into spreadsheets, writing generic outreach messages, and hoping something sticks. That process is slow, inconsistent, and does not scale. An AI-powered lead generation system fixes every one of those problems. It finds prospects, enriches their data, scores them, writes personalized outreach, and routes the best leads to your sales team — all without human intervention.</p>
+<p>This guide builds the complete system from zero. Follow every step in order. Each step depends on the previous one. If you skip ahead, your data will not flow correctly and troubleshooting will take longer than building it right the first time.</p>
+<h2 id="prerequisites">Prerequisites</h2>
+<p>Before you start, gather these accounts and tools:</p>
+<ul>
+<li>A Make.com account — go to make.com and sign up for the Free plan (1,000 operations/mo)</li>
+<li>An OpenAI API key with $10 credit — go to platform.openai.com/api-keys</li>
+<li>An Apollo.io account (free tier) — go to apollo.io and sign up, or a Hunter.io account (free tier) — go to hunter.io</li>
+<li>A Google account (for Google Sheets and Gmail modules)</li>
+<li>A Slack account with a workspace where you have admin or app-install permissions</li>
+<li>A LinkedIn Sales Navigator account (free trial works for setup)</li>
+<li>A test email address you control (separate from your personal email)</li>
+<li>6-8 hours of uninterrupted time for your first full build</li>
+</ul>
+<p>Total upfront cost: $10 for the OpenAI API key. Apollo.io and Hunter.io free tiers cover your first 50-100 lead lookups. Everything else is free until you have paying clients.</p>
+<h2 id="step-1-set-up-your-lead-data-sources">Step 1: Set Up Your Lead Data Sources</h2>
+<p>Your lead generation system needs data to work with. You will configure three sources: an email finder for contact discovery, a Google Sheet as your central lead database, and LinkedIn Sales Navigator for professional context. These three sources together give you enough raw material for AI to produce high-quality, enriched leads.</p>
+<h3 id="configure-apolloio-or-hunterio-for-email-finding">Configure Apollo.io or Hunter.io for Email Finding</h3>
+<p>Open your browser and go to apollo.io. Sign in with the account you created. You should see the Apollo dashboard — a top navigation bar with &ldquo;Search,&rdquo; &ldquo;Sequences,&rdquo; and &ldquo;Analytics&rdquo; tabs.</p>
+<p>Do you see the dashboard? If you see an onboarding wizard, complete it first (select the free plan when prompted). You need to reach the main dashboard before continuing.</p>
+<p>Click the <strong>Search</strong> tab in the top navigation. You will see a filter panel on the left and a list of contacts on the right. This is Apollo&rsquo;s lead database. The free tier gives you 60 email credits per month — enough for testing and your first few clients.</p>
+<p>If you prefer Hunter.io, go to hunter.io, sign in, and click <strong>Domain Search</strong> in the top navigation. Enter any company domain (e.g., &ldquo;stripe.com&rdquo;) and Hunter will return email addresses with names and titles. The free tier gives you 25 searches per month.</p>
+<p>You do not need to do anything else in Apollo or Hunter right now. You will connect them to Make.com in Step 2. But confirm that you can find at least one lead manually before moving on. Search for &ldquo;VP of Marketing&rdquo; at a company you know. Do you see results with names, titles, and email addresses? If you see &ldquo;Upgrade to view&rdquo; on every email, your free credits are exhausted. Create a new account or switch to Hunter.io.</p>
+<h3 id="set-up-google-sheets-as-lead-database">Set Up Google Sheets as Lead Database</h3>
+<p>Go to Google Drive (drive.google.com). Create a new Google Sheet. Name it <code>Lead Gen Pipeline</code>. Create the following column headers in Row 1:</p>
+<table>
+  <thead>
+      <tr>
+          <th>Column</th>
+          <th>Header</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>A</td>
+          <td>Timestamp</td>
+      </tr>
+      <tr>
+          <td>B</td>
+          <td>First Name</td>
+      </tr>
+      <tr>
+          <td>C</td>
+          <td>Last Name</td>
+      </tr>
+      <tr>
+          <td>D</td>
+          <td>Email</td>
+      </tr>
+      <tr>
+          <td>E</td>
+          <td>Company</td>
+      </tr>
+      <tr>
+          <td>F</td>
+          <td>Title</td>
+      </tr>
+      <tr>
+          <td>G</td>
+          <td>LinkedIn URL</td>
+      </tr>
+      <tr>
+          <td>H</td>
+          <td>Source</td>
+      </tr>
+      <tr>
+          <td>I</td>
+          <td>Enrichment Data</td>
+      </tr>
+      <tr>
+          <td>J</td>
+          <td>Lead Score</td>
+      </tr>
+      <tr>
+          <td>K</td>
+          <td>Status</td>
+      </tr>
+  </tbody>
+</table>
+<p>This sheet is the single source of truth for your entire pipeline. Every lead enters here, gets enriched, and gets routed. Do not skip any column — you will use every one of them.</p>
+<p>Your sheet should look like this after adding the headers:</p>
+<blockquote>
+<table>
+  <thead>
+      <tr>
+          <th>Timestamp</th>
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th>Email</th>
+          <th>Company</th>
+          <th>Title</th>
+          <th>LinkedIn URL</th>
+          <th>Source</th>
+          <th>Enrichment Data</th>
+          <th>Lead Score</th>
+          <th>Status</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>(empty)</td>
+          <td>(empty)</td>
+          <td>(empty)</td>
+          <td>(empty)</td>
+          <td>(empty)</td>
+          <td>(empty)</td>
+          <td>(empty)</td>
+          <td>(empty)</td>
+          <td>(empty)</td>
+          <td>(empty)</td>
+          <td>(empty)</td>
+      </tr>
+  </tbody>
+</table>
+</blockquote>
+<p>Do you see all 11 column headers? If any are missing, add them now. The Make.com modules you configure later will fail silently if the expected columns do not exist.</p>
+<h3 id="connect-linkedin-sales-navigator">Connect LinkedIn Sales Navigator</h3>
+<p>Open LinkedIn and navigate to Sales Navigator (linkedin.com/sales). If you have a free trial, activate it. Sales Navigator gives you advanced search filters — department headcount, years in role, company growth rate — that make your lead lists far more targeted than basic LinkedIn search.</p>
+<p>You will not connect Sales Navigator directly to Make.com. Instead, you will export lead lists from Sales Navigator as CSV files and import them into your Google Sheet. This approach avoids LinkedIn&rsquo;s strict API restrictions and keeps your workflow simple.</p>
+<p>Export a test list: search for &ldquo;Marketing Director&rdquo; in your target industry, select 10 leads, and click <strong>Export</strong>. Download the CSV. Open it and copy the relevant columns (First Name, Last Name, Email, Company, Title, LinkedIn URL) into your <code>Lead Gen Pipeline</code> Google Sheet. Add today&rsquo;s timestamp in Column A and &ldquo;LinkedIn&rdquo; in Column H for each row.</p>
+<h3 id="interactive-check-in">Interactive Check-in</h3>
+<p>Search for 10 leads using either Apollo.io, Hunter.io, or LinkedIn Sales Navigator. Import them into your <code>Lead Gen Pipeline</code> Google Sheet. Do they appear in your Google Sheet with all columns populated?</p>
+<p>You should see 10 rows of data below your headers. If any cells are empty, go back and fill them — incomplete rows will cause errors in the enrichment step. Expected output:</p>
+<blockquote>
+<table>
+  <thead>
+      <tr>
+          <th>Timestamp</th>
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th>Email</th>
+          <th>Company</th>
+          <th>Title</th>
+          <th>LinkedIn URL</th>
+          <th>Source</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>2026-04-24</td>
+          <td>Sarah</td>
+          <td>Chen</td>
+          <td><a href="mailto:sarah.chen@acmecorp.com">sarah.chen@acmecorp.com</a></td>
+          <td>Acme Corp</td>
+          <td>VP Marketing</td>
+          <td>linkedin.com/in/sarahchen</td>
+          <td>LinkedIn</td>
+      </tr>
+      <tr>
+          <td>2026-04-24</td>
+          <td>Marcus</td>
+          <td>Williams</td>
+          <td><a href="mailto:m.williams@techflow.io">m.williams@techflow.io</a></td>
+          <td>TechFlow</td>
+          <td>CMO</td>
+          <td>linkedin.com/in/marcusw</td>
+          <td>Apollo</td>
+      </tr>
+      <tr>
+          <td>&hellip;</td>
+          <td>&hellip;</td>
+          <td>&hellip;</td>
+          <td>&hellip;</td>
+          <td>&hellip;</td>
+          <td>&hellip;</td>
+          <td>&hellip;</td>
+          <td>&hellip;</td>
+      </tr>
+  </tbody>
+</table>
+</blockquote>
+<p>If you see 10 populated rows, move to Step 2. If the import created duplicate rows or garbled data, clean the sheet manually before proceeding. Dirty data now means broken automations later.</p>
+<h2 id="step-2-build-the-lead-enrichment-workflow">Step 2: Build the Lead Enrichment Workflow</h2>
+<p>This is the core of the system. You will build a Make.com scenario that watches your Google Sheet for new leads, enriches each lead with company data from Clearbit, scores the lead using OpenAI, and writes the results back to the sheet. This scenario runs on autopilot — every time you add a new lead, it gets enriched and scored within minutes.</p>
+<h3 id="create-the-makecom-scenario">Create the Make.com Scenario</h3>
+<p>Open Make.com and sign in. From the dashboard, click <strong>Create a new scenario</strong>. A blank canvas will appear with a large &ldquo;+&rdquo; button in the center.</p>
+<p>Click the <strong>+</strong> button. Search for &ldquo;Google Sheets&rdquo; and select the <strong>Watch Rows</strong> trigger module.</p>
+<p>Configure it:</p>
+<ol>
+<li><strong>Connection:</strong> Click &ldquo;Add&rdquo; and connect your Google account. Follow the OAuth flow.</li>
+<li><strong>Spreadsheet:</strong> Select <code>Lead Gen Pipeline</code> from the dropdown.</li>
+<li><strong>Sheet:</strong> Select &ldquo;Sheet1.&rdquo;</li>
+<li><strong>Range:</strong> <code>A1:K1000</code></li>
+<li><strong>Column with timestamps:</strong> Select column A.</li>
+<li><strong>Polling interval:</strong> Set to 5 minutes.</li>
+</ol>
+<p>Click <strong>OK</strong>. The module should turn from gray to colored with a small clock icon. Do you see this? If the module is still gray, the Google Sheets connection failed. Remove the connection, reconnect your Google account, and try again.</p>
+<h3 id="add-the-clearbit-enrichment-module">Add the Clearbit Enrichment Module</h3>
+<p>Hover over the right edge of the Google Sheets module until a &ldquo;+&rdquo; appears. Click it. Search for &ldquo;HTTP&rdquo; and select <strong>Make a Request</strong>. You will use this to call the Clearbit Discovery API directly, since Make.com does not have a native Clearbit module.</p>
+<p>Configure it:</p>
+<ol>
+<li><strong>URL:</strong> <code>https://company.clearbit.com/v2/companies/find?domain={{4.email}}</code>
+<ul>
+<li>Replace <code>{{4.email}}</code> with the mapped Email variable from the Google Sheets module. Click in the URL field, type the URL up to <code>domain=</code>, then click and select the Email variable from the popup.</li>
+</ul>
+</li>
+<li><strong>Method:</strong> GET</li>
+<li><strong>Headers:</strong> Add a header with key <code>Authorization</code> and value <code>Bearer YOUR_CLEARBIT_API_KEY</code>
+<ul>
+<li>If you do not have a Clearbit API key, you can sign up at clearbit.com for a free trial. Alternatively, skip this module and move to the OpenAI scoring module — OpenAI can generate enrichment data from the lead&rsquo;s email domain and company name alone, though the data will be less precise.</li>
+</ul>
+</li>
+<li><strong>Parse response:</strong> Yes</li>
+</ol>
+<p>Click <strong>OK</strong>. This module takes the lead&rsquo;s email domain, queries Clearbit, and returns company data including industry, employee count, annual revenue, funding stage, and tech stack.</p>
+<p><strong>Troubleshooting:</strong> If the HTTP module returns a 401 error, your Clearbit API key is invalid. If it returns a 404, the company domain was not found in Clearbit&rsquo;s database — this is normal for very small companies. If it returns a 429, you hit the rate limit — add a <strong>Sleep</strong> module before the HTTP request set to 2 seconds.</p>
+<h3 id="add-the-openai-scoring-module">Add the OpenAI Scoring Module</h3>
+<p>Add another module after the Clearbit HTTP module. Search for &ldquo;OpenAI&rdquo; and select <strong>Create a Chat Completion</strong>.</p>
+<p>Configure it:</p>
+<ol>
+<li><strong>Connection:</strong> Add your OpenAI API key.</li>
+<li><strong>Model:</strong> Select <code>gpt-4o</code>.</li>
+<li><strong>Messages:</strong> Add one message with role &ldquo;System&rdquo; and this content:</li>
+</ol>
+<pre tabindex="0"><code>You are a B2B lead scoring assistant. Given a lead&#39;s name, title, company, and enrichment data, you will:
+
+1. Score the lead from 1 to 10 based on fit with the ideal customer profile.
+   Scoring criteria:
+   - Title seniority (VP, Director, C-suite = higher score)
+   - Company size (50-500 employees = sweet spot)
+   - Industry relevance (SaaS, technology, professional services = higher score)
+   - Growth signals (hiring, funding, expansion = higher score)
+2. Write a 1-sentence rationale for the score.
+3. Suggest the best outreach channel and approach.
+
+Respond in this exact JSON format and nothing else:
+{&#34;score&#34;: 8, &#34;rationale&#34;: &#34;VP-level decision maker at a mid-market SaaS company actively hiring&#34;, &#34;channel&#34;: &#34;LinkedIn InMail&#34;, &#34;approach&#34;: &#34;Reference their recent funding round and offer a specific ROI case study&#34;}
+</code></pre><ol start="4">
+<li>Add a second message with role &ldquo;User&rdquo; and this content:</li>
+</ol>
+<pre tabindex="0"><code>Name: {{2.firstName}} {{2.lastName}}
+Title: {{2.title}}
+Company: {{2.company}}
+Email: {{2.email}}
+Company Enrichment: {{5.body}}
+</code></pre><p>Map each variable from the previous modules. The <code>{{2.firstName}}</code> style references come from Make.com&rsquo;s variable selector — always click into the field and use the popup to select variables rather than typing them manually. The <code>{{5.body}}</code> maps to the Clearbit HTTP response.</p>
+<p>Click <strong>OK</strong>.</p>
+<h3 id="parse-the-openai-response">Parse the OpenAI Response</h3>
+<p>The OpenAI module returns a JSON string inside a text field. Make.com cannot access nested values from raw text. You need to parse it.</p>
+<p>Add a <strong>JSON — Parse JSON</strong> module after the OpenAI module. In the JSON string field, map the OpenAI response content variable (<code>choices[1].message.content</code>). This converts the AI&rsquo;s text response into structured fields that Make.com can access as individual variables.</p>
+<h3 id="write-results-back-to-google-sheets">Write Results Back to Google Sheets</h3>
+<p>Add a <strong>Google Sheets — Update a Row</strong> module at the end. Configure it:</p>
+<ol>
+<li><strong>Spreadsheet:</strong> <code>Lead Gen Pipeline</code></li>
+<li><strong>Sheet:</strong> Sheet1</li>
+<li><strong>Row number:</strong> Map the row number variable from the Watch Rows trigger</li>
+<li><strong>Column I (Enrichment Data):</strong> Map the Clearbit company description or industry</li>
+<li><strong>Column J (Lead Score):</strong> Map <code>{{6.score}}</code> from the parsed JSON</li>
+<li><strong>Column K (Status):</strong> Set to <code>Scored</code></li>
+</ol>
+<p>Click <strong>OK</strong>.</p>
+<h3 id="test-the-enrichment-workflow">Test the Enrichment Workflow</h3>
+<p>Go to your Google Sheet and add a new test lead:</p>
+<ul>
+<li>Column A: Current timestamp</li>
+<li>Column B: &ldquo;Jessica&rdquo;</li>
+<li>Column C: &ldquo;Park&rdquo;</li>
+<li>Column D: &ldquo;<a href="mailto:jessica.park@meridiantech.com">jessica.park@meridiantech.com</a>&rdquo;</li>
+<li>Column E: &ldquo;Meridian Tech&rdquo;</li>
+<li>Column F: &ldquo;Director of Operations&rdquo;</li>
+<li>Column G: (leave blank)</li>
+<li>Column H: &ldquo;Manual&rdquo;</li>
+</ul>
+<p>Come back to Make.com and click <strong>Run once</strong>. The scenario should execute: the Google Sheets module finds the new row, Clearbit enriches the company data, OpenAI scores the lead, the JSON parser structures the response, and the Update module writes the results back.</p>
+<p>Check your Google Sheet. Do you see the enriched data and score in columns I, J, and K? Expected output:</p>
+<blockquote>
+<table>
+  <thead>
+      <tr>
+          <th>Enrichment Data</th>
+          <th>Lead Score</th>
+          <th>Status</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>SaaS company, 120 employees, Series B, $8M ARR</td>
+          <td>8</td>
+          <td>Scored</td>
+      </tr>
+  </tbody>
+</table>
+</blockquote>
+<p>If the enrichment data is empty, the Clearbit API call failed — check the HTTP module&rsquo;s execution log for the error code. If the score is missing, the OpenAI response was not parsed correctly — open the Parse JSON module and verify that the JSON string field contains the OpenAI response variable, not literal text. If the status still says empty, the Update module is writing to the wrong row — check the row number mapping.</p>
+<h3 id="interactive-check-in-1">Interactive Check-in</h3>
+<p>Add a test lead to your Google Sheet. Does the enriched data appear with a score? You should see the Lead Score column populated with a number between 1 and 10, the Enrichment Data column filled with company information, and the Status column changed from empty to &ldquo;Scored.&rdquo; If all three are correct, your enrichment workflow is complete.</p>
+<h2 id="step-3-build-the-outreach-automation">Step 3: Build the Outreach Automation</h2>
+<p>A scored lead that sits in a spreadsheet is worthless. This step generates personalized cold emails using AI and sends them automatically with rate limiting and follow-up sequences.</p>
+<h3 id="generate-personalized-cold-emails">Generate Personalized Cold Emails</h3>
+<p>Go back to your Make.com scenario. After the Parse JSON module (but before the Google Sheets Update module), insert a new <strong>OpenAI — Create a Chat Completion</strong> module.</p>
+<p>Configure it:</p>
+<ol>
+<li><strong>Model:</strong> <code>gpt-4o</code></li>
+<li><strong>System message:</strong></li>
+</ol>
+<pre tabindex="0"><code>You are an expert cold email writer. Given a lead&#39;s name, title, company, score rationale, and suggested approach, write a personalized cold email that:
+
+1. Opens with a specific observation about their company or role (never &#34;I hope this finds you well&#34;)
+2. States a clear value proposition tied to their likely pain point
+3. Includes one concrete proof point (metric, case study result, or testimonial)
+4. Ends with a low-friction CTA (never &#34;Let&#39;s schedule a 30-minute call&#34;)
+5. Is under 100 words total
+
+Do not use exclamation marks. Do not use the word &#34;excited.&#34; Sound like a peer, not a salesperson.
+</code></pre><ol start="3">
+<li><strong>User message:</strong></li>
+</ol>
+<pre tabindex="0"><code>Name: {{2.firstName}} {{2.lastName}}
+Title: {{2.title}}
+Company: {{2.company}}
+Score Rationale: {{6.rationale}}
+Suggested Approach: {{6.approach}}
+</code></pre><p>Click <strong>OK</strong>. This module generates a unique, personalized email for every lead based on their profile and score.</p>
+<h3 id="set-up-gmail-sending-with-rate-limiting">Set Up Gmail Sending with Rate Limiting</h3>
+<p>Add a <strong>Gmail — Send an Email</strong> module after the new OpenAI module. Configure it:</p>
+<ol>
+<li><strong>Connection:</strong> Connect your Gmail account (follow the OAuth flow)</li>
+<li><strong>To:</strong> Map the Email variable from the Google Sheets trigger</li>
+<li><strong>Subject:</strong> <code>{{2.firstName}}, a thought on [their challenge]</code>
+<ul>
+<li>Replace <code>[their challenge]</code> with a mapped variable or a general placeholder like <code>{{2.company}} growth</code></li>
+</ul>
+</li>
+<li><strong>Body (HTML):</strong> Map the generated email from the OpenAI module</li>
+</ol>
+<p>Click <strong>OK</strong>.</p>
+<p><strong>Rate limiting is critical.</strong> Gmail&rsquo;s sending limit is 500 emails per day for regular accounts and 2,000 per day for Google Workspace accounts. If you blast 200 emails in 10 minutes, Gmail will flag your account. To prevent this:</p>
+<ol>
+<li>Right-click the Gmail module and select <strong>Settings</strong>.</li>
+<li>Enable <strong>Make.com&rsquo;s built-in rate limiting</strong>. Set it to send no more than 1 email per 30 seconds. This caps you at 120 emails per hour — well within Gmail&rsquo;s limits.</li>
+<li>Alternatively, add a <strong>Sleep</strong> module before the Gmail module set to 30 seconds. This inserts a 30-second delay between each email.</li>
+</ol>
+<h3 id="configure-follow-up-sequences">Configure Follow-Up Sequences</h3>
+<p>A single email rarely converts. You need follow-ups. The simplest approach in Make.com is a second scenario triggered by time delays.</p>
+<p>Create a new scenario. Add a <strong>Google Sheets — Search Rows</strong> trigger. Configure it to search your <code>Lead Gen Pipeline</code> sheet for rows where:</p>
+<ul>
+<li>Status = &ldquo;Scored&rdquo; (email was sent)</li>
+<li>AND the Timestamp is more than 3 days ago</li>
+</ul>
+<p>This finds leads who received your first email 3+ days ago but have not responded.</p>
+<p>After the search module, add a <strong>Gmail — Send an Email</strong> module. Write a shorter follow-up:</p>
+<ol>
+<li><strong>Subject:</strong> <code>Re: {{2.subject}}</code> (this threads the conversation)</li>
+<li><strong>Body:</strong> Generate a brief follow-up using another OpenAI module with this prompt:</li>
+</ol>
+<pre tabindex="0"><code>Write a 2-sentence follow-up email to a cold outreach. Reference the previous email&#39;s value proposition. Be brief and confident — never apologetic. No exclamation marks.
+</code></pre><p>After sending, add a <strong>Google Sheets — Update a Row</strong> module that changes the Status from &ldquo;Scored&rdquo; to &ldquo;Follow-up 1 Sent.&rdquo;</p>
+<p>Create a third scenario for the second follow-up, triggered 7 days after the first follow-up, using the same pattern. Change the Status to &ldquo;Follow-up 2 Sent&rdquo; after execution.</p>
+<h3 id="interactive-check-in-2">Interactive Check-in</h3>
+<p>Check the draft folder of your sending email account. Do you see the personalized emails? If you configured the Gmail module to send directly (not save as draft), check the Sent folder instead. You should see at least one email addressed to your test lead with a personalized subject line and body that references their company and role.</p>
+<p>If the email is blank or generic, the OpenAI module is not receiving the mapped variables. Open the OpenAI email generation module, click in the User message field, and verify that each <code>{{}}</code> reference shows a green variable tag. If you see plain text instead of a green tag, the mapping is broken — clear the field and re-map using the variable selector.</p>
+<p>If the email was not sent at all, check the Gmail module&rsquo;s execution log. A 403 error means your Gmail OAuth scope does not include &ldquo;send&rdquo; — reconnect your Gmail account and grant full permissions. A 429 error means you hit the rate limit — increase the delay between sends.</p>
+<h2 id="step-4-build-the-lead-routing-system">Step 4: Build the Lead Routing System</h2>
+<p>Not all leads deserve the same level of attention. A lead scored 8-10 is hot and needs an immediate response. A lead scored 4-7 is warm and belongs in a daily digest. A lead scored 1-3 is cold and should enter a long-term nurture sequence. This routing logic ensures your sales team focuses on the leads most likely to convert.</p>
+<h3 id="add-a-router-module">Add a Router Module</h3>
+<p>Go back to your main Make.com scenario (the enrichment workflow). After the Parse JSON module, insert a <strong>Router</strong> module. A Router splits the workflow into multiple paths based on conditions. You will see two output paths labeled 1 and 2. Click the Router and add a third path (click the &ldquo;+&rdquo; on the Router).</p>
+<h3 id="configure-path-1-hot-lead-score-8-10">Configure Path 1: Hot Lead (Score 8-10)</h3>
+<p>Click the filter icon on Path 1. Set the condition:</p>
+<ul>
+<li><strong>Variable:</strong> Map the <code>score</code> field from the Parse JSON module</li>
+<li><strong>Operator:</strong> Greater than or equal to</li>
+<li><strong>Value:</strong> <code>8</code></li>
+</ul>
+<p>On this path, add a <strong>Slack — Create a Message</strong> module. Configure it:</p>
+<ol>
+<li><strong>Connection:</strong> Connect your Slack workspace</li>
+<li><strong>Channel:</strong> <code>#hot-leads</code> (create this channel if it does not exist)</li>
+<li><strong>Text:</strong></li>
+</ol>
+<pre tabindex="0"><code>HOT LEAD ALERT
+Name: {{2.firstName}} {{2.lastName}}
+Title: {{2.title}} at {{2.company}}
+Email: {{2.email}}
+Score: {{6.score}}/10
+Rationale: {{6.rationale}}
+Approach: {{6.approach}}
+
+Respond within 1 hour for best conversion odds.
+</code></pre><p>Click <strong>OK</strong>.</p>
+<p>Also on this path, add a <strong>Google Sheets — Update a Row</strong> module that sets the Status column to &ldquo;Hot — Alerted.&rdquo; This gives you an audit trail.</p>
+<h3 id="configure-path-2-warm-lead-score-4-7">Configure Path 2: Warm Lead (Score 4-7)</h3>
+<p>Click the filter icon on Path 2. Set the condition:</p>
+<ul>
+<li><strong>Variable:</strong> Map the <code>score</code> field from the Parse JSON module</li>
+<li><strong>Operator:</strong> Between</li>
+<li><strong>Value:</strong> <code>4</code> and <code>7</code></li>
+</ul>
+<p>On this path, add a <strong>Google Sheets — Update a Row</strong> module that sets the Status column to &ldquo;Warm — Digest.&rdquo; Also add a <strong>Google Sheets — Add a Row</strong> module that writes the lead to a separate spreadsheet called &ldquo;Warm Leads Daily Digest.&rdquo; This spreadsheet is what your sales team reviews once per day.</p>
+<h3 id="configure-path-3-cold-lead-score-1-3">Configure Path 3: Cold Lead (Score 1-3)</h3>
+<p>Click the filter icon on Path 3. Set the condition:</p>
+<ul>
+<li><strong>Variable:</strong> Map the <code>score</code> field from the Parse JSON module</li>
+<li><strong>Operator:</strong> Less than or equal to</li>
+<li><strong>Value:</strong> <code>3</code></li>
+</ul>
+<p>On this path, add a <strong>Google Sheets — Update a Row</strong> module that sets the Status column to &ldquo;Cold — Nurture.&rdquo; Add a second Google Sheets module that writes the lead to a &ldquo;Nurture Campaign&rdquo; spreadsheet. These leads will receive automated educational content over the next 30-60 days — not a sales pitch.</p>
+<h3 id="crm-integration-for-warm-leads">CRM Integration for Warm Leads</h3>
+<p>If your client uses a CRM (HubSpot, Pipedrive, Salesforce), add the integration on the warm lead path. For HubSpot:</p>
+<ol>
+<li>Add a <strong>HubSpot — Create a Contact</strong> module on Path 2</li>
+<li>Map the lead&rsquo;s first name, last name, email, company, and title</li>
+<li>Set a custom property &ldquo;Lead Score&rdquo; with the AI-generated score</li>
+<li>Set the Lifecycle Stage to &ldquo;Lead&rdquo;</li>
+</ol>
+<p>For Pipedrive:</p>
+<ol>
+<li>Add a <strong>Pipedrive — Create a Person</strong> module on Path 2</li>
+<li>Map the same fields</li>
+<li>Add a <strong>Pipedrive — Create a Deal</strong> module after it</li>
+<li>Set the deal value based on the lead score (score 7 = $5K estimated deal, score 5 = $2K, etc.)</li>
+</ol>
+<h3 id="test-all-three-paths">Test All Three Paths</h3>
+<p>Add three test leads to your Google Sheet with data designed to trigger different scores:</p>
+<ol>
+<li><strong>Hot lead:</strong> C-suite title at a Series B SaaS company → should score 8+</li>
+<li><strong>Warm lead:</strong> Manager at a mid-size professional services firm → should score 4-7</li>
+<li><strong>Cold lead:</strong> Junior title at a small local business → should score 1-3</li>
+</ol>
+<p>Run the scenario once for each lead. Verify each path triggers correctly.</p>
+<h3 id="interactive-check-in-3">Interactive Check-in</h3>
+<p>Add a hot lead to your Google Sheet. Did the Slack notification arrive within 5 minutes? Open your <code>#hot-leads</code> Slack channel. You should see a message like:</p>
+<blockquote>
+<p>HOT LEAD ALERT
+Name: Jessica Park
+Title: Director of Operations at Meridian Tech
+Email: <a href="mailto:jessica.park@meridiantech.com">jessica.park@meridiantech.com</a>
+Score: 8/10
+Rationale: VP-level decision maker at a mid-market SaaS company actively hiring
+Approach: Reference their recent funding round and offer a specific ROI case study</p>
+<p>Respond within 1 hour for best conversion odds.</p>
+</blockquote>
+<p>If the Slack notification arrived, your routing is working. If it did not arrive, check three things:</p>
+<ol>
+<li>Is the Slack app installed in your workspace? Go to Slack&rsquo;s app management page and verify.</li>
+<li>Is the filter condition comparing numbers to numbers? If the parsed score is a string type, the comparison will fail. Wrap it in <code>parseNumber()</code> in the filter.</li>
+<li>Did the scenario run at all? Check the execution history (click the scenario name → History tab) for errors.</li>
+</ol>
+<p>If the warm lead did not appear in the &ldquo;Warm Leads Daily Digest&rdquo; spreadsheet, verify the Google Sheets Add a Row module is pointing to the correct spreadsheet and that the column mappings are right.</p>
+<h2 id="step-5-monitor-optimize-and-price">Step 5: Monitor, Optimize, and Price</h2>
+<p>A lead generation system that runs without monitoring will degrade. Email deliverability drops, AI prompts produce stale outputs, lead sources change their data structure. You need a dashboard and a regular optimization cadence.</p>
+<h3 id="dashboard-setup-in-google-sheets-or-notion">Dashboard Setup in Google Sheets or Notion</h3>
+<p>Create a new Google Sheet called &ldquo;Lead Gen Dashboard&rdquo; or a Notion database. Track these metrics weekly:</p>
+<table>
+  <thead>
+      <tr>
+          <th>Metric</th>
+          <th>How to Measure</th>
+          <th>Target</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Leads generated</td>
+          <td>Count of new rows in Lead Gen Pipeline</td>
+          <td>50-100/week</td>
+      </tr>
+      <tr>
+          <td>Average lead score</td>
+          <td>Average of Column J</td>
+          <td>5.5+</td>
+      </tr>
+      <tr>
+          <td>Hot lead %</td>
+          <td>Count of Score 8+ / Total leads</td>
+          <td>15-20%</td>
+      </tr>
+      <tr>
+          <td>Email open rate</td>
+          <td>Gmail tracking or a tool like Mixmax</td>
+          <td>40%+</td>
+      </tr>
+      <tr>
+          <td>Reply rate</td>
+          <td>Manual tracking or CRM</td>
+          <td>8-12%</td>
+      </tr>
+      <tr>
+          <td>Hot lead response time</td>
+          <td>Time between Slack alert and first outreach</td>
+          <td>Under 1 hour</td>
+      </tr>
+      <tr>
+          <td>Cost per lead</td>
+          <td>Total tool costs / Leads generated</td>
+          <td>Under $2.00</td>
+      </tr>
+  </tbody>
+</table>
+<p>Set up a weekly Make.com scenario that calculates these metrics automatically:</p>
+<ol>
+<li><strong>Schedule trigger:</strong> Every Monday at 9 AM</li>
+<li><strong>Google Sheets — Search Rows:</strong> Pull all leads from the past 7 days</li>
+<li><strong>Aggregator:</strong> Count total leads</li>
+<li><strong>Math functions:</strong> Calculate averages and percentages</li>
+<li><strong>Slack — Create a Message:</strong> Post the weekly summary to <code>#lead-gen-metrics</code></li>
+</ol>
+<h3 id="response-rate-tracking-and-email-optimization">Response Rate Tracking and Email Optimization</h3>
+<p>The most impactful optimization is improving your cold email copy. Here is the process:</p>
+<ol>
+<li><strong>After 2 weeks</strong>, review open rates. If below 35%, your subject lines are the problem. Rewrite them to be shorter (under 5 words), more specific (reference the lead&rsquo;s company), and less salesy.</li>
+<li><strong>After 4 weeks</strong>, review reply rates. If below 5%, your email body is the problem. Shorten it (under 75 words), make the CTA lower friction (&ldquo;Worth a quick reply?&rdquo; instead of &ldquo;Can we schedule a call?&rdquo;), and A/B test two versions.</li>
+<li><strong>After 8 weeks</strong>, review lead quality. If hot leads are not converting to meetings, your scoring criteria are wrong. Adjust the OpenAI scoring prompt — weight title seniority more heavily, or add negative factors like &ldquo;freelancer&rdquo; or &ldquo;consultant&rdquo; that tend to score high but never buy.</li>
+</ol>
+<p>To A/B test emails, duplicate your OpenAI email generation module with a different prompt variant. Use a Router with a random 50/50 split (set the condition to <code>modulo(lead.rowNumber, 2) = 0</code> for one path and <code>= 1</code> for the other). Track which variant gets more replies in your dashboard.</p>
+<h3 id="pricing">Pricing</h3>
+<p>Your AI lead generation system is a product. Price it like one.</p>
+<table>
+  <thead>
+      <tr>
+          <th>Tier</th>
+          <th>Setup Fee</th>
+          <th>Monthly Retainer</th>
+          <th>What&rsquo;s Included</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Starter</td>
+          <td>$2,000</td>
+          <td>$500/mo</td>
+          <td>1 lead source, basic enrichment, cold email, Slack alerts, weekly report</td>
+      </tr>
+      <tr>
+          <td>Growth</td>
+          <td>$4,000</td>
+          <td>$1,000/mo</td>
+          <td>3 lead sources, Clearbit enrichment, AI scoring, 3-email sequence, CRM integration, weekly optimization</td>
+      </tr>
+      <tr>
+          <td>Enterprise</td>
+          <td>$7,000</td>
+          <td>$2,000/mo</td>
+          <td>Unlimited sources, custom scoring model, multi-channel outreach, dedicated account manager, daily optimization</td>
+      </tr>
+  </tbody>
+</table>
+<p>The setup fee covers your build time. The Growth tier takes 8-12 hours to build. At $4,000, that is $330-500/hour. The retainer covers ongoing monitoring, optimization, and tool costs.</p>
+<p>Your tool costs per client:</p>
+<ul>
+<li>Make.com: $9-16/mo (Core or Pro plan)</li>
+<li>OpenAI API: $15-50/mo (depends on lead volume)</li>
+<li>Clearbit: $0-99/mo (free trial, then Enrichment API)</li>
+<li>Apollo.io: $0-49/mo (free tier, then Basic plan)</li>
+</ul>
+<p><strong>Total monthly cost per Growth client:</strong> ~$60-120/mo
+<strong>Monthly retainer revenue per Growth client:</strong> $1,000/mo
+<strong>Gross margin:</strong> ~88-94%</p>
+<h2 id="cost-breakdown">Cost Breakdown</h2>
+<table>
+  <thead>
+      <tr>
+          <th>Item</th>
+          <th>Free Tier</th>
+          <th>Paid Tier</th>
+          <th>When to Upgrade</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Make.com</td>
+          <td>1,000 ops/mo</td>
+          <td>$9/mo (10K ops) → $16/mo (10K ops, Pro)</td>
+          <td>At first paying client</td>
+      </tr>
+      <tr>
+          <td>OpenAI API</td>
+          <td>Pay per use</td>
+          <td>~$15-50/mo per client</td>
+          <td>Scales with lead volume</td>
+      </tr>
+      <tr>
+          <td>Apollo.io</td>
+          <td>60 email credits/mo</td>
+          <td>$49/mo (Basic, unlimited)</td>
+          <td>At 60+ leads/mo per client</td>
+      </tr>
+      <tr>
+          <td>Hunter.io</td>
+          <td>25 searches/mo</td>
+          <td>$34/mo (Starter)</td>
+          <td>If using Hunter instead of Apollo</td>
+      </tr>
+      <tr>
+          <td>Clearbit</td>
+          <td>Free trial (50 enrichments)</td>
+          <td>$99/mo (Enrichment API)</td>
+          <td>At first paying client</td>
+      </tr>
+      <tr>
+          <td>Google Sheets</td>
+          <td>Free</td>
+          <td>Free</td>
+          <td>—</td>
+      </tr>
+      <tr>
+          <td>Gmail</td>
+          <td>500 emails/day</td>
+          <td>Google Workspace ($6/mo, 2K/day)</td>
+          <td>At 500+ emails/day</td>
+      </tr>
+      <tr>
+          <td>Slack</td>
+          <td>Free</td>
+          <td>Free</td>
+          <td>—</td>
+      </tr>
+      <tr>
+          <td>Notion</td>
+          <td>Free</td>
+          <td>$10/mo</td>
+          <td>At 5+ clients for team features</td>
+      </tr>
+  </tbody>
+</table>
+<p><strong>Total monthly cost at 1 client (Growth tier):</strong> ~$120-220/mo
+<strong>Total monthly revenue at 1 client (Growth tier):</strong> $1,000/mo retainer + $4,000 setup
+<strong>Total monthly cost at 3 clients:</strong> ~$250-400/mo
+<strong>Total monthly revenue at 3 clients:</strong> $3,000/mo retainers + setup fees</p>
+<h2 id="production-checklist">Production Checklist</h2>
+<p>Before activating the lead generation system for any client, verify every item:</p>
+<ul>
+<li><input disabled="" type="checkbox"> All three routing paths (hot, warm, cold) trigger correctly with test data</li>
+<li><input disabled="" type="checkbox"> Error handlers are attached to the OpenAI, Clearbit, and Gmail modules</li>
+<li><input disabled="" type="checkbox"> Automatic retry is enabled on every API module (3 retries, 10-second interval)</li>
+<li><input disabled="" type="checkbox"> Email rate limiting is configured (1 email per 30 seconds minimum)</li>
+<li><input disabled="" type="checkbox"> Follow-up sequences are tested end-to-end (first email → 3-day follow-up → 7-day follow-up)</li>
+<li><input disabled="" type="checkbox"> Slack notifications for hot leads arrive within 5 minutes of lead scoring</li>
+<li><input disabled="" type="checkbox"> CRM integration writes contacts and deals with correct field mappings</li>
+<li><input disabled="" type="checkbox"> The scoring prompt produces consistent results (test with 10 leads and verify no wild outliers)</li>
+<li><input disabled="" type="checkbox"> Weekly dashboard scenario runs and posts metrics to Slack</li>
+<li><input disabled="" type="checkbox"> Client has been trained on how to read the dashboard and respond to hot lead alerts</li>
+</ul>
+<h2 id="what-to-do-next">What to Do Next</h2>
+<p>Once the core system is running for your first client, expand and compound:</p>
+<ul>
+<li>Add <strong>multi-channel outreach</strong> — connect LinkedIn InMail automation via Expandi or Zopto ($50-100/mo) for leads who do not respond to email</li>
+<li>Build a <strong>nurture content engine</strong> — automatically send educational content to cold leads over 60 days using a Make.com scenario with a daily schedule trigger</li>
+<li>Create a <strong>client portal in Notion</strong> where clients can view their dashboard, submit new target criteria, and track response rates</li>
+<li>Offer <strong>lead list building as a standalone service</strong> — some clients just want enriched, scored lists without the outreach automation. Price it at $1,000-1,500/mo</li>
+<li>Implement <strong>reply detection</strong> — connect your inbox to Make.com, use OpenAI to classify replies as positive/negative/neutral, and route positive replies to the client&rsquo;s sales team in real time</li>
+<li>Scale horizontally — clone the entire system for new business verticals. A dental lead gen system and a SaaS lead gen system use the same architecture with different scoring prompts and email templates</li>
+</ul>
+
+  </div>
+</article>
+
+  <section class="newsletter-section" id="newsletter">
+  <div class="newsletter-inner">
+    <span class="section-label">Stay Ahead</span>
+    <h2 class="newsletter-title">JOIN THE INTELLIGENCE</h2>
+    <p class="newsletter-desc">Get the latest AI monetization opportunities, playbooks, and tools delivered straight to your inbox. No fluff. Pure signal.</p>
+    <div class="newsletter-form">
+      <input type="email" class="input-brutal" placeholder="YOUR EMAIL ADDRESS">
+      <button class="btn-brutal btn-yellow">SUBSCRIBE</button>
+    </div>
+  </div>
+</section>
+
+  <footer class="footer">
+  <div class="footer-grid">
+    <div class="footer-col">
+      <div class="footer-brand-name">MENSHLY GLOBAL</div>
+      <p class="footer-brand-desc">WHERE AI MEETS REVENUE — Discover AI opportunities, download ready-made playbooks, use free tools, and follow deep implementation guides. Built for builders.</p>
+    </div>
+    <div class="footer-col">
+      <div class="footer-heading">Navigate</div>
+      <a href="/" class="footer-link">Home</a>
+      <a href="/opportunities/" class="footer-link">Opportunities</a>
+      <a href="/playbooks/" class="footer-link">Playbooks</a>
+      <a href="/tools/" class="footer-link">Tools</a>
+      <a href="/intelligence/" class="footer-link">Intelligence</a>
+    </div>
+    <div class="footer-col">
+      <div class="footer-heading">Categories</div>
+      <span class="footer-link">AI Discovery</span>
+      <span class="footer-link">Automation</span>
+      <span class="footer-link">Side Hustles</span>
+      <span class="footer-link">Freelancing</span>
+      <span class="footer-link">Agency Building</span>
+    </div>
+    <div class="footer-col">
+      <div class="footer-heading">Social</div>
+      <span class="footer-link">Twitter / X</span>
+      <span class="footer-link">LinkedIn</span>
+      <span class="footer-link">YouTube</span>
+      <span class="footer-link">GitHub</span>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>&copy; 2026 MENSHLY GLOBAL. ALL RIGHTS RESERVED.</span>
+    <span>BUILT FOR THE FUTURE</span>
+  </div>
+</footer>
+
+</body>
+</html>

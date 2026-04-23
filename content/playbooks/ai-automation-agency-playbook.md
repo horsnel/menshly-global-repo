@@ -1,6 +1,6 @@
 ---
 title: "The AI Automation Agency Playbook"
-date: 2026-04-24
+date: 2026-04-23
 category: "Playbook"
 price: "$47"
 readTime: "90 MIN"

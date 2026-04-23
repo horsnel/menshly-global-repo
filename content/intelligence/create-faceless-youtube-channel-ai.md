@@ -1,6 +1,6 @@
 ---
 title: "Create and Scale a Faceless YouTube Channel with AI Tools"
-date: 2026-04-24
+date: 2026-04-23
 category: "Implementation"
 difficulty: "INTERMEDIATE"
 readTime: "26 MIN"

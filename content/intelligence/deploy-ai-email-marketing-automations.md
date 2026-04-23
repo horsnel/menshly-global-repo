@@ -1,6 +1,6 @@
 ---
 title: "Design and Deploy AI-Powered Email Marketing Automations"
-date: 2026-04-24
+date: 2026-04-23
 category: "Implementation"
 difficulty: "INTERMEDIATE"
 readTime: "25 MIN"

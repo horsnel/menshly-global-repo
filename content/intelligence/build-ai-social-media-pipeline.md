@@ -1,6 +1,6 @@
 ---
 title: "Build and Automate an AI Social Media Management Pipeline"
-date: 2026-04-24
+date: 2026-04-20
 category: "Implementation"
 difficulty: "INTERMEDIATE"
 readTime: "24 MIN"

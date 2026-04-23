@@ -1,6 +1,6 @@
 ---
 title: "Build and Scale an AI SEO Agency with Automated Workflows"
-date: 2026-04-24
+date: 2026-04-19
 category: "Implementation"
 difficulty: "ADVANCED"
 readTime: "26 MIN"

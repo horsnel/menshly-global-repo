@@ -1,6 +1,6 @@
 ---
 title: "Build and Deploy an AI Voice Agent System with Vapi"
-date: 2026-04-24
+date: 2026-04-21
 category: "Implementation"
 difficulty: "ADVANCED"
 readTime: "28 MIN"

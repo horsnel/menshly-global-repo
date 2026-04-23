@@ -1,0 +1,905 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Where AI Meets Revenue">
+  <meta name="theme-color" content="#1a1a1a">
+  <title>Build and Monetize AI SaaS Micro-Products on Replit — MENSHLY GLOBAL</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Oswald:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  
+  <link rel="stylesheet" href="/css/style.min.19987e160841c6c96900d5fa3859cfb635b9ea3684b07601eedc0a998d9be47f.css">
+  <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+  <link rel="icon" type="image/png" sizes="1024x1024" href="/images/favicon.png">
+</head>
+
+<body>
+  <nav class="nav-bar" id="nav">
+  
+  <div class="nav-desktop">
+    <div class="nav-brand">
+      <a href="/"><img src="/images/logo.png" alt="Menshly Global" class="nav-logo" style="height:28px;width:auto;margin-right:8px;vertical-align:middle;"><span style="vertical-align:middle;">MENSHLY GLOBAL</span></a>
+    </div>
+    <div class="nav-links">
+      
+      <a href="/opportunities/" class="">OPPORTUNITIES</a>
+      
+      <a href="/playbooks/" class="">PLAYBOOKS</a>
+      
+      <a href="/tools/" class="">TOOLS</a>
+      
+      <a href="/intelligence/" class="">INTELLIGENCE</a>
+      
+    </div>
+    <div class="nav-actions">
+      <a href="#newsletter" class="btn-brutal btn-yellow" style="padding:8px 16px;font-size:11px;">SUBSCRIBE</a>
+    </div>
+  </div>
+
+  
+  <div class="nav-mobile-trigger">
+    <span><a href="/" style="color:inherit;text-decoration:none;"><img src="/images/logo.png" alt="" style="height:20px;width:auto;vertical-align:middle;margin-right:6px;">MENSHLY GLOBAL</a></span>
+    <button onclick="document.getElementById('mobileMenu').classList.toggle('open')" aria-label="Menu">☰</button>
+  </div>
+  <div class="nav-mobile-menu" id="mobileMenu">
+    
+    <a href="/opportunities/">OPPORTUNITIES</a>
+    
+    <a href="/playbooks/">PLAYBOOKS</a>
+    
+    <a href="/tools/">TOOLS</a>
+    
+    <a href="/intelligence/">INTELLIGENCE</a>
+    
+    <a href="#newsletter" class="btn-brutal btn-yellow" style="margin:12px 20px;text-align:center;font-size:13px;">SUBSCRIBE</a>
+  </div>
+</nav>
+
+<script>
+  
+  window.addEventListener('scroll', function() {
+    const nav = document.getElementById('nav');
+    if (window.scrollY > 50) {
+      nav.classList.add('scrolled');
+    } else {
+      nav.classList.remove('scrolled');
+    }
+  });
+</script>
+
+  
+<article>
+  <div class="article-header">
+    <div class="article-category">INTELLIGENCE</div>
+    <h1 class="article-title">Build and Monetize AI SaaS Micro-Products on Replit</h1>
+    <div class="article-meta-bar">
+      <span class="article-meta-item">Apr 22, 2026</span>
+      <span class="article-meta-item">MENSHLY GLOBAL</span>
+      <span class="article-meta-item">25 MIN</span>
+      
+      <span class="article-meta-item" style="background:var(--red);color:var(--white);">INTERMEDIATE</span>
+      
+    </div>
+  </div>
+  <div class="article-content">
+    <p>Building an AI SaaS micro-product is not about building the most impressive software. It is about solving one narrow problem so well that people will pay you $9-29 per month to make it go away. A micro-product does one thing. It does not have a dashboard with twelve tabs. It does not try to be a platform. It is a scalpel, not a Swiss Army knife. This guide walks you through the entire process — from finding an idea people will pay for to deploying it on Replit and acquiring your first 100 users. Follow it in order. Do not skip steps.</p>
+<h2 id="prerequisites">Prerequisites</h2>
+<p>Before you start, you need the following:</p>
+<ul>
+<li>A laptop with a modern browser (Chrome or Firefox)</li>
+<li>A Replit account (free tier works for development) — go to replit.com and sign up</li>
+<li>An OpenAI API key ($5 minimum credit) — go to platform.openai.com/api-keys</li>
+<li>A Stripe account for collecting payments — go to stripe.com and sign up</li>
+<li>A Clerk account for authentication (free tier covers 10,000 monthly active users) — go to clerk.com and sign up</li>
+<li>A custom domain name ($10-12/yr from Namecheap or Cloudflare) — optional until launch</li>
+<li>6-8 hours of uninterrupted time for your first build</li>
+</ul>
+<p>Total upfront cost: $5 for the OpenAI API key. Everything else is free until you have paying users.</p>
+<h2 id="step-1-find-and-validate-your-saas-idea">Step 1: Find and Validate Your SaaS Idea</h2>
+<p>Most people build first and validate second. That is backwards. You will spend 20 hours building something nobody wants. Validate first. Build second. Here is the method.</p>
+<h3 id="market-research-the-three-source-method">Market Research: The Three-Source Method</h3>
+<p>Open three browser tabs. In the first, go to trends.google.com. Type a problem domain you are interested in — examples: &ldquo;AI resume,&rdquo; &ldquo;AI contract review,&rdquo; &ldquo;AI product description.&rdquo; Look at the trend line over the past 12 months. You want a line that is flat or rising. A declining trend means the market is contracting. A spike-and-crash pattern means it was a fad. You want steady or growing interest.</p>
+<p>In the second tab, go to reddit.com and search for your problem domain. Sort by &ldquo;Top&rdquo; in the past year. Read the top 20 posts. You are looking for two signals: people complaining about a specific pain point (&ldquo;I spend 3 hours every week writing product descriptions&rdquo;) and people asking for tools to solve it (&ldquo;Is there an app that does X?&rdquo;). Copy every complaint and request into a spreadsheet. These are your demand signals.</p>
+<p>In the third tab, go to chatgpt.com/gpts (the GPT Store) and search for your problem domain. Sort by &ldquo;Most popular.&rdquo; Read the reviews on the top 10 GPTs. You are looking for what users like and — more importantly — what they complain about. Common complaints in GPT Store reviews include: &ldquo;It forgets my context,&rdquo; &ldquo;I can&rsquo;t save my outputs,&rdquo; &ldquo;I hit the message limit,&rdquo; &ldquo;I wish it could process files.&rdquo; These complaints are feature gaps you can build into a paid product.</p>
+<h3 id="the-3-criteria-validation-checklist">The 3-Criteria Validation Checklist</h3>
+<p>After your research, you should have 3-5 idea candidates. Run each through these three criteria:</p>
+<ol>
+<li>
+<p><strong>Specific pain, not vague interest.</strong> Can you state the problem in one sentence? &ldquo;Freelancers waste 2+ hours per week writing cold outreach emails&rdquo; is a specific pain. &ldquo;People want AI to help with work&rdquo; is vague interest. Only proceed with specific pains.</p>
+</li>
+<li>
+<p><strong>Willingness to pay evidence.</strong> Did you find existing paid tools in this space? Are people already paying for partial solutions? If nobody is paying for anything in this space, they will not pay for your product either. Existing competition is a positive signal — it proves the market has money.</p>
+</li>
+<li>
+<p><strong>Narrow enough to build in a weekend.</strong> Can you ship a working version with one core feature in 48 hours? If your idea requires a database schema with 15 tables, it is not a micro-product. If it requires more than 3 API integrations at launch, it is not a micro-product. Scope down until it fits.</p>
+</li>
+</ol>
+<p><strong>Interactive check-in:</strong> Did your idea pass all 3 criteria? If not, go back and find another. Do not proceed with an idea that fails even one criterion. You will waste weeks on something that cannot sustain a business. Here is a quick reference:</p>
+<table>
+  <thead>
+      <tr>
+          <th>Criterion</th>
+          <th>Pass</th>
+          <th>Fail</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Specific pain</td>
+          <td>&ldquo;Spend 2 hrs/week on X&rdquo;</td>
+          <td>&ldquo;People want AI&rdquo;</td>
+      </tr>
+      <tr>
+          <td>Willingness to pay</td>
+          <td>Competitors charge $10-50/mo</td>
+          <td>No paid tools exist</td>
+      </tr>
+      <tr>
+          <td>Buildable in a weekend</td>
+          <td>1 core feature, 1-2 APIs</td>
+          <td>Multi-feature, 4+ APIs</td>
+      </tr>
+  </tbody>
+</table>
+<p>Example ideas that pass all three: AI-powered cold email rewriter, AI contract clause explainer, AI product description generator for Shopify, AI meeting notes summarizer, AI job description optimizer.</p>
+<h2 id="step-2-set-up-your-replit-development-environment">Step 2: Set Up Your Replit Development Environment</h2>
+<p>Go to replit.com and sign in. You should see your Replit dashboard — a clean interface with a &ldquo;Create Repl&rdquo; button in the top-right corner.</p>
+<p>Do you see that button? You should see a dashboard with your profile photo and a &ldquo;Create Repl&rdquo; button if you are in the right place. If you see a blank screen, verify your email address. Replit requires email verification before you can access the dashboard. Check your inbox, click the verification link, and come back.</p>
+<p>Click <strong>Create Repl</strong>. A modal will appear. Configure the following:</p>
+<ul>
+<li><strong>Template:</strong> Select &ldquo;Python&rdquo; (not &ldquo;Python with GUI&rdquo;)</li>
+<li><strong>Name:</strong> Enter your product name in snake_case (e.g., <code>cold-email-rewriter</code>)</li>
+<li>Click <strong>Create Repl</strong></li>
+</ul>
+<p>You should now see the Replit IDE — a code editor on the left, a console/terminal at the bottom, and a preview pane on the right. If you see this, you are in the right place. If you see something else (a different IDE layout, no terminal), you may have selected the wrong template. Go back and make sure you selected &ldquo;Python.&rdquo;</p>
+<h3 id="configure-environment-variables">Configure Environment Variables</h3>
+<p>You need to store API keys securely. In the left sidebar, click the <strong>Secrets</strong> icon (it looks like a lock). This is Replit&rsquo;s environment variable manager. Add the following secrets one by one:</p>
+<table>
+  <thead>
+      <tr>
+          <th>Key</th>
+          <th>Value</th>
+          <th>Where to Get It</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><code>OPENAI_API_KEY</code></td>
+          <td><code>sk-proj-...</code></td>
+          <td>platform.openai.com/api-keys</td>
+      </tr>
+      <tr>
+          <td><code>STRIPE_SECRET_KEY</code></td>
+          <td><code>sk_test_...</code></td>
+          <td>dashboard.stripe.com/apikeys</td>
+      </tr>
+      <tr>
+          <td><code>STRIPE_WEBHOOK_SECRET</code></td>
+          <td><code>whsec_...</code></td>
+          <td>Set up after deployment</td>
+      </tr>
+      <tr>
+          <td><code>CLERK_SECRET_KEY</code></td>
+          <td><code>sk_test_...</code></td>
+          <td>dashboard.clerk.com</td>
+      </tr>
+  </tbody>
+</table>
+<p><strong>Important:</strong> Always use test keys (<code>sk_test_</code>) during development. Never use live keys until you are ready to accept real payments.</p>
+<h3 id="install-dependencies">Install Dependencies</h3>
+<p>Open the Shell tab at the bottom of the Replit IDE. Run the following command:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>pip install fastapi uvicorn openai stripe python-dotenv pydantic
+</span></span></code></pre></div><p>You should see output like this:</p>
+<pre tabindex="0"><code>Successfully installed fastapi-0.115.0 uvicorn-0.32.0 openai-1.52.0 stripe-10.0.0 python-dotenv-1.0.1 pydantic-2.9.0
+</code></pre><p>Do you see &ldquo;Successfully installed&rdquo; with the package names? If you see errors, check your internet connection and try again. If a specific package fails, install it individually: <code>pip install &lt;package-name&gt;</code>.</p>
+<h3 id="create-the-project-structure">Create the Project Structure</h3>
+<p>In the Files panel on the left, create the following structure:</p>
+<pre tabindex="0"><code>cold-email-rewriter/
+├── main.py
+├── routers/
+│   ├── ai.py
+│   ├── billing.py
+│   └── auth.py
+├── models.py
+├── requirements.txt
+└── static/
+    └── index.html
+</code></pre><p>Create each file by right-clicking the parent directory and selecting &ldquo;New File.&rdquo; The <code>routers/</code> directory needs to be created first — right-click the project root, select &ldquo;New Folder,&rdquo; name it `routers.&quot;</p>
+<h3 id="start-the-development-server">Start the Development Server</h3>
+<p>Open <code>main.py</code> and add the following:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">from</span> fastapi <span style="color:#f92672">import</span> FastAPI
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> fastapi.staticfiles <span style="color:#f92672">import</span> StaticFiles
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> fastapi.responses <span style="color:#f92672">import</span> FileResponse
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> uvicorn
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>app <span style="color:#f92672">=</span> FastAPI(title<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Cold Email Rewriter&#34;</span>, version<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;1.0.0&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>app<span style="color:#f92672">.</span>mount(<span style="color:#e6db74">&#34;/static&#34;</span>, StaticFiles(directory<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;static&#34;</span>), name<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;static&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@app.get</span>(<span style="color:#e6db74">&#34;/&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">async</span> <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">root</span>():
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> FileResponse(<span style="color:#e6db74">&#34;static/index.html&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> __name__ <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;__main__&#34;</span>:
+</span></span><span style="display:flex;"><span>    uvicorn<span style="color:#f92672">.</span>run(<span style="color:#e6db74">&#34;main:app&#34;</span>, host<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;0.0.0.0&#34;</span>, port<span style="color:#f92672">=</span><span style="color:#ae81ff">8000</span>, reload<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>)
+</span></span></code></pre></div><p>In the Shell, run:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>python main.py
+</span></span></code></pre></div><p>You should see:</p>
+<pre tabindex="0"><code>INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+INFO:     Started reloader process
+</code></pre><p>Click the <strong>Webview</strong> tab in the top-right of the Replit IDE. You should see a blank page (because <code>index.html</code> is empty). Now navigate to <code>localhost:8000/docs</code> in the Webview URL bar.</p>
+<p><strong>Interactive check-in:</strong> Do you see the FastAPI interactive documentation page with your endpoints listed? You should see a heading that says &ldquo;Cold Email Rewriter - 1.0.0&rdquo; and a list of endpoints. If you see this, your server is running correctly. If you see a &ldquo;404 Not Found&rdquo; error, check that <code>main.py</code> saved correctly and the server is still running. If you see a connection refused error, restart the server.</p>
+<h2 id="step-3-build-the-core-product">Step 3: Build the Core Product</h2>
+<p>Now you build the three essential components: the AI backend, the user interface, and the payment system.</p>
+<h3 id="build-the-ai-backend">Build the AI Backend</h3>
+<p>Open <code>routers/ai.py</code> and add:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">from</span> fastapi <span style="color:#f92672">import</span> APIRouter, HTTPException
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> pydantic <span style="color:#f92672">import</span> BaseModel
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> os
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> openai <span style="color:#f92672">import</span> OpenAI
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>router <span style="color:#f92672">=</span> APIRouter(prefix<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/api/ai&#34;</span>, tags<span style="color:#f92672">=</span>[<span style="color:#e6db74">&#34;AI&#34;</span>])
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>client <span style="color:#f92672">=</span> OpenAI(api_key<span style="color:#f92672">=</span>os<span style="color:#f92672">.</span>environ<span style="color:#f92672">.</span>get(<span style="color:#e6db74">&#34;OPENAI_API_KEY&#34;</span>))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">RewriteRequest</span>(BaseModel):
+</span></span><span style="display:flex;"><span>    original_email: str
+</span></span><span style="display:flex;"><span>    tone: str <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;professional&#34;</span>  <span style="color:#75715e"># professional, casual, friendly</span>
+</span></span><span style="display:flex;"><span>    target_role: str <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;&#34;</span>       <span style="color:#75715e"># job title of the recipient</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">RewriteResponse</span>(BaseModel):
+</span></span><span style="display:flex;"><span>    rewritten_email: str
+</span></span><span style="display:flex;"><span>    word_count: int
+</span></span><span style="display:flex;"><span>    suggestions: list[str]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@router.post</span>(<span style="color:#e6db74">&#34;/rewrite&#34;</span>, response_model<span style="color:#f92672">=</span>RewriteResponse)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">async</span> <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">rewrite_email</span>(request: RewriteRequest):
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> <span style="color:#f92672">not</span> request<span style="color:#f92672">.</span>original_email<span style="color:#f92672">.</span>strip():
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">raise</span> HTTPException(status_code<span style="color:#f92672">=</span><span style="color:#ae81ff">400</span>, detail<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Email text is required&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    system_prompt <span style="color:#f92672">=</span> <span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;&#34;&#34;You are an expert cold email writer. Rewrite the given email
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    to be more effective at getting responses. Use a </span><span style="color:#e6db74">{</span>request<span style="color:#f92672">.</span>tone<span style="color:#e6db74">}</span><span style="color:#e6db74"> tone.
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    </span><span style="color:#e6db74">{</span><span style="color:#e6db74">&#34;The recipient is a &#34;</span> <span style="color:#f92672">+</span> request<span style="color:#f92672">.</span>target_role <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;.&#34;</span> <span style="color:#66d9ef">if</span> request<span style="color:#f92672">.</span>target_role <span style="color:#66d9ef">else</span> <span style="color:#e6db74">&#34;&#34;</span><span style="color:#e6db74">}</span><span style="color:#e6db74">
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    Keep it concise (under 150 words). Focus on one clear ask.&#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">try</span>:
+</span></span><span style="display:flex;"><span>        response <span style="color:#f92672">=</span> client<span style="color:#f92672">.</span>chat<span style="color:#f92672">.</span>completions<span style="color:#f92672">.</span>create(
+</span></span><span style="display:flex;"><span>            model<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;gpt-4o-mini&#34;</span>,
+</span></span><span style="display:flex;"><span>            messages<span style="color:#f92672">=</span>[
+</span></span><span style="display:flex;"><span>                {<span style="color:#e6db74">&#34;role&#34;</span>: <span style="color:#e6db74">&#34;system&#34;</span>, <span style="color:#e6db74">&#34;content&#34;</span>: system_prompt},
+</span></span><span style="display:flex;"><span>                {<span style="color:#e6db74">&#34;role&#34;</span>: <span style="color:#e6db74">&#34;user&#34;</span>, <span style="color:#e6db74">&#34;content&#34;</span>: <span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;Rewrite this cold email:</span><span style="color:#ae81ff">\n\n</span><span style="color:#e6db74">{</span>request<span style="color:#f92672">.</span>original_email<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>}
+</span></span><span style="display:flex;"><span>            ],
+</span></span><span style="display:flex;"><span>            temperature<span style="color:#f92672">=</span><span style="color:#ae81ff">0.7</span>,
+</span></span><span style="display:flex;"><span>            max_tokens<span style="color:#f92672">=</span><span style="color:#ae81ff">300</span>
+</span></span><span style="display:flex;"><span>        )
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        rewritten <span style="color:#f92672">=</span> response<span style="color:#f92672">.</span>choices[<span style="color:#ae81ff">0</span>]<span style="color:#f92672">.</span>message<span style="color:#f92672">.</span>content
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># Generate improvement suggestions</span>
+</span></span><span style="display:flex;"><span>        suggestion_response <span style="color:#f92672">=</span> client<span style="color:#f92672">.</span>chat<span style="color:#f92672">.</span>completions<span style="color:#f92672">.</span>create(
+</span></span><span style="display:flex;"><span>            model<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;gpt-4o-mini&#34;</span>,
+</span></span><span style="display:flex;"><span>            messages<span style="color:#f92672">=</span>[
+</span></span><span style="display:flex;"><span>                {<span style="color:#e6db74">&#34;role&#34;</span>: <span style="color:#e6db74">&#34;system&#34;</span>, <span style="color:#e6db74">&#34;content&#34;</span>: <span style="color:#e6db74">&#34;List 2-3 specific improvements you made. Be brief.&#34;</span>},
+</span></span><span style="display:flex;"><span>                {<span style="color:#e6db74">&#34;role&#34;</span>: <span style="color:#e6db74">&#34;user&#34;</span>, <span style="color:#e6db74">&#34;content&#34;</span>: <span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;Original:</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">{</span>request<span style="color:#f92672">.</span>original_email<span style="color:#e6db74">}</span><span style="color:#ae81ff">\n\n</span><span style="color:#e6db74">Rewritten:</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">{</span>rewritten<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>}
+</span></span><span style="display:flex;"><span>            ],
+</span></span><span style="display:flex;"><span>            temperature<span style="color:#f92672">=</span><span style="color:#ae81ff">0.3</span>,
+</span></span><span style="display:flex;"><span>            max_tokens<span style="color:#f92672">=</span><span style="color:#ae81ff">150</span>
+</span></span><span style="display:flex;"><span>        )
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        suggestions <span style="color:#f92672">=</span> [s<span style="color:#f92672">.</span>strip()<span style="color:#f92672">.</span>lstrip(<span style="color:#e6db74">&#34;0123456789.-) &#34;</span>)
+</span></span><span style="display:flex;"><span>                       <span style="color:#66d9ef">for</span> s <span style="color:#f92672">in</span> suggestion_response<span style="color:#f92672">.</span>choices[<span style="color:#ae81ff">0</span>]<span style="color:#f92672">.</span>message<span style="color:#f92672">.</span>content<span style="color:#f92672">.</span>split(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>)
+</span></span><span style="display:flex;"><span>                       <span style="color:#66d9ef">if</span> s<span style="color:#f92672">.</span>strip()]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> RewriteResponse(
+</span></span><span style="display:flex;"><span>            rewritten_email<span style="color:#f92672">=</span>rewritten,
+</span></span><span style="display:flex;"><span>            word_count<span style="color:#f92672">=</span>len(rewritten<span style="color:#f92672">.</span>split()),
+</span></span><span style="display:flex;"><span>            suggestions<span style="color:#f92672">=</span>suggestions
+</span></span><span style="display:flex;"><span>        )
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">except</span> <span style="color:#a6e22e">Exception</span> <span style="color:#66d9ef">as</span> e:
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">raise</span> HTTPException(status_code<span style="color:#f92672">=</span><span style="color:#ae81ff">500</span>, detail<span style="color:#f92672">=</span><span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;AI processing failed: </span><span style="color:#e6db74">{</span>str(e)<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>)
+</span></span></code></pre></div><p>Now register this router in <code>main.py</code>. Add this import at the top:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">from</span> routers <span style="color:#f92672">import</span> ai, billing, auth
+</span></span></code></pre></div><p>And add these lines after <code>app = FastAPI(...)</code>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>app<span style="color:#f92672">.</span>include_router(ai<span style="color:#f92672">.</span>router)
+</span></span><span style="display:flex;"><span>app<span style="color:#f92672">.</span>include_router(billing<span style="color:#f92672">.</span>router)
+</span></span><span style="display:flex;"><span>app<span style="color:#f92672">.</span>include_router(auth<span style="color:#f92672">.</span>router)
+</span></span></code></pre></div><h3 id="build-the-user-interface">Build the User Interface</h3>
+<p>Open <code>static/index.html</code> and add a minimal but functional interface:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span><span style="color:#75715e">&lt;!DOCTYPE html&gt;</span>
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">html</span> <span style="color:#a6e22e">lang</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;en&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">head</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">meta</span> <span style="color:#a6e22e">charset</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;UTF-8&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">meta</span> <span style="color:#a6e22e">name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;viewport&#34;</span> <span style="color:#a6e22e">content</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;width=device-width, initial-scale=1.0&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">title</span>&gt;Cold Email Rewriter — AI-Powered&lt;/<span style="color:#f92672">title</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">style</span>&gt;
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">*</span> { <span style="color:#66d9ef">margin</span>: <span style="color:#ae81ff">0</span>; <span style="color:#66d9ef">padding</span>: <span style="color:#ae81ff">0</span>; <span style="color:#66d9ef">box-sizing</span>: <span style="color:#66d9ef">border-box</span>; }
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">body</span> { <span style="color:#66d9ef">font-family</span>: <span style="color:#f92672">-</span>apple-system, BlinkMacSystemFont, <span style="color:#66d9ef">sans-serif</span>;
+</span></span><span style="display:flex;"><span>               <span style="color:#66d9ef">background</span>: <span style="color:#ae81ff">#0a0a0a</span>; <span style="color:#66d9ef">color</span>: <span style="color:#ae81ff">#e5e5e5</span>; <span style="color:#66d9ef">max-width</span>: <span style="color:#ae81ff">720</span><span style="color:#66d9ef">px</span>;
+</span></span><span style="display:flex;"><span>               <span style="color:#66d9ef">margin</span>: <span style="color:#ae81ff">0</span> <span style="color:#66d9ef">auto</span>; <span style="color:#66d9ef">padding</span>: <span style="color:#ae81ff">48</span><span style="color:#66d9ef">px</span> <span style="color:#ae81ff">24</span><span style="color:#66d9ef">px</span>; }
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">h1</span> { <span style="color:#66d9ef">font-size</span>: <span style="color:#ae81ff">28</span><span style="color:#66d9ef">px</span>; <span style="color:#66d9ef">margin-bottom</span>: <span style="color:#ae81ff">8</span><span style="color:#66d9ef">px</span>; <span style="color:#66d9ef">color</span>: <span style="color:#ae81ff">#fff</span>; }
+</span></span><span style="display:flex;"><span>        .<span style="color:#a6e22e">subtitle</span> { <span style="color:#66d9ef">color</span>: <span style="color:#ae81ff">#888</span>; <span style="color:#66d9ef">margin-bottom</span>: <span style="color:#ae81ff">32</span><span style="color:#66d9ef">px</span>; <span style="color:#66d9ef">font-size</span>: <span style="color:#ae81ff">15</span><span style="color:#66d9ef">px</span>; }
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">textarea</span> { <span style="color:#66d9ef">width</span>: <span style="color:#ae81ff">100</span><span style="color:#66d9ef">%</span>; <span style="color:#66d9ef">height</span>: <span style="color:#ae81ff">160</span><span style="color:#66d9ef">px</span>; <span style="color:#66d9ef">background</span>: <span style="color:#ae81ff">#1a1a1a</span>; <span style="color:#66d9ef">border</span>: <span style="color:#ae81ff">1</span><span style="color:#66d9ef">px</span> <span style="color:#66d9ef">solid</span> <span style="color:#ae81ff">#333</span>;
+</span></span><span style="display:flex;"><span>                   <span style="color:#66d9ef">border-radius</span>: <span style="color:#ae81ff">8</span><span style="color:#66d9ef">px</span>; <span style="color:#66d9ef">padding</span>: <span style="color:#ae81ff">16</span><span style="color:#66d9ef">px</span>; <span style="color:#66d9ef">color</span>: <span style="color:#ae81ff">#e5e5e5</span>; <span style="color:#66d9ef">font-size</span>: <span style="color:#ae81ff">15</span><span style="color:#66d9ef">px</span>;
+</span></span><span style="display:flex;"><span>                   <span style="color:#66d9ef">resize</span>: <span style="color:#66d9ef">vertical</span>; <span style="color:#66d9ef">margin-bottom</span>: <span style="color:#ae81ff">16</span><span style="color:#66d9ef">px</span>; }
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">textarea</span>:<span style="color:#a6e22e">focus</span> { <span style="color:#66d9ef">outline</span>: <span style="color:#66d9ef">none</span>; <span style="color:#66d9ef">border-color</span>: <span style="color:#ae81ff">#6366f1</span>; }
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">select</span> { <span style="color:#66d9ef">width</span>: <span style="color:#ae81ff">100</span><span style="color:#66d9ef">%</span>; <span style="color:#66d9ef">padding</span>: <span style="color:#ae81ff">12</span><span style="color:#66d9ef">px</span>; <span style="color:#66d9ef">background</span>: <span style="color:#ae81ff">#1a1a1a</span>; <span style="color:#66d9ef">border</span>: <span style="color:#ae81ff">1</span><span style="color:#66d9ef">px</span> <span style="color:#66d9ef">solid</span> <span style="color:#ae81ff">#333</span>;
+</span></span><span style="display:flex;"><span>                 <span style="color:#66d9ef">border-radius</span>: <span style="color:#ae81ff">8</span><span style="color:#66d9ef">px</span>; <span style="color:#66d9ef">color</span>: <span style="color:#ae81ff">#e5e5e5</span>; <span style="color:#66d9ef">font-size</span>: <span style="color:#ae81ff">14</span><span style="color:#66d9ef">px</span>; <span style="color:#66d9ef">margin-bottom</span>: <span style="color:#ae81ff">16</span><span style="color:#66d9ef">px</span>; }
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">button</span> { <span style="color:#66d9ef">width</span>: <span style="color:#ae81ff">100</span><span style="color:#66d9ef">%</span>; <span style="color:#66d9ef">padding</span>: <span style="color:#ae81ff">14</span><span style="color:#66d9ef">px</span>; <span style="color:#66d9ef">background</span>: <span style="color:#ae81ff">#6366f1</span>; <span style="color:#66d9ef">color</span>: <span style="color:#66d9ef">white</span>; <span style="color:#66d9ef">border</span>: <span style="color:#66d9ef">none</span>;
+</span></span><span style="display:flex;"><span>                 <span style="color:#66d9ef">border-radius</span>: <span style="color:#ae81ff">8</span><span style="color:#66d9ef">px</span>; <span style="color:#66d9ef">font-size</span>: <span style="color:#ae81ff">16</span><span style="color:#66d9ef">px</span>; <span style="color:#66d9ef">font-weight</span>: <span style="color:#ae81ff">600</span>; <span style="color:#66d9ef">cursor</span>: <span style="color:#66d9ef">pointer</span>;
+</span></span><span style="display:flex;"><span>                 <span style="color:#66d9ef">transition</span>: <span style="color:#66d9ef">background</span> <span style="color:#ae81ff">0.2</span><span style="color:#66d9ef">s</span>; }
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">button</span>:<span style="color:#a6e22e">hover</span> { <span style="color:#66d9ef">background</span>: <span style="color:#ae81ff">#4f46e5</span>; }
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">button</span>:<span style="color:#a6e22e">disabled</span> { <span style="color:#66d9ef">background</span>: <span style="color:#ae81ff">#333</span>; <span style="color:#66d9ef">cursor</span>: <span style="color:#66d9ef">not-allowed</span>; }
+</span></span><span style="display:flex;"><span>        .<span style="color:#a6e22e">result</span> { <span style="color:#66d9ef">margin-top</span>: <span style="color:#ae81ff">24</span><span style="color:#66d9ef">px</span>; <span style="color:#66d9ef">padding</span>: <span style="color:#ae81ff">20</span><span style="color:#66d9ef">px</span>; <span style="color:#66d9ef">background</span>: <span style="color:#ae81ff">#1a1a1a</span>; <span style="color:#66d9ef">border</span>: <span style="color:#ae81ff">1</span><span style="color:#66d9ef">px</span> <span style="color:#66d9ef">solid</span> <span style="color:#ae81ff">#333</span>;
+</span></span><span style="display:flex;"><span>                  <span style="color:#66d9ef">border-radius</span>: <span style="color:#ae81ff">8</span><span style="color:#66d9ef">px</span>; <span style="color:#66d9ef">display</span>: <span style="color:#66d9ef">none</span>; }
+</span></span><span style="display:flex;"><span>        .<span style="color:#a6e22e">result</span> <span style="color:#f92672">h3</span> { <span style="color:#66d9ef">margin-bottom</span>: <span style="color:#ae81ff">12</span><span style="color:#66d9ef">px</span>; <span style="color:#66d9ef">color</span>: <span style="color:#ae81ff">#6366f1</span>; }
+</span></span><span style="display:flex;"><span>        .<span style="color:#a6e22e">suggestions</span> { <span style="color:#66d9ef">margin-top</span>: <span style="color:#ae81ff">16</span><span style="color:#66d9ef">px</span>; }
+</span></span><span style="display:flex;"><span>        .<span style="color:#a6e22e">suggestions</span> <span style="color:#f92672">li</span> { <span style="color:#66d9ef">margin-bottom</span>: <span style="color:#ae81ff">6</span><span style="color:#66d9ef">px</span>; <span style="color:#66d9ef">color</span>: <span style="color:#ae81ff">#aaa</span>; <span style="color:#66d9ef">font-size</span>: <span style="color:#ae81ff">14</span><span style="color:#66d9ef">px</span>; }
+</span></span><span style="display:flex;"><span>        .<span style="color:#a6e22e">usage-bar</span> { <span style="color:#66d9ef">margin-top</span>: <span style="color:#ae81ff">24</span><span style="color:#66d9ef">px</span>; <span style="color:#66d9ef">padding</span>: <span style="color:#ae81ff">12</span><span style="color:#66d9ef">px</span>; <span style="color:#66d9ef">background</span>: <span style="color:#ae81ff">#1a1a1a</span>;
+</span></span><span style="display:flex;"><span>                     <span style="color:#66d9ef">border-radius</span>: <span style="color:#ae81ff">8</span><span style="color:#66d9ef">px</span>; <span style="color:#66d9ef">font-size</span>: <span style="color:#ae81ff">13</span><span style="color:#66d9ef">px</span>; <span style="color:#66d9ef">color</span>: <span style="color:#ae81ff">#888</span>; }
+</span></span><span style="display:flex;"><span>        .<span style="color:#a6e22e">upgrade-prompt</span> { <span style="color:#66d9ef">display</span>: <span style="color:#66d9ef">none</span>; <span style="color:#66d9ef">margin-top</span>: <span style="color:#ae81ff">16</span><span style="color:#66d9ef">px</span>; <span style="color:#66d9ef">padding</span>: <span style="color:#ae81ff">16</span><span style="color:#66d9ef">px</span>;
+</span></span><span style="display:flex;"><span>                          <span style="color:#66d9ef">background</span>: <span style="color:#ae81ff">#1e1b4b</span>; <span style="color:#66d9ef">border</span>: <span style="color:#ae81ff">1</span><span style="color:#66d9ef">px</span> <span style="color:#66d9ef">solid</span> <span style="color:#ae81ff">#6366f1</span>;
+</span></span><span style="display:flex;"><span>                          <span style="color:#66d9ef">border-radius</span>: <span style="color:#ae81ff">8</span><span style="color:#66d9ef">px</span>; <span style="color:#66d9ef">text-align</span>: <span style="color:#66d9ef">center</span>; }
+</span></span><span style="display:flex;"><span>        .<span style="color:#a6e22e">upgrade-prompt</span> <span style="color:#f92672">a</span> { <span style="color:#66d9ef">color</span>: <span style="color:#ae81ff">#6366f1</span>; <span style="color:#66d9ef">font-weight</span>: <span style="color:#ae81ff">600</span>; }
+</span></span><span style="display:flex;"><span>    &lt;/<span style="color:#f92672">style</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">head</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">body</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">h1</span>&gt;Cold Email Rewriter&lt;/<span style="color:#f92672">h1</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">p</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;subtitle&#34;</span>&gt;Paste your draft. Get a higher-response version in seconds.&lt;/<span style="color:#f92672">p</span>&gt;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">textarea</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;emailInput&#34;</span> <span style="color:#a6e22e">placeholder</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Paste your cold email draft here...&#34;</span>&gt;&lt;/<span style="color:#f92672">textarea</span>&gt;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">select</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;toneSelect&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>        &lt;<span style="color:#f92672">option</span> <span style="color:#a6e22e">value</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;professional&#34;</span>&gt;Professional&lt;/<span style="color:#f92672">option</span>&gt;
+</span></span><span style="display:flex;"><span>        &lt;<span style="color:#f92672">option</span> <span style="color:#a6e22e">value</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;casual&#34;</span>&gt;Casual&lt;/<span style="color:#f92672">option</span>&gt;
+</span></span><span style="display:flex;"><span>        &lt;<span style="color:#f92672">option</span> <span style="color:#a6e22e">value</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;friendly&#34;</span>&gt;Friendly&lt;/<span style="color:#f92672">option</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;/<span style="color:#f92672">select</span>&gt;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">button</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;rewriteBtn&#34;</span> <span style="color:#a6e22e">onclick</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;rewriteEmail()&#34;</span>&gt;Rewrite Email&lt;/<span style="color:#f92672">button</span>&gt;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;result&#34;</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;resultBox&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>        &lt;<span style="color:#f92672">h3</span>&gt;✉️ Rewritten Email&lt;/<span style="color:#f92672">h3</span>&gt;
+</span></span><span style="display:flex;"><span>        &lt;<span style="color:#f92672">p</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;rewrittenText&#34;</span>&gt;&lt;/<span style="color:#f92672">p</span>&gt;
+</span></span><span style="display:flex;"><span>        &lt;<span style="color:#f92672">p</span> <span style="color:#a6e22e">style</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;margin-top:8px;font-size:13px;color:#888;&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>            Word count: &lt;<span style="color:#f92672">span</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;wordCount&#34;</span>&gt;&lt;/<span style="color:#f92672">span</span>&gt;
+</span></span><span style="display:flex;"><span>        &lt;/<span style="color:#f92672">p</span>&gt;
+</span></span><span style="display:flex;"><span>        &lt;<span style="color:#f92672">ul</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;suggestions&#34;</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;suggestionsList&#34;</span>&gt;&lt;/<span style="color:#f92672">ul</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;/<span style="color:#f92672">div</span>&gt;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;usage-bar&#34;</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;usageBar&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>        Free uses remaining: &lt;<span style="color:#f92672">span</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;usesLeft&#34;</span>&gt;3&lt;/<span style="color:#f92672">span</span>&gt; / 3
+</span></span><span style="display:flex;"><span>    &lt;/<span style="color:#f92672">div</span>&gt;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;upgrade-prompt&#34;</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;upgradePrompt&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>        You have used all free rewrites. &lt;<span style="color:#f92672">a</span> <span style="color:#a6e22e">href</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;#upgrade&#34;</span>&gt;Upgrade to Pro&lt;/<span style="color:#f92672">a</span>&gt; for unlimited rewrites — $9/month.
+</span></span><span style="display:flex;"><span>    &lt;/<span style="color:#f92672">div</span>&gt;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">script</span>&gt;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">usesRemaining</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">3</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">async</span> <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">rewriteEmail</span>() {
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">email</span> <span style="color:#f92672">=</span> document.<span style="color:#a6e22e">getElementById</span>(<span style="color:#e6db74">&#39;emailInput&#39;</span>).<span style="color:#a6e22e">value</span>;
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">tone</span> <span style="color:#f92672">=</span> document.<span style="color:#a6e22e">getElementById</span>(<span style="color:#e6db74">&#39;toneSelect&#39;</span>).<span style="color:#a6e22e">value</span>;
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">btn</span> <span style="color:#f92672">=</span> document.<span style="color:#a6e22e">getElementById</span>(<span style="color:#e6db74">&#39;rewriteBtn&#39;</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> (<span style="color:#f92672">!</span><span style="color:#a6e22e">email</span>.<span style="color:#a6e22e">trim</span>()) { <span style="color:#a6e22e">alert</span>(<span style="color:#e6db74">&#39;Please paste an email first.&#39;</span>); <span style="color:#66d9ef">return</span>; }
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">usesRemaining</span> <span style="color:#f92672">&lt;=</span> <span style="color:#ae81ff">0</span>) {
+</span></span><span style="display:flex;"><span>                document.<span style="color:#a6e22e">getElementById</span>(<span style="color:#e6db74">&#39;upgradePrompt&#39;</span>).<span style="color:#a6e22e">style</span>.<span style="color:#a6e22e">display</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;block&#39;</span>;
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">return</span>;
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">btn</span>.<span style="color:#a6e22e">disabled</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span>;
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">btn</span>.<span style="color:#a6e22e">textContent</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;Rewriting...&#39;</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">try</span> {
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">res</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">await</span> <span style="color:#a6e22e">fetch</span>(<span style="color:#e6db74">&#39;/api/ai/rewrite&#39;</span>, {
+</span></span><span style="display:flex;"><span>                    <span style="color:#a6e22e">method</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;POST&#39;</span>,
+</span></span><span style="display:flex;"><span>                    <span style="color:#a6e22e">headers</span><span style="color:#f92672">:</span> { <span style="color:#e6db74">&#39;Content-Type&#39;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;application/json&#39;</span> },
+</span></span><span style="display:flex;"><span>                    <span style="color:#a6e22e">body</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">JSON</span>.<span style="color:#a6e22e">stringify</span>({ <span style="color:#a6e22e">original_email</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">email</span>, <span style="color:#a6e22e">tone</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">tone</span> })
+</span></span><span style="display:flex;"><span>                });
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">if</span> (<span style="color:#f92672">!</span><span style="color:#a6e22e">res</span>.<span style="color:#a6e22e">ok</span>) <span style="color:#66d9ef">throw</span> <span style="color:#66d9ef">new</span> Error(<span style="color:#e6db74">&#39;Request failed&#39;</span>);
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">data</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">await</span> <span style="color:#a6e22e">res</span>.<span style="color:#a6e22e">json</span>();
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>                document.<span style="color:#a6e22e">getElementById</span>(<span style="color:#e6db74">&#39;rewrittenText&#39;</span>).<span style="color:#a6e22e">textContent</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">data</span>.<span style="color:#a6e22e">rewritten_email</span>;
+</span></span><span style="display:flex;"><span>                document.<span style="color:#a6e22e">getElementById</span>(<span style="color:#e6db74">&#39;wordCount&#39;</span>).<span style="color:#a6e22e">textContent</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">data</span>.<span style="color:#a6e22e">word_count</span>;
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">list</span> <span style="color:#f92672">=</span> document.<span style="color:#a6e22e">getElementById</span>(<span style="color:#e6db74">&#39;suggestionsList&#39;</span>);
+</span></span><span style="display:flex;"><span>                <span style="color:#a6e22e">list</span>.<span style="color:#a6e22e">innerHTML</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;&#39;</span>;
+</span></span><span style="display:flex;"><span>                <span style="color:#a6e22e">data</span>.<span style="color:#a6e22e">suggestions</span>.<span style="color:#a6e22e">forEach</span>(<span style="color:#a6e22e">s</span> =&gt; {
+</span></span><span style="display:flex;"><span>                    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">li</span> <span style="color:#f92672">=</span> document.<span style="color:#a6e22e">createElement</span>(<span style="color:#e6db74">&#39;li&#39;</span>);
+</span></span><span style="display:flex;"><span>                    <span style="color:#a6e22e">li</span>.<span style="color:#a6e22e">textContent</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">s</span>;
+</span></span><span style="display:flex;"><span>                    <span style="color:#a6e22e">list</span>.<span style="color:#a6e22e">appendChild</span>(<span style="color:#a6e22e">li</span>);
+</span></span><span style="display:flex;"><span>                });
+</span></span><span style="display:flex;"><span>                document.<span style="color:#a6e22e">getElementById</span>(<span style="color:#e6db74">&#39;resultBox&#39;</span>).<span style="color:#a6e22e">style</span>.<span style="color:#a6e22e">display</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;block&#39;</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>                <span style="color:#a6e22e">usesRemaining</span><span style="color:#f92672">--</span>;
+</span></span><span style="display:flex;"><span>                document.<span style="color:#a6e22e">getElementById</span>(<span style="color:#e6db74">&#39;usesLeft&#39;</span>).<span style="color:#a6e22e">textContent</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">usesRemaining</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">usesRemaining</span> <span style="color:#f92672">&lt;=</span> <span style="color:#ae81ff">0</span>) {
+</span></span><span style="display:flex;"><span>                    document.<span style="color:#a6e22e">getElementById</span>(<span style="color:#e6db74">&#39;upgradePrompt&#39;</span>).<span style="color:#a6e22e">style</span>.<span style="color:#a6e22e">display</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;block&#39;</span>;
+</span></span><span style="display:flex;"><span>                }
+</span></span><span style="display:flex;"><span>            } <span style="color:#66d9ef">catch</span> (<span style="color:#a6e22e">err</span>) {
+</span></span><span style="display:flex;"><span>                <span style="color:#a6e22e">alert</span>(<span style="color:#e6db74">&#39;Something went wrong. Please try again.&#39;</span>);
+</span></span><span style="display:flex;"><span>            } <span style="color:#66d9ef">finally</span> {
+</span></span><span style="display:flex;"><span>                <span style="color:#a6e22e">btn</span>.<span style="color:#a6e22e">disabled</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">false</span>;
+</span></span><span style="display:flex;"><span>                <span style="color:#a6e22e">btn</span>.<span style="color:#a6e22e">textContent</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;Rewrite Email&#39;</span>;
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    &lt;/<span style="color:#f92672">script</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">body</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">html</span>&gt;
+</span></span></code></pre></div><p>Save the file. Restart your development server (press Ctrl+C in the Shell, then run <code>python main.py</code> again). Open the Webview. You should see a dark-themed page with a textarea, a tone dropdown, and a &ldquo;Rewrite Email&rdquo; button.</p>
+<p><strong>Test it:</strong> Paste a cold email draft, select a tone, and click &ldquo;Rewrite Email.&rdquo; You should see a rewritten version appear below with word count and improvement suggestions. Do you see the rewritten email? If you get an error, check your OpenAI API key in Secrets. If the page does not load, check that <code>main.py</code> mounts the static directory correctly.</p>
+<h3 id="add-stripe-checkout-for-subscriptions">Add Stripe Checkout for Subscriptions</h3>
+<p>Open <code>routers/billing.py</code> and add:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">from</span> fastapi <span style="color:#f92672">import</span> APIRouter, HTTPException, Request
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> pydantic <span style="color:#f92672">import</span> BaseModel
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> os
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> stripe
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>router <span style="color:#f92672">=</span> APIRouter(prefix<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/api/billing&#34;</span>, tags<span style="color:#f92672">=</span>[<span style="color:#e6db74">&#34;Billing&#34;</span>])
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>stripe<span style="color:#f92672">.</span>api_key <span style="color:#f92672">=</span> os<span style="color:#f92672">.</span>environ<span style="color:#f92672">.</span>get(<span style="color:#e6db74">&#34;STRIPE_SECRET_KEY&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Price ID — create this in Stripe Dashboard &gt; Products</span>
+</span></span><span style="display:flex;"><span>PRICE_ID <span style="color:#f92672">=</span> os<span style="color:#f92672">.</span>environ<span style="color:#f92672">.</span>get(<span style="color:#e6db74">&#34;STRIPE_PRICE_ID&#34;</span>, <span style="color:#e6db74">&#34;price_placeholder&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">CheckoutRequest</span>(BaseModel):
+</span></span><span style="display:flex;"><span>    email: str
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@router.post</span>(<span style="color:#e6db74">&#34;/create-checkout-session&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">async</span> <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">create_checkout</span>(request: CheckoutRequest):
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">try</span>:
+</span></span><span style="display:flex;"><span>        session <span style="color:#f92672">=</span> stripe<span style="color:#f92672">.</span>checkout<span style="color:#f92672">.</span>Session<span style="color:#f92672">.</span>create(
+</span></span><span style="display:flex;"><span>            mode<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;subscription&#34;</span>,
+</span></span><span style="display:flex;"><span>            payment_method_types<span style="color:#f92672">=</span>[<span style="color:#e6db74">&#34;card&#34;</span>],
+</span></span><span style="display:flex;"><span>            line_items<span style="color:#f92672">=</span>[{<span style="color:#e6db74">&#34;price&#34;</span>: PRICE_ID, <span style="color:#e6db74">&#34;quantity&#34;</span>: <span style="color:#ae81ff">1</span>}],
+</span></span><span style="display:flex;"><span>            customer_email<span style="color:#f92672">=</span>request<span style="color:#f92672">.</span>email,
+</span></span><span style="display:flex;"><span>            success_url<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;https://your-app.replit.app/?success=true&#34;</span>,
+</span></span><span style="display:flex;"><span>            cancel_url<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;https://your-app.replit.app/?canceled=true&#34;</span>,
+</span></span><span style="display:flex;"><span>        )
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> {<span style="color:#e6db74">&#34;url&#34;</span>: session<span style="color:#f92672">.</span>url}
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">except</span> <span style="color:#a6e22e">Exception</span> <span style="color:#66d9ef">as</span> e:
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">raise</span> HTTPException(status_code<span style="color:#f92672">=</span><span style="color:#ae81ff">500</span>, detail<span style="color:#f92672">=</span>str(e))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@router.post</span>(<span style="color:#e6db74">&#34;/webhook&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">async</span> <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">stripe_webhook</span>(request: Request):
+</span></span><span style="display:flex;"><span>    payload <span style="color:#f92672">=</span> <span style="color:#66d9ef">await</span> request<span style="color:#f92672">.</span>body()
+</span></span><span style="display:flex;"><span>    sig_header <span style="color:#f92672">=</span> request<span style="color:#f92672">.</span>headers<span style="color:#f92672">.</span>get(<span style="color:#e6db74">&#34;stripe-signature&#34;</span>)
+</span></span><span style="display:flex;"><span>    webhook_secret <span style="color:#f92672">=</span> os<span style="color:#f92672">.</span>environ<span style="color:#f92672">.</span>get(<span style="color:#e6db74">&#34;STRIPE_WEBHOOK_SECRET&#34;</span>, <span style="color:#e6db74">&#34;&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">try</span>:
+</span></span><span style="display:flex;"><span>        event <span style="color:#f92672">=</span> stripe<span style="color:#f92672">.</span>Webhook<span style="color:#f92672">.</span>construct_event(
+</span></span><span style="display:flex;"><span>            payload, sig_header, webhook_secret
+</span></span><span style="display:flex;"><span>        )
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">except</span> stripe<span style="color:#f92672">.</span>error<span style="color:#f92672">.</span>SignatureVerificationError:
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">raise</span> HTTPException(status_code<span style="color:#f92672">=</span><span style="color:#ae81ff">400</span>, detail<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Invalid signature&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> event[<span style="color:#e6db74">&#34;type&#34;</span>] <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;checkout.session.completed&#34;</span>:
+</span></span><span style="display:flex;"><span>        session <span style="color:#f92672">=</span> event[<span style="color:#e6db74">&#34;data&#34;</span>][<span style="color:#e6db74">&#34;object&#34;</span>]
+</span></span><span style="display:flex;"><span>        customer_email <span style="color:#f92672">=</span> session[<span style="color:#e6db74">&#34;customer_email&#34;</span>]
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># TODO: Update user record — set tier to &#34;pro&#34;</span>
+</span></span><span style="display:flex;"><span>        print(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;New subscriber: </span><span style="color:#e6db74">{</span>customer_email<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">elif</span> event[<span style="color:#e6db74">&#34;type&#34;</span>] <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;customer.subscription.deleted&#34;</span>:
+</span></span><span style="display:flex;"><span>        subscription <span style="color:#f92672">=</span> event[<span style="color:#e6db74">&#34;data&#34;</span>][<span style="color:#e6db74">&#34;object&#34;</span>]
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># TODO: Downgrade user to free tier</span>
+</span></span><span style="display:flex;"><span>        print(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;Subscription cancelled: </span><span style="color:#e6db74">{</span>subscription[<span style="color:#e6db74">&#39;id&#39;</span>]<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> {<span style="color:#e6db74">&#34;status&#34;</span>: <span style="color:#e6db74">&#34;success&#34;</span>}
+</span></span></code></pre></div><p>Before testing Stripe, you need to create a Product and Price in your Stripe Dashboard:</p>
+<ol>
+<li>Go to dashboard.stripe.com/products</li>
+<li>Click <strong>Add Product</strong></li>
+<li>Name: &ldquo;Cold Email Rewriter Pro&rdquo;</li>
+<li>Pricing: Recurring, $9/month</li>
+<li>Click <strong>Save Product</strong></li>
+<li>Copy the Price ID (starts with <code>price_</code>) and add it as a Replit Secret: <code>STRIPE_PRICE_ID</code></li>
+</ol>
+<p><strong>Interactive check-in:</strong> Test the checkout flow by calling the API. In the Shell, run:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>curl -X POST http://localhost:8000/api/billing/create-checkout-session <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  -H <span style="color:#e6db74">&#34;Content-Type: application/json&#34;</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  -d <span style="color:#e6db74">&#39;{&#34;email&#34;:&#34;test@example.com&#34;}&#39;</span>
+</span></span></code></pre></div><p>You should see a JSON response with a <code>&quot;url&quot;</code> field containing a Stripe checkout link. Open that URL in a new browser tab. Use Stripe&rsquo;s test card (<code>4242 4242 4242 4242</code>, any future expiry, any CVC) to complete the payment. Did the Stripe test payment succeed? You should see a &ldquo;Payment successful&rdquo; confirmation page. If you get an error about the Price ID, go back to your Stripe Dashboard and verify the Price ID matches your Secret. If you get an authentication error, verify your Stripe secret key is correct.</p>
+<h2 id="step-4-add-user-authentication-and-usage-limits">Step 4: Add User Authentication and Usage Limits</h2>
+<p>Authentication and usage limits are what separate a toy from a product. Without them, you cannot enforce free/paid tiers or track who is using your service.</p>
+<h3 id="set-up-clerk-authentication">Set Up Clerk Authentication</h3>
+<p>Go to dashboard.clerk.com. Create a new application named &ldquo;Cold Email Rewriter.&rdquo; Enable Email/Password sign-in. Copy the <strong>Publishable Key</strong> (starts with <code>pk_test_</code>) and <strong>Secret Key</strong> (starts with <code>sk_test_</code>). Add the Secret Key to your Replit Secrets as <code>CLERK_SECRET_KEY</code>.</p>
+<p>Open <code>routers/auth.py</code> and add:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">from</span> fastapi <span style="color:#f92672">import</span> APIRouter, HTTPException, Request
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> pydantic <span style="color:#f92672">import</span> BaseModel
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> os
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> jwt
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>router <span style="color:#f92672">=</span> APIRouter(prefix<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/api/auth&#34;</span>, tags<span style="color:#f92672">=</span>[<span style="color:#e6db74">&#34;Auth&#34;</span>])
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>CLERK_SECRET <span style="color:#f92672">=</span> os<span style="color:#f92672">.</span>environ<span style="color:#f92672">.</span>get(<span style="color:#e6db74">&#34;CLERK_SECRET_KEY&#34;</span>, <span style="color:#e6db74">&#34;&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># In-memory user store (replace with database for production)</span>
+</span></span><span style="display:flex;"><span>users_db <span style="color:#f92672">=</span> {}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">UserUsage</span>(BaseModel):
+</span></span><span style="display:flex;"><span>    email: str
+</span></span><span style="display:flex;"><span>    tier: str <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;free&#34;</span>        <span style="color:#75715e"># free or pro</span>
+</span></span><span style="display:flex;"><span>    rewrites_used: int <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>    rewrites_limit: int <span style="color:#f92672">=</span> <span style="color:#ae81ff">3</span>   <span style="color:#75715e"># free = 3, pro = unlimited</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">get_user</span>(email: str) <span style="color:#f92672">-&gt;</span> UserUsage:
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> email <span style="color:#f92672">not</span> <span style="color:#f92672">in</span> users_db:
+</span></span><span style="display:flex;"><span>        users_db[email] <span style="color:#f92672">=</span> UserUsage(email<span style="color:#f92672">=</span>email)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> users_db[email]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">verify_clerk_token</span>(request: Request) <span style="color:#f92672">-&gt;</span> str:
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;&#34;&#34;Extract and verify Clerk session token. Returns user email.&#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>    auth_header <span style="color:#f92672">=</span> request<span style="color:#f92672">.</span>headers<span style="color:#f92672">.</span>get(<span style="color:#e6db74">&#34;Authorization&#34;</span>, <span style="color:#e6db74">&#34;&#34;</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> <span style="color:#f92672">not</span> auth_header<span style="color:#f92672">.</span>startswith(<span style="color:#e6db74">&#34;Bearer &#34;</span>):
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">raise</span> HTTPException(status_code<span style="color:#f92672">=</span><span style="color:#ae81ff">401</span>, detail<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Missing auth token&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    token <span style="color:#f92672">=</span> auth_header<span style="color:#f92672">.</span>split(<span style="color:#e6db74">&#34; &#34;</span>)[<span style="color:#ae81ff">1</span>]
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">try</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># Decode without full verification for dev (production: verify with Clerk JWKS)</span>
+</span></span><span style="display:flex;"><span>        payload <span style="color:#f92672">=</span> jwt<span style="color:#f92672">.</span>decode(token, options<span style="color:#f92672">=</span>{<span style="color:#e6db74">&#34;verify_signature&#34;</span>: <span style="color:#66d9ef">False</span>})
+</span></span><span style="display:flex;"><span>        email <span style="color:#f92672">=</span> payload<span style="color:#f92672">.</span>get(<span style="color:#e6db74">&#34;email_address&#34;</span>, <span style="color:#e6db74">&#34;&#34;</span>)
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> <span style="color:#f92672">not</span> email:
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">raise</span> HTTPException(status_code<span style="color:#f92672">=</span><span style="color:#ae81ff">401</span>, detail<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Invalid token&#34;</span>)
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> email
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">except</span> <span style="color:#a6e22e">Exception</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">raise</span> HTTPException(status_code<span style="color:#f92672">=</span><span style="color:#ae81ff">401</span>, detail<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Invalid token&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@router.get</span>(<span style="color:#e6db74">&#34;/me&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">async</span> <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">get_current_user</span>(request: Request):
+</span></span><span style="display:flex;"><span>    email <span style="color:#f92672">=</span> verify_clerk_token(request)
+</span></span><span style="display:flex;"><span>    user <span style="color:#f92672">=</span> get_user(email)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;email&#34;</span>: user<span style="color:#f92672">.</span>email,
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;tier&#34;</span>: user<span style="color:#f92672">.</span>tier,
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;rewrites_used&#34;</span>: user<span style="color:#f92672">.</span>rewrites_used,
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;rewrites_limit&#34;</span>: user<span style="color:#f92672">.</span>rewrites_limit,
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;is_pro&#34;</span>: user<span style="color:#f92672">.</span>tier <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;pro&#34;</span>
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@router.post</span>(<span style="color:#e6db74">&#34;/upgrade&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">async</span> <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">upgrade_user</span>(request: Request):
+</span></span><span style="display:flex;"><span>    email <span style="color:#f92672">=</span> verify_clerk_token(request)
+</span></span><span style="display:flex;"><span>    user <span style="color:#f92672">=</span> get_user(email)
+</span></span><span style="display:flex;"><span>    user<span style="color:#f92672">.</span>tier <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;pro&#34;</span>
+</span></span><span style="display:flex;"><span>    user<span style="color:#f92672">.</span>rewrites_limit <span style="color:#f92672">=</span> <span style="color:#ae81ff">999999</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> {<span style="color:#e6db74">&#34;status&#34;</span>: <span style="color:#e6db74">&#34;upgraded&#34;</span>, <span style="color:#e6db74">&#34;tier&#34;</span>: <span style="color:#e6db74">&#34;pro&#34;</span>}
+</span></span></code></pre></div><p>Now update the AI router to enforce usage limits. Open <code>routers/ai.py</code> and modify the rewrite endpoint. Add this import at the top:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">from</span> routers.auth <span style="color:#f92672">import</span> verify_clerk_token, get_user
+</span></span></code></pre></div><p>Then add this block at the beginning of the <code>rewrite_email</code> function, before the OpenAI call:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>    <span style="color:#75715e"># Check authentication and usage limits</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">try</span>:
+</span></span><span style="display:flex;"><span>        email <span style="color:#f92672">=</span> verify_clerk_token(request<span style="color:#f92672">=</span>request<span style="color:#f92672">.</span>_request)
+</span></span><span style="display:flex;"><span>        user <span style="color:#f92672">=</span> get_user(email)
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> user<span style="color:#f92672">.</span>tier <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;free&#34;</span> <span style="color:#f92672">and</span> user<span style="color:#f92672">.</span>rewrites_used <span style="color:#f92672">&gt;=</span> user<span style="color:#f92672">.</span>rewrites_limit:
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">raise</span> HTTPException(
+</span></span><span style="display:flex;"><span>                status_code<span style="color:#f92672">=</span><span style="color:#ae81ff">403</span>,
+</span></span><span style="display:flex;"><span>                detail<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Free tier limit reached. Upgrade to Pro for unlimited rewrites.&#34;</span>
+</span></span><span style="display:flex;"><span>            )
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">except</span> HTTPException <span style="color:#66d9ef">as</span> e:
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> e<span style="color:#f92672">.</span>status_code <span style="color:#f92672">==</span> <span style="color:#ae81ff">401</span>:
+</span></span><span style="display:flex;"><span>            <span style="color:#75715e"># Allow anonymous usage with separate tracking (simpler for MVP)</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">pass</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">else</span>:
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">raise</span>
+</span></span></code></pre></div><p>And add this after a successful rewrite (before the return statement):</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>    <span style="color:#75715e"># Increment usage counter</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">try</span>:
+</span></span><span style="display:flex;"><span>        email <span style="color:#f92672">=</span> verify_clerk_token(request<span style="color:#f92672">=</span>request<span style="color:#f92672">.</span>_request)
+</span></span><span style="display:flex;"><span>        user <span style="color:#f92672">=</span> get_user(email)
+</span></span><span style="display:flex;"><span>        user<span style="color:#f92672">.</span>rewrites_used <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">except</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">pass</span>  <span style="color:#75715e"># Anonymous user, handled by frontend counter</span>
+</span></span></code></pre></div><p><strong>Important:</strong> The <code>request._request</code> access is a simplification for this guide. In production, pass the <code>Request</code> object properly through FastAPI dependency injection.</p>
+<h3 id="add-the-clerk-frontend-widget">Add the Clerk Frontend Widget</h3>
+<p>Add this script tag to <code>static/index.html</code>, right before <code>&lt;/head&gt;</code>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#f92672">script</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">async</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">data-clerk-publishable-key</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;pk_test_YOUR_KEY_HERE&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;https://cdn.jsdelivr.net/npm/@clerk/clerk-js@5/dist/clerk.browser.js&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">script</span>&gt;
+</span></span></code></pre></div><p>Replace <code>pk_test_YOUR_KEY_HERE</code> with your actual Clerk Publishable Key.</p>
+<h3 id="set-up-rate-limiting">Set Up Rate Limiting</h3>
+<p>For basic rate limiting without external dependencies, add this to <code>main.py</code>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">from</span> fastapi <span style="color:#f92672">import</span> Request
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> fastapi.responses <span style="color:#f92672">import</span> JSONResponse
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> time
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>rate_limit_store <span style="color:#f92672">=</span> {}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@app.middleware</span>(<span style="color:#e6db74">&#34;http&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">async</span> <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">rate_limit_middleware</span>(request: Request, call_next):
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># Only rate limit the AI endpoint</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> <span style="color:#e6db74">&#34;/api/ai&#34;</span> <span style="color:#f92672">not</span> <span style="color:#f92672">in</span> request<span style="color:#f92672">.</span>url<span style="color:#f92672">.</span>path:
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">await</span> call_next(request)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    client_ip <span style="color:#f92672">=</span> request<span style="color:#f92672">.</span>client<span style="color:#f92672">.</span>host
+</span></span><span style="display:flex;"><span>    now <span style="color:#f92672">=</span> time<span style="color:#f92672">.</span>time()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> client_ip <span style="color:#f92672">in</span> rate_limit_store:
+</span></span><span style="display:flex;"><span>        last_request <span style="color:#f92672">=</span> rate_limit_store[client_ip]
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> now <span style="color:#f92672">-</span> last_request <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">2</span>:  <span style="color:#75715e"># 2 seconds between requests</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">return</span> JSONResponse(
+</span></span><span style="display:flex;"><span>                status_code<span style="color:#f92672">=</span><span style="color:#ae81ff">429</span>,
+</span></span><span style="display:flex;"><span>                content<span style="color:#f92672">=</span>{<span style="color:#e6db74">&#34;detail&#34;</span>: <span style="color:#e6db74">&#34;Too many requests. Please wait a moment.&#34;</span>}
+</span></span><span style="display:flex;"><span>            )
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    rate_limit_store[client_ip] <span style="color:#f92672">=</span> now
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">await</span> call_next(request)
+</span></span></code></pre></div><p>This limits each IP to one AI request every 2 seconds. For production, use a proper rate limiter like <code>slowapi</code> and key by user ID instead of IP.</p>
+<h3 id="test-the-free-vs-paid-flow">Test the Free vs Paid Flow</h3>
+<p><strong>Interactive check-in:</strong> Sign up as a free user. Make 3 rewrite requests. After the third, does the usage counter show 0 remaining? Does the upgrade prompt appear? If you see &ldquo;Free uses remaining: 0 / 3&rdquo; and the upgrade prompt is visible, your free tier logic is working. If the counter does not decrease, check that the JavaScript in <code>index.html</code> is updating the <code>usesLeft</code> span. If the upgrade prompt does not appear, check that the <code>usesRemaining &lt;= 0</code> condition in the JavaScript is being evaluated.</p>
+<p>Next, test the upgrade path: call the <code>/api/auth/upgrade</code> endpoint (or simulate it by setting a user&rsquo;s tier to &ldquo;pro&rdquo; in <code>users_db</code>). Then make additional rewrite requests. They should succeed without the limit message.</p>
+<h2 id="step-5-deploy-and-launch">Step 5: Deploy and Launch</h2>
+<p>Your product works locally. Now it needs to be accessible to anyone with a URL.</p>
+<h3 id="deploy-on-replit">Deploy on Replit</h3>
+<p>In the Replit IDE, click the <strong>Deploy</strong> button in the top-right corner (it looks like a rocket). Replit will present deployment options:</p>
+<ul>
+<li><strong>Deployments type:</strong> Select &ldquo;Cloud Run&rdquo; (the managed option)</li>
+<li><strong>Machine:</strong> Select the $0.12/day tier (sufficient for launch traffic)</li>
+<li><strong>Build command:</strong> <code>pip install -r requirements.txt</code></li>
+<li><strong>Run command:</strong> <code>python main.py</code></li>
+<li><strong>Port:</strong> <code>8000</code></li>
+</ul>
+<p>Click <strong>Deploy.</strong> Replit will build and deploy your application. This takes 2-5 minutes.</p>
+<p>When deployment completes, Replit gives you a URL like <code>cold-email-rewriter-xyz123.replit.app</code>. Open this URL in a new browser tab.</p>
+<p><strong>Do you see your landing page?</strong> You should see the same interface you saw locally — the dark-themed page with the textarea and &ldquo;Rewrite Email&rdquo; button. If you see a 502 error, the server is still starting. Wait 60 seconds and refresh. If you see a different error, check the deployment logs in the Replit Deployments tab.</p>
+<h3 id="set-up-a-custom-domain">Set Up a Custom Domain</h3>
+<p>A custom domain looks more professional and builds trust. In the Replit Deployments tab, click <strong>Settings</strong> &gt; <strong>Custom Domain.</strong> Enter your domain name (e.g., <code>coldemailrewriter.com</code>). Replit will give you DNS records to add:</p>
+<ol>
+<li>Go to your domain registrar (Namecheap, Cloudflare, etc.)</li>
+<li>Add a CNAME record pointing your domain to the Replit-provided target</li>
+<li>Wait 10-60 minutes for DNS propagation</li>
+<li>Replit will automatically provision an SSL certificate</li>
+</ol>
+<h3 id="set-up-monitoring-and-error-tracking">Set Up Monitoring and Error Tracking</h3>
+<p>For a micro-product, you do not need a complex observability stack. Add this lightweight error tracking to <code>main.py</code>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> logging
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> traceback
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> fastapi.responses <span style="color:#f92672">import</span> JSONResponse
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>logging<span style="color:#f92672">.</span>basicConfig(level<span style="color:#f92672">=</span>logging<span style="color:#f92672">.</span>INFO)
+</span></span><span style="display:flex;"><span>logger <span style="color:#f92672">=</span> logging<span style="color:#f92672">.</span>getLogger(__name__)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@app.exception_handler</span>(<span style="color:#a6e22e">Exception</span>)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">async</span> <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">global_exception_handler</span>(request: Request, exc: <span style="color:#a6e22e">Exception</span>):
+</span></span><span style="display:flex;"><span>    logger<span style="color:#f92672">.</span>error(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;Unhandled exception: </span><span style="color:#e6db74">{</span>traceback<span style="color:#f92672">.</span>format_exc()<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> JSONResponse(
+</span></span><span style="display:flex;"><span>        status_code<span style="color:#f92672">=</span><span style="color:#ae81ff">500</span>,
+</span></span><span style="display:flex;"><span>        content<span style="color:#f92672">=</span>{<span style="color:#e6db74">&#34;detail&#34;</span>: <span style="color:#e6db74">&#34;An unexpected error occurred. Please try again.&#34;</span>}
+</span></span><span style="display:flex;"><span>    )
+</span></span></code></pre></div><p>For production monitoring, sign up for a free Sentry account (sentry.io) and add the SDK:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>pip install sentry-sdk<span style="color:#f92672">[</span>fastapi<span style="color:#f92672">]</span>
+</span></span></code></pre></div><p>Then add to <code>main.py</code> before the app initialization:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> sentry_sdk
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>sentry_sdk<span style="color:#f92672">.</span>init(
+</span></span><span style="display:flex;"><span>    dsn<span style="color:#f92672">=</span>os<span style="color:#f92672">.</span>environ<span style="color:#f92672">.</span>get(<span style="color:#e6db74">&#34;SENTRY_DSN&#34;</span>, <span style="color:#e6db74">&#34;&#34;</span>),
+</span></span><span style="display:flex;"><span>    traces_sample_rate<span style="color:#f92672">=</span><span style="color:#ae81ff">0.1</span>,
+</span></span><span style="display:flex;"><span>)
+</span></span></code></pre></div><p>Add <code>SENTRY_DSN</code> to your Replit Secrets. You will get this from the Sentry project settings page.</p>
+<h3 id="create-the-landing-page">Create the Landing Page</h3>
+<p>Your <code>index.html</code> is functional but it is not a landing page — it is the product itself. You need a page that communicates value before the visitor tries the tool. Replace the content of <code>static/index.html</code> with a landing page that has the tool embedded below it. Alternatively, create <code>static/landing.html</code> and redirect <code>/</code> to it while moving the tool to <code>/app</code>.</p>
+<p>A high-converting landing page needs exactly five elements:</p>
+<ol>
+<li><strong>Headline:</strong> One sentence that states the benefit. Not the feature. &ldquo;Write cold emails that get replies&rdquo; — not &ldquo;AI-powered email rewriting tool.&rdquo;</li>
+<li><strong>Subheadline:</strong> One sentence that adds specificity. &ldquo;Average response rate increases 3x for Pro users.&rdquo;</li>
+<li><strong>Social proof:</strong> Even at launch, you can show a counter (&ldquo;127 emails rewritten today&rdquo;) or a testimonial from your beta testers.</li>
+<li><strong>Free trial CTA:</strong> &ldquo;Try it free — 3 rewrites, no signup required.&rdquo; Remove every barrier between the visitor and their first experience of value.</li>
+<li><strong>Pricing:</strong> Visible, simple, one tier. &ldquo;$9/month for unlimited rewrites. Cancel anytime.&rdquo;</li>
+</ol>
+<p><strong>Interactive check-in:</strong> Visit your live URL. Does the landing page load? Test the full signup flow: visit the page, paste an email, click rewrite, see the result, hit the free limit, see the upgrade prompt, click upgrade, complete Stripe checkout (test mode). Does every step work end-to-end? If any step breaks, fix it before launching. A broken checkout flow at launch is unrecoverable — users who hit a bug will not come back.</p>
+<h2 id="step-6-acquire-your-first-100-users">Step 6: Acquire Your First 100 Users</h2>
+<p>Your product is live. Nobody knows it exists. Here is how to fix that.</p>
+<h3 id="product-hunt-launch-strategy">Product Hunt Launch Strategy</h3>
+<p>Product Hunt can drive 500-2,000 visitors in a single day if you execute well. Here is the playbook:</p>
+<ol>
+<li><strong>Schedule your launch</strong> on a Tuesday or Wednesday (highest traffic days). Avoid weekends and Mondays.</li>
+<li><strong>Prepare your assets</strong> 48 hours before: a 60-second demo video (use Loom), 3-4 screenshots, a clear tagline (&ldquo;AI cold email rewriter that 3xes your response rate&rdquo;), and a first comment that explains why you built this.</li>
+<li><strong>Build your &ldquo;upvote squad&rdquo;</strong> — tell 15-20 people in your network to upvote and comment on launch day. Not all at once — stagger them between 6am and 12pm PST.</li>
+<li><strong>Respond to every comment</strong> within 30 minutes. Engagement signals push you up the algorithm.</li>
+<li><strong>Offer a launch discount</strong> — 50% off the first 3 months for Product Hunt users. Create a Stripe coupon and mention it in your first comment.</li>
+</ol>
+<p><strong>Expected result:</strong> 200-800 visitors, 20-80 signups, 3-10 paid conversions on launch day.</p>
+<h3 id="community-posting-templates">Community Posting Templates</h3>
+<p>Post in communities where your target users already are. For a cold email tool, that is r/Entrepreneur, r/SaaS, r/sales, Indie Hackers, and relevant Slack communities. Use this template — adjust the brackets:</p>
+<p><strong>Reddit post title:</strong> &ldquo;I built an AI tool that rewrites cold emails to get more replies — 3 free rewrites, no signup&rdquo;</p>
+<p><strong>Reddit post body:</strong></p>
+<blockquote>
+<p>I was spending 2+ hours a day writing and rewriting cold outreach emails. My response rate was stuck at 3%. So I built a tool that uses GPT-4 to rewrite your drafts with better hooks, clearer asks, and more effective tone. My response rate went from 3% to 9%.</p>
+<p>It is simple: paste your draft, pick a tone, get a better version. 3 free rewrites, then $9/month for unlimited.</p>
+<p>Would love feedback from anyone who sends cold emails regularly. What would make this more useful for you?</p>
+</blockquote>
+<p><strong>Do not:</strong> post in more than 2 subreddits per day, use marketing language (&ldquo;revolutionary,&rdquo; &ldquo;game-changing&rdquo;), or skip engaging with comments. Reddit detects and punishes self-promotion that does not contribute value.</p>
+<h3 id="cold-outreach-for-b2b-micro-saas">Cold Outreach for B2B Micro-SaaS</h3>
+<p>If your tool serves a business function (and a cold email rewriter absolutely does), direct outreach is your highest-converting channel. Here is the method:</p>
+<ol>
+<li>Build a list of 200 prospects. Use Apollo.io (free tier gives 50 emails/month) or LinkedIn Sales Navigator. Target: sales reps, SDRs, founders of B2B companies with 1-50 employees.</li>
+<li>Send this email:</li>
+</ol>
+<blockquote>
+<p>Subject: your cold emails</p>
+<p>Hi [Name],</p>
+<p>I noticed [specific observation about their company/role]. I built a tool that rewrites cold emails to get more replies — it takes a draft you have and sharpens the hook, ask, and tone.</p>
+<p>3 free rewrites, no signup: [your URL]</p>
+<p>If it helps, great. If not, no worries.</p>
+<p>[Your name]</p>
+</blockquote>
+<ol start="3">
+<li>Send 20 per day. Track opens and replies. After 5 business days, follow up with anyone who opened but did not reply: &ldquo;Hey [Name], just bumping this — the free rewrites reset weekly if you want to try it.&rdquo;</li>
+</ol>
+<p><strong>Expected conversion rate:</strong> 5-15% of people who open the email will try the tool. 10-20% of those will hit the paywall. 5-10% of those will subscribe. At 20 outreach emails/day, expect 1-3 new paying users per week.</p>
+<h3 id="pricing-strategy">Pricing Strategy</h3>
+<p>For micro-SaaS, pricing is simple:</p>
+<table>
+  <thead>
+      <tr>
+          <th>Tier</th>
+          <th>Price</th>
+          <th>Includes</th>
+          <th>Target User</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Free</td>
+          <td>$0</td>
+          <td>3 rewrites per week</td>
+          <td>Try-before-you-buy users</td>
+      </tr>
+      <tr>
+          <td>Pro</td>
+          <td>$9/month</td>
+          <td>Unlimited rewrites, all tones, priority processing</td>
+          <td>Individual sellers, freelancers</td>
+      </tr>
+      <tr>
+          <td>Team</td>
+          <td>$29/month</td>
+          <td>5 seats, shared templates, usage analytics</td>
+          <td>Small sales teams</td>
+      </tr>
+  </tbody>
+</table>
+<p>Start with Free + Pro. Add Team when users start asking for it (they will — this is how you know the market is ready for a higher tier).</p>
+<p>Do not price below $9/month. A $5/month product attracts support-heavy users who cost more in OpenAI API calls than they pay in subscription revenue. A $9/month product attracts professionals who value their time.</p>
+<h2 id="cost-breakdown">Cost Breakdown</h2>
+<table>
+  <thead>
+      <tr>
+          <th>Item</th>
+          <th>Free Tier</th>
+          <th>Paid Tier</th>
+          <th>When to Upgrade</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Replit</td>
+          <td>Free (limited)</td>
+          <td>$0.12/day Cloud Run</td>
+          <td>At launch — you need a stable URL</td>
+      </tr>
+      <tr>
+          <td>OpenAI API</td>
+          <td>$5 credit (pay per use)</td>
+          <td>~$0.15 per 1K output tokens</td>
+          <td>Scales with usage; monitor daily</td>
+      </tr>
+      <tr>
+          <td>Stripe</td>
+          <td>Free</td>
+          <td>2.9% + 30c per transaction</td>
+          <td>Always use — no free alternative</td>
+      </tr>
+      <tr>
+          <td>Clerk</td>
+          <td>Free (10K MAU)</td>
+          <td>$25/mo (Pro, 100K MAU)</td>
+          <td>At 10,000+ monthly active users</td>
+      </tr>
+      <tr>
+          <td>Custom Domain</td>
+          <td>—</td>
+          <td>$10-12/year</td>
+          <td>Immediately — builds trust</td>
+      </tr>
+      <tr>
+          <td>Sentry</td>
+          <td>Free (5K errors/mo)</td>
+          <td>$26/mo (Team)</td>
+          <td>At 5,000+ monthly errors</td>
+      </tr>
+      <tr>
+          <td>Email (Resend)</td>
+          <td>Free (100 emails/day)</td>
+          <td>$20/mo (Pro)</td>
+          <td>When sending transactional emails</td>
+      </tr>
+  </tbody>
+</table>
+<p><strong>Total monthly cost at 50 users (10 paying):</strong> ~$15-25/mo
+<strong>Total monthly revenue at 50 users (10 paying):</strong> $90/mo (10 × $9)
+<strong>Break-even:</strong> ~15 paying users</p>
+<p>Your primary variable cost is OpenAI API usage. At $0.15 per 1K output tokens, each rewrite costs approximately $0.003-0.01. A Pro user doing 100 rewrites/month costs you $0.30-1.00 in API calls and pays you $9. That is an 89-97% gross margin. This is why AI micro-SaaS is attractive — the unit economics are exceptional once you cross the break-even point.</p>
+<h2 id="production-checklist">Production Checklist</h2>
+<p>Before announcing your product publicly, verify every item:</p>
+<ul>
+<li><input disabled="" type="checkbox"> AI endpoint returns accurate, relevant rewrites (tested with 20+ different inputs)</li>
+<li><input disabled="" type="checkbox"> Stripe checkout completes successfully in test mode and live mode</li>
+<li><input disabled="" type="checkbox"> Webhook handler updates user tier correctly on subscription creation and deletion</li>
+<li><input disabled="" type="checkbox"> Free tier enforces usage limits — users cannot bypass the 3-rewrite cap</li>
+<li><input disabled="" type="checkbox"> Upgrade prompt appears when free limit is reached and links to working checkout</li>
+<li><input disabled="" type="checkbox"> Authentication flow works end-to-end — sign up, sign in, sign out, session persistence</li>
+<li><input disabled="" type="checkbox"> Rate limiting prevents abuse — no more than 1 request per 2 seconds per user</li>
+<li><input disabled="" type="checkbox"> Error tracking is active — Sentry (or equivalent) captures unhandled exceptions</li>
+<li><input disabled="" type="checkbox"> Landing page loads in under 3 seconds on mobile and desktop</li>
+<li><input disabled="" type="checkbox"> Custom domain is configured with SSL certificate (HTTPS, not HTTP)</li>
+</ul>
+<h2 id="what-to-do-next">What to Do Next</h2>
+<p>Once you have 50-100 users and 10-20 paying subscribers, expand:</p>
+<ul>
+<li><strong>Add templates.</strong> Let Pro users save and reuse rewrite templates (&ldquo;SaaS follow-up,&rdquo; &ldquo;investor outreach,&rdquo; &ldquo;job application&rdquo;). This increases retention because saved templates are switching costs.</li>
+<li><strong>Integrate with email tools.</strong> Build a Chrome extension that works inside Gmail, Outlook, or Apollo. This removes the copy-paste step and dramatically increases usage frequency.</li>
+<li><strong>Add team features.</strong> Shared rewrite history, team templates, and usage analytics. Price it at $29/month per team. Team plans have lower churn than individual plans.</li>
+<li><strong>Build a second micro-product.</strong> Use the same stack, the same deployment, the same auth — just swap the AI prompt and the UI. Your second product is 50% faster to build because the infrastructure is reusable.</li>
+<li><strong>Explore affiliate distribution.</strong> Offer sales trainers and consultants a 30% recurring commission for every user they refer. Affiliates who already have audiences in your target market will acquire users faster than you can.</li>
+</ul>
+
+  </div>
+</article>
+
+  <section class="newsletter-section" id="newsletter">
+  <div class="newsletter-inner">
+    <span class="section-label">Stay Ahead</span>
+    <h2 class="newsletter-title">JOIN THE INTELLIGENCE</h2>
+    <p class="newsletter-desc">Get the latest AI monetization opportunities, playbooks, and tools delivered straight to your inbox. No fluff. Pure signal.</p>
+    <div class="newsletter-form">
+      <input type="email" class="input-brutal" placeholder="YOUR EMAIL ADDRESS">
+      <button class="btn-brutal btn-yellow">SUBSCRIBE</button>
+    </div>
+  </div>
+</section>
+
+  <footer class="footer">
+  <div class="footer-grid">
+    <div class="footer-col">
+      <div class="footer-brand-name">MENSHLY GLOBAL</div>
+      <p class="footer-brand-desc">WHERE AI MEETS REVENUE — Discover AI opportunities, download ready-made playbooks, use free tools, and follow deep implementation guides. Built for builders.</p>
+    </div>
+    <div class="footer-col">
+      <div class="footer-heading">Navigate</div>
+      <a href="/" class="footer-link">Home</a>
+      <a href="/opportunities/" class="footer-link">Opportunities</a>
+      <a href="/playbooks/" class="footer-link">Playbooks</a>
+      <a href="/tools/" class="footer-link">Tools</a>
+      <a href="/intelligence/" class="footer-link">Intelligence</a>
+    </div>
+    <div class="footer-col">
+      <div class="footer-heading">Categories</div>
+      <span class="footer-link">AI Discovery</span>
+      <span class="footer-link">Automation</span>
+      <span class="footer-link">Side Hustles</span>
+      <span class="footer-link">Freelancing</span>
+      <span class="footer-link">Agency Building</span>
+    </div>
+    <div class="footer-col">
+      <div class="footer-heading">Social</div>
+      <span class="footer-link">Twitter / X</span>
+      <span class="footer-link">LinkedIn</span>
+      <span class="footer-link">YouTube</span>
+      <span class="footer-link">GitHub</span>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>&copy; 2026 MENSHLY GLOBAL. ALL RIGHTS RESERVED.</span>
+    <span>BUILT FOR THE FUTURE</span>
+  </div>
+</footer>
+
+</body>
+</html>
