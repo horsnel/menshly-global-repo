@@ -27,3 +27,28 @@ disableKinds = ["taxonomy", "term"]
     name = "INTELLIGENCE"
     url = "/intelligence/"
     weight = 4
+  [[menu.main]]
+    name = "ABOUT"
+    url = "/about/"
+    weight = 5
+  [[menu.main]]
+    name = "CONTACT"
+    url = "/contact/"
+    weight = 6
+
+  [[menu.footer]]
+    name = "About"
+    url = "/about/"
+    weight = 1
+  [[menu.footer]]
+    name = "Contact"
+    url = "/contact/"
+    weight = 2
+  [[menu.footer]]
+    name = "Terms of Service"
+    url = "/legal/terms/"
+    weight = 3
+  [[menu.footer]]
+    name = "Privacy Policy"
+    url = "/legal/privacy/"
+    weight = 4

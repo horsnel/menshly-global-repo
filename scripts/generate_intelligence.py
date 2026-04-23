@@ -226,6 +226,28 @@ if __name__ == "__main__":
 
     print(f"Generating article about: {topic}")
     print(f"Difficulty: {difficulty}")
+
+    # Step 1: Generate images FIRST (before article content)
+    prelim_slug = slugify(topic)
+
+    print("Generating thumbnail image...")
+    image_path = generate_article_image(
+        topic=topic,
+        slug=prelim_slug,
+        section="intelligence",
+    )
+    print(f"Thumbnail saved: {image_path}")
+
+    print("Generating hero image...")
+    hero_path = generate_hero_image(
+        topic=topic,
+        slug=prelim_slug,
+        section="intelligence",
+    )
+    print(f"Hero image saved: {hero_path}")
+
+    # Step 2: Generate article content
+    print("Generating article content...")
     body = generate_article()
     title = extract_title(body)
     excerpt = build_excerpt(body)
@@ -234,19 +256,21 @@ if __name__ == "__main__":
     slug = slugify(title)
     now = datetime.now(timezone.utc)
 
-    # Generate article thumbnail via Pollination AI
-    image_path = generate_article_image(
-        topic=topic,
-        slug=slug,
-        section="intelligence",
-    )
-
-    # Generate premium hero/OG image via Pollination AI
-    hero_path = generate_hero_image(
-        topic=topic,
-        slug=slug,
-        section="intelligence",
-    )
+    # Step 3: Rename images if slug differs from preliminary slug
+    if slug != prelim_slug:
+        import shutil
+        old_thumb = image_path
+        old_hero = hero_path
+        new_thumb = image_path.replace(prelim_slug, slug)
+        new_hero = hero_path.replace(prelim_slug, slug)
+        if os.path.exists(old_thumb):
+            os.rename(old_thumb, new_thumb)
+            image_path = new_thumb
+            print(f"Renamed thumbnail: {new_thumb}")
+        if os.path.exists(old_hero):
+            os.rename(old_hero, new_hero)
+            hero_path = new_hero
+            print(f"Renamed hero: {new_hero}")
 
     front_matter = f"""---
 title: "{title}"

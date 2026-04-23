@@ -11,15 +11,47 @@
       <span class="article-meta-item" style="background:var(--yellow);">{{ . }}</span>
       {{ end }}
     </div>
+    <!-- Listen to this article -->
+    <div class="article-listen-bar">
+      <button class="listen-btn" id="listenBtn" onclick="toggleListen()">
+        <svg class="listen-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path><path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path></svg>
+        <span id="listenLabel">LISTEN TO THIS ARTICLE</span>
+      </button>
+    </div>
   </div>
+  {{ with .Params.heroImage }}
+  <div class="article-hero-image">
+    <img src="{{ . }}" alt="{{ $.Title }}" loading="eager">
+  </div>
+  {{ else with .Params.image }}
+  <div class="article-hero-image">
+    <img src="{{ . }}" alt="{{ $.Title }}" loading="eager">
+  </div>
+  {{ end }}
   <div class="article-content">
     {{ .Content }}
   </div>
+  <!-- Playbook Buy Box -->
   {{ with .Params.price }}
-  <div style="padding:0 24px 48px;max-width:760px;">
-    <button class="btn-brutal btn-yellow" style="width:100%;justify-content:center;font-size:16px;padding:16px;">
-      {{ if eq . "FREE" }}DOWNLOAD NOW{{ else }}BUY NOW — {{ . }}{{ end }}
-    </button>
+  <div class="playbook-buy-box">
+    <div class="playbook-buy-inner">
+      <div class="playbook-buy-header">
+        <h3>{{ if eq . "FREE" }}DOWNLOAD NOW{{ else }}GET THIS PLAYBOOK{{ end }}</h3>
+        <span class="playbook-buy-price">{{ . }}</span>
+      </div>
+      <div class="playbook-buy-body">
+        <ul class="playbook-buy-features">
+          <li>Complete step-by-step procedures</li>
+          <li>Exact tools, settings, and configurations</li>
+          <li>Interactive check-ins at every stage</li>
+          <li>Revenue projections and pricing tables</li>
+          <li>Ready-to-use SOPs and templates</li>
+        </ul>
+        <button class="btn-brutal {{ if eq . "FREE" }}btn-yellow{{ else }}btn-red{{ end }}" style="width:100%;justify-content:center;font-size:16px;padding:16px;">
+          {{ if eq . "FREE" }}DOWNLOAD NOW{{ else }}BUY NOW — {{ . }}{{ end }}
+        </button>
+      </div>
+    </div>
   </div>
   {{ end }}
 </article>
