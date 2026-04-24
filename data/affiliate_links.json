@@ -119,6 +119,12 @@
       "url": "https://apollo.io",
       "category": "sales",
       "description": "B2B sales intelligence and engagement platform"
+    },
+    {
+      "name": "Replit",
+      "url": "https://replit.com/refer/egwuokwor",
+      "category": "development",
+      "description": "Cloud IDE — build, deploy, and scale AI SaaS products in your browser"
     }
   ]
 }
