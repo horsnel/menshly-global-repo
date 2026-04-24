@@ -30,8 +30,9 @@ load_dotenv(Path(__file__).resolve().parent.parent / ".env")
 from image_utils import generate_article_image, generate_hero_image
 
 AI_API_KEY = os.environ.get("AI_API_KEY", "")
-AI_API_BASE = os.environ.get("AI_API_BASE", "https://generativelanguage.googleapis.com/v1beta/openai")
-AI_MODEL = os.environ.get("AI_MODEL", "gemini-2.0-flash")
+AI_API_BASE = os.environ.get("AI_API_BASE", "https://api.groq.com/openai/v1")
+AI_API_MODEL = os.environ.get("AI_MODEL", "llama-3.3-70b-versatile")
+AI_MODEL = AI_API_MODEL
 
 # ── Intelligence implementation topics ────────────────────────────────
 TOPICS = [
