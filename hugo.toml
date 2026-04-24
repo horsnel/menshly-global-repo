@@ -5,6 +5,16 @@ copyright = "2026 MENSHLY GLOBAL. ALL RIGHTS RESERVED."
 
 disableKinds = ["taxonomy", "term"]
 ignoreLogs = ['warning-goldmark-raw-html']
+enableRobotsTXT = true
+
+[sitemap]
+  changefreq = "weekly"
+  filename = "sitemap.xml"
+  priority = 0.5
+
+[outputs]
+  home = ["HTML", "Sitemap"]
+  section = ["HTML", "Sitemap"]
 
 [markup]
   [markup.goldmark]

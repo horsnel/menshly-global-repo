@@ -7,6 +7,7 @@ excerpt: "Every platform, every hack, every ugly truth — the complete deep div
 image: "/images/articles/opportunities/ai-course-creation.png"
 heroImage: "/images/heroes/opportunities/ai-course-creation.png"
 relatedPlaybook: "/playbooks/ai-side-hustle-blueprint/"
+relatedGuide: "/intelligence/build-ai-course-creation-system/"
 ---
 
 The online education market hit $300 billion in 2025 and it's still growing at 15% per year. But here's the part that should make you pay attention: the average course creator makes less than $1,000 in lifetime revenue. The top 1% make $100,000+ per year. The gap between the average and the top isn't knowledge — it's packaging, marketing, and delivery. And AI has collapsed the barrier between average and exceptional. The person who couldn't write a lesson plan to save their life can now produce a professional-grade course in two weeks with AI handling 80% of the production. The playing field has been leveled. The only question is whether you're going to play.

@@ -7,6 +7,7 @@ excerpt: "Every tool, every hack, every ugly truth — the complete deep dive on
 image: "/images/articles/opportunities/content-repurposing-agency-deep-dive.png"
 heroImage: "/images/heroes/opportunities/content-repurposing-agency-deep-dive.png"
 relatedPlaybook: "/playbooks/chatgpt-prompt-engineering-guide/"
+relatedGuide: "/intelligence/build-content-repurposing-agency/"
 ---
 
 Here's the thing nobody wants to admit about the creator economy: most creators are producing content that dies within 24 hours. They spend eight hours scripting, filming, and editing a YouTube video, and three days later it's buried. The podcast episode they recorded? 800 downloads if they're lucky. That newsletter they agonized over? 35% open rate on a good day. Meanwhile, every platform they're on is screaming for more content. LinkedIn wants daily posts. Twitter wants threads. Instagram wants Reels. TikTok wants three uploads a day. It's exhausting just thinking about it, and that's exactly why there's a massive pile of money sitting on the table for anyone willing to do the unglamorous work of repurposing.

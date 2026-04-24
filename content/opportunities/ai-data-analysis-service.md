@@ -7,6 +7,7 @@ excerpt: "Every tool, every hack, every ugly truth — the complete deep dive on
 image: "/images/articles/opportunities/ai-data-analysis-service.png"
 heroImage: "/images/heroes/opportunities/ai-data-analysis-service.png"
 relatedPlaybook: "/playbooks/ai-side-hustle-blueprint/"
+relatedGuide: "/intelligence/launch-ai-data-analysis-service/"
 ---
 
 Every business is sitting on a goldmine of data and has absolutely no idea what to do with it. Their sales data lives in a CRM nobody looks at. Their customer data sits in a spreadsheet that hasn't been opened since last quarter. Their marketing data is scattered across 5 different platforms with no unified view. They know the data is valuable. They know they should be making data-driven decisions. But they don't have the skills, the time, or the tools to extract insights from the mess. That's where you come in.
