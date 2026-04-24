@@ -18,6 +18,7 @@ that follow the Menshly Global Playbook template — the same format as
 import os
 import re
 import json
+import time
 import requests
 from datetime import datetime, timezone
 from pathlib import Path
@@ -38,6 +39,53 @@ AI_MODEL = AI_API_MODEL
 PLAYBOOK_API_KEY = os.environ.get("PLAYBOOK_API_KEY", AI_API_KEY)
 PLAYBOOK_API_BASE = os.environ.get("PLAYBOOK_API_BASE", AI_API_BASE)
 PLAYBOOK_MODEL = os.environ.get("PLAYBOOK_MODEL", AI_MODEL)
+
+
+def api_call(payload, max_retries=5, api_key=None, api_base=None):
+    """Call the AI API with automatic retry on rate limits (429) and server errors (5xx).
+    
+    For playbooks, pass api_key and api_base to use PLAYBOOK_* overrides.
+    """
+    key = api_key or AI_API_KEY
+    base = api_base or AI_API_BASE
+    headers = {
+        "Authorization": f"Bearer {key}",
+        "Content-Type": "application/json",
+    }
+    for attempt in range(max_retries + 1):
+        try:
+            resp = requests.post(
+                f"{base}/chat/completions",
+                headers=headers,
+                json=payload,
+                timeout=300,
+            )
+            if resp.status_code == 429:
+                retry_after = resp.headers.get("Retry-After")
+                wait = int(retry_after) if retry_after else 30 * (attempt + 1)
+                if attempt < max_retries:
+                    print(f"  Rate limited (429). Waiting {wait}s before retry {attempt+1}/{max_retries}...")
+                    time.sleep(wait)
+                    continue
+                else:
+                    print(f"  Rate limited (429). Max retries reached.")
+                    resp.raise_for_status()
+            if resp.status_code >= 500:
+                if attempt < max_retries:
+                    wait = 10 * (attempt + 1)
+                    print(f"  Server error ({resp.status_code}). Waiting {wait}s before retry {attempt+1}/{max_retries}...")
+                    time.sleep(wait)
+                    continue
+            resp.raise_for_status()
+            return resp.json()
+        except requests.exceptions.Timeout:
+            if attempt < max_retries:
+                wait = 15 * (attempt + 1)
+                print(f"  Request timed out. Waiting {wait}s before retry {attempt+1}/{max_retries}...")
+                time.sleep(wait)
+                continue
+            raise
+    resp.raise_for_status()
 
 # ── Playbook topics ──────────────────────────────────────────────────
 TOPICS = [
@@ -191,10 +239,6 @@ def generate_playbook():
     api_base = PLAYBOOK_API_BASE
     model = PLAYBOOK_MODEL
 
-    headers = {
-        "Authorization": f"Bearer {api_key}",
-        "Content-Type": "application/json",
-    }
     payload = {
         "model": model,
         "messages": [
@@ -209,14 +253,7 @@ def generate_playbook():
     print(f"Model: {model}")
     print(f"Max tokens: {MAX_TOKENS}")
     print("Calling API (this may take 2-3 minutes for a full playbook)...")
-    resp = requests.post(
-        f"{api_base}/chat/completions",
-        headers=headers,
-        json=payload,
-        timeout=300,
-    )
-    resp.raise_for_status()
-    data = resp.json()
+    data = api_call(payload, api_key=api_key, api_base=api_base)
     body = data["choices"][0]["message"]["content"]
     
     # Check if the playbook was cut short
@@ -248,14 +285,7 @@ WORD COUNT TARGET: Write at least 3000 more words. Every procedure needs sub-ste
             "max_tokens": MAX_TOKENS,
             "temperature": 0.65,
         }
-        resp2 = requests.post(
-            f"{api_base}/chat/completions",
-            headers=headers,
-            json=payload2,
-            timeout=300,
-        )
-        resp2.raise_for_status()
-        data2 = resp2.json()
+        data2 = api_call(payload2, api_key=api_key, api_base=api_base)
         continuation = data2["choices"][0]["message"]["content"]
         cont_words = len(continuation.split())
         print(f"  Second pass: {cont_words} words added")
@@ -291,14 +321,7 @@ WORD COUNT TARGET: At least 1500 words for the appendices."""
                 "max_tokens": MAX_TOKENS,
                 "temperature": 0.6,
             }
-            resp3 = requests.post(
-                f"{api_base}/chat/completions",
-                headers=headers,
-                json=payload3,
-                timeout=300,
-            )
-            resp3.raise_for_status()
-            data3 = resp3.json()
+            data3 = api_call(payload3, api_key=api_key, api_base=api_base)
             appendix = data3["choices"][0]["message"]["content"]
             app_words = len(appendix.split())
             print(f"  Third pass: {app_words} words added")

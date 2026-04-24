@@ -18,6 +18,7 @@ that follow the Menshly Global Intelligence template:
 import os
 import re
 import json
+import time
 import requests
 from datetime import datetime, timezone
 from pathlib import Path
@@ -33,6 +34,48 @@ AI_API_KEY = os.environ.get("AI_API_KEY", "")
 AI_API_BASE = os.environ.get("AI_API_BASE", "https://api.groq.com/openai/v1")
 AI_API_MODEL = os.environ.get("AI_MODEL", "llama-3.3-70b-versatile")
 AI_MODEL = AI_API_MODEL
+
+
+def api_call(payload, max_retries=5):
+    """Call the AI API with automatic retry on rate limits (429) and server errors (5xx)."""
+    headers = {
+        "Authorization": f"Bearer {AI_API_KEY}",
+        "Content-Type": "application/json",
+    }
+    for attempt in range(max_retries + 1):
+        try:
+            resp = requests.post(
+                f"{AI_API_BASE}/chat/completions",
+                headers=headers,
+                json=payload,
+                timeout=180,
+            )
+            if resp.status_code == 429:
+                retry_after = resp.headers.get("Retry-After")
+                wait = int(retry_after) if retry_after else 30 * (attempt + 1)
+                if attempt < max_retries:
+                    print(f"  Rate limited (429). Waiting {wait}s before retry {attempt+1}/{max_retries}...")
+                    time.sleep(wait)
+                    continue
+                else:
+                    print(f"  Rate limited (429). Max retries reached.")
+                    resp.raise_for_status()
+            if resp.status_code >= 500:
+                if attempt < max_retries:
+                    wait = 10 * (attempt + 1)
+                    print(f"  Server error ({resp.status_code}). Waiting {wait}s before retry {attempt+1}/{max_retries}...")
+                    time.sleep(wait)
+                    continue
+            resp.raise_for_status()
+            return resp.json()
+        except requests.exceptions.Timeout:
+            if attempt < max_retries:
+                wait = 15 * (attempt + 1)
+                print(f"  Request timed out. Waiting {wait}s before retry {attempt+1}/{max_retries}...")
+                time.sleep(wait)
+                continue
+            raise
+    resp.raise_for_status()
 
 # ── Intelligence implementation topics ────────────────────────────────
 TOPICS = [
@@ -151,10 +194,6 @@ def generate_article():
     1. First pass generates the bulk of the article
     2. If too short (< 3000 words), a second pass continues from where it left off
     """
-    headers = {
-        "Authorization": f"Bearer {AI_API_KEY}",
-        "Content-Type": "application/json",
-    }
     payload = {
         "model": AI_MODEL,
         "messages": [
@@ -164,14 +203,7 @@ def generate_article():
         "max_tokens": 16000,
         "temperature": 0.7,
     }
-    resp = requests.post(
-        f"{AI_API_BASE}/chat/completions",
-        headers=headers,
-        json=payload,
-        timeout=180,
-    )
-    resp.raise_for_status()
-    data = resp.json()
+    data = api_call(payload)
     body = data["choices"][0]["message"]["content"]
     
     # Check if the article was cut short (finish_reason = "length")
@@ -203,14 +235,7 @@ WORD COUNT TARGET: Write at least 2000 more words."""
             "max_tokens": 16000,
             "temperature": 0.65,
         }
-        resp2 = requests.post(
-            f"{AI_API_BASE}/chat/completions",
-            headers=headers,
-            json=payload2,
-            timeout=180,
-        )
-        resp2.raise_for_status()
-        data2 = resp2.json()
+        data2 = api_call(payload2)
         continuation = data2["choices"][0]["message"]["content"]
         cont_words = len(continuation.split())
         print(f"  Second pass: {cont_words} words added")
