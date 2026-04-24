@@ -21,4 +21,4 @@ id = "7e0f9ae451714bcea91838602f977cd7"
 [vars]
 SITE_URL = "https://menshly-global-enz.pages.dev"
 EMAIL_PROVIDER = "resend"
-EMAIL_FROM = "Menshly Global <hello@menshlyglobal.com>"
+EMAIL_FROM = "Menshly Global <onboarding@resend.dev>"

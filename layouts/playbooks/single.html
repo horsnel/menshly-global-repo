@@ -163,6 +163,7 @@ function payWithPaystack() {
     metadata: {
       product: productTitle,
       type: 'playbook',
+      pdf_slug: '{{ .File.ContentBaseName }}',
       source: window.location.href
     },
     onClose: function() {

@@ -23,7 +23,7 @@
           {{ if eq .Params.price "FREE" }}
           <span class="playbook-btn playbook-btn-download">DOWNLOAD</span>
           {{ else }}
-          <button class="playbook-btn playbook-btn-buy" style="border:none;cursor:pointer;background:none;font:inherit;padding:0;" data-title="{{ $p.Title }}" data-price="{{ .Params.price }}" onclick="event.preventDefault();promptEmailAndPay(this)">{{ if eq .Params.price "FREE" }}DOWNLOAD{{ else }}BUY NOW{{ end }}</button>
+          <button class="playbook-btn playbook-btn-buy" style="border:none;cursor:pointer;background:none;font:inherit;padding:0;" data-title="{{ $p.Title }}" data-price="{{ .Params.price }}" data-slug="{{ .File.ContentBaseName }}" onclick="event.preventDefault();promptEmailAndPay(this)">{{ if eq .Params.price "FREE" }}DOWNLOAD{{ else }}BUY NOW{{ end }}</button>
           {{ end }}
         </div>
       </a>
@@ -44,6 +44,7 @@ function promptEmailAndPay(el) {
   const amountInDollars = parseFloat(priceStr.replace(/[^0-9.]/g, ''));
   const amountInKobo = Math.round(amountInDollars * 100);
   const productTitle = el.getAttribute('data-title');
+  const pdfSlug = el.getAttribute('data-slug');
   const publicKey = '{{ .Site.Params.paystackPublicKey | default "pk_test_xxx" }}';
 
   const handler = PaystackPop.setup({
@@ -54,6 +55,7 @@ function promptEmailAndPay(el) {
     metadata: {
       product: productTitle,
       type: 'playbook',
+      pdf_slug: pdfSlug,
       source: window.location.href
     },
     onClose: function() {
