@@ -7,6 +7,7 @@ excerpt: "Every tool, every hack, every ugly truth — the complete deep dive on
 image: "/images/articles/opportunities/ai-social-media-agency.png"
 heroImage: "/images/heroes/opportunities/ai-social-media-agency.png"
 relatedGuide: "/intelligence/build-ai-social-media-pipeline/"
+relatedPlaybook: "/playbooks/chatgpt-prompt-engineering-guide/"
 ---
 
 Every business owner knows they need to "be on social media." Every business owner hates actually doing it. They stare at the blank caption box, write something mediocre, post it at the wrong time, get 12 likes, and conclude that social media doesn't work for their business. The truth is it does work — they just don't have the time, skill, or consistency to make it work. And that gap between knowing they need social media and being able to execute on it is where your AI social media management agency prints money.

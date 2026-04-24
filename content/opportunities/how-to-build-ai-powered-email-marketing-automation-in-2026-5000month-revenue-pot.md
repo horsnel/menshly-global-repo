@@ -7,6 +7,7 @@ excerpt: "Every tool, every hack, every ugly truth — the complete deep dive on
 image: "/images/articles/opportunities/how-to-build-ai-powered-email-marketing-automation-in-2026.png"
 heroImage: "/images/heroes/opportunities/how-to-build-ai-powered-email-marketing-automation-in-2026.png"
 relatedGuide: "/intelligence/deploy-ai-email-marketing-automations/"
+relatedPlaybook: "/playbooks/ai-automation-agency-playbook/"
 ---
 
 The average small business sends 47 emails a month and gets a pathetic 1.8% click-through rate. Meanwhile, the businesses running AI-powered email sequences are pulling 6-8% click rates and generating $42 for every dollar spent on email. That gap right there — between 1.8% and 8% — is where your next $5,000/month sits. Not in some abstract future. Right now, today, in 2026.

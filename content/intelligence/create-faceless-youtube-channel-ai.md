@@ -8,6 +8,7 @@ excerpt: "The complete execution guide for building a faceless YouTube channel u
 image: "/images/articles/intelligence/create-faceless-youtube-channel-ai.png"
 heroImage: "/images/heroes/intelligence/create-faceless-youtube-channel-ai.png"
 relatedOpportunity: "/opportunities/ai-faceless-video-factory/"
+relatedPlaybook: "/playbooks/ai-side-hustle-blueprint/"
 ---
 
 A faceless YouTube channel eliminates the biggest barrier to content creation: you. No camera. No on-camera presence. No studio. Every element — script, voiceover, visuals, editing, and upload — can be produced with AI tools. This guide covers the full pipeline from niche selection to monetization. Follow it in order. Do not skip steps.

@@ -29,8 +29,8 @@ export default {
         return json({ error: 'Invalid JSON' }, 400);
       }
 
-      // 2. Verify Paystack signature
-      const signatureValid = verifyPaystackSignature(rawBody, env.PAYSTACK_SECRET_KEY, request.headers.get('X-Paystack-Signature'));
+      // 2. Verify Paystack signature (async)
+      const signatureValid = await verifyPaystackSignatureAsync(rawBody, env.PAYSTACK_SECRET_KEY, request.headers.get('X-Paystack-Signature'));
 
       if (!signatureValid) {
         console.error('Invalid Paystack signature');
@@ -152,22 +152,7 @@ export default {
   },
 };
 
-// ─── Paystack Signature Verification ──────────────────────────────────────────
-function verifyPaystackSignature(rawBody, secretKey, headerSignature) {
-  if (!secretKey || !headerSignature) return false;
-
-  // Use Web Crypto API (available in CloudFlare Workers)
-  const encoder = new TextEncoder();
-
-  // We need to compute HMAC-SHA512 synchronously, but Web Crypto is async
-  // Since this function is called from an async context, we return a boolean
-  // and handle the async verification in the main handler
-  // For now, we'll do a synchronous check using a simple approach
-  // CloudFlare Workers support crypto.subtle
-  return true; // We'll do the real check below with the async version
-}
-
-// Async version for actual verification
+// ─── Paystack Signature Verification (Async) ────────────────────────────────
 async function verifyPaystackSignatureAsync(rawBody, secretKey, headerSignature) {
   if (!secretKey || !headerSignature) return false;
 

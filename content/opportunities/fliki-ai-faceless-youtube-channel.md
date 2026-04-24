@@ -7,6 +7,7 @@ excerpt: "Fliki AI eliminates every production barrier for faceless YouTube chan
 image: "/images/articles/opportunities/fliki-ai-faceless-youtube-channel.png"
 heroImage: "/images/heroes/opportunities/fliki-ai-faceless-youtube-channel.png"
 relatedGuide: "/intelligence/fliki-ai-faceless-youtube-channel-guide/"
+relatedPlaybook: "/playbooks/ai-side-hustle-blueprint/"
 ---
 
 The faceless YouTube channel model has been one of the hottest AI income opportunities since 2024, but the production pipeline has always been the bottleneck. You needed ChatGPT for scripts, ElevenLabs for voiceovers, Midjourney for images, CapCut for editing, and hours of manual assembly to produce a single video. Fliki AI collapses that entire pipeline into one platform. You type a script or paste a blog post, and Fliki generates a complete video with AI voiceover, matched visuals, subtitles, and background music — all in under 10 minutes. This is not a marginal improvement. This is a paradigm shift that makes the faceless YouTube model accessible to anyone who can write a paragraph.

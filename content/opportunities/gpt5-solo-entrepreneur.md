@@ -6,6 +6,7 @@ readTime: "15 MIN"
 excerpt: "Every workflow, every hack, every ugly truth — the complete deep dive on how solo operators are building entire businesses powered by one AI model."
 image: "/images/articles/opportunities/gpt5-solo-entrepreneur.png"
 heroImage: "/images/heroes/opportunities/gpt5-solo-entrepreneur.png"
+relatedPlaybook: "/playbooks/ai-side-hustle-blueprint/"
 ---
 
 Here's a number that should make you sit up straight: the average small business in America has 5 employees and generates $400,000 in annual revenue. Now here's a number that should make you rethink everything: solo operators using GPT-5 are hitting $200,000-$300,000 in annual revenue with zero employees. Same revenue, one person instead of five. The math isn't complicated — it's the implications that are staggering. We're not talking about a side hustle or a freelance gig. We're talking about a full-scale business that does everything a 5-person team does, run by one person who learned to think of GPT-5 as their entire staff.

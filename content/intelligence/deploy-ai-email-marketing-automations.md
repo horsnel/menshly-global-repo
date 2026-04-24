@@ -8,6 +8,7 @@ excerpt: "The complete execution guide for building AI-driven email marketing sy
 image: "/images/articles/intelligence/deploy-ai-email-marketing-automations.png"
 heroImage: "/images/heroes/intelligence/deploy-ai-email-marketing-automations.png"
 relatedOpportunity: "/opportunities/how-to-build-ai-powered-email-marketing-automation-in-2026-5000month-revenue-pot/"
+relatedPlaybook: "/playbooks/ai-automation-agency-playbook/"
 ---
 
 Email marketing is not dead. Bad email marketing is dead. The difference between a 2% open rate and a 42% open rate is the same as the difference between a cold call and a warm introduction — relevance. AI does not replace your email strategy. It makes every email relevant to the person reading it. This guide walks you through building a complete AI-powered email marketing system: infrastructure, content generation, automated sequences, intelligent segmentation, and optimization. Follow it in order. Do not skip steps.
