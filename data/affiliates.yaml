@@ -1,0 +1,37 @@
+# Affiliate Links — Menshly Global
+# Use these in article content via {{< affiliate "fliki" >}} shortcode or direct links
+
+fliki:
+  name: "Fliki AI"
+  url: "https://fliki.ai?referral=noah-wilson-w84be4"
+  description: "AI text-to-video platform — script to finished video in 10 minutes"
+
+make:
+  name: "Make.com"
+  url: "https://www.make.com/en/register?pc=menshly"
+  description: "Visual automation platform — connect apps and automate workflows"
+
+replit:
+  name: "Replit"
+  url: "https://replit.com/"
+  description: "Cloud IDE — build and deploy AI SaaS products"
+
+vapi:
+  name: "Vapi"
+  url: "https://vapi.ai/"
+  description: "AI voice agent platform — build and deploy voice AI"
+
+canva:
+  name: "Canva"
+  url: "https://www.canva.com/"
+  description: "Design platform — thumbnails, graphics, brand assets"
+
+chatgpt:
+  name: "ChatGPT"
+  url: "https://chat.openai.com/"
+  description: "AI chatbot — scripts, content, research"
+
+elevenlabs:
+  name: "ElevenLabs"
+  url: "https://elevenlabs.io/"
+  description: "AI voice synthesis — natural voiceovers"

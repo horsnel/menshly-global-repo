@@ -28,9 +28,56 @@
     <img src="{{ . }}" alt="{{ $.Title }}" loading="eager">
   </div>
   {{ end }}
+
+  <!-- Cross-link back to Opportunity article -->
+  {{ with .Params.relatedOpportunity }}
+  {{ $opp := $.Site.GetPage . }}
+  {{ with $opp }}
+  <div class="crosslink-back">
+    <div class="crosslink-back-inner">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:20px;height:20px;flex-shrink:0;"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="8"></line><line x1="8" y1="12" x2="16" y2="12"></line></svg>
+      <span>This is the <strong>execution guide</strong> for the opportunity: <a href="{{ .Permalink }}">{{ .Title }}</a></span>
+    </div>
+  </div>
+  {{ end }}
+  {{ end }}
+
   <div class="article-content">
     {{ .Content }}
   </div>
+
+  <!-- Cross-link: Back to Opportunity Overview -->
+  {{ with .Params.relatedOpportunity }}
+  <div class="crosslink-cta crosslink-cta-back">
+    <div class="crosslink-cta-inner">
+      <div class="crosslink-cta-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+      </div>
+      <h3>READ THE OPPORTUNITY BREAKDOWN</h3>
+      <p>Understand the full revenue potential, niche dynamics, and strategy before executing.</p>
+      <a href="{{ . }}" class="btn-brutal btn-yellow" style="font-size:1.1rem;padding:16px 40px;">VIEW OPPORTUNITY</a>
+    </div>
+  </div>
+  {{ end }}
+
+  <!-- Playbook CTA (professional, contextual) -->
+  {{ with .Params.relatedPlaybook }}
+  {{ $playbook := $.Site.GetPage . }}
+  {{ with $playbook }}
+  <div class="playbook-cta-inline">
+    <div class="playbook-cta-inner">
+      <div class="playbook-cta-badge">PLAYBOOK</div>
+      <h4>{{ .Title }}</h4>
+      <p>{{ .Params.excerpt | default "Complete step-by-step procedures, tools, templates, and revenue projections." }}</p>
+      <div class="playbook-cta-footer">
+        <span class="playbook-cta-price">{{ .Params.price | default "FREE" }}</span>
+        <a href="{{ .Permalink }}" class="btn-brutal btn-red" style="font-size:0.9rem;padding:10px 24px;">GET THE PLAYBOOK</a>
+      </div>
+    </div>
+  </div>
+  {{ end }}
+  {{ end }}
+
   <!-- Share Your Startup Story -->
   <div class="story-box">
     <div class="story-box-header">

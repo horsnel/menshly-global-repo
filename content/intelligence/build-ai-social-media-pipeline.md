@@ -7,6 +7,7 @@ readTime: "24 MIN"
 excerpt: "The complete execution guide for building an AI-powered social media pipeline that produces, schedules, and publishes content across platforms on autopilot."
 image: "/images/articles/intelligence/build-ai-social-media-pipeline.png"
 heroImage: "/images/heroes/intelligence/build-ai-social-media-pipeline.png"
+relatedOpportunity: "/opportunities/ai-social-media-agency/"
 ---
 
 Running social media for clients is a volume problem. Every account needs 3-7 posts per week, each one tailored to the platform, branded, visual, and timed for maximum reach. Doing this manually caps your revenue at whatever your fingers can produce in a day. Building an AI pipeline removes the cap. One system generates the copy, creates the visuals, schedules the posts, and tracks the results — while you sleep. This guide shows you how to build that system from zero. Follow it in order. Do not skip steps.

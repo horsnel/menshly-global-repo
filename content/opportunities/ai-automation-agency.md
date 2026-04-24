@@ -6,6 +6,8 @@ readTime: "16 MIN"
 excerpt: "Every workflow, every hack, every ugly truth — the complete deep dive on building an automation agency that sells AI workflows to businesses drowning in manual work."
 image: "/images/articles/opportunities/ai-automation-agency.png"
 heroImage: "/images/heroes/opportunities/ai-automation-agency.png"
+relatedGuide: "/intelligence/makecom-automation-workflows/"
+relatedPlaybook: "/playbooks/ai-automation-agency-playbook/"
 ---
 
 Here's a secret that business owners will never admit out loud: most of their employees spend 60% of their day doing work that a $9/month tool could do better. Invoicing. Data entry. Email follow-ups. Report generation. Lead scoring. Customer onboarding. These aren't strategic tasks that require human creativity — they're repetitive processes that humans do because nobody has set up the automation yet. And that gap — the enormous, yawning gap between what businesses could automate and what they've actually automated — is where the AI automation agency lives.

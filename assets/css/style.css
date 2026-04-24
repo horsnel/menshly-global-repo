@@ -1841,6 +1841,197 @@ img {
   color: rgba(26, 26, 26, 0.85);
 }
 
+/* --- Cross-Link CTA (Opportunity → Intelligence) --- */
+.crosslink-cta {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 0 24px 0;
+}
+
+@media (min-width: 768px) {
+  .crosslink-cta {
+    padding: 0 48px 0;
+  }
+}
+
+.crosslink-cta-inner {
+  border: 3px solid var(--yellow);
+  background: var(--black);
+  padding: 40px 32px;
+  text-align: center;
+}
+
+.crosslink-cta-inner h3 {
+  font-family: var(--font-heading);
+  font-size: clamp(1.3rem, 2.5vw, 1.8rem);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--yellow);
+  margin: 0 0 12px;
+}
+
+.crosslink-cta-inner p {
+  font-size: 15px;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.75);
+  margin: 0 0 24px;
+  max-width: 480px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.crosslink-cta-icon {
+  color: var(--yellow);
+  margin-bottom: 16px;
+}
+
+.crosslink-cta-icon svg {
+  width: 40px;
+  height: 40px;
+}
+
+.crosslink-cta-back .crosslink-cta-inner {
+  border-color: var(--red);
+}
+
+.crosslink-cta-back .crosslink-cta-inner h3 {
+  color: var(--white);
+}
+
+/* --- Cross-Link Back Banner (Intelligence → Opportunity) --- */
+.crosslink-back {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+@media (min-width: 768px) {
+  .crosslink-back {
+    padding: 0 48px;
+  }
+}
+
+.crosslink-back-inner {
+  border-bottom: 3px solid var(--yellow);
+  border-left: 3px solid var(--yellow);
+  border-right: 3px solid var(--yellow);
+  background: rgba(249, 255, 0, 0.08);
+  padding: 12px 20px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 14px;
+  color: rgba(26, 26, 26, 0.8);
+}
+
+.crosslink-back-inner svg {
+  color: var(--yellow);
+}
+
+.crosslink-back-inner a {
+  color: var(--red);
+  text-decoration: underline;
+  font-weight: 600;
+}
+
+.crosslink-back-inner a:hover {
+  background: var(--yellow);
+  text-decoration: none;
+}
+
+/* --- Playbook CTA Inline (in articles) --- */
+.playbook-cta-inline {
+  max-width: 1080px;
+  margin: 32px auto;
+  padding: 0 24px;
+}
+
+@media (min-width: 768px) {
+  .playbook-cta-inline {
+    padding: 0 48px;
+    margin: 40px auto;
+  }
+}
+
+.playbook-cta-inner {
+  border: 3px solid var(--black);
+  background: var(--off-white);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+@media (min-width: 640px) {
+  .playbook-cta-inner {
+    flex-direction: row;
+    align-items: center;
+    gap: 24px;
+    padding: 24px 32px;
+  }
+}
+
+.playbook-cta-badge {
+  font-family: var(--font-heading);
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  background: var(--red);
+  color: var(--white);
+  padding: 4px 10px;
+  border: 3px solid var(--red);
+  display: inline-block;
+  flex-shrink: 0;
+  align-self: flex-start;
+}
+
+@media (min-width: 640px) {
+  .playbook-cta-badge {
+    align-self: center;
+  }
+}
+
+.playbook-cta-inner h4 {
+  font-family: var(--font-heading);
+  font-size: 18px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: -0.01em;
+  margin: 0;
+  color: var(--black);
+}
+
+.playbook-cta-inner p {
+  font-size: 14px;
+  line-height: 1.6;
+  color: rgba(26, 26, 26, 0.7);
+  margin: 0;
+}
+
+.playbook-cta-footer {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-shrink: 0;
+  margin-top: 8px;
+}
+
+@media (min-width: 640px) {
+  .playbook-cta-footer {
+    margin-top: 0;
+    margin-left: auto;
+  }
+}
+
+.playbook-cta-price {
+  font-family: var(--font-heading);
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--black);
+}
+
 /* Contact Form */
 .contact-form {
   border: 3px solid var(--black);

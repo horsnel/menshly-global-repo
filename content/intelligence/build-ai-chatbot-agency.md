@@ -7,6 +7,7 @@ readTime: "25 MIN"
 excerpt: "The complete step-by-step execution guide for building, delivering, and scaling an AI chatbot agency. From your first bot to your twentieth client."
 image: "/images/articles/intelligence/build-ai-chatbot-agency.png"
 heroImage: "/images/heroes/intelligence/build-ai-chatbot-agency.png"
+relatedOpportunity: "/opportunities/ai-chatbot-ecommerce-agency/"
 ---
 
 Building an AI chatbot agency is not about knowing how to code. It is about knowing how to deliver a working product that solves a real business problem, charge for it properly, and repeat the process until you have more demand than capacity. This guide walks you through every step — from setting up your first chatbot to signing your twentieth client. Follow it in order. Do not skip steps.

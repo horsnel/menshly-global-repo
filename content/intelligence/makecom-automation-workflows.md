@@ -7,6 +7,8 @@ readTime: "28 MIN"
 excerpt: "The complete execution guide for building production-grade Make.com automation workflows. From architecture principles to 5 deployable templates to scaling with error handling."
 image: "/images/articles/intelligence/makecom-automation-workflows.png"
 heroImage: "/images/heroes/intelligence/makecom-automation-workflows.png"
+relatedOpportunity: "/opportunities/ai-automation-agency/"
+relatedPlaybook: "/playbooks/ai-automation-agency-playbook/"
 ---
 
 Make.com (formerly Integromat) is the backbone of the automation economy. Zapier gets the mainstream attention, but Make.com offers superior flexibility, lower costs at scale, and more sophisticated error handling — making it the platform of choice for serious automation builders. This guide takes you from your first workflow to production-grade systems that run reliably for paying clients.

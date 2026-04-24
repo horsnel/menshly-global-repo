@@ -7,6 +7,7 @@ readTime: "28 MIN"
 excerpt: "Every click, every setting, every optimization for building a faceless YouTube channel using Fliki AI as your sole production tool. From account setup to monetization — follow this guide in order."
 image: "/images/articles/intelligence/fliki-ai-faceless-youtube-channel-guide.png"
 heroImage: "/images/heroes/intelligence/fliki-ai-faceless-youtube-channel-guide.png"
+relatedOpportunity: "/opportunities/fliki-ai-faceless-youtube-channel/"
 ---
 
 This guide assumes you have read the [Fliki AI opportunity overview](/opportunities/fliki-ai-faceless-youtube-channel/) and understand the revenue potential, niche dynamics, and strategy phases. This document is pure execution: every click you need to make, every setting you need to configure, and every optimization you need to apply. Follow it in order. Do not skip steps.
