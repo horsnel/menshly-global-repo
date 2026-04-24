@@ -22,12 +22,16 @@ import requests
 from datetime import datetime, timezone
 from pathlib import Path
 import random
+from dotenv import load_dotenv
+
+# Auto-load .env from project root
+load_dotenv(Path(__file__).resolve().parent.parent / ".env")
 
 from image_utils import generate_article_image, generate_hero_image
 
 AI_API_KEY = os.environ.get("AI_API_KEY", "")
-AI_API_BASE = os.environ.get("AI_API_BASE", "https://api.openai.com/v1")
-AI_MODEL = os.environ.get("AI_MODEL", "gpt-4o")
+AI_API_BASE = os.environ.get("AI_API_BASE", "https://generativelanguage.googleapis.com/v1beta/openai")
+AI_MODEL = os.environ.get("AI_MODEL", "gemini-2.0-flash")
 
 # ── Intelligence implementation topics ────────────────────────────────
 TOPICS = [

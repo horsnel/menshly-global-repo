@@ -2,7 +2,7 @@ name: Auto Intelligence Article
 
 on:
   schedule:
-    - cron: '0 10 * * 1,4'
+    - cron: '0 10 * * 2,4'
   workflow_dispatch:
 
 permissions:
@@ -21,7 +21,7 @@ jobs:
           python-version: '3.11'
 
       - name: Install deps
-        run: pip install requests python-dateutil
+        run: pip install requests python-dateutil python-dotenv Pillow
 
       - name: Generate Intelligence Article
         env:
@@ -34,6 +34,6 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add content/intelligence/
+          git add content/intelligence/ static/images/
           git diff --cached --quiet || git commit -m "auto: new intelligence article"
           git push

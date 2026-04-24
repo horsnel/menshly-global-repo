@@ -22,12 +22,21 @@ import requests
 from datetime import datetime, timezone
 from pathlib import Path
 import random
+from dotenv import load_dotenv
+
+# Auto-load .env from project root
+load_dotenv(Path(__file__).resolve().parent.parent / ".env")
 
 from image_utils import generate_article_image, generate_hero_image
 
 AI_API_KEY = os.environ.get("AI_API_KEY", "")
-AI_API_BASE = os.environ.get("AI_API_BASE", "https://api.openai.com/v1")
-AI_MODEL = os.environ.get("AI_MODEL", "gpt-4o")
+AI_API_BASE = os.environ.get("AI_API_BASE", "https://generativelanguage.googleapis.com/v1beta/openai")
+AI_MODEL = os.environ.get("AI_MODEL", "gemini-2.0-flash")
+
+# Optional: Override model for playbooks (use a better model if available)
+PLAYBOOK_API_KEY = os.environ.get("PLAYBOOK_API_KEY", AI_API_KEY)
+PLAYBOOK_API_BASE = os.environ.get("PLAYBOOK_API_BASE", AI_API_BASE)
+PLAYBOOK_MODEL = os.environ.get("PLAYBOOK_MODEL", AI_MODEL)
 
 # ── Playbook topics ──────────────────────────────────────────────────
 TOPICS = [
@@ -170,12 +179,17 @@ TEMPERATURE = 0.7
 
 def generate_playbook():
     """Call the AI API to generate the full playbook."""
+    # Use PLAYBOOK_ override variables if set, otherwise fall back to AI_ vars
+    api_key = PLAYBOOK_API_KEY
+    api_base = PLAYBOOK_API_BASE
+    model = PLAYBOOK_MODEL
+
     headers = {
-        "Authorization": f"Bearer {AI_API_KEY}",
+        "Authorization": f"Bearer {api_key}",
         "Content-Type": "application/json",
     }
     payload = {
-        "model": AI_MODEL,
+        "model": model,
         "messages": [
             {"role": "system", "content": SYSTEM_PROMPT},
             {"role": "user", "content": USER_PROMPT},
@@ -185,10 +199,11 @@ def generate_playbook():
     }
     print(f"Generating playbook about: {topic}")
     print(f"Price: {price}")
+    print(f"Model: {model}")
     print(f"Max tokens: {MAX_TOKENS}")
     print("Calling API (this may take 2-3 minutes for a full playbook)...")
     resp = requests.post(
-        f"{AI_API_BASE}/chat/completions",
+        f"{api_base}/chat/completions",
         headers=headers,
         json=payload,
         timeout=300,
