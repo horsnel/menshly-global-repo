@@ -1,8 +1,7 @@
 # ============================================================
 # Menshly Global — CloudFlare Pages Auto-Deploy via Wrangler CLI
-# Builds Hugo site in GitHub Actions → Deploys directly to
-# CloudFlare Pages using Wrangler. No reliance on CloudFlare's
-# auto-detect GitHub integration.
+# Builds Hugo in GitHub Actions → Deploys directly to CloudFlare
+# No reliance on CF auto-detect GitHub integration.
 #
 # SECRETS REQUIRED (GitHub → Settings → Secrets → Actions):
 #   CLOUDFLARE_API_TOKEN  — CF API token with Pages edit perms
@@ -12,7 +11,6 @@
 name: Deploy to CloudFlare Pages
 
 on:
-  # Auto-trigger after content/template/config changes land in main
   push:
     branches:
       - main
@@ -25,7 +23,6 @@ on:
       - 'functions/**'
       - 'data/**'
 
-  # Manual trigger with environment selection
   workflow_dispatch:
     inputs:
       environment:
@@ -48,6 +45,8 @@ env:
   HUGO_VERSION: '0.139.0'
   NODE_VERSION: '20'
   CLOUDFLARE_PROJECT: menshly-global
+  CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+  CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
 
 jobs:
   deploy:
@@ -84,7 +83,7 @@ jobs:
       - name: Install Wrangler
         run: npm install -g wrangler@latest
 
-      - name: Clean content and build Hugo
+      - name: Build Hugo site
         run: |
           if [ -f build.sh ]; then bash build.sh; else hugo --minify; fi
           echo "--- Build Summary ---"
@@ -99,27 +98,23 @@ jobs:
       - name: Deploy to CloudFlare (Preview)
         if: steps.config.outputs.environment == 'preview'
         run: |
-          wrangler pages deploy public/ \
+          echo "Deploying PREVIEW to CloudFlare Pages..."
+          npx wrangler pages deploy public/ \
             --project-name=${{ env.CLOUDFLARE_PROJECT }} \
             --branch=main \
             --commit-message="${{ steps.config.outputs.message }}" \
             --commit-dirty=true
-        env:
-          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
 
       - name: Deploy to CloudFlare (Production)
         if: steps.config.outputs.environment == 'production'
         run: |
-          wrangler pages deploy public/ \
+          echo "Deploying PRODUCTION to CloudFlare Pages..."
+          npx wrangler pages deploy public/ \
             --project-name=${{ env.CLOUDFLARE_PROJECT }} \
             --branch=main \
             --production \
             --commit-message="${{ steps.config.outputs.message }}" \
             --commit-dirty=true
-        env:
-          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
 
       - name: Deploy summary
         if: always()
@@ -131,5 +126,5 @@ jobs:
           echo "  Environment: ${{ steps.config.outputs.environment }}"
           echo "  Commit:      ${{ github.sha }}"
           echo "  Trigger:     ${{ github.event_name }}"
-          echo "  Live URL:    https://menshly-global.pages.dev/"
+          echo "  Live URL:    https://menshly-global-enz.pages.dev/"
           echo "========================================="
