@@ -177,7 +177,7 @@ async function verifyPaystackSignatureAsync(rawBody, secretKey, headerSignature)
 // ─── Email Sending ────────────────────────────────────────────────────────────
 async function sendDeliveryEmail(env, { to, productTitle, amount, currency, reference, pdfUrl, siteUrl }) {
   const provider = env.EMAIL_PROVIDER || 'resend';
-  const from = env.EMAIL_FROM || 'Menshly Global <hello@menshlyglobal.com>';
+  const from = env.EMAIL_FROM || 'Menshly Global <onboarding@resend.dev>';
   const amountDisplay = `${currency} ${(amount / 100).toFixed(2)}`;
 
   const htmlBody = buildEmailHtml({
