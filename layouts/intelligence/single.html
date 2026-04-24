@@ -11,13 +11,7 @@
       <span class="article-meta-item" style="background:var(--red);color:var(--white);">{{ . }}</span>
       {{ end }}
     </div>
-    <!-- Listen to this article -->
-    <div class="article-listen-bar">
-      <button class="listen-btn" id="listenBtn" onclick="toggleListen()">
-        <svg class="listen-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path><path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path></svg>
-        <span id="listenLabel">LISTEN TO THIS ARTICLE</span>
-      </button>
-    </div>
+    {{ partial "article-actions.html" . }}
   </div>
   {{ with .Params.heroImage }}
   <div class="article-hero-image">
@@ -119,43 +113,6 @@
 {{ end }}
 
 <script>
-// TTS Listen functionality
-let synth = window.speechSynthesis;
-let utterance = null;
-let isListening = false;
-
-function toggleListen() {
-  const btn = document.getElementById('listenBtn');
-  const label = document.getElementById('listenLabel');
-
-  if (isListening) {
-    synth.cancel();
-    isListening = false;
-    label.textContent = 'LISTEN TO THIS ARTICLE';
-    btn.classList.remove('listening');
-    return;
-  }
-
-  const content = document.querySelector('.article-content');
-  if (!content) return;
-
-  const text = content.innerText;
-  utterance = new SpeechSynthesisUtterance(text);
-  utterance.rate = 1.0;
-  utterance.pitch = 1.0;
-
-  utterance.onend = function() {
-    isListening = false;
-    label.textContent = 'LISTEN TO THIS ARTICLE';
-    btn.classList.remove('listening');
-  };
-
-  synth.speak(utterance);
-  isListening = true;
-  label.textContent = 'STOP LISTENING';
-  btn.classList.add('listening');
-}
-
 function submitStory(e) {
   e.preventDefault();
   const form = e.target;
