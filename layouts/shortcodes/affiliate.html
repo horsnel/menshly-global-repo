@@ -1,0 +1,8 @@
+{{- $key := .Get 0 -}}
+{{- $data := .Site.Data.affiliates -}}
+{{- $aff := index $data $key -}}
+{{- if $aff -}}
+<a href="{{ $aff.url }}" target="_blank" rel="nofollow noopener" class="affiliate-link" data-affiliate="{{ $key }}">{{ $aff.name | default $key }}</a>
+{{- else -}}
+<span class="affiliate-link affiliate-missing">[affiliate:{{ $key }}]</span>
+{{- end -}}
