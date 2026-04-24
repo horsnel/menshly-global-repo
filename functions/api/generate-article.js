@@ -21,15 +21,17 @@ export async function onRequestPost(context) {
     const date = new Date().toISOString().split('T')[0];
     const topicTitle = topic.replace(/(?:^|\s)\S/g, t => t.toUpperCase());
 
-    // Fetch images from Pexels + Pixabay in parallel
-    const [pexelsImages, pixabayImages] = await Promise.allSettled([
+    // Fetch images from Pexels + Pixabay + Pollination AI fallback in parallel
+    const [pexelsImages, pixabayImages, pollinationImages] = await Promise.allSettled([
       fetchPexelsImages(topic, context.env.PEXELS_API_KEY),
-      fetchPixabayImages(topic, context.env.PIXABAY_API_KEY)
+      fetchPixabayImages(topic, context.env.PIXABAY_API_KEY),
+      fetchPollinationImages(topic, slug)
     ]);
 
     const allImages = [
       ...(pexelsImages.status === 'fulfilled' ? pexelsImages.value : []),
-      ...(pixabayImages.status === 'fulfilled' ? pixabayImages.value : [])
+      ...(pixabayImages.status === 'fulfilled' ? pixabayImages.value : []),
+      ...(pollinationImages.status === 'fulfilled' ? pollinationImages.value : [])
     ];
 
     // Select hero image (landscape, high quality)
@@ -80,7 +82,7 @@ export async function onRequestOptions() {
 
 // ─── CEREBRAS API ───────────────────────────────────────────
 async function callCerebras(apiKey, systemPrompt, userPrompt, category) {
-  const maxTokens = category === 'playbook' ? 8000 : 5000;
+  const maxTokens = category === 'playbook' ? 16000 : category === 'intelligence' ? 8000 : 6000;
 
   const response = await fetch('https://api.cerebras.ai/v1/chat/completions', {
     method: 'POST',
@@ -152,6 +154,37 @@ async function fetchPixabayImages(query, apiKey) {
       source: 'pixabay',
       sourceUrl: hit.pageURL
     }));
+  } catch (e) {
+    return [];
+  }
+}
+
+// ─── POLLINATION AI (FREE — NO API KEY NEEDED) ─────────────
+async function fetchPollinationImages(query, slug) {
+  try {
+    const encoded = encodeURIComponent(query.toLowerCase() + ' AI technology business brutalist design');
+    return [
+      {
+        url: `https://image.pollinations.ai/prompt/${encoded}?width=1200&height=630&nologo=true&seed=${slug}`,
+        thumbnail: `https://image.pollinations.ai/prompt/${encoded}?width=672&height=384&nologo=true&seed=${slug}`,
+        width: 1200,
+        height: 630,
+        alt: query,
+        photographer: 'Pollination AI',
+        source: 'pollination',
+        sourceUrl: 'https://pollinations.ai'
+      },
+      {
+        url: `https://image.pollinations.ai/prompt/${encodeURIComponent(query.toLowerCase() + ' workflow automation dashboard')}?width=1200&height=630&nologo=true&seed=${slug}-2`,
+        thumbnail: `https://image.pollinations.ai/prompt/${encodeURIComponent(query.toLowerCase() + ' workflow automation dashboard')}?width=672&height=384&nologo=true&seed=${slug}-2`,
+        width: 1200,
+        height: 630,
+        alt: query + ' workflow',
+        photographer: 'Pollination AI',
+        source: 'pollination',
+        sourceUrl: 'https://pollinations.ai'
+      }
+    ];
   } catch (e) {
     return [];
   }
