@@ -1,37 +1,123 @@
 # Affiliate Links — Menshly Global
 # Use these in article content via {{< affiliate "fliki" >}} shortcode or direct links
+# All links are personal referral links — sign up, share, earn. No corporate affiliate approval needed.
 
 fliki:
   name: "Fliki AI"
   url: "https://fliki.ai?referral=noah-wilson-w84be4"
   description: "AI text-to-video platform — script to finished video in 10 minutes"
-
-make:
-  name: "Make.com"
-  url: "https://www.make.com/en/register?pc=menshly"
-  description: "Visual automation platform — connect apps and automate workflows"
+  earn: "Up to 30% recurring commission"
 
 replit:
   name: "Replit"
   url: "https://replit.com/refer/egwuokwor"
   description: "Cloud IDE — build and deploy AI SaaS products"
+  earn: "$10 per signup"
+
+make:
+  name: "Make.com"
+  url: "https://www.make.com/en/register?pc=menshly"
+  description: "Visual automation platform — connect apps and automate workflows"
+  earn: "Referral credits"
 
 vapi:
   name: "Vapi"
   url: "https://vapi.ai/"
   description: "AI voice agent platform — build and deploy voice AI"
+  earn: "Referral credits"
 
-canva:
-  name: "Canva"
-  url: "https://www.canva.com/"
-  description: "Design platform — thumbnails, graphics, brand assets"
+instantly:
+  name: "Instantly.ai"
+  url: "https://instantly.ai/"
+  description: "Cold email outreach — send unlimited emails, land in inbox"
+  earn: "30% recurring commission"
 
-chatgpt:
-  name: "ChatGPT"
-  url: "https://chat.openai.com/"
-  description: "AI chatbot — scripts, content, research"
+newly:
+  name: "Newly"
+  url: "https://newly.app/"
+  description: "AI app builder — build apps with AI agents"
+  earn: "20% recurring commission"
+
+notion:
+  name: "Notion"
+  url: "https://notion.so/"
+  description: "All-in-one workspace — notes, docs, project management"
+  earn: "$10 credit per referral"
+
+beehiiv:
+  name: "Beehiiv"
+  url: "https://beehiiv.com/"
+  description: "Newsletter platform — grow and monetize your email list"
+  earn: "50% revenue share"
+
+cursor:
+  name: "Cursor"
+  url: "https://cursor.sh/"
+  description: "AI code editor — write code 10x faster with AI"
+  earn: "Referral credits"
+
+perplexity:
+  name: "Perplexity"
+  url: "https://perplexity.ai/"
+  description: "AI search engine — research and fact-check instantly"
+  earn: "Free Pro credits"
+
+bolt:
+  name: "Bolt.new"
+  url: "https://bolt.new/"
+  description: "AI full-stack app builder — prompt to deployed app in minutes"
+  earn: "Referral credits"
+
+lovable:
+  name: "Lovable"
+  url: "https://lovable.dev/"
+  description: "AI app generator — build web apps from natural language"
+  earn: "Referral credits"
+
+lemfi:
+  name: "LemFi"
+  url: "https://lemfi.com/"
+  description: "Send money to Africa — zero fees, instant transfers"
+  earn: "₦10,000 per referral"
+
+afriex:
+  name: "Afriex"
+  url: "https://www.afriex.com/"
+  description: "Money transfers to Africa — fast, cheap, reliable"
+  earn: "$50 per 3 referrals"
+
+flutterwave:
+  name: "Flutterwave Send App"
+  url: "https://flutterwave.com/"
+  description: "Send money across Africa — share and earn rewards"
+  earn: "Cash rewards per referral"
+
+carbon:
+  name: "Carbon Business"
+  url: "https://www.getcarbon.co/"
+  description: "Business banking in Nigeria — loans, payments, invoicing"
+  earn: "₦2,000+ per referral"
+
+fingo:
+  name: "Fingo Africa"
+  url: "https://fingo.africa/"
+  description: "Digital banking for Africa — save, spend, earn"
+  earn: "KES 60 per 3 referrals"
+
+printify:
+  name: "Printify"
+  url: "https://printify.com/"
+  description: "Print-on-demand — sell custom merch with zero inventory"
+  earn: "5% commission on sales"
+
+grammarly:
+  name: "Grammarly"
+  url: "https://grammarly.com/"
+  description: "AI writing assistant — grammar, tone, clarity"
+  earn: "$25 per Premium referral"
 
 elevenlabs:
   name: "ElevenLabs"
   url: "https://elevenlabs.io/"
-  description: "AI voice synthesis — natural voiceovers"
+  description: "AI voice synthesis — natural voiceovers and voice cloning"
+  earn: "Referral credits"
