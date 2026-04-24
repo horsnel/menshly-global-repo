@@ -1832,9 +1832,33 @@ img {
   margin: 0;
 }
 
+/* --- Accent Box (Shortcode) --- */
+.accent-box {
+  border: 3px solid var(--black);
+  background: var(--acid-yellow);
+  padding: 20px 24px;
+  margin: 24px 0;
+  font-size: 15px;
+  line-height: 1.7;
+}
+.accent-box p {
+  margin: 0 0 8px;
+}
+.accent-box p:last-child {
+  margin-bottom: 0;
+}
+.accent-box strong {
+  font-family: 'Oswald', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
 /* --- Responsive Helpers --- */
 @media (max-width: 767px) {
   .hide-mobile { display: none !important; }
+  .accent-box {
+    padding: 16px 18px;
+  }
 }
 
 @media (min-width: 768px) {
