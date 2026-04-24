@@ -26,6 +26,7 @@ enableRobotsTXT = true
   tagline = "WHERE AI MEETS REVENUE"
   brand = "MENSHLY GLOBAL"
   paystackPublicKey = "pk_live_29e6c78e22c40bd7afce83dbc716bebc9ec1fc7b"
+  googleSiteVerification = ""
 
 [menu]
   [[menu.main]]
