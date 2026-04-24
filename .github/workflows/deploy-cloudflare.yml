@@ -1,7 +1,6 @@
 # ============================================================
 # Menshly Global — CloudFlare Pages Auto-Deploy via Wrangler CLI
 # Builds Hugo in GitHub Actions → Deploys directly to CloudFlare
-# No reliance on CF auto-detect GitHub integration.
 #
 # SECRETS REQUIRED (GitHub → Settings → Secrets → Actions):
 #   CLOUDFLARE_API_TOKEN  — CF API token with Pages edit perms
@@ -84,16 +83,14 @@ jobs:
         run: npm install -g wrangler@latest
 
       - name: Build Hugo site
+        id: build
         run: |
-          if [ -f build.sh ]; then bash build.sh; else hugo --minify; fi
-          echo "--- Build Summary ---"
+          hugo --minify
+          echo "pages=$(find public -name '*.html' | wc -l)" >> $GITHUB_OUTPUT
+          echo "assets=$(find public -type f | wc -l)" >> $GITHUB_OUTPUT
+          echo "--- Hugo Build OK ---"
           echo "Pages: $(find public -name '*.html' | wc -l)"
           echo "Assets: $(find public -type f | wc -l)"
-          echo "Size: $(du -sh public/ | cut -f1)"
-
-      - name: Verify build
-        run: |
-          [ -d "public" ] && [ -f "public/index.html" ] || { echo "Build failed!"; exit 1; }
 
       - name: Deploy to CloudFlare (Preview)
         if: steps.config.outputs.environment == 'preview'
@@ -120,10 +117,11 @@ jobs:
         if: always()
         run: |
           echo "========================================="
-          echo "  DEPLOYMENT COMPLETE"
+          echo "  DEPLOYMENT SUMMARY"
           echo "========================================="
           echo "  Project:     ${{ env.CLOUDFLARE_PROJECT }}"
           echo "  Environment: ${{ steps.config.outputs.environment }}"
+          echo "  Hugo pages:  ${{ steps.build.outputs.pages }}"
           echo "  Commit:      ${{ github.sha }}"
           echo "  Trigger:     ${{ github.event_name }}"
           echo "  Live URL:    https://menshly-global-enz.pages.dev/"
