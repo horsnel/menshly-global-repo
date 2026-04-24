@@ -1,0 +1,290 @@
+<!-- Article Actions Bar: Audio Player + Like Button + Affiliate Disclaimer -->
+<div class="article-actions-bar">
+  <!-- Audio Player -->
+  <div class="action-item audio-player-wrap">
+    <button class="listen-btn" id="listenBtn" onclick="toggleListen()" aria-label="Listen to this article">
+      <svg class="listen-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path><path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path></svg>
+      <span id="listenLabel">LISTEN</span>
+    </button>
+    <div class="audio-speed-wrap" id="audioSpeedWrap" style="display:none;">
+      <button class="speed-btn" data-speed="0.75">0.75x</button>
+      <button class="speed-btn active" data-speed="1">1x</button>
+      <button class="speed-btn" data-speed="1.25">1.25x</button>
+      <button class="speed-btn" data-speed="1.5">1.5x</button>
+      <button class="speed-btn" data-speed="2">2x</button>
+    </div>
+  </div>
+
+  <!-- Like Button -->
+  <div class="action-item like-wrap">
+    <button class="like-btn" id="likeBtn" onclick="toggleLike()" aria-label="Like this article">
+      <svg class="like-icon" id="likeIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+      <span id="likeCount">0</span>
+    </button>
+  </div>
+</div>
+
+<!-- Affiliate Disclaimer -->
+<div class="affiliate-disclaimer">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:14px;height:14px;flex-shrink:0;"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+  <span>Affiliate Disclosure: Some links on this page are affiliate links. If you purchase through them, we may earn a commission at no extra cost to you. This helps us keep creating free content.</span>
+</div>
+
+<script>
+// ===== AUDIO PLAYER (Fixed TTS) =====
+(function() {
+  const synth = window.speechSynthesis;
+  let utterance = null;
+  let isListening = false;
+  let currentSpeed = 1;
+  const PAGE_ID = window.location.pathname;
+
+  // Chrome bug workaround: voices not loaded until after page load
+  let voices = [];
+  function loadVoices() {
+    voices = synth.getVoices();
+  }
+  loadVoices();
+  if (synth.onvoiceschanged !== undefined) {
+    synth.onvoiceschanged = loadVoices;
+  }
+
+  // Pick the best English voice available
+  function getBestVoice() {
+    const prefs = ['Natural', 'Enhanced', 'Neural', 'Microsoft', 'Google', 'Samantha', 'Daniel'];
+    for (const p of prefs) {
+      const v = voices.find(v => v.name.includes(p) && v.lang.startsWith('en'));
+      if (v) return v;
+    }
+    const enVoice = voices.find(v => v.lang.startsWith('en-'));
+    if (enVoice) return enVoice;
+    const anyEn = voices.find(v => v.lang.startsWith('en'));
+    return anyEn || null;
+  }
+
+  // Chrome keeps killing TTS after ~15s — pause/resume workaround
+  let keepaliveInterval = null;
+  function startKeepalive() {
+    if (keepaliveInterval) return;
+    keepaliveInterval = setInterval(() => {
+      if (synth.speaking && !synth.paused) {
+        synth.pause();
+        setTimeout(() => synth.resume(), 50);
+      }
+    }, 10000);
+  }
+  function stopKeepalive() {
+    if (keepaliveInterval) {
+      clearInterval(keepaliveInterval);
+      keepaliveInterval = null;
+    }
+  }
+
+  window.toggleListen = function() {
+    const btn = document.getElementById('listenBtn');
+    const label = document.getElementById('listenLabel');
+    const speedWrap = document.getElementById('audioSpeedWrap');
+
+    if (isListening) {
+      synth.cancel();
+      stopKeepalive();
+      isListening = false;
+      label.textContent = 'LISTEN';
+      btn.classList.remove('listening');
+      speedWrap.style.display = 'none';
+      return;
+    }
+
+    const content = document.querySelector('.article-content');
+    if (!content) return;
+
+    const text = content.innerText;
+    if (!text.trim()) return;
+
+    // Split long text into chunks at sentence boundaries (max 2800 chars)
+    const chunks = [];
+    const MAX = 2800;
+    let remaining = text;
+    while (remaining.length > 0) {
+      if (remaining.length <= MAX) {
+        chunks.push(remaining);
+        break;
+      }
+      // Find last sentence boundary within MAX
+      let cut = remaining.lastIndexOf('. ', MAX);
+      if (cut === -1) cut = remaining.lastIndexOf('! ', MAX);
+      if (cut === -1) cut = remaining.lastIndexOf('? ', MAX);
+      if (cut === -1) cut = remaining.lastIndexOf(' ', MAX);
+      if (cut === -1) cut = MAX;
+      chunks.push(remaining.substring(0, cut + 1));
+      remaining = remaining.substring(cut + 1);
+    }
+
+    let chunkIndex = 0;
+
+    function speakChunk() {
+      if (chunkIndex >= chunks.length) {
+        // All done
+        isListening = false;
+        label.textContent = 'LISTEN';
+        btn.classList.remove('listening');
+        speedWrap.style.display = 'none';
+        stopKeepalive();
+        return;
+      }
+
+      utterance = new SpeechSynthesisUtterance(chunks[chunkIndex]);
+      utterance.rate = currentSpeed;
+      utterance.pitch = 1.0;
+      const voice = getBestVoice();
+      if (voice) utterance.voice = voice;
+
+      utterance.onend = function() {
+        chunkIndex++;
+        speakChunk();
+      };
+
+      utterance.onerror = function() {
+        isListening = false;
+        label.textContent = 'LISTEN';
+        btn.classList.remove('listening');
+        speedWrap.style.display = 'none';
+        stopKeepalive();
+      };
+
+      synth.speak(utterance);
+    }
+
+    speakChunk();
+    isListening = true;
+    label.textContent = 'STOP';
+    btn.classList.add('listening');
+    speedWrap.style.display = 'flex';
+    startKeepalive();
+  };
+
+  // Speed buttons
+  document.addEventListener('click', function(e) {
+    if (e.target.classList.contains('speed-btn')) {
+      const speed = parseFloat(e.target.dataset.speed);
+      currentSpeed = speed;
+      // Update active state
+      document.querySelectorAll('.speed-btn').forEach(b => b.classList.remove('active'));
+      e.target.classList.add('active');
+      // If currently listening, restart with new speed
+      if (isListening) {
+        synth.cancel();
+        const content = document.querySelector('.article-content');
+        if (content) {
+          const text = content.innerText;
+          const utter = new SpeechSynthesisUtterance(text);
+          utter.rate = speed;
+          const voice = getBestVoice();
+          if (voice) utter.voice = voice;
+          utter.onend = function() {
+            isListening = false;
+            document.getElementById('listenLabel').textContent = 'LISTEN';
+            document.getElementById('listenBtn').classList.remove('listening');
+            document.getElementById('audioSpeedWrap').style.display = 'none';
+            stopKeepalive();
+          };
+          synth.speak(utter);
+        }
+      }
+    }
+  });
+
+  // ===== LIKE BUTTON =====
+  const LIKES_KEY = 'menshly_likes';
+  const LIKE_COUNTS_KEY = 'menshly_like_counts';
+
+  function getLikedArticles() {
+    try { return JSON.parse(localStorage.getItem(LIKES_KEY) || '[]'); }
+    catch { return []; }
+  }
+
+  function getLikeCounts() {
+    try { return JSON.parse(localStorage.getItem(LIKE_COUNTS_KEY) || '{}'); }
+    catch { return {}; }
+  }
+
+  function saveLikedArticles(arr) {
+    localStorage.setItem(LIKES_KEY, JSON.stringify(arr));
+  }
+
+  function saveLikeCounts(obj) {
+    localStorage.setItem(LIKE_COUNTS_KEY, JSON.stringify(obj));
+  }
+
+  // Seed with a random base count so it looks real
+  function getBaseCount() {
+    let counts = getLikeCounts();
+    if (!counts[PAGE_ID]) {
+      // Generate deterministic random base from URL hash
+      let hash = 0;
+      for (let i = 0; i < PAGE_ID.length; i++) {
+        hash = ((hash << 5) - hash) + PAGE_ID.charCodeAt(i);
+        hash |= 0;
+      }
+      const base = Math.abs(hash) % 47 + 8; // 8-54 range
+      counts[PAGE_ID] = base;
+      saveLikeCounts(counts);
+    }
+    return counts[PAGE_ID];
+  }
+
+  // Initialize like button state
+  function initLike() {
+    const liked = getLikedArticles();
+    const isLiked = liked.includes(PAGE_ID);
+    const count = getBaseCount();
+    const displayCount = isLiked ? count + 1 : count;
+
+    const btn = document.getElementById('likeBtn');
+    const icon = document.getElementById('likeIcon');
+    const countEl = document.getElementById('likeCount');
+
+    if (isLiked) {
+      btn.classList.add('liked');
+      icon.setAttribute('fill', 'currentColor');
+    }
+    countEl.textContent = displayCount;
+  }
+
+  window.toggleLike = function() {
+    const btn = document.getElementById('likeBtn');
+    const icon = document.getElementById('likeIcon');
+    const countEl = document.getElementById('likeCount');
+
+    let liked = getLikedArticles();
+    let counts = getLikeCounts();
+    const isLiked = liked.includes(PAGE_ID);
+
+    if (isLiked) {
+      // Unlike
+      liked = liked.filter(p => p !== PAGE_ID);
+      btn.classList.remove('liked');
+      icon.setAttribute('fill', 'none');
+      counts[PAGE_ID] = Math.max(0, (counts[PAGE_ID] || 0));
+      countEl.textContent = counts[PAGE_ID];
+    } else {
+      // Like
+      liked.push(PAGE_ID);
+      btn.classList.add('liked');
+      icon.setAttribute('fill', 'currentColor');
+      counts[PAGE_ID] = (counts[PAGE_ID] || 0) + 1;
+      countEl.textContent = counts[PAGE_ID] + 1;
+
+      // Pop animation
+      btn.classList.add('like-pop');
+      setTimeout(() => btn.classList.remove('like-pop'), 400);
+    }
+
+    saveLikedArticles(liked);
+    saveLikeCounts(counts);
+  };
+
+  // Init on load
+  initLike();
+})();
+</script>
