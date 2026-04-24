@@ -37,11 +37,12 @@
         <div class="story-box-subtitle">Built something with AI? We want to hear about it.</div>
       </div>
     </div>
-    <form class="story-box-form" onsubmit="submitStory(event)">
-      <input type="text" class="input-brutal" placeholder="YOUR NAME" required>
-      <input type="email" class="input-brutal" placeholder="YOUR EMAIL" required>
-      <input type="text" class="input-brutal" placeholder="STARTUP NAME" required>
-      <textarea class="input-brutal story-box-textarea" placeholder="TELL US YOUR STORY — WHAT DID YOU BUILD? HOW DID AI HELP? WHAT REVENUE ARE YOU GENERATING?" rows="4" required></textarea>
+    <form class="story-box-form" action="https://formspree.io/f/xreawkow" method="POST">
+      <input type="hidden" name="_subject" value="Menshly Global - Startup Story Submission">
+      <input type="text" name="name" class="input-brutal" placeholder="YOUR NAME" required>
+      <input type="email" name="email" class="input-brutal" placeholder="YOUR EMAIL" required>
+      <input type="text" name="startup_name" class="input-brutal" placeholder="STARTUP NAME" required>
+      <textarea name="story" class="input-brutal story-box-textarea" placeholder="TELL US YOUR STORY — WHAT DID YOU BUILD? HOW DID AI HELP? WHAT REVENUE ARE YOU GENERATING?" rows="4" required></textarea>
       <button type="submit" class="btn-brutal btn-yellow" style="width:100%;justify-content:center;">SUBMIT YOUR STORY</button>
     </form>
   </div>
@@ -109,15 +110,39 @@ function submitStory(e) {
   e.preventDefault();
   const form = e.target;
   const btn = form.querySelector('button');
-  btn.textContent = 'STORY SUBMITTED!';
-  btn.style.background = 'var(--black)';
-  btn.style.color = 'var(--white)';
-  setTimeout(() => {
-    form.reset();
-    btn.textContent = 'SUBMIT YOUR STORY';
-    btn.style.background = '';
-    btn.style.color = '';
-  }, 3000);
+  const origText = btn.textContent;
+  btn.disabled = true;
+  btn.textContent = 'SUBMITTING...';
+  fetch(form.action, {
+    method: 'POST',
+    body: new FormData(form),
+    headers: { 'Accept': 'application/json' }
+  }).then(res => {
+    if (res.ok) {
+      btn.textContent = 'STORY SUBMITTED!';
+      btn.style.background = 'var(--black)';
+      btn.style.color = 'var(--white)';
+      form.reset();
+      setTimeout(() => {
+        btn.textContent = origText;
+        btn.style.background = '';
+        btn.style.color = '';
+        btn.disabled = false;
+      }, 3000);
+    } else {
+      throw new Error('Submission failed');
+    }
+  }).catch(() => {
+    btn.textContent = 'SUBMISSION FAILED — TRY AGAIN';
+    btn.style.background = 'var(--red)';
+    btn.style.color = 'var(--white)';
+    setTimeout(() => {
+      btn.textContent = origText;
+      btn.style.background = '';
+      btn.style.color = '';
+      btn.disabled = false;
+    }, 3000);
+  });
 }
 </script>
 {{ end }}

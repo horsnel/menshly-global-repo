@@ -3,9 +3,54 @@
     <span class="section-label">Stay Ahead</span>
     <h2 class="newsletter-title">JOIN THE INTELLIGENCE</h2>
     <p class="newsletter-desc">Get the latest AI monetization opportunities, playbooks, and tools delivered straight to your inbox. No fluff. Pure signal.</p>
-    <div class="newsletter-form">
-      <input type="email" class="input-brutal" placeholder="YOUR EMAIL ADDRESS">
-      <button class="btn-brutal btn-yellow">SUBSCRIBE</button>
-    </div>
+    <form class="newsletter-form" action="https://formspree.io/f/xreawkow" method="POST">
+      <input type="hidden" name="_subject" value="Menshly Global - Newsletter Subscription">
+      <input type="hidden" name="_type" value="newsletter">
+      <input type="email" name="email" class="input-brutal" placeholder="YOUR EMAIL ADDRESS" required>
+      <button type="submit" class="btn-brutal btn-yellow">SUBSCRIBE</button>
+    </form>
   </div>
 </section>
+
+<script>
+document.querySelector('.newsletter-form').addEventListener('submit', async function(e) {
+  e.preventDefault();
+  const form = e.target;
+  const btn = form.querySelector('button');
+  const input = form.querySelector('input[type="email"]');
+  const origText = btn.textContent;
+  btn.disabled = true;
+  btn.textContent = 'SUBSCRIBING...';
+  try {
+    const res = await fetch(form.action, {
+      method: 'POST',
+      body: new FormData(form),
+      headers: { 'Accept': 'application/json' }
+    });
+    if (res.ok) {
+      btn.textContent = 'SUBSCRIBED!';
+      btn.style.background = 'var(--black)';
+      btn.style.color = 'var(--white)';
+      form.reset();
+      setTimeout(() => {
+        btn.textContent = origText;
+        btn.style.background = '';
+        btn.style.color = '';
+        btn.disabled = false;
+      }, 3000);
+    } else {
+      throw new Error('Subscription failed');
+    }
+  } catch (err) {
+    btn.textContent = 'FAILED — TRY AGAIN';
+    btn.style.background = 'var(--red)';
+    btn.style.color = 'var(--white)';
+    setTimeout(() => {
+      btn.textContent = origText;
+      btn.style.background = '';
+      btn.style.color = '';
+      btn.disabled = false;
+    }, 3000);
+  }
+});
+</script>

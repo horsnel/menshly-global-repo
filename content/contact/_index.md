@@ -11,22 +11,23 @@ Have a question about one of our opportunities, playbooks, or tools? Want to par
 ## Send Us a Message
 
 <div class="contact-form">
-  <form onsubmit="submitContact(event)">
+  <form action="https://formspree.io/f/xreawkow" method="POST">
+    <input type="hidden" name="_subject" value="Menshly Global Contact Form">
     <div class="form-group">
       <label>Your Name</label>
-      <input type="text" class="input-brutal" placeholder="JOHN DOE" required>
+      <input type="text" name="name" class="input-brutal" placeholder="JOHN DOE" required>
     </div>
     <div class="form-group">
       <label>Your Email</label>
-      <input type="email" class="input-brutal" placeholder="JOHN@EXAMPLE.COM" required>
+      <input type="email" name="email" class="input-brutal" placeholder="JOHN@EXAMPLE.COM" required>
     </div>
     <div class="form-group">
       <label>Subject</label>
-      <input type="text" class="input-brutal" placeholder="WHAT'S THIS ABOUT?" required>
+      <input type="text" name="subject" class="input-brutal" placeholder="WHAT'S THIS ABOUT?" required>
     </div>
     <div class="form-group">
       <label>Message</label>
-      <textarea class="input-brutal" placeholder="TELL US WHAT'S ON YOUR MIND..." rows="5" required></textarea>
+      <textarea name="message" class="input-brutal" placeholder="TELL US WHAT'S ON YOUR MIND..." rows="5" required></textarea>
     </div>
     <button type="submit" class="btn-brutal btn-yellow" style="width:100%;justify-content:center;">SEND MESSAGE</button>
   </form>
@@ -58,18 +59,43 @@ Have a question about one of our opportunities, playbooks, or tools? Want to par
 Join thousands of AI entrepreneurs and builders who are turning artificial intelligence into real revenue. Follow us on social media for daily insights, new opportunity alerts, and behind-the-scenes looks at how real AI businesses operate.
 
 <script>
-function submitContact(e) {
+document.querySelector('.contact-form form').addEventListener('submit', async function(e) {
   e.preventDefault();
   const form = e.target;
   const btn = form.querySelector('button');
-  btn.textContent = 'MESSAGE SENT!';
-  btn.style.background = 'var(--black)';
-  btn.style.color = 'var(--white)';
-  setTimeout(() => {
-    form.reset();
-    btn.textContent = 'SEND MESSAGE';
-    btn.style.background = '';
-    btn.style.color = '';
-  }, 3000);
-}
+  const origText = btn.textContent;
+  btn.disabled = true;
+  btn.textContent = 'SENDING...';
+  try {
+    const res = await fetch(form.action, {
+      method: 'POST',
+      body: new FormData(form),
+      headers: { 'Accept': 'application/json' }
+    });
+    if (res.ok) {
+      btn.textContent = 'MESSAGE SENT!';
+      btn.style.background = 'var(--black)';
+      btn.style.color = 'var(--white)';
+      form.reset();
+      setTimeout(() => {
+        btn.textContent = origText;
+        btn.style.background = '';
+        btn.style.color = '';
+        btn.disabled = false;
+      }, 3000);
+    } else {
+      throw new Error('Form submission failed');
+    }
+  } catch (err) {
+    btn.textContent = 'SEND FAILED — TRY AGAIN';
+    btn.style.background = 'var(--red)';
+    btn.style.color = 'var(--white)';
+    setTimeout(() => {
+      btn.textContent = origText;
+      btn.style.background = '';
+      btn.style.color = '';
+      btn.disabled = false;
+    }, 3000);
+  }
+});
 </script>

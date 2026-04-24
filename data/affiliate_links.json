@@ -1,0 +1,124 @@
+{
+  "links": [
+    {
+      "name": "Fliki",
+      "url": "https://fliki.ai?referral=noah-wilson-w84be4",
+      "category": "video",
+      "description": "AI video creation tool — turn text into videos with realistic AI voices"
+    },
+    {
+      "name": "Make.com",
+      "url": "https://make.com",
+      "category": "automation",
+      "description": "Visual automation platform — connect any app without code"
+    },
+    {
+      "name": "Klaviyo",
+      "url": "https://klaviyo.com",
+      "category": "email",
+      "description": "AI-powered email marketing and SMS automation"
+    },
+    {
+      "name": "ActiveCampaign",
+      "url": "https://activecampaign.com",
+      "category": "email",
+      "description": "CRM and email marketing automation platform"
+    },
+    {
+      "name": "Notion",
+      "url": "https://notion.so",
+      "category": "productivity",
+      "description": "All-in-one workspace for notes, docs, and project management"
+    },
+    {
+      "name": "Canva",
+      "url": "https://canva.com",
+      "category": "design",
+      "description": "Graphic design platform for non-designers"
+    },
+    {
+      "name": "ChatGPT",
+      "url": "https://chat.openai.com",
+      "category": "ai",
+      "description": "AI chatbot by OpenAI — the most popular AI assistant"
+    },
+    {
+      "name": "Midjourney",
+      "url": "https://midjourney.com",
+      "category": "ai",
+      "description": "AI image generation — create stunning visuals from text prompts"
+    },
+    {
+      "name": "Shopify",
+      "url": "https://shopify.com",
+      "category": "ecommerce",
+      "description": "E-commerce platform — start selling online today"
+    },
+    {
+      "name": "ElevenLabs",
+      "url": "https://elevenlabs.io",
+      "category": "ai",
+      "description": "AI voice generation — clone voices and create natural speech"
+    },
+    {
+      "name": "Semrush",
+      "url": "https://semrush.com",
+      "category": "seo",
+      "description": "All-in-one SEO and digital marketing toolkit"
+    },
+    {
+      "name": "Hostinger",
+      "url": "https://hostinger.com",
+      "category": "hosting",
+      "description": "Affordable web hosting with AI website builder"
+    },
+    {
+      "name": "Buffer",
+      "url": "https://buffer.com",
+      "category": "social",
+      "description": "Social media scheduling and analytics platform"
+    },
+    {
+      "name": "Loom",
+      "url": "https://loom.com",
+      "category": "productivity",
+      "description": "Record and share video messages — replace meetings with async video"
+    },
+    {
+      "name": "Zapier",
+      "url": "https://zapier.com",
+      "category": "automation",
+      "description": "Automate tasks by connecting 6,000+ apps"
+    },
+    {
+      "name": "Calendly",
+      "url": "https://calendly.com",
+      "category": "productivity",
+      "description": "Scheduling automation — eliminate the back-and-forth"
+    },
+    {
+      "name": "Beehiiv",
+      "url": "https://beehiiv.com",
+      "category": "newsletter",
+      "description": "Newsletter platform built for growth and monetization"
+    },
+    {
+      "name": "Grammarly",
+      "url": "https://grammarly.com",
+      "category": "writing",
+      "description": "AI writing assistant for grammar, tone, and clarity"
+    },
+    {
+      "name": "PhantomBuster",
+      "url": "https://phantombuster.com",
+      "category": "automation",
+      "description": "LinkedIn and email lead generation automation"
+    },
+    {
+      "name": "Apollo.io",
+      "url": "https://apollo.io",
+      "category": "sales",
+      "description": "B2B sales intelligence and engagement platform"
+    }
+  ]
+}

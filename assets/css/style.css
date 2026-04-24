@@ -1678,6 +1678,81 @@ img {
   font-size: 14px;
 }
 
+/* --- Playbook Paywall --- */
+.playbook-paywall {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 0 24px 48px;
+}
+
+@media (min-width: 768px) {
+  .playbook-paywall {
+    padding: 0 48px 64px;
+  }
+}
+
+.playbook-paywall-inner {
+  border: 3px solid var(--black);
+  background: var(--off-white);
+  padding: 40px 24px;
+  text-align: center;
+  position: relative;
+}
+
+@media (min-width: 768px) {
+  .playbook-paywall-inner {
+    padding: 56px 48px;
+  }
+}
+
+.playbook-paywall-lock {
+  color: var(--black);
+  margin-bottom: 16px;
+}
+
+.playbook-paywall-inner h3 {
+  font-family: var(--font-heading);
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  margin: 0 0 12px;
+}
+
+.playbook-paywall-inner p {
+  font-size: 15px;
+  color: rgba(26, 26, 26, 0.7);
+  margin: 0 0 24px;
+  max-width: 480px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.paywall-email-row {
+  display: flex;
+  gap: 8px;
+  max-width: 560px;
+  margin: 0 auto 12px;
+  flex-direction: column;
+}
+
+@media (min-width: 640px) {
+  .paywall-email-row {
+    flex-direction: row;
+  }
+}
+
+.paywall-email-row .input-brutal {
+  font-size: 14px;
+  padding: 14px 16px;
+}
+
+.paywall-note {
+  font-size: 12px !important;
+  color: rgba(26, 26, 26, 0.5) !important;
+  margin-top: 8px !important;
+}
+
 /* --- Static Page (About, Contact, Legal) --- */
 .page-header {
   border-bottom: 3px solid var(--black);
