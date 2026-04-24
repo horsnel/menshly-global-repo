@@ -165,10 +165,44 @@
           <span class="tool-card-icon"><svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 4h14" stroke="#F9FF00" stroke-width="2.5" stroke-linecap="round"/><path d="M4 10h20" stroke="#F9FF00" stroke-width="2.5" stroke-linecap="round"/><path d="M4 16h12" stroke="#F9FF00" stroke-width="2.5" stroke-linecap="round"/><path d="M4 22h8" stroke="#F9FF00" stroke-width="2.5" stroke-linecap="round"/><path d="M20 18l3 3-6 3-1-1 4-5z" fill="#F9FF00" stroke="#F9FF00" stroke-width="1.5" stroke-linejoin="round"/></svg></span>
           <span class="tool-card-name">AI Article Generator</span>
         </div>
+        <button class="tool-toggle-btn" onclick="toggleTool('tool-5')" style="width:auto;margin:0;">EXPAND</button>
       </div>
       <div class="tool-card-body">
-        <p class="tool-card-desc">Generate AI-powered articles for your content business. Access our full AI newsroom to create, edit, and publish content at scale.</p>
-        <a href="/intelligence/" class="btn-brutal btn-red" style="width:100%;justify-content:center;margin-top:12px;">VISIT AI NEWSROOM →</a>
+        <p class="tool-card-desc">Generate complete AI business articles in Menshly Global format. Select a category, enter your topic, and get a full article with frontmatter, hero image prompt, cross-links, and affiliate placements.</p>
+      </div>
+      <div class="tool-card-form">
+        <div class="tool-form-group">
+          <label>Article Category</label>
+          <select class="input-brutal" id="article-category">
+            <option value="opportunity">OPPORTUNITY — Deep-dive AI business discovery</option>
+            <option value="intelligence">INTELLIGENCE — Step-by-step implementation guide</option>
+            <option value="playbook">PLAYBOOK — Premium procedure-based system</option>
+          </select>
+        </div>
+        <div class="tool-form-group">
+          <label>Topic / Niche</label>
+          <input type="text" class="input-brutal" id="article-topic" placeholder="E.G. AI COPYWRITING AGENCY, VOICE AI BUSINESS...">
+        </div>
+        <div class="tool-form-group">
+          <label>Target Revenue Range</label>
+          <select class="input-brutal" id="article-revenue">
+            <option value="1k-5k">$1K-$5K/month</option>
+            <option value="5k-10k">$5K-$10K/month</option>
+            <option value="10k-25k" selected>$10K-$25K/month</option>
+            <option value="25k-50k">$25K-$50K/month</option>
+            <option value="50k+">$50K+/month</option>
+          </select>
+        </div>
+        <div class="tool-form-group">
+          <label>Difficulty Level</label>
+          <select class="input-brutal" id="article-difficulty">
+            <option value="beginner">BEGINNER — No experience needed</option>
+            <option value="intermediate" selected>INTERMEDIATE — Some AI/tool experience</option>
+            <option value="advanced">ADVANCED — Technical skills required</option>
+          </select>
+        </div>
+        <button class="btn-brutal btn-yellow" style="width:100%;justify-content:center;" onclick="generateArticle()">GENERATE ARTICLE</button>
+        <div class="tool-result" id="article-result" style="display:none;"></div>
       </div>
     </div>
 
@@ -332,6 +366,234 @@ function matchStack() {
   result.innerHTML =
     `<strong>YOUR RECOMMENDED STACK:</strong><br><br>` +
     tools.map((tool, i) => `<strong>${i+1}.</strong> ${tool}`).join('<br>');
+}
+
+// Tool 5: AI Article Generator
+function generateArticle() {
+  const category = document.getElementById('article-category').value;
+  const topic = document.getElementById('article-topic').value.trim();
+  const revenue = document.getElementById('article-revenue').value;
+  const difficulty = document.getElementById('article-difficulty').value;
+  const result = document.getElementById('article-result');
+
+  if (!topic) {
+    result.style.display = 'block';
+    result.innerHTML = '<strong style="color:var(--red);">ERROR: Please enter a topic or niche.</strong>';
+    return;
+  }
+
+  const slug = topic.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+  const date = new Date().toISOString().split('T')[0];
+  const topicTitle = topic.replace(/(?:^|\s)\S/g, t => t.toUpperCase());
+
+  let output = '';
+
+  if (category === 'opportunity') {
+    output = generateOpportunityArticle(topicTitle, slug, date, revenue, difficulty);
+  } else if (category === 'intelligence') {
+    output = generateIntelligenceArticle(topicTitle, slug, date, revenue, difficulty);
+  } else {
+    output = generatePlaybookArticle(topicTitle, slug, date, revenue, difficulty);
+  }
+
+  result.style.display = 'block';
+  result.innerHTML = output;
+}
+
+function generateOpportunityArticle(topic, slug, date, revenue, difficulty) {
+  const revMap = {'1k-5k':'$1K-$5K','5k-10k':'$5K-$10K','10k-25k':'$10K-$25K','25k-50k':'$25K-$50K','50k+':'$50K+'};
+  const rev = revMap[revenue] || '$10K-$25K';
+  const readTime = difficulty === 'beginner' ? '12 MIN' : difficulty === 'advanced' ? '18 MIN' : '14 MIN';
+  return `<strong>OPPORTUNITY ARTICLE GENERATED:</strong><br><br>` +
+    `<div style="text-align:left;font-size:11px;line-height:1.7;background:var(--white);border:3px solid var(--black);padding:16px;margin-top:8px;font-family:monospace;white-space:pre-wrap;max-height:400px;overflow-y:auto;">` +
+    `---<br>` +
+    `title: "How to Start a ${topic} in 2026 (${rev}/Month Potential)"<br>` +
+    `date: ${date}<br>` +
+    `category: "AI Opportunity"<br>` +
+    `readTime: "${readTime}"<br>` +
+    `excerpt: "Every tool, every hack, every ugly truth — the complete deep dive on building a ${topic.toLowerCase()} that generates real revenue."<br>` +
+    `image: "/images/articles/opportunities/${slug}.png"<br>` +
+    `heroImage: "/images/heroes/opportunities/${slug}.png"<br>` +
+    `relatedGuide: "/intelligence/build-${slug}/"<br>` +
+    `relatedPlaybook: "/playbooks/${slug}-playbook/"<br>` +
+    `---<br><br>` +
+    `[Opening paragraph — hook the reader with the revenue potential and why this works NOW. 3-5 sentences. Reference current AI trends that make this opportunity viable in 2026.]<br><br>` +
+    `## Why This Works Right Now<br><br>` +
+    `[2-3 paragraphs explaining the market timing, AI tool availability, and demand. Include specific data points about market size or growth.]<br><br>` +
+    `## The Realistic Picture (Before You Get Excited)<br><br>` +
+    `> **Truth #1:** [First ugly truth — timeline, competition, or difficulty]<br><br>` +
+    `> **Truth #2:** [Second ugly truth — cost, skill requirements, or market saturation]<br><br>` +
+    `> **Truth #3:** [Third ugly truth — client acquisition, tech challenges, or sustainability]<br><br>` +
+    `> **Truth #4:** [Fourth ugly truth — hidden costs, learning curve, or revenue variance]<br><br>` +
+    `## The Free Stack: Starting With Zero Dollars<br><br>` +
+    `**Tool 1 — $0** — [Description and what it does]<br><br>` +
+    `**Tool 2 — $0** — [Description and what it does]<br><br>` +
+    `**Tool 3 — Free tier** — [Description and limitations]<br><br>` +
+    `> **HACK:** [Specific actionable tip using free tools]<br><br>` +
+    `## The Paid Stack: When You're Ready to Scale<br><br>` +
+    `**Tool A — $X/mo** — [Description]<br><br>` +
+    `**Tool B — $X/mo** — [Description]<br><br>` +
+    `**Total monthly cost: $XXX.** A single client at $X,XXX/month covers this.<br><br>` +
+    `> **HACK:** [Advanced strategy using paid tools]<br><br>` +
+    `## The Workflow: Step-by-Step<br><br>` +
+    `### Step 1: [First step name] (X hours)<br>` +
+    `[Detailed step description]<br><br>` +
+    `### Step 2: [Second step name] (X hours)<br>` +
+    `[Detailed step description]<br><br>` +
+    `### Step 3: [Third step name] (X hours per unit)<br>` +
+    `[Detailed step description]<br><br>` +
+    `## Pricing: What to Charge<br><br>` +
+    `**Tier 1 ($X,XXX):** [What's included]<br><br>` +
+    `**Tier 2 ($X,XXX/month):** [What's included]<br><br>` +
+    `**Tier 3 ($X,XXX/month):** [What's included]<br><br>` +
+    `## Tricks and Hacks They Don't Share in Courses<br><br>` +
+    `> **HACK 1:** [Specific technique]<br><br>` +
+    `> **HACK 2:** [Specific technique]<br><br>` +
+    `> **HACK 3:** [Specific technique]<br><br>` +
+    `## The Real Numbers<br><br>` +
+    `| Month | Revenue | Clients | Notes |<br>` +
+    `|-------|---------|---------|-------|<br>` +
+    `| 1 | $0-2,000 | 0-1 | [Notes] |<br>` +
+    `| 3 | $6,000-12,000 | 4-6 | [Notes] |<br>` +
+    `| 6 | $18,000-30,000 | 8-12 | [Notes] |<br>` +
+    `| 12 | $35,000-60,000 | 15-25 | [Notes] |<br><br>` +
+    `## Start This Weekend (Literally)<br><br>` +
+    `**Saturday morning:** [First action]<br><br>` +
+    `**Saturday afternoon:** [Second action]<br><br>` +
+    `**Sunday:** [Third action that gets first client/prospect]` +
+    `</div>` +
+    `<br><span style="font-size:11px;color:rgba(26,26,26,0.6);">POLLINATION AI IMAGE: https://image.pollinations.ai/prompt/brutalist%20swiss%20design%20${encodeURIComponent(topic.toLowerCase())}%20AI%20business%20opportunity%20yellow%20black%20red?width=1200&height=630&seed=${slug}</span>`;
+}
+
+function generateIntelligenceArticle(topic, slug, date, revenue, difficulty) {
+  const diffMap = {'beginner':'BEGINNER','intermediate':'INTERMEDIATE','advanced':'ADVANCED'};
+  const diff = diffMap[difficulty] || 'INTERMEDIATE';
+  const readTime = difficulty === 'beginner' ? '20 MIN' : difficulty === 'advanced' ? '30 MIN' : '26 MIN';
+  return `<strong>INTELLIGENCE ARTICLE GENERATED:</strong><br><br>` +
+    `<div style="text-align:left;font-size:11px;line-height:1.7;background:var(--white);border:3px solid var(--black);padding:16px;margin-top:8px;font-family:monospace;white-space:pre-wrap;max-height:400px;overflow-y:auto;">` +
+    `---<br>` +
+    `title: "Build and Scale a ${topic} with Automated Workflows"<br>` +
+    `date: ${date}<br>` +
+    `category: "Implementation"<br>` +
+    `difficulty: "${diff}"<br>` +
+    `readTime: "${readTime}"<br>` +
+    `excerpt: "The complete execution guide for building a ${topic.toLowerCase()}. From setup to automation to client delivery."<br>` +
+    `image: "/images/articles/intelligence/build-${slug}.png"<br>` +
+    `heroImage: "/images/heroes/intelligence/build-${slug}.png"<br>` +
+    `relatedOpportunity: "/opportunities/${slug}/"<br>` +
+    `relatedPlaybook: "/playbooks/${slug}-playbook/"<br>` +
+    `---<br><br>` +
+    `[Opening paragraph — why manual processes kill this business and how automation changes everything. 3-5 sentences. Set the expectation that this guide is followed in order, no skipping.]<br><br>` +
+    `## Prerequisites<br><br>` +
+    `Before you start, you need the following:<br><br>` +
+    `- [Tool 1 with cost]<br>` +
+    `- [Tool 2 with cost]<br>` +
+    `- [Tool 3 with cost]<br>` +
+    `- X-Y hours of uninterrupted time<br><br>` +
+    `Total upfront cost: $XXX.<br><br>` +
+    `## Step 1: [Setup / Tech Stack Configuration]<br><br>` +
+    `[Detailed walkthrough with exact button clicks, URLs, and configurations. Include "Do you see X?" verification checkpoints.]<br><br>` +
+    `### [Sub-step 1a: Specific Tool Setup]<br><br>` +
+    `[Go to URL. Click X. Enter Y. Verify Z appears.]<br><br>` +
+    `### Step 1 Check-In<br><br>` +
+    `Verify each of these before moving on:<br><br>` +
+    `1. [Verification item 1]<br>` +
+    `2. [Verification item 2]<br>` +
+    `3. [Verification item 3]<br><br>` +
+    `## Step 2: [Core Workflow Build]<br><br>` +
+    `[Detailed module-by-module walkthrough with Make.com or equivalent. Include exact configuration settings, API endpoints, error handling.]<br><br>` +
+    `### Step 2 Check-In<br><br>` +
+    `[Specific verification that the workflow produces correct output]<br><br>` +
+    `## Step 3: [Production Pipeline / Content System]<br><br>` +
+    `[Build the repeatable system. Include quality gates, scoring criteria, and feedback loops.]<br><br>` +
+    `### Step 3 Check-In<br><br>` +
+    `[Verification that production output meets quality threshold]<br><br>` +
+    `## Step 4: [Monitoring / Reporting / Delivery]<br><br>` +
+    `[Set up automated reporting, client delivery, and alert systems.]<br><br>` +
+    `## Step 5: [Pricing and Service Delivery]<br><br>` +
+    `### Pricing Table<br><br>` +
+    `| Tier | Monthly | What's Included | Your Cost | Margin |<br>` +
+    `|------|---------|-----------------|-----------|--------|<br>` +
+    `| Starter | $X,XXX | [Details] | ~$XXX | ~7X% |<br>` +
+    `| Growth | $X,XXX | [Details] | ~$XXX | ~7X% |<br><br>` +
+    `## Cost Breakdown<br><br>` +
+    `| Item | Free Tier | Paid Tier | When to Upgrade |<br>` +
+    `|------|-----------|-----------|-----------------|<br>` +
+    `| [Tool 1] | [Limit] | $XXX/mo | [When] |<br>` +
+    `| [Tool 2] | [Limit] | $XXX/mo | [When] |<br><br>` +
+    `## Production Checklist<br><br>` +
+    `- [ ] [Critical verification 1]<br>` +
+    `- [ ] [Critical verification 2]<br>` +
+    `- [ ] [Critical verification 3]` +
+    `</div>` +
+    `<br><span style="font-size:11px;color:rgba(26,26,26,0.6);">POLLINATION AI IMAGE: https://image.pollinations.ai/prompt/brutalist%20swiss%20design%20${encodeURIComponent(topic.toLowerCase())}%20implementation%20guide%20workflow%20yellow%20black%20red?width=1200&height=630&seed=build-${slug}</span>`;
+}
+
+function generatePlaybookArticle(topic, slug, date, revenue, difficulty) {
+  const priceMap = {'1k-5k':'$27','5k-10k':'$37','10k-25k':'$47','25k-50k':'$47','50k+':'$49'};
+  const price = priceMap[revenue] || '$47';
+  const readTime = difficulty === 'beginner' ? '60 MIN' : difficulty === 'advanced' ? '120 MIN' : '90 MIN';
+  return `<strong>PLAYBOOK ARTICLE GENERATED:</strong><br><br>` +
+    `<div style="text-align:left;font-size:11px;line-height:1.7;background:var(--white);border:3px solid var(--black);padding:16px;margin-top:8px;font-family:monospace;white-space:pre-wrap;max-height:400px;overflow-y:auto;">` +
+    `---<br>` +
+    `title: "The ${topic} Playbook"<br>` +
+    `date: ${date}<br>` +
+    `category: "Playbook"<br>` +
+    `price: "${price}"<br>` +
+    `readTime: "${readTime}"<br>` +
+    `excerpt: "The most advanced ${topic.toLowerCase()} blueprint ever created. X modules, Y step-by-step procedures, interactive check-ins at every stage, complete tech stacks, and scaling systems."<br>` +
+    `image: "/images/articles/playbooks/${slug}-playbook.png"<br>` +
+    `heroImage: "/images/heroes/playbooks/${slug}-playbook.png"<br>` +
+    `---<br><br>` +
+    `This is not a blog post condensed into a PDF. This is an operating system for building a ${topic.toLowerCase()} from zero to ${revenue}/month in recurring revenue. Every module contains exact procedures — not theories, not possibilities, not "consider doing X." You will do X, in this order, with these tools, and you will verify it worked before moving on.<br><br>` +
+    `**XX procedures. X modules. X+ hours of reading and execution.** If you complete every procedure, you will have a functioning business with paying clients. If you skip procedures, you will have a folder of half-finished projects and no revenue. The choice is yours.<br><br>` +
+    `---<br><br>` +
+    `# MODULE 1: FOUNDATION — YOUR [TOPIC] OPERATING SYSTEM<br><br>` +
+    `## Overview<br><br>` +
+    `[What this module builds. Why it must come first. Time and tools needed.]<br><br>` +
+    `## Procedure 1.1: [First Setup Step]<br><br>` +
+    `[Open browser. Go to URL. Sign up. Do you see X? If Y, do Z.]<br><br>` +
+    `## Procedure 1.2: [Second Setup Step]<br><br>` +
+    `[Same level of detail — exact clicks, exact configurations, verification checkpoints.]<br><br>` +
+    `## Check-In: Module 1 Complete<br><br>` +
+    `- [ ] [Verification 1]<br>` +
+    `- [ ] [Verification 2]<br>` +
+    `- [ ] [Verification 3]<br><br>` +
+    `---<br><br>` +
+    `# MODULE 2: TECH STACK — YOUR [TOPIC] ARSENAL<br><br>` +
+    `## Overview<br><br>` +
+    `[Every tool needed, why, and how to connect them. Total cost breakdown.]<br><br>` +
+    `## Procedure 2.1: [Core Platform Setup]<br><br>` +
+    `[Step-by-step with verification checkpoints at every stage.]<br><br>` +
+    `## Check-In: Module 2 Complete<br><br>` +
+    `- [ ] [Verification 1]<br>` +
+    `- [ ] [Verification 2]<br><br>` +
+    `---<br><br>` +
+    `# MODULE 3: THE BUILD FRAMEWORK<br><br>` +
+    `## Procedure 3.1: [Core Build Process]<br><br>` +
+    `[Detailed step-by-step for the first real build. Include code snippets, configuration screenshots, and test protocols.]<br><br>` +
+    `## Check-In: Module 3 Complete<br><br>` +
+    `- [ ] [Verification items]<br><br>` +
+    `---<br><br>` +
+    `# MODULE 4: FIRST CLIENT / FIRST REVENUE<br><br>` +
+    `## Procedure 4.1: [Client Acquisition or Revenue Generation]<br><br>` +
+    `[Exact outreach scripts, demo call scripts, pricing presentation.]<br><br>` +
+    `---<br><br>` +
+    `# MODULE 5: DELIVERY AND RETENTION<br><br>` +
+    `## Procedure 5.1: [Delivery Framework]<br><br>` +
+    `[SOPs, monthly calendar, churn prevention system.]<br><br>` +
+    `---<br><br>` +
+    `# MODULE 6: SCALING<br><br>` +
+    `## Procedure 6.1: [Hiring and Delegation]<br><br>` +
+    `[Hiring roadmap, margin analysis at scale, SOPs for each new hire.]<br><br>` +
+    `### Margin Analysis at Scale<br><br>` +
+    `| Clients | Revenue/mo | Team Cost | Tool Cost | Profit | Margin |<br>` +
+    `|---------|-----------|-----------|-----------|--------|--------|<br>` +
+    `| 3 | $X,XXX | $0 | $XXX | $X,XXX | XX% |<br>` +
+    `| 10 | $XX,XXX | $X,XXX | $XXX | $XX,XXX | XX% |<br>` +
+    `| 20 | $XX,XXX | $XX,XXX | $XXX | $XX,XXX | XX% |` +
+    `</div>` +
+    `<br><span style="font-size:11px;color:rgba(26,26,26,0.6);">POLLINATION AI IMAGE: https://image.pollinations.ai/prompt/brutalist%20swiss%20design%20${encodeURIComponent(topic.toLowerCase())}%20playbook%20premium%20guide%20yellow%20black%20red?width=1200&height=630&seed=${slug}-playbook</span>`;
 }
 </script>
 {{ end }}

@@ -339,7 +339,17 @@
 </section>
 
 {{ else }}
-<!-- Generic list page for non-home -->
+{{ if and .IsSection (eq .Pages.Len 0) }}
+<!-- Standalone page section (About, Contact, Legal) — show content directly -->
+<div class="page-header">
+  <div class="page-badge">{{ .Params.badge | default .Section | upper }}</div>
+  <h1 class="page-title">{{ .Title }}</h1>
+</div>
+<div class="page-content">
+  {{ .Content }}
+</div>
+{{ else }}
+<!-- Section with child pages — show card grid -->
 {{ partial "section-hero.html" (dict "label" "Archive" "title" .Title "desc" .Params.description) }}
 <section class="section">
   <div class="section-inner">
@@ -350,5 +360,6 @@
     </div>
   </div>
 </section>
+{{ end }}
 {{ end }}
 {{ end }}
