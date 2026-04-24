@@ -47,8 +47,18 @@
           BUY NOW — {{ .Params.price }}
         </button>
       </div>
-      <p class="paywall-note">Secure checkout via Paystack. Instant access after payment.</p>
+      <p class="paywall-note">Secure checkout via Paystack. Instant PDF download after payment.</p>
     </div>
+  </div>
+  <!-- Download success section (shown after payment) -->
+  <div id="playbook-download" style="display:none;margin:40px 0;padding:32px;border:3px solid var(--yellow);background:var(--black);text-align:center;">
+    <div style="margin-bottom:16px;">
+      <svg viewBox="0 0 24 24" fill="none" stroke="var(--yellow)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:48px;height:48px;"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+    </div>
+    <h3 style="color:var(--yellow);font-family:var(--font-heading);font-size:1.5rem;margin-bottom:12px;">PAYMENT SUCCESSFUL</h3>
+    <p style="color:var(--white);margin-bottom:20px;font-size:1.05rem;">Your playbook is ready. Download the PDF or read the full content below.</p>
+    <a href='{{ .Params.pdfUrl | default (printf "/pdfs/%s.pdf" .File.ContentBaseName) }}' download style="display:inline-block;background:var(--yellow);color:var(--black);font-family:var(--font-heading);font-weight:700;font-size:1.1rem;padding:16px 40px;border:3px solid var(--yellow);text-decoration:none;letter-spacing:1px;margin-bottom:12px;">DOWNLOAD PDF</a>
+    <p style="color:rgba(255,255,255,0.6);font-size:0.85rem;margin-top:8px;">A copy of the download link has been sent to your email.</p>
   </div>
   <!-- Full content hidden behind paywall -->
   <div class="article-content" id="playbook-full" style="display:none;">
@@ -143,6 +153,7 @@ function payWithPaystack() {
   const amountInKobo = Math.round(amountInDollars * 100);
   const productTitle = '{{ .Title }}';
   const publicKey = '{{ .Site.Params.paystackPublicKey | default "pk_test_xxx" }}';
+  const pdfUrl = '{{ .Params.pdfUrl | default (printf "/pdfs/%s.pdf" .File.ContentBaseName) }}';
 
   const handler = PaystackPop.setup({
     key: publicKey,
@@ -158,14 +169,21 @@ function payWithPaystack() {
       // User closed the payment modal
     },
     callback: function(response) {
-      // Payment successful — unlock content
+      // Payment successful — show download section
       const paywall = document.getElementById('playbookPaywall');
       const preview = document.getElementById('playbook-preview');
-      const fullContent = document.getElementById('playbook-full');
       if (paywall) paywall.style.display = 'none';
       if (preview) preview.style.display = 'none';
+
+      // Show the download success section
+      const downloadSection = document.getElementById('playbook-download');
+      if (downloadSection) downloadSection.style.display = 'block';
+
+      // Also unlock full content on page
+      const fullContent = document.getElementById('playbook-full');
       if (fullContent) fullContent.style.display = 'block';
-      // Update buy box buttons to show success
+
+      // Update buy box buttons
       const buyBtns = document.querySelectorAll('.playbook-buy-box .btn-brutal');
       buyBtns.forEach(function(btn) {
         btn.textContent = 'PURCHASED';
@@ -173,8 +191,28 @@ function payWithPaystack() {
         btn.classList.add('btn-yellow');
         btn.disabled = true;
       });
-      // Scroll to the unlocked content
-      if (fullContent) fullContent.scrollIntoView({ behavior: 'smooth' });
+
+      // Send email delivery request via Formspree
+      const emailInput = document.getElementById('paywallEmail');
+      const buyerEmail = emailInput ? emailInput.value.trim() : '';
+      if (buyerEmail) {
+        fetch('https://formspree.io/f/xreawkow', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+          body: JSON.stringify({
+            _subject: 'Playbook Purchase: ' + productTitle,
+            _type: 'playbook_purchase',
+            email: buyerEmail,
+            product: productTitle,
+            price: priceStr,
+            reference: response.reference,
+            pdf_url: pdfUrl
+          })
+        }).catch(function() {});
+      }
+
+      // Scroll to download section
+      if (downloadSection) downloadSection.scrollIntoView({ behavior: 'smooth' });
     }
   });
   handler.openIframe();

@@ -15,7 +15,7 @@ ignoreLogs = ['warning-goldmark-raw-html']
   description = "Where AI Meets Revenue"
   tagline = "WHERE AI MEETS REVENUE"
   brand = "MENSHLY GLOBAL"
-  paystackPublicKey = "pk_test_xxx"
+  paystackPublicKey = "pk_live_29e6c78e22c40bd7afce83dbc716bebc9ec1fc7b"
 
 [menu]
   [[menu.main]]
