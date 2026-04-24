@@ -24,6 +24,7 @@ jobs:
         run: pip install requests python-dateutil python-dotenv Pillow
 
       - name: Generate Intelligence Article
+        timeout-minutes: 15
         env:
           AI_API_KEY: ${{ secrets.AI_API_KEY }}
           AI_API_BASE: ${{ secrets.AI_API_BASE }}

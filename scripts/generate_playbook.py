@@ -179,7 +179,13 @@ TEMPERATURE = 0.7
 
 
 def generate_playbook():
-    """Call the AI API to generate the full playbook."""
+    """Call the AI API to generate the full playbook.
+    
+    Uses a multi-pass approach for Groq:
+    1. First pass generates the bulk (first ~6 modules)
+    2. Second pass continues if too short (< 6000 words)
+    3. Third pass fills remaining modules + appendices if still short
+    """
     # Use PLAYBOOK_ override variables if set, otherwise fall back to AI_ vars
     api_key = PLAYBOOK_API_KEY
     api_base = PLAYBOOK_API_BASE
@@ -211,7 +217,96 @@ def generate_playbook():
     )
     resp.raise_for_status()
     data = resp.json()
-    return data["choices"][0]["message"]["content"]
+    body = data["choices"][0]["message"]["content"]
+    
+    # Check if the playbook was cut short
+    finish_reason = data["choices"][0].get("finish_reason", "")
+    word_count = len(body.split())
+    print(f"  First pass: {word_count} words, finish_reason={finish_reason}")
+    
+    # If too short, continue with second pass
+    if finish_reason == "length" or word_count < 6000:
+        print("  Playbook too short, continuing with second pass...")
+        continue_prompt = f"""The previous playbook was cut off. Here is what was generated so far (last section):
+
+...{body[-2000:]}
+
+CONTINUE the playbook from where it left off. Do NOT repeat any content. Pick up EXACTLY where it ended.
+If you were in the middle of a module, complete it. Then continue with all remaining modules.
+Make sure to include all remaining modules AND the 3 appendices (Tool Reference, SOP Index, Revenue Calculator).
+
+WORD COUNT TARGET: Write at least 3000 more words. Every procedure needs sub-steps, configurations, and check-ins."""
+        
+        payload2 = {
+            "model": model,
+            "messages": [
+                {"role": "system", "content": SYSTEM_PROMPT},
+                {"role": "user", "content": USER_PROMPT},
+                {"role": "assistant", "content": body},
+                {"role": "user", "content": continue_prompt},
+            ],
+            "max_tokens": MAX_TOKENS,
+            "temperature": 0.65,
+        }
+        resp2 = requests.post(
+            f"{api_base}/chat/completions",
+            headers=headers,
+            json=payload2,
+            timeout=300,
+        )
+        resp2.raise_for_status()
+        data2 = resp2.json()
+        continuation = data2["choices"][0]["message"]["content"]
+        cont_words = len(continuation.split())
+        print(f"  Second pass: {cont_words} words added")
+        body = body + "\n\n" + continuation
+        
+        # Check again after second pass
+        finish_reason2 = data2["choices"][0].get("finish_reason", "")
+        total_words = len(body.split())
+        module_count = body.count("# MODULE")
+        
+        if (finish_reason2 == "length" or total_words < 8000 or module_count < 6):
+            print("  Still short, continuing with third pass for appendices...")
+            appendix_prompt = f"""The playbook needs its appendices. Here is the end of what was generated:
+
+...{body[-2000:]}
+
+Write the MISSING APPENDICES now:
+- APPENDIX A: COMPLETE TOOL REFERENCE (table with 10-15 tools)
+- APPENDIX B: THE COMPLETE SOP INDEX (table with one row per procedure)
+- APPENDIX C: THE REVENUE CALCULATOR (table with Month 1/3/6/12 projections)
+
+Do NOT repeat any content already written. Only write the appendices that are missing.
+WORD COUNT TARGET: At least 1500 words for the appendices."""
+            
+            payload3 = {
+                "model": model,
+                "messages": [
+                    {"role": "system", "content": SYSTEM_PROMPT},
+                    {"role": "user", "content": USER_PROMPT},
+                    {"role": "assistant", "content": body},
+                    {"role": "user", "content": appendix_prompt},
+                ],
+                "max_tokens": MAX_TOKENS,
+                "temperature": 0.6,
+            }
+            resp3 = requests.post(
+                f"{api_base}/chat/completions",
+                headers=headers,
+                json=payload3,
+                timeout=300,
+            )
+            resp3.raise_for_status()
+            data3 = resp3.json()
+            appendix = data3["choices"][0]["message"]["content"]
+            app_words = len(appendix.split())
+            print(f"  Third pass: {app_words} words added")
+            body = body + "\n\n" + appendix
+    
+    final_words = len(body.split())
+    print(f"  Total: {final_words} words")
+    return body
 
 
 def extract_title(body: str) -> str:

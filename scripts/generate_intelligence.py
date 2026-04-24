@@ -145,7 +145,12 @@ Return the article as pure Markdown (no front matter). Begin with the title as a
 
 
 def generate_article():
-    """Call the AI API to generate the full article."""
+    """Call the AI API to generate the full article.
+    
+    Uses a two-pass approach for Groq:
+    1. First pass generates the bulk of the article
+    2. If too short (< 3000 words), a second pass continues from where it left off
+    """
     headers = {
         "Authorization": f"Bearer {AI_API_KEY}",
         "Content-Type": "application/json",
@@ -156,18 +161,64 @@ def generate_article():
             {"role": "system", "content": SYSTEM_PROMPT},
             {"role": "user", "content": USER_PROMPT},
         ],
-        "max_tokens": 8000,
+        "max_tokens": 16000,
         "temperature": 0.7,
     }
     resp = requests.post(
         f"{AI_API_BASE}/chat/completions",
         headers=headers,
         json=payload,
-        timeout=120,
+        timeout=180,
     )
     resp.raise_for_status()
     data = resp.json()
-    return data["choices"][0]["message"]["content"]
+    body = data["choices"][0]["message"]["content"]
+    
+    # Check if the article was cut short (finish_reason = "length")
+    finish_reason = data["choices"][0].get("finish_reason", "")
+    word_count = len(body.split())
+    print(f"  First pass: {word_count} words, finish_reason={finish_reason}")
+    
+    # If the article was truncated or is too short, continue it
+    if finish_reason == "length" or word_count < 3000:
+        print("  Article too short, continuing with second pass...")
+        continue_prompt = f"""The previous article was cut off. Here is what was generated so far (last 500 words):
+
+...{body[-2000:]}
+
+CONTINUE the article from where it left off. Do NOT repeat any content. Pick up EXACTLY where it ended.
+If you were in the middle of a section, complete it. Then continue with all remaining sections.
+Make sure to include: Cost Breakdown, Production Checklist, and What to Do Next.
+
+WORD COUNT TARGET: Write at least 2000 more words."""
+        
+        payload2 = {
+            "model": AI_MODEL,
+            "messages": [
+                {"role": "system", "content": SYSTEM_PROMPT},
+                {"role": "user", "content": USER_PROMPT},
+                {"role": "assistant", "content": body},
+                {"role": "user", "content": continue_prompt},
+            ],
+            "max_tokens": 16000,
+            "temperature": 0.65,
+        }
+        resp2 = requests.post(
+            f"{AI_API_BASE}/chat/completions",
+            headers=headers,
+            json=payload2,
+            timeout=180,
+        )
+        resp2.raise_for_status()
+        data2 = resp2.json()
+        continuation = data2["choices"][0]["message"]["content"]
+        cont_words = len(continuation.split())
+        print(f"  Second pass: {cont_words} words added")
+        body = body + "\n\n" + continuation
+    
+    final_words = len(body.split())
+    print(f"  Total: {final_words} words")
+    return body
 
 
 def extract_title(body: str) -> str:
