@@ -7,5 +7,44 @@
 
   <!-- CloudFlare Web Analytics -->
   <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "45a8f4af694f4407a5f9181c6dc54323"}'></script>
+
+  <!-- Email Capture Popup -->
+  <div id="emailPopup" class="popup-overlay" style="display:none;">
+    <div class="popup-card">
+      <button class="popup-close" onclick="closePopup()" aria-label="Close">&times;</button>
+      <div class="popup-brand">MENSHLY GLOBAL</div>
+      <h3 class="popup-title">JOIN THE INTELLIGENCE</h3>
+      <p class="popup-desc">Get the latest AI monetization opportunities, playbooks, and tools delivered to your inbox. No fluff. Pure signal.</p>
+      <form class="popup-form" action="https://formspree.io/f/xreawkow" method="POST">
+        <input type="hidden" name="_subject" value="Menshly Global - Popup Newsletter Subscription">
+        <input type="hidden" name="_type" value="newsletter_popup">
+        <input type="email" name="email" class="input-brutal" placeholder="YOUR EMAIL ADDRESS" required>
+        <button type="submit" class="btn-brutal btn-yellow" style="width:100%;justify-content:center;font-size:14px;padding:14px;">SUBSCRIBE — IT'S FREE</button>
+      </form>
+      <p class="popup-note">Join 500+ builders. Unsubscribe anytime.</p>
+    </div>
+  </div>
+  <script>
+  // Popup logic: show after 15s on first visit, dismiss for 7 days
+  (function(){
+    var seen=localStorage.getItem('mg_popup_seen');
+    if(seen){var t=parseInt(seen);if(Date.now()-t<7*86400000)return;}
+    setTimeout(function(){
+      document.getElementById('emailPopup').style.display='flex';
+      localStorage.setItem('mg_popup_seen',Date.now().toString());
+    },15000);
+  })();
+  function closePopup(){document.getElementById('emailPopup').style.display='none';}
+  document.getElementById('emailPopup').addEventListener('click',function(e){if(e.target===this)closePopup();});
+  // Popup form submit
+  document.querySelector('.popup-form').addEventListener('submit',async function(e){
+    e.preventDefault();var f=e.target,b=f.querySelector('button'),i=f.querySelector('input');
+    b.disabled=true;b.textContent='SUBSCRIBING...';
+    try{var r=await fetch(f.action,{method:'POST',body:new FormData(f),headers:{'Accept':'application/json'}});
+    if(r.ok){b.textContent='SUBSCRIBED!';b.style.background='var(--black)';b.style.color='var(--white)';f.reset();setTimeout(closePopup,2000);}
+    else throw new Error('Failed');}catch(e){b.textContent='FAILED — TRY AGAIN';b.style.background='var(--red)';b.style.color='var(--white)';}
+    setTimeout(function(){b.textContent="SUBSCRIBE — IT'S FREE";b.style.background='';b.style.color='';b.disabled=false;},3000);
+  });
+  </script>
 </body>
 </html>

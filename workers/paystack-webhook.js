@@ -69,10 +69,11 @@ export default {
         }
       }
 
-      // 5. Build PDF download URL
+      // 5. Build PDF download URL and delivery page URL
       const pdfUrl = pdfSlug
         ? `${siteUrl}/pdfs/${pdfSlug}.pdf`
         : `${siteUrl}/pdfs/${productTitle.toLowerCase().replace(/[^a-z0-9]+/g, '-')}.pdf`;
+      const deliveryUrl = `${siteUrl}/delivery/?slug=${encodeURIComponent(pdfSlug || productTitle.toLowerCase().replace(/[^a-z0-9]+/g, '-'))}&ref=${encodeURIComponent(reference)}`;
 
       // 6. Store purchase record in KV
       const purchaseRecord = {
@@ -96,7 +97,7 @@ export default {
         await env.PURCHASES.put(emailKey, JSON.stringify(purchaseRecord), { expirationTtl: 7776000 });
       }
 
-      // 7. Send email with PDF download link
+      // 7. Send email with PDF download link + delivery page
       let emailSent = false;
       if (env.EMAIL_API_KEY) {
         try {
@@ -107,6 +108,7 @@ export default {
             currency,
             reference,
             pdfUrl,
+            deliveryUrl,
             siteUrl,
           });
         } catch (emailError) {
@@ -175,7 +177,7 @@ async function verifyPaystackSignatureAsync(rawBody, secretKey, headerSignature)
 }
 
 // ─── Email Sending ────────────────────────────────────────────────────────────
-async function sendDeliveryEmail(env, { to, productTitle, amount, currency, reference, pdfUrl, siteUrl }) {
+async function sendDeliveryEmail(env, { to, productTitle, amount, currency, reference, pdfUrl, deliveryUrl, siteUrl }) {
   const provider = env.EMAIL_PROVIDER || 'resend';
   const from = env.EMAIL_FROM || 'Menshly Global <onboarding@resend.dev>';
   const amountDisplay = `${currency} ${(amount / 100).toFixed(2)}`;
@@ -185,10 +187,11 @@ async function sendDeliveryEmail(env, { to, productTitle, amount, currency, refe
     amountDisplay,
     reference,
     pdfUrl,
+    deliveryUrl,
     siteUrl,
   });
 
-  const textBody = `MENSHLY GLOBAL — Your Playbook Is Ready\n\nThank you for purchasing ${productTitle}. Your payment of ${amountDisplay} was successful.\n\nDownload your PDF: ${pdfUrl}\n\nReference: ${reference}\n\nIf you have any issues, reply to this email and we'll help you within 24 hours.\n\nMenshly Global — Where AI Meets Revenue`;
+  const textBody = `MENSHLY GLOBAL — Your Playbook Is Ready\n\nThank you for purchasing ${productTitle}. Your payment of ${amountDisplay} was successful.\n\nDownload your PDF: ${pdfUrl}\nOr read online: ${deliveryUrl || pdfUrl}\n\nReference: ${reference}\n\nIf you have any issues, reply to this email and we'll help you within 24 hours.\n\nMenshly Global — Where AI Meets Revenue`;
 
   if (provider === 'resend') {
     return await sendViaResend(env.EMAIL_API_KEY, from, to, `Your Playbook: ${productTitle} — Download Ready`, htmlBody, textBody);
@@ -281,7 +284,7 @@ function parseFromAddress(from) {
 }
 
 // ─── Email HTML Template ──────────────────────────────────────────────────────
-function buildEmailHtml({ productTitle, amountDisplay, reference, pdfUrl, siteUrl }) {
+function buildEmailHtml({ productTitle, amountDisplay, reference, pdfUrl, deliveryUrl, siteUrl }) {
   return `<!DOCTYPE html>
 <html lang="en">
 <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"></head>
@@ -304,15 +307,18 @@ function buildEmailHtml({ productTitle, amountDisplay, reference, pdfUrl, siteUr
         Click the button below to download your PDF playbook:
       </p>
 
-      <!-- CTA Button -->
+      <!-- CTA Buttons -->
       <div style="text-align:center;margin:28px 0;">
         <a href="${pdfUrl}" style="display:inline-block;background:#F9FF00;color:#1A1A1A;font-family:Oswald,Arial Black,sans-serif;font-weight:700;font-size:18px;padding:16px 44px;text-decoration:none;letter-spacing:2px;border:3px solid #F9FF00;">DOWNLOAD PDF</a>
+        ${deliveryUrl ? `<a href="${deliveryUrl}" style="display:inline-block;background:transparent;color:#FFFFFF;font-family:Oswald,Arial Black,sans-serif;font-weight:700;font-size:14px;padding:16px 32px;text-decoration:none;letter-spacing:2px;border:3px solid #FFFFFF;margin-left:8px;">READ ONLINE</a>` : ''}
       </div>
 
-      <!-- Backup Link -->
-      <div style="background:#111111;border:1px solid #333333;padding:16px;margin:24px 0;border-radius:0;">
-        <p style="font-size:13px;color:#999999;margin:0 0 8px 0;">If the button doesn't work, copy and paste this link into your browser:</p>
-        <p style="font-size:13px;color:#F9FF00;margin:0;word-break:break-all;">${pdfUrl}</p>
+      <!-- Backup Links -->
+      <div style="background:#111111;border:1px solid #333333;padding:16px;margin:24px 0;">
+        <p style="font-size:13px;color:#999999;margin:0 0 8px 0;">If the buttons don't work, copy and paste these links into your browser:</p>
+        <p style="font-size:13px;color:#999999;margin:0 0 4px 0;">PDF Download:</p>
+        <p style="font-size:13px;color:#F9FF00;margin:0 0 8px 0;word-break:break-all;">${pdfUrl}</p>
+        ${deliveryUrl ? `<p style="font-size:13px;color:#999999;margin:0 0 4px 0;">Read Online:</p><p style="font-size:13px;color:#F9FF00;margin:0;word-break:break-all;">${deliveryUrl}</p>` : ''}
       </div>
 
       <!-- Receipt Info -->

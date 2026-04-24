@@ -41,6 +41,41 @@
   </div>
 </section>
 
+<!-- HOW IT WORKS -->
+<section class="how-it-works-section">
+  <div class="section-inner">
+    <div class="section-header">
+      <div>
+        <span class="section-label">The Process</span>
+        <h2 class="section-title">HOW IT WORKS</h2>
+      </div>
+    </div>
+    <div class="hiw-grid">
+      <div class="hiw-step">
+        <div class="hiw-step-num">01</div>
+        <div class="hiw-step-badge bg-yellow">BROWSE</div>
+        <h3 class="hiw-step-title">DISCOVER OPPORTUNITIES</h3>
+        <p class="hiw-step-desc">Browse our curated library of AI business opportunities. Each one is researched, validated, and broken down with realistic revenue projections, startup costs, and step-by-step entry strategies.</p>
+        <a href="/opportunities/" class="btn-brutal btn-yellow" style="font-size:11px;padding:8px 16px;">BROWSE NOW →</a>
+      </div>
+      <div class="hiw-step">
+        <div class="hiw-step-num">02</div>
+        <div class="hiw-step-badge bg-yellow">LEARN</div>
+        <h3 class="hiw-step-title">FOLLOW THE INTELLIGENCE</h3>
+        <p class="hiw-step-desc">Every opportunity links to a deep implementation guide — full tool stacks, exact configurations, workflow templates, and troubleshooting. This is where you stop reading and start building.</p>
+        <a href="/intelligence/" class="btn-brutal btn-yellow" style="font-size:11px;padding:8px 16px;">START LEARNING →</a>
+      </div>
+      <div class="hiw-step">
+        <div class="hiw-step-num">03</div>
+        <div class="hiw-step-badge bg-red text-white">EXECUTE</div>
+        <h3 class="hiw-step-title">DOWNLOAD & EXECUTE</h3>
+        <p class="hiw-step-desc">Grab a battle-tested playbook — step-by-step procedures, checklists, pricing templates, and scaling roadmaps. Execute every procedure, check off every box, and go from zero to revenue.</p>
+        <a href="/playbooks/" class="btn-brutal btn-red" style="font-size:11px;padding:8px 16px;">GET PLAYBOOKS →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- LATEST OPPORTUNITIES -->
 {{ $opps := where .Site.RegularPages "Section" "opportunities" }}
 {{ if $opps }}

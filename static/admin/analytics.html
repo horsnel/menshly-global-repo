@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Analytics — Menshly Global</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Oswald:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#1A1A1A;color:#FFFFFF;font-family:Inter,-apple-system,sans-serif;padding:24px}
+h1{font-family:Oswald,sans-serif;color:#F9FF00;font-size:28px;letter-spacing:3px;margin-bottom:8px}
+.subtitle{color:#999;font-size:14px;margin-bottom:32px}
+.stats-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;margin-bottom:32px}
+.stat-card{background:#111;border:1px solid #333;padding:20px}
+.stat-card .label{font-size:12px;color:#999;text-transform:uppercase;letter-spacing:1px}
+.stat-card .value{font-family:Oswald,sans-serif;font-size:36px;color:#F9FF00;margin-top:4px}
+.stat-card .value.red{color:#FF0004}
+table{width:100%;border-collapse:collapse;margin-bottom:32px}
+th{background:#111;color:#F9FF00;font-family:Oswald,sans-serif;letter-spacing:1px;text-align:left;padding:12px;font-size:13px;border-bottom:2px solid #F9FF00}
+td{padding:10px 12px;border-bottom:1px solid #333;font-size:14px}
+tr:hover td{background:#222}
+.section-title{font-family:Oswald,sans-serif;color:#F9FF00;font-size:20px;letter-spacing:2px;margin-bottom:12px;margin-top:16px}
+.bar-row{display:flex;align-items:center;margin-bottom:6px}
+.bar-label{width:200px;font-size:13px;color:#CCC;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.bar-track{flex:1;background:#333;height:20px;position:relative}
+.bar-fill{height:100%;background:#F9FF00;min-width:2px}
+.bar-count{position:absolute;right:8px;top:50%;transform:translateY(-50%);font-size:11px;color:#1A1A1A;font-weight:700}
+.pw-form{margin-bottom:24px}
+.pw-form input{background:#111;border:1px solid #333;color:#FFF;padding:8px 12px;font-size:14px;margin-right:8px}
+.pw-form button{background:#F9FF00;color:#1A1A1A;border:none;padding:8px 16px;font-family:Oswald,sans-serif;font-weight:700;letter-spacing:1px;cursor:pointer}
+.loading{color:#999;font-size:14px}
+</style>
+</head>
+<body>
+<h1>MENSHLY GLOBAL ANALYTICS</h1>
+<p class="subtitle">Private analytics dashboard</p>
+<div class="pw-form" id="pwForm">
+  <input type="password" id="pwInput" placeholder="Password">
+  <button onclick="loadData()">ACCESS</button>
+</div>
+<div id="content" style="display:none">
+  <div class="stats-grid">
+    <div class="stat-card"><div class="label">Total Views (7d)</div><div class="value" id="views7d">—</div></div>
+    <div class="stat-card"><div class="label">Total Views (30d)</div><div class="value" id="views30d">—</div></div>
+    <div class="stat-card"><div class="label">Today</div><div class="value red" id="viewsToday">—</div></div>
+    <div class="stat-card"><div class="label">Top Page</div><div class="value" id="topPage" style="font-size:16px">—</div></div>
+  </div>
+  <div class="section-title">DAILY VIEWS (30 DAYS)</div>
+  <table><thead><tr><th>Date</th><th>Views</th><th>Bar</th></tr></thead><tbody id="dailyTable"></tbody></table>
+  <div class="section-title">TOP PAGES (7 DAYS)</div>
+  <div id="pagesChart"></div>
+</div>
+<script>
+function loadData(){
+  var pw=document.getElementById('pwInput').value;
+  var url='https://menshly-analytics.odehebuka48.workers.dev/stats?days=30&password='+encodeURIComponent(pw);
+  fetch(url).then(r=>r.json()).then(data=>{
+    document.getElementById('pwForm').style.display='none';
+    document.getElementById('content').style.display='block';
+    var d=data.daily||[];
+    var total7=d.slice(-7).reduce(function(s,x){return s+x.views},0);
+    var total30=d.reduce(function(s,x){return s+x.views},0);
+    var today=d.length?d[d.length-1].views:0;
+    document.getElementById('views7d').textContent=total7;
+    document.getElementById('views30d').textContent=total30;
+    document.getElementById('viewsToday').textContent=today;
+    var pages=data.pages||[];
+    document.getElementById('topPage').textContent=pages.length?pages[0].url:'—';
+    var tbody=document.getElementById('dailyTable');
+    var maxV=Math.max.apply(null,d.map(function(x){return x.views||1}));
+    tbody.innerHTML=d.map(function(x){
+      var pct=Math.round((x.views/maxV)*100);
+      return '<tr><td>'+x.date+'</td><td>'+x.views+'</td><td><div style="background:#333;height:16px;width:100%"><div style="background:#F9FF00;height:100%;width:'+pct+'%"></div></div></td></tr>';
+    }).join('');
+    var maxP=pages.length?pages[0].views:1;
+    var pc=document.getElementById('pagesChart');
+    pc.innerHTML=pages.slice(0,20).map(function(p){
+      var pct=Math.round((p.views/maxP)*100);
+      return '<div class="bar-row"><div class="bar-label" title="'+p.url+'">'+p.url+'</div><div class="bar-track"><div class="bar-fill" style="width:'+pct+'%"></div><div class="bar-count">'+p.views+'</div></div></div>';
+    }).join('');
+  }).catch(function(e){alert('Error: '+e.message)});
+}
+</script>
+</body>
+</html>

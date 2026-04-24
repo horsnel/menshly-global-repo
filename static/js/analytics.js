@@ -1,0 +1,1 @@
+!function(){var e="https://menshly-analytics.odehebuka48.workers.dev/track",t={url:location.pathname+location.search,referrer:document.referrer,ua:navigator.userAgent};navigator.sendBeacon?navigator.sendBeacon(e,JSON.stringify(t)):fetch(e,{method:"POST",body:JSON.stringify(t),headers:{"Content-Type":"application/json"},keepalive:!0})}();

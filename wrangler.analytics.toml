@@ -1,0 +1,7 @@
+name = "menshly-analytics"
+main = "workers/analytics.js"
+compatibility_date = "2024-01-01"
+
+[[kv_namespaces]]
+binding = "ANALYTICS"
+id = "76f30a06e0ed49b6a692f93fc88284e7"

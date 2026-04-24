@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Your Playbook — Menshly Global</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Oswald:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#1A1A1A;color:#FFFFFF;font-family:Inter,-apple-system,sans-serif;min-height:100vh}
+.delivery-page{max-width:700px;margin:0 auto;padding:40px 24px}
+
+/* Header */
+.header{border-bottom:3px solid #F9FF00;padding-bottom:24px;margin-bottom:32px}
+.brand{font-family:Oswald,sans-serif;color:#F9FF00;font-size:18px;letter-spacing:4px;margin-bottom:16px}
+.title{font-family:Oswald,sans-serif;font-size:28px;margin-bottom:8px}
+.subtitle{color:#999;font-size:14px}
+
+/* Download card */
+.download-card{border:3px solid #F9FF00;padding:32px;margin-bottom:24px;background:#111}
+.download-card h2{font-family:Oswald,sans-serif;font-size:20px;margin-bottom:8px;color:#F9FF00}
+.download-card p{font-size:14px;color:#CCCCCC;line-height:1.7;margin-bottom:20px}
+.download-btn{display:inline-block;background:#F9FF00;color:#1A1A1A;font-family:Oswald,sans-serif;font-weight:700;font-size:16px;padding:16px 40px;text-decoration:none;letter-spacing:2px;border:3px solid #F9FF00;margin:0 12px 12px 0;cursor:pointer;transition:all 0.15s ease}
+.download-btn:hover{background:transparent;color:#F9FF00}
+.read-btn{display:inline-block;background:transparent;color:#FFFFFF;font-family:Oswald,sans-serif;font-weight:700;font-size:14px;padding:16px 32px;text-decoration:none;letter-spacing:2px;border:3px solid #FFFFFF;cursor:pointer;transition:all 0.15s ease}
+.read-btn:hover{background:#FFFFFF;color:#1A1A1A}
+
+/* Receipt */
+.receipt{border:1px solid #333;padding:20px;margin-bottom:24px}
+.receipt h3{font-family:Oswald,sans-serif;font-size:13px;letter-spacing:2px;color:#999;margin-bottom:16px}
+.receipt-row{display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid #222}
+.receipt-row:last-child{border-bottom:none}
+.receipt-label{font-size:13px;color:#666}
+.receipt-value{font-size:13px;color:#FFFFFF;font-weight:600}
+
+/* Info box */
+.info-box{background:#111;border:1px solid #333;padding:16px;margin:24px 0}
+.info-box p{font-size:13px;color:#999;margin:0}
+.info-box strong{color:#F9FF00}
+
+/* Read online section */
+.read-online{display:none;border:3px solid #333;padding:32px;margin-bottom:24px;background:#111;max-height:80vh;overflow-y:auto}
+.read-online h1{font-family:Oswald,sans-serif;font-size:24px;color:#F9FF00;margin-bottom:16px;border-bottom:3px solid #F9FF00;padding-bottom:8px}
+.read-online h2{font-family:Oswald,sans-serif;font-size:18px;color:#FFFFFF;margin:24px 0 12px;text-transform:uppercase}
+.read-online h3{font-family:Oswald,sans-serif;font-size:15px;color:#CCCCCC;margin:20px 0 8px}
+.read-online p{font-size:14px;line-height:1.8;color:#CCCCCC;margin-bottom:12px}
+.read-online ul,.read-online ol{margin:0 0 12px 24px}
+.read-online li{font-size:14px;line-height:1.8;color:#CCCCCC;margin-bottom:4px}
+.read-online table{width:100%;border-collapse:collapse;margin:16px 0;font-size:13px}
+.read-online thead{background:#1A1A1A}
+.read-online th{padding:8px 12px;text-align:left;border:1px solid #333;color:#F9FF00;font-family:Oswald,sans-serif;font-size:11px;text-transform:uppercase}
+.read-online td{padding:8px 12px;border:1px solid #222;color:#CCCCCC}
+.read-online code{background:#222;padding:2px 6px;font-size:13px;border:1px solid #333}
+.read-online pre{background:#222;padding:16px;overflow-x:auto;margin:16px 0;border:1px solid #333}
+.read-online pre code{background:none;border:none;padding:0}
+.read-online blockquote{border-left:4px solid #F9FF00;padding:12px 16px;margin:16px 0;background:#1A1A1A}
+.read-online strong{color:#F9FF00}
+.read-online hr{border:none;border-top:1px solid #333;margin:24px 0}
+
+/* Back link */
+.back-link{display:inline-block;margin-top:24px;color:#999;font-size:13px;text-decoration:none;border:1px solid #333;padding:8px 16px;transition:all 0.15s}
+.back-link:hover{border-color:#F9FF00;color:#F9FF00}
+
+/* Footer */
+.footer{border-top:3px solid #F9FF00;padding-top:16px;margin-top:40px}
+.footer p{font-size:12px;color:#666}
+
+/* Loading / Error */
+.loading{color:#F9FF00;font-size:18px;text-align:center;padding:60px 0}
+.error{text-align:center;padding:40px}
+.error h2{font-family:Oswald,sans-serif;color:#FF0004;font-size:24px;margin-bottom:12px}
+.error p{color:#999;font-size:14px;line-height:1.7}
+
+/* Security badge */
+.security-badge{display:flex;align-items:center;gap:8px;margin-top:16px}
+.security-badge svg{width:16px;height:16px;color:#F9FF00}
+.security-badge span{font-size:11px;color:#666;text-transform:uppercase;letter-spacing:1px}
+</style>
+</head>
+<body>
+<div class="delivery-page" id="app">
+  <div class="loading">Loading your playbook...</div>
+</div>
+<script>
+var playbooks={
+  'ai-automation-agency-playbook':{title:'The AI Automation Agency Playbook',price:'$47',time:'90 MIN'},
+  'automation-agency-starter-kit':{title:'Automation Agency Starter Kit',price:'$29',time:'35 MIN'},
+  'ai-side-hustle-blueprint':{title:'AI Side Hustle Blueprint',price:'$19',time:'75 MIN'},
+  'chatgpt-prompt-engineering-guide':{title:'ChatGPT Prompt Engineering Guide',price:'$49',time:'90 MIN'}
+};
+var params=new URLSearchParams(window.location.search);
+var slug=params.get('slug')||'';
+var ref=params.get('ref')||'';
+var token=params.get('token')||'';
+var pb=playbooks[slug];
+var app=document.getElementById('app');
+
+if(!pb){
+  app.innerHTML='<div class="error"><h2>INVALID OR EXPIRED LINK</h2><p>If you believe this is an error, reply to your delivery email and we will help within 24 hours.</p><a href="/" class="back-link" style="margin-top:24px;">BACK TO HOME</a></div>';
+}else{
+  var pdfUrl='/pdfs/'+slug+'.pdf';
+  var deliveryUrl=window.location.origin+'/delivery/?slug='+encodeURIComponent(slug)+'&ref='+encodeURIComponent(ref);
+
+  app.innerHTML=
+    '<div class="header">'+
+      '<div class="brand">MENSHLY GLOBAL</div>'+
+      '<h1 class="title">'+pb.title+'</h1>'+
+      '<p class="subtitle">Your playbook is ready — '+pb.price+' &middot; '+pb.time+'</p>'+
+    '</div>'+
+
+    '<div class="download-card">'+
+      '<h2>YOUR PLAYBOOK IS READY</h2>'+
+      '<p>Thank you for your purchase. Download the PDF to your device for permanent access, or read the full content online below.</p>'+
+      '<a href="'+pdfUrl+'" class="download-btn" download>DOWNLOAD PDF</a>'+
+      '<button class="read-btn" onclick="toggleReadOnline()">READ ONLINE</button>'+
+      '<div class="security-badge">'+
+        '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>'+
+        '<span>Secure delivery &middot; Licensed to your email</span>'+
+      '</div>'+
+    '</div>'+
+
+    '<div class="read-online" id="readOnline">'+
+      '<div style="text-align:center;padding:40px 0;color:#666;">Loading content...</div>'+
+    '</div>'+
+
+    '<div class="receipt">'+
+      '<h3>PURCHASE RECEIPT</h3>'+
+      '<div class="receipt-row"><span class="receipt-label">Product</span><span class="receipt-value">'+pb.title+'</span></div>'+
+      '<div class="receipt-row"><span class="receipt-label">Amount</span><span class="receipt-value">'+pb.price+'</span></div>'+
+      '<div class="receipt-row"><span class="receipt-label">Reference</span><span class="receipt-value">'+(ref||'N/A')+'</span></div>'+
+      '<div class="receipt-row"><span class="receipt-label">Format</span><span class="receipt-value">PDF + Online Access</span></div>'+
+      '<div class="receipt-row"><span class="receipt-label">Purchased</span><span class="receipt-value">'+new Date().toLocaleDateString('en-US',{year:'numeric',month:'long',day:'numeric'})+'</span></div>'+
+    '</div>'+
+
+    '<div class="info-box">'+
+      '<p><strong>Important:</strong> Download and save this PDF immediately. The online reading version is available for 90 days after purchase. For permanent access, save the PDF to your device.</p>'+
+      '<p style="margin-top:8px">If the download button does not work, right-click it and select "Save link as..." or copy this URL:</p>'+
+      '<p style="margin-top:4px;color:#F9FF00;word-break:break-all">'+window.location.origin+pdfUrl+'</p>'+
+    '</div>'+
+
+    '<div class="info-box" style="border-left:3px solid #F9FF00;">'+
+      '<p><strong>Need help?</strong> Reply to your delivery email and we respond within 24 hours. Include your reference number: <strong style="color:#F9FF00">'+(ref||'see your email')+'</strong></p>'+
+    '</div>'+
+
+    '<a href="/" class="back-link">BACK TO MENSHLY GLOBAL</a>'+
+
+    '<div class="footer">'+
+      '<p>Menshly Global &mdash; Where AI Meets Revenue</p>'+
+      '<p style="margin-top:4px">This page is for the purchaser only. Do not share.</p>'+
+    '</div>';
+}
+
+function toggleReadOnline(){
+  var el=document.getElementById('readOnline');
+  if(!el)return;
+  if(el.style.display==='block'){
+    el.style.display='none';
+  }else{
+    el.style.display='block';
+    // Lazy-load content from the playbook page
+    if(el.querySelector('[style*="text-align:center"]')){
+      fetch('/playbooks/'+slug+'/')
+        .then(function(r){return r.text()})
+        .then(function(html){
+          var parser=new DOMParser();
+          var doc=parser.parseFromString(html,'text/html');
+          var content=doc.querySelector('.article-content');
+          if(content){
+            el.innerHTML='';
+            el.appendChild(content.cloneNode(true));
+          }else{
+            el.innerHTML='<p style="color:#999;">Full content is available in the PDF download above.</p>';
+          }
+        })
+        .catch(function(){
+          el.innerHTML='<p style="color:#999;">Could not load online version. Please use the PDF download instead.</p>';
+        });
+    }
+  }
+}
+</script>
+</body>
+</html>
