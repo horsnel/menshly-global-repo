@@ -4,127 +4,141 @@
       "name": "Fliki",
       "url": "https://fliki.ai?referral=noah-wilson-w84be4",
       "category": "video",
-      "description": "AI video creation tool — turn text into videos with realistic AI voices"
-    },
-    {
-      "name": "Make.com",
-      "url": "https://make.com",
-      "category": "automation",
-      "description": "Visual automation platform — connect any app without code"
-    },
-    {
-      "name": "Klaviyo",
-      "url": "https://klaviyo.com",
-      "category": "email",
-      "description": "AI-powered email marketing and SMS automation"
-    },
-    {
-      "name": "ActiveCampaign",
-      "url": "https://activecampaign.com",
-      "category": "email",
-      "description": "CRM and email marketing automation platform"
-    },
-    {
-      "name": "Notion",
-      "url": "https://notion.so",
-      "category": "productivity",
-      "description": "All-in-one workspace for notes, docs, and project management"
-    },
-    {
-      "name": "Canva",
-      "url": "https://canva.com",
-      "category": "design",
-      "description": "Graphic design platform for non-designers"
-    },
-    {
-      "name": "ChatGPT",
-      "url": "https://chat.openai.com",
-      "category": "ai",
-      "description": "AI chatbot by OpenAI — the most popular AI assistant"
-    },
-    {
-      "name": "Midjourney",
-      "url": "https://midjourney.com",
-      "category": "ai",
-      "description": "AI image generation — create stunning visuals from text prompts"
-    },
-    {
-      "name": "Shopify",
-      "url": "https://shopify.com",
-      "category": "ecommerce",
-      "description": "E-commerce platform — start selling online today"
-    },
-    {
-      "name": "ElevenLabs",
-      "url": "https://elevenlabs.io",
-      "category": "ai",
-      "description": "AI voice generation — clone voices and create natural speech"
-    },
-    {
-      "name": "Semrush",
-      "url": "https://semrush.com",
-      "category": "seo",
-      "description": "All-in-one SEO and digital marketing toolkit"
-    },
-    {
-      "name": "Hostinger",
-      "url": "https://hostinger.com",
-      "category": "hosting",
-      "description": "Affordable web hosting with AI website builder"
-    },
-    {
-      "name": "Buffer",
-      "url": "https://buffer.com",
-      "category": "social",
-      "description": "Social media scheduling and analytics platform"
-    },
-    {
-      "name": "Loom",
-      "url": "https://loom.com",
-      "category": "productivity",
-      "description": "Record and share video messages — replace meetings with async video"
-    },
-    {
-      "name": "Zapier",
-      "url": "https://zapier.com",
-      "category": "automation",
-      "description": "Automate tasks by connecting 6,000+ apps"
-    },
-    {
-      "name": "Calendly",
-      "url": "https://calendly.com",
-      "category": "productivity",
-      "description": "Scheduling automation — eliminate the back-and-forth"
-    },
-    {
-      "name": "Beehiiv",
-      "url": "https://beehiiv.com",
-      "category": "newsletter",
-      "description": "Newsletter platform built for growth and monetization"
-    },
-    {
-      "name": "Grammarly",
-      "url": "https://grammarly.com",
-      "category": "writing",
-      "description": "AI writing assistant for grammar, tone, and clarity"
-    },
-    {
-      "name": "PhantomBuster",
-      "url": "https://phantombuster.com",
-      "category": "automation",
-      "description": "LinkedIn and email lead generation automation"
-    },
-    {
-      "name": "Apollo.io",
-      "url": "https://apollo.io",
-      "category": "sales",
-      "description": "B2B sales intelligence and engagement platform"
+      "description": "AI video creation tool — turn text into videos with realistic AI voices",
+      "earn": "Up to 30% recurring commission"
     },
     {
       "name": "Replit",
       "url": "https://replit.com/refer/egwuokwor",
       "category": "development",
-      "description": "Cloud IDE — build, deploy, and scale AI SaaS products in your browser"
+      "description": "Cloud IDE — build, deploy, and scale AI SaaS products in your browser",
+      "earn": "$10 per signup"
+    },
+    {
+      "name": "Make.com",
+      "url": "https://www.make.com/en/register?pc=menshly",
+      "category": "automation",
+      "description": "Visual automation platform — connect any app without code",
+      "earn": "Referral credits"
+    },
+    {
+      "name": "Instantly",
+      "url": "https://instantly.ai/",
+      "category": "email",
+      "description": "Cold email outreach — unlimited sending, land in inbox every time",
+      "earn": "30% recurring commission"
+    },
+    {
+      "name": "Newly",
+      "url": "https://newly.app/",
+      "category": "development",
+      "description": "AI app builder — build apps with AI agents, no coding needed",
+      "earn": "20% recurring commission"
+    },
+    {
+      "name": "Beehiiv",
+      "url": "https://beehiiv.com/",
+      "category": "newsletter",
+      "description": "Newsletter platform built for growth and monetization",
+      "earn": "50% revenue share"
+    },
+    {
+      "name": "Cursor",
+      "url": "https://cursor.sh/",
+      "category": "development",
+      "description": "AI code editor — write code 10x faster with AI assistance",
+      "earn": "Referral credits"
+    },
+    {
+      "name": "Perplexity",
+      "url": "https://perplexity.ai/",
+      "category": "ai",
+      "description": "AI search engine — research and fact-check instantly",
+      "earn": "Free Pro credits"
+    },
+    {
+      "name": "Bolt.new",
+      "url": "https://bolt.new/",
+      "category": "development",
+      "description": "AI full-stack app builder — prompt to deployed app in minutes",
+      "earn": "Referral credits"
+    },
+    {
+      "name": "Lovable",
+      "url": "https://lovable.dev/",
+      "category": "development",
+      "description": "AI app generator — build web apps from natural language",
+      "earn": "Referral credits"
+    },
+    {
+      "name": "Notion",
+      "url": "https://notion.so/",
+      "category": "productivity",
+      "description": "All-in-one workspace — notes, docs, project management",
+      "earn": "$10 credit per referral"
+    },
+    {
+      "name": "LemFi",
+      "url": "https://lemfi.com/",
+      "category": "fintech",
+      "description": "Send money to Africa — zero fees, instant transfers from diaspora",
+      "earn": "₦10,000 per referral"
+    },
+    {
+      "name": "Afriex",
+      "url": "https://www.afriex.com/",
+      "category": "fintech",
+      "description": "Money transfers to Africa — fast, cheap, reliable",
+      "earn": "$50 per 3 referrals"
+    },
+    {
+      "name": "Flutterwave Send App",
+      "url": "https://flutterwave.com/",
+      "category": "fintech",
+      "description": "Send money across Africa — share and earn cash rewards",
+      "earn": "Cash rewards per referral"
+    },
+    {
+      "name": "Carbon Business",
+      "url": "https://www.getcarbon.co/",
+      "category": "fintech",
+      "description": "Business banking in Nigeria — loans, payments, invoicing",
+      "earn": "₦2,000+ per referral"
+    },
+    {
+      "name": "Fingo Africa",
+      "url": "https://fingo.africa/",
+      "category": "fintech",
+      "description": "Digital banking for Africa — save, spend, earn rewards",
+      "earn": "KES 60 per 3 referrals"
+    },
+    {
+      "name": "Printify",
+      "url": "https://printify.com/",
+      "category": "ecommerce",
+      "description": "Print-on-demand — sell custom merch with zero inventory",
+      "earn": "5% commission on sales"
+    },
+    {
+      "name": "Grammarly",
+      "url": "https://grammarly.com/",
+      "category": "writing",
+      "description": "AI writing assistant — grammar, tone, clarity",
+      "earn": "$25 per Premium referral"
+    },
+    {
+      "name": "ElevenLabs",
+      "url": "https://elevenlabs.io/",
+      "category": "ai",
+      "description": "AI voice generation — clone voices and create natural speech",
+      "earn": "Referral credits"
+    },
+    {
+      "name": "Vapi",
+      "url": "https://vapi.ai/",
+      "category": "ai",
+      "description": "AI voice agent platform — build and deploy voice AI",
+      "earn": "Referral credits"
     }
   ]
 }
