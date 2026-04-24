@@ -2,17 +2,18 @@
 """Generate a premium Playbook article using AI API.
 
 This generator produces full-length (~8,000-10,000 word) premium playbooks
-that follow the Menshly Global Playbook template — the same format as
-"The AI Automation Agency Playbook":
+that follow the Menshly Global Playbook template:
   - Multiple MODULES (8-12), each with an Overview
-  - Numbered PROCEDURES within each module (e.g., Procedure 1.1, 1.2)
-  - Interactive check-ins at every stage ("Do you see X? You should see X.")
-  - Exact UI step-by-step instructions (button names, menu paths, settings)
-  - Error handling and troubleshooting at every step
-  - Tables for cost breakdowns, tool references, margin analysis
-  - Module-level check-in checklists
+  - Numbered PROCEDURES within each module
+  - Interactive check-ins at every stage
   - Appendices (Tool Reference, SOP Index, Revenue Calculator)
-  - Title using imperative verbs (NOT "How to")
+
+NEW FEATURES (v2):
+  - Links to the most recent Opportunity AND Intelligence articles
+  - Embeds affiliate links naturally in tool mentions
+  - Appends affiliate tool reference section
+  - Uses topic data from last_generated.json for coordinated content
+  - Cross-links added to both opportunity and intelligence articles
 """
 
 import os
@@ -29,92 +30,33 @@ from dotenv import load_dotenv
 load_dotenv(Path(__file__).resolve().parent.parent / ".env")
 
 from image_utils import generate_article_image, generate_hero_image
+from trending_topics import TrendingTopicDiscovery
+from affiliate_injector import inject_affiliate_links, generate_tools_section
+from ai_utils import api_call
 
 AI_API_KEY = os.environ.get("AI_API_KEY", "")
 AI_API_BASE = os.environ.get("AI_API_BASE", "https://api.groq.com/openai/v1")
 AI_API_MODEL = os.environ.get("AI_MODEL", "llama-3.3-70b-versatile")
 AI_MODEL = AI_API_MODEL
 
-# Optional: Override model for playbooks (use a better model if available)
+# Optional: Override model for playbooks
 PLAYBOOK_API_KEY = os.environ.get("PLAYBOOK_API_KEY", AI_API_KEY)
 PLAYBOOK_API_BASE = os.environ.get("PLAYBOOK_API_BASE", AI_API_BASE)
 PLAYBOOK_MODEL = os.environ.get("PLAYBOOK_MODEL", AI_MODEL)
 
+PROJECT_ROOT = Path(__file__).resolve().parent.parent
+LAST_GENERATED_FILE = PROJECT_ROOT / "data" / "last_generated.json"
 
-def api_call(payload, max_retries=5, api_key=None, api_base=None):
-    """Call the AI API with automatic retry on rate limits (429) and server errors (5xx).
-    
-    For playbooks, pass api_key and api_base to use PLAYBOOK_* overrides.
-    """
-    key = api_key or AI_API_KEY
-    base = api_base or AI_API_BASE
-    headers = {
-        "Authorization": f"Bearer {key}",
-        "Content-Type": "application/json",
-    }
-    for attempt in range(max_retries + 1):
-        try:
-            resp = requests.post(
-                f"{base}/chat/completions",
-                headers=headers,
-                json=payload,
-                timeout=300,
-            )
-            if resp.status_code == 429:
-                retry_after = resp.headers.get("Retry-After")
-                wait = int(retry_after) if retry_after else 30 * (attempt + 1)
-                if attempt < max_retries:
-                    print(f"  Rate limited (429). Waiting {wait}s before retry {attempt+1}/{max_retries}...")
-                    time.sleep(wait)
-                    continue
-                else:
-                    print(f"  Rate limited (429). Max retries reached.")
-                    resp.raise_for_status()
-            if resp.status_code >= 500:
-                if attempt < max_retries:
-                    wait = 10 * (attempt + 1)
-                    print(f"  Server error ({resp.status_code}). Waiting {wait}s before retry {attempt+1}/{max_retries}...")
-                    time.sleep(wait)
-                    continue
-            resp.raise_for_status()
-            return resp.json()
-        except requests.exceptions.Timeout:
-            if attempt < max_retries:
-                wait = 15 * (attempt + 1)
-                print(f"  Request timed out. Waiting {wait}s before retry {attempt+1}/{max_retries}...")
-                time.sleep(wait)
-                continue
-            raise
-    resp.raise_for_status()
 
-# ── Playbook topics ──────────────────────────────────────────────────
-TOPICS = [
-    "Build and Scale an AI Content Agency from Zero to $30K/Month",
-    "Design, Build, and Monetize AI SaaS Micro-Products on Replit",
-    "Launch and Scale an AI Voice Agent Business with Vapi",
-    "Build and Automate an AI SEO Agency with Make.com Workflows",
-    "Create, Deploy, and Scale AI-Powered E-Commerce Chatbots",
-    "Build and Monetize AI Image Generation Workflows and Agencies",
-    "Design and Launch an AI Newsletter Business with Full Automation",
-    "Build and Scale an AI Social Media Management Pipeline",
-    "Create and Deploy AI-Powered Customer Onboarding Systems",
-    "Build and Automate an AI Bookkeeping and Finance Service",
-    "Configure, Deploy, and Scale AI-Powered HR and Recruitment Automation",
-    "Build and Monetize a Faceless YouTube Channel Empire with AI",
-    "Design, Build, and Sell AI-Powered Email Marketing Automations",
-    "Build and Scale an AI Data Analysis and Reporting Service",
-    "Create, Launch, and Grow an AI Course Creation Business",
-    "Build and Operate an AI Copywriting Agency with Automation",
-    "Design and Deploy AI Lead Generation Systems with OpenAI",
-    "Set Up, Train, and Deploy Custom AI Agents with LangChain",
-    "Build and Monetize AI Automation for Real Estate Agencies",
-    "Create and Scale an AI-Powered Podcast Production Business",
-]
+def load_last_generated() -> dict:
+    """Load the last generated article data for cross-linking."""
+    if not LAST_GENERATED_FILE.exists():
+        return {}
+    try:
+        return json.loads(LAST_GENERATED_FILE.read_text())
+    except (json.JSONDecodeError, Exception):
+        return {}
 
-PRICES = ["$29", "$39", "$47"]
-
-topic = random.choice(TOPICS)
-price = random.choice(PRICES)
 
 # ── Master prompt for Playbook generation ────────────────────────────
 SYSTEM_PROMPT = """You are the senior implementation writer for Menshly Global (tagline: "Where AI Meets Revenue").
@@ -135,6 +77,34 @@ CRITICAL STYLE RULES:
 - Each procedure should take 10-60 minutes in real life — break large steps into sub-steps
 - Use TABLES for: tool comparisons, cost breakdowns, pricing tiers, margin analysis, revenue projections
 - Every module ends with a CHECK-IN checklist: "- [ ] Item 1" format with 4-7 items
+
+AFFILIATE TOOL INTEGRATION RULES:
+When mentioning tools, use these EXACT tool names (these are our affiliate partners):
+- Make.com (automation platform)
+- Replit (cloud IDE for AI SaaS)
+- Vapi (AI voice agents)
+- Fliki AI (AI text-to-video)
+- Canva (design platform)
+- ChatGPT (AI assistant)
+- ElevenLabs (AI voice synthesis)
+- Klaviyo (email marketing)
+- ActiveCampaign (CRM + email)
+- Semrush (SEO toolkit)
+- Hostinger (web hosting)
+- Shopify (e-commerce)
+- Zapier (app automation)
+- Apollo.io (B2B sales intelligence)
+- PhantomBuster (LinkedIn automation)
+- Buffer (social media scheduling)
+- Loom (video messaging)
+- Calendly (scheduling)
+- Beehiiv (newsletter platform)
+- Notion (workspace)
+- Midjourney (AI image generation)
+- Grammarly (AI writing assistant)
+
+Always mention at least 6-8 of these tools NATURALLY throughout the playbook.
+Do NOT add a separate "Recommended Tools" section — we add that automatically.
 
 PLAYBOOK STRUCTURE (follow this EXACTLY):
 
@@ -159,20 +129,14 @@ Step-by-step instructions with:
 - Expected output or result
 
 ## Procedure 1.2: [Exact Action]
-Same level of detail. Include tables where appropriate (database columns, settings, etc.)
-
-## Procedure 1.3: [Exact Action]
-Continue with the same depth.
+Same level of detail. Include tables where appropriate.
 
 ## Check-In: Module 1 Complete
 - [ ] Item 1
 - [ ] Item 2
-(4-7 items, counting format: "X checkmarks. Do you have all X?")
+(4-7 items)
 
 ---
-
-# MODULE 2: [DESCRIPTIVE TITLE]
-(Repeat the same structure: Overview, Procedures 2.1-2.N, Check-In)
 
 Continue for 8-12 modules total. The modules should follow this logical progression:
 1. FOUNDATION — Setup, accounts, infrastructure
@@ -188,8 +152,6 @@ Continue for 8-12 modules total. The modules should follow this logical progress
 11. QUALITY ASSURANCE — Checklists, reviews
 12. LAUNCH PLAN — Day-by-day execution calendar
 
-Adjust the exact module titles and count to fit the topic naturally.
-
 ---
 
 # APPENDIX A: COMPLETE TOOL REFERENCE
@@ -198,43 +160,58 @@ Table with columns: Tool | Purpose | Free Tier | Paid Tier | When to Upgrade
 
 # APPENDIX B: THE COMPLETE SOP INDEX
 Table with columns: SOP # | Procedure | Category | Difficulty | Est. Time
-(One row per procedure — should match the total procedure count stated in the intro)
 
 # APPENDIX C: THE REVENUE CALCULATOR
 Table showing revenue projections at Month 1, Month 3, Month 6, and Month 12
-Include: Active Clients/Users, Average Revenue, Total MRR, Setup Fees, Total Annual Revenue, Expenses, Net Profit
 
 WORD COUNT TARGET: 8,000-10,000 words. Every procedure must be fully detailed with exact steps.
-Do NOT write short sections. Every procedure needs sub-steps, configurations, and check-ins.
 The playbook must be so detailed that a complete beginner can follow it and end up with a working business."""
 
-USER_PROMPT = f"""Write a complete premium playbook about: {topic}
+
+def generate_playbook(topic_data: dict, opportunity_data: dict = None, intelligence_data: dict = None):
+    """Call the AI API to generate the full playbook.
+
+    Uses a multi-pass approach for Groq:
+    1. First pass generates the bulk
+    2. Second pass continues if too short
+    3. Third pass fills appendices if still short
+    """
+    topic = topic_data.get("playbook_angle", topic_data.get("selected_title", topic_data.get("topic", "")))
+    context = topic_data.get("context", "")
+    affiliates = topic_data.get("affiliates", [])
+    price = random.choice(["$29", "$39", "$47"])
+
+    # Build cross-linking context
+    cross_link_context = ""
+    if opportunity_data:
+        cross_link_context += f"""
+
+RELATED OPPORTUNITY ARTICLE: "{opportunity_data.get('title', '')}" — this playbook is the premium companion to this opportunity deep-dive.
+URL: /opportunities/{opportunity_data.get('slug', '')}/"""
+
+    if intelligence_data:
+        cross_link_context += f"""
+
+RELATED INTELLIGENCE GUIDE: "{intelligence_data.get('title', '')}" — the free implementation guide that accompanies this playbook.
+URL: /intelligence/{intelligence_data.get('slug', '')}/
+
+In the opening paragraph, mention: "This playbook extends our free implementation guide with complete procedures, SOPs, and revenue calculators."
+At the end, mention: "For the free step-by-step guide, see our [implementation guide]({{< ref "/intelligence/{intelligence_data.get('slug', '')}.md" >}}).\""""
+
+    user_prompt = f"""Write a complete premium playbook about: {topic}
+
+{'TRENDING CONTEXT: ' + context if context else ''}
+Price point: {price}
+{cross_link_context}
 
 Follow the EXACT structure and style defined in your system instructions.
 This is for the Playbook category on Menshly Global — the most premium, execution-focused content we publish.
-Price point: {price}
 
 The title must use IMPERATIVE VERBS (NOT "How to"):
 Pattern: "[VERB], [VERB], and [VERB] [THING] with [TOOL]"
-Example: "Build, Scale, and Monetize an AI Content Agency with Make.com and OpenAI"
 
 Return the playbook as pure Markdown (no front matter). Begin with the opening paragraph (no H1 title — the title goes in front matter only)."""
 
-# Number of API calls to make (each generates a portion)
-# We'll generate the full playbook in one large call for consistency
-MAX_TOKENS = 16000
-TEMPERATURE = 0.7
-
-
-def generate_playbook():
-    """Call the AI API to generate the full playbook.
-    
-    Uses a multi-pass approach for Groq:
-    1. First pass generates the bulk (first ~6 modules)
-    2. Second pass continues if too short (< 6000 words)
-    3. Third pass fills remaining modules + appendices if still short
-    """
-    # Use PLAYBOOK_ override variables if set, otherwise fall back to AI_ vars
     api_key = PLAYBOOK_API_KEY
     api_base = PLAYBOOK_API_BASE
     model = PLAYBOOK_MODEL
@@ -243,25 +220,22 @@ def generate_playbook():
         "model": model,
         "messages": [
             {"role": "system", "content": SYSTEM_PROMPT},
-            {"role": "user", "content": USER_PROMPT},
+            {"role": "user", "content": user_prompt},
         ],
-        "max_tokens": MAX_TOKENS,
-        "temperature": TEMPERATURE,
+        "max_tokens": 16000,
+        "temperature": 0.7,
     }
     print(f"Generating playbook about: {topic}")
     print(f"Price: {price}")
     print(f"Model: {model}")
-    print(f"Max tokens: {MAX_TOKENS}")
-    print("Calling API (this may take 2-3 minutes for a full playbook)...")
+    print("Calling API (this may take 2-3 minutes)...")
     data = api_call(payload, api_key=api_key, api_base=api_base)
     body = data["choices"][0]["message"]["content"]
-    
-    # Check if the playbook was cut short
+
     finish_reason = data["choices"][0].get("finish_reason", "")
     word_count = len(body.split())
     print(f"  First pass: {word_count} words, finish_reason={finish_reason}")
-    
-    # If too short, continue with second pass
+
     if finish_reason == "length" or word_count < 6000:
         print("  Playbook too short, continuing with second pass...")
         continue_prompt = f"""The previous playbook was cut off. Here is what was generated so far (last section):
@@ -269,20 +243,19 @@ def generate_playbook():
 ...{body[-2000:]}
 
 CONTINUE the playbook from where it left off. Do NOT repeat any content. Pick up EXACTLY where it ended.
-If you were in the middle of a module, complete it. Then continue with all remaining modules.
-Make sure to include all remaining modules AND the 3 appendices (Tool Reference, SOP Index, Revenue Calculator).
+Make sure to include all remaining modules AND the 3 appendices.
 
-WORD COUNT TARGET: Write at least 3000 more words. Every procedure needs sub-steps, configurations, and check-ins."""
-        
+WORD COUNT TARGET: Write at least 3000 more words."""
+
         payload2 = {
             "model": model,
             "messages": [
                 {"role": "system", "content": SYSTEM_PROMPT},
-                {"role": "user", "content": USER_PROMPT},
+                {"role": "user", "content": user_prompt},
                 {"role": "assistant", "content": body},
                 {"role": "user", "content": continue_prompt},
             ],
-            "max_tokens": MAX_TOKENS,
+            "max_tokens": 16000,
             "temperature": 0.65,
         }
         data2 = api_call(payload2, api_key=api_key, api_base=api_base)
@@ -290,13 +263,12 @@ WORD COUNT TARGET: Write at least 3000 more words. Every procedure needs sub-ste
         cont_words = len(continuation.split())
         print(f"  Second pass: {cont_words} words added")
         body = body + "\n\n" + continuation
-        
-        # Check again after second pass
+
         finish_reason2 = data2["choices"][0].get("finish_reason", "")
         total_words = len(body.split())
         module_count = body.count("# MODULE")
-        
-        if (finish_reason2 == "length" or total_words < 8000 or module_count < 6):
+
+        if finish_reason2 == "length" or total_words < 8000 or module_count < 6:
             print("  Still short, continuing with third pass for appendices...")
             appendix_prompt = f"""The playbook needs its appendices. Here is the end of what was generated:
 
@@ -309,16 +281,16 @@ Write the MISSING APPENDICES now:
 
 Do NOT repeat any content already written. Only write the appendices that are missing.
 WORD COUNT TARGET: At least 1500 words for the appendices."""
-            
+
             payload3 = {
                 "model": model,
                 "messages": [
                     {"role": "system", "content": SYSTEM_PROMPT},
-                    {"role": "user", "content": USER_PROMPT},
+                    {"role": "user", "content": user_prompt},
                     {"role": "assistant", "content": body},
                     {"role": "user", "content": appendix_prompt},
                 ],
-                "max_tokens": MAX_TOKENS,
+                "max_tokens": 16000,
                 "temperature": 0.6,
             }
             data3 = api_call(payload3, api_key=api_key, api_base=api_base)
@@ -326,38 +298,38 @@ WORD COUNT TARGET: At least 1500 words for the appendices."""
             app_words = len(appendix.split())
             print(f"  Third pass: {app_words} words added")
             body = body + "\n\n" + appendix
-    
+
     final_words = len(body.split())
     print(f"  Total: {final_words} words")
-    return body
+
+    # Inject affiliate links
+    body = inject_affiliate_links(body, affiliates)
+
+    # Append Recommended Tools section
+    tools_section = generate_tools_section(affiliates)
+    if tools_section:
+        body = body + "\n\n" + tools_section
+
+    return body, price
 
 
 def extract_title(body: str) -> str:
-    """Extract or infer the title from the playbook body.
-
-    The playbook body does NOT start with an H1 (per our template),
-    so we look for the first bold statement or infer from content.
-    """
-    # Look for a bold title-like line near the top
+    """Extract or infer the title from the playbook body."""
     for line in body.split("\n")[:10]:
         line = line.strip()
-        # Check for markdown bold that looks like a title
         bold_match = re.match(r"^\*\*(.+?)\*\*", line)
         if bold_match:
             return bold_match.group(1).rstrip(".!")
-        # Check for H1
         if line.startswith("# ") and not line.startswith("## "):
-            return line.lstrip("# ").strip()
-
-    # Fallback: use the first meaningful line
+            title = line.lstrip("# ").strip()
+            title = re.sub(r'\[([^\]]+)\]\([^)]+\)', r'\1', title)
+            return title
     for line in body.split("\n"):
         line = line.strip()
         if line and not line.startswith("#") and not line.startswith("---") and len(line) > 10:
-            # Take first sentence
             sentence = line.split(".")[0].strip()
             if len(sentence) > 10:
                 return sentence
-
     return "Untitled Playbook"
 
 
@@ -384,8 +356,8 @@ def build_excerpt(body: str) -> str:
             if paragraph:
                 break
             continue
-        # Strip bold markers for clean excerpt
         clean = re.sub(r"\*\*(.+?)\*\*", r"\1", line)
+        clean = re.sub(r'\[([^\]]+)\]\([^)]+\)', r'\1', clean)
         paragraph += clean + " "
     excerpt = paragraph.strip()[:250]
     if len(paragraph.strip()) > 250:
@@ -396,9 +368,28 @@ def build_excerpt(body: str) -> str:
 def estimate_read_time(body: str) -> str:
     """Estimate read time based on word count."""
     word_count = len(body.split())
-    # Average reading speed: 200 words/min for technical content
     minutes = max(15, word_count // 200)
     return f"{minutes} MIN"
+
+
+def update_article_cross_links(article_path: Path, playbook_slug: str, section: str):
+    """Update an existing article with a link to the new playbook."""
+    if not article_path.exists():
+        return
+    try:
+        content = article_path.read_text()
+        field_name = "relatedPlaybook"
+        if field_name not in content:
+            # Insert before the closing ---
+            content = content.replace(
+                "---\n\n",
+                f'{field_name}: "/playbooks/{playbook_slug}/"\n---\n\n',
+                1,
+            )
+            article_path.write_text(content)
+            print(f"  Updated {article_path.name} with playbook link")
+    except Exception as e:
+        print(f"  Warning: Could not update {article_path.name}: {e}")
 
 
 if __name__ == "__main__":
@@ -406,7 +397,34 @@ if __name__ == "__main__":
         print("ERROR: AI_API_KEY not set")
         exit(1)
 
-    # Step 1: Generate images FIRST (before playbook content)
+    # Step 0: Load cross-link data
+    print("Loading cross-link data...")
+    last_data = load_last_generated()
+    opportunity_data = last_data.get("last_opportunity")
+    intelligence_data = last_data.get("last_intelligence")
+
+    # Get topic data
+    if opportunity_data:
+        topic_data = {
+            "topic": opportunity_data.get("topic", ""),
+            "playbook_angle": opportunity_data.get("playbook_angle", ""),
+            "context": opportunity_data.get("context", ""),
+            "affiliates": opportunity_data.get("affiliates", []),
+        }
+        print(f"Writing playbook for same topic as opportunity: {opportunity_data.get('title', '')}")
+    else:
+        print("No recent opportunity found, discovering trending topic...")
+        discovery = TrendingTopicDiscovery()
+        discovery.ensure_minimum_queue(5)
+        topic_data = discovery.get_next_topic("playbook")
+
+    if not topic_data or not topic_data.get("playbook_angle"):
+        print("ERROR: No topic available")
+        exit(1)
+
+    topic = topic_data.get("playbook_angle", topic_data.get("topic", ""))
+
+    # Step 1: Generate images
     prelim_slug = slugify(topic)
 
     print("Generating thumbnail image...")
@@ -427,7 +445,7 @@ if __name__ == "__main__":
 
     # Step 2: Generate playbook content
     print("Generating playbook content...")
-    body = generate_playbook()
+    body, price = generate_playbook(topic_data, opportunity_data, intelligence_data)
     title = extract_title(body)
     excerpt = build_excerpt(body)
     read_time = estimate_read_time(body)
@@ -435,9 +453,8 @@ if __name__ == "__main__":
     slug = slugify(title)
     now = datetime.now(timezone.utc)
 
-    # Step 3: Rename images if slug differs from preliminary slug
+    # Step 3: Rename images if slug differs
     if slug != prelim_slug:
-        import shutil
         old_thumb = image_path
         old_hero = hero_path
         new_thumb = image_path.replace(prelim_slug, slug)
@@ -451,18 +468,37 @@ if __name__ == "__main__":
             hero_path = new_hero
             print(f"Renamed hero: {new_hero}")
 
-    front_matter = f"""---
-title: "{title}"
-date: {now.strftime("%Y-%m-%d")}
-category: "Playbook"
-price: "{price}"
-readTime: "{read_time}"
-excerpt: "{excerpt}"
-image: "{image_path}"
-heroImage: "{hero_path}"
----
+    # Build frontmatter with cross-links
+    front_matter_lines = [
+        "---",
+        f'title: "{title}"',
+        f'date: {now.strftime("%Y-%m-%d")}',
+        'category: "Playbook"',
+        f'price: "{price}"',
+        f'readTime: "{read_time}"',
+        f'excerpt: "{excerpt}"',
+        f'image: "{image_path}"',
+        f'heroImage: "{hero_path}"',
+    ]
 
-"""
+    # Cross-link to opportunity article
+    if opportunity_data:
+        opp_slug = opportunity_data.get("slug", "")
+        if opp_slug:
+            front_matter_lines.append(f'relatedOpportunity: "/opportunities/{opp_slug}/"')
+
+    # Cross-link to intelligence guide
+    if intelligence_data:
+        int_slug = intelligence_data.get("slug", "")
+        if int_slug:
+            front_matter_lines.append(f'relatedGuide: "/intelligence/{int_slug}/"')
+
+    front_matter_lines.extend([
+        "---",
+        "",
+    ])
+
+    front_matter = "\n".join(front_matter_lines)
 
     content_dir = Path("content/playbooks")
     content_dir.mkdir(parents=True, exist_ok=True)
@@ -490,8 +526,24 @@ heroImage: "{hero_path}"
     print(f"  Appendices found: {appendix_count} (target: 3)")
 
     if module_count < 6:
-        print("  WARNING: Fewer modules than expected. The playbook may be incomplete.")
+        print("  WARNING: Fewer modules than expected.")
     if procedure_count < 15:
-        print("  WARNING: Fewer procedures than expected. The playbook may need expansion.")
-    if word_count < 5000:
-        print("  WARNING: Word count is low. Consider increasing MAX_TOKENS or regenerating.")
+        print("  WARNING: Fewer procedures than expected.")
+
+    # Step 4: Update existing opportunity and intelligence articles with playbook link
+    if opportunity_data:
+        opp_file = Path("content/opportunities") / f"{opportunity_data.get('slug', '')}.md"
+        update_article_cross_links(opp_file, slug, "opportunities")
+
+    if intelligence_data:
+        int_file = Path("content/intelligence") / f"{intelligence_data.get('slug', '')}.md"
+        update_article_cross_links(int_file, slug, "intelligence")
+
+    # Step 5: Mark topic as used
+    if opportunity_data:
+        discovery = TrendingTopicDiscovery()
+        discovery.mark_topic_used(topic_data)
+
+    print(f"\n✅ Playbook generated successfully!")
+    print(f"   Cross-linked to opportunity: {opportunity_data.get('slug', 'N/A') if opportunity_data else 'N/A'}")
+    print(f"   Cross-linked to intelligence: {intelligence_data.get('slug', 'N/A') if intelligence_data else 'N/A'}")

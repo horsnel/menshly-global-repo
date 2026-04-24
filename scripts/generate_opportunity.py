@@ -14,8 +14,15 @@ the exact Menshly Global deep-dive template:
   - Getting Clients (3 methods with conversion rates)
   - Tricks and Hacks (5 hacks in accent-box shortcodes)
   - The Real Numbers (month-by-month revenue table)
-  - What Nobody Warns You About (4 warnings)
+  - What Nobody Warns You About
   - Start This Weekend (exact action plan with copy-paste pitch)
+
+NEW FEATURES (v2):
+  - Uses TrendingTopicDiscovery for topic selection (no more random from hardcoded list)
+  - Embeds affiliate links naturally in tool mentions
+  - Appends "Recommended Tools" section with affiliate links
+  - Outputs topic metadata for cross-linking with Intelligence/Playbook generators
+  - Saves topic data to data/last_generated.json for other generators to pick up
 """
 
 import os
@@ -25,101 +32,24 @@ import time
 import requests
 from datetime import datetime, timezone
 from pathlib import Path
-import random
 from dotenv import load_dotenv
 
 # Auto-load .env from project root
 load_dotenv(Path(__file__).resolve().parent.parent / ".env")
 
 from image_utils import generate_article_image, generate_hero_image
+from trending_topics import TrendingTopicDiscovery
+from affiliate_injector import inject_affiliate_links, generate_tools_section
+from ai_utils import api_call
 
 AI_API_KEY = os.environ.get("AI_API_KEY", "")
 AI_API_BASE = os.environ.get("AI_API_BASE", "https://api.groq.com/openai/v1")
 AI_API_MODEL = os.environ.get("AI_MODEL", "llama-3.3-70b-versatile")
 AI_MODEL = AI_API_MODEL
 
+PROJECT_ROOT = Path(__file__).resolve().parent.parent
+LAST_GENERATED_FILE = PROJECT_ROOT / "data" / "last_generated.json"
 
-def api_call(payload, max_retries=5):
-    """Call the AI API with automatic retry on rate limits (429) and server errors (5xx).
-    
-    Uses exponential backoff: 30s, 60s, 90s, 120s, 150s between retries.
-    Groq free tier has per-minute and per-day rate limits that can be hit
-    during multi-pass generation.
-    """
-    headers = {
-        "Authorization": f"Bearer {AI_API_KEY}",
-        "Content-Type": "application/json",
-    }
-    for attempt in range(max_retries + 1):
-        try:
-            resp = requests.post(
-                f"{AI_API_BASE}/chat/completions",
-                headers=headers,
-                json=payload,
-                timeout=180,
-            )
-            if resp.status_code == 429:
-                # Rate limited - get retry-after header or use backoff
-                retry_after = resp.headers.get("Retry-After")
-                if retry_after:
-                    wait = int(retry_after)
-                else:
-                    wait = 30 * (attempt + 1)  # 30, 60, 90, 120, 150
-                if attempt < max_retries:
-                    print(f"  Rate limited (429). Waiting {wait}s before retry {attempt+1}/{max_retries}...")
-                    time.sleep(wait)
-                    continue
-                else:
-                    print(f"  Rate limited (429). Max retries reached.")
-                    resp.raise_for_status()
-            if resp.status_code >= 500:
-                if attempt < max_retries:
-                    wait = 10 * (attempt + 1)
-                    print(f"  Server error ({resp.status_code}). Waiting {wait}s before retry {attempt+1}/{max_retries}...")
-                    time.sleep(wait)
-                    continue
-            resp.raise_for_status()
-            return resp.json()
-        except requests.exceptions.Timeout:
-            if attempt < max_retries:
-                wait = 15 * (attempt + 1)
-                print(f"  Request timed out. Waiting {wait}s before retry {attempt+1}/{max_retries}...")
-                time.sleep(wait)
-                continue
-            raise
-    # Should not reach here, but just in case
-    resp.raise_for_status()
-
-# ── Trending AI automation opportunity topics ──────────────────────────
-TOPICS = [
-    "How to start an AI automation agency in 2026",
-    "How to make money selling AI agents on marketplaces in 2026",
-    "How to build a faceless YouTube channel with AI in 2026",
-    "How to start an AI copywriting agency in 2026",
-    "How to start an AI SEO agency in 2026",
-    "How to build AI SaaS micro-products in 2026",
-    "How to start an AI chatbot agency for e-commerce in 2026",
-    "How to start a content repurposing agency with AI in 2026",
-    "How to start an AI social media management agency in 2026",
-    "How to build an AI lead generation system in 2026",
-    "How to start a voice AI business in 2026",
-    "How to start an AI data analysis service in 2026",
-    "How to start an AI newsletter business in 2026",
-    "How to start an AI image generation agency in 2026",
-    "How to create and sell AI-powered online courses in 2026",
-    "How to build a one-person business with GPT-5 in 2026",
-    "How to start an AI freelance arbitrage business in 2026",
-    "How to build AI-powered email marketing automation in 2026",
-    "How to start an AI video editing service in 2026",
-    "How to build an AI podcast production agency in 2026",
-    "How to start an AI HR and recruitment automation agency in 2026",
-    "How to build an AI customer onboarding automation business in 2026",
-    "How to start an AI bookkeeping and accounting automation service in 2026",
-    "How to build an AI proposal and grant writing agency in 2026",
-    "How to start an AI real estate automation agency in 2026",
-]
-
-topic = random.choice(TOPICS)
 
 # ── Master prompt that enforces the exact deep-dive structure ─────────
 SYSTEM_PROMPT = """You are the lead writer for Menshly Global (tagline: "Where AI Meets Revenue").
@@ -130,13 +60,42 @@ Every sentence must carry weight. No fluff. No "In conclusion" or "It's importan
 WRITING STYLE RULES:
 - Write like you're talking to one person, not an audience
 - Use concrete numbers, not vague claims ("$2,500/month" not "good money")
-- Name real tools with real prices
+- Name real tools with real prices — be specific about which tools to use
 - Include tricks and shortcuts people normally gate behind $497 courses
 - Be honest about ugly truths — don't sugarcoat
 - Use short punchy sentences. Then a longer one that explains the nuance.
 - NEVER use phrases like "In today's rapidly evolving landscape" or "As we look to the future"
 - NEVER write filler transitions. Jump straight to the next idea.
 - Each section must be substantial (minimum 300 words for main sections)
+
+AFFILIATE TOOL INTEGRATION RULES:
+When mentioning tools, use these EXACT tool names (these are our affiliate partners):
+- Make.com (automation platform)
+- Replit (cloud IDE for AI SaaS)
+- Vapi (AI voice agents)
+- Fliki AI (AI text-to-video)
+- Canva (design platform)
+- ChatGPT (AI assistant)
+- ElevenLabs (AI voice synthesis)
+- Klaviyo (email marketing)
+- ActiveCampaign (CRM + email)
+- Semrush (SEO toolkit)
+- Hostinger (web hosting)
+- Shopify (e-commerce)
+- Zapier (app automation)
+- Apollo.io (B2B sales intelligence)
+- PhantomBuster (LinkedIn automation)
+- Buffer (social media scheduling)
+- Loom (video messaging)
+- Calendly (scheduling)
+- Beehiiv (newsletter platform)
+- Notion (workspace)
+- Midjourney (AI image generation)
+- Grammarly (AI writing assistant)
+
+IMPORTANT: Always mention at least 5-6 of these tools NATURALLY in the article.
+Do NOT add a separate "Recommended Tools" section — we add that automatically.
+Just weave the tool names into the Free Stack, Paid Stack, and Workflow sections.
 
 ARTICLE STRUCTURE (follow this EXACTLY):
 
@@ -205,7 +164,21 @@ Exact weekend action plan:
 WORD COUNT TARGET: 5,000-5,500 words. Do NOT cut sections short.
 Every section must be fully developed with real substance."""
 
-USER_PROMPT = f"""Write a complete deep-dive article about: {topic}
+
+def generate_article(topic_data: dict):
+    """Call the AI API to generate the full article.
+
+    Uses a two-pass approach for Groq:
+    1. First pass generates the bulk of the article
+    2. If too short (< 4000 words), a second pass continues from where it left off
+    """
+    topic = topic_data.get("selected_title", topic_data.get("opportunity_angle", topic_data.get("topic", "")))
+    context = topic_data.get("context", "")
+    affiliates = topic_data.get("affiliates", [])
+
+    user_prompt = f"""Write a complete deep-dive article about: {topic}
+
+{'TRENDING CONTEXT: ' + context if context else ''}
 
 Follow the exact structure and style defined in your system instructions.
 This is for the Opportunities category on Menshly Global.
@@ -216,32 +189,22 @@ The title must be SEO-optimized following this pattern:
 
 Return the article as pure Markdown (no front matter). Begin with the title as an H1."""
 
-
-def generate_article():
-    """Call the AI API to generate the full article.
-    
-    Uses a two-pass approach for Groq:
-    1. First pass generates the bulk of the article
-    2. If too short (< 4000 words), a second pass continues from where it left off
-    """
     payload = {
         "model": AI_MODEL,
         "messages": [
             {"role": "system", "content": SYSTEM_PROMPT},
-            {"role": "user", "content": USER_PROMPT},
+            {"role": "user", "content": user_prompt},
         ],
         "max_tokens": 16000,
         "temperature": 0.75,
     }
     data = api_call(payload)
     body = data["choices"][0]["message"]["content"]
-    
-    # Check if the article was cut short (finish_reason = "length")
+
     finish_reason = data["choices"][0].get("finish_reason", "")
     word_count = len(body.split())
     print(f"  First pass: {word_count} words, finish_reason={finish_reason}")
-    
-    # If the article was truncated or is too short, continue it
+
     if finish_reason == "length" or word_count < 4000:
         print("  Article too short, continuing with second pass...")
         continue_prompt = f"""The previous article was cut off. Here is what was generated so far (last 500 words):
@@ -253,12 +216,12 @@ If you were in the middle of a section, complete it. Then continue with all rema
 Make sure to include: Tricks and Hacks, The Real Numbers (month-by-month table), What Nobody Warns You About, and Start This Weekend.
 
 WORD COUNT TARGET: Write at least 2000 more words."""
-        
+
         payload2 = {
             "model": AI_MODEL,
             "messages": [
                 {"role": "system", "content": SYSTEM_PROMPT},
-                {"role": "user", "content": USER_PROMPT},
+                {"role": "user", "content": user_prompt},
                 {"role": "assistant", "content": body},
                 {"role": "user", "content": continue_prompt},
             ],
@@ -270,9 +233,18 @@ WORD COUNT TARGET: Write at least 2000 more words."""
         cont_words = len(continuation.split())
         print(f"  Second pass: {cont_words} words added")
         body = body + "\n\n" + continuation
-    
+
     final_words = len(body.split())
     print(f"  Total: {final_words} words")
+
+    # Inject affiliate links into tool mentions
+    body = inject_affiliate_links(body, affiliates)
+
+    # Append Recommended Tools section
+    tools_section = generate_tools_section(affiliates)
+    if tools_section:
+        body = body + "\n\n" + tools_section
+
     return body
 
 
@@ -281,8 +253,10 @@ def extract_title(body: str) -> str:
     for line in body.split("\n"):
         line = line.strip()
         if line.startswith("# ") and not line.startswith("## "):
-            return line.lstrip("# ").strip()
-    # Fallback: first non-empty line
+            # Strip any markdown links from title
+            title = line.lstrip("# ").strip()
+            title = re.sub(r'\[([^\]]+)\]\([^)]+\)', r'\1', title)
+            return title
     for line in body.split("\n"):
         line = line.strip()
         if line:
@@ -301,18 +275,23 @@ def slugify(title: str) -> str:
 
 def build_excerpt(body: str) -> str:
     """Build a short excerpt from the article body (first meaningful paragraph)."""
-    # Skip the title line and find first real paragraph
     lines = body.split("\n")
     paragraph = ""
     for line in lines:
         line = line.strip()
         if line.startswith("# "):
             continue
+        if line.startswith("## "):
+            if paragraph:
+                break
+            continue
         if not line:
             if paragraph:
                 break
             continue
-        paragraph += line + " "
+        # Strip markdown links for clean excerpt
+        clean = re.sub(r'\[([^\]]+)\]\([^)]+\)', r'\1', line)
+        paragraph += clean + " "
     excerpt = paragraph.strip()[:200]
     if len(paragraph.strip()) > 200:
         excerpt += "..."
@@ -332,15 +311,52 @@ def strip_h1(body: str) -> str:
     return "\n".join(filtered)
 
 
+def save_last_generated(topic_data: dict, slug: str, title: str):
+    """Save the last generated article info for cross-linking by other generators."""
+    data = {}
+    if LAST_GENERATED_FILE.exists():
+        try:
+            data = json.loads(LAST_GENERATED_FILE.read_text())
+        except (json.JSONDecodeError, Exception):
+            pass
+
+    data["last_opportunity"] = {
+        "slug": slug,
+        "title": title,
+        "topic": topic_data.get("topic", ""),
+        "context": topic_data.get("context", ""),
+        "affiliates": topic_data.get("affiliates", []),
+        "opportunity_angle": topic_data.get("opportunity_angle", ""),
+        "intelligence_angle": topic_data.get("intelligence_angle", ""),
+        "playbook_angle": topic_data.get("playbook_angle", ""),
+        "generated_at": datetime.now(timezone.utc).isoformat(),
+    }
+
+    LAST_GENERATED_FILE.parent.mkdir(parents=True, exist_ok=True)
+    LAST_GENERATED_FILE.write_text(json.dumps(data, indent=2))
+
+
 if __name__ == "__main__":
     if not AI_API_KEY:
         print("ERROR: AI_API_KEY not set")
         exit(1)
 
+    # Step 0: Get trending topic
+    print("Discovering trending topic...")
+    discovery = TrendingTopicDiscovery()
+    discovery.ensure_minimum_queue(5)
+    topic_data = discovery.get_next_topic("opportunity")
+
+    if not topic_data:
+        print("ERROR: No trending topics available")
+        exit(1)
+
+    topic = topic_data.get("selected_title", topic_data.get("topic", ""))
     print(f"Generating article about: {topic}")
+    print(f"Context: {topic_data.get('context', 'N/A')}")
+    print(f"Affiliates: {', '.join(topic_data.get('affiliates', []))}")
 
     # Step 1: Generate images FIRST (before article content)
-    # Use a preliminary slug from the topic for image filenames
     prelim_slug = slugify(topic)
 
     print("Generating thumbnail image...")
@@ -361,7 +377,7 @@ if __name__ == "__main__":
 
     # Step 2: Generate article content
     print("Generating article content...")
-    body = generate_article()
+    body = generate_article(topic_data)
     title = extract_title(body)
     excerpt = build_excerpt(body)
     body_clean = strip_h1(body)
@@ -371,7 +387,6 @@ if __name__ == "__main__":
 
     # Step 3: Rename images if slug differs from preliminary slug
     if slug != prelim_slug:
-        import shutil
         old_thumb = image_path
         old_hero = hero_path
         new_thumb = image_path.replace(prelim_slug, slug)
@@ -407,3 +422,13 @@ heroImage: "{hero_path}"
     print(f"Title: {title}")
     print(f"Slug: {slug}")
     print(f"Word count: ~{word_count}")
+
+    # Step 4: Save topic data for cross-linking
+    save_last_generated(topic_data, slug, title)
+    print(f"Saved topic data for cross-linking")
+
+    # Step 5: Mark topic as used
+    discovery.mark_topic_used(topic_data)
+
+    print(f"\n✅ Opportunity article generated successfully!")
+    print(f"   Other generators can now link to: /opportunities/{slug}/")

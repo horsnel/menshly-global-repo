@@ -23,6 +23,14 @@ jobs:
       - name: Install deps
         run: pip install requests python-dateutil python-dotenv Pillow
 
+      - name: Refresh Trending Topics
+        timeout-minutes: 10
+        env:
+          AI_API_KEY: ${{ secrets.AI_API_KEY }}
+          AI_API_BASE: ${{ secrets.AI_API_BASE }}
+          AI_MODEL: ${{ secrets.AI_MODEL }}
+        run: python scripts/trending_topics.py
+
       - name: Generate Opportunity Article
         timeout-minutes: 15
         env:
@@ -35,6 +43,6 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add content/opportunities/ static/images/
-          git diff --cached --quiet || git commit -m "auto: new opportunity article"
+          git add content/opportunities/ content/intelligence/ content/playbooks/ static/images/ data/
+          git diff --cached --quiet || git commit -m "auto: new opportunity article + trending topics"
           git push
