@@ -7,117 +7,244 @@ fliki:
   url: "https://fliki.ai?referral=noah-wilson-w84be4"
   description: "AI text-to-video platform — script to finished video in 10 minutes"
   earn: "Up to 30% recurring commission"
+  category: "content"
 
 replit:
   name: "Replit"
   url: "https://replit.com/refer/egwuokwor"
   description: "Cloud IDE — build and deploy AI SaaS products"
   earn: "$10 per signup"
+  category: "development"
 
 make:
   name: "Make.com"
   url: "https://www.make.com/en/register?pc=menshly"
   description: "Visual automation platform — connect apps and automate workflows"
   earn: "Referral credits"
+  category: "automation"
 
 vapi:
   name: "Vapi"
   url: "https://vapi.ai/"
   description: "AI voice agent platform — build and deploy voice AI"
   earn: "Referral credits"
+  category: "voice-ai"
 
 instantly:
   name: "Instantly.ai"
   url: "https://instantly.ai/"
   description: "Cold email outreach — send unlimited emails, land in inbox"
   earn: "30% recurring commission"
+  category: "email"
 
 newly:
   name: "Newly"
   url: "https://newly.app/"
   description: "AI app builder — build apps with AI agents"
   earn: "20% recurring commission"
+  category: "development"
 
 notion:
   name: "Notion"
   url: "https://notion.so/"
   description: "All-in-one workspace — notes, docs, project management"
   earn: "$10 credit per referral"
+  category: "productivity"
 
 beehiiv:
   name: "Beehiiv"
   url: "https://beehiiv.com/"
   description: "Newsletter platform — grow and monetize your email list"
   earn: "50% revenue share"
+  category: "newsletter"
 
 cursor:
   name: "Cursor"
   url: "https://cursor.sh/"
   description: "AI code editor — write code 10x faster with AI"
   earn: "Referral credits"
+  category: "development"
 
 perplexity:
   name: "Perplexity"
   url: "https://perplexity.ai/"
   description: "AI search engine — research and fact-check instantly"
   earn: "Free Pro credits"
+  category: "research"
 
 bolt:
   name: "Bolt.new"
   url: "https://bolt.new/"
   description: "AI full-stack app builder — prompt to deployed app in minutes"
   earn: "Referral credits"
+  category: "development"
 
 lovable:
   name: "Lovable"
   url: "https://lovable.dev/"
   description: "AI app generator — build web apps from natural language"
   earn: "Referral credits"
+  category: "development"
 
 lemfi:
   name: "LemFi"
   url: "https://lemfi.com/"
   description: "Send money to Africa — zero fees, instant transfers"
   earn: "₦10,000 per referral"
+  category: "fintech"
 
 afriex:
   name: "Afriex"
   url: "https://www.afriex.com/"
   description: "Money transfers to Africa — fast, cheap, reliable"
   earn: "$50 per 3 referrals"
+  category: "fintech"
 
 flutterwave:
   name: "Flutterwave Send App"
   url: "https://flutterwave.com/"
   description: "Send money across Africa — share and earn rewards"
   earn: "Cash rewards per referral"
+  category: "fintech"
 
 carbon:
   name: "Carbon Business"
   url: "https://www.getcarbon.co/"
   description: "Business banking in Nigeria — loans, payments, invoicing"
   earn: "₦2,000+ per referral"
+  category: "fintech"
 
 fingo:
   name: "Fingo Africa"
   url: "https://fingo.africa/"
   description: "Digital banking for Africa — save, spend, earn"
   earn: "KES 60 per 3 referrals"
+  category: "fintech"
 
 printify:
   name: "Printify"
   url: "https://printify.com/"
   description: "Print-on-demand — sell custom merch with zero inventory"
   earn: "5% commission on sales"
+  category: "ecommerce"
 
 grammarly:
   name: "Grammarly"
   url: "https://grammarly.com/"
   description: "AI writing assistant — grammar, tone, clarity"
   earn: "$25 per Premium referral"
+  category: "writing"
 
 elevenlabs:
   name: "ElevenLabs"
   url: "https://elevenlabs.io/"
   description: "AI voice synthesis — natural voiceovers and voice cloning"
   earn: "Referral credits"
+  category: "voice-ai"
+
+# ─── NEW REFERRAL-LINK-ONLY PROGRAMS ──────────────────────────
+
+opus:
+  name: "Opus Clip"
+  url: "https://www.opus.pro/"
+  description: "AI video clipping — turn long videos into viral shorts automatically"
+  earn: "20% recurring commission"
+  category: "video"
+
+typefully:
+  name: "Typefully"
+  url: "https://typefully.com/"
+  description: "Twitter/X growth tool — schedule, analyze, and grow your audience"
+  earn: "30% recurring commission"
+  category: "social"
+
+tidio:
+  name: "Tidio"
+  url: "https://www.tidio.com/"
+  description: "AI live chat and chatbot — automate customer support"
+  earn: "30% recurring commission"
+  category: "customer-support"
+
+jasper:
+  name: "Jasper AI"
+  url: "https://www.jasper.ai/"
+  description: "AI content platform — create marketing copy at scale"
+  earn: "20% recurring commission"
+  category: "content"
+
+surferseo:
+  name: "Surfer SEO"
+  url: "https://surferseo.com/"
+  description: "AI SEO tool — optimize content to rank on Google"
+  earn: "25% recurring commission"
+  category: "seo"
+
+semrush:
+  name: "Semrush"
+  url: "https://www.semrush.com/"
+  description: "All-in-one SEO and marketing toolkit — keyword research, audits, rank tracking"
+  earn: "$200 per subscription sale"
+  category: "seo"
+
+podia:
+  name: "Podia"
+  url: "https://www.podia.com/"
+  description: "Sell courses, digital downloads, and coaching — all-in-one platform"
+  earn: "30% recurring commission"
+  category: "courses"
+
+gumroad:
+  name: "Gumroad"
+  url: "https://gumroad.com/"
+  description: "Sell digital products — ebooks, templates, software, and more"
+  earn: "$10 credit per referral"
+  category: "ecommerce"
+
+miro:
+  name: "Miro"
+  url: "https://miro.com/"
+  description: "Online whiteboard — brainstorm, plan, and collaborate visually"
+  earn: "$25 Amazon gift card per referral"
+  category: "productivity"
+
+canva:
+  name: "Canva"
+  url: "https://www.canva.com/"
+  description: "Design anything — social graphics, presentations, videos with AI"
+  earn: "Canva Credits per referral"
+  category: "design"
+
+notionai:
+  name: "Notion AI"
+  url: "https://notion.so/"
+  description: "AI-powered workspace — write, brainstorm, organize with AI assistance"
+  earn: "$10 credit per referral"
+  category: "productivity"
+
+wordtune:
+  name: "Wordtune"
+  url: "https://www.wordtune.com/"
+  description: "AI rewriting tool — rewrite, summarize, and improve your writing"
+  earn: "Premium credits per referral"
+  category: "writing"
+
+descript:
+  name: "Descript"
+  url: "https://www.descript.com/"
+  description: "AI video and podcast editor — edit media like editing a doc"
+  earn: "1 free month per referral"
+  category: "video"
+
+shopify:
+  name: "Shopify"
+  url: "https://www.shopify.com/"
+  description: "E-commerce platform — start an online store and sell globally"
+  earn: "$150 per paying referral"
+  category: "ecommerce"
+
+ Riverside:
+  name: "Riverside.fm"
+  url: "https://riverside.fm/"
+  description: "Record studio-quality podcasts and video remotely with AI editing"
+  earn: "15% recurring commission"
+  category: "podcast"

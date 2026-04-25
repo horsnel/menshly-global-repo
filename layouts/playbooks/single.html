@@ -127,17 +127,19 @@ function payWithPaystack() {
       // User closed the payment modal
     },
     callback: function(response) {
-      // Payment successful — show download section
+      // Payment successful — redirect to verified delivery page
+      const deliverySlug = '{{ .File.ContentBaseName }}';
+      const deliveryUrl = '/delivery/?slug=' + encodeURIComponent(deliverySlug) + '&ref=' + encodeURIComponent(response.reference);
+
+      // Also show inline download while redirecting
       const paywall = document.getElementById('playbookPaywall');
       const preview = document.getElementById('playbook-preview');
       if (paywall) paywall.style.display = 'none';
       if (preview) preview.style.display = 'none';
 
-      // Show the download success section
       const downloadSection = document.getElementById('playbook-download');
       if (downloadSection) downloadSection.style.display = 'block';
 
-      // Also unlock full content on page
       const fullContent = document.getElementById('playbook-full');
       if (fullContent) fullContent.style.display = 'block';
 
@@ -171,6 +173,11 @@ function payWithPaystack() {
 
       // Scroll to download section
       if (downloadSection) downloadSection.scrollIntoView({ behavior: 'smooth' });
+
+      // Redirect to delivery page after 3 seconds (allows webhook to process)
+      setTimeout(function() {
+        window.location.href = deliveryUrl;
+      }, 3000);
     }
   });
   handler.openIframe();

@@ -16,6 +16,19 @@ body{background:#1A1A1A;color:#FFFFFF;font-family:Inter,-apple-system,sans-serif
 .title{font-family:Oswald,sans-serif;font-size:28px;margin-bottom:8px}
 .subtitle{color:#999;font-size:14px}
 
+/* Verification status */
+.verify-status{display:flex;align-items:center;gap:12px;padding:16px;margin-bottom:24px;border:3px solid #333}
+.verify-status svg{width:24px;height:24px;flex-shrink:0}
+.verify-status.verified{border-color:#F9FF00;background:rgba(249,255,0,0.05)}
+.verify-status.verified svg{color:#F9FF00}
+.verify-status.unverified{border-color:#FF0004;background:rgba(255,0,4,0.05)}
+.verify-status.unverified svg{color:#FF0004}
+.verify-status.loading{border-color:#666}
+.verify-status.loading svg{animation:spin 1s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.verify-text{font-size:13px;line-height:1.5}
+.verify-text strong{color:#F9FF00}
+
 /* Download card */
 .download-card{border:3px solid #F9FF00;padding:32px;margin-bottom:24px;background:#111}
 .download-card h2{font-family:Oswald,sans-serif;font-size:20px;margin-bottom:8px;color:#F9FF00}
@@ -24,6 +37,7 @@ body{background:#1A1A1A;color:#FFFFFF;font-family:Inter,-apple-system,sans-serif
 .download-btn:hover{background:transparent;color:#F9FF00}
 .read-btn{display:inline-block;background:transparent;color:#FFFFFF;font-family:Oswald,sans-serif;font-weight:700;font-size:14px;padding:16px 32px;text-decoration:none;letter-spacing:2px;border:3px solid #FFFFFF;cursor:pointer;transition:all 0.15s ease}
 .read-btn:hover{background:#FFFFFF;color:#1A1A1A}
+.download-btn.disabled{opacity:0.4;pointer-events:none}
 
 /* Receipt */
 .receipt{border:1px solid #333;padding:20px;margin-bottom:24px}
@@ -75,11 +89,16 @@ body{background:#1A1A1A;color:#FFFFFF;font-family:Inter,-apple-system,sans-serif
 .security-badge{display:flex;align-items:center;gap:8px;margin-top:16px}
 .security-badge svg{width:16px;height:16px;color:#F9FF00}
 .security-badge span{font-size:11px;color:#666;text-transform:uppercase;letter-spacing:1px}
+
+/* Access countdown */
+.access-countdown{display:flex;align-items:center;gap:8px;padding:12px 16px;border:1px solid #F9FF00;background:rgba(249,255,0,0.05);margin-bottom:24px}
+.access-countdown svg{width:16px;height:16px;color:#F9FF00;flex-shrink:0}
+.access-countdown span{font-size:12px;color:#F9FF00}
 </style>
 </head>
 <body>
 <div class="delivery-page" id="app">
-  <div class="loading">Loading your playbook...</div>
+  <div class="loading">Verifying your purchase...</div>
 </div>
 <script>
 var playbooks={
@@ -90,16 +109,58 @@ var playbooks={
 };
 var params=new URLSearchParams(window.location.search);
 var slug=params.get('slug')||'';
-var ref=params.get('ref')||'';
 var token=params.get('token')||'';
+var ref=params.get('ref')||'';
 var pb=playbooks[slug];
 var app=document.getElementById('app');
 
 if(!pb){
-  app.innerHTML='<div class="error"><h2>INVALID OR EXPIRED LINK</h2><p>If you believe this is an error, reply to your delivery email and we will help within 24 hours.</p><a href="/" class="back-link" style="margin-top:24px;">BACK TO HOME</a></div>';
+  app.innerHTML='<div class="error"><h2>INVALID LINK</h2><p>This delivery link is not valid. If you believe this is an error, reply to your delivery email and we will help within 24 hours.</p><a href="/" class="back-link" style="margin-top:24px;">BACK TO HOME</a></div>';
 }else{
   var pdfUrl='/pdfs/'+slug+'.pdf';
-  var deliveryUrl=window.location.origin+'/delivery/?slug='+encodeURIComponent(slug)+'&ref='+encodeURIComponent(ref);
+  var isVerified=false;
+
+  // If token is present, verify it
+  if(token){
+    verifyPurchase(token,slug);
+  }else{
+    // No token — legacy mode (still works but shows unverified warning)
+    renderPage(false,null);
+  }
+}
+
+async function verifyPurchase(token,slug){
+  try{
+    var res=await fetch('/api/verify-purchase?token='+encodeURIComponent(token)+'&slug='+encodeURIComponent(slug));
+    if(res.ok){
+      var data=await res.json();
+      if(data.valid){
+        isVerified=true;
+        renderPage(true,data);
+      }else{
+        renderPage(false,data);
+      }
+    }else{
+      renderPage(false,null);
+    }
+  }catch(e){
+    renderPage(false,null);
+  }
+}
+
+function renderPage(verified,purchaseData){
+  var daysRemaining=purchaseData?purchaseData.daysRemaining:90;
+  var purchaseEmail=purchaseData?purchaseData.email:'';
+  var purchaseRef=purchaseData?purchaseData.reference:(ref||'N/A');
+  var purchaseDate=purchaseData?new Date(purchaseData.purchasedAt).toLocaleDateString('en-US',{year:'numeric',month:'long',day:'numeric'}):new Date().toLocaleDateString('en-US',{year:'numeric',month:'long',day:'numeric'});
+
+  var verifyHtml=verified?
+    '<div class="verify-status verified"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg><div class="verify-text"><strong>PURCHASE VERIFIED</strong><br>Licensed to '+purchaseEmail+'</div></div>':
+    '<div class="verify-status unverified"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg><div class="verify-text">This delivery link is <strong>not verified</strong>. If you purchased this playbook, check your email for the verified delivery link. You can still download the PDF below.</div></div>';
+
+  var downloadBtnClass=verified?'download-btn':'download-btn';
+  var accessHtml=verified?
+    '<div class="access-countdown"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg><span>Online access: '+daysRemaining+' days remaining</span></div>':'';
 
   app.innerHTML=
     '<div class="header">'+
@@ -108,10 +169,13 @@ if(!pb){
       '<p class="subtitle">Your playbook is ready — '+pb.price+' &middot; '+pb.time+'</p>'+
     '</div>'+
 
+    verifyHtml+
+    accessHtml+
+
     '<div class="download-card">'+
       '<h2>YOUR PLAYBOOK IS READY</h2>'+
       '<p>Thank you for your purchase. Download the PDF to your device for permanent access, or read the full content online below.</p>'+
-      '<a href="'+pdfUrl+'" class="download-btn" download>DOWNLOAD PDF</a>'+
+      '<a href="'+pdfUrl+'" class="'+downloadBtnClass+'" download>DOWNLOAD PDF</a>'+
       '<button class="read-btn" onclick="toggleReadOnline()">READ ONLINE</button>'+
       '<div class="security-badge">'+
         '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>'+
@@ -127,9 +191,10 @@ if(!pb){
       '<h3>PURCHASE RECEIPT</h3>'+
       '<div class="receipt-row"><span class="receipt-label">Product</span><span class="receipt-value">'+pb.title+'</span></div>'+
       '<div class="receipt-row"><span class="receipt-label">Amount</span><span class="receipt-value">'+pb.price+'</span></div>'+
-      '<div class="receipt-row"><span class="receipt-label">Reference</span><span class="receipt-value">'+(ref||'N/A')+'</span></div>'+
+      '<div class="receipt-row"><span class="receipt-label">Reference</span><span class="receipt-value">'+purchaseRef+'</span></div>'+
       '<div class="receipt-row"><span class="receipt-label">Format</span><span class="receipt-value">PDF + Online Access</span></div>'+
-      '<div class="receipt-row"><span class="receipt-label">Purchased</span><span class="receipt-value">'+new Date().toLocaleDateString('en-US',{year:'numeric',month:'long',day:'numeric'})+'</span></div>'+
+      '<div class="receipt-row"><span class="receipt-label">Purchased</span><span class="receipt-value">'+purchaseDate+'</span></div>'+
+      (verified?'<div class="receipt-row"><span class="receipt-label">Access Expires</span><span class="receipt-value">'+daysRemaining+' days</span></div>':'')+
     '</div>'+
 
     '<div class="info-box">'+
@@ -139,7 +204,7 @@ if(!pb){
     '</div>'+
 
     '<div class="info-box" style="border-left:3px solid #F9FF00;">'+
-      '<p><strong>Need help?</strong> Reply to your delivery email and we respond within 24 hours. Include your reference number: <strong style="color:#F9FF00">'+(ref||'see your email')+'</strong></p>'+
+      '<p><strong>Need help?</strong> Reply to your delivery email and we respond within 24 hours. Include your reference number: <strong style="color:#F9FF00">'+purchaseRef+'</strong></p>'+
     '</div>'+
 
     '<a href="/" class="back-link">BACK TO MENSHLY GLOBAL</a>'+

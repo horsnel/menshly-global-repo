@@ -74,6 +74,10 @@ export async function onRequestPost(context) {
       ? `${siteUrl}/pdfs/${pdfSlug}.pdf`
       : `${siteUrl}/pdfs/${productTitle.toLowerCase().replace(/[^a-z0-9]+/g, '-')}.pdf`;
 
+    // Generate delivery token for secure access
+    const deliveryToken = await generateDeliveryToken(reference, customerEmail);
+    const deliveryUrl = `${siteUrl}/delivery/?slug=${encodeURIComponent(pdfSlug)}&token=${deliveryToken}`;
+
     // Store purchase in KV
     const purchaseRecord = {
       email: customerEmail,
@@ -83,6 +87,9 @@ export async function onRequestPost(context) {
       currency,
       reference,
       pdfUrl,
+      pdf_slug: pdfSlug,
+      deliveryToken,
+      deliveryUrl,
       source: metadata.source || '',
       purchasedAt: new Date().toISOString(),
       emailSent: false,
@@ -91,6 +98,8 @@ export async function onRequestPost(context) {
     if (env.PURCHASES) {
       await env.PURCHASES.put(`ref:${reference}`, JSON.stringify(purchaseRecord), { expirationTtl: 7776000 });
       await env.PURCHASES.put(`email:${customerEmail}:${reference}`, JSON.stringify(purchaseRecord), { expirationTtl: 7776000 });
+      // Store token lookup for verification
+      await env.PURCHASES.put(`token:${deliveryToken}`, JSON.stringify(purchaseRecord), { expirationTtl: 7776000 });
     }
 
     // Send email via configured provider
@@ -104,6 +113,7 @@ export async function onRequestPost(context) {
           currency,
           reference,
           pdfUrl,
+          deliveryUrl,
           siteUrl,
         });
       } catch (emailErr) {
@@ -180,15 +190,25 @@ async function verifySignature(rawBody, secretKey, headerSignature) {
   }
 }
 
+// ─── Delivery Token Generator ─────────────────────────────────────────────────
+async function generateDeliveryToken(reference, email) {
+  const encoder = new TextEncoder();
+  const data = encoder.encode(`${reference}:${email}:${Date.now()}:${Math.random()}`);
+  const hashBuffer = await crypto.subtle.digest('SHA-256', data);
+  const hashArray = Array.from(new Uint8Array(hashBuffer));
+  return hashArray.map(b => b.toString(16).padStart(2, '0')).join('').substring(0, 32);
+}
+
 // ─── Email Delivery ───────────────────────────────────────────────────────────
-async function sendEmail(env, { to, productTitle, amount, currency, reference, pdfUrl, siteUrl }) {
+async function sendEmail(env, { to, productTitle, amount, currency, reference, pdfUrl, deliveryUrl, siteUrl }) {
   const provider = env.EMAIL_PROVIDER || 'resend';
   const from = env.EMAIL_FROM || 'Menshly Global <onboarding@resend.dev>';
   const amountDisplay = `${currency} ${(amount / 100).toFixed(2)}`;
   const subject = `Your Playbook: ${productTitle} — Download Ready`;
+  const accessUrl = deliveryUrl || pdfUrl;
 
-  const html = buildEmailHtml({ productTitle, amountDisplay, reference, pdfUrl, siteUrl });
-  const text = `MENSHLY GLOBAL — Your Playbook Is Ready\n\nThank you for purchasing ${productTitle}. Your payment of ${amountDisplay} was successful.\n\nDownload your PDF: ${pdfUrl}\n\nReference: ${reference}\n\nMenshly Global — Where AI Meets Revenue`;
+  const html = buildEmailHtml({ productTitle, amountDisplay, reference, pdfUrl, accessUrl, siteUrl });
+  const text = `MENSHLY GLOBAL — Your Playbook Is Ready\n\nThank you for purchasing ${productTitle}. Your payment of ${amountDisplay} was successful.\n\nAccess your playbook: ${accessUrl}\nDirect PDF download: ${pdfUrl}\n\nReference: ${reference}\n\nMenshly Global — Where AI Meets Revenue`;
 
   if (provider === 'resend') {
     const res = await fetch('https://api.resend.com/emails', {
@@ -233,7 +253,7 @@ async function sendEmail(env, { to, productTitle, amount, currency, reference, p
   return false;
 }
 
-function buildEmailHtml({ productTitle, amountDisplay, reference, pdfUrl, siteUrl }) {
+function buildEmailHtml({ productTitle, amountDisplay, reference, pdfUrl, accessUrl, siteUrl }) {
   return `<!DOCTYPE html>
 <html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"></head>
 <body style="margin:0;padding:0;background:#111111;">
@@ -244,16 +264,19 @@ function buildEmailHtml({ productTitle, amountDisplay, reference, pdfUrl, siteUr
   <div style="padding:32px;">
     <h2 style="font-family:Oswald,Arial Black,sans-serif;font-size:22px;margin:0 0 16px 0;">YOUR PLAYBOOK IS READY</h2>
     <p style="font-size:16px;line-height:1.6;margin:0 0 16px 0;color:#CCCCCC;">Thank you for purchasing <strong style="color:#F9FF00;">${productTitle}</strong>. Your payment of <strong>${amountDisplay}</strong> was successful.</p>
-    <p style="font-size:16px;line-height:1.6;margin:0 0 24px 0;color:#CCCCCC;">Click the button below to download your PDF playbook:</p>
+    <p style="font-size:16px;line-height:1.6;margin:0 0 24px 0;color:#CCCCCC;">Click the button below to access your playbook:</p>
     <div style="text-align:center;margin:28px 0;">
-      <a href="${pdfUrl}" style="display:inline-block;background:#F9FF00;color:#1A1A1A;font-family:Oswald,Arial Black,sans-serif;font-weight:700;font-size:18px;padding:16px 44px;text-decoration:none;letter-spacing:2px;border:3px solid #F9FF00;">DOWNLOAD PDF</a>
+      <a href="${accessUrl || pdfUrl}" style="display:inline-block;background:#F9FF00;color:#1A1A1A;font-family:Oswald,Arial Black,sans-serif;font-weight:700;font-size:18px;padding:16px 44px;text-decoration:none;letter-spacing:2px;border:3px solid #F9FF00;">ACCESS PLAYBOOK</a>
+    </div>
+    <div style="text-align:center;margin:12px 0;">
+      <a href="${pdfUrl}" style="display:inline-block;background:transparent;color:#F9FF00;font-family:Oswald,Arial Black,sans-serif;font-weight:600;font-size:14px;padding:12px 32px;text-decoration:none;letter-spacing:1px;border:2px solid #F9FF00;">OR DOWNLOAD PDF DIRECTLY</a>
     </div>
     <div style="background:#111111;border:1px solid #333333;padding:16px;margin:24px 0;">
-      <p style="font-size:13px;color:#999999;margin:0 0 8px 0;">If the button doesn't work, copy and paste this link:</p>
-      <p style="font-size:13px;color:#F9FF00;margin:0;word-break:break-all;">${pdfUrl}</p>
+      <p style="font-size:13px;color:#999999;margin:0 0 8px 0;">If the buttons don't work, copy and paste this link:</p>
+      <p style="font-size:13px;color:#F9FF00;margin:0;word-break:break-all;">${accessUrl || pdfUrl}</p>
     </div>
     <div style="border-top:1px solid #333333;padding-top:16px;margin-top:24px;">
-      <table style="width:100%;font-size:14px;color:#999999;"><tr><td style="padding:4px 0;">Reference:</td><td style="text-align:right;color:#CCCCCC;">${reference}</td></tr><tr><td style="padding:4px 0;">Product:</td><td style="text-align:right;color:#CCCCCC;">${productTitle}</td></tr><tr><td style="padding:4px 0;">Amount:</td><td style="text-align:right;color:#CCCCCC;">${amountDisplay}</td></tr></table>
+      <table style="width:100%;font-size:14px;color:#999999;"><tr><td style="padding:4px 0;">Reference:</td><td style="text-align:right;color:#CCCCCC;">${reference}</td></tr><tr><td style="padding:4px 0;">Product:</td><td style="text-align:right;color:#CCCCCC;">${productTitle}</td></tr><tr><td style="padding:4px 0;">Amount:</td><td style="text-align:right;color:#CCCCCC;">${amountDisplay}</td></tr><tr><td style="padding:4px 0;">Access:</td><td style="text-align:right;color:#CCCCCC;">90 days from purchase</td></tr></table>
     </div>
     <p style="font-size:14px;color:#666666;margin-top:20px;">If you have any issues, reply to this email and we'll help you within 24 hours.</p>
   </div>

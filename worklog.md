@@ -91,3 +91,36 @@ Stage Summary:
 - FTC affiliate disclaimer with yellow left border on all articles
 - KV Namespace: ed4b7413a2844687a5da97d5f6d033dc
 - Deploy workflow: .github/workflows/deploy-cloudflare.yml
+
+---
+Task ID: 1-12
+Agent: Main
+Task: Add comprehensive interactive features, animations, and platform features to Menshly Global
+
+Work Log:
+- Created static/js/menshly.js with all interactive features (reading progress, scroll reveal, dark mode, code copy, card tilt, stats counter, ToC, bookmark, share buttons, heart burst)
+- Updated article-actions.html to use live KV-backed likes via /api/likes endpoint (POST to increment, GET to fetch count)
+- Added bookmark/save article button with localStorage persistence
+- Added share buttons (WhatsApp, Twitter/X, LinkedIn, Copy Link)
+- Added heart burst particle animation on like
+- Updated baseof.html with reading progress bar and menshly.js script
+- Updated single.html with Table of Contents sidebar (sticky on desktop, collapsible on mobile)
+- Updated nav.html with dark mode toggle (desktop + mobile)
+- Updated list.html (homepage) with animated stats counter (data-count attributes)
+- Appended comprehensive CSS for all new features including full dark mode theme
+- Verified KV namespace MENSHLY_LIKES exists (ed4b7413a2844687a5da97d5f6d033dc) with LIKES binding
+- Pushed to GitHub and confirmed CloudFlare Pages deployment SUCCESS
+
+Stage Summary:
+- Live KV likes: Frontend now calls /api/likes for real-time counts
+- Reading progress bar: Yellow bar at top of articles showing scroll progress
+- Scroll reveal: Cards, sections, headings animate in with IntersectionObserver
+- Animated stats: Homepage numbers count up from 0 when scrolled into view
+- Share buttons: WhatsApp, Twitter/X, LinkedIn, Copy Link
+- Table of Contents: Auto-generated from h2/h3, sticky sidebar, scroll tracking
+- Dark mode: Full theme with toggle in nav, localStorage preference
+- Code copy: COPY button on all code blocks
+- Card tilt: 3D perspective effect on article/playbook cards
+- Heart burst: Particle animation when liking
+- Bookmark: Save/unsave articles locally
+- All features deployed to https://menshly-global-enz.pages.dev/

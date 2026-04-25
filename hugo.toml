@@ -42,17 +42,21 @@ enableRobotsTXT = true
     url = "/tools/"
     weight = 3
   [[menu.main]]
+    name = "AI CHAT"
+    url = "/chat/"
+    weight = 4
+  [[menu.main]]
     name = "INTELLIGENCE"
     url = "/intelligence/"
-    weight = 4
+    weight = 5
   [[menu.main]]
     name = "ABOUT"
     url = "/about/"
-    weight = 5
+    weight = 6
   [[menu.main]]
     name = "CONTACT"
     url = "/contact/"
-    weight = 6
+    weight = 7
 
   [[menu.footer]]
     name = "About"

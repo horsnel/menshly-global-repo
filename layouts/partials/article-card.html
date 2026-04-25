@@ -1,7 +1,24 @@
 {{ $ctx := . }}
+{{ $hasImage := false }}
+{{ $imageUrl := "" }}
+
+{{/* Check for explicit image */}}
+{{ if .Params.image }}
+  {{ $hasImage = true }}
+  {{ $imageUrl = .Params.image }}
+{{ else if .Params.heroImage }}
+  {{ $hasImage = true }}
+  {{ $imageUrl = .Params.heroImage }}
+{{ else }}
+  {{/* Generate Pollination AI thumbnail from title */}}
+  {{ $pollinationTopic := .Title | lower | replaceRE "[^a-z0-9]+" " " | truncate 60 "" }}
+  {{ $imageUrl = printf "https://image.pollinations.ai/prompt/%s?width=672&height=384&nologo=true&seed=%s" (urlquery (printf "%s AI technology business" $pollinationTopic)) (urlquery .File.ContentBaseName) }}
+  {{ $hasImage = true }}
+{{ end }}
+
 <a href="{{ .RelPermalink }}" class="article-card">
-  {{ with .Params.image }}
-  <img src="{{ . }}" alt="{{ $ctx.Title }}" class="article-card-image">
+  {{ if $hasImage }}
+  <img src="{{ $imageUrl }}" alt="{{ $ctx.Title }}" class="article-card-image" loading="lazy">
   {{ else }}
   <div class="article-card-image" style="background:var(--off-white);display:flex;align-items:center;justify-content:center;">
     <span style="font-family:var(--font-heading);font-size:48px;color:rgba(26,26,26,0.1);font-weight:700;">{{ substr $ctx.Title 0 1 }}</span>
