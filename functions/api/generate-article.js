@@ -1,12 +1,10 @@
 // Cloudflare Pages Function: AI Article Generator
-// Primary: Pollinations AI (free, no API key needed)
-// Fallback: Cerebras, DeepSeek (if keys available and working)
+// Strategy 1: Pollinations "mistral" (free, not a reasoning model — clean content)
+// Strategy 2: Pollinations "openai" (free, reasoning model — needs content extraction)
+// Strategy 3: HuggingFace Inference API (free tier, optional API key)
+// Strategy 4: Cerebras (if key available and working)
+// Strategy 5: DeepSeek (if key available and working)
 // Images: Pollinations AI (free) | Pexels | Pixabay
-//
-// Key insight: Pollinations "openai" model is a reasoning model.
-// - content field: contains the actual article (when model has enough tokens)
-// - reasoning_content field: contains the model's thinking + sometimes the article
-// We use BOTH fields, extracting article from whichever has valid content.
 
 export async function onRequestPost(context) {
   const headers = {
@@ -53,16 +51,68 @@ export async function onRequestPost(context) {
     let content = '';
     const debugInfo = {};
 
-    // ── Strategy 1: Pollinations AI (free, primary) ──
-    // Single attempt only — Pollinations rate-limits to 1 request per IP
-    // If content is in reasoning_content, extract it
+    // ── Strategy 1: Pollinations "mistral" model (not a reasoning model) ──
     {
       try {
         const controller = new AbortController();
-        const timeoutId = setTimeout(() => controller.abort(), 28000);
+        const timeoutId = setTimeout(() => controller.abort(), 30000);
         const t0 = Date.now();
 
-        const pollResp = await fetch('https://text.pollinations.ai/openai', {
+        const pollResp = await fetch('https://text.pollinations.ai/openai/chat/completions', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          signal: controller.signal,
+          body: JSON.stringify({
+            messages: pollMessages,
+            model: 'mistral',
+            max_tokens: 4000,
+            temperature: 0.8,
+            seed: Math.floor(Math.random() * 10000),
+          }),
+        });
+        clearTimeout(timeoutId);
+
+        if (pollResp.ok) {
+          const respText = await pollResp.text();
+          try {
+            const data = JSON.parse(respText);
+            const msgContent = data.choices?.[0]?.message?.content || '';
+            const reasoningContent = data.choices?.[0]?.message?.reasoning_content || '';
+            const candidate = msgContent || reasoningContent || '';
+
+            debugInfo.pollinations_mistral = {
+              elapsed: Date.now() - t0,
+              msgLen: msgContent.length,
+              reasonLen: reasoningContent.length,
+              valid: !!(candidate && isValidArticle(candidate)),
+              firstChars: candidate.substring(0, 80),
+            };
+
+            if (candidate && isValidArticle(candidate)) {
+              content = candidate;
+              console.log('Pollinations mistral: article generated, length:', content.length);
+            }
+          } catch (parseErr) {
+            debugInfo.pollinations_mistral = { error: `JSON parse: ${parseErr.message}` };
+          }
+        } else {
+          const errText = await pollResp.text().catch(() => '');
+          debugInfo.pollinations_mistral = { error: `HTTP ${pollResp.status}: ${errText.substring(0, 100)}` };
+        }
+      } catch (e) {
+        const errType = e.name === 'AbortError' ? 'timeout' : e.message;
+        debugInfo.pollinations_mistral = { error: errType };
+      }
+    }
+
+    // ── Strategy 2: Pollinations "openai" model (reasoning model with extraction) ──
+    if (!content) {
+      try {
+        const controller = new AbortController();
+        const timeoutId = setTimeout(() => controller.abort(), 30000);
+        const t0 = Date.now();
+
+        const pollResp = await fetch('https://text.pollinations.ai/openai/chat/completions', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           signal: controller.signal,
@@ -71,7 +121,7 @@ export async function onRequestPost(context) {
             model: 'openai',
             max_tokens: 4000,
             temperature: 0.8,
-            seed: attempt + 1,
+            seed: Math.floor(Math.random() * 10000),
           }),
         });
         clearTimeout(timeoutId);
@@ -83,9 +133,9 @@ export async function onRequestPost(context) {
             const msgContent = data.choices?.[0]?.message?.content || '';
             const reasoningContent = data.choices?.[0]?.message?.reasoning_content || '';
 
-            // CRITICAL: Use the same approach as chat.js
-            // msg.content has the article when model generates properly
-            // msg.reasoning_content has the article when model "thinks" it out
+            // The "openai" model is a reasoning model:
+            // - content: actual article (when model has enough tokens)
+            // - reasoning_content: model's thinking + sometimes the article
             let candidate = msgContent || reasoningContent || '';
 
             // Validate it's an actual article, not a plan/outline
@@ -100,33 +150,97 @@ export async function onRequestPost(context) {
               }
             }
 
-            debugInfo.pollinations = {
+            debugInfo.pollinations_openai = {
               elapsed: Date.now() - t0,
               msgLen: msgContent.length,
               reasonLen: reasoningContent.length,
               valid: !!content,
-              firstChars: (msgContent || reasoningContent || '').substring(0, 100),
+              firstChars: (msgContent || reasoningContent || '').substring(0, 80),
             };
 
             if (content) {
-              console.log('Pollinations article generated, length:', content.length);
+              console.log('Pollinations openai: article generated, length:', content.length);
             }
           } catch (parseErr) {
-            debugInfo.pollinations = { error: `JSON parse: ${parseErr.message}` };
+            debugInfo.pollinations_openai = { error: `JSON parse: ${parseErr.message}` };
           }
         } else {
-          const errText = await pollResp.text();
-          debugInfo.pollinations = { error: `HTTP ${pollResp.status}: ${errText.substring(0, 150)}` };
+          const errText = await pollResp.text().catch(() => '');
+          debugInfo.pollinations_openai = { error: `HTTP ${pollResp.status}: ${errText.substring(0, 100)}` };
         }
       } catch (e) {
         const errType = e.name === 'AbortError' ? 'timeout' : e.message;
-        debugInfo.pollinations = { error: errType };
+        debugInfo.pollinations_openai = { error: errType };
       }
     }
 
-    // ── Strategy 2: Cerebras fallback ──
+    // ── Strategy 3: HuggingFace Inference API (free tier) ──
+    if (!content) {
+      try {
+        const controller = new AbortController();
+        const timeoutId = setTimeout(() => controller.abort(), 35000);
+        const t0 = Date.now();
+
+        // Build a simple text prompt for HF text generation
+        const hfPrompt = buildHuggingFacePrompt(category, topicTitle, rev, difficulty);
+        const hfApiKey = context.env.HF_API_KEY || '';
+
+        const hfResp = await fetch('https://api-inference.huggingface.co/models/HuggingFaceH4/zephyr-7b-beta/v1/chat/completions', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            ...(hfApiKey ? { 'Authorization': `Bearer ${hfApiKey}` } : {}),
+          },
+          signal: controller.signal,
+          body: JSON.stringify({
+            model: 'HuggingFaceH4/zephyr-7b-beta',
+            messages: [
+              { role: 'system', content: 'You are a content writer for Menshly Global. Write in a direct, no-nonsense voice with specific numbers, tool names, and prices. Write in Markdown with # headings. Start with a # heading immediately.' },
+              { role: 'user', content: hfPrompt },
+            ],
+            max_tokens: 4000,
+            temperature: 0.8,
+          }),
+        });
+        clearTimeout(timeoutId);
+
+        if (hfResp.ok) {
+          const data = await hfResp.json();
+          const candidate = data.choices?.[0]?.message?.content || '';
+
+          debugInfo.huggingface = {
+            elapsed: Date.now() - t0,
+            length: candidate.length,
+            valid: !!(candidate && isValidArticle(candidate)),
+            firstChars: candidate.substring(0, 80),
+          };
+
+          if (candidate && isValidArticle(candidate)) {
+            content = candidate;
+            console.log('HuggingFace: article generated, length:', content.length);
+          } else if (candidate.length > 300) {
+            // Try extraction
+            const extracted = extractArticleFromText(candidate);
+            if (extracted) {
+              content = extracted;
+              console.log('HuggingFace: article extracted, length:', content.length);
+            }
+          }
+        } else {
+          const errText = await hfResp.text().catch(() => '');
+          debugInfo.huggingface = { error: `HTTP ${hfResp.status}: ${errText.substring(0, 100)}` };
+        }
+      } catch (e) {
+        const errType = e.name === 'AbortError' ? 'timeout' : e.message;
+        debugInfo.huggingface = { error: errType };
+      }
+    }
+
+    // ── Strategy 4: Cerebras fallback ──
     if (!content && context.env.CEREBRAS_API_KEY) {
       try {
+        const controller = new AbortController();
+        const timeoutId = setTimeout(() => controller.abort(), 20000);
         const t0 = Date.now();
         const cerebrasResp = await fetch('https://api.cerebras.ai/v1/chat/completions', {
           method: 'POST',
@@ -134,6 +248,7 @@ export async function onRequestPost(context) {
             'Content-Type': 'application/json',
             'Authorization': `Bearer ${context.env.CEREBRAS_API_KEY}`,
           },
+          signal: controller.signal,
           body: JSON.stringify({
             model: 'llama-3.3-70b',
             messages: fullMessages,
@@ -142,6 +257,7 @@ export async function onRequestPost(context) {
             top_p: 0.95,
           }),
         });
+        clearTimeout(timeoutId);
         if (cerebrasResp.ok) {
           const data = await cerebrasResp.json();
           const candidate = data.choices?.[0]?.message?.content || '';
@@ -155,9 +271,11 @@ export async function onRequestPost(context) {
       }
     }
 
-    // ── Strategy 3: DeepSeek fallback ──
+    // ── Strategy 5: DeepSeek fallback ──
     if (!content && context.env.DEEPSEEK_API_KEY) {
       try {
+        const controller = new AbortController();
+        const timeoutId = setTimeout(() => controller.abort(), 20000);
         const t0 = Date.now();
         const dsResp = await fetch('https://api.deepseek.com/v1/chat/completions', {
           method: 'POST',
@@ -165,6 +283,7 @@ export async function onRequestPost(context) {
             'Content-Type': 'application/json',
             'Authorization': `Bearer ${context.env.DEEPSEEK_API_KEY}`,
           },
+          signal: controller.signal,
           body: JSON.stringify({
             model: 'deepseek-chat',
             messages: fullMessages,
@@ -172,6 +291,7 @@ export async function onRequestPost(context) {
             temperature: 0.8,
           }),
         });
+        clearTimeout(timeoutId);
         if (dsResp.ok) {
           const data = await dsResp.json();
           const candidate = data.choices?.[0]?.message?.content || '';
@@ -228,7 +348,7 @@ export async function onRequestOptions() {
 function isValidArticle(text) {
   if (!text || text.length < 300) return false;
   
-  // Check for reasoning/planning patterns - these indicate the model is thinking, not writing
+  // Check for reasoning/planning patterns
   const firstLines = text.split('\n').slice(0, 3).join(' ').trim();
   const planningPatterns = [
     /^(I need to|Need to|Let me|I should|I'll|I will|Let's craft|I must|I have to|We need to)/i,
@@ -264,7 +384,7 @@ function extractArticleFromText(text) {
   // Method 2: Find the first # heading and extract everything from there
   const headingIdx = text.search(/\n#{1,3}\s+/);
   if (headingIdx !== -1) {
-    let articleText = text.substring(headingIdx + 1); // skip the \n before #
+    let articleText = text.substring(headingIdx + 1);
     
     // Remove trailing reasoning patterns
     const trailingPatterns = [
@@ -280,18 +400,15 @@ function extractArticleFromText(text) {
     
     articleText = articleText.trim();
     
-    // Validate the extracted text is actually an article
     if (articleText.length > 300 && isValidArticle(articleText)) {
       return articleText;
     }
     
-    // Even if isValidArticle fails (e.g., planning text after heading), 
-    // check if there's enough real content between the heading and the planning
+    // Even if isValidArticle fails, check if there's enough real content
     const lines = articleText.split('\n');
     const articleLines = [];
     for (const line of lines) {
       const trimmed = line.trim();
-      // Stop at planning/reasoning lines
       if (/^(We need|I need to|Need to|Let me|I should|I'll write|I'll include|Three blockquotes|Then sections)/i.test(trimmed)) {
         break;
       }
@@ -330,8 +447,7 @@ function extractArticleFromText(text) {
 // ═══════════════════════════════════════════════════════════════
 
 function buildPollinationsMessages(category, topic, rev, difficulty) {
-  // These prompts are deliberately concise to work with Pollinations reasoning model
-  // The model uses tokens for reasoning + content, so shorter prompts = more content
+  // Concise prompts for Pollinations — shorter = more tokens for content
   if (category === 'opportunity') {
     return [
       { role: 'system', content: 'You are a content writer for Menshly Global. Write in a direct, no-nonsense voice. Use specific numbers, tool names, and prices. Write in Markdown with # headings, > blockquotes for truths/hacks, and tables. Start with a # heading immediately.' },
@@ -437,6 +553,28 @@ Cover ALL modules: foundation with procedures, tech stack with costs, build fram
     { role: 'system', content: systemBase },
     { role: 'user', content: userPrompt }
   ];
+}
+
+function buildHuggingFacePrompt(category, topic, rev, difficulty) {
+  if (category === 'opportunity') {
+    return `Write an OPPORTUNITY article: "How to Start a ${topic} in 2026 (Build Once, Get Paid Forever)"
+Revenue target: ${rev}/month | Difficulty: ${difficulty}
+Include sections: Why This Works Right Now, The Realistic Picture (3 ugly truths as blockquotes), The Free Stack, The Paid Stack with costs, The Workflow with time estimates, Pricing Tiers, Hacks as blockquotes, Revenue Projections table, Start This Weekend plan.
+Be specific with tool names and prices. Write in Markdown with # headings. Start with a # heading immediately.`;
+  }
+  if (category === 'intelligence') {
+    return `Write an INTELLIGENCE guide: "Build and Scale a ${topic} with Automated Workflows"
+Revenue target: ${rev}/month | Difficulty: ${difficulty}
+Include sections: Prerequisites with costs, Step-by-step setup, Core Workflow Build, Production Pipeline, Monitoring & Delivery, Pricing Table.
+Name every tool with its cost. Write in Markdown with # headings. Start with a # heading immediately.`;
+  }
+  if (category === 'playbook') {
+    return `Write a PLAYBOOK: "The ${topic} Playbook"
+Revenue target: ${rev}/month | Difficulty: ${difficulty}
+Include modules: Foundation with procedures, Tech Stack with costs, Build Framework, First Client acquisition, Delivery & Retention SOPs, Scaling with margin table.
+Write in Markdown with # headings. Start with a # heading immediately.`;
+  }
+  return `Write a complete article about: "${topic}". Include pricing, tools, and first steps. Write in Markdown with # headings.`;
 }
 
 // ═══════════════════════════════════════════════════════════════

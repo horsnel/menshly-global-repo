@@ -11,17 +11,19 @@ export async function onRequestGet(context) {
 
   // Pollinations AI is always available (free, no key needed)
   const primaryLLM = 'pollinations';
+  const hasHF = true; // HuggingFace free tier always available
   const hasFallback1 = !!env.CEREBRAS_API_KEY;
   const hasFallback2 = !!env.DEEPSEEK_API_KEY;
 
   // Any LLM available = system is connected
-  const anyLLM = true; // Pollinations is always available
+  const anyLLM = true; // Pollinations + HuggingFace are always available
 
   return new Response(JSON.stringify({
     status: 'ok',
     connected: anyLLM,  // Frontend should check THIS
     services: {
       pollinations: true,  // Primary LLM - free, no key
+      huggingface: hasHF,  // Free tier always available
       cerebras: hasFallback1,  // Fallback LLM
       deepseek: hasFallback2,  // Fallback LLM
       pexels: !!env.PEXELS_API_KEY,
