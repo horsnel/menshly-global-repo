@@ -1,5 +1,6 @@
 // CloudFlare Pages Function: AI Chat Assistant
-// Uses z-ai-web-dev-sdk for chat completions
+// Primary: Pollinations AI (free, no API key needed)
+// Fallback: Cerebras API (if key available)
 // POST /api/chat — { messages: [{role, content}], system?: string }
 
 const CORS_HEADERS = {
@@ -84,38 +85,88 @@ export async function onRequestPost(context) {
   ];
 
   try {
-    // Direct Cerebras API call (z-ai-web-dev-sdk cannot run in CF edge runtime)
-    const apiKey = env.CEREBRAS_API_KEY;
-    if (!apiKey) {
-      return new Response(JSON.stringify({ error: 'Chat service not configured. CEREBRAS_API_KEY missing.' }), {
+    let assistantMessage = '';
+
+    // Strategy 1: Try Pollinations AI (free, no API key needed)
+    try {
+      const pollResponse = await fetch('https://text.pollinations.ai/openai', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          messages: chatMessages,
+          model: 'openai',
+          max_tokens: 1024,
+          temperature: 0.8,
+        }),
+      });
+
+      if (pollResponse.ok) {
+        const data = await pollResponse.json();
+        assistantMessage = data.choices?.[0]?.message?.content || '';
+      }
+    } catch (pollErr) {
+      console.warn('Pollinations AI failed, trying Cerebras fallback:', pollErr.message);
+    }
+
+    // Strategy 2: Fallback to Cerebras if Pollinations didn't return content
+    if (!assistantMessage && env.CEREBRAS_API_KEY) {
+      try {
+        const cerebrasResponse = await fetch('https://api.cerebras.ai/v1/chat/completions', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${env.CEREBRAS_API_KEY}`,
+          },
+          body: JSON.stringify({
+            model: 'llama-3.3-70b',
+            messages: chatMessages,
+            max_tokens: 1024,
+            temperature: 0.8,
+            top_p: 0.95,
+          }),
+        });
+
+        if (cerebrasResponse.ok) {
+          const data = await cerebrasResponse.json();
+          assistantMessage = data.choices?.[0]?.message?.content || '';
+        }
+      } catch (cerebrasErr) {
+        console.warn('Cerebras fallback failed:', cerebrasErr.message);
+      }
+    }
+
+    // Strategy 3: Fallback to DeepSeek if available
+    if (!assistantMessage && env.DEEPSEEK_API_KEY) {
+      try {
+        const deepseekResponse = await fetch('https://api.deepseek.com/v1/chat/completions', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${env.DEEPSEEK_API_KEY}`,
+          },
+          body: JSON.stringify({
+            model: 'deepseek-chat',
+            messages: chatMessages,
+            max_tokens: 1024,
+            temperature: 0.8,
+          }),
+        });
+
+        if (deepseekResponse.ok) {
+          const data = await deepseekResponse.json();
+          assistantMessage = data.choices?.[0]?.message?.content || '';
+        }
+      } catch (dsErr) {
+        console.warn('DeepSeek fallback failed:', dsErr.message);
+      }
+    }
+
+    if (!assistantMessage) {
+      return new Response(JSON.stringify({ error: 'All AI services are currently unavailable. Please try again in a moment.' }), {
         status: 503,
         headers: CORS_HEADERS,
       });
     }
-
-    const response = await fetch('https://api.cerebras.ai/v1/chat/completions', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Authorization': `Bearer ${apiKey}`,
-      },
-      body: JSON.stringify({
-        model: 'llama-3.3-70b',
-        messages: chatMessages,
-        max_tokens: 1024,
-        temperature: 0.8,
-        top_p: 0.95,
-      }),
-    });
-
-    if (!response.ok) {
-      const errText = await response.text();
-      console.error('Cerebras API error:', response.status, errText);
-      throw new Error(`AI service error: ${response.status}`);
-    }
-
-    const data = await response.json();
-    let assistantMessage = data.choices?.[0]?.message?.content || '';
 
     return new Response(JSON.stringify({
       message: assistantMessage,

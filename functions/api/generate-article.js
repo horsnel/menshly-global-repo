@@ -1,6 +1,7 @@
 // Cloudflare Pages Function: AI Article Generator
 // Format prompts are stored server-side — NEVER exposed to the client
-// Uses: Cerebras (text), Pexels + Pixabay (images)
+// Primary: Pollinations AI (free, no key) | Fallback: Cerebras, DeepSeek
+// Images: Pollinations AI (free) | Pexels | Pixabay
 
 export async function onRequestPost(context) {
   const headers = {
@@ -17,17 +18,11 @@ export async function onRequestPost(context) {
       return new Response(JSON.stringify({ error: 'Topic and category are required.' }), { status: 400, headers });
     }
 
-    // Check Cerebras API key upfront for clear error messaging
-    if (!context.env.CEREBRAS_API_KEY) {
-      console.error('CEREBRAS_API_KEY not set in CloudFlare Pages environment');
-      return new Response(JSON.stringify({ error: 'AI service not configured. CEREBRAS_API_KEY is missing. Set it in CloudFlare Pages → Settings → Environment variables.' }), { status: 503, headers });
-    }
-
     const slug = topic.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
     const date = new Date().toISOString().split('T')[0];
     const topicTitle = topic.replace(/(?:^|\s)\S/g, t => t.toUpperCase());
 
-    // Fetch images from Pexels + Pixabay + Pollination AI fallback in parallel
+    // Fetch images from all sources in parallel
     const [pexelsImages, pixabayImages, pollinationImages] = await Promise.allSettled([
       fetchPexelsImages(topic, context.env.PEXELS_API_KEY),
       fetchPixabayImages(topic, context.env.PIXABAY_API_KEY),
@@ -40,24 +35,98 @@ export async function onRequestPost(context) {
       ...(pollinationImages.status === 'fulfilled' ? pollinationImages.value : [])
     ];
 
-    // Select hero image (landscape, high quality)
     const heroImage = allImages.find(img => img.width > img.height && img.width >= 1200) || allImages[0] || null;
-    // Select thumbnail image
     const thumbnailImage = allImages.find(img => img.width >= 800) || allImages[0] || null;
-    // Collect inline images (3-5 for article body)
     const inlineImages = allImages.slice(0, 5);
 
-    // Build the system prompt based on category — FORMAT KEPT SECRET
+    // Build prompts (server-side only)
     const systemPrompt = buildSystemPrompt(category);
     const userPrompt = buildUserPrompt(category, topicTitle, slug, date, revenue, difficulty);
+    const messages = [
+      { role: 'system', content: systemPrompt },
+      { role: 'user', content: userPrompt }
+    ];
 
-    // Call Cerebras API for article generation
-    const articleData = await callCerebras(
-      context.env.CEREBRAS_API_KEY,
-      systemPrompt,
-      userPrompt,
-      category
-    );
+    // Generate article using multi-provider strategy
+    const maxTokens = category === 'playbook' ? 16000 : category === 'intelligence' ? 8000 : 6000;
+    let content = '';
+
+    // Strategy 1: Pollinations AI (free, no API key needed)
+    try {
+      const pollResp = await fetch('https://text.pollinations.ai/openai', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          messages,
+          model: 'openai',
+          max_tokens: maxTokens,
+          temperature: 0.8,
+        }),
+      });
+      if (pollResp.ok) {
+        const data = await pollResp.json();
+        content = data.choices?.[0]?.message?.content || '';
+      }
+    } catch (e) {
+      console.warn('Pollinations AI article generation failed:', e.message);
+    }
+
+    // Strategy 2: Cerebras fallback
+    if (!content && context.env.CEREBRAS_API_KEY) {
+      try {
+        const cerebrasResp = await fetch('https://api.cerebras.ai/v1/chat/completions', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${context.env.CEREBRAS_API_KEY}`,
+          },
+          body: JSON.stringify({
+            model: 'llama-3.3-70b',
+            messages,
+            max_tokens: maxTokens,
+            temperature: 0.8,
+            top_p: 0.95,
+          }),
+        });
+        if (cerebrasResp.ok) {
+          const data = await cerebrasResp.json();
+          content = data.choices?.[0]?.message?.content || '';
+        }
+      } catch (e) {
+        console.warn('Cerebras article generation failed:', e.message);
+      }
+    }
+
+    // Strategy 3: DeepSeek fallback
+    if (!content && context.env.DEEPSEEK_API_KEY) {
+      try {
+        const dsResp = await fetch('https://api.deepseek.com/v1/chat/completions', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${context.env.DEEPSEEK_API_KEY}`,
+          },
+          body: JSON.stringify({
+            model: 'deepseek-chat',
+            messages,
+            max_tokens: maxTokens,
+            temperature: 0.8,
+          }),
+        });
+        if (dsResp.ok) {
+          const data = await dsResp.json();
+          content = data.choices?.[0]?.message?.content || '';
+        }
+      } catch (e) {
+        console.warn('DeepSeek article generation failed:', e.message);
+      }
+    }
+
+    if (!content) {
+      return new Response(JSON.stringify({ error: 'All AI services are currently unavailable. Please try again in a moment.' }), { status: 503, headers });
+    }
+
+    const articleData = parseGeneratedContent(content, category);
 
     return new Response(JSON.stringify({
       success: true,
@@ -84,39 +153,6 @@ export async function onRequestOptions() {
       'Access-Control-Allow-Headers': 'Content-Type',
     }
   });
-}
-
-// ─── CEREBRAS API ───────────────────────────────────────────
-async function callCerebras(apiKey, systemPrompt, userPrompt, category) {
-  const maxTokens = category === 'playbook' ? 16000 : category === 'intelligence' ? 8000 : 6000;
-
-  const response = await fetch('https://api.cerebras.ai/v1/chat/completions', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      'Authorization': `Bearer ${apiKey}`
-    },
-    body: JSON.stringify({
-      model: 'llama-3.3-70b',
-      messages: [
-        { role: 'system', content: systemPrompt },
-        { role: 'user', content: userPrompt }
-      ],
-      max_tokens: maxTokens,
-      temperature: 0.8,
-      top_p: 0.95
-    })
-  });
-
-  if (!response.ok) {
-    const err = await response.text();
-    throw new Error(`Cerebras API error: ${response.status} - ${err}`);
-  }
-
-  const data = await response.json();
-  const content = data.choices?.[0]?.message?.content || '';
-
-  return parseGeneratedContent(content, category);
 }
 
 // ─── PEXELS API ─────────────────────────────────────────────
@@ -296,11 +332,9 @@ Write the FULL playbook now. Every module must be complete with exact procedures
 
 // ─── PARSE GENERATED CONTENT ────────────────────────────────
 function parseGeneratedContent(content, category) {
-  // Extract title from first ## or # heading
   const titleMatch = content.match(/^#\s+(.+)$/m) || content.match(/^##?\s+(.+)$/m);
   const title = titleMatch ? titleMatch[1].replace(/\*\*/g, '').trim() : '';
 
-  // Extract excerpt from first paragraph (non-heading, non-empty)
   const lines = content.split('\n');
   let excerpt = '';
   for (const line of lines) {
@@ -311,7 +345,6 @@ function parseGeneratedContent(content, category) {
     }
   }
 
-  // Calculate read time based on word count
   const wordCount = content.split(/\s+/).length;
   const readTime = Math.max(5, Math.ceil(wordCount / 250)) + ' MIN';
 
