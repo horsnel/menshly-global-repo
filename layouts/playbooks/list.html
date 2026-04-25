@@ -41,8 +41,9 @@ function promptEmailAndPay(el) {
     return;
   }
   const priceStr = el.getAttribute('data-price');
-  const amountInDollars = parseFloat(priceStr.replace(/[^0-9.]/g, ''));
-  const amountInKobo = Math.round(amountInDollars * 100);
+  // Parse Naira price: "₦35,000" → 35000 → 3500000 kobo
+  const amountInNaira = parseFloat(priceStr.replace(/[^0-9.]/g, '').replace(/,/g, ''));
+  const amountInKobo = Math.round(amountInNaira * 100);
   const productTitle = el.getAttribute('data-title');
   const pdfSlug = el.getAttribute('data-slug');
   const publicKey = '{{ .Site.Params.paystackPublicKey | default "pk_test_xxx" }}';
@@ -51,7 +52,7 @@ function promptEmailAndPay(el) {
     key: publicKey,
     email: email,
     amount: amountInKobo,
-    currency: 'USD',
+    currency: 'NGN',
     metadata: {
       product: productTitle,
       type: 'playbook',

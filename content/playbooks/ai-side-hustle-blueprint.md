@@ -2,7 +2,7 @@
 title: "AI Side Hustle Blueprint"
 date: 2026-04-21
 category: "Playbook"
-price: "$19"
+price: "₦15,000"
 readTime: "75 MIN"
 excerpt: "25 validated AI business models, pricing templates for each, and a 30-day launch plan to go from zero to first paying customer. No fluff — just the models that actually make money."
 image: "/images/articles/playbooks/ai-side-hustle-blueprint.png"

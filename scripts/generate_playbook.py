@@ -179,7 +179,7 @@ def generate_playbook(topic_data: dict, opportunity_data: dict = None, intellige
     topic = topic_data.get("playbook_angle", topic_data.get("selected_title", topic_data.get("topic", "")))
     context = topic_data.get("context", "")
     affiliates = topic_data.get("affiliates", [])
-    price = random.choice(["$29", "$39", "$47"])
+    price = random.choice(["₦15,000", "₦25,000", "₦35,000"])
 
     # Build cross-linking context
     cross_link_context = ""

@@ -43,8 +43,8 @@ export async function onRequestPost(context) {
     const inlineImages = allImages.slice(0, 5);
 
     // Build messages
-    const revMap = {'1k-5k':'$1K-$5K','5k-10k':'$5K-$10K','10k-25k':'$10K-$25K','25k-50k':'$25K-$50K','50k+':'$50K+'};
-    const rev = revMap[revenue] || '$10K-$25K';
+    const revMap = {'1k-5k':'₦800K-₦4M','5k-10k':'₦4M-₦8M','10k-25k':'₦8M-₦20M','25k-50k':'₦20M-₦40M','50k+':'₦40M+'};
+    const rev = revMap[revenue] || '₦8M-₦20M';
     const pollMessages = buildPollinationsMessages(category, topicTitle, rev, difficulty);
     const fullMessages = buildFullMessages(category, topicTitle, rev, difficulty, date);
 

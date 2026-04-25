@@ -2,14 +2,14 @@
 title: "The AI Automation Agency Playbook"
 date: 2026-04-23
 category: "Playbook"
-price: "$47"
+price: "₦35,000"
 readTime: "90 MIN"
-excerpt: "The most advanced AI automation agency blueprint ever created. 12 modules, 47 step-by-step procedures, interactive check-ins at every stage, complete tech stacks, client delivery frameworks, and scaling systems. From zero to $50K/month."
+excerpt: "The most advanced AI automation agency blueprint ever created. 12 modules, 47 step-by-step procedures, interactive check-ins at every stage, complete tech stacks, client delivery frameworks, and scaling systems. From zero to ₦40M/month."
 image: "/images/articles/playbooks/ai-automation-agency-playbook.png"
 heroImage: "/images/heroes/playbooks/ai-automation-agency-playbook.png"
 ---
 
-This is not a blog post condensed into a PDF. This is an operating system for building an AI automation agency from zero to $50,000/month in recurring revenue. Every module contains exact procedures — not theories, not possibilities, not "consider doing X." You will do X, in this order, with these tools, and you will verify it worked before moving on.
+This is not a blog post condensed into a PDF. This is an operating system for building an AI automation agency from zero to ₦40,000,000/month in recurring revenue. Every module contains exact procedures — not theories, not possibilities, not "consider doing X." You will do X, in this order, with these tools, and you will verify it worked before moving on.
 
 **47 procedures. 12 modules. 8+ hours of reading and execution.** If you complete every procedure, you will have a functioning agency with paying clients. If you skip procedures, you will have a folder of half-finished projects and no revenue. The choice is yours.
 

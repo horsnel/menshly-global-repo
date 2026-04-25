@@ -2,7 +2,7 @@
 title: "ChatGPT Prompt Engineering Guide"
 date: 2026-04-17
 category: "Playbook"
-price: "$49"
+price: "₦35,000"
 readTime: "90 MIN"
 excerpt: "Master prompt engineering for business. 200+ battle-tested prompts organized by function, the CRISP framework, advanced techniques, and model-specific optimization. Stop getting mediocre AI output."
 image: "/images/articles/playbooks/chatgpt-prompt-engineering-guide.png"

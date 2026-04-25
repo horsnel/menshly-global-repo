@@ -2,7 +2,7 @@
 title: "Automation Agency Starter Kit"
 date: 2026-04-19
 category: "Playbook"
-price: "$29"
+price: "₦20,000"
 readTime: "35 MIN"
 excerpt: "The complete launch system for starting an automation agency from zero. 8 modules, 26 procedures, exact tool configurations, cold outreach scripts, three pricing tiers, and a scaling roadmap. From empty Notion workspace to $10K/month in recurring revenue."
 image: "/images/articles/playbooks/automation-agency-starter-kit.png"
