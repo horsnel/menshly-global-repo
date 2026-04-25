@@ -24,14 +24,14 @@ jobs:
         run: pip install requests python-dateutil python-dotenv Pillow
 
       - name: Generate Playbook
-        timeout-minutes: 25
+        timeout-minutes: 30
         env:
-          AI_API_KEY: ${{ secrets.AI_API_KEY }}
-          AI_API_BASE: ${{ secrets.AI_API_BASE }}
-          AI_MODEL: ${{ secrets.AI_MODEL }}
-          PLAYBOOK_API_KEY: ${{ secrets.PLAYBOOK_API_KEY }}
-          PLAYBOOK_API_BASE: ${{ secrets.PLAYBOOK_API_BASE }}
-          PLAYBOOK_MODEL: ${{ secrets.PLAYBOOK_MODEL }}
+          AI_API_KEY: ${{ secrets.AI_API_KEY || '' }}
+          AI_API_BASE: ${{ secrets.AI_API_BASE || '' }}
+          AI_MODEL: ${{ secrets.AI_MODEL || '' }}
+          PLAYBOOK_API_KEY: ${{ secrets.PLAYBOOK_API_KEY || '' }}
+          PLAYBOOK_API_BASE: ${{ secrets.PLAYBOOK_API_BASE || '' }}
+          PLAYBOOK_MODEL: ${{ secrets.PLAYBOOK_MODEL || '' }}
         run: python scripts/generate_playbook.py
 
       - name: Commit and Push

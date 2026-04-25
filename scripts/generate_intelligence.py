@@ -345,8 +345,7 @@ def save_last_generated(topic_data: dict, slug: str, title: str, difficulty: str
 
 if __name__ == "__main__":
     if not AI_API_KEY:
-        print("ERROR: AI_API_KEY not set")
-        exit(1)
+        print("No AI_API_KEY set — will use Pollinations (free) as fallback")
 
     # Step 0: Get trending topic + cross-link data
     print("Loading cross-link data...")

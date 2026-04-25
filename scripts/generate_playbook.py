@@ -394,8 +394,7 @@ def update_article_cross_links(article_path: Path, playbook_slug: str, section: 
 
 if __name__ == "__main__":
     if not AI_API_KEY:
-        print("ERROR: AI_API_KEY not set")
-        exit(1)
+        print("No AI_API_KEY set — will use Pollinations (free) as fallback")
 
     # Step 0: Load cross-link data
     print("Loading cross-link data...")
@@ -407,16 +406,26 @@ if __name__ == "__main__":
     if opportunity_data:
         topic_data = {
             "topic": opportunity_data.get("topic", ""),
-            "playbook_angle": opportunity_data.get("playbook_angle", ""),
+            "playbook_angle": opportunity_data.get("playbook_angle", "") or opportunity_data.get("topic", ""),
             "context": opportunity_data.get("context", ""),
             "affiliates": opportunity_data.get("affiliates", []),
         }
         print(f"Writing playbook for same topic as opportunity: {opportunity_data.get('title', '')}")
     else:
         print("No recent opportunity found, discovering trending topic...")
-        discovery = TrendingTopicDiscovery()
-        discovery.ensure_minimum_queue(5)
-        topic_data = discovery.get_next_topic("playbook")
+        try:
+            discovery = TrendingTopicDiscovery()
+            discovery.ensure_minimum_queue(5)
+            topic_data = discovery.get_next_topic("playbook")
+        except Exception as e:
+            print(f"  Trending topic discovery failed: {e}")
+            print("  Using fallback topic...")
+            topic_data = {
+                "topic": "How to start an AI automation agency in 2026",
+                "playbook_angle": "Build, Scale, and Monetize an AI Automation Agency with Make.com",
+                "context": "AI automation agencies are booming as businesses seek to automate workflows",
+                "affiliates": ["Make.com", "ChatGPT", "Notion", "Zapier"],
+            }
 
     if not topic_data or not topic_data.get("playbook_angle"):
         print("ERROR: No topic available")
@@ -424,28 +433,46 @@ if __name__ == "__main__":
 
     topic = topic_data.get("playbook_angle", topic_data.get("topic", ""))
 
-    # Step 1: Generate images
+    # Step 1: Generate images (non-fatal — continue without if failed)
     prelim_slug = slugify(topic)
 
-    print("Generating thumbnail image...")
-    image_path = generate_article_image(
-        topic=topic,
-        slug=prelim_slug,
-        section="playbooks",
-    )
-    print(f"Thumbnail saved: {image_path}")
+    image_path = f"/images/articles/playbooks/{prelim_slug}.png"
+    hero_path = f"/images/heroes/playbooks/{prelim_slug}.png"
 
-    print("Generating hero image...")
-    hero_path = generate_hero_image(
-        topic=topic,
-        slug=prelim_slug,
-        section="playbooks",
-    )
-    print(f"Hero image saved: {hero_path}")
+    try:
+        print("Generating thumbnail image...")
+        image_path = generate_article_image(
+            topic=topic,
+            slug=prelim_slug,
+            section="playbooks",
+        )
+        print(f"Thumbnail saved: {image_path}")
+    except Exception as e:
+        print(f"  Thumbnail generation failed (non-fatal): {e}")
+
+    try:
+        print("Generating hero image...")
+        hero_path = generate_hero_image(
+            topic=topic,
+            slug=prelim_slug,
+            section="playbooks",
+        )
+        print(f"Hero image saved: {hero_path}")
+    except Exception as e:
+        print(f"  Hero image generation failed (non-fatal): {e}")
 
     # Step 2: Generate playbook content
     print("Generating playbook content...")
-    body, price = generate_playbook(topic_data, opportunity_data, intelligence_data)
+    try:
+        body, price = generate_playbook(topic_data, opportunity_data, intelligence_data)
+    except Exception as e:
+        print(f"ERROR: Playbook generation failed: {e}")
+        exit(1)
+
+    if not body or len(body.strip()) < 500:
+        print("ERROR: Generated playbook is too short or empty")
+        exit(1)
+
     title = extract_title(body)
     excerpt = build_excerpt(body)
     read_time = estimate_read_time(body)
@@ -455,16 +482,19 @@ if __name__ == "__main__":
 
     # Step 3: Rename images if slug differs
     if slug != prelim_slug:
-        old_thumb = image_path
-        old_hero = hero_path
+        # Hugo paths -> filesystem paths
+        old_thumb_fs = str(PROJECT_ROOT / "static" / image_path.lstrip("/"))
+        old_hero_fs = str(PROJECT_ROOT / "static" / hero_path.lstrip("/"))
         new_thumb = image_path.replace(prelim_slug, slug)
         new_hero = hero_path.replace(prelim_slug, slug)
-        if os.path.exists(old_thumb):
-            os.rename(old_thumb, new_thumb)
+        new_thumb_fs = str(PROJECT_ROOT / "static" / new_thumb.lstrip("/"))
+        new_hero_fs = str(PROJECT_ROOT / "static" / new_hero.lstrip("/"))
+        if os.path.exists(old_thumb_fs):
+            os.rename(old_thumb_fs, new_thumb_fs)
             image_path = new_thumb
             print(f"Renamed thumbnail: {new_thumb}")
-        if os.path.exists(old_hero):
-            os.rename(old_hero, new_hero)
+        if os.path.exists(old_hero_fs):
+            os.rename(old_hero_fs, new_hero_fs)
             hero_path = new_hero
             print(f"Renamed hero: {new_hero}")
 

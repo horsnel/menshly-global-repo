@@ -1,14 +1,14 @@
 #!/usr/bin/env python3
 """Shared AI API utility for Menshly Global article generators.
 
-Supports two modes:
-1. Direct API call (Groq, OpenAI, etc.) when AI_API_KEY is a real API key
-2. Node.js bridge via z-ai-web-dev-sdk when AI_API_BASE contains 'localhost' or
+Supports three modes (in priority order):
+1. Direct API call (Groq, OpenAI, Cerebras, etc.) when AI_API_KEY is set and valid
+2. Pollinations AI (free, no key) as automatic fallback when no key or key fails
+3. Node.js bridge via z-ai-web-dev-sdk when AI_API_BASE contains 'localhost' or
    AI_API_KEY contains 'local-proxy' or 'bridge'
 
-The bridge mode calls: node scripts/ai-bridge.js --input-file /tmp/payload.json
-This allows Python generators to use the z-ai-web-dev-sdk without needing
-a separate HTTP server.
+The Pollinations fallback ensures GitHub Actions workflows always work even
+without paid API keys. It's free, OpenAI-compatible, and requires no authentication.
 """
 
 import os
@@ -22,33 +22,69 @@ from pathlib import Path
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 BRIDGE_SCRIPT = PROJECT_ROOT / "scripts" / "ai-bridge.js"
 
+# Pollinations API — free, no key, OpenAI-compatible
+POLLINATIONS_BASE = "https://text.pollinations.ai/openai"
+POLLINATIONS_MODEL = "openai"  # reasoning model, supports long outputs
+
 
 def _use_bridge() -> bool:
     """Determine if we should use the Node.js bridge instead of direct API."""
     api_key = os.environ.get("AI_API_KEY", "")
     api_base = os.environ.get("AI_API_BASE", "")
-    # Use bridge if: local proxy key, localhost base, or if the API key doesn't look valid
     if "local-proxy" in api_key or "bridge" in api_key:
         return True
     if "localhost" in api_base or "127.0.0.1" in api_base:
         return True
-    # If API key is empty or looks invalid, try bridge
-    if not api_key or api_key.startswith("gsk_") is False:
+    return False
+
+
+def _use_direct_api() -> bool:
+    """Determine if we have a real API key to make direct calls."""
+    api_key = os.environ.get("AI_API_KEY", "")
+    api_base = os.environ.get("AI_API_BASE", "")
+    # Only use direct API if we have a non-empty key AND an explicit base URL
+    if api_key and api_base:
+        return True
+    # Groq keys start with gsk_
+    if api_key and api_key.startswith("gsk_"):
         return True
     return False
 
 
 def api_call(payload, max_retries=5, api_key=None, api_base=None):
-    """Call the AI API with automatic retry on rate limits and server errors.
+    """Call the AI API with automatic retry and Pollinations fallback.
 
-    Supports both direct API calls and Node.js bridge mode.
+    Strategy:
+    1. If bridge mode → use Node.js bridge
+    2. If direct API key available → try direct call first
+    3. If direct call fails → fall back to Pollinations (free)
+    4. If no key at all → use Pollinations directly
     """
-    use_bridge = _use_bridge()
+    # Bridge mode takes priority (local dev with z-ai-web-dev-sdk)
+    if _use_bridge():
+        try:
+            return _bridge_call(payload, max_retries)
+        except RuntimeError as e:
+            print(f"  Bridge failed, falling back to Pollinations: {e}")
+            return _pollinations_call(payload, max_retries)
 
-    if use_bridge:
-        return _bridge_call(payload, max_retries)
+    # Direct API mode
+    if api_key or _use_direct_api():
+        try:
+            return _direct_call(payload, max_retries, api_key=api_key, api_base=api_base)
+        except Exception as e:
+            error_msg = str(e)[:200]
+            print(f"  Direct API failed: {error_msg}")
+            print(f"  Falling back to Pollinations (free)...")
+            return _pollinations_call(payload, max_retries)
 
-    # Direct API call mode
+    # No API key — go straight to Pollinations
+    print("  No API key configured, using Pollinations (free)...")
+    return _pollinations_call(payload, max_retries)
+
+
+def _direct_call(payload, max_retries=5, api_key=None, api_base=None):
+    """Direct API call to Groq, OpenAI, Cerebras, etc."""
     key = api_key or os.environ.get("AI_API_KEY", "")
     base = api_base or os.environ.get("AI_API_BASE", "https://api.groq.com/openai/v1")
     headers = {
@@ -77,6 +113,10 @@ def api_call(payload, max_retries=5, api_key=None, api_base=None):
                     print(f"  Server error ({resp.status_code}). Waiting {wait}s...")
                     time.sleep(wait)
                     continue
+            # Auth errors (401, 402, 403) — don't retry, raise immediately
+            if resp.status_code in (401, 402, 403):
+                print(f"  API auth/payment error ({resp.status_code}): {resp.text[:200]}")
+                raise RuntimeError(f"API error {resp.status_code}: {resp.text[:200]}")
             resp.raise_for_status()
             return resp.json()
         except requests.exceptions.Timeout:
@@ -87,6 +127,88 @@ def api_call(payload, max_retries=5, api_key=None, api_base=None):
                 continue
             raise
     resp.raise_for_status()
+
+
+def _pollinations_call(payload, max_retries=5):
+    """Call Pollinations AI — free, no key, OpenAI-compatible.
+
+    The "openai" model on Pollinations is a reasoning model that may put
+    content in `reasoning_content` instead of `content`. We handle both.
+    """
+    poll_payload = {
+        "model": POLLINATIONS_MODEL,
+        "messages": payload.get("messages", []),
+        "max_tokens": min(payload.get("max_tokens", 8000), 16000),
+        "temperature": payload.get("temperature", 0.7),
+    }
+
+    headers = {"Content-Type": "application/json"}
+
+    for attempt in range(max_retries + 1):
+        try:
+            print(f"  Pollinations API call (attempt {attempt+1}/{max_retries+1})...")
+            resp = requests.post(
+                f"{POLLINATIONS_BASE}/chat/completions",
+                headers=headers,
+                json=poll_payload,
+                timeout=600,  # 10 min — reasoning models can be slow
+            )
+
+            if resp.status_code == 429:
+                wait = 30 * (attempt + 1)
+                if attempt < max_retries:
+                    print(f"  Rate limited (429). Waiting {wait}s...")
+                    time.sleep(wait)
+                    continue
+                else:
+                    resp.raise_for_status()
+
+            if resp.status_code >= 500:
+                if attempt < max_retries:
+                    wait = 15 * (attempt + 1)
+                    print(f"  Server error ({resp.status_code}). Waiting {wait}s...")
+                    time.sleep(wait)
+                    continue
+
+            resp.raise_for_status()
+            data = resp.json()
+
+            # Handle reasoning_content fallback
+            # The Pollinations "openai" model may put content in reasoning_content
+            # instead of content. We extract from either field.
+            if data.get("choices"):
+                choice = data["choices"][0]
+                msg = choice.get("message", {})
+                content = msg.get("content", "")
+                reasoning = msg.get("reasoning_content", "")
+
+                if not content or not content.strip():
+                    if reasoning and reasoning.strip():
+                        print(f"  Extracting content from reasoning_content field...")
+                        msg["content"] = reasoning
+                        # Clear reasoning to avoid confusion
+                        if "reasoning_content" in msg:
+                            del msg["reasoning_content"]
+
+            return data
+
+        except requests.exceptions.Timeout:
+            if attempt < max_retries:
+                wait = 30 * (attempt + 1)
+                print(f"  Pollinations timed out. Waiting {wait}s...")
+                time.sleep(wait)
+                continue
+            raise RuntimeError("Pollinations API timed out after maximum retries")
+
+        except requests.exceptions.ConnectionError:
+            if attempt < max_retries:
+                wait = 20 * (attempt + 1)
+                print(f"  Connection error. Waiting {wait}s...")
+                time.sleep(wait)
+                continue
+            raise RuntimeError("Pollinations API connection failed after maximum retries")
+
+    raise RuntimeError("Pollinations API failed after maximum retries")
 
 
 def _bridge_call(payload, max_retries=3):
@@ -107,7 +229,7 @@ def _bridge_call(payload, max_retries=3):
                     ["node", str(BRIDGE_SCRIPT), "--input-file", temp_path],
                     capture_output=True,
                     text=True,
-                    timeout=600,  # 10 min timeout for long generations
+                    timeout=600,
                     cwd=str(PROJECT_ROOT),
                 )
 
@@ -121,7 +243,6 @@ def _bridge_call(payload, max_retries=3):
 
                 # Parse JSON from stdout
                 output = result.stdout.strip()
-                # Handle case where there might be log messages before the JSON
                 json_start = output.find('{')
                 if json_start >= 0:
                     output = output[json_start:]
@@ -130,7 +251,6 @@ def _bridge_call(payload, max_retries=3):
                 return data
 
             finally:
-                # Clean up temp file
                 try:
                     os.unlink(temp_path)
                 except OSError:
