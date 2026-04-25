@@ -48,14 +48,21 @@ export async function onRequestPost(context) {
     ];
 
     // Generate article using multi-provider strategy
-    const maxTokens = category === 'playbook' ? 16000 : category === 'intelligence' ? 8000 : 6000;
+    // CloudFlare Pages Functions have ~30s timeout, so we need fast responses
+    // Use smaller max_tokens to stay under the timeout
+    const maxTokens = category === 'playbook' ? 2500 : category === 'intelligence' ? 2000 : 1800;
     let content = '';
 
     // Strategy 1: Pollinations AI (free, no API key needed)
+    // Use AbortController with 25s timeout to avoid CF function timeout
     try {
+      const controller = new AbortController();
+      const timeoutId = setTimeout(() => controller.abort(), 25000);
+
       const pollResp = await fetch('https://text.pollinations.ai/openai', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
+        signal: controller.signal,
         body: JSON.stringify({
           messages,
           model: 'openai',
@@ -63,12 +70,22 @@ export async function onRequestPost(context) {
           temperature: 0.8,
         }),
       });
+      clearTimeout(timeoutId);
+
       if (pollResp.ok) {
         const data = await pollResp.json();
         content = data.choices?.[0]?.message?.content || '';
+        console.log('Pollinations AI article generated, length:', content.length);
+      } else {
+        const errText = await pollResp.text();
+        console.warn('Pollinations AI returned non-ok:', pollResp.status, errText.substring(0, 200));
       }
     } catch (e) {
-      console.warn('Pollinations AI article generation failed:', e.message);
+      if (e.name === 'AbortError') {
+        console.warn('Pollinations AI article timed out (25s limit)');
+      } else {
+        console.warn('Pollinations AI article generation failed:', e.message);
+      }
     }
 
     // Strategy 2: Cerebras fallback
@@ -234,7 +251,7 @@ async function fetchPollinationImages(query, slug) {
 
 // ─── FORMAT PROMPTS (SERVER-SIDE ONLY — NEVER EXPOSED) ──────
 function buildSystemPrompt(category) {
-  const base = `You are a senior content strategist for Menshly Global, a platform about AI business opportunities. You write in a direct, no-nonsense voice. No fluff, no filler, no generic advice. Every sentence must deliver value. You use specific numbers, tool names, pricing, and actionable steps. You write in Markdown format. You include blockquotes for "ugly truths" and "hacks" using the > prefix.`;
+  const base = `You are a content strategist for Menshly Global. Write in a direct, no-nonsense voice. Use specific numbers, tool names, prices, and actionable steps. Write in Markdown. Use > blockquotes for "ugly truths" and "hacks". Be concise but thorough.`;
 
   if (category === 'opportunity') {
     return base + ` You are writing an OPPORTUNITY article — a deep-dive discovery of a specific AI business model. The article must follow this exact structure:
@@ -289,42 +306,33 @@ function buildUserPrompt(category, topic, slug, date, revenue, difficulty) {
   const rev = revMap[revenue] || '$10K-$25K';
 
   if (category === 'opportunity') {
-    return `Write a complete OPPORTUNITY article about: "${topic}"
+    return `Write an OPPORTUNITY article about: "${topic}"
 
-Target revenue range: ${rev}/month
-Difficulty level: ${difficulty}
-Date: ${date}
-URL slug: ${slug}
+Target revenue: ${rev}/month | Difficulty: ${difficulty} | Date: ${date}
 
-The article title should follow the pattern: "How to Start a [TOPIC] in 2026 (Build Once, Get Paid Forever)"
+Title pattern: "How to Start a [TOPIC] in 2026 (Build Once, Get Paid Forever)"
 
-Write the FULL article now. Every section must be complete with real, specific content. No placeholders. No "[Description]" text. Write actual content for every section.`;
+Cover ALL sections: opening hook, why now, realistic picture (4 truths), free tools, paid tools, workflow steps, pricing tiers, hacks, revenue projection table, weekend action plan. Be specific with tool names and prices. No placeholders.`;
   }
 
   if (category === 'intelligence') {
-    return `Write a complete INTELLIGENCE implementation guide about: "${topic}"
+    return `Write an INTELLIGENCE implementation guide about: "${topic}"
 
-Target revenue range: ${rev}/month
-Difficulty level: ${difficulty}
-Date: ${date}
-URL slug: ${slug}
+Target revenue: ${rev}/month | Difficulty: ${difficulty} | Date: ${date}
 
-The article title should follow the pattern: "Build and Scale a [TOPIC] with Automated Workflows"
+Title pattern: "Build and Scale a [TOPIC] with Automated Workflows"
 
-Write the FULL article now. Every step must be complete with specific tool names, URLs, configurations, and verification checkpoints. No placeholders. No "[Description]" text.`;
+Cover ALL steps: prerequisites, setup, core workflow build, production pipeline, monitoring, pricing table. Include verification checkpoints. Name every tool with its cost. No placeholders.`;
   }
 
   if (category === 'playbook') {
-    return `Write a complete PLAYBOOK about: "${topic}"
+    return `Write a PLAYBOOK about: "${topic}"
 
-Target revenue range: ${rev}/month
-Difficulty level: ${difficulty}
-Date: ${date}
-URL slug: ${slug}
+Target revenue: ${rev}/month | Difficulty: ${difficulty} | Date: ${date}
 
-The article title should follow the pattern: "The [TOPIC] Playbook"
+Title pattern: "The [TOPIC] Playbook"
 
-Write the FULL playbook now. Every module must be complete with exact procedures, tool configurations, and verification checkpoints. No placeholders. No "[Description]" text. This is a premium product worth $47-$49.`;
+Cover ALL modules: foundation, tech stack, build framework, first client, delivery/retention, scaling. Include exact procedures, tool configs, and check-ins. No placeholders.`;
   }
 
   return `Write a complete article about: "${topic}"`;
