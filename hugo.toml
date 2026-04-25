@@ -74,3 +74,7 @@ enableRobotsTXT = true
     name = "Privacy Policy"
     url = "/legal/privacy/"
     weight = 4
+  [[menu.footer]]
+    name = "Affiliates"
+    url = "/affiliates/"
+    weight = 5

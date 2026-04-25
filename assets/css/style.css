@@ -1680,6 +1680,119 @@ img {
   text-decoration: underline;
 }
 
+/* --- Affiliate Page Grid & Cards --- */
+.page-subtitle {
+  font-size: 18px;
+  line-height: 1.7;
+  color: rgba(26, 26, 26, 0.7);
+  max-width: 720px;
+  margin-top: 8px;
+}
+
+.affiliate-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  margin: 16px 0 32px;
+}
+
+@media (min-width: 640px) {
+  .affiliate-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .affiliate-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.affiliate-card {
+  display: flex;
+  flex-direction: column;
+  border: 3px solid var(--black);
+  padding: 20px;
+  background: var(--white);
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  position: relative;
+}
+
+.affiliate-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 6px 6px 0 var(--yellow);
+}
+
+.affiliate-card:active {
+  transform: translateY(0);
+  box-shadow: 2px 2px 0 var(--yellow);
+}
+
+.affiliate-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.affiliate-card-name {
+  font-family: var(--font-heading);
+  font-size: 16px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  color: var(--black);
+}
+
+.affiliate-card-earn {
+  font-family: var(--font-heading);
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  background: var(--yellow);
+  border: 2px solid var(--black);
+  padding: 2px 8px;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.affiliate-card-desc {
+  font-size: 14px;
+  line-height: 1.6;
+  color: rgba(26, 26, 26, 0.7);
+  margin: 0;
+  flex: 1;
+}
+
+[data-theme="dark"] .affiliate-card {
+  background: #222;
+  border-color: rgba(255, 255, 255, 0.15);
+}
+
+[data-theme="dark"] .affiliate-card:hover {
+  box-shadow: 6px 6px 0 var(--yellow);
+}
+
+[data-theme="dark"] .affiliate-card-name {
+  color: var(--white);
+}
+
+[data-theme="dark"] .affiliate-card-desc {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+[data-theme="dark"] .affiliate-card-earn {
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+[data-theme="dark"] .page-subtitle {
+  color: rgba(255, 255, 255, 0.55);
+}
+
 /* Hide old listen bar if it still shows */
 .article-listen-bar {
   display: none;
