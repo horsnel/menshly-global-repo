@@ -26,6 +26,11 @@ BRIDGE_SCRIPT = PROJECT_ROOT / "scripts" / "ai-bridge.js"
 POLLINATIONS_BASE = "https://text.pollinations.ai/openai"
 POLLINATIONS_MODEL = "openai"  # reasoning model, supports long outputs
 
+# Gemini API — Google's LLM, OpenAI-compatible endpoint
+GEMINI_API_BASE = "https://generativelanguage.googleapis.com/v1beta/openai"
+GEMINI_MODEL = "gemini-2.0-flash"
+GEMINI_API_KEY = os.environ.get("GEMINI_API_KEY", "")
+
 
 def _use_bridge() -> bool:
     """Determine if we should use the Node.js bridge instead of direct API."""
@@ -48,6 +53,9 @@ def _use_direct_api() -> bool:
     # Groq keys start with gsk_
     if api_key and api_key.startswith("gsk_"):
         return True
+    # Gemini keys start with AIza
+    if api_key and api_key.startswith("AIza"):
+        return True
     return False
 
 
@@ -68,6 +76,17 @@ def api_call(payload, max_retries=5, api_key=None, api_base=None):
             print(f"  Bridge failed, falling back to Pollinations: {e}")
             return _pollinations_call(payload, max_retries)
 
+    # Try Gemini if available (fast, generous quota when active)
+    if GEMINI_API_KEY and not api_key:
+        try:
+            print("  Trying Gemini API...")
+            return _direct_call(payload, max_retries, api_key=GEMINI_API_KEY, api_base=GEMINI_API_BASE)
+        except Exception as e:
+            error_msg = str(e)[:200]
+            print(f"  Gemini API failed: {error_msg}")
+            print(f"  Falling back to Pollinations (free)...")
+            return _pollinations_call(payload, max_retries)
+
     # Direct API mode
     if api_key or _use_direct_api():
         try:
@@ -75,10 +94,24 @@ def api_call(payload, max_retries=5, api_key=None, api_base=None):
         except Exception as e:
             error_msg = str(e)[:200]
             print(f"  Direct API failed: {error_msg}")
+            # Try Gemini as secondary fallback before Pollinations
+            if GEMINI_API_KEY:
+                try:
+                    print(f"  Trying Gemini API as fallback...")
+                    return _direct_call(payload, max_retries=2, api_key=GEMINI_API_KEY, api_base=GEMINI_API_BASE)
+                except Exception as e2:
+                    print(f"  Gemini fallback also failed: {str(e2)[:200]}")
             print(f"  Falling back to Pollinations (free)...")
             return _pollinations_call(payload, max_retries)
 
-    # No API key — go straight to Pollinations
+    # No API key — try Gemini, then Pollinations
+    if GEMINI_API_KEY:
+        try:
+            print("  Trying Gemini API...")
+            return _direct_call(payload, max_retries, api_key=GEMINI_API_KEY, api_base=GEMINI_API_BASE)
+        except Exception as e:
+            print(f"  Gemini failed: {str(e)[:200]}")
+
     print("  No API key configured, using Pollinations (free)...")
     return _pollinations_call(payload, max_retries)
 

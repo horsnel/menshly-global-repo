@@ -32,6 +32,7 @@ jobs:
           PLAYBOOK_API_KEY: ${{ secrets.PLAYBOOK_API_KEY || '' }}
           PLAYBOOK_API_BASE: ${{ secrets.PLAYBOOK_API_BASE || '' }}
           PLAYBOOK_MODEL: ${{ secrets.PLAYBOOK_MODEL || '' }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY || '' }}
         run: python scripts/generate_playbook.py
 
       - name: Commit and Push

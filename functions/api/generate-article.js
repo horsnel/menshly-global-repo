@@ -1,4 +1,5 @@
 // Cloudflare Pages Function: AI Article Generator
+// Strategy 0: Google Gemini API (primary — fast, generous quota)
 // Strategy 1: Pollinations "mistral" (free, not a reasoning model — clean content)
 // Strategy 2: Pollinations "openai" (free, reasoning model — needs content extraction)
 // Strategy 3: HuggingFace Inference API (free tier, optional API key)
@@ -51,8 +52,65 @@ export async function onRequestPost(context) {
     let content = '';
     const debugInfo = {};
 
+    // ── Strategy 0: Google Gemini API (primary — fast, high quality) ──
+    if (!content) {
+      const geminiKey = context.env.GEMINI_API_KEY;
+      if (geminiKey) {
+        try {
+          const controller = new AbortController();
+          const timeoutId = setTimeout(() => controller.abort(), 30000);
+          const t0 = Date.now();
+
+          const geminiResp = await fetch('https://generativelanguage.googleapis.com/v1beta/openai/chat/completions', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+              'Authorization': `Bearer ${geminiKey}`,
+            },
+            signal: controller.signal,
+            body: JSON.stringify({
+              model: 'gemini-2.0-flash',
+              messages: pollMessages,
+              max_tokens: 4000,
+              temperature: 0.8,
+            }),
+          });
+          clearTimeout(timeoutId);
+
+          if (geminiResp.ok) {
+            const data = await geminiResp.json();
+            const candidate = data.choices?.[0]?.message?.content || '';
+
+            debugInfo.gemini = {
+              elapsed: Date.now() - t0,
+              length: candidate.length,
+              valid: !!(candidate && isValidArticle(candidate)),
+              firstChars: candidate.substring(0, 80),
+            };
+
+            if (candidate && isValidArticle(candidate)) {
+              content = candidate;
+              console.log('Gemini: article generated, length:', content.length);
+            } else if (candidate && candidate.length > 300) {
+              const extracted = extractArticleFromText(candidate);
+              if (extracted) {
+                content = extracted;
+                console.log('Gemini: article extracted, length:', content.length);
+              }
+            }
+          } else {
+            const errText = await geminiResp.text().catch(() => '');
+            debugInfo.gemini = { error: `HTTP ${geminiResp.status}: ${errText.substring(0, 100)}` };
+          }
+        } catch (e) {
+          const errType = e.name === 'AbortError' ? 'timeout' : e.message;
+          debugInfo.gemini = { error: errType };
+        }
+      }
+    }
+
     // ── Strategy 1: Pollinations "mistral" model (not a reasoning model) ──
-    {
+    if (!content) {
       try {
         const controller = new AbortController();
         const timeoutId = setTimeout(() => controller.abort(), 30000);

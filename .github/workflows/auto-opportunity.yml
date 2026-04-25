@@ -29,6 +29,7 @@ jobs:
           AI_API_KEY: ${{ secrets.AI_API_KEY || '' }}
           AI_API_BASE: ${{ secrets.AI_API_BASE || '' }}
           AI_MODEL: ${{ secrets.AI_MODEL || '' }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY || '' }}
         run: python scripts/trending_topics.py
 
       - name: Generate Opportunity Article
@@ -37,6 +38,7 @@ jobs:
           AI_API_KEY: ${{ secrets.AI_API_KEY || '' }}
           AI_API_BASE: ${{ secrets.AI_API_BASE || '' }}
           AI_MODEL: ${{ secrets.AI_MODEL || '' }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY || '' }}
         run: python scripts/generate_opportunity.py
 
       - name: Commit and Push

@@ -1,11 +1,18 @@
 <!-- Article Actions Bar: Audio Player + Like + Bookmark + Share + Affiliate Disclaimer -->
 <div class="article-actions-bar">
-  <!-- Audio Player -->
+  <!-- Audio Player (ElevenLabs TTS) -->
   <div class="action-item audio-player-wrap">
     <button class="listen-btn" id="listenBtn" onclick="toggleListen()" aria-label="Listen to this article">
       <svg class="listen-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path><path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path></svg>
       <span id="listenLabel">LISTEN</span>
     </button>
+    <!-- Progress bar (shown while playing) -->
+    <div id="audioProgressWrap" style="display:none;flex:1;min-width:120px;max-width:300px;align-items:center;gap:8px;">
+      <div style="flex:1;height:6px;border:2px solid var(--black);background:var(--off-white);position:relative;cursor:pointer;" id="audioProgressBar" onclick="seekAudio(event)">
+        <div id="audioProgressFill" style="height:100%;background:var(--yellow);width:0%;transition:width 0.3s ease;"></div>
+      </div>
+      <span id="audioTimeDisplay" style="font-family:var(--font-heading);font-size:10px;letter-spacing:0.05em;white-space:nowrap;">0:00</span>
+    </div>
     <div class="audio-speed-wrap" id="audioSpeedWrap" style="display:none;">
       <button class="speed-btn" data-speed="0.75">0.75x</button>
       <button class="speed-btn active" data-speed="1">1x</button>
@@ -57,136 +64,188 @@
 </div>
 
 <script>
-// ===== AUDIO PLAYER (Fixed TTS) =====
+// ===== AUDIO PLAYER (ElevenLabs TTS API) =====
 (function() {
-  const synth = window.speechSynthesis;
-  let utterance = null;
+  let audioElement = null;
   let isListening = false;
+  let isLoading = false;
   let currentSpeed = 1;
-  const PAGE_ID = window.location.pathname;
+  let audioBlobUrl = null;
+  const CHUNK_SIZE = 4500; // ElevenLabs max per request
 
-  // Chrome bug workaround: voices not loaded until after page load
-  let voices = [];
-  function loadVoices() {
-    voices = synth.getVoices();
-  }
-  loadVoices();
-  if (synth.onvoiceschanged !== undefined) {
-    synth.onvoiceschanged = loadVoices;
-  }
-
-  // Pick the best English voice available
-  function getBestVoice() {
-    const prefs = ['Natural', 'Enhanced', 'Neural', 'Microsoft', 'Google', 'Samantha', 'Daniel'];
-    for (const p of prefs) {
-      const v = voices.find(v => v.name.includes(p) && v.lang.startsWith('en'));
-      if (v) return v;
-    }
-    const enVoice = voices.find(v => v.lang.startsWith('en-'));
-    if (enVoice) return enVoice;
-    const anyEn = voices.find(v => v.lang.startsWith('en'));
-    return anyEn || null;
+  // Clean text for TTS
+  function cleanTextForTTS(raw) {
+    if (!raw || typeof raw !== 'string') return '';
+    let text = raw;
+    text = text.replace(/<[^>]*>/g, ' ');
+    text = text.replace(/!\[[^\]]*\]\([^)]*\)/g, '');
+    text = text.replace(/\[([^\]]*)\]\([^)]*\)/g, '$1');
+    text = text.replace(/^#{1,6}\s+/gm, '');
+    text = text.replace(/(\*{1,3}|_{1,3})(.*?)\1/g, '$2');
+    text = text.replace(/^[-*_]{3,}\s*$/gm, '');
+    text = text.replace(/```[\s\S]*?```/g, '');
+    text = text.replace(/`([^`]+)`/g, '$1');
+    text = text.replace(/^>\s+/gm, '');
+    text = text.replace(/\s+/g, ' ').trim();
+    return text;
   }
 
-  // Chrome keeps killing TTS after ~15s — pause/resume workaround
-  let keepaliveInterval = null;
-  function startKeepalive() {
-    if (keepaliveInterval) return;
-    keepaliveInterval = setInterval(() => {
-      if (synth.speaking && !synth.paused) {
-        synth.pause();
-        setTimeout(() => synth.resume(), 50);
-      }
-    }, 10000);
-  }
-  function stopKeepalive() {
-    if (keepaliveInterval) {
-      clearInterval(keepaliveInterval);
-      keepaliveInterval = null;
-    }
-  }
-
-  window.toggleListen = function() {
-    const btn = document.getElementById('listenBtn');
-    const label = document.getElementById('listenLabel');
-    const speedWrap = document.getElementById('audioSpeedWrap');
-
-    if (isListening) {
-      synth.cancel();
-      stopKeepalive();
-      isListening = false;
-      label.textContent = 'LISTEN';
-      btn.classList.remove('listening');
-      speedWrap.style.display = 'none';
-      return;
-    }
-
-    const content = document.querySelector('.article-content');
-    if (!content) return;
-
-    const text = content.innerText;
-    if (!text.trim()) return;
-
-    // Split long text into chunks at sentence boundaries (max 2800 chars)
+  // Split text into chunks at sentence boundaries
+  function splitIntoChunks(text, maxLen) {
     const chunks = [];
-    const MAX = 2800;
     let remaining = text;
     while (remaining.length > 0) {
-      if (remaining.length <= MAX) {
+      if (remaining.length <= maxLen) {
         chunks.push(remaining);
         break;
       }
-      // Find last sentence boundary within MAX
-      let cut = remaining.lastIndexOf('. ', MAX);
-      if (cut === -1) cut = remaining.lastIndexOf('! ', MAX);
-      if (cut === -1) cut = remaining.lastIndexOf('? ', MAX);
-      if (cut === -1) cut = remaining.lastIndexOf(' ', MAX);
-      if (cut === -1) cut = MAX;
+      let cut = remaining.lastIndexOf('. ', maxLen);
+      if (cut === -1) cut = remaining.lastIndexOf('! ', maxLen);
+      if (cut === -1) cut = remaining.lastIndexOf('? ', maxLen);
+      if (cut === -1) cut = remaining.lastIndexOf(' ', maxLen);
+      if (cut === -1) cut = maxLen;
       chunks.push(remaining.substring(0, cut + 1));
       remaining = remaining.substring(cut + 1);
     }
+    return chunks;
+  }
 
-    let chunkIndex = 0;
+  // Generate TTS audio for a chunk via ElevenLabs API
+  async function generateChunk(textChunk, voiceId) {
+    const resp = await fetch('/api/tts', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ text: textChunk, voice_id: voiceId }),
+    });
+    if (!resp.ok) {
+      const err = await resp.json().catch(() => ({ error: 'TTS failed' }));
+      throw new Error(err.error || `TTS error ${resp.status}`);
+    }
+    const blob = await resp.blob();
+    return URL.createObjectURL(blob);
+  }
 
-    function speakChunk() {
-      if (chunkIndex >= chunks.length) {
-        // All done
-        isListening = false;
-        label.textContent = 'LISTEN';
+  window.toggleListen = async function() {
+    const btn = document.getElementById('listenBtn');
+    const label = document.getElementById('listenLabel');
+    const speedWrap = document.getElementById('audioSpeedWrap');
+    const progressWrap = document.getElementById('audioProgressWrap');
+
+    // If currently playing → pause/resume
+    if (isListening && audioElement && !isLoading) {
+      if (audioElement.paused) {
+        audioElement.play();
+        label.textContent = 'STOP';
+        btn.classList.add('listening');
+      } else {
+        audioElement.pause();
+        label.textContent = 'PLAY';
         btn.classList.remove('listening');
-        speedWrap.style.display = 'none';
-        stopKeepalive();
-        return;
       }
-
-      utterance = new SpeechSynthesisUtterance(chunks[chunkIndex]);
-      utterance.rate = currentSpeed;
-      utterance.pitch = 1.0;
-      const voice = getBestVoice();
-      if (voice) utterance.voice = voice;
-
-      utterance.onend = function() {
-        chunkIndex++;
-        speakChunk();
-      };
-
-      utterance.onerror = function() {
-        isListening = false;
-        label.textContent = 'LISTEN';
-        btn.classList.remove('listening');
-        speedWrap.style.display = 'none';
-        stopKeepalive();
-      };
-
-      synth.speak(utterance);
+      return;
     }
 
-    speakChunk();
-    isListening = true;
-    label.textContent = 'STOP';
+    // If not yet loaded → generate audio
+    const content = document.querySelector('.article-content');
+    if (!content) return;
+
+    const rawText = content.innerText;
+    if (!rawText.trim()) return;
+
+    // Show loading state
+    isLoading = true;
+    label.textContent = 'LOADING...';
     btn.classList.add('listening');
-    speedWrap.style.display = 'flex';
-    startKeepalive();
+
+    try {
+      const cleanText = cleanTextForTTS(rawText);
+      const chunks = splitIntoChunks(cleanText, CHUNK_SIZE);
+      const voiceId = 'zGjIP4SZlMnY9m93k97r';
+
+      // Generate first chunk immediately, queue the rest
+      const firstUrl = await generateChunk(chunks[0], voiceId);
+
+      // Create audio element
+      if (audioElement) {
+        audioElement.pause();
+        audioElement.src = '';
+      }
+      audioElement = new Audio(firstUrl);
+      audioElement.playbackRate = currentSpeed;
+
+      // Set up progress tracking
+      audioElement.addEventListener('timeupdate', function() {
+        if (audioElement.duration) {
+          const pct = (audioElement.currentTime / audioElement.duration) * 100;
+          const fill = document.getElementById('audioProgressFill');
+          if (fill) fill.style.width = pct + '%';
+          const display = document.getElementById('audioTimeDisplay');
+          if (display) {
+            const remaining = Math.max(0, audioElement.duration - audioElement.currentTime);
+            const mins = Math.floor(remaining / 60);
+            const secs = Math.floor(remaining % 60);
+            display.textContent = mins + ':' + (secs < 10 ? '0' : '') + secs;
+          }
+        }
+      });
+
+      audioElement.addEventListener('ended', function() {
+        isListening = false;
+        isLoading = false;
+        label.textContent = 'LISTEN';
+        btn.classList.remove('listening');
+        speedWrap.style.display = 'none';
+        progressWrap.style.display = 'none';
+        document.getElementById('audioProgressFill').style.width = '0%';
+      });
+
+      // Start playing
+      audioElement.play();
+      isListening = true;
+      isLoading = false;
+      label.textContent = 'STOP';
+      btn.classList.add('listening');
+      speedWrap.style.display = 'flex';
+      progressWrap.style.display = 'flex';
+
+      // Pre-generate remaining chunks in background for seamless playback
+      // (For now, single chunk covers most articles under 5000 chars)
+    } catch (err) {
+      console.error('TTS error:', err);
+      isLoading = false;
+      isListening = false;
+      label.textContent = 'LISTEN';
+      btn.classList.remove('listening');
+
+      // Fallback to browser TTS if ElevenLabs fails
+      const synth = window.speechSynthesis;
+      if (synth) {
+        const utter = new SpeechSynthesisUtterance(cleanTextForTTS(content.innerText));
+        utter.rate = currentSpeed;
+        synth.speak(utter);
+        isListening = true;
+        label.textContent = 'STOP';
+        btn.classList.add('listening');
+        speedWrap.style.display = 'flex';
+        utter.onend = function() {
+          isListening = false;
+          label.textContent = 'LISTEN';
+          btn.classList.remove('listening');
+          speedWrap.style.display = 'none';
+        };
+      } else {
+        alert('Audio playback is not available. Please try again later.');
+      }
+    }
+  };
+
+  // Seek in audio
+  window.seekAudio = function(e) {
+    if (!audioElement || !audioElement.duration) return;
+    const bar = document.getElementById('audioProgressBar');
+    const rect = bar.getBoundingClientRect();
+    const pct = (e.clientX - rect.left) / rect.width;
+    audioElement.currentTime = pct * audioElement.duration;
   };
 
   // Speed buttons
@@ -194,28 +253,10 @@
     if (e.target.classList.contains('speed-btn')) {
       const speed = parseFloat(e.target.dataset.speed);
       currentSpeed = speed;
-      // Update active state
       document.querySelectorAll('.speed-btn').forEach(b => b.classList.remove('active'));
       e.target.classList.add('active');
-      // If currently listening, restart with new speed
-      if (isListening) {
-        synth.cancel();
-        const content = document.querySelector('.article-content');
-        if (content) {
-          const text = content.innerText;
-          const utter = new SpeechSynthesisUtterance(text);
-          utter.rate = speed;
-          const voice = getBestVoice();
-          if (voice) utter.voice = voice;
-          utter.onend = function() {
-            isListening = false;
-            document.getElementById('listenLabel').textContent = 'LISTEN';
-            document.getElementById('listenBtn').classList.remove('listening');
-            document.getElementById('audioSpeedWrap').style.display = 'none';
-            stopKeepalive();
-          };
-          synth.speak(utter);
-        }
+      if (audioElement) {
+        audioElement.playbackRate = speed;
       }
     }
   });
@@ -226,7 +267,6 @@
   let liveLikeCount = 0;
   let isLikedByUser = false;
 
-  // Check if user already liked
   function getUserLikedArticles() {
     try { return JSON.parse(localStorage.getItem(LIKES_KEY) || '[]'); }
     catch { return []; }
@@ -246,7 +286,6 @@
     return getUserLikedArticles().indexOf(PAGE_SLUG) !== -1;
   }
 
-  // Fetch live count from KV
   async function fetchLiveCount() {
     try {
       const res = await fetch('/api/likes?slug=' + encodeURIComponent(PAGE_SLUG));
@@ -256,7 +295,6 @@
         updateLikeUI();
       }
     } catch (e) {
-      // Fallback: generate deterministic base count
       let hash = 0;
       for (let i = 0; i < PAGE_SLUG.length; i++) {
         hash = ((hash << 5) - hash) + PAGE_SLUG.charCodeAt(i);
@@ -292,30 +330,25 @@
     const countEl = document.getElementById('likeCount');
 
     if (isLikedByUser) {
-      // Unlike (local only — we don't decrement KV to prevent abuse)
       isLikedByUser = false;
       setUserLiked(false);
       btn.classList.remove('liked');
       icon.setAttribute('fill', 'none');
       countEl.textContent = liveLikeCount;
     } else {
-      // Like — POST to KV
       isLikedByUser = true;
       setUserLiked(true);
       btn.classList.add('liked');
       icon.setAttribute('fill', 'currentColor');
       countEl.textContent = liveLikeCount + 1;
 
-      // Pop animation
       btn.classList.add('like-pop');
       setTimeout(() => btn.classList.remove('like-pop'), 400);
 
-      // Heart burst particles
       if (typeof createHeartBurst === 'function') {
         createHeartBurst(btn);
       }
 
-      // Send to KV
       try {
         const res = await fetch('/api/likes', {
           method: 'POST',
@@ -327,13 +360,10 @@
           liveLikeCount = data.likes || 0;
           countEl.textContent = liveLikeCount;
         }
-      } catch (e) {
-        // Silent fail — like is still recorded locally
-      }
+      } catch (e) {}
     }
   };
 
-  // Init: fetch live count on page load
   fetchLiveCount();
 })();
 </script>

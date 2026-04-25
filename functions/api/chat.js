@@ -1,6 +1,8 @@
 // CloudFlare Pages Function: AI Chat Assistant
-// Primary: Pollinations AI (free, no API key needed)
-// Fallback: Cerebras API (if key available)
+// Primary: Google Gemini API (fast, generous free tier)
+// Fallback 1: Pollinations AI (free, no API key needed)
+// Fallback 2: Cerebras API (if key available)
+// Fallback 3: DeepSeek API (if key available)
 // POST /api/chat — { messages: [{role, content}], system?: string }
 
 const CORS_HEADERS = {
@@ -87,29 +89,72 @@ export async function onRequestPost(context) {
   try {
     let assistantMessage = '';
 
-    // Strategy 1: Try Pollinations AI (free, no API key needed)
-    try {
-      const pollResponse = await fetch('https://text.pollinations.ai/openai', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          messages: chatMessages,
-          model: 'openai',
-          max_tokens: 1024,
-          temperature: 0.8,
-        }),
-      });
+    // Strategy 1: Gemini API (primary — fast, generous quota)
+    const geminiKey = env.GEMINI_API_KEY;
+    if (geminiKey) {
+      try {
+        const controller = new AbortController();
+        const timeoutId = setTimeout(() => controller.abort(), 15000);
 
-      if (pollResponse.ok) {
-        const data = await pollResponse.json();
-        const msg = data.choices?.[0]?.message || {};
-        assistantMessage = msg.content || msg.reasoning_content || '';
+        const geminiResp = await fetch('https://generativelanguage.googleapis.com/v1beta/openai/chat/completions', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${geminiKey}`,
+          },
+          signal: controller.signal,
+          body: JSON.stringify({
+            model: 'gemini-2.0-flash',
+            messages: chatMessages,
+            max_tokens: 1024,
+            temperature: 0.8,
+          }),
+        });
+        clearTimeout(timeoutId);
+
+        if (geminiResp.ok) {
+          const data = await geminiResp.json();
+          assistantMessage = data.choices?.[0]?.message?.content || '';
+          if (assistantMessage) {
+            console.log('Gemini: chat response generated');
+          }
+        } else {
+          const errText = await geminiResp.text().catch(() => '');
+          console.warn('Gemini chat failed:', geminiResp.status, errText.substring(0, 100));
+        }
+      } catch (geminiErr) {
+        console.warn('Gemini chat error:', geminiErr.name === 'AbortError' ? 'timeout' : geminiErr.message);
       }
-    } catch (pollErr) {
-      console.warn('Pollinations AI failed, trying Cerebras fallback:', pollErr.message);
     }
 
-    // Strategy 2: Fallback to Cerebras if Pollinations didn't return content
+    // Strategy 2: Pollinations AI (free, no API key needed)
+    if (!assistantMessage) {
+      try {
+        const pollResponse = await fetch('https://text.pollinations.ai/openai', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            messages: chatMessages,
+            model: 'openai',
+            max_tokens: 1024,
+            temperature: 0.8,
+          }),
+        });
+
+        if (pollResponse.ok) {
+          const data = await pollResponse.json();
+          const msg = data.choices?.[0]?.message || {};
+          assistantMessage = msg.content || msg.reasoning_content || '';
+          if (assistantMessage) {
+            console.log('Pollinations: chat response generated (fallback)');
+          }
+        }
+      } catch (pollErr) {
+        console.warn('Pollinations AI failed:', pollErr.message);
+      }
+    }
+
+    // Strategy 3: Cerebras fallback
     if (!assistantMessage && env.CEREBRAS_API_KEY) {
       try {
         const cerebrasResponse = await fetch('https://api.cerebras.ai/v1/chat/completions', {
@@ -136,7 +181,7 @@ export async function onRequestPost(context) {
       }
     }
 
-    // Strategy 3: Fallback to DeepSeek if available
+    // Strategy 4: DeepSeek fallback
     if (!assistantMessage && env.DEEPSEEK_API_KEY) {
       try {
         const deepseekResponse = await fetch('https://api.deepseek.com/v1/chat/completions', {

@@ -29,6 +29,7 @@ jobs:
           AI_API_KEY: ${{ secrets.AI_API_KEY || '' }}
           AI_API_BASE: ${{ secrets.AI_API_BASE || '' }}
           AI_MODEL: ${{ secrets.AI_MODEL || '' }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY || '' }}
         run: python scripts/generate_intelligence.py
 
       - name: Commit and Push
