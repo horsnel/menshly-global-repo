@@ -14,8 +14,12 @@ export async function onRequestGet(context) {
   const hasFallback1 = !!env.CEREBRAS_API_KEY;
   const hasFallback2 = !!env.DEEPSEEK_API_KEY;
 
+  // Any LLM available = system is connected
+  const anyLLM = true; // Pollinations is always available
+
   return new Response(JSON.stringify({
     status: 'ok',
+    connected: anyLLM,  // Frontend should check THIS
     services: {
       pollinations: true,  // Primary LLM - free, no key
       cerebras: hasFallback1,  // Fallback LLM
@@ -25,8 +29,8 @@ export async function onRequestGet(context) {
       paystack: !!env.PAYSTACK_SECRET_KEY,
       email: !!env.EMAIL_API_KEY,
     },
-    chat: 'ready',
-    articleGenerator: 'ready',
+    chat: anyLLM ? 'ready' : 'offline',
+    articleGenerator: anyLLM ? 'ready' : 'offline',
     images: {
       pexels: !!env.PEXELS_API_KEY,
       pixabay: !!env.PIXABAY_API_KEY,

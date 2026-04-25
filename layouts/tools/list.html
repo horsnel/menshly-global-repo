@@ -169,7 +169,7 @@
         <button class="tool-toggle-btn" onclick="toggleTool('tool-5')" style="width:auto;margin:0;">EXPAND</button>
       </div>
       <div class="tool-card-body">
-        <p class="tool-card-desc">Generate complete AI business articles with real images from Pexels and Pixabay. Powered by Cerebras AI for high-quality, publication-ready content. Select your category, enter a topic, and get a full article with hero images and inline visuals.</p>
+        <p class="tool-card-desc">Generate complete AI business articles with real images. Powered by Cerebras AI, DeepSeek, and Pollinations for high-quality, publication-ready content. Select your category, enter a topic, and get a full article with hero images and inline visuals.</p>
       </div>
       <div class="tool-card-form">
         <div class="tool-form-group">
@@ -219,8 +219,14 @@
   fetch('/api/health')
     .then(function(r) { return r.json(); })
     .then(function(data) {
-      if (data.services && data.services.cerebras) {
-        statusEl.textContent = 'API CONNECTED';
+      // Check if ANY LLM is available (Pollinations is always free)
+      var hasLLM = data.connected || (data.services && (data.services.pollinations || data.services.cerebras || data.services.deepseek));
+      if (hasLLM) {
+        var providers = [];
+        if (data.services && data.services.pollinations) providers.push('Pollinations');
+        if (data.services && data.services.cerebras) providers.push('Cerebras');
+        if (data.services && data.services.deepseek) providers.push('DeepSeek');
+        statusEl.textContent = 'API CONNECTED (' + providers.join('+') + ')';
         statusEl.style.background = 'var(--yellow)';
         statusEl.style.color = 'var(--black)';
       } else {
@@ -413,7 +419,7 @@ async function generateArticle() {
   btn.disabled = true;
   btn.textContent = 'GENERATING...';
   result.style.display = 'block';
-  result.innerHTML = '<div style="text-align:center;padding:24px;"><div style="display:inline-block;width:24px;height:24px;border:3px solid var(--black);border-top-color:var(--yellow);border-radius:50%;animation:spin 0.8s linear infinite;"></div><p style="margin-top:12px;font-family:var(--font-heading);font-weight:700;">GENERATING YOUR ARTICLE...</p><p style="font-size:13px;color:rgba(26,26,26,0.6);">Fetching images from Pexels & Pixabay, generating content with Cerebras AI</p></div><style>@keyframes spin{to{transform:rotate(360deg)}}</style>';
+  result.innerHTML = '<div style="text-align:center;padding:24px;"><div style="display:inline-block;width:24px;height:24px;border:3px solid var(--black);border-top-color:var(--yellow);border-radius:50%;animation:spin 0.8s linear infinite;"></div><p style="margin-top:12px;font-family:var(--font-heading);font-weight:700;">GENERATING YOUR ARTICLE...</p><p style="font-size:13px;color:rgba(26,26,26,0.6);">Generating content with Cerebras AI / DeepSeek / Pollinations and fetching images</p></div><style>@keyframes spin{to{transform:rotate(360deg)}}</style>';
 
   try {
     const response = await fetch('/api/generate-article', {

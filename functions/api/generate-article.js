@@ -1,7 +1,12 @@
 // Cloudflare Pages Function: AI Article Generator
-// Format prompts are stored server-side — NEVER exposed to the client
-// Primary: Pollinations AI (free, no key) | Fallback: Cerebras, DeepSeek
+// Primary: Pollinations AI (free, no API key needed)
+// Fallback: Cerebras, DeepSeek (if keys available and working)
 // Images: Pollinations AI (free) | Pexels | Pixabay
+//
+// Key insight: Pollinations "openai" model is a reasoning model.
+// - content field: contains the actual article (when model has enough tokens)
+// - reasoning_content field: contains the model's thinking + sometimes the article
+// We use BOTH fields, extracting article from whichever has valid content.
 
 export async function onRequestPost(context) {
   const headers = {
@@ -39,83 +44,90 @@ export async function onRequestPost(context) {
     const thumbnailImage = allImages.find(img => img.width >= 800) || allImages[0] || null;
     const inlineImages = allImages.slice(0, 5);
 
-    // Build prompts (server-side only)
-    const systemPrompt = buildSystemPrompt(category);
-    const userPrompt = buildUserPrompt(category, topicTitle, slug, date, revenue, difficulty);
-    const messages = [
-      { role: 'system', content: systemPrompt },
-      { role: 'user', content: userPrompt }
-    ];
+    // Build messages
+    const revMap = {'1k-5k':'$1K-$5K','5k-10k':'$5K-$10K','10k-25k':'$10K-$25K','25k-50k':'$25K-$50K','50k+':'$50K+'};
+    const rev = revMap[revenue] || '$10K-$25K';
+    const pollMessages = buildPollinationsMessages(category, topicTitle, rev, difficulty);
+    const fullMessages = buildFullMessages(category, topicTitle, rev, difficulty, date);
 
-    // Generate article using multi-provider strategy
-    // Pollinations "openai" model uses tokens for both reasoning AND content
-    // So we need higher max_tokens to ensure content is generated after reasoning
-    const maxTokens = category === 'playbook' ? 5000 : category === 'intelligence' ? 4000 : 3500;
     let content = '';
+    const debugInfo = {};
 
-    // Strategy 1: Pollinations AI (free, no API key needed)
-    // Use AbortController with 25s timeout to avoid CF function timeout
-    let pollError = null;
-    try {
-      const controller = new AbortController();
-      const timeoutId = setTimeout(() => controller.abort(), 25000);
+    // ── Strategy 1: Pollinations AI (free, primary) ──
+    // Single attempt only — Pollinations rate-limits to 1 request per IP
+    // If content is in reasoning_content, extract it
+    {
+      try {
+        const controller = new AbortController();
+        const timeoutId = setTimeout(() => controller.abort(), 28000);
+        const t0 = Date.now();
 
-      const pollResp = await fetch('https://text.pollinations.ai/openai', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        signal: controller.signal,
-        body: JSON.stringify({
-          messages,
-          model: 'openai',
-          max_tokens: maxTokens,
-          temperature: 0.8,
-        }),
-      });
-      clearTimeout(timeoutId);
+        const pollResp = await fetch('https://text.pollinations.ai/openai', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          signal: controller.signal,
+          body: JSON.stringify({
+            messages: pollMessages,
+            model: 'openai',
+            max_tokens: 4000,
+            temperature: 0.8,
+            seed: attempt + 1,
+          }),
+        });
+        clearTimeout(timeoutId);
 
-      if (pollResp.ok) {
-        const respText = await pollResp.text();
-        try {
-          const data = JSON.parse(respText);
-          const msgContent = data.choices?.[0]?.message?.content || '';
-          const reasoningContent = data.choices?.[0]?.message?.reasoning_content || '';
-          
-          // Use content if available; fall back to reasoning_content if it's substantial
-          // (sometimes the model puts the article in reasoning_content)
-          if (msgContent.length > 50) {
-            content = msgContent;
-          } else if (reasoningContent.length > 200) {
-            // The reasoning might contain the actual article content
-            content = reasoningContent;
+        if (pollResp.ok) {
+          const respText = await pollResp.text();
+          try {
+            const data = JSON.parse(respText);
+            const msgContent = data.choices?.[0]?.message?.content || '';
+            const reasoningContent = data.choices?.[0]?.message?.reasoning_content || '';
+
+            // CRITICAL: Use the same approach as chat.js
+            // msg.content has the article when model generates properly
+            // msg.reasoning_content has the article when model "thinks" it out
+            let candidate = msgContent || reasoningContent || '';
+
+            // Validate it's an actual article, not a plan/outline
+            if (candidate && isValidArticle(candidate)) {
+              content = candidate;
+            }
+            // If it looks like reasoning/plan, try extracting article from it
+            else if (candidate && candidate.length > 300) {
+              const extracted = extractArticleFromText(candidate);
+              if (extracted) {
+                content = extracted;
+              }
+            }
+
+            debugInfo.pollinations = {
+              elapsed: Date.now() - t0,
+              msgLen: msgContent.length,
+              reasonLen: reasoningContent.length,
+              valid: !!content,
+              firstChars: (msgContent || reasoningContent || '').substring(0, 100),
+            };
+
+            if (content) {
+              console.log('Pollinations article generated, length:', content.length);
+            }
+          } catch (parseErr) {
+            debugInfo.pollinations = { error: `JSON parse: ${parseErr.message}` };
           }
-          
-          if (!content) {
-            pollError = `Empty content. msgContent=${msgContent.length} reasoningContent=${reasoningContent.length}`;
-            console.warn(pollError);
-          } else {
-            console.log('Pollinations AI article generated, length:', content.length);
-          }
-        } catch (parseErr) {
-          pollError = `JSON parse error: ${parseErr.message}, raw: ${respText.substring(0, 300)}`;
-          console.warn(pollError);
+        } else {
+          const errText = await pollResp.text();
+          debugInfo.pollinations = { error: `HTTP ${pollResp.status}: ${errText.substring(0, 150)}` };
         }
-      } else {
-        const errText = await pollResp.text();
-        pollError = `Pollinations returned ${pollResp.status}: ${errText.substring(0, 200)}`;
-        console.warn(pollError);
+      } catch (e) {
+        const errType = e.name === 'AbortError' ? 'timeout' : e.message;
+        debugInfo.pollinations = { error: errType };
       }
-    } catch (e) {
-      if (e.name === 'AbortError') {
-        pollError = 'Pollinations timed out (25s limit)';
-      } else {
-        pollError = `Pollinations fetch error: ${e.message}`;
-      }
-      console.warn(pollError);
     }
 
-    // Strategy 2: Cerebras fallback
+    // ── Strategy 2: Cerebras fallback ──
     if (!content && context.env.CEREBRAS_API_KEY) {
       try {
+        const t0 = Date.now();
         const cerebrasResp = await fetch('https://api.cerebras.ai/v1/chat/completions', {
           method: 'POST',
           headers: {
@@ -124,24 +136,29 @@ export async function onRequestPost(context) {
           },
           body: JSON.stringify({
             model: 'llama-3.3-70b',
-            messages,
-            max_tokens: maxTokens,
+            messages: fullMessages,
+            max_tokens: 8000,
             temperature: 0.8,
             top_p: 0.95,
           }),
         });
         if (cerebrasResp.ok) {
           const data = await cerebrasResp.json();
-          content = data.choices?.[0]?.message?.content || '';
+          const candidate = data.choices?.[0]?.message?.content || '';
+          debugInfo.cerebras = { elapsed: Date.now() - t0, length: candidate.length, valid: isValidArticle(candidate) };
+          if (isValidArticle(candidate)) content = candidate;
+        } else {
+          debugInfo.cerebras = { error: `HTTP ${cerebrasResp.status}` };
         }
       } catch (e) {
-        console.warn('Cerebras article generation failed:', e.message);
+        debugInfo.cerebras = { error: e.message };
       }
     }
 
-    // Strategy 3: DeepSeek fallback
+    // ── Strategy 3: DeepSeek fallback ──
     if (!content && context.env.DEEPSEEK_API_KEY) {
       try {
+        const t0 = Date.now();
         const dsResp = await fetch('https://api.deepseek.com/v1/chat/completions', {
           method: 'POST',
           headers: {
@@ -150,34 +167,28 @@ export async function onRequestPost(context) {
           },
           body: JSON.stringify({
             model: 'deepseek-chat',
-            messages,
-            max_tokens: maxTokens,
+            messages: fullMessages,
+            max_tokens: 8000,
             temperature: 0.8,
           }),
         });
         if (dsResp.ok) {
           const data = await dsResp.json();
-          content = data.choices?.[0]?.message?.content || '';
+          const candidate = data.choices?.[0]?.message?.content || '';
+          debugInfo.deepseek = { elapsed: Date.now() - t0, length: candidate.length, valid: isValidArticle(candidate) };
+          if (isValidArticle(candidate)) content = candidate;
+        } else {
+          debugInfo.deepseek = { error: `HTTP ${dsResp.status}` };
         }
       } catch (e) {
-        console.warn('DeepSeek article generation failed:', e.message);
+        debugInfo.deepseek = { error: e.message };
       }
     }
 
     if (!content) {
-      // Return detailed error for debugging (remove in production)
       return new Response(JSON.stringify({
         error: 'All AI services are currently unavailable. Please try again in a moment.',
-        debug: {
-          pollinationsTried: true,
-          pollinationsError: pollError,
-          contentLength: content ? content.length : 0,
-          contentPreview: content ? content.substring(0, 200) : '(empty)',
-          cerebrasKey: !!context.env.CEREBRAS_API_KEY,
-          deepseekKey: !!context.env.DEEPSEEK_API_KEY,
-          promptLength: systemPrompt.length + userPrompt.length,
-          maxTokens,
-        }
+        debug: debugInfo,
       }), { status: 503, headers });
     }
 
@@ -210,7 +221,228 @@ export async function onRequestOptions() {
   });
 }
 
-// ─── PEXELS API ─────────────────────────────────────────────
+// ═══════════════════════════════════════════════════════════════
+// VALIDATION & EXTRACTION
+// ═══════════════════════════════════════════════════════════════
+
+function isValidArticle(text) {
+  if (!text || text.length < 300) return false;
+  
+  // Check for reasoning/planning patterns - these indicate the model is thinking, not writing
+  const firstLines = text.split('\n').slice(0, 3).join(' ').trim();
+  const planningPatterns = [
+    /^(I need to|Need to|Let me|I should|I'll|I will|Let's craft|I must|I have to|We need to)/i,
+    /^(The user wants|The instruction|The task is|Based on the|Following the|User wants)/i,
+    /^(Title already|We can start|Then sections|Three blockquotes)/i,
+  ];
+  for (const pat of planningPatterns) {
+    if (pat.test(firstLines)) return false;
+  }
+  
+  // Must have at least one markdown heading (# )
+  const hasHeadings = /^#{1,3}\s+/m.test(text);
+  if (!hasHeadings) return false;
+  
+  // Must have substantial content after headings
+  const contentLines = text.split('\n').filter(l => l.trim() && !l.trim().startsWith('#') && !l.trim().startsWith('---')).length;
+  if (contentLines < 10) return false;
+  
+  return true;
+}
+
+// Extract article from text that may contain reasoning + article mixed together
+function extractArticleFromText(text) {
+  if (!text) return '';
+  
+  // Method 1: Code block extraction
+  const codeBlockMatch = text.match(/```(?:markdown|md)?\s*\n([\s\S]*?)```/);
+  if (codeBlockMatch && codeBlockMatch[1].trim().length > 200) {
+    const extracted = codeBlockMatch[1].trim();
+    if (/^#{1,3}\s+/.test(extracted)) return extracted;
+  }
+  
+  // Method 2: Find the first # heading and extract everything from there
+  const headingIdx = text.search(/\n#{1,3}\s+/);
+  if (headingIdx !== -1) {
+    let articleText = text.substring(headingIdx + 1); // skip the \n before #
+    
+    // Remove trailing reasoning patterns
+    const trailingPatterns = [
+      /\n(?:Now count|Let me count|I need to|Wait,|Actually,|Let's count|I'll count|Word count|I should|Let me check|We need to|Let's plan)[\s\S]*$/i,
+      /\n\d+\s*words?\s*[\s\S]*$/i,
+    ];
+    for (const pat of trailingPatterns) {
+      const match = articleText.match(pat);
+      if (match) {
+        articleText = articleText.substring(0, match.index);
+      }
+    }
+    
+    articleText = articleText.trim();
+    
+    // Validate the extracted text is actually an article
+    if (articleText.length > 300 && isValidArticle(articleText)) {
+      return articleText;
+    }
+    
+    // Even if isValidArticle fails (e.g., planning text after heading), 
+    // check if there's enough real content between the heading and the planning
+    const lines = articleText.split('\n');
+    const articleLines = [];
+    for (const line of lines) {
+      const trimmed = line.trim();
+      // Stop at planning/reasoning lines
+      if (/^(We need|I need to|Need to|Let me|I should|I'll write|I'll include|Three blockquotes|Then sections)/i.test(trimmed)) {
+        break;
+      }
+      articleLines.push(line);
+    }
+    const extracted = articleLines.join('\n').trim();
+    if (extracted.length > 300 && /^#{1,3}\s+/.test(extracted)) {
+      return extracted;
+    }
+  }
+  
+  // Method 3: Look for "Draft content:" or "Article:" markers
+  const draftMarkers = ['Draft content:', 'Draft:', 'Article:', 'Here is the article:', "Here's the article:"];
+  for (const marker of draftMarkers) {
+    const idx = text.indexOf(marker);
+    if (idx !== -1) {
+      const after = text.substring(idx + marker.length).trim();
+      const headingIdx2 = after.search(/^#{1,3}\s+/m);
+      if (headingIdx2 !== -1) {
+        let articleText = after.substring(headingIdx2);
+        const reasoningStart = articleText.search(/\n(?:Now count|Let me count|I need to|Wait,|Actually,)/);
+        if (reasoningStart !== -1) {
+          articleText = articleText.substring(0, reasoningStart);
+        }
+        articleText = articleText.trim();
+        if (articleText.length > 200) return articleText;
+      }
+    }
+  }
+  
+  return '';
+}
+
+// ═══════════════════════════════════════════════════════════════
+// PROMPT BUILDERS
+// ═══════════════════════════════════════════════════════════════
+
+function buildPollinationsMessages(category, topic, rev, difficulty) {
+  // These prompts are deliberately concise to work with Pollinations reasoning model
+  // The model uses tokens for reasoning + content, so shorter prompts = more content
+  if (category === 'opportunity') {
+    return [
+      { role: 'system', content: 'You are a content writer for Menshly Global. Write in a direct, no-nonsense voice. Use specific numbers, tool names, and prices. Write in Markdown with # headings, > blockquotes for truths/hacks, and tables. Start with a # heading immediately.' },
+      { role: 'user', content: `Write an OPPORTUNITY article: "How to Start a ${topic} in 2026 (Build Once, Get Paid Forever)"
+
+Revenue target: ${rev}/month | Difficulty: ${difficulty}
+
+Include these sections:
+## Why This Works Right Now (market data, trends)
+## The Realistic Picture (3 ugly truths as > blockquotes)
+## The Free Stack (3-4 free tools with descriptions)
+## The Paid Stack (3-4 paid tools with costs, total monthly cost)
+## The Workflow (3 steps with time estimates)
+## Pricing Tiers (3 tiers: Starter, Growth, Premium)
+## Hacks They Don't Share (2-3 > blockquotes)
+## Revenue Projections (Markdown table: Month | Revenue | Clients)
+## Start This Weekend (Sat AM, Sat PM, Sun actions)
+
+Be specific with tool names and prices. No fluff. Write the COMPLETE article now.` }
+    ];
+  }
+
+  if (category === 'intelligence') {
+    return [
+      { role: 'system', content: 'You are a content writer for Menshly Global. Write in a direct, no-nonsense voice. Use specific numbers, tool names, and prices. Write in Markdown with # headings, verification checkpoints, and tables. Start with a # heading immediately.' },
+      { role: 'user', content: `Write an INTELLIGENCE guide: "Build and Scale a ${topic} with Automated Workflows"
+
+Revenue target: ${rev}/month | Difficulty: ${difficulty}
+
+Include these sections:
+## Prerequisites (tools, costs, time needed, total upfront cost)
+## Step 1: Setup (detailed walkthrough with tool names and URLs)
+## Step 1 Check-In (3 verification items)
+## Step 2: Core Workflow Build (configuration, error handling)
+## Step 2 Check-In (verification items)
+## Step 3: Production Pipeline (quality gates, scoring)
+## Step 3 Check-In (verification items)
+## Step 4: Monitoring & Delivery (automated reporting, alerts)
+## Pricing Table (Markdown table: Tier | Monthly | Included | Cost | Margin)
+
+Name every tool with its cost. Include verification checkpoints. Write the COMPLETE guide now.` }
+    ];
+  }
+
+  if (category === 'playbook') {
+    return [
+      { role: 'system', content: 'You are a content writer for Menshly Global. Write in a direct, authoritative voice. Use specific numbers, tool names, and prices. Write in Markdown with # headings, procedures, and checkboxes. Start with a # heading immediately.' },
+      { role: 'user', content: `Write a PLAYBOOK: "The ${topic} Playbook"
+
+Revenue target: ${rev}/month | Difficulty: ${difficulty}
+
+Include these modules:
+## MODULE 1: Foundation (2 procedures with exact steps)
+## MODULE 2: Tech Stack (tools, costs, total monthly cost)
+## MODULE 3: Build Framework (2 procedures with code/config)
+## MODULE 4: First Client (outreach script, demo script, pricing)
+## MODULE 5: Delivery & Retention (SOPs, churn prevention)
+## MODULE 6: Scaling (hiring roadmap, margin table: Clients | Revenue | Costs | Profit | Margin)
+
+Every procedure starts with an action verb. Include exact tool configs. Write the COMPLETE playbook now.` }
+    ];
+  }
+
+  return [
+    { role: 'system', content: 'You are a content writer. Write in Markdown. Start with a # heading immediately.' },
+    { role: 'user', content: `Write a complete article about: "${topic}". Include pricing, tools, and first steps. Be specific.` }
+  ];
+}
+
+function buildFullMessages(category, topic, rev, difficulty, date) {
+  const systemBase = 'You are a content strategist for Menshly Global. Write in a direct, no-nonsense voice. Use specific numbers, tool names, prices, and actionable steps. Write in Markdown. Use > blockquotes for "ugly truths" and "hacks". Be concise but thorough.';
+
+  let userPrompt = '';
+  if (category === 'opportunity') {
+    userPrompt = `Write a comprehensive OPPORTUNITY article about: "${topic}"
+
+Target revenue: ${rev}/month | Difficulty: ${difficulty} | Date: ${date}
+
+Title: "How to Start a ${topic} in 2026 (Build Once, Get Paid Forever)"
+
+Cover ALL sections: opening hook, why now, realistic picture (4 truths as blockquotes), free tools, paid tools with costs, workflow steps with time estimates, pricing tiers, hacks as blockquotes, revenue projection table, weekend action plan. Use specific tool names and prices. No placeholders.`;
+  } else if (category === 'intelligence') {
+    userPrompt = `Write a comprehensive INTELLIGENCE implementation guide about: "${topic}"
+
+Target revenue: ${rev}/month | Difficulty: ${difficulty} | Date: ${date}
+
+Title: "Build and Scale a ${topic} with Automated Workflows"
+
+Cover ALL steps: prerequisites with costs, setup walkthrough, core workflow build, production pipeline, monitoring, pricing table. Include "Do you see X?" verification checkpoints. Name every tool with its cost. No placeholders.`;
+  } else if (category === 'playbook') {
+    userPrompt = `Write a comprehensive PLAYBOOK about: "${topic}"
+
+Target revenue: ${rev}/month | Difficulty: ${difficulty} | Date: ${date}
+
+Title: "The ${topic} Playbook"
+
+Cover ALL modules: foundation with procedures, tech stack with costs, build framework, first client acquisition, delivery and retention SOPs, scaling with margin analysis. Include exact procedures and check-ins. No placeholders.`;
+  } else {
+    userPrompt = `Write a complete article about: "${topic}"`;
+  }
+
+  return [
+    { role: 'system', content: systemBase },
+    { role: 'user', content: userPrompt }
+  ];
+}
+
+// ═══════════════════════════════════════════════════════════════
+// IMAGE FETCHERS
+// ═══════════════════════════════════════════════════════════════
+
 async function fetchPexelsImages(query, apiKey) {
   if (!apiKey) return [];
   try {
@@ -234,7 +466,6 @@ async function fetchPexelsImages(query, apiKey) {
   }
 }
 
-// ─── PIXABAY API ────────────────────────────────────────────
 async function fetchPixabayImages(query, apiKey) {
   if (!apiKey) return [];
   try {
@@ -256,7 +487,6 @@ async function fetchPixabayImages(query, apiKey) {
   }
 }
 
-// ─── POLLINATION AI (FREE — NO API KEY NEEDED) ─────────────
 async function fetchPollinationImages(query, slug) {
   try {
     const encoded = encodeURIComponent(query.toLowerCase() + ' AI technology business brutalist design');
@@ -287,96 +517,10 @@ async function fetchPollinationImages(query, slug) {
   }
 }
 
-// ─── FORMAT PROMPTS (SERVER-SIDE ONLY — NEVER EXPOSED) ──────
-function buildSystemPrompt(category) {
-  const base = `You are a content strategist for Menshly Global. Write in a direct, no-nonsense voice. Use specific numbers, tool names, prices, and actionable steps. Write in Markdown. Use > blockquotes for "ugly truths" and "hacks". Be concise but thorough.`;
+// ═══════════════════════════════════════════════════════════════
+// CONTENT PARSER
+// ═══════════════════════════════════════════════════════════════
 
-  if (category === 'opportunity') {
-    return base + ` You are writing an OPPORTUNITY article — a deep-dive discovery of a specific AI business model. The article must follow this exact structure:
-1. Opening hook (2-3 paragraphs with revenue potential and why NOW)
-2. "Why This Works Right Now" (market timing, data, trends)
-3. "The Realistic Picture" (4 ugly truths as blockquotes with **Truth #1-4**)
-4. "The Free Stack: Starting With Zero Dollars" (3-5 free tools with descriptions)
-5. "The Paid Stack: When You're Ready to Scale" (4-6 paid tools with costs, total monthly cost line)
-6. "The Workflow: Step-by-Step" (3-4 steps with substeps and time estimates)
-7. "Pricing: What to Charge" (3-4 pricing tiers with what's included)
-8. "Tricks and Hacks They Don't Share in Courses" (3-5 HACK blockquotes)
-9. "The Real Numbers" (revenue projection table in Markdown with Month/Revenue/Clients/Notes)
-10. "Start This Weekend" (Saturday morning, Saturday afternoon, Sunday actions)
-
-Each section must be substantial — no placeholder text. Write as if you're giving away $200/hour consulting advice for free. Use specific tool names, prices, and configurations. Include HACK blockquotes with real techniques.`;
-  }
-
-  if (category === 'intelligence') {
-    return base + ` You are writing an INTELLIGENCE article — a step-by-step implementation guide. The article must follow this exact structure:
-1. Opening (why manual processes kill this business, set expectations)
-2. "Prerequisites" (tools needed with costs, time required, total upfront cost)
-3. "Step 1: [Setup/Tech Stack]" (detailed walkthrough with exact clicks and URLs, substeps, verification checkpoints)
-4. "Step 1 Check-In" (3 verification items)
-5. "Step 2: [Core Workflow Build]" (module-by-module walkthrough with configuration settings, error handling)
-6. "Step 2 Check-In" (verification items)
-7. "Step 3: [Production Pipeline]" (repeatable system, quality gates, scoring criteria)
-8. "Step 3 Check-In" (verification items)
-9. "Step 4: [Monitoring/Reporting/Delivery]" (automated reporting, alerts, client delivery)
-10. "Step 5: [Pricing and Service Delivery]" (pricing table in Markdown with Tier/Monthly/Included/Cost/Margin columns, cost breakdown table)
-
-Each step must include "Do you see X?" verification checkpoints. Write as if the reader has zero experience but is smart enough to follow precise instructions. No skipping steps. Every tool must be named with its cost. Every configuration must be specific.`;
-  }
-
-  if (category === 'playbook') {
-    return base + ` You are writing a PLAYBOOK article — a premium procedure-based system. The article must follow this exact structure:
-1. Opening (strong statement — this is not a blog post, it's an operating system, X procedures, X modules)
-2. "MODULE 1: FOUNDATION" (overview + 2 procedures with exact steps + check-in)
-3. "MODULE 2: TECH STACK" (overview + 2 procedures + total cost breakdown + check-in)
-4. "MODULE 3: THE BUILD FRAMEWORK" (overview + 2 procedures with code/config + check-in)
-5. "MODULE 4: FIRST CLIENT / FIRST REVENUE" (outreach scripts, demo call scripts, pricing presentation)
-6. "MODULE 5: DELIVERY AND RETENTION" (SOPs, monthly calendar, churn prevention)
-7. "MODULE 6: SCALING" (hiring roadmap, margin analysis table with Clients/Revenue/Team Cost/Tool Cost/Profit/Margin columns)
-
-Every procedure must start with a clear action verb. Include exact URLs where possible. Use "Do you see X? If Y, do Z" verification patterns. The tone is authoritative and procedural — no theories, no possibilities, only exact actions. Each module must end with a Check-In section using checkboxes.`;
-  }
-
-  return base;
-}
-
-function buildUserPrompt(category, topic, slug, date, revenue, difficulty) {
-  const revMap = {'1k-5k':'$1K-$5K','5k-10k':'$5K-$10K','10k-25k':'$10K-$25K','25k-50k':'$25K-$50K','50k+':'$50K+'};
-  const rev = revMap[revenue] || '$10K-$25K';
-
-  if (category === 'opportunity') {
-    return `Write an OPPORTUNITY article about: "${topic}"
-
-Target revenue: ${rev}/month | Difficulty: ${difficulty} | Date: ${date}
-
-Title pattern: "How to Start a [TOPIC] in 2026 (Build Once, Get Paid Forever)"
-
-Cover ALL sections: opening hook, why now, realistic picture (4 truths), free tools, paid tools, workflow steps, pricing tiers, hacks, revenue projection table, weekend action plan. Be specific with tool names and prices. No placeholders.`;
-  }
-
-  if (category === 'intelligence') {
-    return `Write an INTELLIGENCE implementation guide about: "${topic}"
-
-Target revenue: ${rev}/month | Difficulty: ${difficulty} | Date: ${date}
-
-Title pattern: "Build and Scale a [TOPIC] with Automated Workflows"
-
-Cover ALL steps: prerequisites, setup, core workflow build, production pipeline, monitoring, pricing table. Include verification checkpoints. Name every tool with its cost. No placeholders.`;
-  }
-
-  if (category === 'playbook') {
-    return `Write a PLAYBOOK about: "${topic}"
-
-Target revenue: ${rev}/month | Difficulty: ${difficulty} | Date: ${date}
-
-Title pattern: "The [TOPIC] Playbook"
-
-Cover ALL modules: foundation, tech stack, build framework, first client, delivery/retention, scaling. Include exact procedures, tool configs, and check-ins. No placeholders.`;
-  }
-
-  return `Write a complete article about: "${topic}"`;
-}
-
-// ─── PARSE GENERATED CONTENT ────────────────────────────────
 function parseGeneratedContent(content, category) {
   const titleMatch = content.match(/^#\s+(.+)$/m) || content.match(/^##?\s+(.+)$/m);
   const title = titleMatch ? titleMatch[1].replace(/\*\*/g, '').trim() : '';

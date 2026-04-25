@@ -113,8 +113,14 @@
   fetch('/api/health')
     .then(function(r) { return r.json(); })
     .then(function(data) {
-      if (data.services && data.services.cerebras) {
-        statusEl.textContent = 'AI CONNECTED — READY';
+      // Check if ANY LLM is available (Pollinations is always free)
+      var hasLLM = data.connected || (data.services && (data.services.pollinations || data.services.cerebras || data.services.deepseek));
+      if (hasLLM) {
+        var providers = [];
+        if (data.services && data.services.pollinations) providers.push('Pollinations');
+        if (data.services && data.services.cerebras) providers.push('Cerebras');
+        if (data.services && data.services.deepseek) providers.push('DeepSeek');
+        statusEl.textContent = 'AI CONNECTED — ' + providers.join(' + ');
         statusEl.style.background = 'var(--yellow)';
         statusEl.style.color = 'var(--black)';
       } else {
