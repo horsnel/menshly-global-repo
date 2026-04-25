@@ -8,7 +8,26 @@
       <span class="article-meta-item">{{ .Params.author | default "MENSHLY GLOBAL" }}</span>
       <span class="article-meta-item">{{ .Params.readTime | default "5 MIN READ" }}</span>
     </div>
-    {{ partial "article-actions.html" . }}
+    <!-- Listen to this article (ElevenLabs TTS) -->
+    <div class="article-listen-bar" style="display:flex;align-items:center;gap:12px;flex-wrap:wrap;">
+      <button class="listen-btn" id="listenBtn" onclick="toggleListen()">
+        <svg class="listen-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path><path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path></svg>
+        <span id="listenLabel">LISTEN</span>
+      </button>
+      <div id="audioProgressWrap" style="display:none;flex:1;min-width:100px;max-width:260px;align-items:center;gap:8px;">
+        <div style="flex:1;height:6px;border:2px solid var(--black);background:var(--off-white);cursor:pointer;" id="audioProgressBar" onclick="seekAudio(event)">
+          <div id="audioProgressFill" style="height:100%;background:var(--yellow);width:0%;transition:width 0.3s ease;"></div>
+        </div>
+        <span id="audioTimeDisplay" style="font-family:var(--font-heading);font-size:10px;letter-spacing:0.05em;white-space:nowrap;">0:00</span>
+      </div>
+      <div class="audio-speed-wrap" id="audioSpeedWrap" style="display:none;">
+        <button class="speed-btn" data-speed="0.75">0.75x</button>
+        <button class="speed-btn active" data-speed="1">1x</button>
+        <button class="speed-btn" data-speed="1.25">1.25x</button>
+        <button class="speed-btn" data-speed="1.5">1.5x</button>
+        <button class="speed-btn" data-speed="2">2x</button>
+      </div>
+    </div>
   </div>
   {{ with .Params.heroImage }}
   <div class="article-hero-image">
@@ -19,19 +38,8 @@
     <img src="{{ . }}" alt="{{ $.Title }}" loading="eager">
   </div>
   {{ end }}
-  <div class="article-layout">
-    <!-- Table of Contents Sidebar -->
-    <div class="toc-sidebar" id="tocContainer">
-      <button class="toc-toggle" id="tocToggle">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
-        <span>CONTENTS</span>
-        <span class="toc-toggle-icon">+</span>
-      </button>
-    </div>
-    <!-- Article Content -->
-    <div class="article-content">
-      {{ .Content }}
-    </div>
+  <div class="article-content">
+    {{ .Content }}
   </div>
   <!-- Share Your Startup Story -->
   <div class="story-box">
@@ -74,6 +82,115 @@
 {{ end }}
 
 <script>
+// ===== ElevenLabs TTS Audio Player =====
+let ttsAudio = null;
+let isListening = false;
+let isLoading = false;
+let currentSpeed = 1;
+
+function cleanTextForTTS(raw) {
+  if (!raw) return '';
+  let t = raw.replace(/<[^>]*>/g,' ').replace(/!\[[^\]]*\]\([^)]*\)/g,'')
+    .replace(/\[([^\]]*)\]\([^)]*\)/g,'$1').replace(/^#{1,6}\s+/gm,'')
+    .replace(/(\*{1,3}|_{1,3})(.*?)\1/g,'$2').replace(/```[\s\S]*?```/g,'')
+    .replace(/`([^`]+)`/g,'$1').replace(/^>\s+/gm,'').replace(/\s+/g,' ').trim();
+  return t;
+}
+
+async function toggleListen() {
+  const btn = document.getElementById('listenBtn');
+  const label = document.getElementById('listenLabel');
+  const speedWrap = document.getElementById('audioSpeedWrap');
+  const progressWrap = document.getElementById('audioProgressWrap');
+
+  if (isListening && ttsAudio && !isLoading) {
+    if (ttsAudio.paused) { ttsAudio.play(); label.textContent='STOP'; btn.classList.add('listening'); }
+    else { ttsAudio.pause(); label.textContent='PLAY'; btn.classList.remove('listening'); }
+    return;
+  }
+
+  const content = document.querySelector('.article-content');
+  if (!content) return;
+  const rawText = content.innerText;
+  if (!rawText.trim()) return;
+
+  isLoading = true;
+  label.textContent = 'LOADING...';
+  btn.classList.add('listening');
+
+  try {
+    const text = cleanTextForTTS(rawText).substring(0, 4500);
+    const resp = await fetch('/api/tts', {
+      method: 'POST',
+      headers: {'Content-Type':'application/json'},
+      body: JSON.stringify({text:text, voice_id:'JBFqnCBsd6RMkjVDRZzb'})
+    });
+    if (!resp.ok) throw new Error('TTS failed: '+resp.status);
+    const blob = await resp.blob();
+    const url = URL.createObjectURL(blob);
+
+    if (ttsAudio) { ttsAudio.pause(); ttsAudio.src=''; }
+    ttsAudio = new Audio(url);
+    ttsAudio.playbackRate = currentSpeed;
+
+    ttsAudio.addEventListener('timeupdate', function() {
+      if (ttsAudio.duration) {
+        const pct = (ttsAudio.currentTime/ttsAudio.duration)*100;
+        document.getElementById('audioProgressFill').style.width = pct+'%';
+        const rem = Math.max(0,ttsAudio.duration-ttsAudio.currentTime);
+        const m=Math.floor(rem/60), s=Math.floor(rem%60);
+        document.getElementById('audioTimeDisplay').textContent = m+':'+(s<10?'0':'')+s;
+      }
+    });
+    ttsAudio.addEventListener('ended', function() {
+      isListening=false; isLoading=false;
+      label.textContent='LISTEN'; btn.classList.remove('listening');
+      speedWrap.style.display='none'; progressWrap.style.display='none';
+      document.getElementById('audioProgressFill').style.width='0%';
+    });
+
+    ttsAudio.play();
+    isListening=true; isLoading=false;
+    label.textContent='STOP'; btn.classList.add('listening');
+    speedWrap.style.display='flex'; progressWrap.style.display='flex';
+  } catch(err) {
+    console.warn('ElevenLabs TTS failed, falling back to browser TTS:', err);
+    isLoading=false;
+    const synth = window.speechSynthesis;
+    if (synth) {
+      const utt = new SpeechSynthesisUtterance(cleanTextForTTS(rawText));
+      utt.rate = currentSpeed;
+      utt.onend = function() {
+        isListening=false; label.textContent='LISTEN'; btn.classList.remove('listening');
+        document.getElementById('audioSpeedWrap').style.display='none';
+      };
+      synth.speak(utt);
+      isListening=true; label.textContent='STOP'; btn.classList.add('listening');
+      document.getElementById('audioSpeedWrap').style.display='flex';
+    } else {
+      isListening=false; isLoading=false;
+      label.textContent='LISTEN'; btn.classList.remove('listening');
+      alert('Audio not available. Try again later.');
+    }
+  }
+}
+
+function seekAudio(e) {
+  if (!ttsAudio || !ttsAudio.duration) return;
+  const bar = document.getElementById('audioProgressBar');
+  const rect = bar.getBoundingClientRect();
+  ttsAudio.currentTime = ((e.clientX-rect.left)/rect.width)*ttsAudio.duration;
+}
+
+document.addEventListener('click', function(e) {
+  if (e.target.classList.contains('speed-btn')) {
+    currentSpeed = parseFloat(e.target.dataset.speed);
+    document.querySelectorAll('.speed-btn').forEach(b=>b.classList.remove('active'));
+    e.target.classList.add('active');
+    if (ttsAudio) ttsAudio.playbackRate = currentSpeed;
+  }
+});
+
 function submitStory(e) {
   e.preventDefault();
   const form = e.target;

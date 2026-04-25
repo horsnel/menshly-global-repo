@@ -3,7 +3,8 @@
 // Body: { text, voice_id? }
 // Uses ElevenLabs Flash v2.5 model for low-latency generation
 
-const DEFAULT_VOICE_ID = 'zGjIP4SZlMnY9m93k97r'; // User-selected ElevenLabs voice
+const DEFAULT_VOICE_ID = 'JBFqnCBsd6RMkjVDRZzb'; // George — warm British storyteller (premade, free tier)
+// Custom voice for paid plans: zGjIP4SZlMnY9m93k97r
 const MAX_TEXT_LENGTH = 5000;
 const REQUEST_TIMEOUT = 60000; // 60 seconds
 
@@ -33,25 +34,15 @@ function isRateLimited(ip) {
 function cleanText(raw) {
   if (!raw || typeof raw !== 'string') return '';
   let text = raw;
-  // Strip HTML tags
   text = text.replace(/<[^>]*>/g, ' ');
-  // Strip markdown images
   text = text.replace(/!\[[^\]]*\]\([^)]*\)/g, '');
-  // Strip markdown links but keep text
   text = text.replace(/\[([^\]]*)\]\([^)]*\)/g, '$1');
-  // Strip markdown headers (# symbols)
   text = text.replace(/^#{1,6}\s+/gm, '');
-  // Strip markdown bold/italic markers
   text = text.replace(/(\*{1,3}|_{1,3})(.*?)\1/g, '$2');
-  // Strip markdown horizontal rules
   text = text.replace(/^[-*_]{3,}\s*$/gm, '');
-  // Strip code blocks
   text = text.replace(/```[\s\S]*?```/g, '');
-  // Strip inline code
   text = text.replace(/`([^`]+)`/g, '$1');
-  // Strip blockquote markers
   text = text.replace(/^>\s+/gm, '');
-  // Normalize whitespace
   text = text.replace(/\s+/g, ' ').trim();
   return text;
 }
@@ -93,7 +84,6 @@ export async function onRequestPost(context) {
     });
   }
 
-  // Clean the text
   const text = cleanText(rawText);
 
   if (!text.trim()) {
@@ -103,10 +93,8 @@ export async function onRequestPost(context) {
     });
   }
 
-  // Enforce max length
   const truncatedText = text.length > MAX_TEXT_LENGTH ? text.substring(0, MAX_TEXT_LENGTH) : text;
 
-  // Get API key from env var or fallback
   const apiKey = env.ELEVENLABS_API_KEY || '20a953b59f011e0537c2c79f4928f3ffb4b6df90fb1b31bda18407037bccb1af';
 
   if (!apiKey) {
@@ -116,7 +104,6 @@ export async function onRequestPost(context) {
     });
   }
 
-  // Validate voice_id (alphanumeric + underscores/hyphens only)
   if (!/^[a-zA-Z0-9_-]+$/.test(voiceId)) {
     return new Response(JSON.stringify({ error: 'Invalid voice_id format' }), {
       status: 400,
@@ -136,7 +123,6 @@ export async function onRequestPost(context) {
       },
     };
 
-    // Use AbortController for timeout
     const controller = new AbortController();
     const timeoutId = setTimeout(() => controller.abort(), REQUEST_TIMEOUT);
 
@@ -159,13 +145,11 @@ export async function onRequestPost(context) {
         const errorBody = await response.json();
         errorDetail = errorBody.detail?.message || errorBody.detail || errorBody.message || errorDetail;
       } catch {
-        // Response wasn't JSON, use status text
         errorDetail = response.statusText || errorDetail;
       }
 
       console.error('ElevenLabs TTS error:', response.status, errorDetail);
 
-      // Map common errors to user-friendly messages
       if (response.status === 401) {
         errorDetail = 'TTS service authentication failed';
       } else if (response.status === 402 || response.status === 422) {
@@ -175,12 +159,11 @@ export async function onRequestPost(context) {
       }
 
       return new Response(JSON.stringify({ error: errorDetail }), {
-        status: response.status >= 500 ? 502 : response.status, // Proxy 5xx as 502
+        status: response.status >= 500 ? 502 : response.status,
         headers: { ...CORS_HEADERS, 'Content-Type': 'application/json' },
       });
     }
 
-    // Stream the audio back
     const audioBuffer = await response.arrayBuffer();
 
     return new Response(audioBuffer, {
@@ -189,7 +172,7 @@ export async function onRequestPost(context) {
         ...CORS_HEADERS,
         'Content-Type': 'audio/mpeg',
         'Content-Length': audioBuffer.byteLength.toString(),
-        'Cache-Control': 'public, max-age=86400', // Cache for 24h — same text = same audio
+        'Cache-Control': 'public, max-age=86400',
       },
     });
   } catch (err) {
