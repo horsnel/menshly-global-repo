@@ -2551,3 +2551,223 @@ img {
     display: initial;
   }
 }
+
+/* --- Article Actions Bar (Like + Listen + Disclaimer) --- */
+.article-actions-bar {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 24px 24px 0;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+@media (min-width: 768px) {
+  .article-actions-bar {
+    padding: 24px 48px 0;
+  }
+}
+
+@media (min-width: 1280px) {
+  .article-actions-bar {
+    padding: 24px 80px 0;
+  }
+}
+
+.action-like {
+  display: flex;
+  align-items: center;
+}
+
+.like-btn {
+  font-family: var(--font-heading);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 12px;
+  font-weight: 700;
+  border: 3px solid var(--black);
+  background: var(--white);
+  color: var(--black);
+  padding: 10px 20px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  transition: all 0.15s ease;
+}
+
+.like-btn:hover {
+  background: var(--yellow);
+}
+
+.like-btn.liked {
+  background: var(--off-white);
+  cursor: default;
+}
+
+.like-btn.liked:hover {
+  background: var(--off-white);
+}
+
+.like-icon {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  transition: all 0.15s ease;
+}
+
+.like-btn.like-pop {
+  animation: like-pop-anim 0.4s ease;
+}
+
+@keyframes like-pop-anim {
+  0% { transform: scale(1); }
+  30% { transform: scale(1.3); }
+  60% { transform: scale(0.95); }
+  100% { transform: scale(1); }
+}
+
+.action-listen {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.speed-controls {
+  display: flex;
+  gap: 0;
+  border: 3px solid var(--black);
+}
+
+.speed-btn {
+  font-family: var(--font-heading);
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border: none;
+  border-right: 3px solid var(--black);
+  background: var(--white);
+  color: var(--black);
+  padding: 6px 10px;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+
+.speed-btn:last-child {
+  border-right: none;
+}
+
+.speed-btn:hover {
+  background: var(--off-white);
+}
+
+.speed-btn.active {
+  background: var(--yellow);
+}
+
+/* --- Affiliate Disclaimer --- */
+.affiliate-disclaimer {
+  max-width: 1080px;
+  margin: 20px auto 0;
+  padding: 0 24px;
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  border-left: 6px solid var(--yellow);
+  background: rgba(249, 255, 0, 0.06);
+  padding: 14px 18px;
+}
+
+@media (min-width: 768px) {
+  .affiliate-disclaimer {
+    margin: 24px auto 0;
+    padding: 0 48px;
+    padding: 14px 18px;
+  }
+}
+
+.disclaimer-icon {
+  font-size: 20px;
+  flex-shrink: 0;
+  line-height: 1;
+  margin-top: 2px;
+}
+
+.disclaimer-text {
+  font-size: 12px;
+  line-height: 1.6;
+  color: rgba(26, 26, 26, 0.7);
+}
+
+.disclaimer-text strong {
+  font-family: var(--font-heading);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--black);
+  font-size: 11px;
+}
+
+/* --- Playbook CTA Inline --- */
+.playbook-cta-inline {
+  max-width: 1080px;
+  margin: 40px auto 0;
+  padding: 0 24px;
+}
+
+@media (min-width: 768px) {
+  .playbook-cta-inline {
+    padding: 0 48px;
+  }
+}
+
+.playbook-cta-inner {
+  border: 3px solid var(--red);
+  background: var(--off-white);
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.playbook-cta-badge {
+  display: inline-block;
+  background: var(--red);
+  color: var(--white);
+  border: 3px solid var(--red);
+  padding: 4px 12px;
+  font-family: var(--font-heading);
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  width: fit-content;
+}
+
+.playbook-cta-inner h4 {
+  font-size: clamp(1.2rem, 2.5vw, 1.5rem);
+  letter-spacing: -0.02em;
+}
+
+.playbook-cta-inner p {
+  font-size: 14px;
+  line-height: 1.6;
+  color: rgba(26, 26, 26, 0.7);
+  margin: 0;
+}
+
+.playbook-cta-footer {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-top: 8px;
+}
+
+.playbook-cta-price {
+  font-family: var(--font-heading);
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--red);
+}
