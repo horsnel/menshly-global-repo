@@ -164,6 +164,7 @@
         <div>
           <span class="tool-card-icon"><svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 4h14" stroke="#F9FF00" stroke-width="2.5" stroke-linecap="round"/><path d="M4 10h20" stroke="#F9FF00" stroke-width="2.5" stroke-linecap="round"/><path d="M4 16h12" stroke="#F9FF00" stroke-width="2.5" stroke-linecap="round"/><path d="M4 22h8" stroke="#F9FF00" stroke-width="2.5" stroke-linecap="round"/><path d="M20 18l3 3-6 3-1-1 4-5z" fill="#F9FF00" stroke="#F9FF00" stroke-width="1.5" stroke-linejoin="round"/></svg></span>
           <span class="tool-card-name">AI Article Generator</span>
+          <span id="api-status" style="font-size:10px;font-family:var(--font-heading);font-weight:700;letter-spacing:0.05em;padding:3px 8px;margin-left:8px;border:2px solid var(--black);">CHECKING...</span>
         </div>
         <button class="tool-toggle-btn" onclick="toggleTool('tool-5')" style="width:auto;margin:0;">EXPAND</button>
       </div>
@@ -210,6 +211,31 @@
 </section>
 
 <script>
+// Check API health on page load
+(function() {
+  var statusEl = document.getElementById('api-status');
+  if (!statusEl) return;
+
+  fetch('/api/health')
+    .then(function(r) { return r.json(); })
+    .then(function(data) {
+      if (data.services && data.services.cerebras) {
+        statusEl.textContent = 'API CONNECTED';
+        statusEl.style.background = 'var(--yellow)';
+        statusEl.style.color = 'var(--black)';
+      } else {
+        statusEl.textContent = 'API NOT CONNECTED';
+        statusEl.style.background = 'var(--red)';
+        statusEl.style.color = 'var(--white)';
+      }
+    })
+    .catch(function() {
+      statusEl.textContent = 'OFFLINE';
+      statusEl.style.background = 'var(--red)';
+      statusEl.style.color = 'var(--white)';
+    });
+})();
+
 function toggleTool(id) {
   const card = document.getElementById(id);
   card.classList.toggle('expanded');
@@ -467,7 +493,7 @@ async function generateArticle() {
     result.innerHTML = html;
 
   } catch (error) {
-    result.innerHTML = `<div style="border:3px solid var(--red);padding:16px;"><strong style="color:var(--red);">GENERATION FAILED</strong><p style="margin-top:8px;font-size:13px;">${error.message}</p><p style="font-size:11px;color:rgba(26,26,26,0.5);margin-top:4px;">Make sure the API is configured with Cerebras, Pexels, and Pixabay keys.</p></div>`;
+    result.innerHTML = `<div style="border:3px solid var(--red);padding:16px;"><strong style="color:var(--red);">GENERATION FAILED</strong><p style="margin-top:8px;font-size:13px;">${error.message}</p><p style="font-size:11px;color:rgba(26,26,26,0.5);margin-top:4px;">If this says "API keys not configured", the Cerebras API key needs to be set in CloudFlare Pages → Settings → Environment variables.</p></div>`;
   } finally {
     btn.disabled = false;
     btn.textContent = 'GENERATE ARTICLE';

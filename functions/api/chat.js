@@ -84,55 +84,38 @@ export async function onRequestPost(context) {
   ];
 
   try {
-    // Use z-ai-web-dev-sdk if available, otherwise fall back to direct Cerebras API
-    let assistantMessage;
+    // Direct Cerebras API call (z-ai-web-dev-sdk cannot run in CF edge runtime)
+    const apiKey = env.CEREBRAS_API_KEY;
+    if (!apiKey) {
+      return new Response(JSON.stringify({ error: 'Chat service not configured. CEREBRAS_API_KEY missing.' }), {
+        status: 503,
+        headers: CORS_HEADERS,
+      });
+    }
 
-    if (env.ZAI_API_KEY) {
-      // z-ai-web-dev-sdk path
-      const ZAI = (await import('z-ai-web-dev-sdk')).default;
-      const zai = await ZAI.create();
-
-      const completion = await zai.chat.completions.create({
+    const response = await fetch('https://api.cerebras.ai/v1/chat/completions', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${apiKey}`,
+      },
+      body: JSON.stringify({
+        model: 'llama-3.3-70b',
         messages: chatMessages,
         max_tokens: 1024,
         temperature: 0.8,
-      });
+        top_p: 0.95,
+      }),
+    });
 
-      assistantMessage = completion.choices?.[0]?.message?.content || '';
-    } else {
-      // Fallback: direct Cerebras API
-      const apiKey = env.CEREBRAS_API_KEY;
-      if (!apiKey) {
-        return new Response(JSON.stringify({ error: 'Chat service not configured' }), {
-          status: 503,
-          headers: CORS_HEADERS,
-        });
-      }
-
-      const response = await fetch('https://api.cerebras.ai/v1/chat/completions', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${apiKey}`,
-        },
-        body: JSON.stringify({
-          model: 'llama-3.3-70b',
-          messages: chatMessages,
-          max_tokens: 1024,
-          temperature: 0.8,
-          top_p: 0.95,
-        }),
-      });
-
-      if (!response.ok) {
-        const errText = await response.text();
-        console.error('LLM API error:', response.status, errText);
-        throw new Error(`AI service error: ${response.status}`);
-      }
-
-      const data = await response.json();
-      assistantMessage = data.choices?.[0]?.message?.content || '';
+    if (!response.ok) {
+      const errText = await response.text();
+      console.error('Cerebras API error:', response.status, errText);
+      throw new Error(`AI service error: ${response.status}`);
     }
+
+    const data = await response.json();
+    let assistantMessage = data.choices?.[0]?.message?.content || '';
 
     return new Response(JSON.stringify({
       message: assistantMessage,

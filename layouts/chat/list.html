@@ -78,6 +78,7 @@
     <div class="chat-badge">AI POWERED</div>
     <h1 class="chat-title">AI BUSINESS ADVISOR</h1>
     <p class="chat-desc">Get instant, actionable advice on AI monetization. Ask about opportunities, tools, pricing, workflows, or any AI business question.</p>
+    <div id="chat-api-status" style="margin-top:12px;font-size:11px;font-family:var(--font-heading);font-weight:700;letter-spacing:0.05em;padding:4px 10px;display:inline-block;border:2px solid var(--black);">CHECKING CONNECTION...</div>
   </div>
 
   <div class="chat-quick" id="quickPrompts">
@@ -104,6 +105,31 @@
 </div>
 
 <script>
+// Check API health on page load
+(function() {
+  var statusEl = document.getElementById('chat-api-status');
+  if (!statusEl) return;
+
+  fetch('/api/health')
+    .then(function(r) { return r.json(); })
+    .then(function(data) {
+      if (data.services && data.services.cerebras) {
+        statusEl.textContent = 'AI CONNECTED — READY';
+        statusEl.style.background = 'var(--yellow)';
+        statusEl.style.color = 'var(--black)';
+      } else {
+        statusEl.textContent = 'AI NOT CONNECTED — CHAT UNAVAILABLE';
+        statusEl.style.background = 'var(--red)';
+        statusEl.style.color = 'var(--white)';
+      }
+    })
+    .catch(function() {
+      statusEl.textContent = 'OFFLINE — CHECK BACK SOON';
+      statusEl.style.background = 'var(--red)';
+      statusEl.style.color = 'var(--white)';
+    });
+})();
+
 var chatHistory = [];
 var isGenerating = false;
 
@@ -171,7 +197,13 @@ function sendMessage() {
   })
   .catch(function(err) {
     hideTyping();
-    addMessage('assistant', 'Connection error. Please check your internet and try again.');
+    var errMsg = 'Something went wrong. Please try again.';
+    if (err.message && err.message.indexOf('Server error') !== -1) {
+      errMsg = 'The AI service is having issues. Our team has been notified — please try again in a moment.';
+    } else if (err.message && err.message.indexOf('Failed to fetch') !== -1) {
+      errMsg = 'Cannot reach the server. Please check your internet connection and try again.';
+    }
+    addMessage('assistant', errMsg);
   })
   .finally(function() {
     isGenerating = false;

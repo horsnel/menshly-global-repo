@@ -17,6 +17,12 @@ export async function onRequestPost(context) {
       return new Response(JSON.stringify({ error: 'Topic and category are required.' }), { status: 400, headers });
     }
 
+    // Check Cerebras API key upfront for clear error messaging
+    if (!context.env.CEREBRAS_API_KEY) {
+      console.error('CEREBRAS_API_KEY not set in CloudFlare Pages environment');
+      return new Response(JSON.stringify({ error: 'AI service not configured. CEREBRAS_API_KEY is missing. Set it in CloudFlare Pages → Settings → Environment variables.' }), { status: 503, headers });
+    }
+
     const slug = topic.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
     const date = new Date().toISOString().split('T')[0];
     const topicTitle = topic.replace(/(?:^|\s)\S/g, t => t.toUpperCase());
