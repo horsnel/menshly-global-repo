@@ -102,7 +102,8 @@ export async function onRequestPost(context) {
 
       if (pollResponse.ok) {
         const data = await pollResponse.json();
-        assistantMessage = data.choices?.[0]?.message?.content || '';
+        const msg = data.choices?.[0]?.message || {};
+        assistantMessage = msg.content || msg.reasoning_content || '';
       }
     } catch (pollErr) {
       console.warn('Pollinations AI failed, trying Cerebras fallback:', pollErr.message);

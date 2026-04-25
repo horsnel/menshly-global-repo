@@ -48,13 +48,14 @@ export async function onRequestPost(context) {
     ];
 
     // Generate article using multi-provider strategy
-    // CloudFlare Pages Functions have ~30s timeout, so we need fast responses
-    // Use smaller max_tokens to stay under the timeout
-    const maxTokens = category === 'playbook' ? 2500 : category === 'intelligence' ? 2000 : 1800;
+    // Pollinations "openai" model uses tokens for both reasoning AND content
+    // So we need higher max_tokens to ensure content is generated after reasoning
+    const maxTokens = category === 'playbook' ? 5000 : category === 'intelligence' ? 4000 : 3500;
     let content = '';
 
     // Strategy 1: Pollinations AI (free, no API key needed)
     // Use AbortController with 25s timeout to avoid CF function timeout
+    let pollError = null;
     try {
       const controller = new AbortController();
       const timeoutId = setTimeout(() => controller.abort(), 25000);
@@ -73,19 +74,43 @@ export async function onRequestPost(context) {
       clearTimeout(timeoutId);
 
       if (pollResp.ok) {
-        const data = await pollResp.json();
-        content = data.choices?.[0]?.message?.content || '';
-        console.log('Pollinations AI article generated, length:', content.length);
+        const respText = await pollResp.text();
+        try {
+          const data = JSON.parse(respText);
+          const msgContent = data.choices?.[0]?.message?.content || '';
+          const reasoningContent = data.choices?.[0]?.message?.reasoning_content || '';
+          
+          // Use content if available; fall back to reasoning_content if it's substantial
+          // (sometimes the model puts the article in reasoning_content)
+          if (msgContent.length > 50) {
+            content = msgContent;
+          } else if (reasoningContent.length > 200) {
+            // The reasoning might contain the actual article content
+            content = reasoningContent;
+          }
+          
+          if (!content) {
+            pollError = `Empty content. msgContent=${msgContent.length} reasoningContent=${reasoningContent.length}`;
+            console.warn(pollError);
+          } else {
+            console.log('Pollinations AI article generated, length:', content.length);
+          }
+        } catch (parseErr) {
+          pollError = `JSON parse error: ${parseErr.message}, raw: ${respText.substring(0, 300)}`;
+          console.warn(pollError);
+        }
       } else {
         const errText = await pollResp.text();
-        console.warn('Pollinations AI returned non-ok:', pollResp.status, errText.substring(0, 200));
+        pollError = `Pollinations returned ${pollResp.status}: ${errText.substring(0, 200)}`;
+        console.warn(pollError);
       }
     } catch (e) {
       if (e.name === 'AbortError') {
-        console.warn('Pollinations AI article timed out (25s limit)');
+        pollError = 'Pollinations timed out (25s limit)';
       } else {
-        console.warn('Pollinations AI article generation failed:', e.message);
+        pollError = `Pollinations fetch error: ${e.message}`;
       }
+      console.warn(pollError);
     }
 
     // Strategy 2: Cerebras fallback
@@ -140,7 +165,20 @@ export async function onRequestPost(context) {
     }
 
     if (!content) {
-      return new Response(JSON.stringify({ error: 'All AI services are currently unavailable. Please try again in a moment.' }), { status: 503, headers });
+      // Return detailed error for debugging (remove in production)
+      return new Response(JSON.stringify({
+        error: 'All AI services are currently unavailable. Please try again in a moment.',
+        debug: {
+          pollinationsTried: true,
+          pollinationsError: pollError,
+          contentLength: content ? content.length : 0,
+          contentPreview: content ? content.substring(0, 200) : '(empty)',
+          cerebrasKey: !!context.env.CEREBRAS_API_KEY,
+          deepseekKey: !!context.env.DEEPSEEK_API_KEY,
+          promptLength: systemPrompt.length + userPrompt.length,
+          maxTokens,
+        }
+      }), { status: 503, headers });
     }
 
     const articleData = parseGeneratedContent(content, category);
