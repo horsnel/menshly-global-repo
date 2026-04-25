@@ -66,3 +66,28 @@ Stage Summary:
 - Site deployed with all cross-linking and playbook CTAs live
 - Worker ready for email API key deployment
 - All changes pushed to GitHub
+
+---
+Task ID: kv-likes
+Agent: Main
+Task: Create CloudFlare KV namespace for live like button persistence
+
+Work Log:
+- Created CloudFlare KV namespace "MENSHLY_LIKES" (id: ed4b7413a2844687a5da97d5f6d033dc)
+- Created /api/likes Pages Function (GET + POST) with rate limiting, CORS, slug sanitization
+- Created shared article-actions.html partial with: KV-backed like button, Chrome-safe TTS with keepalive/chunking/speed controls, FTC-compliant affiliate disclaimer
+- Updated all 4 article templates (default, opportunities, intelligence, playbooks) to use the new partial
+- Added CSS for like button, speed controls, affiliate disclaimer, playbook CTA inline
+- Bound KV namespace to both production and preview environments via CloudFlare API
+- Fixed bug: expirationTtl:0 is invalid in KV put() - removed the option entirely
+- Deployed via Wrangler CLI, tested all endpoints successfully
+
+Stage Summary:
+- Likes API live at /api/likes (GET returns count, POST increments)
+- Like button on all articles now persists to CloudFlare KV
+- One-like-per-user enforcement via localStorage
+- TTS fixed with Chrome keepalive workaround (pause/resume every 10s)
+- Speed controls: 0.75x, 1x, 1.25x, 1.5x, 2x
+- FTC affiliate disclaimer with yellow left border on all articles
+- KV Namespace: ed4b7413a2844687a5da97d5f6d033dc
+- Deploy workflow: .github/workflows/deploy-cloudflare.yml

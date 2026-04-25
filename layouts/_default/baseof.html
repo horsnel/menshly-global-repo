@@ -1,5 +1,8 @@
 {{ partial "head.html" . }}
 <body>
+  <!-- Reading Progress Bar -->
+  <div id="readingProgress" class="reading-progress-bar"></div>
+
   {{ partial "nav.html" . }}
   {{ block "main" . }}{{ end }}
   {{ partial "newsletter.html" . }}
@@ -7,6 +10,9 @@
 
   <!-- CloudFlare Web Analytics -->
   <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "45a8f4af694f4407a5f9181c6dc54323"}'></script>
+
+  <!-- Menshly Interactive Features -->
+  <script src="/js/menshly.js" defer></script>
 
   <!-- Email Capture Popup -->
   <div id="emailPopup" class="popup-overlay" style="display:none;">
