@@ -1,0 +1,6 @@
+name = "menshly-global"
+pages_build_output_dir = "public"
+
+[[kv_namespaces]]
+binding = "LIKES"
+id = "ed4b7413a2844687a5da97d5f6d033dc"

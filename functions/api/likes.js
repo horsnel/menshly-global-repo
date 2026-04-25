@@ -114,14 +114,14 @@ export async function onRequestPost(context) {
     await env.LIKES.put(key, JSON.stringify({
       count: newCount,
       updatedAt: new Date().toISOString(),
-    }), { expirationTtl: 0 }); // No expiration
+    })); // No expiration
 
     return new Response(JSON.stringify({ slug, likes: newCount }), {
       headers: CORS_HEADERS,
     });
   } catch (err) {
-    console.error('KV write error:', err);
-    return new Response(JSON.stringify({ error: 'Failed to save like' }), {
+    console.error('KV write error:', err.message || err);
+    return new Response(JSON.stringify({ error: 'Failed to save like', detail: err.message || String(err) }), {
       status: 500,
       headers: CORS_HEADERS,
     });
