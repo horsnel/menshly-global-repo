@@ -368,9 +368,15 @@ if __name__ == "__main__":
         discovery.ensure_minimum_queue(5)
         topic_data = discovery.get_next_topic("intelligence")
 
-    if not topic_data or not topic_data.get("intelligence_angle") or not topic_data.get("topic"):
+    if not topic_data or not topic_data.get("topic"):
         print("ERROR: No topic available")
         exit(1)
+
+    # If intelligence_angle is missing, derive it from the topic
+    if not topic_data.get("intelligence_angle"):
+        topic_text = topic_data.get("topic", "")
+        topic_data["intelligence_angle"] = f"Build, Deploy, and Scale {topic_text}"
+        print(f"  No intelligence_angle found, derived: {topic_data['intelligence_angle']}")
 
     topic = topic_data.get("intelligence_angle", topic_data.get("topic", ""))
     print(f"Generating article about: {topic}")

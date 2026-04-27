@@ -427,9 +427,15 @@ if __name__ == "__main__":
                 "affiliates": ["Make.com", "ChatGPT", "Notion", "Zapier"],
             }
 
-    if not topic_data or not topic_data.get("playbook_angle"):
+    if not topic_data or not topic_data.get("topic"):
         print("ERROR: No topic available")
         exit(1)
+
+    # If playbook_angle is missing, derive it from the topic
+    if not topic_data.get("playbook_angle"):
+        topic_text = topic_data.get("topic", "")
+        topic_data["playbook_angle"] = f"Build, Scale, and Monetize {topic_text}"
+        print(f"  No playbook_angle found, derived: {topic_data['playbook_angle']}")
 
     topic = topic_data.get("playbook_angle", topic_data.get("topic", ""))
 

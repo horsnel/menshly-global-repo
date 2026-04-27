@@ -24,7 +24,7 @@ BRIDGE_SCRIPT = PROJECT_ROOT / "scripts" / "ai-bridge.js"
 
 # Pollinations API — free, no key, OpenAI-compatible
 POLLINATIONS_BASE = "https://text.pollinations.ai/openai"
-POLLINATIONS_MODEL = "openai"  # reasoning model, supports long outputs
+POLLINATIONS_MODEL = "mistral"  # better at following instructions than "openai" reasoning model
 
 # Gemini API — Google's LLM, OpenAI-compatible endpoint
 GEMINI_API_BASE = "https://generativelanguage.googleapis.com/v1beta/openai"
