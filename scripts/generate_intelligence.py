@@ -26,6 +26,7 @@ import os
 import re
 import json
 import time
+import random
 import requests
 from datetime import datetime, timezone
 from pathlib import Path
@@ -258,7 +259,7 @@ WORD COUNT TARGET: Write at least 2000 more words."""
     return body, difficulty
 
 
-import random
+
 
 
 def extract_title(body: str) -> str:
@@ -374,24 +375,33 @@ if __name__ == "__main__":
     topic = topic_data.get("intelligence_angle", topic_data.get("topic", ""))
     print(f"Generating article about: {topic}")
 
-    # Step 1: Generate images FIRST
+    # Step 1: Generate images FIRST (non-fatal — continue without if failed)
     prelim_slug = slugify(topic)
 
-    print("Generating thumbnail image...")
-    image_path = generate_article_image(
-        topic=topic,
-        slug=prelim_slug,
-        section="intelligence",
-    )
-    print(f"Thumbnail saved: {image_path}")
+    image_path = f"/images/articles/intelligence/{prelim_slug}.png"
+    hero_path = f"/images/heroes/intelligence/{prelim_slug}.png"
 
-    print("Generating hero image...")
-    hero_path = generate_hero_image(
-        topic=topic,
-        slug=prelim_slug,
-        section="intelligence",
-    )
-    print(f"Hero image saved: {hero_path}")
+    try:
+        print("Generating thumbnail image...")
+        image_path = generate_article_image(
+            topic=topic,
+            slug=prelim_slug,
+            section="intelligence",
+        )
+        print(f"Thumbnail saved: {image_path}")
+    except Exception as e:
+        print(f"  Thumbnail generation failed (non-fatal): {e}")
+
+    try:
+        print("Generating hero image...")
+        hero_path = generate_hero_image(
+            topic=topic,
+            slug=prelim_slug,
+            section="intelligence",
+        )
+        print(f"Hero image saved: {hero_path}")
+    except Exception as e:
+        print(f"  Hero image generation failed (non-fatal): {e}")
 
     # Step 2: Generate article content
     print("Generating article content...")

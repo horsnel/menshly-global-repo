@@ -355,24 +355,33 @@ if __name__ == "__main__":
     print(f"Context: {topic_data.get('context', 'N/A')}")
     print(f"Affiliates: {', '.join(topic_data.get('affiliates', []))}")
 
-    # Step 1: Generate images FIRST (before article content)
+    # Step 1: Generate images FIRST (non-fatal — continue without if failed)
     prelim_slug = slugify(topic)
 
-    print("Generating thumbnail image...")
-    image_path = generate_article_image(
-        topic=topic,
-        slug=prelim_slug,
-        section="opportunities",
-    )
-    print(f"Thumbnail saved: {image_path}")
+    image_path = f"/images/articles/opportunities/{prelim_slug}.png"
+    hero_path = f"/images/heroes/opportunities/{prelim_slug}.png"
 
-    print("Generating hero image...")
-    hero_path = generate_hero_image(
-        topic=topic,
-        slug=prelim_slug,
-        section="opportunities",
-    )
-    print(f"Hero image saved: {hero_path}")
+    try:
+        print("Generating thumbnail image...")
+        image_path = generate_article_image(
+            topic=topic,
+            slug=prelim_slug,
+            section="opportunities",
+        )
+        print(f"Thumbnail saved: {image_path}")
+    except Exception as e:
+        print(f"  Thumbnail generation failed (non-fatal): {e}")
+
+    try:
+        print("Generating hero image...")
+        hero_path = generate_hero_image(
+            topic=topic,
+            slug=prelim_slug,
+            section="opportunities",
+        )
+        print(f"Hero image saved: {hero_path}")
+    except Exception as e:
+        print(f"  Hero image generation failed (non-fatal): {e}")
 
     # Step 2: Generate article content
     print("Generating article content...")

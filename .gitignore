@@ -10,5 +10,5 @@ public/
 resources/
 
 # Generated data (trending queue, last generated)
-data/trending_queue.json
-data/last_generated.json
+# These MUST be tracked in git so they persist between workflow runs
+# for cross-linking and topic deduplication

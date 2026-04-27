@@ -232,7 +232,16 @@ class TrendingTopicDiscovery:
         """Discover new trending topics and add them to the queue."""
         print("Refreshing trending topic queue...")
 
-        new_topics = discover_trending_topics(count)
+        try:
+            new_topics = discover_trending_topics(count)
+        except Exception as e:
+            print(f"  Topic discovery API failed: {e}")
+            print(f"  Using fallback static topics instead")
+            new_topics = _fallback_topics()
+
+        if not new_topics:
+            print("  No topics returned from API, using fallback")
+            new_topics = _fallback_topics()
 
         used_titles = set(t.get("topic", "").lower() for t in self.queue.get("used_topics", []))
 
