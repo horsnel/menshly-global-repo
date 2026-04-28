@@ -40,5 +40,9 @@ jobs:
           git add content/opportunities/ content/intelligence/ content/playbooks/ static/images/ data/
           git add -f data/trending_queue.json data/last_generated.json 2>/dev/null || true
           git diff --cached --quiet || git commit -m "auto: new intelligence article (cross-linked)"
-          git pull --rebase origin main 2>/dev/null || true
-          git push origin main
+          for i in 1 2 3; do
+            git pull --rebase origin main || true
+            git push origin main && break
+            echo "Push attempt $i failed, retrying in 10s..."
+            sleep 10
+          done

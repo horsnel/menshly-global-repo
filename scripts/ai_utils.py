@@ -23,8 +23,9 @@ PROJECT_ROOT = Path(__file__).resolve().parent.parent
 BRIDGE_SCRIPT = PROJECT_ROOT / "scripts" / "ai-bridge.js"
 
 # Pollinations API — free, no key, OpenAI-compatible
-POLLINATIONS_BASE = "https://text.pollinations.ai/openai"
-POLLINATIONS_MODEL = "mistral"  # better at following instructions than "openai" reasoning model
+POLLINATIONS_OPENAI_BASE = "https://text.pollinations.ai/openai"
+POLLINATIONS_DIRECT_BASE = "https://text.pollinations.ai/"
+POLLINATIONS_MODEL = "openai"  # Only available model on Pollinations (gpt-oss-20b reasoning)
 
 # Gemini API — Google's LLM, OpenAI-compatible endpoint
 GEMINI_API_BASE = "https://generativelanguage.googleapis.com/v1beta/openai"
@@ -163,7 +164,23 @@ def _direct_call(payload, max_retries=5, api_key=None, api_base=None):
 
 
 def _pollinations_call(payload, max_retries=5):
-    """Call Pollinations AI — free, no key, OpenAI-compatible.
+    """Call Pollinations AI — free, no key.
+
+    Strategy: Try OpenAI-compatible endpoint first. If that fails (404, model
+    not found, etc.), fall back to the direct text API which returns plain text
+    and wrap it into the expected OpenAI response format.
+    """
+    # Try OpenAI-compatible endpoint first
+    try:
+        return _pollinations_openai_call(payload, max_retries)
+    except Exception as e:
+        print(f"  Pollinations OpenAI endpoint failed: {str(e)[:200]}")
+        print(f"  Trying Pollinations direct text API as fallback...")
+        return _pollinations_direct_call(payload, max_retries)
+
+
+def _pollinations_openai_call(payload, max_retries=5):
+    """Call Pollinations via OpenAI-compatible endpoint.
 
     The "openai" model on Pollinations is a reasoning model that may put
     content in `reasoning_content` instead of `content`. We handle both.
@@ -179,9 +196,9 @@ def _pollinations_call(payload, max_retries=5):
 
     for attempt in range(max_retries + 1):
         try:
-            print(f"  Pollinations API call (attempt {attempt+1}/{max_retries+1})...")
+            print(f"  Pollinations OpenAI API call (attempt {attempt+1}/{max_retries+1})...")
             resp = requests.post(
-                f"{POLLINATIONS_BASE}/chat/completions",
+                f"{POLLINATIONS_OPENAI_BASE}/chat/completions",
                 headers=headers,
                 json=poll_payload,
                 timeout=600,  # 10 min — reasoning models can be slow
@@ -203,12 +220,14 @@ def _pollinations_call(payload, max_retries=5):
                     time.sleep(wait)
                     continue
 
+            # 404 means model/endpoint not found — don't retry, fall back to direct API
+            if resp.status_code == 404:
+                raise RuntimeError(f"Pollinations model/endpoint not found (404): {resp.text[:200]}")
+
             resp.raise_for_status()
             data = resp.json()
 
             # Handle reasoning_content fallback
-            # The Pollinations "openai" model may put content in reasoning_content
-            # instead of content. We extract from either field.
             if data.get("choices"):
                 choice = data["choices"][0]
                 msg = choice.get("message", {})
@@ -219,7 +238,6 @@ def _pollinations_call(payload, max_retries=5):
                     if reasoning and reasoning.strip():
                         print(f"  Extracting content from reasoning_content field...")
                         msg["content"] = reasoning
-                        # Clear reasoning to avoid confusion
                         if "reasoning_content" in msg:
                             del msg["reasoning_content"]
 
@@ -231,7 +249,7 @@ def _pollinations_call(payload, max_retries=5):
                 print(f"  Pollinations timed out. Waiting {wait}s...")
                 time.sleep(wait)
                 continue
-            raise RuntimeError("Pollinations API timed out after maximum retries")
+            raise RuntimeError("Pollinations OpenAI API timed out after maximum retries")
 
         except requests.exceptions.ConnectionError:
             if attempt < max_retries:
@@ -239,9 +257,95 @@ def _pollinations_call(payload, max_retries=5):
                 print(f"  Connection error. Waiting {wait}s...")
                 time.sleep(wait)
                 continue
-            raise RuntimeError("Pollinations API connection failed after maximum retries")
+            raise RuntimeError("Pollinations OpenAI API connection failed after maximum retries")
 
-    raise RuntimeError("Pollinations API failed after maximum retries")
+    raise RuntimeError("Pollinations OpenAI API failed after maximum retries")
+
+
+def _pollinations_direct_call(payload, max_retries=5):
+    """Call Pollinations direct text API — returns plain text, no JSON wrapper.
+
+    We wrap the plain text response into the OpenAI response format so the
+    calling code doesn't need to change.
+    """
+    direct_payload = {
+        "messages": payload.get("messages", []),
+        "model": POLLINATIONS_MODEL,
+        "seed": int(time.time()) % 10000,
+    }
+
+    headers = {"Content-Type": "application/json"}
+
+    for attempt in range(max_retries + 1):
+        try:
+            print(f"  Pollinations direct API call (attempt {attempt+1}/{max_retries+1})...")
+            resp = requests.post(
+                POLLINATIONS_DIRECT_BASE,
+                headers=headers,
+                json=direct_payload,
+                timeout=600,
+            )
+
+            if resp.status_code == 429:
+                wait = 30 * (attempt + 1)
+                if attempt < max_retries:
+                    print(f"  Rate limited (429). Waiting {wait}s...")
+                    time.sleep(wait)
+                    continue
+                else:
+                    resp.raise_for_status()
+
+            if resp.status_code >= 500:
+                if attempt < max_retries:
+                    wait = 15 * (attempt + 1)
+                    print(f"  Server error ({resp.status_code}). Waiting {wait}s...")
+                    time.sleep(wait)
+                    continue
+
+            resp.raise_for_status()
+            text = resp.text
+
+            # Wrap plain text into OpenAI response format
+            openai_response = {
+                "id": f"pollinations-direct-{int(time.time())}",
+                "object": "chat.completion",
+                "created": int(time.time()),
+                "model": POLLINATIONS_MODEL,
+                "choices": [
+                    {
+                        "index": 0,
+                        "message": {
+                            "role": "assistant",
+                            "content": text,
+                        },
+                        "finish_reason": "stop",
+                    }
+                ],
+                "usage": {
+                    "prompt_tokens": 0,
+                    "completion_tokens": len(text.split()),
+                    "total_tokens": len(text.split()),
+                },
+            }
+            return openai_response
+
+        except requests.exceptions.Timeout:
+            if attempt < max_retries:
+                wait = 30 * (attempt + 1)
+                print(f"  Pollinations direct API timed out. Waiting {wait}s...")
+                time.sleep(wait)
+                continue
+            raise RuntimeError("Pollinations direct API timed out after maximum retries")
+
+        except requests.exceptions.ConnectionError:
+            if attempt < max_retries:
+                wait = 20 * (attempt + 1)
+                print(f"  Connection error. Waiting {wait}s...")
+                time.sleep(wait)
+                continue
+            raise RuntimeError("Pollinations direct API connection failed after maximum retries")
+
+    raise RuntimeError("Pollinations direct API failed after maximum retries")
 
 
 def _bridge_call(payload, max_retries=3):
