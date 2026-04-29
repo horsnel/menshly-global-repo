@@ -1,24 +1,6 @@
 {
-  "last_updated": "2026-04-27T10:57:14.081644+00:00",
+  "last_updated": "2026-04-29T10:05:36.568928+00:00",
   "topics": [
-    {
-      "topic": "How to start an AI appointment booking system in 2026",
-      "context": "Voice AI and chatbot booking are replacing manual scheduling",
-      "keywords": [
-        "AI booking",
-        "appointment automation",
-        "voice AI"
-      ],
-      "affiliates": [
-        "Vapi",
-        "Calendly",
-        "Make.com"
-      ],
-      "opportunity_angle": "How to Start an AI Appointment Booking Automation Business in 2026 ($2K-15K/Month)",
-      "intelligence_angle": "Build and Deploy AI Appointment Booking Systems with Vapi and Calendly",
-      "playbook_angle": "Build, Deploy, and Scale AI Appointment Booking Systems with Vapi and Calendly",
-      "discovered_at": "2026-04-27T10:52:25.110673+00:00"
-    },
     {
       "topic": "How to build an AI contract and proposal writing service in 2026",
       "context": "LLMs can now draft professional contracts and proposals in minutes",
@@ -108,7 +90,49 @@
       "intelligence_angle": "Build and Deploy AI Supply Chain Optimization Systems with ChatGPT",
       "playbook_angle": "Build, Scale, and Monetize AI Supply Chain Optimization Consulting with ChatGPT and Make.com",
       "discovered_at": "2026-04-27T10:52:25.110692+00:00"
+    },
+    {
+      "topic": "How to start an AI cold email outreach agency in 2026",
+      "context": "AI-powered personalization at scale is replacing generic cold emails",
+      "keywords": [
+        "cold email",
+        "AI outreach",
+        "automation"
+      ],
+      "affiliates": [
+        "Apollo.io",
+        "Make.com",
+        "Zapier"
+      ],
+      "opportunity_angle": "How to Start an AI Cold Email Outreach Agency in 2026 ($5K-30K/Month)",
+      "intelligence_angle": "Build, Automate, and Scale AI Cold Email Outreach Systems with Apollo.io",
+      "playbook_angle": "Build, Scale, and Monetize an AI Cold Email Outreach Agency with Apollo.io and Make.com",
+      "discovered_at": "2026-04-29T10:03:16.542423+00:00"
+    },
+    {
+      "topic": "How to build AI customer support automation in 2026",
+      "context": "Businesses are replacing first-line support with AI chatbots and routing",
+      "keywords": [
+        "AI support",
+        "chatbot automation",
+        "customer service"
+      ],
+      "affiliates": [
+        "ChatGPT",
+        "Make.com",
+        "Zapier",
+        "Shopify"
+      ],
+      "opportunity_angle": "How to Build an AI Customer Support Automation Business in 2026 ($3K-20K/Month)",
+      "intelligence_angle": "Design, Build, and Deploy AI Customer Support Automation with ChatGPT",
+      "playbook_angle": "Design, Build, and Scale AI Customer Support Automation Systems with ChatGPT and Make.com",
+      "discovered_at": "2026-04-29T10:03:16.542440+00:00"
     }
   ],
-  "used_topics": []
+  "used_topics": [
+    {
+      "topic": "How to start an AI appointment booking system in 2026",
+      "used_at": "2026-04-29T10:05:36.568901+00:00"
+    }
+  ]
 }
