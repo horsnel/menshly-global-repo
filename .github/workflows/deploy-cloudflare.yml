@@ -21,6 +21,8 @@ on:
       - 'build.sh'
       - 'functions/**'
       - 'data/**'
+      - 'scripts/**'
+      - '.github/workflows/**'
 
   workflow_dispatch:
     inputs:
@@ -41,8 +43,8 @@ permissions:
   contents: read
 
 env:
-  HUGO_VERSION: '0.139.0'
-  NODE_VERSION: '20'
+  HUGO_VERSION: '0.147.0'
+  NODE_VERSION: '22'
   CLOUDFLARE_PROJECT: menshly-global
   CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
   CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
@@ -80,7 +82,7 @@ jobs:
           node-version: ${{ env.NODE_VERSION }}
 
       - name: Install Wrangler
-        run: npm install -g wrangler@latest
+        run: npm install -g wrangler@4
 
       - name: Build Hugo site
         id: build
