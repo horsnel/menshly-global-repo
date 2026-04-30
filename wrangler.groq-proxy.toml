@@ -1,0 +1,7 @@
+name = "menshly-groq-proxy"
+main = "workers/groq-proxy.js"
+compatibility_date = "2024-12-01"
+
+# This is a lightweight proxy worker — no KV, no secrets stored here.
+# The Groq API key is passed through from the client request header.
+# Deploy with: npx wrangler deploy --config wrangler.groq-proxy.toml

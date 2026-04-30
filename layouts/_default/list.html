@@ -5,14 +5,14 @@
 <section class="hero">
   <div class="hero-left">
     <div style="max-width:560px;">
-      <span class="hero-badge">AI Monetization Blog</span>
+      <span class="hero-badge swiss-badge">AI Monetization Blog</span>
       <h1 class="hero-title">WHERE AI MEETS REVENUE</h1>
       <p class="hero-desc">Menshly Global connects builders, freelancers, and entrepreneurs with AI opportunities, ready-made playbooks, free tools, and deep implementation guides. Structured knowledge. Bold outcomes.</p>
       <div class="hero-buttons">
         <a href="/opportunities/" class="btn-brutal btn-yellow">EXPLORE OPPORTUNITIES →</a>
         <a href="/playbooks/" class="btn-brutal btn-black">VIEW PLAYBOOKS</a>
       </div>
-      <div class="stats-bar">
+      <div class="stats-bar swiss-rect">
         <div>
           <div class="stats-number" data-count="50" data-suffix="+">0</div>
           <div class="stats-label">IDEAS</div>
@@ -53,21 +53,21 @@
     <div class="hiw-grid">
       <div class="hiw-step">
         <div class="hiw-step-num">01</div>
-        <div class="hiw-step-badge bg-yellow">BROWSE</div>
+        <div class="hiw-step-badge bg-yellow swiss-badge">BROWSE</div>
         <h3 class="hiw-step-title">DISCOVER OPPORTUNITIES</h3>
         <p class="hiw-step-desc">Browse our curated library of AI business opportunities. Each one is researched, validated, and broken down with realistic revenue projections, startup costs, and step-by-step entry strategies.</p>
         <a href="/opportunities/" class="btn-brutal btn-yellow" style="font-size:11px;padding:8px 16px;">BROWSE NOW →</a>
       </div>
       <div class="hiw-step">
         <div class="hiw-step-num">02</div>
-        <div class="hiw-step-badge bg-yellow">LEARN</div>
+        <div class="hiw-step-badge bg-yellow swiss-badge">LEARN</div>
         <h3 class="hiw-step-title">FOLLOW THE INTELLIGENCE</h3>
         <p class="hiw-step-desc">Every opportunity links to a deep implementation guide — full tool stacks, exact configurations, workflow templates, and troubleshooting. This is where you stop reading and start building.</p>
         <a href="/intelligence/" class="btn-brutal btn-yellow" style="font-size:11px;padding:8px 16px;">START LEARNING →</a>
       </div>
       <div class="hiw-step">
         <div class="hiw-step-num">03</div>
-        <div class="hiw-step-badge bg-red text-white">EXECUTE</div>
+        <div class="hiw-step-badge bg-red text-white swiss-badge">EXECUTE</div>
         <h3 class="hiw-step-title">DOWNLOAD & EXECUTE</h3>
         <p class="hiw-step-desc">Grab a battle-tested playbook — step-by-step procedures, checklists, pricing templates, and scaling roadmaps. Execute every procedure, check off every box, and go from zero to revenue.</p>
         <a href="/playbooks/" class="btn-brutal btn-red" style="font-size:11px;padding:8px 16px;">GET PLAYBOOKS →</a>
@@ -119,7 +119,7 @@
           <span style="font-family:var(--font-heading);font-size:48px;color:rgba(26,26,26,0.1);font-weight:700;">{{ substr $.Title 0 1 }}</span>
         </div>
         {{ end }}
-        <div class="playbook-price-badge">{{ .Params.price | default "FREE" }}</div>
+        <div class="playbook-price-badge swiss-badge">{{ .Params.price | default "FREE" }}</div>
         <div class="playbook-card-body">
           <div class="playbook-card-title">{{ .Title }}</div>
           <div class="playbook-card-excerpt">{{ .Params.excerpt | default (truncate 100 .Summary) }}</div>
@@ -147,7 +147,7 @@
     </div>
     <div class="card-grid card-grid-5">
       <div class="tool-card">
-        <div class="tool-card-header">
+        <div class="tool-card-header swiss-rect">
           <span class="tool-card-icon"><svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M14 2C9.58 2 6 5.58 6 10c0 2.79 1.56 5.22 3.86 6.5.73.41 1.14 1.2 1.14 2.04V20h6v-1.46c0-.84.41-1.63 1.14-2.04C20.44 15.22 22 12.79 22 10c0-4.42-3.58-8-8-8z" stroke="#F9FF00" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M11 20h6M12 23h4" stroke="#F9FF00" stroke-width="2.5" stroke-linecap="round"/><path d="M14 6v4M11 10h6" stroke="#1a1a1a" stroke-width="2" stroke-linecap="round"/></svg></span>
           <span class="tool-card-name">Idea Generator</span>
         </div>
@@ -156,7 +156,7 @@
         </div>
       </div>
       <div class="tool-card">
-        <div class="tool-card-header">
+        <div class="tool-card-header swiss-rect">
           <span class="tool-card-icon"><svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="3" width="22" height="22" rx="0" stroke="#F9FF00" stroke-width="2.5"/><path d="M3 10h22" stroke="#F9FF00" stroke-width="2.5"/><path d="M10 3v7M18 3v7" stroke="#F9FF00" stroke-width="2.5"/><text x="14" y="21" text-anchor="middle" font-family="Oswald" font-weight="700" font-size="10" fill="#F9FF00">$</text></svg></span>
           <span class="tool-card-name">Pricing Calculator</span>
         </div>
@@ -165,7 +165,7 @@
         </div>
       </div>
       <div class="tool-card">
-        <div class="tool-card-header">
+        <div class="tool-card-header swiss-rect">
           <span class="tool-card-icon"><svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 24V8" stroke="#F9FF00" stroke-width="2.5" stroke-linecap="round"/><path d="M4 24h20" stroke="#F9FF00" stroke-width="2.5" stroke-linecap="round"/><rect x="8" y="14" width="4" height="10" fill="#F9FF00"/><rect x="15" y="8" width="4" height="16" fill="#F9FF00"/><rect x="22" y="18" width="0" height="6" fill="#F9FF00"/></svg></span>
           <span class="tool-card-name">Rate Calculator</span>
         </div>
@@ -174,7 +174,7 @@
         </div>
       </div>
       <div class="tool-card">
-        <div class="tool-card-header">
+        <div class="tool-card-header swiss-rect">
           <span class="tool-card-icon"><svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M16.07 6.34l1.42-1.42a3 3 0 114.24 4.24l-1.42 1.42M16.07 6.34L6.34 16.07a2 2 0 00-.49 2.12l-1.85 1.85a1.5 1.5 0 002.12 2.12l1.85-1.85a2 2 0 002.12-.49l9.73-9.73M16.07 6.34l5.24 5.24" stroke="#F9FF00" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
           <span class="tool-card-name">Stack Matcher</span>
         </div>
@@ -183,7 +183,7 @@
         </div>
       </div>
       <div class="tool-card">
-        <div class="tool-card-header">
+        <div class="tool-card-header swiss-rect">
           <span class="tool-card-icon"><svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 4h14" stroke="#F9FF00" stroke-width="2.5" stroke-linecap="round"/><path d="M4 10h20" stroke="#F9FF00" stroke-width="2.5" stroke-linecap="round"/><path d="M4 16h12" stroke="#F9FF00" stroke-width="2.5" stroke-linecap="round"/><path d="M4 22h8" stroke="#F9FF00" stroke-width="2.5" stroke-linecap="round"/><path d="M20 18l3 3-6 3-1-1 4-5z" fill="#F9FF00" stroke="#F9FF00" stroke-width="1.5" stroke-linejoin="round"/></svg></span>
           <span class="tool-card-name">Article Generator</span>
         </div>
@@ -215,7 +215,7 @@
         <div class="process-step-inner">
           <div>
             <span class="process-step-number">01</span>
-            <span class="process-step-badge yellow">DISCOVER</span>
+            <span class="process-step-badge yellow swiss-badge">DISCOVER</span>
             <h3 class="process-step-title">OPPORTUNITIES</h3>
             <p class="process-step-desc">Discover new AI models, ideas, and automation systems before everyone else. We track emerging platforms, untapped markets, and revenue gaps you can exploit today.</p>
           </div>
@@ -246,7 +246,7 @@
         <div class="process-step-inner">
           <div>
             <span class="process-step-number">02</span>
-            <span class="process-step-badge red">DOWNLOAD</span>
+            <span class="process-step-badge red swiss-badge">DOWNLOAD</span>
             <h3 class="process-step-title">PLAYBOOKS</h3>
             <p class="process-step-desc">Ready-made ebooks, templates, and materials you can download or purchase. Battle-tested strategies packaged for immediate execution — no theory, just action.</p>
           </div>
@@ -277,7 +277,7 @@
         <div class="process-step-inner">
           <div>
             <span class="process-step-number">03</span>
-            <span class="process-step-badge yellow">USE FREE</span>
+            <span class="process-step-badge yellow swiss-badge">USE FREE</span>
             <h3 class="process-step-title">TOOLS</h3>
             <p class="process-step-desc">Free interactive utilities to accelerate your AI revenue. From idea generators to pricing calculators — every tool is built to give you an immediate advantage.</p>
           </div>
@@ -308,7 +308,7 @@
         <div class="process-step-inner">
           <div>
             <span class="process-step-number">04</span>
-            <span class="process-step-badge red">EXECUTE</span>
+            <span class="process-step-badge red swiss-badge">EXECUTE</span>
             <h3 class="process-step-title">INTELLIGENCE</h3>
             <p class="process-step-desc">Deep implementation guides that cover every detail — full stack, end-to-end execution. If you want to actually build it, not just read about it, this is your section.</p>
           </div>
@@ -342,7 +342,7 @@
 {{ if and .IsSection (eq .Pages.Len 0) }}
 <!-- Standalone page section (About, Contact, Legal) — show content directly -->
 <div class="page-header">
-  <div class="page-badge">{{ .Params.badge | default .Section | upper }}</div>
+  <div class="page-badge swiss-badge">{{ .Params.badge | default .Section | upper }}</div>
   <h1 class="page-title">{{ .Title }}</h1>
 </div>
 <div class="page-content">

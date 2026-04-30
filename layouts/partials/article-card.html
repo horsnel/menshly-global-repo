@@ -29,7 +29,7 @@
     <div class="article-card-title">{{ $ctx.Title }}</div>
     <div class="article-card-excerpt">{{ $ctx.Params.excerpt | default (truncate 120 $ctx.Summary) }}</div>
   </div>
-  <div class="article-card-meta">
+  <div class="article-card-meta swiss-rect">
     <span class="article-card-date">{{ $ctx.Date.Format "Jan 02, 2006" }}</span>
     <span class="article-card-read">{{ $ctx.Params.readTime | default "5 MIN" }}</span>
   </div>

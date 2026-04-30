@@ -12,12 +12,146 @@
   --off-white: #fafafa;
   --font-heading: "Oswald", sans-serif;
   --font-body: "Inter", sans-serif;
+  --swiss-radius: 8px;
+  --swiss-radius-sm: 4px;
 }
 
 /* --- Reset & Base --- */
 *, *::before, *::after {
   border-radius: 0 !important;
   box-sizing: border-box;
+}
+
+/* --- Swiss Rounding Override --- */
+/* Applied via .swiss-rect on structural bars and .swiss-badge on small elements */
+.swiss-rect {
+  border-radius: var(--swiss-radius) !important;
+  border: 3px solid var(--black);
+  overflow: hidden;
+}
+
+.swiss-badge {
+  border-radius: var(--swiss-radius-sm) !important;
+}
+
+/* --- Structural Bars & Boxes: Swiss Radius --- */
+.nav-mobile-menu,
+.stats-bar,
+.article-meta-bar,
+.article-card-meta,
+.playbook-card-action,
+.article-actions-bar,
+.share-bar,
+.newsletter-form,
+.tool-card-header,
+.tool-card-form,
+.tool-result,
+.roster-header,
+.story-box-header,
+.playbook-buy-header,
+.playbook-buy-inner,
+.crosslink-cta-inner,
+.crosslink-back-inner,
+.accent-box,
+.affiliate-disclaimer,
+.toc-sidebar,
+.error-stats,
+.popup-card,
+.contact-form,
+.contact-info-card,
+.process-detail-list,
+.hiw-grid,
+.card-grid {
+  border-radius: var(--swiss-radius) !important;
+  overflow: hidden;
+}
+
+/* --- Small Badges: Tight Swiss Radius --- */
+.hero-badge,
+.hero-right-badge span,
+.article-category,
+.article-meta-item,
+.process-step-badge,
+.hiw-step-badge,
+.playbook-price-badge,
+.playbook-cta-badge,
+.page-badge,
+.affiliate-card-earn,
+.error-line,
+.chat-badge,
+.chat-quick-btn,
+.popup-close,
+.process-progress-bar {
+  border-radius: var(--swiss-radius-sm) !important;
+}
+
+/* --- Buttons: Swiss Radius --- */
+.listen-btn,
+.like-btn,
+.bookmark-btn,
+.speed-btn,
+.btn-brutal,
+.input-brutal,
+.playbook-btn,
+.tool-toggle-btn,
+.chat-input,
+.chat-send {
+  border-radius: var(--swiss-radius-sm) !important;
+}
+
+/* --- Cards & Boxes: Swiss Radius --- */
+.article-card,
+.playbook-card,
+.affiliate-card,
+.story-box,
+.playbook-buy-box,
+.playbook-paywall-inner,
+.hiw-step,
+.tool-card {
+  border-radius: var(--swiss-radius) !important;
+  overflow: hidden;
+}
+
+/* --- Table of Contents Active Indicator --- */
+.toc-link.active {
+  border-radius: 0 var(--swiss-radius-sm) var(--swiss-radius-sm) 0 !important;
+}
+
+/* --- Blockquote: Round all corners --- */
+.article-content blockquote {
+  border-radius: var(--swiss-radius) !important;
+}
+
+/* --- Article Hero Image: Round corners --- */
+.article-hero-image {
+  border-radius: var(--swiss-radius) !important;
+  overflow: hidden;
+}
+
+.article-hero-image img {
+  border-radius: 0 !important;
+}
+
+/* --- Article Content Pre: Round corners --- */
+.article-content pre {
+  border-radius: var(--swiss-radius) !important;
+}
+
+/* --- Article Content Table: Round corners --- */
+.article-content table {
+  border-radius: var(--swiss-radius) !important;
+  overflow: hidden;
+}
+
+/* --- Roster Table: Round corners --- */
+.roster-table {
+  border-radius: var(--swiss-radius) !important;
+  overflow: hidden;
+}
+
+/* --- Code inline: Tiny radius --- */
+.article-content code {
+  border-radius: var(--swiss-radius-sm) !important;
 }
 
 html {
@@ -1489,191 +1623,7 @@ img {
   display: block;
 }
 
-/* --- Article Actions Bar (Audio + Like) --- */
-.article-actions-bar {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  margin-top: 20px;
-  flex-wrap: wrap;
-}
-
-.action-item {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.audio-player-wrap {
-  flex-wrap: wrap;
-  gap: 10px;
-}
-
-/* Listen Button */
-.listen-btn {
-  font-family: var(--font-heading);
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  font-size: 11px;
-  font-weight: 700;
-  border: 3px solid var(--black);
-  background: var(--white);
-  color: var(--black);
-  padding: 10px 20px;
-  cursor: pointer;
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  transition: all 0.15s ease;
-}
-
-.listen-btn:hover {
-  background: var(--yellow);
-}
-
-.listen-btn.listening {
-  background: var(--red);
-  color: var(--white);
-  border-color: var(--red);
-}
-
-.listen-btn.listening:hover {
-  background: var(--black);
-  color: var(--white);
-  border-color: var(--black);
-}
-
-.listen-icon {
-  width: 20px;
-  height: 20px;
-  flex-shrink: 0;
-}
-
-.listen-btn.listening .listen-icon {
-  animation: pulse-icon 1s ease infinite;
-}
-
-@keyframes pulse-icon {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.4; }
-}
-
-/* Audio Speed Buttons */
-.audio-speed-wrap {
-  display: flex;
-  gap: 4px;
-  align-items: center;
-}
-
-.speed-btn {
-  font-family: var(--font-heading);
-  font-size: 10px;
-  font-weight: 700;
-  padding: 6px 10px;
-  border: 2px solid var(--black);
-  background: var(--white);
-  color: var(--black);
-  cursor: pointer;
-  letter-spacing: 0.05em;
-  transition: all 0.15s ease;
-}
-
-.speed-btn:hover {
-  background: var(--yellow);
-}
-
-.speed-btn.active {
-  background: var(--black);
-  color: var(--white);
-}
-
-/* Like Button */
-.like-wrap {
-  margin-left: auto;
-}
-
-.like-btn {
-  font-family: var(--font-heading);
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  font-size: 12px;
-  font-weight: 700;
-  border: 3px solid var(--black);
-  background: var(--white);
-  color: var(--black);
-  padding: 10px 18px;
-  cursor: pointer;
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  transition: all 0.15s ease;
-}
-
-.like-btn:hover {
-  background: var(--yellow);
-  border-color: var(--red);
-}
-
-.like-btn.liked {
-  background: var(--red);
-  color: var(--white);
-  border-color: var(--red);
-}
-
-.like-btn.liked:hover {
-  background: var(--black);
-  color: var(--white);
-  border-color: var(--black);
-}
-
-.like-icon {
-  width: 20px;
-  height: 20px;
-  flex-shrink: 0;
-  transition: transform 0.15s ease;
-}
-
-.like-btn.liked .like-icon {
-  color: var(--white);
-  fill: var(--white);
-}
-
-/* Like pop animation */
-.like-btn.like-pop {
-  animation: like-pop-anim 0.4s ease;
-}
-
-@keyframes like-pop-anim {
-  0% { transform: scale(1); }
-  30% { transform: scale(1.25); }
-  60% { transform: scale(0.95); }
-  100% { transform: scale(1); }
-}
-
-/* --- Affiliate Disclaimer --- */
-.affiliate-disclaimer {
-  display: flex;
-  align-items: flex-start;
-  gap: 8px;
-  margin-top: 16px;
-  padding: 12px 16px;
-  background: rgba(249, 255, 0, 0.08);
-  border-left: 3px solid var(--yellow);
-  font-size: 12px;
-  line-height: 1.6;
-  color: rgba(26, 26, 26, 0.7);
-}
-
-.affiliate-disclaimer svg {
-  margin-top: 2px;
-  flex-shrink: 0;
-  opacity: 0.5;
-}
-
-.affiliate-disclaimer a {
-  color: var(--red);
-  text-decoration: underline;
-}
+/* --- Article Actions & Affiliate styles moved to unified section below --- */
 
 /* --- Affiliate Page Grid & Cards --- */
 .page-subtitle {
@@ -1761,11 +1711,6 @@ img {
   color: rgba(26, 26, 26, 0.7);
   margin: 0;
   flex: 1;
-}
-
-/* Hide old listen bar if it still shows */
-.article-listen-bar {
-  display: none;
 }
 
 /* --- Startup Story Box --- */
@@ -2169,21 +2114,20 @@ img {
 /* --- Playbook CTA Inline (in articles) --- */
 .playbook-cta-inline {
   max-width: 1080px;
-  margin: 32px auto;
+  margin: 40px auto 0;
   padding: 0 24px;
 }
 
 @media (min-width: 768px) {
   .playbook-cta-inline {
     padding: 0 48px;
-    margin: 40px auto;
   }
 }
 
 .playbook-cta-inner {
-  border: 3px solid var(--black);
+  border: 3px solid var(--red);
   background: var(--off-white);
-  padding: 24px;
+  padding: 32px;
   display: flex;
   flex-direction: column;
   gap: 12px;
@@ -2199,18 +2143,17 @@ img {
 }
 
 .playbook-cta-badge {
-  font-family: var(--font-heading);
-  font-size: 10px;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.15em;
+  display: inline-block;
   background: var(--red);
   color: var(--white);
-  padding: 4px 10px;
   border: 3px solid var(--red);
-  display: inline-block;
-  flex-shrink: 0;
-  align-self: flex-start;
+  padding: 4px 12px;
+  font-family: var(--font-heading);
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  width: fit-content;
 }
 
 @media (min-width: 640px) {
@@ -2221,10 +2164,10 @@ img {
 
 .playbook-cta-inner h4 {
   font-family: var(--font-heading);
-  font-size: 18px;
+  font-size: clamp(1.2rem, 2.5vw, 1.5rem);
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: -0.01em;
+  letter-spacing: -0.02em;
   margin: 0;
   color: var(--black);
 }
@@ -2327,7 +2270,7 @@ img {
 /* --- Accent Box (Shortcode) --- */
 .accent-box {
   border: 3px solid var(--black);
-  background: var(--acid-yellow);
+  background: var(--yellow);
   padding: 20px 24px;
   margin: 24px 0;
   font-size: 15px;
@@ -2658,9 +2601,73 @@ img {
   }
 }
 
+.action-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Listen Button */
+.audio-player-wrap {
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.listen-btn {
+  font-family: var(--font-heading);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 11px;
+  font-weight: 700;
+  border: 3px solid var(--black);
+  background: var(--white);
+  color: var(--black);
+  padding: 10px 20px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  transition: all 0.15s ease;
+}
+
+.listen-btn:hover {
+  background: var(--yellow);
+}
+
+.listen-btn.listening {
+  background: var(--red);
+  color: var(--white);
+  border-color: var(--red);
+}
+
+.listen-btn.listening:hover {
+  background: var(--black);
+  color: var(--white);
+  border-color: var(--black);
+}
+
+.listen-icon {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+}
+
+.listen-btn.listening .listen-icon {
+  animation: pulse-icon 1s ease infinite;
+}
+
+@keyframes pulse-icon {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+
 .action-like {
   display: flex;
   align-items: center;
+}
+
+.like-wrap {
+  margin-left: auto;
 }
 
 .like-btn {
@@ -2678,6 +2685,8 @@ img {
   align-items: center;
   gap: 10px;
   transition: all 0.15s ease;
+  position: relative;
+  overflow: visible;
 }
 
 .like-btn:hover {
@@ -2793,54 +2802,7 @@ img {
   font-size: 11px;
 }
 
-/* --- Playbook CTA Inline --- */
-.playbook-cta-inline {
-  max-width: 1080px;
-  margin: 40px auto 0;
-  padding: 0 24px;
-}
-
-@media (min-width: 768px) {
-  .playbook-cta-inline {
-    padding: 0 48px;
-  }
-}
-
-.playbook-cta-inner {
-  border: 3px solid var(--red);
-  background: var(--off-white);
-  padding: 32px;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-
-.playbook-cta-badge {
-  display: inline-block;
-  background: var(--red);
-  color: var(--white);
-  border: 3px solid var(--red);
-  padding: 4px 12px;
-  font-family: var(--font-heading);
-  font-size: 11px;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  width: fit-content;
-}
-
-.playbook-cta-inner h4 {
-  font-size: clamp(1.2rem, 2.5vw, 1.5rem);
-  letter-spacing: -0.02em;
-}
-
-.playbook-cta-inner p {
-  font-size: 14px;
-  line-height: 1.6;
-  color: rgba(26, 26, 26, 0.7);
-  margin: 0;
-}
-
+/* --- Playbook CTA Footer --- */
 .playbook-cta-footer {
   display: flex;
   align-items: center;
@@ -2984,11 +2946,6 @@ img {
 @keyframes heart-burst {
   0% { opacity: 1; transform: translateY(0) scale(1); }
   100% { opacity: 0; transform: translateY(-60px) scale(0.3); }
-}
-
-.like-btn {
-  position: relative;
-  overflow: visible;
 }
 
 /* --- Table of Contents --- */

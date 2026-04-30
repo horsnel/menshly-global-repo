@@ -22,7 +22,7 @@
       <button onclick="document.getElementById('mobileMenu').classList.toggle('open')" aria-label="Menu" style="border:3px solid var(--black);padding:4px 10px;font-family:var(--font-heading);font-weight:700;font-size:18px;cursor:pointer;background:none;">☰</button>
     </div>
   </div>
-  <div class="nav-mobile-menu" id="mobileMenu">
+  <div class="nav-mobile-menu swiss-rect" id="mobileMenu">
     {{ range .Site.Menus.main }}
     <a href="{{ .URL }}">{{ .Name }}</a>
     {{ end }}
