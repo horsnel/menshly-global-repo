@@ -89,7 +89,46 @@ export async function onRequestPost(context) {
   try {
     let assistantMessage = '';
 
-    // Strategy 1: Gemini API (primary — fast, generous quota)
+    // Strategy 1: Groq API via direct call (fast, free tier)
+    // Groq is fastest LLM — try first when available
+    const groqKey = env.GROQ_API_KEY;
+    if (groqKey) {
+      try {
+        const controller = new AbortController();
+        const timeoutId = setTimeout(() => controller.abort(), 15000);
+
+        const groqResp = await fetch('https://api.groq.com/openai/v1/chat/completions', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${groqKey}`,
+          },
+          signal: controller.signal,
+          body: JSON.stringify({
+            model: 'llama-3.3-70b-versatile',
+            messages: chatMessages,
+            max_tokens: 1024,
+            temperature: 0.8,
+          }),
+        });
+        clearTimeout(timeoutId);
+
+        if (groqResp.ok) {
+          const data = await groqResp.json();
+          assistantMessage = data.choices?.[0]?.message?.content || '';
+          if (assistantMessage) {
+            console.log('Groq: chat response generated');
+          }
+        } else {
+          const errText = await groqResp.text().catch(() => '');
+          console.warn('Groq chat failed:', groqResp.status, errText.substring(0, 100));
+        }
+      } catch (groqErr) {
+        console.warn('Groq chat error:', groqErr.name === 'AbortError' ? 'timeout' : groqErr.message);
+      }
+    }
+
+    // Strategy 2: Gemini API (fast, generous quota)
     const geminiKey = env.GEMINI_API_KEY;
     if (geminiKey) {
       try {
