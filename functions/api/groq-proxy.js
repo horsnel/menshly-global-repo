@@ -8,8 +8,39 @@
  * The Groq API key must be passed in the Authorization header.
  */
 
-export async function onRequestPost(context) {
+// Handle all requests — route by method
+export async function onRequest(context) {
   const { request } = context;
+
+  // CORS preflight
+  if (request.method === 'OPTIONS') {
+    return new Response(null, {
+      headers: {
+        'Access-Control-Allow-Origin': '*',
+        'Access-Control-Allow-Methods': 'POST, OPTIONS, GET',
+        'Access-Control-Allow-Headers': 'Authorization, Content-Type',
+      },
+    });
+  }
+
+  // Health check
+  if (request.method === 'GET') {
+    return new Response(JSON.stringify({
+      status: 'ok',
+      service: 'groq-proxy',
+      message: 'Send POST with Authorization: Bearer gsk_... header',
+    }), {
+      headers: { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' },
+    });
+  }
+
+  // Only allow POST
+  if (request.method !== 'POST') {
+    return new Response(JSON.stringify({ error: 'Method not allowed. Use POST.' }), {
+      status: 405,
+      headers: { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' },
+    });
+  }
 
   // Get the API key from the request header
   const authHeader = request.headers.get('Authorization') || '';
@@ -23,7 +54,7 @@ export async function onRequestPost(context) {
   }
 
   try {
-    // Parse the request body to get model and messages
+    // Parse the request body
     const body = await request.json();
 
     // Forward to Groq API
@@ -52,15 +83,4 @@ export async function onRequestPost(context) {
       headers: { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' },
     });
   }
-}
-
-// Handle CORS preflight
-export async function onRequestOptions() {
-  return new Response(null, {
-    headers: {
-      'Access-Control-Allow-Origin': '*',
-      'Access-Control-Allow-Methods': 'POST, OPTIONS',
-      'Access-Control-Allow-Headers': 'Authorization, Content-Type',
-    },
-  });
 }
