@@ -6,6 +6,7 @@ readTime: "16 MIN"
 excerpt: "Every day, businesses lose up to **$1.2 million** to unfilled slots, according to a recent industry survey. The culprit? Manual phone calls, endless back‑and‑forth emails, and scheduling software that..."
 image: "/images/articles/opportunities/how-to-start-an-ai-appointment-booking-automation-business-in-2026-2k-15kmonth.png"
 heroImage: "/images/heroes/opportunities/how-to-start-an-ai-appointment-booking-automation-business-in-2026-2k-15kmonth.png"
+relatedGuide: "/intelligence/build-configure-and-deploy-an-ai-appointment-booking-system-with-vapi-and-calend/"
 ---
 
 
