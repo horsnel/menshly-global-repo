@@ -1,24 +1,6 @@
 {
-  "last_updated": "2026-05-01T12:00:00.000000+00:00",
+  "last_updated": "2026-05-01T09:55:26.622112+00:00",
   "topics": [
-    {
-      "topic": "How to start an AI personal finance automation service in 2026",
-      "context": "People want automated budgeting, expense tracking, and investment insights",
-      "keywords": [
-        "AI finance",
-        "personal finance automation",
-        "budget AI"
-      ],
-      "affiliates": [
-        "ChatGPT",
-        "Make.com",
-        "Notion"
-      ],
-      "opportunity_angle": "How to Start an AI Personal Finance Automation Service in 2026 ($2K-10K/Month)",
-      "intelligence_angle": "Build and Deploy AI Personal Finance Automation Systems with ChatGPT",
-      "playbook_angle": "Build, Deploy, and Monetize AI Personal Finance Automation Systems with ChatGPT and Make.com",
-      "discovered_at": "2026-04-27T10:52:25.110680+00:00"
-    },
     {
       "topic": "How to build an AI translation and localization service in 2026",
       "context": "Global businesses need fast, AI-powered multilingual content",
@@ -562,7 +544,7 @@
     },
     {
       "topic": "How to build a silent workforce with autonomous agents and CrewAI in 2026",
-      "context": "Autonomous AI agents are replacing entire teams — solo entrepreneurs can now orchestrate multi-agent crews that handle research, writing, and analysis autonomously",
+      "context": "Autonomous AI agents are replacing entire teams \u2014 solo entrepreneurs can now orchestrate multi-agent crews that handle research, writing, and analysis autonomously",
       "keywords": [
         "autonomous agents",
         "CrewAI",
@@ -580,7 +562,7 @@
     },
     {
       "topic": "How to sell prompt engineering as a premium consulting service in 2026",
-      "context": "Companies are desperate for prompt engineers who can optimize AI outputs — it's the new high-ticket consulting skill",
+      "context": "Companies are desperate for prompt engineers who can optimize AI outputs \u2014 it's the new high-ticket consulting skill",
       "keywords": [
         "prompt engineering",
         "AI consulting",
@@ -616,7 +598,7 @@
     },
     {
       "topic": "How to publish 10 digital products this month with the eBook factory model in 2026",
-      "context": "AI makes it possible to research, write, format, and publish eBooks at unprecedented speed — turning knowledge into scalable digital assets",
+      "context": "AI makes it possible to research, write, format, and publish eBooks at unprecedented speed \u2014 turning knowledge into scalable digital assets",
       "keywords": [
         "eBook publishing",
         "digital products",
@@ -688,7 +670,7 @@
     },
     {
       "topic": "How to build a YouTube automation agency that sells the system not the videos in 2026",
-      "context": "Entrepreneurs are paying premium prices for done-for-you YouTube automation systems — sell the playbook, not the production",
+      "context": "Entrepreneurs are paying premium prices for done-for-you YouTube automation systems \u2014 sell the playbook, not the production",
       "keywords": [
         "YouTube automation agency",
         "faceless YouTube",
@@ -724,7 +706,7 @@
     },
     {
       "topic": "How to build a dropshipping store that manages itself with Make.com in 2026",
-      "context": "No-code automation can handle order processing, inventory sync, customer emails, and ad management — making dropshipping truly hands-off",
+      "context": "No-code automation can handle order processing, inventory sync, customer emails, and ad management \u2014 making dropshipping truly hands-off",
       "keywords": [
         "automated dropshipping",
         "Make.com",
@@ -760,7 +742,7 @@
     },
     {
       "topic": "How to build the coupon site blueprint for serious money in 2026",
-      "context": "Coupon and deal sites generate affiliate revenue on autopilot — AI can scrape, organize, and publish deals at scale",
+      "context": "Coupon and deal sites generate affiliate revenue on autopilot \u2014 AI can scrape, organize, and publish deals at scale",
       "keywords": [
         "coupon site",
         "affiliate deals",
@@ -778,7 +760,7 @@
     },
     {
       "topic": "How to build a design business using Midjourney and Canva as your studio in 2026",
-      "context": "AI image generation has democratized design — solo entrepreneurs can now offer professional branding and creative services without traditional design skills",
+      "context": "AI image generation has democratized design \u2014 solo entrepreneurs can now offer professional branding and creative services without traditional design skills",
       "keywords": [
         "AI design business",
         "Midjourney",
@@ -796,7 +778,7 @@
     },
     {
       "topic": "How to build a voice-over empire with ElevenLabs in 2026",
-      "context": "AI voice cloning and generation are replacing traditional voice-over artists — build a studio business that scales without recording booths",
+      "context": "AI voice cloning and generation are replacing traditional voice-over artists \u2014 build a studio business that scales without recording booths",
       "keywords": [
         "AI voice-over",
         "ElevenLabs",
@@ -814,7 +796,7 @@
     },
     {
       "topic": "How to build a translation business serving global clients with local rates in 2026",
-      "context": "AI translation tools let you serve international clients at competitive local rates while maintaining quality — unlocking a global client base",
+      "context": "AI translation tools let you serve international clients at competitive local rates while maintaining quality \u2014 unlocking a global client base",
       "keywords": [
         "translation business",
         "global clients",
@@ -832,7 +814,7 @@
     },
     {
       "topic": "How to build a virtual assistant business that operates while you sleep in 2026",
-      "context": "AI-powered virtual assistants can handle scheduling, email, research, and admin tasks 24/7 — sell the service, let automation do the work",
+      "context": "AI-powered virtual assistants can handle scheduling, email, research, and admin tasks 24/7 \u2014 sell the service, let automation do the work",
       "keywords": [
         "virtual assistant",
         "AI automation",
@@ -850,7 +832,7 @@
     },
     {
       "topic": "How to package your knowledge and sell prompt packs on Gumroad in 2026",
-      "context": "Prompt packs are the new digital product — professionals pay premium prices for curated, tested prompts that save them hours",
+      "context": "Prompt packs are the new digital product \u2014 professionals pay premium prices for curated, tested prompts that save them hours",
       "keywords": [
         "prompt packs",
         "Gumroad",
@@ -868,7 +850,7 @@
     },
     {
       "topic": "How to sell Notion productivity templates to professionals in 2026",
-      "context": "Notion templates are booming — professionals pay for pre-built dashboards, trackers, and workflows that save them setup time",
+      "context": "Notion templates are booming \u2014 professionals pay for pre-built dashboards, trackers, and workflows that save them setup time",
       "keywords": [
         "Notion templates",
         "productivity systems",
@@ -886,7 +868,7 @@
     },
     {
       "topic": "How to build a Chrome extension people pay for in 2026",
-      "context": "Browser extensions solve micro-problems that users encounter daily — AI can accelerate development and solo entrepreneurs can monetize with subscriptions",
+      "context": "Browser extensions solve micro-problems that users encounter daily \u2014 AI can accelerate development and solo entrepreneurs can monetize with subscriptions",
       "keywords": [
         "Chrome extension",
         "browser tools",
@@ -904,7 +886,7 @@
     },
     {
       "topic": "How to build a directory website and charge for listings in 2026",
-      "context": "Niche directory sites generate recurring revenue from paid listings — AI can scrape, organize, and maintain directories at scale",
+      "context": "Niche directory sites generate recurring revenue from paid listings \u2014 AI can scrape, organize, and maintain directories at scale",
       "keywords": [
         "directory website",
         "paid listings",
@@ -922,7 +904,7 @@
     },
     {
       "topic": "How to build a financial literacy platform for the African middle class in 2026",
-      "context": "Africa's growing middle class is hungry for accessible financial education — AI-powered platforms can deliver localized content at scale",
+      "context": "Africa's growing middle class is hungry for accessible financial education \u2014 AI-powered platforms can deliver localized content at scale",
       "keywords": [
         "financial literacy",
         "African market",
@@ -940,7 +922,7 @@
     },
     {
       "topic": "How to write property listings that sell faster and charge for it in 2026",
-      "context": "Real estate agents need compelling property descriptions — AI can craft high-converting listings that sell properties faster",
+      "context": "Real estate agents need compelling property descriptions \u2014 AI can craft high-converting listings that sell properties faster",
       "keywords": [
         "property listings",
         "real estate copywriting",
@@ -958,7 +940,7 @@
     },
     {
       "topic": "How to build a policy and SOP writing service for businesses that need structure in 2026",
-      "context": "Every growing business needs SOPs and policies — AI can generate professional documentation that companies pay thousands for",
+      "context": "Every growing business needs SOPs and policies \u2014 AI can generate professional documentation that companies pay thousands for",
       "keywords": [
         "SOP writing",
         "policy documents",
@@ -976,7 +958,7 @@
     },
     {
       "topic": "How to build a comic book studio where Midjourney does the drawing in 2026",
-      "context": "AI image generation has reached the quality needed for comic art — build a studio that produces and sells comic books without traditional artists",
+      "context": "AI image generation has reached the quality needed for comic art \u2014 build a studio that produces and sells comic books without traditional artists",
       "keywords": [
         "AI comics",
         "Midjourney",
@@ -994,7 +976,7 @@
     },
     {
       "topic": "How to automate sales for any African SME with the WhatsApp business bot playbook in 2026",
-      "context": "WhatsApp is the primary business communication channel in Africa — AI bots can automate sales, support, and bookings for SMEs at scale",
+      "context": "WhatsApp is the primary business communication channel in Africa \u2014 AI bots can automate sales, support, and bookings for SMEs at scale",
       "keywords": [
         "WhatsApp bot",
         "African SME",
@@ -1012,7 +994,7 @@
     },
     {
       "topic": "How to build a reputation management business that cleans up Google results in 2026",
-      "context": "People and businesses pay premium rates to control what Google shows about them — AI can monitor, create, and optimize search results",
+      "context": "People and businesses pay premium rates to control what Google shows about them \u2014 AI can monitor, create, and optimize search results",
       "keywords": [
         "reputation management",
         "Google results",
@@ -1030,7 +1012,7 @@
     },
     {
       "topic": "How to help nonprofits do more with less with the NGO automation playbook in 2026",
-      "context": "NGOs operate on tight budgets but need maximum impact — AI automation can handle donor management, reporting, and outreach at a fraction of the cost",
+      "context": "NGOs operate on tight budgets but need maximum impact \u2014 AI automation can handle donor management, reporting, and outreach at a fraction of the cost",
       "keywords": [
         "NGO automation",
         "nonprofit tech",
@@ -1045,6 +1027,402 @@
       "intelligence_angle": "Automate, Streamline, and Scale NGO Operations with Make.com",
       "playbook_angle": "Automate, Streamline, and Scale NGO Operations with Make.com and ChatGPT",
       "discovered_at": "2026-05-01T12:00:00.000000+00:00"
+    },
+    {
+      "topic": "How to start an AI social media management agency in 2026",
+      "context": "As more businesses shift their focus to social media, the demand for AI-powered social media management is increasing. With tools like Buffer and Make.com, solo entrepreneurs can offer automated social media services to clients.",
+      "keywords": [
+        "AI social media management",
+        "Buffer",
+        "Make.com"
+      ],
+      "affiliates": [
+        "Buffer",
+        "Make.com",
+        "Semrush"
+      ],
+      "opportunity_angle": "How to launch an AI social media management agency in 2026 ( earn $5,000/month)",
+      "intelligence_angle": "Research, create, and optimize AI social media pipelines with Buffer",
+      "playbook_angle": "Design, build, and automate AI social media workflows with Make.com and Buffer",
+      "discovered_at": "2026-05-01T09:43:23.616041+00:00"
+    },
+    {
+      "topic": "How to start an AI-powered bookkeeping automation business in 2026",
+      "context": "With the rise of AI, bookkeeping automation is becoming increasingly popular. Solo entrepreneurs can use tools like Zapier and QuickBooks to offer automated bookkeeping services to clients.",
+      "keywords": [
+        "AI bookkeeping automation",
+        "Zapier",
+        "QuickBooks"
+      ],
+      "affiliates": [
+        "Zapier",
+        "QuickBooks",
+        "Xero"
+      ],
+      "opportunity_angle": "How to launch an AI bookkeeping automation business in 2026 (earn $3,000/month)",
+      "intelligence_angle": "Automate, reconcile, and optimize bookkeeping tasks with Zapier and QuickBooks",
+      "playbook_angle": "Design, build, and deploy AI bookkeeping automation workflows with Zapier and Xero",
+      "discovered_at": "2026-05-01T09:43:23.616066+00:00"
+    },
+    {
+      "topic": "How to start an AI customer onboarding system business in 2026",
+      "context": "As more businesses focus on customer experience, the demand for AI-powered customer onboarding systems is increasing. With tools like Calendly and Make.com, solo entrepreneurs can offer automated onboarding services to clients.",
+      "keywords": [
+        "AI customer onboarding",
+        "Calendly",
+        "Make.com"
+      ],
+      "affiliates": [
+        "Calendly",
+        "Make.com",
+        "Klaviyo"
+      ],
+      "opportunity_angle": "How to launch an AI customer onboarding system business in 2026 (earn $4,000/month)",
+      "intelligence_angle": "Design, build, and automate customer onboarding pipelines with Calendly and Make.com",
+      "playbook_angle": "Create, optimize, and deploy AI customer onboarding workflows with Calendly and Klaviyo",
+      "discovered_at": "2026-05-01T09:43:23.616076+00:00"
+    },
+    {
+      "topic": "How to start an AI-powered translation and localization service in 2026",
+      "context": "With the rise of globalization, the demand for AI-powered translation and localization services is increasing. Solo entrepreneurs can use tools like Google Translate and Memrise to offer automated translation services to clients.",
+      "keywords": [
+        "AI translation and localization",
+        "Google Translate",
+        "Memrise"
+      ],
+      "affiliates": [
+        "Google Translate",
+        "Memrise",
+        "Reverso"
+      ],
+      "opportunity_angle": "How to launch an AI-powered translation and localization service in 2026 (earn $6,000/month)",
+      "intelligence_angle": "Translate, localize, and optimize content with Google Translate and Memrise",
+      "playbook_angle": "Design, build, and deploy AI translation and localization workflows with Google Translate and Reverso",
+      "discovered_at": "2026-05-01T09:43:23.616085+00:00"
+    },
+    {
+      "topic": "How to start an AI voice agent business with Vapi in 2026",
+      "context": "With the rise of voice assistants, the demand for AI voice agents is increasing. Solo entrepreneurs can use tools like Vapi and Bland.ai to offer automated voice services to clients.",
+      "keywords": [
+        "AI voice agent",
+        "Vapi",
+        "Bland.ai"
+      ],
+      "affiliates": [
+        "Vapi",
+        "Bland.ai",
+        "ElevenLabs"
+      ],
+      "opportunity_angle": "How to launch an AI voice agent business with Vapi in 2026 (earn $8,000/month)",
+      "intelligence_angle": "Create, deploy, and optimize AI voice agents with Vapi and Bland.ai",
+      "playbook_angle": "Design, build, and automate AI voice workflows with Vapi and ElevenLabs",
+      "discovered_at": "2026-05-01T09:43:23.616094+00:00"
+    },
+    {
+      "topic": "How to start an AI HR/recruitment automation business in 2026",
+      "context": "With the rise of AI, HR and recruitment automation is becoming increasingly popular. Solo entrepreneurs can use tools like Zapier and LinkedIn to offer automated HR and recruitment services to clients.",
+      "keywords": [
+        "AI HR/recruitment automation",
+        "Zapier",
+        "LinkedIn"
+      ],
+      "affiliates": [
+        "Zapier",
+        "LinkedIn",
+        "Indeed"
+      ],
+      "opportunity_angle": "How to launch an AI HR/recruitment automation business in 2026 (earn $9,000/month)",
+      "intelligence_angle": "Automate, screen, and optimize HR and recruitment tasks with Zapier and LinkedIn",
+      "playbook_angle": "Design, build, and deploy AI HR/recruitment automation workflows with Zapier and Indeed",
+      "discovered_at": "2026-05-01T09:43:23.616110+00:00"
+    },
+    {
+      "topic": "How to start an AI customer support automation business in 2026",
+      "context": "With the rise of AI, customer support automation is becoming increasingly popular. Solo entrepreneurs can use tools like ChatGPT and ManyChat to offer automated customer support services to clients.",
+      "keywords": [
+        "AI customer support automation",
+        "ChatGPT",
+        "ManyChat"
+      ],
+      "affiliates": [
+        "ChatGPT",
+        "ManyChat",
+        "Dialogflow"
+      ],
+      "opportunity_angle": "How to launch an AI customer support automation business in 2026 (earn $10,000/month)",
+      "intelligence_angle": "Create, deploy, and optimize AI customer support agents with ChatGPT and ManyChat",
+      "playbook_angle": "Design, build, and automate AI customer support workflows with ChatGPT and Dialogflow",
+      "discovered_at": "2026-05-01T09:43:23.616122+00:00"
+    },
+    {
+      "topic": "How to start an AI contract and proposal writing service in 2026",
+      "context": "With the rise of AI, contract and proposal writing automation is becoming increasingly popular. Solo entrepreneurs can use tools like Loom and Grammarly to offer automated contract and proposal writing services to clients.",
+      "keywords": [
+        "AI contract and proposal writing",
+        "Loom",
+        "Grammarly"
+      ],
+      "affiliates": [
+        "Loom",
+        "Grammarly",
+        "ProposalKit"
+      ],
+      "opportunity_angle": "How to launch an AI contract and proposal writing service in 2026 (earn $12,000/month)",
+      "intelligence_angle": "Create, edit, and optimize contracts and proposals with Loom and Grammarly",
+      "playbook_angle": "Design, build, and automate AI contract and proposal writing workflows with Loom and ProposalKit",
+      "discovered_at": "2026-05-01T09:43:23.616133+00:00"
+    },
+    {
+      "topic": "How to start an AI image generation agency in 2026",
+      "context": "With the rise of AI, image generation automation is becoming increasingly popular. Solo entrepreneurs can use tools like Midjourney and Canva to offer automated image generation services to clients.",
+      "keywords": [
+        "AI image generation",
+        "Midjourney",
+        "Canva"
+      ],
+      "affiliates": [
+        "Midjourney",
+        "Canva",
+        "Adobe"
+      ],
+      "opportunity_angle": "How to launch an AI image generation agency in 2026 (earn $15,000/month)",
+      "intelligence_angle": "Create, edit, and optimize images with Midjourney and Canva",
+      "playbook_angle": "Design, build, and automate AI image generation workflows with Midjourney and Adobe",
+      "discovered_at": "2026-05-01T09:43:23.616142+00:00"
+    },
+    {
+      "topic": "How to start an AI video editing services business in 2026",
+      "context": "With the rise of AI, video editing automation is becoming increasingly popular. Solo entrepreneurs can use tools like Luma and InVideo to offer automated video editing services to clients.",
+      "keywords": [
+        "AI video editing",
+        "Luma",
+        "InVideo"
+      ],
+      "affiliates": [
+        "Luma",
+        "InVideo",
+        "Adobe"
+      ],
+      "opportunity_angle": "How to launch an AI video editing services business in 2026 (earn $18,000/month)",
+      "intelligence_angle": "Create, edit, and optimize videos with Luma and InVideo",
+      "playbook_angle": "Design, build, and automate AI video editing workflows with Luma and Adobe",
+      "discovered_at": "2026-05-01T09:43:23.616152+00:00"
+    },
+    {
+      "topic": "How to start an AI SEO agency with Semrush in 2026",
+      "context": "With the rise of AI, SEO automation is becoming increasingly popular. Solo entrepreneurs can use tools like Semrush and Ahrefs to offer automated SEO services to clients.",
+      "keywords": [
+        "AI SEO agency",
+        "Semrush",
+        "Ahrefs"
+      ],
+      "affiliates": [
+        "Semrush",
+        "Ahrefs",
+        "Moz"
+      ],
+      "opportunity_angle": "How to launch an AI SEO agency with Semrush in 2026 (earn $20,000/month)",
+      "intelligence_angle": "Optimize, analyze, and improve SEO with Semrush and Ahrefs",
+      "playbook_angle": "Design, build, and automate AI SEO workflows with Semrush and Moz",
+      "discovered_at": "2026-05-01T09:43:23.616161+00:00"
+    },
+    {
+      "topic": "How to start an AI newsletter business with Beehiiv in 2026",
+      "context": "With the rise of AI, newsletter automation is becoming increasingly popular. Solo entrepreneurs can use tools like Beehiiv and Substack to offer automated newsletter services to clients.",
+      "keywords": [
+        "AI newsletter business",
+        "Beehiiv",
+        "Substack"
+      ],
+      "affiliates": [
+        "Beehiiv",
+        "Substack",
+        "Mailchimp"
+      ],
+      "opportunity_angle": "How to launch an AI newsletter business with Beehiiv in 2026 (earn $22,000/month)",
+      "intelligence_angle": "Create, edit, and optimize newsletters with Beehiiv and Substack",
+      "playbook_angle": "Design, build, and automate AI newsletter workflows with Beehiiv and Mailchimp",
+      "discovered_at": "2026-05-01T09:43:23.616171+00:00"
+    },
+    {
+      "topic": "How to start an AI email marketing business with Klaviyo in 2026",
+      "context": "With the rise of AI, email marketing automation is becoming increasingly popular. Solo entrepreneurs can use tools like Klaviyo and ActiveCampaign to offer automated email marketing services to clients.",
+      "keywords": [
+        "AI email marketing business",
+        "Klaviyo",
+        "ActiveCampaign"
+      ],
+      "affiliates": [
+        "Klaviyo",
+        "ActiveCampaign",
+        "Mailchimp"
+      ],
+      "opportunity_angle": "How to launch an AI email marketing business with Klaviyo in 2026 (earn $25,000/month)",
+      "intelligence_angle": "Create, edit, and optimize email campaigns with Klaviyo and ActiveCampaign",
+      "playbook_angle": "Design, build, and automate AI email marketing workflows with Klaviyo and Mailchimp",
+      "discovered_at": "2026-05-01T09:43:23.616180+00:00"
+    },
+    {
+      "topic": "How to start an AI lead generation business with Apollo in 2026",
+      "context": "With the rise of AI, lead generation automation is becoming increasingly popular. Solo entrepreneurs can use tools like Apollo and PhantomBuster to offer automated lead generation services to clients.",
+      "keywords": [
+        "AI lead generation business",
+        "Apollo",
+        "PhantomBuster"
+      ],
+      "affiliates": [
+        "Apollo",
+        "PhantomBuster",
+        "HubSpot"
+      ],
+      "opportunity_angle": "How to launch an AI lead generation business with Apollo in 2026 (earn $28,000/month)",
+      "intelligence_angle": "Find, qualify, and optimize leads with Apollo and PhantomBuster",
+      "playbook_angle": "Design, build, and automate AI lead generation workflows with Apollo and HubSpot",
+      "discovered_at": "2026-05-01T09:43:23.616190+00:00"
+    },
+    {
+      "topic": "How to start an AI copywriting agency in 2026",
+      "context": "With the rise of AI, copywriting automation is becoming increasingly popular. Solo entrepreneurs can use tools like AI Writer and Content Blossom to offer automated copywriting services to clients.",
+      "keywords": [
+        "AI copywriting agency",
+        "AI Writer",
+        "Content Blossom"
+      ],
+      "affiliates": [
+        "AI Writer",
+        "Content Blossom",
+        "WordLift"
+      ],
+      "opportunity_angle": "How to launch an AI copywriting agency in 2026 (earn $30,000/month)",
+      "intelligence_angle": "Create, edit, and optimize copy with AI Writer and Content Blossom",
+      "playbook_angle": "Design, build, and automate AI copywriting workflows with AI Writer and WordLift",
+      "discovered_at": "2026-05-01T09:43:23.616199+00:00"
+    },
+    {
+      "topic": "How to start an AI data analysis services business in 2026",
+      "context": "With the rise of AI, data analysis automation is becoming increasingly popular. Solo entrepreneurs can use tools like Google Data Studio and Tableau to offer automated data analysis services to clients.",
+      "keywords": [
+        "AI data analysis services business",
+        "Google Data Studio",
+        "Tableau"
+      ],
+      "affiliates": [
+        "Google Data Studio",
+        "Tableau",
+        "Power BI"
+      ],
+      "opportunity_angle": "How to launch an AI data analysis services business in 2026 (earn $32,000/month)",
+      "intelligence_angle": "Analyze, visualize, and optimize data with Google Data Studio and Tableau",
+      "playbook_angle": "Design, build, and automate AI data analysis workflows with Google Data Studio and Power BI",
+      "discovered_at": "2026-05-01T09:43:23.616209+00:00"
+    },
+    {
+      "topic": "How to start an AI customer support automation business with ChatGPT in 2026",
+      "context": "With the rise of AI, customer support automation is becoming increasingly popular. Solo entrepreneurs can use tools like ChatGPT and ManyChat to offer automated customer support services to clients.",
+      "keywords": [
+        "AI customer support automation business",
+        "ChatGPT",
+        "ManyChat"
+      ],
+      "affiliates": [
+        "ChatGPT",
+        "ManyChat",
+        "Dialogflow"
+      ],
+      "opportunity_angle": "How to launch an AI customer support automation business with ChatGPT in 2026 (earn $35,000/month)",
+      "intelligence_angle": "Create, deploy, and optimize AI customer support agents with ChatGPT and ManyChat",
+      "playbook_angle": "Design, build, and automate AI customer support workflows with ChatGPT and Dialogflow",
+      "discovered_at": "2026-05-01T09:43:23.616219+00:00"
+    },
+    {
+      "topic": "How to start an AI sales automation business with HubSpot in 2026",
+      "context": "With the rise of AI, sales automation is becoming increasingly popular. Solo entrepreneurs can use tools like HubSpot and Pipedrive to offer automated sales services to clients.",
+      "keywords": [
+        "AI sales automation business",
+        "HubSpot",
+        "Pipedrive"
+      ],
+      "affiliates": [
+        "HubSpot",
+        "Pipedrive",
+        "Salesforce"
+      ],
+      "opportunity_angle": "How to launch an AI sales automation business with HubSpot in 2026 (earn $38,000/month)",
+      "intelligence_angle": "Automate, qualify, and optimize sales with HubSpot and Pipedrive",
+      "playbook_angle": "Design, build, and automate AI sales workflows with HubSpot and Salesforce",
+      "discovered_at": "2026-05-01T09:43:23.616229+00:00"
+    },
+    {
+      "topic": "How to start an AI marketing automation business with Marketo in 2026",
+      "context": "With the rise of AI, marketing automation is becoming increasingly popular. Solo entrepreneurs can use tools like Marketo and Pardot to offer automated marketing services to clients.",
+      "keywords": [
+        "AI marketing automation business",
+        "Marketo",
+        "Pardot"
+      ],
+      "affiliates": [
+        "Marketo",
+        "Pardot",
+        "HubSpot"
+      ],
+      "opportunity_angle": "How to launch an AI marketing automation business with Marketo in 2026 (earn $40,000/month)",
+      "intelligence_angle": "Automate, analyze, and optimize marketing with Marketo and Pardot",
+      "playbook_angle": "Design, build, and automate AI marketing workflows with Marketo and HubSpot",
+      "discovered_at": "2026-05-01T09:43:23.616239+00:00"
+    },
+    {
+      "topic": "How to start an AI supply chain optimization consulting business in 2026",
+      "context": "With the rise of AI, supply chain optimization is becoming increasingly popular. Solo entrepreneurs can use tools like SAP and Oracle to offer automated supply chain optimization services to clients.",
+      "keywords": [
+        "AI supply chain optimization consulting business",
+        "SAP",
+        "Oracle"
+      ],
+      "affiliates": [
+        "SAP",
+        "Oracle",
+        "Microsoft Dynamics"
+      ],
+      "opportunity_angle": "How to launch an AI supply chain optimization consulting business in 2026 (earn $45,000/month)",
+      "intelligence_angle": "Analyze, optimize, and improve supply chain with SAP and Oracle",
+      "playbook_angle": "Design, build, and automate AI supply chain optimization workflows with SAP and Microsoft Dynamics",
+      "discovered_at": "2026-05-01T09:43:23.616249+00:00"
+    },
+    {
+      "topic": "How to start an AI legal document automation business in 2026",
+      "context": "With the rise of AI, legal document automation is becoming increasingly popular. Solo entrepreneurs can use tools like LawGeex and ContractBook to offer automated legal document services to clients.",
+      "keywords": [
+        "AI legal document automation business",
+        "LawGeex",
+        "ContractBook"
+      ],
+      "affiliates": [
+        "LawGeex",
+        "ContractBook",
+        "DocuSign"
+      ],
+      "opportunity_angle": "How to launch an AI legal document automation business in 2026 (earn $48,000/month)",
+      "intelligence_angle": "Create, edit, and optimize legal documents with LawGeex and ContractBook",
+      "playbook_angle": "Design, build, and automate AI legal document workflows with LawGeex and DocuSign",
+      "discovered_at": "2026-05-01T09:43:23.616260+00:00"
+    },
+    {
+      "topic": "How to start an AI freelance arbitrage business in 2026",
+      "context": "With the rise of AI, freelance arbitrage is becoming increasingly popular. Solo entrepreneurs can use tools like Upwork and Freelancer to offer automated freelance services to clients.",
+      "keywords": [
+        "AI freelance arbitrage business",
+        "Upwork",
+        "Freelancer"
+      ],
+      "affiliates": [
+        "Upwork",
+        "Freelancer",
+        "Fiverr"
+      ],
+      "opportunity_angle": "How to launch an AI freelance arbitrage business in 2026 (earn $50,000/month)",
+      "intelligence_angle": "Find, qualify, and optimize freelance opportunities with Upwork and Freelancer",
+      "playbook_angle": "Design, build, and automate AI freelance workflows with Upwork and Fiverr",
+      "discovered_at": "2026-05-01T09:43:23.616271+00:00"
     }
   ],
   "used_topics": [
@@ -1055,6 +1433,10 @@
     {
       "topic": "How to build an AI contract and proposal writing service in 2026",
       "used_at": "2026-05-01T05:29:59.905599+00:00"
+    },
+    {
+      "topic": "How to start an AI personal finance automation service in 2026",
+      "used_at": "2026-05-01T09:55:26.622083+00:00"
     }
   ]
 }
