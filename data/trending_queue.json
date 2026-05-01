@@ -1,24 +1,6 @@
 {
-  "last_updated": "2026-04-29T10:05:36.568928+00:00",
+  "last_updated": "2026-05-01T05:29:59.905627+00:00",
   "topics": [
-    {
-      "topic": "How to build an AI contract and proposal writing service in 2026",
-      "context": "LLMs can now draft professional contracts and proposals in minutes",
-      "keywords": [
-        "AI contracts",
-        "proposal automation",
-        "legal AI"
-      ],
-      "affiliates": [
-        "ChatGPT",
-        "Notion",
-        "Make.com"
-      ],
-      "opportunity_angle": "How to Build an AI Contract and Proposal Writing Service in 2026 ($5K-25K/Month)",
-      "intelligence_angle": "Design, Build, and Deploy AI Contract and Proposal Writing Systems with ChatGPT",
-      "playbook_angle": "Build, Automate, and Scale an AI Contract and Proposal Writing Service with ChatGPT and Make.com",
-      "discovered_at": "2026-04-27T10:52:25.110677+00:00"
-    },
     {
       "topic": "How to start an AI personal finance automation service in 2026",
       "context": "People want automated budgeting, expense tracking, and investment insights",
@@ -127,12 +109,448 @@
       "intelligence_angle": "Design, Build, and Deploy AI Customer Support Automation with ChatGPT",
       "playbook_angle": "Design, Build, and Scale AI Customer Support Automation Systems with ChatGPT and Make.com",
       "discovered_at": "2026-04-29T10:03:16.542440+00:00"
+    },
+    {
+      "topic": "How to start an AI contract review business in 2026",
+      "context": "With the increasing use of AI in legal documents, contract review is becoming a lucrative business opportunity. AI-powered contract review tools can help solo entrepreneurs review contracts quickly and accurately.",
+      "keywords": [
+        "AI contract review",
+        "legal document automation",
+        "contract analysis"
+      ],
+      "affiliates": [
+        "ElevenLabs",
+        "Notion",
+        "Grammarly"
+      ],
+      "opportunity_angle": "How to start an AI contract review business in 2026 (earn $5,000/month)",
+      "intelligence_angle": "Analyze, automate, and optimize contract reviews with AI tools",
+      "playbook_angle": "Launch, manage, and scale an AI contract review business with Notion and Grammarly",
+      "discovered_at": "2026-05-01T05:27:27.022818+00:00"
+    },
+    {
+      "topic": "How to build an AI-powered supply chain optimization consulting business in 2026",
+      "context": "As businesses look to optimize their supply chains, AI-powered consulting services are in high demand. Solo entrepreneurs can use AI tools to analyze supply chain data and provide actionable insights.",
+      "keywords": [
+        "AI supply chain optimization",
+        "consulting business",
+        "logistics optimization"
+      ],
+      "affiliates": [
+        "Semrush",
+        "Zapier",
+        "Apollo.io"
+      ],
+      "opportunity_angle": "How to build an AI-powered supply chain optimization consulting business in 2026 (earn $10,000/month)",
+      "intelligence_angle": "Analyze, optimize, and automate supply chain operations with AI tools",
+      "playbook_angle": "Launch, manage, and scale an AI-powered supply chain optimization consulting business with Semrush and Zapier",
+      "discovered_at": "2026-05-01T05:27:27.022839+00:00"
+    },
+    {
+      "topic": "How to start an AI translation and localization business in 2026",
+      "context": "With the increasing demand for global content, AI-powered translation and localization services are becoming essential. Solo entrepreneurs can use AI tools to translate and localize content quickly and accurately.",
+      "keywords": [
+        "AI translation",
+        "localization services",
+        "global content"
+      ],
+      "affiliates": [
+        "Google Translate",
+        "Notion",
+        "Grammarly"
+      ],
+      "opportunity_angle": "How to start an AI translation and localization business in 2026 (earn $5,000/month)",
+      "intelligence_angle": "Translate, localize, and optimize content with AI tools",
+      "playbook_angle": "Launch, manage, and scale an AI translation and localization business with Notion and Grammarly",
+      "discovered_at": "2026-05-01T05:27:27.022844+00:00"
+    },
+    {
+      "topic": "How to build an AI-powered customer onboarding system in 2026",
+      "context": "As businesses look to improve customer experience, AI-powered onboarding systems are in high demand. Solo entrepreneurs can use AI tools to automate customer onboarding and provide personalized support.",
+      "keywords": [
+        "AI customer onboarding",
+        "automation",
+        "customer experience"
+      ],
+      "affiliates": [
+        "Klaviyo",
+        "ActiveCampaign",
+        "Calendly"
+      ],
+      "opportunity_angle": "How to build an AI-powered customer onboarding system in 2026 (earn $10,000/month)",
+      "intelligence_angle": "Automate, personalize, and optimize customer onboarding with AI tools",
+      "playbook_angle": "Launch, manage, and scale an AI-powered customer onboarding system with Klaviyo and Calendly",
+      "discovered_at": "2026-05-01T05:27:27.022847+00:00"
+    },
+    {
+      "topic": "How to start an AI video editing business in 2026",
+      "context": "With the increasing demand for video content, AI-powered video editing services are becoming essential. Solo entrepreneurs can use AI tools to edit videos quickly and accurately.",
+      "keywords": [
+        "AI video editing",
+        "video production",
+        "content creation"
+      ],
+      "affiliates": [
+        "Loom",
+        "Canva",
+        "Beehiiv"
+      ],
+      "opportunity_angle": "How to start an AI video editing business in 2026 (earn $5,000/month)",
+      "intelligence_angle": "Edit, optimize, and automate video production with AI tools",
+      "playbook_angle": "Launch, manage, and scale an AI video editing business with Loom and Canva",
+      "discovered_at": "2026-05-01T05:27:27.022851+00:00"
+    },
+    {
+      "topic": "How to build an AI-powered bookkeeping automation business in 2026",
+      "context": "As businesses look to automate their bookkeeping, AI-powered bookkeeping services are in high demand. Solo entrepreneurs can use AI tools to automate bookkeeping tasks and provide accurate financial insights.",
+      "keywords": [
+        "AI bookkeeping",
+        "automation",
+        "financial management"
+      ],
+      "affiliates": [
+        "Notion",
+        "Zapier",
+        "QuickBooks"
+      ],
+      "opportunity_angle": "How to build an AI-powered bookkeeping automation business in 2026 (earn $10,000/month)",
+      "intelligence_angle": "Automate, optimize, and analyze bookkeeping tasks with AI tools",
+      "playbook_angle": "Launch, manage, and scale an AI-powered bookkeeping automation business with Notion and Zapier",
+      "discovered_at": "2026-05-01T05:27:27.022855+00:00"
+    },
+    {
+      "topic": "How to start an AI-powered HR and recruitment automation business in 2026",
+      "context": "As businesses look to automate their HR and recruitment processes, AI-powered services are in high demand. Solo entrepreneurs can use AI tools to automate tasks such as resume screening and candidate sourcing.",
+      "keywords": [
+        "AI HR automation",
+        "recruitment automation",
+        "talent acquisition"
+      ],
+      "affiliates": [
+        "Apollo.io",
+        "PhantomBuster",
+        "Notion"
+      ],
+      "opportunity_angle": "How to start an AI-powered HR and recruitment automation business in 2026 (earn $10,000/month)",
+      "intelligence_angle": "Automate, optimize, and analyze HR and recruitment tasks with AI tools",
+      "playbook_angle": "Launch, manage, and scale an AI-powered HR and recruitment automation business with Apollo.io and Notion",
+      "discovered_at": "2026-05-01T05:27:27.022859+00:00"
+    },
+    {
+      "topic": "How to build an AI-powered customer support automation business in 2026",
+      "context": "As businesses look to improve customer experience, AI-powered customer support services are in high demand. Solo entrepreneurs can use AI tools to automate customer support tasks and provide personalized support.",
+      "keywords": [
+        "AI customer support",
+        "automation",
+        "customer experience"
+      ],
+      "affiliates": [
+        "ChatGPT",
+        "Klaviyo",
+        "Calendly"
+      ],
+      "opportunity_angle": "How to build an AI-powered customer support automation business in 2026 (earn $10,000/month)",
+      "intelligence_angle": "Automate, personalize, and optimize customer support with AI tools",
+      "playbook_angle": "Launch, manage, and scale an AI-powered customer support automation business with ChatGPT and Klaviyo",
+      "discovered_at": "2026-05-01T05:27:27.022866+00:00"
+    },
+    {
+      "topic": "How to start an AI podcast production agency in 2026",
+      "context": "With the increasing demand for podcast content, AI-powered podcast production services are becoming essential. Solo entrepreneurs can use AI tools to produce high-quality podcasts quickly and accurately.",
+      "keywords": [
+        "AI podcast production",
+        "audio production",
+        "content creation"
+      ],
+      "affiliates": [
+        "Beehiiv",
+        "Loom",
+        "Canva"
+      ],
+      "opportunity_angle": "How to start an AI podcast production agency in 2026 (earn $5,000/month)",
+      "intelligence_angle": "Produce, optimize, and automate podcast production with AI tools",
+      "playbook_angle": "Launch, manage, and scale an AI podcast production agency with Beehiiv and Loom",
+      "discovered_at": "2026-05-01T05:27:27.022872+00:00"
+    },
+    {
+      "topic": "How to build an AI-powered social media management pipeline in 2026",
+      "context": "As businesses look to improve their social media presence, AI-powered social media management services are in high demand. Solo entrepreneurs can use AI tools to automate social media tasks and provide personalized content.",
+      "keywords": [
+        "AI social media management",
+        "automation",
+        "social media marketing"
+      ],
+      "affiliates": [
+        "Buffer",
+        "Hootsuite",
+        "Canva"
+      ],
+      "opportunity_angle": "How to build an AI-powered social media management pipeline in 2026 (earn $10,000/month)",
+      "intelligence_angle": "Automate, optimize, and analyze social media management with AI tools",
+      "playbook_angle": "Launch, manage, and scale an AI-powered social media management pipeline with Buffer and Canva",
+      "discovered_at": "2026-05-01T05:27:27.022879+00:00"
+    },
+    {
+      "topic": "How to start an AI-powered lead generation business with Apollo.io in 2026",
+      "context": "As businesses look to generate high-quality leads, AI-powered lead generation services are in high demand. Solo entrepreneurs can use AI tools to automate lead generation tasks and provide accurate leads.",
+      "keywords": [
+        "AI lead generation",
+        "Apollo.io",
+        "sales automation"
+      ],
+      "affiliates": [
+        "Apollo.io",
+        "PhantomBuster",
+        "Notion"
+      ],
+      "opportunity_angle": "How to start an AI-powered lead generation business with Apollo.io in 2026 (earn $10,000/month)",
+      "intelligence_angle": "Generate, optimize, and automate leads with AI tools",
+      "playbook_angle": "Launch, manage, and scale an AI-powered lead generation business with Apollo.io and Notion",
+      "discovered_at": "2026-05-01T05:27:27.022883+00:00"
+    },
+    {
+      "topic": "How to build an AI-powered copywriting agency in 2026",
+      "context": "With the increasing demand for high-quality content, AI-powered copywriting services are becoming essential. Solo entrepreneurs can use AI tools to produce high-quality copy quickly and accurately.",
+      "keywords": [
+        "AI copywriting",
+        "content creation",
+        "marketing automation"
+      ],
+      "affiliates": [
+        "ChatGPT",
+        "Grammarly",
+        "Canva"
+      ],
+      "opportunity_angle": "How to build an AI-powered copywriting agency in 2026 (earn $5,000/month)",
+      "intelligence_angle": "Write, optimize, and automate copy with AI tools",
+      "playbook_angle": "Launch, manage, and scale an AI-powered copywriting agency with ChatGPT and Grammarly",
+      "discovered_at": "2026-05-01T05:27:27.022887+00:00"
+    },
+    {
+      "topic": "How to start an AI-powered SEO agency with Semrush in 2026",
+      "context": "As businesses look to improve their online presence, AI-powered SEO services are in high demand. Solo entrepreneurs can use AI tools to automate SEO tasks and provide accurate insights.",
+      "keywords": [
+        "AI SEO",
+        "Semrush",
+        "digital marketing"
+      ],
+      "affiliates": [
+        "Semrush",
+        "Ahrefs",
+        "Moz"
+      ],
+      "opportunity_angle": "How to start an AI-powered SEO agency with Semrush in 2026 (earn $10,000/month)",
+      "intelligence_angle": "Optimize, automate, and analyze SEO with AI tools",
+      "playbook_angle": "Launch, manage, and scale an AI-powered SEO agency with Semrush and Ahrefs",
+      "discovered_at": "2026-05-01T05:27:27.022891+00:00"
+    },
+    {
+      "topic": "How to build an AI-powered email marketing automation business in 2026",
+      "context": "As businesses look to improve their email marketing efforts, AI-powered email marketing automation services are in high demand. Solo entrepreneurs can use AI tools to automate email marketing tasks and provide personalized content.",
+      "keywords": [
+        "AI email marketing",
+        "automation",
+        "email marketing automation"
+      ],
+      "affiliates": [
+        "Klaviyo",
+        "ActiveCampaign",
+        "Mailchimp"
+      ],
+      "opportunity_angle": "How to build an AI-powered email marketing automation business in 2026 (earn $10,000/month)",
+      "intelligence_angle": "Automate, optimize, and analyze email marketing with AI tools",
+      "playbook_angle": "Launch, manage, and scale an AI-powered email marketing automation business with Klaviyo and ActiveCampaign",
+      "discovered_at": "2026-05-01T05:27:27.022896+00:00"
+    },
+    {
+      "topic": "How to start an AI-powered data analysis service in 2026",
+      "context": "As businesses look to make data-driven decisions, AI-powered data analysis services are in high demand. Solo entrepreneurs can use AI tools to analyze data and provide accurate insights.",
+      "keywords": [
+        "AI data analysis",
+        "data science",
+        "business intelligence"
+      ],
+      "affiliates": [
+        "Google Data Studio",
+        "Tableau",
+        "Power BI"
+      ],
+      "opportunity_angle": "How to start an AI-powered data analysis service in 2026 (earn $10,000/month)",
+      "intelligence_angle": "Analyze, optimize, and automate data analysis with AI tools",
+      "playbook_angle": "Launch, manage, and scale an AI-powered data analysis service with Google Data Studio and Tableau",
+      "discovered_at": "2026-05-01T05:27:27.022900+00:00"
+    },
+    {
+      "topic": "How to build an AI-powered chatbot agency for e-commerce in 2026",
+      "context": "As e-commerce businesses look to improve customer experience, AI-powered chatbot services are in high demand. Solo entrepreneurs can use AI tools to automate chatbot tasks and provide personalized support.",
+      "keywords": [
+        "AI chatbot",
+        "e-commerce",
+        "customer support"
+      ],
+      "affiliates": [
+        "Shopify",
+        "WooCommerce",
+        "ChatGPT"
+      ],
+      "opportunity_angle": "How to build an AI-powered chatbot agency for e-commerce in 2026 (earn $10,000/month)",
+      "intelligence_angle": "Automate, optimize, and analyze chatbot interactions with AI tools",
+      "playbook_angle": "Launch, manage, and scale an AI-powered chatbot agency for e-commerce with Shopify and ChatGPT",
+      "discovered_at": "2026-05-01T05:27:27.022904+00:00"
+    },
+    {
+      "topic": "How to start an AI-powered cold email outreach system in 2026",
+      "context": "As businesses look to generate high-quality leads, AI-powered cold email outreach services are in high demand. Solo entrepreneurs can use AI tools to automate cold email outreach tasks and provide accurate leads.",
+      "keywords": [
+        "AI cold email",
+        "outreach",
+        "lead generation"
+      ],
+      "affiliates": [
+        "Mailchimp",
+        "Klaviyo",
+        "PhantomBuster"
+      ],
+      "opportunity_angle": "How to start an AI-powered cold email outreach system in 2026 (earn $10,000/month)",
+      "intelligence_angle": "Generate, optimize, and automate cold email outreach with AI tools",
+      "playbook_angle": "Launch, manage, and scale an AI-powered cold email outreach system with Mailchimp and PhantomBuster",
+      "discovered_at": "2026-05-01T05:27:27.022909+00:00"
+    },
+    {
+      "topic": "How to build an AI-powered real estate automation business in 2026",
+      "context": "As real estate businesses look to automate their processes, AI-powered services are in high demand. Solo entrepreneurs can use AI tools to automate tasks such as property listing and lead generation.",
+      "keywords": [
+        "AI real estate",
+        "automation",
+        "property management"
+      ],
+      "affiliates": [
+        "Zillow",
+        "Redfin",
+        " Realtor.com"
+      ],
+      "opportunity_angle": "How to build an AI-powered real estate automation business in 2026 (earn $10,000/month)",
+      "intelligence_angle": "Automate, optimize, and analyze real estate processes with AI tools",
+      "playbook_angle": "Launch, manage, and scale an AI-powered real estate automation business with Zillow and Redfin",
+      "discovered_at": "2026-05-01T05:27:27.022914+00:00"
+    },
+    {
+      "topic": "How to start an AI-powered proposal and grant writing business in 2026",
+      "context": "As businesses and non-profits look to secure funding, AI-powered proposal and grant writing services are in high demand. Solo entrepreneurs can use AI tools to automate proposal and grant writing tasks and provide high-quality content.",
+      "keywords": [
+        "AI proposal writing",
+        "grant writing",
+        "funding"
+      ],
+      "affiliates": [
+        "Notion",
+        "Grammarly",
+        "Canva"
+      ],
+      "opportunity_angle": "How to start an AI-powered proposal and grant writing business in 2026 (earn $10,000/month)",
+      "intelligence_angle": "Write, optimize, and automate proposals and grants with AI tools",
+      "playbook_angle": "Launch, manage, and scale an AI-powered proposal and grant writing business with Notion and Grammarly",
+      "discovered_at": "2026-05-01T05:27:27.022918+00:00"
+    },
+    {
+      "topic": "How to build an AI-powered content repurposing agency with multi-platform distribution in 2026",
+      "context": "As businesses look to maximize their content's reach, AI-powered content repurposing services are in high demand. Solo entrepreneurs can use AI tools to automate content repurposing tasks and provide high-quality content across multiple platforms.",
+      "keywords": [
+        "AI content repurposing",
+        "multi-platform distribution",
+        "content marketing"
+      ],
+      "affiliates": [
+        "Beehiiv",
+        "Loom",
+        "Canva"
+      ],
+      "opportunity_angle": "How to build an AI-powered content repurposing agency with multi-platform distribution in 2026 (earn $10,000/month)",
+      "intelligence_angle": "Repurpose, optimize, and automate content with AI tools",
+      "playbook_angle": "Launch, manage, and scale an AI-powered content repurposing agency with Beehiiv and Loom",
+      "discovered_at": "2026-05-01T05:27:27.022923+00:00"
+    },
+    {
+      "topic": "How to start an AI-powered newsletter business with Beehiiv in 2026",
+      "context": "As businesses look to improve their email marketing efforts, AI-powered newsletter services are in high demand. Solo entrepreneurs can use AI tools to automate newsletter tasks and provide high-quality content.",
+      "keywords": [
+        "AI newsletter",
+        "Beehiiv",
+        "email marketing"
+      ],
+      "affiliates": [
+        "Beehiiv",
+        "Mailchimp",
+        "Klaviyo"
+      ],
+      "opportunity_angle": "How to start an AI-powered newsletter business with Beehiiv in 2026 (earn $10,000/month)",
+      "intelligence_angle": "Create, optimize, and automate newsletters with AI tools",
+      "playbook_angle": "Launch, manage, and scale an AI-powered newsletter business with Beehiiv and Mailchimp",
+      "discovered_at": "2026-05-01T05:27:27.022928+00:00"
+    },
+    {
+      "topic": "How to build an AI-powered SaaS micro-product business on Replit in 2026",
+      "context": "As businesses look to create innovative software solutions, AI-powered SaaS micro-products are in high demand. Solo entrepreneurs can use AI tools to automate SaaS micro-product development and provide high-quality solutions.",
+      "keywords": [
+        "AI SaaS",
+        "Replit",
+        "software development"
+      ],
+      "affiliates": [
+        "Replit",
+        "Notion",
+        "GitHub"
+      ],
+      "opportunity_angle": "How to build an AI-powered SaaS micro-product business on Replit in 2026 (earn $10,000/month)",
+      "intelligence_angle": "Develop, optimize, and automate SaaS micro-products with AI tools",
+      "playbook_angle": "Launch, manage, and scale an AI-powered SaaS micro-product business with Replit and Notion",
+      "discovered_at": "2026-05-01T05:27:27.022933+00:00"
+    },
+    {
+      "topic": "How to start an AI-powered faceless YouTube channel with Fliki AI in 2026",
+      "context": "As businesses look to create innovative video content, AI-powered faceless YouTube channels are in high demand. Solo entrepreneurs can use AI tools to automate faceless YouTube channel creation and provide high-quality content.",
+      "keywords": [
+        "AI faceless YouTube",
+        "Fliki AI",
+        "video creation"
+      ],
+      "affiliates": [
+        "Fliki AI",
+        "Loom",
+        "Canva"
+      ],
+      "opportunity_angle": "How to start an AI-powered faceless YouTube channel with Fliki AI in 2026 (earn $10,000/month)",
+      "intelligence_angle": "Create, optimize, and automate faceless YouTube channels with AI tools",
+      "playbook_angle": "Launch, manage, and scale an AI-powered faceless YouTube channel with Fliki AI and Loom",
+      "discovered_at": "2026-05-01T05:27:27.022939+00:00"
+    },
+    {
+      "topic": "How to build an AI-powered voice agent business with Vapi in 2026",
+      "context": "As businesses look to improve their customer experience, AI-powered voice agents are in high demand. Solo entrepreneurs can use AI tools to automate voice agent tasks and provide high-quality support.",
+      "keywords": [
+        "AI voice agent",
+        "Vapi",
+        "customer support"
+      ],
+      "affiliates": [
+        "Vapi",
+        "Notion",
+        "Calendly"
+      ],
+      "opportunity_angle": "How to build an AI-powered voice agent business with Vapi in 2026 (earn $10,000/month)",
+      "intelligence_angle": "Create, optimize, and automate voice agents with AI tools",
+      "playbook_angle": "Launch, manage, and scale an AI-powered voice agent business with Vapi and Notion",
+      "discovered_at": "2026-05-01T05:27:27.022944+00:00"
     }
   ],
   "used_topics": [
     {
       "topic": "How to start an AI appointment booking system in 2026",
       "used_at": "2026-04-29T10:05:36.568901+00:00"
+    },
+    {
+      "topic": "How to build an AI contract and proposal writing service in 2026",
+      "used_at": "2026-05-01T05:29:59.905599+00:00"
     }
   ]
 }
