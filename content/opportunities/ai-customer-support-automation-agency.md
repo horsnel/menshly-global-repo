@@ -1,3 +1,13 @@
+---
+title: "How to Start an AI Customer Support Automation Agency in 2026 ($8K‑35K/Month)"
+date: 2026-04-30
+category: "AI Opportunity"
+readTime: "35 MIN"
+excerpt: "Businesses spent $1.3 trillion on customer support last year, and 67% of that went to agents answering the same 12 questions over and over. The average cost per support ticket sits at $15.56 for a human and $0.67 for an AI agent — a 23x cost difference..."
+image: "/images/articles/opportunities/ai-customer-support-automation-agency.png"
+heroImage: "/images/heroes/opportunities/ai-customer-support-automation-agency.png"
+---
+
 ## Opening Hook
 
 Businesses spent $1.3 trillion on customer support last year, and 67% of that went to agents answering the same 12 questions over and over. "Where's my order?" "What's your return policy?" "How do I reset my password?" "Can I change my shipping address?" Teams of people typing out answers that could be handled by a system that never sleeps, never gets frustrated, and never asks for a raise. Meanwhile, the average cost per support ticket sits at $15.56 for a human and $0.67 for an AI agent. That's not a gradual improvement — that's a 23x cost difference that's reshaping how companies think about their entire support operation.

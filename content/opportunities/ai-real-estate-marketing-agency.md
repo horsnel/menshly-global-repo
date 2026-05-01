@@ -1,3 +1,13 @@
+---
+title: "How to Start an AI Real Estate Marketing Agency in 2026 ($3K‑25K/Month)"
+date: 2026-04-30
+category: "AI Opportunity"
+readTime: "35 MIN"
+excerpt: "The average real estate agent in the US makes about $54,000 a year. The top 10% make over $170,000. The gap between those two numbers isn't talent — it's marketing. AI didn't just make real estate marketing better. It made it programmable..."
+image: "/images/articles/opportunities/ai-real-estate-marketing-agency.png"
+heroImage: "/images/heroes/opportunities/ai-real-estate-marketing-agency.png"
+---
+
 ## Opening Hook
 
 The average real estate agent in the US makes about $54,000 a year. The top 10% make over $170,000. The gap between those two numbers isn't talent — it's marketing. Most agents are still paying $500 a month for Zillow leads that convert at 1.2%, running Facebook ads they can't track, and manually texting every prospect like it's 2014. They're exhausted, they're spending money on stuff that doesn't work, and they have zero idea how to fix it. That gap — between what agents need and what they're doing — is worth $2.3 billion in annual marketing spend that's currently being set on fire by people who'd rather just sell houses.
