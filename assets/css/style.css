@@ -2070,6 +2070,84 @@ img {
   color: var(--white);
 }
 
+/* --- Article Next/Prev Navigation --- */
+.article-nav {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  gap: 16px;
+  justify-content: space-between;
+  align-items: stretch;
+}
+
+@media (min-width: 768px) {
+  .article-nav {
+    padding: 0 48px;
+    gap: 24px;
+  }
+}
+
+.article-nav-item {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 20px;
+  border: 2px solid var(--black);
+  background: var(--off-white);
+  text-decoration: none;
+  color: var(--black);
+  transition: all 0.2s ease;
+}
+
+.article-nav-item:hover {
+  background: var(--yellow);
+  border-color: var(--black);
+}
+
+.article-nav-next {
+  justify-content: flex-end;
+}
+
+.article-nav-placeholder {
+  flex: 1;
+  visibility: hidden;
+}
+
+.article-nav-text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.article-nav-label {
+  font-family: var(--font-heading);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: rgba(26, 26, 26, 0.5);
+  flex-shrink: 0;
+}
+
+.article-nav-title {
+  font-family: var(--font-heading);
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.3;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+@media (min-width: 768px) {
+  .article-nav-title {
+    font-size: 14px;
+  }
+}
+
 /* --- Cross-Link Back Banner (Intelligence → Opportunity) --- */
 .crosslink-back {
   max-width: 1080px;

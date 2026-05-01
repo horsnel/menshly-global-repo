@@ -6,7 +6,7 @@ readTime: "18 MIN"
 excerpt: "Every strategy, every hack, every ugly truth — the complete deep dive on building an AI affiliate marketing business that generates passive income on autopilot."
 image: "/images/articles/opportunities/ai-affiliate-marketing-business.png"
 heroImage: "/images/heroes/opportunities/ai-affiliate-marketing-business.png"
-relatedGuide: "/intelligence/build-ai-affiliate-marketing-system/"
+relatedGuide: "/intelligence/research-automate-and-monetize-an-ai-affiliate-marketing-system-with-semrush-and/"
 relatedPlaybook: "/playbooks/ai-side-hustle-blueprint/"
 ---
 ## Opening Hook

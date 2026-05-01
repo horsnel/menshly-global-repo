@@ -6,7 +6,7 @@ readTime: "16 MIN"
 excerpt: "Every tool, every hack, every ugly truth — the complete deep dive on building an AI podcast production agency that turns raw recordings into polished shows on autopilot."
 image: "/images/articles/opportunities/ai-podcast-production-agency.png"
 heroImage: "/images/heroes/opportunities/ai-podcast-production-agency.png"
-relatedGuide: "/intelligence/build-ai-podcast-production-pipeline/"
+
 relatedPlaybook: "/playbooks/ai-side-hustle-blueprint/"
 ---
 ## Opening Hook

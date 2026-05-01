@@ -23,6 +23,36 @@
   </div>
   {{ partial "article-actions.html" . }}
 
+  <!-- Next/Prev Article Navigation -->
+  {{ $next := .NextInSection }}
+  {{ $prev := .PrevInSection }}
+  {{ if or $next $prev }}
+  <nav class="article-nav">
+    {{ with $prev }}
+    <a href="{{ .Permalink }}" class="article-nav-item article-nav-prev">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:20px;height:20px;flex-shrink:0;"><polyline points="15 18 9 12 15 6"></polyline></svg>
+      <div class="article-nav-text">
+        <span class="article-nav-label">PREVIOUS</span>
+        <span class="article-nav-title">{{ .Title }}</span>
+      </div>
+    </a>
+    {{ else }}
+    <div class="article-nav-item article-nav-placeholder"></div>
+    {{ end }}
+    {{ with $next }}
+    <a href="{{ .Permalink }}" class="article-nav-item article-nav-next">
+      <div class="article-nav-text" style="text-align:right;">
+        <span class="article-nav-label">NEXT</span>
+        <span class="article-nav-title">{{ .Title }}</span>
+      </div>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:20px;height:20px;flex-shrink:0;"><polyline points="9 18 15 12 9 6"></polyline></svg>
+    </a>
+    {{ else }}
+    <div class="article-nav-item article-nav-placeholder"></div>
+    {{ end }}
+  </nav>
+  {{ end }}
+
   <!-- Cross-link: Get Started Now → Intelligence Guide -->
   {{ with .Params.relatedGuide }}
   <div class="crosslink-cta">
