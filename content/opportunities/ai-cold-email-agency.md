@@ -7,7 +7,7 @@ excerpt: "Every tool, every hack, every ugly truth — the complete deep dive on
 image: "/images/articles/opportunities/ai-cold-email-agency.png"
 heroImage: "/images/heroes/opportunities/ai-cold-email-agency.png"
 relatedGuide: "/intelligence/build-ai-cold-email-agency/"
-relatedPlaybook: "/playbooks/ai-cold-email-agency-playbook/"
+relatedPlaybook: "/playbooks/ai-cold-email-outreach-playbook/"
 ---
 
 Most people think cold email is dead. They're wrong. Cold email is the single most efficient way to generate B2B meetings in 2026 — but the way you do it has fundamentally changed. If you're still manually scraping leads and sending generic templates, you aren't an agency. You're a spam bot with a Shopify subscription.

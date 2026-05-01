@@ -8,6 +8,7 @@ excerpt: "The complete execution guide for building AI-powered SEO workflows wit
 image: "/images/articles/intelligence/build-optimize-scale-ai-seo-workflows-semrush.png"
 heroImage: "/images/heroes/intelligence/build-optimize-scale-ai-seo-workflows-semrush.png"
 relatedOpportunity: "/opportunities/ai-seo-agency-2026/"
+relatedPlaybook: "/playbooks/ai-seo-agency-playbook/"
 ---
 
 This is the execution guide for building the AI-powered SEO agency we outlined in our opportunity deep-dive. SEO agencies that rely on manual audits, spreadsheet rank tracking, and content written from scratch will be outcompeted by agencies that automate the repetitive work and apply AI to the creative work. This guide builds the automated version: Semrush-powered audits that run themselves, ChatGPT content pipelines that produce optimized articles at scale, Grammarly-polished deliverables, Make.com orchestration that ties everything together, and client reports that generate on a schedule without you touching them. Follow it in order. Do not skip steps.

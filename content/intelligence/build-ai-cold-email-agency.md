@@ -8,7 +8,7 @@ excerpt: "The complete execution guide for building an AI cold email pipeline. F
 image: "/images/articles/intelligence/build-ai-cold-email-agency.png"
 heroImage: "/images/heroes/intelligence/build-ai-cold-email-agency.png"
 relatedOpportunity: "/opportunities/ai-cold-email-agency/"
-relatedPlaybook: "/playbooks/ai-cold-email-agency-playbook/"
+relatedPlaybook: "/playbooks/ai-cold-email-outreach-playbook/"
 ---
 
 Manual outreach is for agencies that want to stay small forever. If you want to run an AI cold email operation that generates $10,000+/month in recurring revenue, you need an automated engine that researches prospects, writes personalized emails, manages deliverability, and tracks results — all without you touching a keyboard after the initial setup. This guide is the technical implementation manual. Follow every step in order. Skip nothing. If you skip the SPF configuration, your emails go to spam. If you skip the quality gate, your AI sends embarrassing hallucinations. Every step exists because someone lost a client by skipping it.

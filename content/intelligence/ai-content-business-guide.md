@@ -8,7 +8,7 @@ excerpt: "The complete execution guide for building an AI-powered content busine
 image: "/images/articles/intelligence/ai-content-business-guide.png"
 heroImage: "/images/heroes/intelligence/ai-content-business-guide.png"
 relatedOpportunity: "/opportunities/ai-copywriting-agency/"
-relatedPlaybook: "/playbooks/chatgpt-prompt-engineering-guide/"
+relatedPlaybook: "/playbooks/ai-copywriting-agency-playbook/"
 ---
 
 An AI content business is not about replacing writers with chatbots. It is about building a content production system that leverages AI for speed and scale while maintaining the quality standards that audiences demand. This guide covers the complete execution path — from setting up your production environment to collecting your first dollar. Every step is actionable. Every tool is named. Every configuration is specified.
