@@ -1586,7 +1586,7 @@ You have now built the complete operating system for an AI bookkeeping automatio
 
 **35 Procedures executed across 10 modules.**
 
-**6+ {{% accent-box %}} HACK tips embedded throughout.**
+**6+ HACK tips embedded throughout.**
 
 **3 Pricing Tiers:**
 
