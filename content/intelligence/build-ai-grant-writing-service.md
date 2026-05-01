@@ -1,6 +1,6 @@
 ---
 title: "Build and Automate an AI Grant Writing Service with Make.com, OpenAI, and Grants.gov"
-date: 2026-05-02
+date: 2026-05-01
 category: "Implementation"
 difficulty: "INTERMEDIATE"
 readTime: "24 MIN"

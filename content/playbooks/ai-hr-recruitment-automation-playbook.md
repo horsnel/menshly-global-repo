@@ -1,6 +1,6 @@
 ---
 title: "The AI HR & Recruitment Automation Playbook"
-date: 2026-05-02
+date: 2026-05-01
 category: "Playbook"
 price: "₦35,000"
 readTime: "90 MIN"

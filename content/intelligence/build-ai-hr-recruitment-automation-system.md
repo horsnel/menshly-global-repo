@@ -1,6 +1,6 @@
 ---
 title: "Build and Automate an AI HR & Recruitment System with Greenhouse, Lever, and Make.com"
-date: 2026-05-02
+date: 2026-05-01
 category: "Implementation"
 difficulty: "INTERMEDIATE"
 readTime: "24 MIN"

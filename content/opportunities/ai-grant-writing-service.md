@@ -1,6 +1,6 @@
 ---
 title: "How to Start an AI Grant Writing Service in 2026 ($2K-$15K/Month Potential)"
-date: 2026-05-02
+date: 2026-05-01
 category: "AI Opportunity"
 readTime: "15 MIN"
 excerpt: "Every tool, every hack, every ugly truth — the complete deep dive on building an AI grant writing service that researches, drafts, and submits winning proposals on autopilot while you sleep."
