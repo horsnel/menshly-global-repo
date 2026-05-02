@@ -8,6 +8,7 @@ excerpt: "This is the execution guide for building the AI Affiliate Marketing bu
 image: "/images/articles/intelligence/build-and-scale-an-ai-affiliate-marketing-system-with-semrush-and-makecom.png"
 heroImage: "/images/heroes/intelligence/build-and-scale-an-ai-affiliate-marketing-system-with-semrush-and-makecom.png"
 relatedOpportunity: "/opportunities/ai-affiliate-marketing-business/"
+relatedPlaybook: "/playbooks/24-procedures-12-modules-12-hours-of-reading-and-execution/"
 ---
 
 This is the execution guide for building the **AI Affiliate Marketing** business we outlined in our opportunity deep‑dive. Follow the steps below and you will have a fully automated content research, creation, and monetization pipeline that generates affiliate revenue around the clock. This system uses Semrush for keyword intelligence, Make.com for workflow automation, and AI for content generation — all connected into a self‑reinforcing loop that compounds over time.
