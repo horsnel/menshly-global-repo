@@ -1,22 +1,25 @@
 #!/usr/bin/env python3
 """Shared AI API utility for Menshly Global article generators.
 
-Smart routing with three backends (in priority order):
+Smart routing with four backends (in priority order):
 1. Groq via Cloudflare proxy — fastest, uses gsk_ key through edge proxy
    to bypass geo-restrictions on api.groq.com
-2. Node.js bridge (z-ai-web-dev-sdk) — reliable, works from any server
-3. Pollinations AI — free, no key needed, always-available fallback
+2. Together AI — high-quality long-form generation, uses tgp_ key
+3. Node.js bridge (z-ai-web-dev-sdk) — reliable, works from any server
+4. Pollinations AI — free, no key needed, always-available fallback
 
 The Cloudflare proxy routes requests through Cloudflare's edge network,
 bypassing the 403 geo-block that Groq enforces from certain regions (HK, etc).
 When AI_API_KEY starts with "gsk_", the proxy is used automatically.
+When AI_API_KEY starts with "tgp_", Together AI is used automatically.
 
 Environment variables:
-  AI_API_KEY   — Groq key (gsk_...), Gemini key (AIza...), or "bridge"
+  AI_API_KEY   — Groq key (gsk_...), Together key (tgp_...), Gemini key (AIza...), or "bridge"
   AI_API_BASE  — Override API base URL (default: auto-detected from key)
   AI_MODEL     — Model name (default: llama-3.3-70b-versatile for Groq)
   GROQ_PROXY_URL — Cloudflare Pages proxy URL (default: auto-detected)
   GEMINI_API_KEY — Google Gemini API key (optional secondary fallback)
+  TOGETHER_API_KEY — Together AI API key (optional, used for playbook generation)
 """
 
 import os
@@ -42,6 +45,11 @@ GROQ_DEFAULT_MODEL = "llama-3.3-70b-versatile"
 # ── Pollinations API — free, no key ──
 POLLINATIONS_OPENAI_BASE = "https://text.pollinations.ai/openai"
 POLLINATIONS_MODEL = "openai"  # Only working model on Pollinations (gpt-oss-20b)
+
+# ── Together AI — high-quality long-form generation ──
+TOGETHER_API_BASE = "https://api.together.xyz/v1"
+TOGETHER_DEFAULT_MODEL = "meta-llama/Llama-3.3-70B-Instruct-Turbo"
+TOGETHER_API_KEY = os.environ.get("TOGETHER_API_KEY", "")
 
 # ── Gemini API — Google's LLM ──
 GEMINI_API_BASE = "https://generativelanguage.googleapis.com/v1beta/openai"
@@ -78,6 +86,12 @@ def _is_gemini_key(key=None):
     """Check if the API key is a Gemini key (starts with AIza)."""
     k = key or _get_api_key()
     return bool(k and k.startswith("AIza"))
+
+
+def _is_together_key(key=None):
+    """Check if the API key is a Together AI key (starts with tgp_)."""
+    k = key or _get_api_key()
+    return bool(k and k.startswith("tgp_"))
 
 
 def _is_bridge_mode():
@@ -136,9 +150,11 @@ def api_call(payload, max_retries=5, api_key=None, api_base=None):
 
     Strategy (in priority order):
     1. Groq key (gsk_) → Cloudflare proxy → direct fallback → bridge → Pollinations
-    2. Bridge mode → Node.js bridge → Pollinations
-    3. Gemini key → direct call → bridge → Pollinations
-    4. No key → bridge → Pollinations
+    2. Together key (tgp_) → direct Together API → bridge → Pollinations
+    3. Bridge mode → Node.js bridge → Pollinations
+    4. Gemini key → direct call → bridge → Pollinations
+    5. Generic key with base URL → direct call → bridge → Pollinations
+    6. No key → bridge → Pollinations
     """
     key = api_key or _get_api_key()
     base = api_base or _get_api_base()
@@ -147,19 +163,23 @@ def api_call(payload, max_retries=5, api_key=None, api_base=None):
     if _is_groq_key(key):
         return _groq_strategy(payload, max_retries, key)
 
-    # ── Strategy 2: Explicit bridge mode ──
+    # ── Strategy 2: Together AI key ──
+    if _is_together_key(key):
+        return _together_strategy(payload, max_retries, key, base)
+
+    # ── Strategy 3: Explicit bridge mode ──
     if _is_bridge_mode():
         return _bridge_strategy(payload, max_retries)
 
-    # ── Strategy 3: Gemini key ──
+    # ── Strategy 4: Gemini key ──
     if _is_gemini_key(key):
         return _gemini_strategy(payload, max_retries, key, base)
 
-    # ── Strategy 4: Generic key with base URL ──
+    # ── Strategy 5: Generic key with base URL ──
     if key and base:
         return _generic_strategy(payload, max_retries, key, base)
 
-    # ── Strategy 5: No key — try bridge then Pollinations ──
+    # ── Strategy 6: No key — try bridge then Pollinations ──
     return _no_key_strategy(payload, max_retries)
 
 
@@ -192,6 +212,40 @@ def _groq_strategy(payload, max_retries, api_key):
 
     # Step 4: Last resort — Pollinations
     print("  [groq] All Groq routes failed, using Pollinations (free)...")
+    return _pollinations_call(payload, max_retries)
+
+
+def _together_strategy(payload, max_retries, api_key, api_base=None):
+    """Together AI key: try direct → bridge → Pollinations.
+
+    Together AI is the preferred backend for long-form content generation
+    (playbooks, long articles). It supports up to 128K context and
+    produces high-quality, detailed output reliably.
+    """
+    together_base = api_base or TOGETHER_API_BASE
+    model = payload.get("model") or TOGETHER_DEFAULT_MODEL
+
+    # Override model if it's a Groq model name (Together needs different model IDs)
+    if model == GROQ_DEFAULT_MODEL or model == "llama-3.3-70b-versatile":
+        model = TOGETHER_DEFAULT_MODEL
+        payload["model"] = model
+
+    # Step 1: Direct Together AI API call
+    try:
+        print(f"  [together] Trying direct API (model: {model})...")
+        return _direct_call(payload, max_retries, api_key=api_key, api_base=together_base)
+    except Exception as e:
+        print(f"  [together] Direct API failed: {str(e)[:150]}")
+
+    # Step 2: Fall back to Node.js bridge
+    try:
+        print("  [together] Falling back to Node.js bridge...")
+        return _bridge_call(payload, max_retries=2)
+    except Exception as e:
+        print(f"  [together] Bridge failed: {str(e)[:150]}")
+
+    # Step 3: Last resort — Pollinations
+    print("  [together] All Together AI routes failed, using Pollinations (free)...")
     return _pollinations_call(payload, max_retries)
 
 

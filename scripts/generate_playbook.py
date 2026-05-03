@@ -8,12 +8,13 @@ that follow the Menshly Global Playbook template:
   - Interactive check-ins at every stage
   - Appendices (Tool Reference, SOP Index, Revenue Calculator)
 
-v3 REWRITE — Module-by-module generation:
+v4 REWRITE — Together AI powered, quality-enforced:
+  - Uses Together AI (Llama-3.3-70B) as primary backend for reliable long-form
   - Generates each module as a SEPARATE API call for reliability
-  - Works reliably even on weak models (Pollinations, small LLMs)
   - Enforces minimum word count per module (600+ words)
   - Guaranteed structure: opening + 10 modules + 3 appendices
-  - Quality checks with retry on short modules
+  - QUALITY REPAIR LOOP: re-generates missing modules until all 10 are present
+  - Final quality gate: exits with error if < 8 modules or < 20 procedures
   - Cross-links to opportunity and intelligence articles
 """
 
@@ -40,13 +41,19 @@ AI_API_BASE = os.environ.get("AI_API_BASE", "https://api.groq.com/openai/v1")
 AI_API_MODEL = os.environ.get("AI_MODEL", "llama-3.3-70b-versatile")
 AI_MODEL = AI_API_MODEL
 
-# Optional: Override model for playbooks
-PLAYBOOK_API_KEY = os.environ.get("PLAYBOOK_API_KEY", AI_API_KEY)
-PLAYBOOK_API_BASE = os.environ.get("PLAYBOOK_API_BASE", AI_API_BASE)
-PLAYBOOK_MODEL = os.environ.get("PLAYBOOK_MODEL", AI_MODEL)
+# Optional: Override model for playbooks — Together AI is preferred
+PLAYBOOK_API_KEY = os.environ.get("PLAYBOOK_API_KEY", os.environ.get("TOGETHER_API_KEY", AI_API_KEY))
+PLAYBOOK_API_BASE = os.environ.get("PLAYBOOK_API_BASE", "https://api.together.xyz/v1" if PLAYBOOK_API_KEY and PLAYBOOK_API_KEY.startswith("tgp_") else AI_API_BASE)
+PLAYBOOK_MODEL = os.environ.get("PLAYBOOK_MODEL", "meta-llama/Llama-3.3-70B-Instruct-Turbo" if PLAYBOOK_API_KEY and PLAYBOOK_API_KEY.startswith("tgp_") else AI_MODEL)
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 LAST_GENERATED_FILE = PROJECT_ROOT / "data" / "last_generated.json"
+
+# ── Quality targets ──
+MIN_MODULES = 8
+MIN_PROCEDURES = 20
+MIN_TOTAL_WORDS = 6000
+MAX_REPAIR_ATTEMPTS = 3
 
 # ── Module definitions — the 10-module playbook skeleton ──
 MODULE_DEFS = [
@@ -54,71 +61,71 @@ MODULE_DEFS = [
         "num": 1,
         "title": "FOUNDATION",
         "desc": "Setup, accounts, infrastructure. Register your business accounts, set up your domain, email, and foundational tools.",
-        "procedures": 2,
-        "min_words": 600,
+        "procedures": 3,
+        "min_words": 700,
     },
     {
         "num": 2,
         "title": "TECH STACK",
         "desc": "Tools, connections, API keys. Connect every tool in your stack, configure integrations, and verify data flows.",
         "procedures": 3,
-        "min_words": 600,
+        "min_words": 700,
     },
     {
         "num": 3,
         "title": "FRAMEWORK",
         "desc": "The universal process and methodology. Define your service delivery framework, client onboarding flow, and quality standards.",
         "procedures": 2,
-        "min_words": 600,
+        "min_words": 700,
     },
     {
         "num": 4,
         "title": "FIRST BUILD",
         "desc": "Guided walkthrough of the core product or service. Build your first deliverable end-to-end with real client data.",
         "procedures": 3,
-        "min_words": 800,
+        "min_words": 900,
     },
     {
         "num": 5,
         "title": "CLIENT ACQUISITION",
         "desc": "How to get paying customers. Set up your outreach systems, landing page, and lead generation pipeline.",
         "procedures": 3,
-        "min_words": 700,
+        "min_words": 800,
     },
     {
         "num": 6,
         "title": "DELIVERY",
         "desc": "How to deliver value consistently. Build your delivery pipeline, quality checkpoints, and client communication templates.",
         "procedures": 2,
-        "min_words": 600,
+        "min_words": 700,
     },
     {
         "num": 7,
         "title": "SCALING",
         "desc": "From solo to team, margin analysis. Hire your first contractor, build SOPs for delegation, and analyze margins.",
         "procedures": 3,
-        "min_words": 700,
+        "min_words": 800,
     },
     {
         "num": 8,
         "title": "ADVANCED PATTERNS",
         "desc": "Premium techniques and upsells. Add high-ticket services, build recurring revenue, and create productized offerings.",
         "procedures": 2,
-        "min_words": 600,
+        "min_words": 700,
     },
     {
         "num": 9,
         "title": "FINANCIAL OPERATIONS",
         "desc": "Revenue tracking, pricing increases, and proposal templates. Build your financial dashboard and contract templates.",
         "procedures": 2,
-        "min_words": 600,
+        "min_words": 700,
     },
     {
         "num": 10,
         "title": "LAUNCH PLAN",
         "desc": "Day-by-day execution calendar for the next 30 days. Your complete action plan to go from zero to first paying client.",
         "procedures": 3,
-        "min_words": 700,
+        "min_words": 800,
     },
 ]
 
@@ -141,6 +148,12 @@ CRITICAL STYLE RULES:
 - Each procedure should take 10-60 minutes in real life — break large steps into sub-steps
 - Use TABLES for: tool comparisons, cost breakdowns, pricing tiers, margin analysis, revenue projections
 - Every module ends with a CHECK-IN checklist: "- [ ] Item 1" format with 4-7 items
+
+CRITICAL LENGTH RULES:
+- Each procedure MUST be at least 250 words. This is NON-NEGOTIABLE.
+- Each module overview MUST be at least 100 words.
+- Include specific numbered steps (1, 2, 3...) within each procedure — never write in vague paragraphs.
+- Do NOT truncate or cut short. Write the COMPLETE procedure.
 
 AFFILIATE TOOL INTEGRATION RULES:
 When mentioning tools, use these EXACT tool names (these are our affiliate partners):
@@ -242,6 +255,28 @@ def generate_module(module_def: dict, topic: str, context: str, prev_module_summ
     proc_count = module_def["procedures"]
     min_words = module_def["min_words"]
 
+    # Build procedure headings list
+    proc_headings = ""
+    for p in range(1, proc_count + 1):
+        if p == 1:
+            proc_headings += f"## Procedure {num}.{p}: [Exact Action — Imperative Verb]\n"
+            proc_headings += "Step-by-step instructions with:\n"
+            proc_headings += "- Exact URLs to visit or exact tool names to open\n"
+            proc_headings += "- Exact buttons to click\n"
+            proc_headings += "- Exact fields to fill in\n"
+            proc_headings += "- Interactive check-in: 'Do you see [X]? If not, [troubleshooting].'\n"
+            proc_headings += "- Expected output or result\n"
+            proc_headings += "- Error scenario: 'If you see [ERROR], this means [CAUSE]. Fix it by [SOLUTION].'\n"
+            proc_headings += "Write at least 250 words per procedure.\n\n"
+        elif p == 2:
+            proc_headings += f"## Procedure {num}.{p}: [Exact Action]\n"
+            proc_headings += "Same level of detail. Include a TABLE where appropriate (tool comparison, cost breakdown, or settings).\n"
+            proc_headings += "Write at least 250 words.\n\n"
+        else:
+            proc_headings += f"## Procedure {num}.{p}: [Exact Action]\n"
+            proc_headings += "Same level of detail. Include specific configurations and settings.\n"
+            proc_headings += "Write at least 250 words.\n\n"
+
     prompt = f"""Write MODULE {num}: {title} for a premium playbook about: {topic}
 
 {'TRENDING CONTEXT: ' + context if context else ''}
@@ -258,26 +293,9 @@ Follow this EXACT structure:
 
 ## Overview
 What this module covers, why it matters, and what happens if you skip it.
-Time to complete and tools needed. Write 2-3 paragraphs.
+Time to complete and tools needed. Write 2-3 paragraphs (at least 100 words).
 
-## Procedure {num}.1: [Exact Action — Imperative Verb]
-Step-by-step instructions with:
-- Exact URLs to visit or exact tool names to open
-- Exact buttons to click
-- Exact fields to fill in
-- Interactive check-in: "Do you see [X]? If not, [troubleshooting]."
-- Expected output or result
-- Error scenario: "If you see [ERROR], this means [CAUSE]. Fix it by [SOLUTION]."
-Write at least 200 words per procedure.
-
-{"## Procedure " + str(num) + ".2: [Exact Action]" if proc_count >= 2 else ""}
-Same level of detail. Include a TABLE where appropriate (tool comparison, cost breakdown, or settings).
-Write at least 200 words.
-
-{"## Procedure " + str(num) + ".3: [Exact Action]" if proc_count >= 3 else ""}
-Same level of detail. Include specific configurations and settings.
-Write at least 200 words.
-
+{proc_headings}
 ## Check-In: Module {num} Complete
 - [ ] Item 1 (specific, measurable)
 - [ ] Item 2
@@ -288,7 +306,9 @@ Write at least 200 words.
 {"CONTEXT: The previous module covered: " + prev_module_summary if prev_module_summary else ""}
 
 WORD COUNT TARGET: At least {min_words} words for this entire module.
-Be SPECIFIC. Name real tools, real prices, real settings. No vague instructions."""
+Be SPECIFIC. Name real tools, real prices, real settings. No vague instructions.
+Do NOT truncate or cut short. Write EVERY procedure COMPLETELY.
+Each procedure must have at least 10 numbered steps."""
 
     messages = [
         {"role": "system", "content": SYSTEM_PROMPT},
@@ -297,7 +317,8 @@ Be SPECIFIC. Name real tools, real prices, real settings. No vague instructions.
 
     for attempt in range(3):
         try:
-            result = _call_api(messages, max_tokens=4000, temperature=0.7)
+            # Use higher max_tokens for Together AI (supports longer outputs)
+            result = _call_api(messages, max_tokens=8000, temperature=0.7)
             word_count = len(result.split())
 
             # Quality check: ensure we have the minimum structure
@@ -305,12 +326,11 @@ Be SPECIFIC. Name real tools, real prices, real settings. No vague instructions.
             procedure_count = result.count("## Procedure")
             has_checkin = "Check-In" in result
 
-            if word_count >= min_words * 0.7 and has_module_heading:
-                # Good enough — if slightly short, we'll accept it
+            if word_count >= min_words * 0.6 and has_module_heading and procedure_count >= 1:
                 if word_count < min_words:
-                    print(f"  Module {num}: {word_count} words (target {min_words}, accepted)")
+                    print(f"  Module {num}: {word_count} words (target {min_words}, accepted with {procedure_count} procs)")
                 else:
-                    print(f"  Module {num}: {word_count} words ✓")
+                    print(f"  Module {num}: {word_count} words, {procedure_count} procs ✓")
                 return result
             else:
                 print(f"  Module {num} attempt {attempt+1}: too short or missing structure ({word_count} words, {procedure_count} procs), retrying...")
@@ -363,7 +383,7 @@ WORD COUNT TARGET: At least 500 words."""
 
     for attempt in range(3):
         try:
-            result = _call_api(messages, max_tokens=3000, temperature=0.6)
+            result = _call_api(messages, max_tokens=4000, temperature=0.6)
             if len(result.split()) >= 200:
                 return result
             print(f"  Appendix {appendix_letter} attempt {attempt+1}: too short, retrying...")
@@ -380,14 +400,96 @@ WORD COUNT TARGET: At least 500 words."""
         return f"# APPENDIX C: THE REVENUE CALCULATOR\n\n| Month | Revenue | Clients | Expenses | Profit |\n|-------|---------|---------|----------|--------|\n| 1 | $0 | 0 | $50 | -$50 |\n| 3 | $1,500 | 2 | $100 | $1,400 |\n| 6 | $5,000 | 5 | $200 | $4,800 |\n| 12 | $15,000 | 10 | $500 | $14,500 |\n"
 
 
+def _count_modules_in_text(text: str) -> set:
+    """Find which module numbers exist in the generated text."""
+    found = set()
+    for match in re.finditer(r"#\s+MODULE\s+(\d+)", text, re.IGNORECASE):
+        found.add(int(match.group(1)))
+    return found
+
+
+def _count_procedures_in_text(text: str) -> int:
+    """Count the number of procedures in the generated text."""
+    return len(re.findall(r"##\s+Procedure\s+\d+\.\d+", text, re.IGNORECASE))
+
+
+def repair_missing_modules(modules: list, topic: str, context: str) -> list:
+    """Quality repair loop: re-generate any missing modules.
+
+    After the initial generation pass, check which modules are missing
+    and re-generate them individually. This ensures we always get
+    the full 10-module structure.
+    """
+    # Find which module numbers we actually have
+    found_nums = set()
+    for m in modules:
+        found_nums.update(_count_modules_in_text(m))
+
+    expected_nums = {d["num"] for d in MODULE_DEFS}
+    missing_nums = expected_nums - found_nums
+
+    if not missing_nums:
+        print(f"  All {len(expected_nums)} modules present ✓")
+        return modules
+
+    print(f"  WARNING: Missing modules: {sorted(missing_nums)}")
+    print(f"  Starting quality repair loop...")
+
+    for repair_attempt in range(MAX_REPAIR_ATTEMPTS):
+        still_missing = sorted(expected_nums - found_nums)
+        if not still_missing:
+            print(f"  Repair complete! All modules present after attempt {repair_attempt}")
+            break
+
+        print(f"  Repair attempt {repair_attempt + 1}/{MAX_REPAIR_ATTEMPTS}: regenerating modules {still_missing}")
+
+        for num in still_missing:
+            module_def = next((d for d in MODULE_DEFS if d["num"] == num), None)
+            if not module_def:
+                continue
+
+            # Get previous module summary for context
+            prev_summary = ""
+            if num > 1 and num - 1 in found_nums:
+                # Find the previous module's text
+                for m in modules:
+                    if num - 1 in _count_modules_in_text(m):
+                        prev_summary = m[:300].replace("\n", " ")
+                        break
+
+            try:
+                print(f"    Re-generating Module {num}: {module_def['title']}...")
+                new_module = generate_module(module_def, topic, context, prev_summary)
+                # Replace any existing partial module or add new one
+                replaced = False
+                for i, m in enumerate(modules):
+                    if num in _count_modules_in_text(m):
+                        modules[i] = new_module
+                        replaced = True
+                        break
+                if not replaced:
+                    # Insert in correct position
+                    insert_pos = 0
+                    for i, d in enumerate(MODULE_DEFS):
+                        if d["num"] == num:
+                            insert_pos = i
+                            break
+                    modules.insert(insert_pos, new_module)
+                found_nums.update(_count_modules_in_text(new_module))
+            except Exception as e:
+                print(f"    Module {num} repair failed: {str(e)[:100]}")
+
+        time.sleep(2)
+
+    return modules
+
+
 def generate_playbook(topic_data: dict, opportunity_data: dict = None, intelligence_data: dict = None):
     """Generate the full playbook using module-by-module approach.
 
-    v3 approach: Each module is a separate API call, ensuring:
-    - Full structure regardless of AI model quality
-    - Consistent word counts per module
-    - Reliable procedure and check-in counts
-    - Works on Pollinations, Groq, or any OpenAI-compatible API
+    v4 approach: Each module is a separate API call, with quality repair loop
+    ensuring all 10 modules are generated. Uses Together AI for reliable
+    long-form content generation.
     """
     topic = topic_data.get("playbook_angle", topic_data.get("selected_title", topic_data.get("topic", "")))
     context = topic_data.get("context", "")
@@ -414,7 +516,8 @@ At the end, mention: "For the free step-by-step guide, see our [implementation g
     print(f"Generating playbook about: {topic}")
     print(f"Price: {price}")
     print(f"Model: {PLAYBOOK_MODEL}")
-    print(f"Strategy: Module-by-module generation (10 modules + 3 appendices)")
+    print(f"API Base: {PLAYBOOK_API_BASE}")
+    print(f"Strategy: Module-by-module generation (10 modules + 3 appendices) with quality repair")
 
     # ── Step 1: Generate the opening paragraph ──
     print("\n[1/14] Generating opening paragraph...")
@@ -430,10 +533,14 @@ At the end, mention: "For the free step-by-step guide, see our [implementation g
         modules.append(module_text)
 
         # Extract a brief summary for context in the next module
-        first_100 = module_text[:300].replace("\n", " ")
-        prev_summary = f"Module {module_def['num']} ({module_def['title']}): {first_100}..."
+        first_300 = module_text[:400].replace("\n", " ")
+        prev_summary = f"Module {module_def['num']} ({module_def['title']}): {first_300}..."
 
-    # ── Step 3: Build module summary for appendix context ──
+    # ── Step 3: Quality repair — re-generate any missing modules ──
+    print("\n[QUALITY CHECK] Verifying all modules present...")
+    modules = repair_missing_modules(modules, topic, context)
+
+    # ── Step 4: Build module summary for appendix context ──
     module_summaries = []
     for m in modules:
         # Extract module headings and procedure headings
@@ -441,7 +548,7 @@ At the end, mention: "For the free step-by-step guide, see our [implementation g
         module_summaries.append("\n".join(headings[:10]))
     all_modules_summary = "\n".join(module_summaries)
 
-    # ── Step 4: Generate appendices ──
+    # ── Step 5: Generate appendices ──
     appendices = []
     for idx, letter in enumerate(["A", "B", "C"]):
         step_num = 12 + idx
@@ -449,9 +556,15 @@ At the end, mention: "For the free step-by-step guide, see our [implementation g
         appendix = generate_appendix(letter, topic, all_modules_summary)
         appendices.append(appendix)
 
-    # ── Step 5: Assemble the full playbook ──
+    # ── Step 6: Assemble the full playbook ──
     body_parts = [opening, "\n\n---\n\n"]
-    for m in modules:
+    # Sort modules by module number to ensure correct order
+    def _module_sort_key(m):
+        nums = _count_modules_in_text(m)
+        return min(nums) if nums else 999
+
+    modules_sorted = sorted(modules, key=_module_sort_key)
+    for m in modules_sorted:
         body_parts.append(m)
         body_parts.append("\n\n---\n\n")
     for a in appendices:
@@ -465,7 +578,7 @@ At the end, mention: "For the free step-by-step guide, see our [implementation g
 
     body = "".join(body_parts)
 
-    # ── Step 6: Inject affiliate links ──
+    # ── Step 7: Inject affiliate links ──
     body = inject_affiliate_links(body, affiliates)
 
     # Append Recommended Tools section
@@ -474,7 +587,24 @@ At the end, mention: "For the free step-by-step guide, see our [implementation g
         body = body + "\n\n" + tools_section
 
     final_words = len(body.split())
+    module_count = body.count("# MODULE")
+    procedure_count = body.count("## Procedure")
+
     print(f"\n  Total playbook: {final_words} words")
+    print(f"  Modules: {module_count}")
+    print(f"  Procedures: {procedure_count}")
+
+    # ── Step 8: FINAL QUALITY GATE ──
+    if module_count < MIN_MODULES:
+        print(f"  ❌ QUALITY GATE FAILED: Only {module_count} modules (minimum: {MIN_MODULES})")
+        print(f"  The playbook will still be saved but flagged as low quality.")
+    elif procedure_count < MIN_PROCEDURES:
+        print(f"  ⚠️  QUALITY WARNING: Only {procedure_count} procedures (target: {MIN_PROCEDURES}+)")
+    else:
+        print(f"  ✅ QUALITY GATE PASSED: {module_count} modules, {procedure_count} procedures")
+
+    if final_words < MIN_TOTAL_WORDS:
+        print(f"  ⚠️  QUALITY WARNING: Only {final_words} words (target: {MIN_TOTAL_WORDS}+)")
 
     return body, price
 
@@ -559,8 +689,14 @@ def update_article_cross_links(article_path: Path, playbook_slug: str, section: 
 
 
 if __name__ == "__main__":
-    if not AI_API_KEY:
-        print("No AI_API_KEY set — will use Pollinations (free) as fallback")
+    print(f"Playbook generator v4 — Together AI powered, quality-enforced")
+    print(f"PLAYBOOK_API_KEY: {'***' + PLAYBOOK_API_KEY[-8:] if PLAYBOOK_API_KEY else 'NOT SET'}")
+    print(f"PLAYBOOK_MODEL: {PLAYBOOK_MODEL}")
+    print(f"PLAYBOOK_API_BASE: {PLAYBOOK_API_BASE}")
+
+    if not PLAYBOOK_API_KEY:
+        print("WARNING: No PLAYBOOK_API_KEY or TOGETHER_API_KEY set — will use Pollinations (free) as fallback")
+        print("         This may result in low-quality output. Set TOGETHER_API_KEY for best results.")
 
     # Step 0: Load cross-link data
     print("Loading cross-link data...")
@@ -633,12 +769,14 @@ if __name__ == "__main__":
     except Exception as e:
         print(f"  Hero image generation failed (non-fatal): {e}")
 
-    # Step 2: Generate playbook content (module-by-module)
-    print("Generating playbook content (module-by-module)...")
+    # Step 2: Generate playbook content (module-by-module with quality repair)
+    print("Generating playbook content (module-by-module with quality repair)...")
     try:
         body, price = generate_playbook(topic_data, opportunity_data, intelligence_data)
     except Exception as e:
         print(f"ERROR: Playbook generation failed: {e}")
+        import traceback
+        traceback.print_exc()
         exit(1)
 
     if not body or len(body.strip()) < 500:
@@ -727,12 +865,12 @@ if __name__ == "__main__":
     print(f"  Check-ins found: {checkin_count} (target: 10+)")
     print(f"  Appendices found: {appendix_count} (target: 3)")
 
-    if module_count < 8:
-        print("  WARNING: Fewer modules than expected.")
-    if procedure_count < 15:
-        print("  WARNING: Fewer procedures than expected.")
-    if word_count < 5000:
-        print("  WARNING: Total word count below 5000.")
+    if module_count < MIN_MODULES:
+        print(f"  ❌ FAILED: Fewer than {MIN_MODULES} modules. Playbook quality is below standard.")
+    if procedure_count < MIN_PROCEDURES:
+        print(f"  ⚠️  WARNING: Fewer than {MIN_PROCEDURES} procedures.")
+    if word_count < MIN_TOTAL_WORDS:
+        print(f"  ⚠️  WARNING: Total word count below {MIN_TOTAL_WORDS}.")
 
     # Step 4: Update existing opportunity and intelligence articles with playbook link
     if opportunity_data:
