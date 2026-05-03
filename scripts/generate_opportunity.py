@@ -17,12 +17,12 @@ the exact Menshly Global deep-dive template:
   - What Nobody Warns You About
   - Start This Weekend (exact action plan with copy-paste pitch)
 
-NEW FEATURES (v2):
-  - Uses TrendingTopicDiscovery for topic selection (no more random from hardcoded list)
-  - Embeds affiliate links naturally in tool mentions
-  - Appends "Recommended Tools" section with affiliate links
-  - Outputs topic metadata for cross-linking with Intelligence/Playbook generators
-  - Saves topic data to data/last_generated.json for other generators to pick up
+v3 REWRITE — Section-by-section generation:
+  - Generates each major section as a SEPARATE API call
+  - Works reliably even on weak models (Pollinations, small LLMs)
+  - Enforces minimum word count per section
+  - Quality checks with retry on short sections
+  - Cross-links to intelligence and playbook articles
 """
 
 import os
@@ -50,8 +50,116 @@ AI_MODEL = AI_API_MODEL
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 LAST_GENERATED_FILE = PROJECT_ROOT / "data" / "last_generated.json"
 
+# ── Section definitions ──
+SECTION_DEFS = [
+    {
+        "heading": "Opening Hook",
+        "instructions": """Write the OPENING HOOK (2-3 paragraphs).
+Grab attention with a shocking number, an uncomfortable truth, or a contrarian take.
+End with a line like "I'm going to lay out everything: the exact tools, the tricks nobody shares, the ugly truths, and the realistic numbers."
+Write 200-300 words.""",
+        "min_words": 150,
+        "include_heading": False,
+    },
+    {
+        "heading": "Why This Works Right Now",
+        "instructions": """Write the "Why This Works Right Now" section.
+3 reasons this opportunity exists RIGHT NOW. Each reason gets a full paragraph with evidence.
+Write 300-400 words.""",
+        "min_words": 200,
+    },
+    {
+        "heading": "The Realistic Picture (Before You Get Excited)",
+        "instructions": """Write the "The Realistic Picture" section with 4 ugly truths in accent-box shortcodes:
+{{% accent-box %}}
+**Truth #1:** [harsh reality with specific numbers]
+{{% /accent-box %}}
+(Repeat for truths 2-4)
+Write 300-400 words total.""",
+        "min_words": 200,
+    },
+    {
+        "heading": "The Free Stack: Starting With Zero Dollars",
+        "instructions": """Write the "The Free Stack" section.
+List 7 free tools, each as: **Tool Name — $0** — One-line description.
+End with a paragraph explaining limitations and when to upgrade.
+Include one HACK callout in an accent-box shortcode.
+Write 300-400 words.""",
+        "min_words": 200,
+    },
+    {
+        "heading": "The Paid Stack: When You're Ready to Scale",
+        "instructions": """Write the "The Paid Stack" section.
+List 8-10 paid tools, each as: **Tool Name — $X/mo** — One-line description.
+End with total monthly cost and ROI analysis.
+Include one HACK callout in an accent-box shortcode.
+Write 300-400 words.""",
+        "min_words": 200,
+    },
+    {
+        "heading": "The Workflow: Step-by-Step With Every Shortcut",
+        "instructions": """Write the "The Workflow" section with 3-4 detailed steps.
+Each step: ### Step N: Name (time estimate) — 2-3 paragraphs of detail + HACK callout in accent-box.
+Include specific prompts, settings, or configurations.
+Write 500-700 words total.""",
+        "min_words": 350,
+    },
+    {
+        "heading": "Pricing: What to Charge and How to Defend It",
+        "instructions": """Write the "Pricing" section.
+3 pricing tiers (Starter/Growth/Enterprise) with specific dollar amounts and what's included.
+One Pricing Trick HACK in accent-box shortcode.
+Write 250-350 words.""",
+        "min_words": 150,
+    },
+    {
+        "heading": "Getting Clients: The Real Playbook",
+        "instructions": """Write the "Getting Clients" section.
+3 methods with names and conversion rates (### Method N: Name (Conversion Rate: X%)).
+Each method gets a full paragraph with specific tactics.
+End with one Referral HACK in accent-box shortcode.
+Write 350-450 words.""",
+        "min_words": 200,
+    },
+    {
+        "heading": "Tricks and Hacks They Don't Share in Courses",
+        "instructions": """Write the "Tricks and Hacks" section with 5 hacks, each in accent-box:
+{{% accent-box %}}
+**HACK 1: Name.** Detailed explanation of the trick.
+{{% /accent-box %}}
+Write 400-500 words total.""",
+        "min_words": 250,
+    },
+    {
+        "heading": "The Real Numbers",
+        "instructions": """Write the "The Real Numbers" section.
+Include a month-by-month revenue TABLE:
+| Month | Revenue | Clients/Users | Notes |
+|-------|---------|---------------|-------|
+8-10 rows from Month 1 ($0) through Month 12 ($15K-$50K+).
+Then a paragraph on unit economics.
+Write 250-350 words.""",
+        "min_words": 150,
+    },
+    {
+        "heading": "What Nobody Warns You About",
+        "instructions": """Write the "What Nobody Warns You About" section.
+4 honest warnings, each as a bold-titled paragraph with specific details.
+Write 250-350 words.""",
+        "min_words": 150,
+    },
+    {
+        "heading": "Start This Weekend (Literally)",
+        "instructions": """Write the "Start This Weekend" section with an exact weekend action plan:
+**Saturday morning:** specific task
+**Saturday afternoon:** specific task
+**Sunday:** specific task with copy-paste pitch template
+Write 250-350 words.""",
+        "min_words": 150,
+    },
+]
 
-# ── Master prompt that enforces the exact deep-dive structure ─────────
+# ── System prompt shared across all section calls ──
 SYSTEM_PROMPT = """You are the lead writer for Menshly Global (tagline: "Where AI Meets Revenue").
 You write in a casual, human, straight-talking voice — like a friend who's actually done this stuff
 is giving you the real playbook over coffee. No corporate jargon. No AI-sounding filler.
@@ -66,7 +174,7 @@ WRITING STYLE RULES:
 - Use short punchy sentences. Then a longer one that explains the nuance.
 - NEVER use phrases like "In today's rapidly evolving landscape" or "As we look to the future"
 - NEVER write filler transitions. Jump straight to the next idea.
-- Each section must be substantial (minimum 300 words for main sections)
+- Each section must be substantial (minimum 200 words for main sections)
 
 AFFILIATE TOOL INTEGRATION RULES:
 When mentioning tools, use these EXACT tool names (these are our affiliate partners):
@@ -95,147 +203,141 @@ When mentioning tools, use these EXACT tool names (these are our affiliate partn
 
 IMPORTANT: Always mention at least 5-6 of these tools NATURALLY in the article.
 Do NOT add a separate "Recommended Tools" section — we add that automatically.
-Just weave the tool names into the Free Stack, Paid Stack, and Workflow sections.
+Just weave the tool names into the Free Stack, Paid Stack, and Workflow sections."""
 
-ARTICLE STRUCTURE (follow this EXACTLY):
 
-## Opening Hook
-2-3 paragraphs that grab attention with a shocking number, an uncomfortable truth, or a
-contrarian take. End with a line like "I'm going to lay out everything: the exact tools,
-the tricks nobody shares, the ugly truths, and the realistic numbers."
-
-## Why This Works Right Now
-3 reasons this opportunity exists RIGHT NOW (not last year, not next year — now).
-Each reason gets a full paragraph with evidence.
-
-## The Realistic Picture (Before You Get Excited)
-4 ugly truths wrapped in accent-box shortcodes:
-{{% accent-box %}}
-**Truth #1:** [harsh reality with specific numbers]
-{{% /accent-box %}}
-(Repeat for truths 2-4)
-
-## The Free Stack: Starting With Zero Dollars
-7 free tools, each as: **Tool Name — $0** — One-line description.
-End with a paragraph explaining limitations and when to upgrade.
-Include one HACK callout in an accent-box.
-
-## The Paid Stack: When You're Ready to Scale
-8-10 paid tools, each as: **Tool Name — $X/mo** — One-line description.
-End with total monthly cost and ROI analysis.
-Include one HACK callout in an accent-box.
-
-## The Workflow: Step-by-Step With Every Shortcut
-3-4 detailed steps (### Step N: Name (time estimate))
-Each step has 2-3 paragraphs of detail + HACK callout in accent-box.
-Include specific prompts, settings, or configurations where relevant.
-
-## Pricing: What to Charge and How to Defend It
-3 pricing tiers (Starter/Growth/Enterprise) with specific dollar amounts and what's included.
-One Pricing Trick HACK in accent-box.
-
-## Getting Clients: The Real Playbook
-3 methods with names and conversion rates (### Method N: Name (Conversion Rate: X%))
-Each method gets a full paragraph with specific tactics.
-End with one Referral HACK in accent-box.
-
-## Tricks and Hacks They Don't Share in Courses
-5 hacks, each in accent-box:
-{{% accent-box %}}
-**HACK 1: Name.** Detailed explanation of the trick.
-{{% /accent-box %}}
-
-## The Real Numbers
-A month-by-month revenue table:
-| Month | Revenue | Clients/Users | Notes |
-|-------|---------|---------------|-------|
-8-10 rows from Month 1 ($0) through Month 12 ($15K-$50K+).
-Then a paragraph on unit economics.
-
-## What Nobody Warns You About
-4 honest warnings, each as a bold-titled paragraph.
-
-## Start This Weekend (Literally)
-Exact weekend action plan:
-**Saturday morning:** specific task
-**Saturday afternoon:** specific task
-**Sunday:** specific task with copy-paste pitch template
-
-WORD COUNT TARGET: 5,000-5,500 words. Do NOT cut sections short.
-Every section must be fully developed with real substance."""
+def _call_api(messages: list, max_tokens: int = 4000, temperature: float = 0.75) -> str:
+    """Make a single API call and return the content text."""
+    payload = {
+        "model": AI_MODEL,
+        "messages": messages,
+        "max_tokens": max_tokens,
+        "temperature": temperature,
+    }
+    data = api_call(payload)
+    return data["choices"][0]["message"]["content"]
 
 
 def generate_article(topic_data: dict):
-    """Call the AI API to generate the full article.
+    """Generate the full article using section-by-section approach.
 
-    Uses a two-pass approach for Groq:
-    1. First pass generates the bulk of the article
-    2. If too short (< 4000 words), a second pass continues from where it left off
+    Each section is a separate API call, ensuring consistent quality
+    regardless of the AI backend being used.
     """
     topic = topic_data.get("selected_title", topic_data.get("opportunity_angle", topic_data.get("topic", "")))
     context = topic_data.get("context", "")
     affiliates = topic_data.get("affiliates", [])
 
-    user_prompt = f"""Write a complete deep-dive article about: {topic}
+    print(f"Generating article about: {topic}")
+    print(f"Strategy: Section-by-section generation ({len(SECTION_DEFS)} sections)")
+
+    # Generate the title first
+    title_prompt = f"""Generate an SEO-optimized title for an article about: {topic}
+
+The title must follow this pattern:
+"How to [VERB] [TOPIC] in 2026 ([BENEFIT/REVENUE HOOK])"
+
+Examples:
+- "How to Start an AI SEO Agency in 2026 ($5K-$30K/Month)"
+- "How to Launch an AI Content Repurposing Agency in 2026 ($3K-$15K/Month)"
+
+Return ONLY the title, nothing else."""
+
+    title_messages = [
+        {"role": "system", "content": "You are an SEO title generator. Return only the title."},
+        {"role": "user", "content": title_prompt},
+    ]
+
+    for attempt in range(3):
+        try:
+            title_text = _call_api(title_messages, max_tokens=100, temperature=0.8)
+            title_text = title_text.strip().strip('"').strip("'")
+            if len(title_text) > 20:
+                break
+        except Exception as e:
+            print(f"  Title generation attempt {attempt+1} failed: {str(e)[:100]}")
+            time.sleep(3)
+    else:
+        title_text = f"How to Start an {topic} in 2026 ($5K-$25K/Month)"
+
+    print(f"  Title: {title_text}")
+
+    # Generate each section
+    sections = []
+    total_sections = len(SECTION_DEFS)
+
+    for i, section_def in enumerate(SECTION_DEFS):
+        heading = section_def["heading"]
+        instructions = section_def["instructions"]
+        min_words = section_def["min_words"]
+        include_heading = section_def.get("include_heading", True)
+
+        print(f"\n  [{i+1}/{total_sections}] Generating: {heading}...")
+
+        # Build context from previously generated sections
+        prev_context = ""
+        if sections:
+            prev_summaries = []
+            for s in sections:
+                first_line = s.split("\n")[0][:100]
+                prev_summaries.append(first_line)
+            prev_context = f"Previously written sections: {', '.join(prev_summaries)}"
+
+        section_prompt = f"""Write the following section for an article about: {topic}
+
+TITLE: {title_text}
 
 {'TRENDING CONTEXT: ' + context if context else ''}
 
-Follow the exact structure and style defined in your system instructions.
-This is for the Opportunities category on Menshly Global.
-Target audience: entrepreneurs, freelancers, and builders who want to make money with AI.
+SECTION TO WRITE: {heading}
 
-The title must be SEO-optimized following this pattern:
-"How to [VERB] [TOPIC] in 2026 ([BENEFIT/REVENUE HOOK])"
+{instructions}
 
-Return the article as pure Markdown (no front matter). Begin with the title as an H1."""
+{prev_context if prev_context else ''}
 
-    payload = {
-        "model": AI_MODEL,
-        "messages": [
+WORD COUNT TARGET: At least {min_words} words for this section.
+Be specific with real numbers, real tool names, and real prices."""
+
+        messages = [
             {"role": "system", "content": SYSTEM_PROMPT},
-            {"role": "user", "content": user_prompt},
-        ],
-        "max_tokens": 16000,
-        "temperature": 0.75,
-    }
-    data = api_call(payload)
-    body = data["choices"][0]["message"]["content"]
+            {"role": "user", "content": section_prompt},
+        ]
 
-    finish_reason = data["choices"][0].get("finish_reason", "")
-    word_count = len(body.split())
-    print(f"  First pass: {word_count} words, finish_reason={finish_reason}")
+        for attempt in range(3):
+            try:
+                result = _call_api(messages, max_tokens=3000, temperature=0.75)
+                word_count = len(result.split())
 
-    if finish_reason == "length" or word_count < 4000:
-        print("  Article too short, continuing with second pass...")
-        continue_prompt = f"""The previous article was cut off. Here is what was generated so far (last 500 words):
+                if word_count >= min_words * 0.6:
+                    if word_count < min_words:
+                        print(f"    {heading}: {word_count} words (target {min_words}, accepted)")
+                    else:
+                        print(f"    {heading}: {word_count} words ✓")
 
-...{body[-2000:]}
+                    # Add the heading if needed
+                    if include_heading and not result.strip().startswith("## "):
+                        result = f"## {heading}\n\n{result}"
 
-CONTINUE the article from where it left off. Do NOT repeat any content. Pick up EXACTLY where it ended.
-If you were in the middle of a section, complete it. Then continue with all remaining sections.
-Make sure to include: Tricks and Hacks, The Real Numbers (month-by-month table), What Nobody Warns You About, and Start This Weekend.
+                    sections.append(result)
+                    break
+                else:
+                    print(f"    {heading} attempt {attempt+1}: too short ({word_count} words), retrying...")
+                    time.sleep(3)
+            except Exception as e:
+                print(f"    {heading} attempt {attempt+1} failed: {str(e)[:100]}")
+                time.sleep(5)
+        else:
+            # Use whatever we got
+            print(f"    {heading}: using best available after retries")
+            if include_heading and not result.strip().startswith("## "):
+                result = f"## {heading}\n\n{result}"
+            sections.append(result)
 
-WORD COUNT TARGET: Write at least 2000 more words."""
-
-        payload2 = {
-            "model": AI_MODEL,
-            "messages": [
-                {"role": "system", "content": SYSTEM_PROMPT},
-                {"role": "user", "content": user_prompt},
-                {"role": "assistant", "content": body},
-                {"role": "user", "content": continue_prompt},
-            ],
-            "max_tokens": 16000,
-            "temperature": 0.7,
-        }
-        data2 = api_call(payload2)
-        continuation = data2["choices"][0]["message"]["content"]
-        cont_words = len(continuation.split())
-        print(f"  Second pass: {cont_words} words added")
-        body = body + "\n\n" + continuation
+    # Assemble the full article
+    body = f"# {title_text}\n\n" + "\n\n".join(sections)
 
     final_words = len(body.split())
-    print(f"  Total: {final_words} words")
+    print(f"\n  Total article: {final_words} words")
 
     # Inject affiliate links into tool mentions
     body = inject_affiliate_links(body, affiliates)
@@ -383,7 +485,7 @@ if __name__ == "__main__":
     except Exception as e:
         print(f"  Hero image generation failed (non-fatal): {e}")
 
-    # Step 2: Generate article content
+    # Step 2: Generate article content (section-by-section)
     print("Generating article content...")
     body = generate_article(topic_data)
     title = extract_title(body)
@@ -430,6 +532,9 @@ heroImage: "{hero_path}"
     print(f"Title: {title}")
     print(f"Slug: {slug}")
     print(f"Word count: ~{word_count}")
+
+    if word_count < 3500:
+        print("  WARNING: Total word count below 3500.")
 
     # Step 4: Save topic data for cross-linking
     save_last_generated(topic_data, slug, title)

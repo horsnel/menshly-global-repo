@@ -14,12 +14,12 @@ that follow the Menshly Global Intelligence template:
   - Production checklist
   - "What to Do Next" section
 
-NEW FEATURES (v2):
-  - Links to the most recent Opportunity article via relatedOpportunity frontmatter
-  - Links to the corresponding Playbook via relatedPlaybook frontmatter
-  - Embeds affiliate links naturally in tool mentions
-  - Appends "Recommended Tools" section with affiliate links
-  - Uses topic data from last_generated.json for coordinated content
+v3 REWRITE — Section-by-section generation:
+  - Generates each major section as a SEPARATE API call
+  - Works reliably even on weak models (Pollinations, small LLMs)
+  - Enforces minimum word count per section
+  - Quality checks with retry on short sections
+  - Cross-links to opportunity and playbook articles
 """
 
 import os
@@ -48,19 +48,110 @@ AI_MODEL = AI_API_MODEL
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 LAST_GENERATED_FILE = PROJECT_ROOT / "data" / "last_generated.json"
 
+# ── Section definitions for Intelligence articles ──
+SECTION_DEFS = [
+    {
+        "heading": "Prerequisites",
+        "instructions": """Write the Prerequisites section.
+Bullet list of accounts, tools, costs, and time required.
+Total upfront cost stated clearly.
+Include a TABLE with: Tool | Purpose | Cost | Free Tier Limit
+Write 200-300 words.""",
+        "min_words": 150,
+    },
+    {
+        "heading": "Step 1: Setup and Configuration",
+        "instructions": """Write Step 1: Setup and Configuration.
+Directory structure, account setup, API keys, initial configuration.
+Full terminal commands or UI steps with expected output.
+Interactive check-in: "Do you see [X]? If not, [troubleshooting]."
+Include error scenarios: "If you see [ERROR], this means [CAUSE]. Fix it by [SOLUTION]."
+Write 400-600 words.""",
+        "min_words": 300,
+        "heading_template": "## Step 1: {step_title}",
+    },
+    {
+        "heading": "Step 2: Build the Core System",
+        "instructions": """Write Step 2: Build the Core System.
+The main implementation. Complete, runnable configurations.
+Explain what each part does in 1-2 sentences.
+Interactive check-in after each major configuration block.
+Include a TABLE showing the key settings and their values.
+Write 500-700 words.""",
+        "min_words": 350,
+        "heading_template": "## Step 2: {step_title}",
+    },
+    {
+        "heading": "Step 3: Test and Validate",
+        "instructions": """Write Step 3: Test and Validate.
+How to verify it works. Test commands, expected responses.
+Common errors and fixes.
+The 5-point test checklist (5 specific things to verify before proceeding).
+Write 300-400 words.""",
+        "min_words": 200,
+        "heading_template": "## Step 3: {step_title}",
+    },
+    {
+        "heading": "Step 4: Add Advanced Features",
+        "instructions": """Write Step 4: Add Advanced Features.
+Enhancement that makes the system production-worthy (AI enrichment, error handling, routing, etc.)
+Interactive check-in after configuration.
+Show the exact configuration changes needed.
+Write 400-500 words.""",
+        "min_words": 250,
+        "heading_template": "## Step 4: {step_title}",
+    },
+    {
+        "heading": "Step 5: Deploy to Production",
+        "instructions": """Write Step 5: Deploy to Production OR Price and Sell.
+If deployment: deployment steps with commands and verification.
+If service business: pricing structure with a TABLE (Starter/Growth/Enterprise tiers)
+and the specific sales method with a copy-paste pitch template.
+Write 350-450 words.""",
+        "min_words": 200,
+        "heading_template": "## Step 5: {step_title}",
+    },
+    {
+        "heading": "Step 6: Scale and Grow",
+        "instructions": """Write Step 6: Scale and Grow.
+How to go from 1 to 10+ clients/users.
+Hiring plan, automation upgrades, margin improvements.
+Include a TABLE showing scale milestones.
+Write 300-400 words.""",
+        "min_words": 200,
+        "heading_template": "## Step 6: {step_title}",
+    },
+    {
+        "heading": "Cost Breakdown",
+        "instructions": """Write the Cost Breakdown section.
+TABLE with columns: Item | Free Tier | Paid Tier | When to Upgrade
+Include 8-10 items.
+Monthly cost analysis at different scales (solo, 5 clients, 10+ clients).
+Write 200-300 words.""",
+        "min_words": 150,
+    },
+    {
+        "heading": "Production Checklist",
+        "instructions": """Write the Production Checklist section.
+Checklist of 8-10 items to verify before going live:
+- [ ] Item 1
+- [ ] Item 2
+etc.
+Each item should be specific and measurable.
+Write 150-250 words.""",
+        "min_words": 100,
+    },
+    {
+        "heading": "What to Do Next",
+        "instructions": """Write the "What to Do Next" section.
+4-5 specific next steps or expansion ideas, each as a bold-titled paragraph.
+Include links to related Menshly content where relevant.
+Write 200-300 words.""",
+        "min_words": 150,
+    },
+]
 
-def load_last_opportunity() -> dict | None:
-    """Load the last generated opportunity article data for cross-linking."""
-    if not LAST_GENERATED_FILE.exists():
-        return None
-    try:
-        data = json.loads(LAST_GENERATED_FILE.read_text())
-        return data.get("last_opportunity")
-    except (json.JSONDecodeError, Exception):
-        return None
-
-
-# ── Master prompt for Intelligence articles ──────────────────────────
+# ── System prompt shared across all section calls ──
 SYSTEM_PROMPT = """You are the technical implementation writer for Menshly Global (tagline: "Where AI Meets Revenue").
 You write deep execution guides that readers can follow step-by-step to build real systems.
 
@@ -102,66 +193,38 @@ When mentioning tools, use these EXACT tool names (these are our affiliate partn
 - Midjourney (AI image generation)
 - Grammarly (AI writing assistant)
 
-Always mention at least 5-6 of these tools NATURALLY in the article.
-Do NOT add a separate "Recommended Tools" section — we add that automatically.
+Always mention at least 2-3 of these tools NATURALLY in each section.
+Do NOT add a separate "Recommended Tools" section — we add that automatically."""
 
-ARTICLE STRUCTURE (follow this EXACTLY):
 
-## Prerequisites
-Bullet list of accounts, tools, costs, and time required.
-Total upfront cost stated clearly.
+def load_last_opportunity() -> dict | None:
+    """Load the last generated opportunity article data for cross-linking."""
+    if not LAST_GENERATED_FILE.exists():
+        return None
+    try:
+        data = json.loads(LAST_GENERATED_FILE.read_text())
+        return data.get("last_opportunity")
+    except (json.JSONDecodeError, Exception):
+        return None
 
-## Step 1: [Setup/Configure]
-Directory structure, account setup, API keys, initial configuration.
-Full terminal commands or UI steps with expected output.
-Interactive check-in: "Do you see [X]? If not, [troubleshooting]."
 
-## Step 2: [Build Core Component]
-The main implementation. Complete, runnable configurations.
-Explain what each part does in 1-2 sentences.
-Interactive check-in after each major configuration.
-
-## Step 3: [Test Locally]
-How to verify it works. Test commands, expected responses.
-Common errors and fixes.
-The N-test checklist (5 specific things to verify before proceeding).
-
-## Step 4: [Add Advanced Feature]
-Enhancement that makes the system production-worthy (AI enrichment, error handling, routing, etc.)
-Interactive check-in after configuration.
-
-## Step 5: [Deploy to Production OR Price and Sell]
-Either deployment steps with commands and verification,
-OR pricing structure with a table (Starter/Growth/Enterprise tiers)
-and the specific sales method with a copy-paste pitch template.
-
-## Step 6: [Scale/Grow]
-How to go from 1 to 10+ clients/users.
-Hiring plan, automation upgrades, margin improvements.
-
-## Cost Breakdown
-Table with columns: Item | Free Tier | Paid Tier | When to Upgrade
-Monthly cost analysis at different scales.
-
-## Production Checklist
-Checklist of 8-10 items to verify before going live:
-- [ ] Item 1
-- [ ] Item 2
-etc.
-
-## What to Do Next
-4-5 specific next steps or expansion ideas.
-
-WORD COUNT TARGET: 3,500-4,500 words. Every step must be fully detailed.
-Do NOT write short sections. Every step needs sub-steps, configurations, and check-ins."""
+def _call_api(messages: list, max_tokens: int = 4000, temperature: float = 0.7) -> str:
+    """Make a single API call and return the content text."""
+    payload = {
+        "model": AI_MODEL,
+        "messages": messages,
+        "max_tokens": max_tokens,
+        "temperature": temperature,
+    }
+    data = api_call(payload)
+    return data["choices"][0]["message"]["content"]
 
 
 def generate_article(topic_data: dict, opportunity_data: dict = None):
-    """Call the AI API to generate the full article.
+    """Generate the full article using section-by-section approach.
 
-    Uses a two-pass approach for Groq:
-    1. First pass generates the bulk of the article
-    2. If too short (< 3000 words), a second pass continues from where it left off
+    Each section is a separate API call, ensuring consistent quality
+    regardless of the AI backend being used.
     """
     topic = topic_data.get("intelligence_angle", topic_data.get("selected_title", topic_data.get("topic", "")))
     context = topic_data.get("context", "")
@@ -174,79 +237,159 @@ def generate_article(topic_data: dict, opportunity_data: dict = None):
         opp_title = opportunity_data.get("title", "")
         opp_slug = opportunity_data.get("slug", "")
         opportunity_context = f"""
-
-IMPORTANT CROSS-LINKING CONTEXT:
-This intelligence guide is the IMPLEMENTATION companion to the opportunity article:
+CROSS-LINKING: This guide is the IMPLEMENTATION companion to the opportunity article:
 "{opp_title}" (URL: /opportunities/{opp_slug}/)
+Reference this in the opening: "This is the execution guide for the [TOPIC] business we outlined in our opportunity deep-dive."
+Link back at the end: "Ready to understand the full business opportunity? Read our [opportunity deep-dive]({{< ref "/opportunities/{opp_slug}.md" >}})." """
 
-The guide should reference this opportunity in the opening paragraph:
-"This is the execution guide for building the [TOPIC] business we outlined in our opportunity deep-dive."
-And at the end, link back: "Ready to understand the full business opportunity? Read our [opportunity deep-dive]({{< ref "/opportunities/{opp_slug}.md" >}})."
-"""
+    print(f"Generating article about: {topic}")
+    print(f"Difficulty: {difficulty}")
+    print(f"Strategy: Section-by-section generation ({len(SECTION_DEFS)} sections)")
 
-    user_prompt = f"""Write a complete step-by-step implementation article about: {topic}
+    # Generate the title first
+    title_prompt = f"""Generate an SEO-optimized title for a technical implementation article about: {topic}
+
+The title must use IMPERATIVE VERBS (NOT "How to"):
+Pattern: "[VERB], [VERB], and [VERB] [THING] with [TOOL]"
+Examples:
+- "Train, Serve, and Deploy a Scikit-learn Model with FastAPI"
+- "Design, Build, and Deploy Make.com Automation Workflows"
+
+Return ONLY the title, nothing else."""
+
+    title_messages = [
+        {"role": "system", "content": "You are a technical title generator. Return only the title."},
+        {"role": "user", "content": title_prompt},
+    ]
+
+    for attempt in range(3):
+        try:
+            title_text = _call_api(title_messages, max_tokens=100, temperature=0.8)
+            title_text = title_text.strip().strip('"').strip("'")
+            if len(title_text) > 15:
+                break
+        except Exception as e:
+            print(f"  Title generation attempt {attempt+1} failed: {str(e)[:100]}")
+            time.sleep(3)
+    else:
+        title_text = f"Build, Deploy, and Scale {topic}"
+
+    print(f"  Title: {title_text}")
+
+    # Generate an intro paragraph
+    intro_prompt = f"""Write a 2-3 paragraph introduction for a technical implementation article about: {topic}
+
+Title: {title_text}
+Difficulty: {difficulty}
+
+The intro should:
+1. State what the reader will build and achieve
+2. Mention this is an execution guide (not a blog post)
+3. State the total time and cost commitment
+{opportunity_context if opportunity_data else ""}
+
+Write 150-250 words. Do NOT include a heading — just the paragraphs."""
+
+    print(f"\n  [0/{len(SECTION_DEFS)}] Generating introduction...")
+    intro_messages = [
+        {"role": "system", "content": SYSTEM_PROMPT},
+        {"role": "user", "content": intro_prompt},
+    ]
+    intro = ""
+    for attempt in range(3):
+        try:
+            intro = _call_api(intro_messages, max_tokens=1000, temperature=0.7)
+            if len(intro.split()) >= 80:
+                break
+        except Exception as e:
+            print(f"    Intro attempt {attempt+1} failed: {str(e)[:100]}")
+            time.sleep(3)
+
+    # Generate each section
+    sections = []
+    total_sections = len(SECTION_DEFS)
+
+    for i, section_def in enumerate(SECTION_DEFS):
+        heading = section_def["heading"]
+        instructions = section_def["instructions"]
+        min_words = section_def["min_words"]
+
+        print(f"\n  [{i+1}/{total_sections}] Generating: {heading}...")
+
+        # Build context from previously generated sections
+        prev_context = ""
+        if sections:
+            prev_summaries = []
+            for s in sections[-3:]:  # Only last 3 for context
+                first_line = s.split("\n")[0][:100]
+                prev_summaries.append(first_line)
+            prev_context = f"Previously written sections: {', '.join(prev_summaries)}"
+
+        section_prompt = f"""Write the following section for a technical implementation article about: {topic}
+
+TITLE: {title_text}
+Difficulty: {difficulty}
 
 {'TRENDING CONTEXT: ' + context if context else ''}
-Difficulty level: {difficulty}
-{opportunity_context}
 
-Follow the exact structure and style defined in your system instructions.
-This is for the Intelligence category on Menshly Global — deep implementation guides for builders.
+SECTION TO WRITE: {heading}
 
-The title must be SEO-optimized using IMPERATIVE VERBS (not "How to"):
-Pattern: "[VERB], [VERB], and [VERB] [THING] with [TOOL]"
-Example: "Train, Serve, and Deploy a Scikit-learn Model with FastAPI"
-Example: "Design, Build, and Deploy Make.com Automation Workflows"
+{instructions}
 
-Return the article as pure Markdown (no front matter). Begin with the title as an H1."""
+{prev_context if prev_context else ''}
 
-    payload = {
-        "model": AI_MODEL,
-        "messages": [
+WORD COUNT TARGET: At least {min_words} words for this section.
+Be specific with exact settings, exact tool names, and exact configurations."""
+
+        messages = [
             {"role": "system", "content": SYSTEM_PROMPT},
-            {"role": "user", "content": user_prompt},
-        ],
-        "max_tokens": 16000,
-        "temperature": 0.7,
-    }
-    data = api_call(payload)
-    body = data["choices"][0]["message"]["content"]
+            {"role": "user", "content": section_prompt},
+        ]
 
-    finish_reason = data["choices"][0].get("finish_reason", "")
-    word_count = len(body.split())
-    print(f"  First pass: {word_count} words, finish_reason={finish_reason}")
+        section_text = ""
+        for attempt in range(3):
+            try:
+                result = _call_api(messages, max_tokens=3000, temperature=0.7)
+                word_count = len(result.split())
 
-    if finish_reason == "length" or word_count < 3000:
-        print("  Article too short, continuing with second pass...")
-        continue_prompt = f"""The previous article was cut off. Here is what was generated so far (last 500 words):
+                if word_count >= min_words * 0.6:
+                    if word_count < min_words:
+                        print(f"    {heading}: {word_count} words (target {min_words}, accepted)")
+                    else:
+                        print(f"    {heading}: {word_count} words ✓")
 
-...{body[-2000:]}
+                    # Add the heading if not already present
+                    if not result.strip().startswith("## "):
+                        result = f"## {heading}\n\n{result}"
 
-CONTINUE the article from where it left off. Do NOT repeat any content. Pick up EXACTLY where it ended.
-If you were in the middle of a section, complete it. Then continue with all remaining sections.
-Make sure to include: Cost Breakdown, Production Checklist, and What to Do Next.
+                    section_text = result
+                    sections.append(section_text)
+                    break
+                else:
+                    print(f"    {heading} attempt {attempt+1}: too short ({word_count} words), retrying...")
+                    time.sleep(3)
+            except Exception as e:
+                print(f"    {heading} attempt {attempt+1} failed: {str(e)[:100]}")
+                time.sleep(5)
+        else:
+            # Use whatever we got
+            if not section_text:
+                section_text = f"## {heading}\n\n*Section content pending review.*\n"
+            elif not section_text.strip().startswith("## "):
+                section_text = f"## {heading}\n\n{section_text}"
+            print(f"    {heading}: using best available after retries")
+            sections.append(section_text)
 
-WORD COUNT TARGET: Write at least 2000 more words."""
+    # Assemble the full article
+    body = f"# {title_text}\n\n{intro}\n\n" + "\n\n".join(sections)
 
-        payload2 = {
-            "model": AI_MODEL,
-            "messages": [
-                {"role": "system", "content": SYSTEM_PROMPT},
-                {"role": "user", "content": user_prompt},
-                {"role": "assistant", "content": body},
-                {"role": "user", "content": continue_prompt},
-            ],
-            "max_tokens": 16000,
-            "temperature": 0.65,
-        }
-        data2 = api_call(payload2)
-        continuation = data2["choices"][0]["message"]["content"]
-        cont_words = len(continuation.split())
-        print(f"  Second pass: {cont_words} words added")
-        body = body + "\n\n" + continuation
+    # Add opportunity cross-link at the end
+    if opportunity_data:
+        opp_slug = opportunity_data.get("slug", "")
+        body += f'\n\nReady to understand the full business opportunity? Read our [opportunity deep-dive]({{< ref "/opportunities/{opp_slug}.md" >}}).\n'
 
     final_words = len(body.split())
-    print(f"  Total: {final_words} words")
+    print(f"\n  Total article: {final_words} words")
 
     # Inject affiliate links into tool mentions
     body = inject_affiliate_links(body, affiliates)
@@ -257,9 +400,6 @@ WORD COUNT TARGET: Write at least 2000 more words."""
         body = body + "\n\n" + tools_section
 
     return body, difficulty
-
-
-
 
 
 def extract_title(body: str) -> str:
@@ -409,7 +549,7 @@ if __name__ == "__main__":
     except Exception as e:
         print(f"  Hero image generation failed (non-fatal): {e}")
 
-    # Step 2: Generate article content
+    # Step 2: Generate article content (section-by-section)
     print("Generating article content...")
     body, difficulty = generate_article(topic_data, opportunity_data)
     title = extract_title(body)
@@ -491,6 +631,9 @@ if __name__ == "__main__":
     print(f"Slug: {slug}")
     print(f"Difficulty: {difficulty}")
     print(f"Word count: ~{word_count}")
+
+    if word_count < 2500:
+        print("  WARNING: Total word count below 2500.")
 
     # Step 5: Save data for playbook cross-linking
     save_last_generated(topic_data, slug, title, difficulty)
