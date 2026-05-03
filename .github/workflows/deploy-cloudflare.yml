@@ -94,24 +94,12 @@ jobs:
           echo "Pages: $(find public -name '*.html' | wc -l)"
           echo "Assets: $(find public -type f | wc -l)"
 
-      - name: Deploy to CloudFlare (Preview)
-        if: steps.config.outputs.environment == 'preview'
+      - name: Deploy to CloudFlare Pages
         run: |
-          echo "Deploying PREVIEW to CloudFlare Pages..."
+          echo "Deploying to CloudFlare Pages (${{ steps.config.outputs.environment }})..."
           npx wrangler pages deploy public/ \
             --project-name=${{ env.CLOUDFLARE_PROJECT }} \
             --branch=main \
-            --commit-message="${{ steps.config.outputs.message }}" \
-            --commit-dirty=true
-
-      - name: Deploy to CloudFlare (Production)
-        if: steps.config.outputs.environment == 'production'
-        run: |
-          echo "Deploying PRODUCTION to CloudFlare Pages..."
-          npx wrangler pages deploy public/ \
-            --project-name=${{ env.CLOUDFLARE_PROJECT }} \
-            --branch=main \
-            --production \
             --commit-message="${{ steps.config.outputs.message }}" \
             --commit-dirty=true
 
