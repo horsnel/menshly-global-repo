@@ -12,3 +12,4 @@ resources/
 # Generated data (trending queue, last generated)
 # These MUST be tracked in git so they persist between workflow runs
 # for cross-linking and topic deduplication
+__pycache__/
