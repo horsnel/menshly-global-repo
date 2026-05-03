@@ -27,12 +27,12 @@ jobs:
       - name: Generate Playbook
         timeout-minutes: 50
         env:
-          # Primary: Together AI for high-quality long-form playbook generation
+          # Playbook-specific API (Together AI preferred, falls back to PLAYBOOK secrets, then Pollinations)
           TOGETHER_API_KEY: ${{ secrets.TOGETHER_API_KEY }}
-          PLAYBOOK_API_KEY: ${{ secrets.TOGETHER_API_KEY }}
-          PLAYBOOK_API_BASE: https://api.together.xyz/v1
-          PLAYBOOK_MODEL: meta-llama/Llama-3.3-70B-Instruct-Turbo
-          # Fallback: General AI API (Groq/Gemini)
+          PLAYBOOK_API_KEY: ${{ secrets.PLAYBOOK_API_KEY || secrets.TOGETHER_API_KEY }}
+          PLAYBOOK_API_BASE: ${{ secrets.PLAYBOOK_API_BASE || 'https://api.together.xyz/v1' }}
+          PLAYBOOK_MODEL: ${{ secrets.PLAYBOOK_MODEL || 'meta-llama/Llama-3.3-70B-Instruct-Turbo' }}
+          # General AI API (Groq/Gemini) — used as fallback
           AI_API_KEY: ${{ secrets.AI_API_KEY || '' }}
           AI_API_BASE: ${{ secrets.AI_API_BASE || '' }}
           AI_MODEL: ${{ secrets.AI_MODEL || '' }}
@@ -45,7 +45,7 @@ jobs:
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add content/opportunities/ content/intelligence/ content/playbooks/ static/images/ data/
           git add -f data/trending_queue.json data/last_generated.json 2>/dev/null || true
-          git diff --cached --quiet || git commit -m "auto: new playbook (Together AI powered, quality-enforced)"
+          git diff --cached --quiet || git commit -m "auto: new playbook (procedure-by-procedure, quality-enforced)"
           for i in 1 2 3; do
             git pull --rebase origin main || true
             git push origin main && break
