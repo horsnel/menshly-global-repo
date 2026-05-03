@@ -1,17 +1,17 @@
 ---
-title: "24 procedures. 12 modules. 12+ hours of reading and execution"
+title: "26 procedures. 10 modules. 12+ hours of reading and execution"
 date: 2026-05-02
 category: "Playbook"
 price: "₦25,000"
 readTime: "45 MIN"
-excerpt: "This playbook extends our free implementation guide with complete procedures, SOPs, and revenue calculators. 24 procedures. 12 modules. 12+ hours of reading and execution. Completing every procedure will give you a fully functional, subscription‑base..."
+excerpt: "This playbook extends our free implementation guide with complete procedures, SOPs, and revenue calculators. 26 procedures. 10 modules. 12+ hours of reading and execution. Completing every procedure will give you a fully functional, subscription‑base..."
 image: "/images/articles/playbooks/24-procedures-12-modules-12-hours-of-reading-and-execution.png"
 heroImage: "/images/heroes/playbooks/24-procedures-12-modules-12-hours-of-reading-and-execution.png"
 relatedOpportunity: "/opportunities/how-to-launch-an-ai-personal-finance-automation-service-in-2026-2k-10kmonth/"
 relatedGuide: "/intelligence/research-automate-and-monetize-an-ai-affiliate-marketing-system-with-semrush-and/"
 ---
 This playbook extends our free implementation guide with complete procedures, SOPs, and revenue calculators.
-**25 procedures. 10 modules. 12+ hours of reading and execution.** Completing every procedure will give you a fully functional, subscription-based AI Personal Finance Automation System that you can start monetizing at ₦25,000 per month, with a clear path to scaling and profit.
+**26 procedures. 10 modules. 12+ hours of reading and execution.** Completing every procedure will give you a fully functional, subscription-based AI Personal Finance Automation System that you can start monetizing at ₦25,000 per month, with a clear path to scaling and profit.
 
 ---
 
