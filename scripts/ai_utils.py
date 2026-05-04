@@ -188,30 +188,27 @@ def api_call(payload, max_retries=5, api_key=None, api_base=None):
 # ──────────────────────────────────────────────
 
 def _groq_strategy(payload, max_retries, api_key):
-    """Groq key: try proxy → direct → bridge → Pollinations."""
-    # Step 1: Try Cloudflare proxy first (bypasses geo-blocks)
+    """Groq key: try proxy → direct → Pollinations.
+
+    Optimized for GitHub Actions: fewer retries on rate-limits,
+    skip bridge (not available in CI), fall to Pollinations faster.
+    """
+    # Step 1: Try Cloudflare proxy (max 2 retries to avoid timeout)
     try:
         print("  [groq] Trying Cloudflare proxy...")
-        return _proxy_call(payload, max_retries, api_key)
+        return _proxy_call(payload, max_retries=2, api_key=api_key)
     except Exception as e:
         print(f"  [groq] Proxy failed: {str(e)[:150]}")
 
-    # Step 2: Try direct Groq API (works from supported regions)
+    # Step 2: Try direct Groq API (max 1 retry)
     try:
         print("  [groq] Trying direct API...")
-        return _direct_call(payload, max_retries=2, api_key=api_key, api_base=GROQ_DIRECT_BASE)
+        return _direct_call(payload, max_retries=1, api_key=api_key, api_base=GROQ_DIRECT_BASE)
     except Exception as e:
         print(f"  [groq] Direct API failed: {str(e)[:150]}")
 
-    # Step 3: Fall back to Node.js bridge
-    try:
-        print("  [groq] Falling back to Node.js bridge...")
-        return _bridge_call(payload, max_retries=2)
-    except Exception as e:
-        print(f"  [groq] Bridge failed: {str(e)[:150]}")
-
-    # Step 4: Last resort — Pollinations
-    print("  [groq] All Groq routes failed, using Pollinations (free)...")
+    # Step 3: Fall to Pollinations (skip bridge — not available in CI)
+    print("  [groq] Groq rate-limited, falling directly to Pollinations (free)...")
     return _pollinations_call(payload, max_retries)
 
 
@@ -343,7 +340,8 @@ def _proxy_call(payload, max_retries, api_key):
             )
 
             if resp.status_code == 429:
-                wait = 30 * (attempt + 1)
+                # Cap wait at 30s — fail fast and fall to Pollinations
+                wait = min(15 * (attempt + 1), 30)
                 if attempt < max_retries:
                     print(f"  [proxy] Rate limited (429). Waiting {wait}s...")
                     time.sleep(wait)
@@ -352,7 +350,7 @@ def _proxy_call(payload, max_retries, api_key):
 
             if resp.status_code >= 500:
                 if attempt < max_retries:
-                    wait = 10 * (attempt + 1)
+                    wait = min(10 * (attempt + 1), 20)
                     print(f"  [proxy] Server error ({resp.status_code}). Waiting {wait}s...")
                     time.sleep(wait)
                     continue
@@ -416,7 +414,8 @@ def _direct_call(payload, max_retries=5, api_key=None, api_base=None):
                 timeout=300,
             )
             if resp.status_code == 429:
-                wait = 30 * (attempt + 1)
+                # Cap wait at 30s — fail fast and fall to Pollinations
+                wait = min(15 * (attempt + 1), 30)
                 if attempt < max_retries:
                     print(f"  [direct] Rate limited (429). Waiting {wait}s...")
                     time.sleep(wait)
@@ -425,7 +424,7 @@ def _direct_call(payload, max_retries=5, api_key=None, api_base=None):
                     resp.raise_for_status()
             if resp.status_code >= 500:
                 if attempt < max_retries:
-                    wait = 10 * (attempt + 1)
+                    wait = min(10 * (attempt + 1), 20)
                     print(f"  [direct] Server error ({resp.status_code}). Waiting {wait}s...")
                     time.sleep(wait)
                     continue
@@ -471,7 +470,7 @@ def _pollinations_call(payload, max_retries=5):
             )
 
             if resp.status_code == 429:
-                wait = 30 * (attempt + 1)
+                wait = min(15 * (attempt + 1), 30)
                 if attempt < max_retries:
                     print(f"  [pollinations] Rate limited (429). Waiting {wait}s...")
                     time.sleep(wait)
@@ -481,7 +480,7 @@ def _pollinations_call(payload, max_retries=5):
 
             if resp.status_code >= 500:
                 if attempt < max_retries:
-                    wait = 15 * (attempt + 1)
+                    wait = min(10 * (attempt + 1), 20)
                     print(f"  [pollinations] Server error ({resp.status_code}). Waiting {wait}s...")
                     time.sleep(wait)
                     continue
@@ -511,7 +510,7 @@ def _pollinations_call(payload, max_retries=5):
 
         except requests.exceptions.Timeout:
             if attempt < max_retries:
-                wait = 30 * (attempt + 1)
+                wait = min(20 * (attempt + 1), 40)
                 print(f"  [pollinations] Timed out. Waiting {wait}s...")
                 time.sleep(wait)
                 continue
@@ -519,7 +518,7 @@ def _pollinations_call(payload, max_retries=5):
 
         except requests.exceptions.ConnectionError:
             if attempt < max_retries:
-                wait = 20 * (attempt + 1)
+                wait = min(15 * (attempt + 1), 30)
                 print(f"  [pollinations] Connection error. Waiting {wait}s...")
                 time.sleep(wait)
                 continue
