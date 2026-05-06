@@ -256,18 +256,17 @@ img {
 
 /* --- Inputs --- */
 .input-brutal {
-  border: 1px solid rgba(26, 26, 26, 0.25);
+  border: none;
   padding: 12px 16px;
   font-family: var(--font-body);
   font-size: 14px;
-  background: var(--white);
+  background: var(--off-white);
   outline: none;
-  transition: border-color 0.15s ease;
+  transition: box-shadow 0.15s ease;
   width: 100%;
 }
 
 .input-brutal:focus {
-  border-color: var(--red);
   box-shadow: 0 0 0 3px rgba(255, 0, 4, 0.1);
 }
 
@@ -410,7 +409,6 @@ img {
 .nav-mobile-menu a {
   display: block;
   padding: 14px 20px;
-  border-bottom: 1px solid rgba(26, 26, 26, 0.08);
   font-family: var(--font-heading);
   font-size: 16px;
   font-weight: 600;
@@ -738,7 +736,6 @@ img {
 }
 
 .article-card-meta {
-  border-top: 1px solid rgba(26, 26, 26, 0.08);
   padding: 8px 16px;
   display: flex;
   align-items: center;
@@ -829,7 +826,6 @@ img {
 }
 
 .playbook-card-action {
-  border-top: 1px solid rgba(26, 26, 26, 0.08);
   padding: 12px 20px;
   display: flex;
   align-items: center;
@@ -905,7 +901,6 @@ img {
 
 .tool-card-form {
   display: none;
-  border-top: 1px solid rgba(26, 26, 26, 0.1);
   padding: 16px;
   background: var(--off-white);
 }
@@ -1022,7 +1017,6 @@ img {
 }
 
 .process-right .process-step {
-  border-bottom: 1px solid rgba(26, 26, 26, 0.08);
   padding: 48px 24px;
   min-height: 60vh;
   display: flex;
@@ -1100,12 +1094,7 @@ img {
   align-items: center;
   gap: 16px;
   padding: 12px 16px;
-  border-bottom: 1px solid rgba(26, 26, 26, 0.08);
   transition: background 0.15s ease;
-}
-
-.process-detail-item:last-child {
-  border-bottom: none;
 }
 
 .process-detail-item:hover {
@@ -1196,7 +1185,6 @@ img {
 }
 
 .footer-col {
-  border-right: 1px solid rgba(255, 255, 255, 0.08);
   padding: 40px 24px;
 }
 
@@ -1206,17 +1194,10 @@ img {
   }
 }
 
-.footer-col:last-child {
-  border-right: none;
-}
+
 
 @media (max-width: 767px) {
   .footer-col {
-    border-right: none;
-    border-bottom: 3px solid rgba(255, 255, 255, 0.1);
-  }
-  .footer-col:last-child {
-    border-bottom: none;
   }
 }
 
@@ -1259,7 +1240,6 @@ img {
 }
 
 .footer-bottom {
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
   padding: 16px 24px;
   display: flex;
   flex-direction: column;
@@ -1360,7 +1340,6 @@ img {
 
 .article-meta-item {
   padding: 10px 16px;
-  border-right: 1px solid rgba(26, 26, 26, 0.12);
   font-family: var(--font-heading);
   font-size: 10px;
   font-weight: 600;
@@ -1368,9 +1347,7 @@ img {
   letter-spacing: 0.1em;
 }
 
-.article-meta-item:last-child {
-  border-right: none;
-}
+
 
 .article-content {
   max-width: 1080px;
@@ -1446,7 +1423,7 @@ img {
 
 .article-content code {
   background: var(--off-white);
-  border: 1px solid var(--black);
+  border: none;
   padding: 2px 6px;
   font-size: 14px;
 }
@@ -1497,12 +1474,7 @@ img {
 }
 
 .article-content tbody tr {
-  border-bottom: 1px solid rgba(26, 26, 26, 0.08);
   transition: background 0.15s ease;
-}
-
-.article-content tbody tr:last-child {
-  border-bottom: none;
 }
 
 .article-content tbody tr:nth-child(even) {
@@ -1515,12 +1487,7 @@ img {
 
 .article-content tbody td {
   padding: 12px 16px;
-  border-right: 1px solid rgba(26, 26, 26, 0.15);
   vertical-align: top;
-}
-
-.article-content tbody td:last-child {
-  border-right: none;
 }
 
 .article-content tbody td strong {
@@ -1565,12 +1532,7 @@ img {
 .roster-row {
   display: grid;
   grid-template-columns: 3fr 3fr 2fr 2fr 2fr;
-  border-bottom: 1px solid rgba(26, 26, 26, 0.08);
   transition: background 0.15s ease;
-}
-
-.roster-row:last-child {
-  border-bottom: none;
 }
 
 .roster-row:hover {
@@ -1592,9 +1554,7 @@ img {
   align-items: center;
 }
 
-.roster-row > div:not(:last-child) {
-  border-right: 1px solid rgba(26, 26, 26, 0.12);
-}
+
 
 /* --- Article Hero Image --- */
 .article-hero-image {
@@ -1814,16 +1774,13 @@ img {
 
 .playbook-buy-features li {
   padding: 8px 0;
-  border-bottom: 1px solid rgba(26, 26, 26, 0.15);
   font-size: 14px;
   display: flex;
   align-items: center;
   gap: 10px;
 }
 
-.playbook-buy-features li:last-child {
-  border-bottom: none;
-}
+
 
 .playbook-buy-features li::before {
   content: "✓";
@@ -2085,7 +2042,6 @@ img {
 
 .article-nav-item:hover {
   background: var(--yellow);
-  border-color: var(--black);
 }
 
 .article-nav-next {
@@ -2512,9 +2468,7 @@ img {
   text-align: center;
 }
 
-.error-stat:not(:last-child) {
-  border-right: 1px solid rgba(26, 26, 26, 0.12);
-}
+
 
 .error-stat-num {
   font-family: var(--font-heading);
@@ -2692,13 +2646,11 @@ img {
 .listen-btn.listening {
   background: var(--red);
   color: var(--white);
-  border-color: var(--red);
 }
 
 .listen-btn.listening:hover {
   background: var(--black);
   color: var(--white);
-  border-color: var(--black);
 }
 
 .listen-icon {
@@ -2801,9 +2753,7 @@ img {
   transition: background 0.15s ease;
 }
 
-.speed-btn:last-child {
-  border-right: none;
-}
+
 
 .speed-btn:hover {
   background: var(--off-white);
@@ -2885,7 +2835,6 @@ img {
   background: var(--yellow);
   z-index: 9999;
   transition: width 0.1s linear;
-  border-bottom: 1px solid var(--black);
 }
 
 /* --- Scroll Reveal Animations --- */
@@ -2925,12 +2874,10 @@ img {
 
 .bookmark-btn:hover {
   background: var(--yellow);
-  border-color: var(--black);
 }
 
 .bookmark-btn.bookmarked {
   background: var(--yellow);
-  border-color: var(--black);
 }
 
 .bookmark-icon {
@@ -3122,7 +3069,6 @@ img {
 @media (max-width: 1023px) {
   .toc-sidebar.toc-open .toc-list {
     padding: 8px 16px 16px;
-    border-top: 1px solid rgba(26, 26, 26, 0.08);
   }
 }
 
