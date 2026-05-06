@@ -1,6 +1,6 @@
 /* ============================================
-   MENSHLY GLOBAL — Brutalist Swiss Design
-   Oswald + Inter | Acid Yellow + Red + Black
+   MENSHLY GLOBAL — Premium Brutalist Design
+   Inter + Lora | Acid Yellow + Red + Black
    ============================================ */
 
 /* --- Design Tokens --- */
@@ -10,8 +10,8 @@
   --red: #FF0004;
   --white: #FFFFFF;
   --off-white: #fafafa;
-  --font-heading: "Oswald", sans-serif;
-  --font-body: "Inter", sans-serif;
+  --font-heading: "Inter", sans-serif;
+  --font-body: "Lora", serif;
   --swiss-radius: 8px;
   --swiss-radius-sm: 4px;
 }
@@ -172,7 +172,7 @@ body {
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-heading);
   text-transform: uppercase;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.01em;
   line-height: 1.1;
   margin: 0;
 }
@@ -207,7 +207,7 @@ img {
 .btn-brutal {
   font-family: var(--font-heading);
   text-transform: uppercase;
-  letter-spacing: 0.02em;
+  letter-spacing: 0.04em;
   padding: 12px 24px;
   font-weight: 600;
   font-size: 14px;
@@ -273,7 +273,7 @@ img {
 .input-brutal::placeholder {
   color: #999;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.04em;
   font-size: 12px;
 }
 
@@ -328,7 +328,7 @@ img {
 .nav-brand a {
   font-family: var(--font-heading);
   font-size: 20px;
-  font-weight: 700;
+  font-weight: 800;
   letter-spacing: -0.02em;
   text-transform: uppercase;
   color: var(--black);
@@ -343,9 +343,9 @@ img {
   padding: 16px 12px;
   font-family: var(--font-heading);
   font-size: 13px;
-  font-weight: 600;
+  font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.04em;
   text-align: center;
   color: var(--black);
   transition: background 0.15s ease;
@@ -381,7 +381,7 @@ img {
 .nav-mobile-trigger span {
   font-family: var(--font-heading);
   font-size: 18px;
-  font-weight: 700;
+  font-weight: 800;
   text-transform: uppercase;
 }
 
@@ -389,7 +389,7 @@ img {
   background: none;
   padding: 4px 10px;
   font-family: var(--font-heading);
-  font-weight: 700;
+  font-weight: 800;
   font-size: 18px;
   cursor: pointer;
 }
@@ -411,9 +411,9 @@ img {
   padding: 14px 20px;
   font-family: var(--font-heading);
   font-size: 16px;
-  font-weight: 600;
+  font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.02em;
+  letter-spacing: 0.01em;
   color: var(--black);
   transition: background 0.15s ease;
 }
@@ -464,15 +464,15 @@ img {
   font-size: 11px;
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.08em;
   margin-bottom: 24px;
 }
 
 .hero-title {
   font-size: clamp(3rem, 7vw, 6rem);
-  font-weight: 700;
+  font-weight: 900;
   line-height: 0.95;
-  letter-spacing: -0.03em;
+  letter-spacing: -0.02em;
   margin-bottom: 24px;
   color: var(--black);
 }
@@ -526,10 +526,10 @@ img {
 .hero-visual-icon {
   font-family: var(--font-heading);
   font-size: clamp(4rem, 10vw, 8rem);
-  font-weight: 700;
+  font-weight: 900;
   color: var(--black);
   line-height: 1;
-  letter-spacing: -0.05em;
+  letter-spacing: -0.03em;
   opacity: 0.15;
 }
 
@@ -538,7 +538,7 @@ img {
   font-size: 14px;
   font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 0.3em;
+  letter-spacing: 0.2em;
   color: var(--black);
   margin-top: 16px;
 }
@@ -558,7 +558,7 @@ img {
   font-size: 12px;
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.08em;
 }
 
 /* Stats bar */
@@ -580,7 +580,7 @@ img {
 .stats-number {
   font-family: var(--font-heading);
   font-size: clamp(1.5rem, 3vw, 2rem);
-  font-weight: 700;
+  font-weight: 800;
 }
 
 .stats-label {
@@ -625,7 +625,7 @@ img {
   font-size: 11px;
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.2em;
+  letter-spacing: 0.15em;
   color: var(--red);
   display: block;
   margin-bottom: 8px;
@@ -633,15 +633,15 @@ img {
 
 .section-title {
   font-size: clamp(2.25rem, 5vw, 4.5rem);
-  font-weight: 700;
-  letter-spacing: -0.03em;
+  font-weight: 800;
+  letter-spacing: -0.02em;
 }
 
 .section-count {
   font-family: var(--font-heading);
   font-size: 13px;
   text-transform: uppercase;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.08em;
 }
 
 /* --- Article Cards Grid --- */
@@ -713,7 +713,7 @@ img {
   font-size: 10px;
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.15em;
+  letter-spacing: 0.08em;
   color: var(--red);
   margin-bottom: 8px;
 }
@@ -723,7 +723,7 @@ img {
   font-size: 20px;
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.01em;
   line-height: 1.2;
   margin-bottom: 8px;
 }
@@ -750,9 +750,9 @@ img {
 .article-card-date {
   font-family: var(--font-heading);
   font-size: 10px;
-  font-weight: 600;
+  font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.08em;
 }
 
 .article-card-read {
@@ -800,7 +800,7 @@ img {
   padding: 8px 14px;
   font-family: var(--font-heading);
   font-size: 16px;
-  font-weight: 700;
+  font-weight: 800;
   z-index: 2;
 }
 
@@ -813,7 +813,7 @@ img {
   font-size: 22px;
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.01em;
   line-height: 1.2;
   margin-bottom: 8px;
 }
@@ -837,7 +837,7 @@ img {
   font-size: 12px;
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.08em;
   padding: 8px 16px;
   cursor: pointer;
   transition: all 0.15s ease;
@@ -885,7 +885,7 @@ img {
   font-size: 14px;
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.04em;
 }
 
 .tool-card-body {
@@ -919,7 +919,7 @@ img {
   font-size: 11px;
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.08em;
   margin-bottom: 6px;
 }
 
@@ -939,7 +939,7 @@ img {
   font-size: 11px;
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.08em;
   padding: 8px 16px;
   cursor: pointer;
   background: var(--yellow);
@@ -1063,7 +1063,7 @@ img {
   font-size: 10px;
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.08em;
   margin-left: 16px;
   vertical-align: middle;
 }
@@ -1074,8 +1074,8 @@ img {
 .process-step-title {
   font-family: var(--font-heading);
   font-size: clamp(1.75rem, 3vw, 2.75rem);
-  font-weight: 700;
-  letter-spacing: -0.02em;
+  font-weight: 800;
+  letter-spacing: -0.01em;
   margin: 16px 0 12px;
 }
 
@@ -1104,16 +1104,16 @@ img {
 .process-detail-num {
   font-family: var(--font-heading);
   font-size: 12px;
-  font-weight: 700;
+  font-weight: 800;
   color: var(--red);
 }
 
 .process-detail-text {
-  font-family: var(--font-body);
+  font-family: var(--font-heading);
   font-size: 13px;
-  font-weight: 500;
+  font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 0.03em;
+  letter-spacing: 0.02em;
 }
 
 /* --- Newsletter Section --- */
@@ -1136,8 +1136,8 @@ img {
 
 .newsletter-title {
   font-size: clamp(2.25rem, 5vw, 4rem);
-  font-weight: 700;
-  letter-spacing: -0.03em;
+  font-weight: 800;
+  letter-spacing: -0.02em;
   margin-bottom: 16px;
 }
 
@@ -1204,7 +1204,7 @@ img {
 .footer-brand-name {
   font-family: var(--font-heading);
   font-size: 24px;
-  font-weight: 700;
+  font-weight: 800;
   text-transform: uppercase;
   letter-spacing: -0.02em;
   margin-bottom: 16px;
@@ -1222,7 +1222,7 @@ img {
   font-size: 11px;
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.2em;
+  letter-spacing: 0.15em;
   color: var(--yellow);
   margin-bottom: 16px;
 }
@@ -1259,7 +1259,7 @@ img {
   font-size: 10px;
   color: rgba(255, 255, 255, 0.4);
   text-transform: uppercase;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.04em;
 }
 
 /* --- Section Page Hero --- */
@@ -1317,14 +1317,14 @@ img {
   font-size: 11px;
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.08em;
   margin-bottom: 24px;
 }
 
 .article-header .article-title {
   font-size: clamp(2.25rem, 5vw, 4rem);
-  font-weight: 700;
-  letter-spacing: -0.03em;
+  font-weight: 800;
+  letter-spacing: -0.02em;
   line-height: 1.05;
   margin-bottom: 24px;
   max-width: 800px;
@@ -1342,9 +1342,9 @@ img {
   padding: 10px 16px;
   font-family: var(--font-heading);
   font-size: 10px;
-  font-weight: 600;
+  font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.08em;
 }
 
 
@@ -1369,16 +1369,16 @@ img {
 
 .article-content h2 {
   font-size: clamp(1.75rem, 3vw, 2rem);
-  font-weight: 700;
+  font-weight: 800;
   margin: 48px 0 16px;
-  letter-spacing: -0.03em;
+  letter-spacing: -0.02em;
 }
 
 .article-content h3 {
   font-size: clamp(1.25rem, 2vw, 1.5rem);
   font-weight: 700;
   margin: 32px 0 12px;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.01em;
 }
 
 .article-content p {
@@ -1464,7 +1464,7 @@ img {
   font-size: 11px;
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.08em;
   text-align: left;
   border-right: 3px solid rgba(255, 255, 255, 0.2);
 }
@@ -1522,7 +1522,7 @@ img {
   font-size: 11px;
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.08em;
 }
 
 .roster-header > div:not(:last-child) {
@@ -1645,7 +1645,7 @@ img {
   font-size: 11px;
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.04em;
   background: var(--yellow);
   padding: 2px 8px;
   white-space: nowrap;
@@ -1694,7 +1694,7 @@ img {
   font-size: 16px;
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.04em;
   color: var(--black);
 }
 
@@ -1758,7 +1758,7 @@ img {
 .playbook-buy-price {
   font-family: var(--font-heading);
   font-size: 24px;
-  font-weight: 700;
+  font-weight: 800;
   color: var(--black);
 }
 
@@ -1825,9 +1825,9 @@ img {
 .playbook-paywall-inner h3 {
   font-family: var(--font-heading);
   font-size: clamp(1.5rem, 3vw, 2rem);
-  font-weight: 700;
+  font-weight: 800;
   text-transform: uppercase;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.01em;
   margin: 0 0 12px;
 }
 
