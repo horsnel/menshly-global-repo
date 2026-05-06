@@ -139,6 +139,13 @@
       "category": "ai",
       "description": "AI voice agent platform — build and deploy voice AI",
       "earn": "Referral credits"
+    },
+    {
+      "name": "Railway",
+      "url": "https://railway.com?referralCode=fJobV0",
+      "category": "deployment",
+      "description": "Cloud deployment platform — deploy apps, databases, and AI services instantly",
+      "earn": "$5 credit per referral"
     }
   ]
 }
