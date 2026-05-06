@@ -173,7 +173,7 @@ h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-heading);
   text-transform: uppercase;
   letter-spacing: -0.02em;
-  line-height: 1;
+  line-height: 1.1;
   margin: 0;
 }
 
@@ -469,7 +469,7 @@ img {
 }
 
 .hero-title {
-  font-size: clamp(2.5rem, 6vw, 5rem);
+  font-size: clamp(3rem, 7vw, 6rem);
   font-weight: 700;
   line-height: 0.95;
   letter-spacing: -0.03em;
@@ -478,7 +478,7 @@ img {
 }
 
 .hero-desc {
-  font-size: 15px;
+  font-size: 16px;
   line-height: 1.7;
   color: rgba(26, 26, 26, 0.8);
   max-width: 440px;
@@ -632,7 +632,7 @@ img {
 }
 
 .section-title {
-  font-size: clamp(2rem, 5vw, 4rem);
+  font-size: clamp(2.25rem, 5vw, 4.5rem);
   font-weight: 700;
   letter-spacing: -0.03em;
 }
@@ -720,17 +720,17 @@ img {
 
 .article-card-title {
   font-family: var(--font-heading);
-  font-size: 18px;
+  font-size: 20px;
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: -0.01em;
+  letter-spacing: -0.02em;
   line-height: 1.2;
   margin-bottom: 8px;
 }
 
 .article-card-excerpt {
-  font-size: 13px;
-  line-height: 1.6;
+  font-size: 14px;
+  line-height: 1.65;
   color: rgba(26, 26, 26, 0.7);
   margin-bottom: 12px;
 }
@@ -810,17 +810,17 @@ img {
 
 .playbook-card-title {
   font-family: var(--font-heading);
-  font-size: 20px;
+  font-size: 22px;
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: -0.01em;
+  letter-spacing: -0.02em;
   line-height: 1.2;
   margin-bottom: 8px;
 }
 
 .playbook-card-excerpt {
-  font-size: 13px;
-  line-height: 1.6;
+  font-size: 14px;
+  line-height: 1.65;
   color: rgba(26, 26, 26, 0.7);
   margin-bottom: 16px;
 }
@@ -994,7 +994,7 @@ img {
 }
 
 .process-left p {
-  font-size: 14px;
+  font-size: 15px;
   line-height: 1.7;
   color: rgba(26, 26, 26, 0.7);
   margin-bottom: 32px;
@@ -1073,14 +1073,14 @@ img {
 
 .process-step-title {
   font-family: var(--font-heading);
-  font-size: clamp(1.5rem, 3vw, 2.5rem);
+  font-size: clamp(1.75rem, 3vw, 2.75rem);
   font-weight: 700;
   letter-spacing: -0.02em;
   margin: 16px 0 12px;
 }
 
 .process-step-desc {
-  font-size: 14px;
+  font-size: 15px;
   line-height: 1.7;
   color: rgba(26, 26, 26, 0.7);
   max-width: 440px;
@@ -1135,14 +1135,14 @@ img {
 }
 
 .newsletter-title {
-  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-size: clamp(2.25rem, 5vw, 4rem);
   font-weight: 700;
   letter-spacing: -0.03em;
   margin-bottom: 16px;
 }
 
 .newsletter-desc {
-  font-size: 15px;
+  font-size: 16px;
   line-height: 1.7;
   color: rgba(26, 26, 26, 0.7);
   margin-bottom: 32px;
@@ -1322,10 +1322,10 @@ img {
 }
 
 .article-header .article-title {
-  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-size: clamp(2.25rem, 5vw, 4rem);
   font-weight: 700;
   letter-spacing: -0.03em;
-  line-height: 1;
+  line-height: 1.05;
   margin-bottom: 24px;
   max-width: 800px;
 }
@@ -1368,17 +1368,17 @@ img {
 }
 
 .article-content h2 {
-  font-size: 28px;
+  font-size: clamp(1.75rem, 3vw, 2rem);
   font-weight: 700;
   margin: 48px 0 16px;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.03em;
 }
 
 .article-content h3 {
-  font-size: 20px;
+  font-size: clamp(1.25rem, 2vw, 1.5rem);
   font-weight: 700;
   margin: 32px 0 12px;
-  letter-spacing: -0.01em;
+  letter-spacing: -0.02em;
 }
 
 .article-content p {
@@ -1417,7 +1417,7 @@ img {
 .article-content blockquote strong {
   font-family: var(--font-heading);
   text-transform: uppercase;
-  letter-spacing: 0.02em;
+  letter-spacing: -0.01em;
   color: var(--black);
 }
 
@@ -1493,7 +1493,7 @@ img {
 .article-content tbody td strong {
   font-family: var(--font-heading);
   text-transform: uppercase;
-  letter-spacing: 0.02em;
+  letter-spacing: -0.01em;
 }
 
 /* --- Related Articles --- */
@@ -1751,7 +1751,7 @@ img {
   font-size: 18px;
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.02em;
+  letter-spacing: -0.02em;
   margin: 0;
 }
 
@@ -1827,7 +1827,7 @@ img {
   font-size: clamp(1.5rem, 3vw, 2rem);
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.02em;
+  letter-spacing: -0.02em;
   margin: 0 0 12px;
 }
 
