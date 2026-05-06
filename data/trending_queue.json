@@ -1,24 +1,6 @@
 {
-  "last_updated": "2026-05-03T14:01:19.074472+00:00",
+  "last_updated": "2026-05-06T10:28:53.560293+00:00",
   "topics": [
-    {
-      "topic": "How to build an AI translation and localization service in 2026",
-      "context": "Global businesses need fast, AI-powered multilingual content",
-      "keywords": [
-        "AI translation",
-        "localization",
-        "multilingual AI"
-      ],
-      "affiliates": [
-        "ChatGPT",
-        "Make.com",
-        "ElevenLabs"
-      ],
-      "opportunity_angle": "How to Build an AI Translation and Localization Service in 2026 ($3K-20K/Month)",
-      "intelligence_angle": "Build, Automate, and Deploy AI Translation and Localization Services with ChatGPT",
-      "playbook_angle": "Build, Scale, and Monetize an AI Translation and Localization Service with ChatGPT and Make.com",
-      "discovered_at": "2026-04-27T10:52:25.110683+00:00"
-    },
     {
       "topic": "How to start an AI legal document automation agency in 2026",
       "context": "Law firms and businesses are automating contract review and legal drafting",
@@ -1423,6 +1405,402 @@
       "intelligence_angle": "Find, qualify, and optimize freelance opportunities with Upwork and Freelancer",
       "playbook_angle": "Design, build, and automate AI freelance workflows with Upwork and Fiverr",
       "discovered_at": "2026-05-01T09:43:23.616271+00:00"
+    },
+    {
+      "topic": "How to start an AI contract writing agency in 2026",
+      "context": "AI contract writing is a growing need for businesses, and solo entrepreneurs can capitalize on this trend with the right tools. ChatGPT and other LLMs are making it possible to automate contract writing.",
+      "keywords": [
+        "AI contract writing",
+        "LLM",
+        "ChatGPT"
+      ],
+      "affiliates": [
+        "ChatGPT",
+        "Make.com",
+        "Loom"
+      ],
+      "opportunity_angle": "How to Start an AI Contract Writing Agency in 2026 (Generate $10K/Month)",
+      "intelligence_angle": "Research, Create, and Optimize AI Contract Writing with ChatGPT",
+      "playbook_angle": "Build, Scale, and Automate AI Contract Writing with Make.com and Loom",
+      "discovered_at": "2026-05-06T10:13:51.247525+00:00"
+    },
+    {
+      "topic": "How to start an AI podcast editing and production agency in 2026",
+      "context": "The rise of podcasting has created a need for high-quality editing and production services. AI can help with tasks such as audio editing and transcription, making it possible for solo entrepreneurs to offer these services.",
+      "keywords": [
+        "AI podcast editing",
+        "production",
+        "audio"
+      ],
+      "affiliates": [
+        "Make.com",
+        "Descript",
+        "Loom"
+      ],
+      "opportunity_angle": "How to Start an AI Podcast Editing and Production Agency in 2026 (Generate $15K/Month)",
+      "intelligence_angle": "Record, Edit, and Produce High-Quality Podcasts with AI and Descript",
+      "playbook_angle": "Build, Scale, and Automate AI Podcast Editing and Production with Make.com and Loom",
+      "discovered_at": "2026-05-06T10:13:51.247565+00:00"
+    },
+    {
+      "topic": "How to build an AI customer onboarding system with ChatGPT in 2026",
+      "context": "Effective customer onboarding is crucial for businesses, and AI can help automate and personalize the process. Solo entrepreneurs can offer AI-powered customer onboarding systems to businesses.",
+      "keywords": [
+        "AI customer onboarding",
+        "ChatGPT",
+        "personalization"
+      ],
+      "affiliates": [
+        "ChatGPT",
+        "Make.com",
+        "Notion"
+      ],
+      "opportunity_angle": "How to Build an AI Customer Onboarding System with ChatGPT in 2026 (Generate $12K/Month)",
+      "intelligence_angle": "Design, Implement, and Optimize AI Customer Onboarding with ChatGPT",
+      "playbook_angle": "Develop, Deploy, and Scale AI Customer Onboarding Solutions with Make.com and Notion",
+      "discovered_at": "2026-05-06T10:13:51.247578+00:00"
+    },
+    {
+      "topic": "How to start an AI social media management pipeline business in 2026",
+      "context": "Social media management is a time-consuming task for businesses, and AI can help automate tasks such as content creation and scheduling. Solo entrepreneurs can offer AI-powered social media management pipelines to businesses.",
+      "keywords": [
+        "AI social media management",
+        "pipeline",
+        "automation"
+      ],
+      "affiliates": [
+        "Make.com",
+        "Buffer",
+        "Canva"
+      ],
+      "opportunity_angle": "How to Start an AI Social Media Management Pipeline Business in 2026 (Generate $18K/Month)",
+      "intelligence_angle": "Plan, Create, and Schedule AI Social Media Content with Buffer and Canva",
+      "playbook_angle": "Build, Scale, and Automate AI Social Media Management Pipelines with Make.com",
+      "discovered_at": "2026-05-06T10:13:51.247591+00:00"
+    },
+    {
+      "topic": "How to build an AI lead generation system with Apollo.io in 2026",
+      "context": "Lead generation is a crucial task for businesses, and AI can help automate and optimize the process. Solo entrepreneurs can offer AI-powered lead generation systems to businesses using tools like Apollo.io.",
+      "keywords": [
+        "AI lead generation",
+        "Apollo.io",
+        "sales"
+      ],
+      "affiliates": [
+        "Apollo.io",
+        "Make.com",
+        "PhantomBuster"
+      ],
+      "opportunity_angle": "How to Build an AI Lead Generation System with Apollo.io in 2026 (Generate $25K/Month)",
+      "intelligence_angle": "Research, Identify, and Engage AI Lead Generation with Apollo.io",
+      "playbook_angle": "Develop, Deploy, and Scale AI Lead Generation Solutions with Make.com and PhantomBuster",
+      "discovered_at": "2026-05-06T10:13:51.247604+00:00"
+    },
+    {
+      "topic": "How to start an AI bookkeeping automation business in 2026",
+      "context": "Bookkeeping is a time-consuming task for businesses, and AI can help automate tasks such as data entry and invoicing. Solo entrepreneurs can offer AI-powered bookkeeping automation services to businesses.",
+      "keywords": [
+        "AI bookkeeping automation",
+        "accounting",
+        "invoicing"
+      ],
+      "affiliates": [
+        "Make.com",
+        "QuickBooks",
+        "Zapier"
+      ],
+      "opportunity_angle": "How to Start an AI Bookkeeping Automation Business in 2026 (Generate $10K/Month)",
+      "intelligence_angle": "Automate, Reconcile, and Optimize AI Bookkeeping with QuickBooks and Zapier",
+      "playbook_angle": "Build, Scale, and Automate AI Bookkeeping Automation with Make.com",
+      "discovered_at": "2026-05-06T10:13:51.247635+00:00"
+    },
+    {
+      "topic": "How to build an AI customer support automation system with ChatGPT in 2026",
+      "context": "Customer support is a crucial task for businesses, and AI can help automate and personalize the process. Solo entrepreneurs can offer AI-powered customer support automation systems to businesses using ChatGPT.",
+      "keywords": [
+        "AI customer support automation",
+        "ChatGPT",
+        "personalization"
+      ],
+      "affiliates": [
+        "ChatGPT",
+        "Make.com",
+        "Notion"
+      ],
+      "opportunity_angle": "How to Build an AI Customer Support Automation System with ChatGPT in 2026 (Generate $15K/Month)",
+      "intelligence_angle": "Design, Implement, and Optimize AI Customer Support with ChatGPT",
+      "playbook_angle": "Develop, Deploy, and Scale AI Customer Support Solutions with Make.com and Notion",
+      "discovered_at": "2026-05-06T10:13:51.247651+00:00"
+    },
+    {
+      "topic": "How to start an AI translation and localization service in 2026",
+      "context": "As businesses expand globally, they need high-quality translation and localization services. AI can help automate tasks such as translation and localization, making it possible for solo entrepreneurs to offer these services.",
+      "keywords": [
+        "AI translation",
+        "localization",
+        "globalization"
+      ],
+      "affiliates": [
+        "Make.com",
+        "Google Translate",
+        "Loom"
+      ],
+      "opportunity_angle": "How to Start an AI Translation and Localization Service in 2026 (Generate $12K/Month)",
+      "intelligence_angle": "Translate, Localize, and Optimize AI Content with Google Translate",
+      "playbook_angle": "Build, Scale, and Automate AI Translation and Localization with Make.com and Loom",
+      "discovered_at": "2026-05-06T10:13:51.247665+00:00"
+    },
+    {
+      "topic": "How to build an AI HR and recruitment automation system in 2026",
+      "context": "HR and recruitment are time-consuming tasks for businesses, and AI can help automate tasks such as resume screening and interview scheduling. Solo entrepreneurs can offer AI-powered HR and recruitment automation systems to businesses.",
+      "keywords": [
+        "AI HR automation",
+        "recruitment",
+        "talent acquisition"
+      ],
+      "affiliates": [
+        "Make.com",
+        "Greenhouse",
+        "Zapier"
+      ],
+      "opportunity_angle": "How to Build an AI HR and Recruitment Automation System in 2026 (Generate $20K/Month)",
+      "intelligence_angle": "Automate, Optimize, and Personalize AI HR and Recruitment with Greenhouse and Zapier",
+      "playbook_angle": "Develop, Deploy, and Scale AI HR and Recruitment Solutions with Make.com",
+      "discovered_at": "2026-05-06T10:13:51.247679+00:00"
+    },
+    {
+      "topic": "How to start an AI email marketing automation agency in 2026",
+      "context": "Email marketing is a crucial task for businesses, and AI can help automate and optimize the process. Solo entrepreneurs can offer AI-powered email marketing automation services to businesses using tools like Klaviyo and ActiveCampaign.",
+      "keywords": [
+        "AI email marketing automation",
+        "Klaviyo",
+        "ActiveCampaign"
+      ],
+      "affiliates": [
+        "Klaviyo",
+        "ActiveCampaign",
+        "Make.com"
+      ],
+      "opportunity_angle": "How to Start an AI Email Marketing Automation Agency in 2026 (Generate $25K/Month)",
+      "intelligence_angle": "Create, Send, and Optimize AI Email Marketing Campaigns with Klaviyo and ActiveCampaign",
+      "playbook_angle": "Build, Scale, and Automate AI Email Marketing Automation with Make.com",
+      "discovered_at": "2026-05-06T10:13:51.247692+00:00"
+    },
+    {
+      "topic": "How to build an AI video editing and production agency in 2026",
+      "context": "High-quality video content is in high demand, and AI can help automate tasks such as video editing and production. Solo entrepreneurs can offer AI-powered video editing and production services to businesses.",
+      "keywords": [
+        "AI video editing",
+        "production",
+        "content creation"
+      ],
+      "affiliates": [
+        "Make.com",
+        "Descript",
+        "Loom"
+      ],
+      "opportunity_angle": "How to Build an AI Video Editing and Production Agency in 2026 (Generate $20K/Month)",
+      "intelligence_angle": "Edit, Produce, and Optimize AI Video Content with Descript and Loom",
+      "playbook_angle": "Develop, Deploy, and Scale AI Video Editing and Production Solutions with Make.com",
+      "discovered_at": "2026-05-06T10:13:51.247705+00:00"
+    },
+    {
+      "topic": "How to build an AI image generation agency in 2026",
+      "context": "High-quality images are in high demand, and AI can help automate tasks such as image generation. Solo entrepreneurs can offer AI-powered image generation services to businesses using tools like Midjourney.",
+      "keywords": [
+        "AI image generation",
+        "Midjourney",
+        "content creation"
+      ],
+      "affiliates": [
+        "Midjourney",
+        "Make.com",
+        "Canva"
+      ],
+      "opportunity_angle": "How to Build an AI Image Generation Agency in 2026 (Generate $18K/Month)",
+      "intelligence_angle": "Generate, Edit, and Optimize AI Images with Midjourney and Canva",
+      "playbook_angle": "Develop, Deploy, and Scale AI Image Generation Solutions with Make.com",
+      "discovered_at": "2026-05-06T10:13:51.247729+00:00"
+    },
+    {
+      "topic": "How to start an AI SEO agency in 2026",
+      "context": "SEO is a crucial task for businesses, and AI can help automate and optimize the process. Solo entrepreneurs can offer AI-powered SEO services to businesses using tools like Semrush.",
+      "keywords": [
+        "AI SEO",
+        "Semrush",
+        "digital marketing"
+      ],
+      "affiliates": [
+        "Semrush",
+        "Make.com",
+        "Ahrefs"
+      ],
+      "opportunity_angle": "How to Start an AI SEO Agency in 2026 (Generate $25K/Month)",
+      "intelligence_angle": "Analyze, Optimize, and Rank AI SEO with Semrush and Ahrefs",
+      "playbook_angle": "Build, Scale, and Automate AI SEO with Make.com",
+      "discovered_at": "2026-05-06T10:13:51.247742+00:00"
+    },
+    {
+      "topic": "How to build an AI data analysis service in 2026",
+      "context": "Data analysis is a crucial task for businesses, and AI can help automate and optimize the process. Solo entrepreneurs can offer AI-powered data analysis services to businesses using tools like ChatGPT.",
+      "keywords": [
+        "AI data analysis",
+        "ChatGPT",
+        "insights"
+      ],
+      "affiliates": [
+        "ChatGPT",
+        "Make.com",
+        "Notion"
+      ],
+      "opportunity_angle": "How to Build an AI Data Analysis Service in 2026 (Generate $20K/Month)",
+      "intelligence_angle": "Analyze, Visualize, and Optimize AI Data Insights with ChatGPT",
+      "playbook_angle": "Develop, Deploy, and Scale AI Data Analysis Solutions with Make.com and Notion",
+      "discovered_at": "2026-05-06T10:13:51.247755+00:00"
+    },
+    {
+      "topic": "How to start an AI course creation business in 2026",
+      "context": "Online courses are in high demand, and AI can help automate tasks such as course creation and production. Solo entrepreneurs can offer AI-powered course creation services to businesses using tools like ChatGPT.",
+      "keywords": [
+        "AI course creation",
+        "ChatGPT",
+        "education"
+      ],
+      "affiliates": [
+        "ChatGPT",
+        "Make.com",
+        "Notion"
+      ],
+      "opportunity_angle": "How to Start an AI Course Creation Business in 2026 (Generate $25K/Month)",
+      "intelligence_angle": "Create, Produce, and Optimize AI Courses with ChatGPT",
+      "playbook_angle": "Build, Scale, and Automate AI Course Creation with Make.com and Notion",
+      "discovered_at": "2026-05-06T10:13:51.247769+00:00"
+    },
+    {
+      "topic": "How to build an AI social media management agency in 2026",
+      "context": "Social media management is a crucial task for businesses, and AI can help automate and optimize the process. Solo entrepreneurs can offer AI-powered social media management services to businesses using tools like Buffer and Canva.",
+      "keywords": [
+        "AI social media management",
+        "Buffer",
+        "Canva"
+      ],
+      "affiliates": [
+        "Buffer",
+        "Canva",
+        "Make.com"
+      ],
+      "opportunity_angle": "How to Build an AI Social Media Management Agency in 2026 (Generate $20K/Month)",
+      "intelligence_angle": "Plan, Create, and Schedule AI Social Media Content with Buffer and Canva",
+      "playbook_angle": "Develop, Deploy, and Scale AI Social Media Management Solutions with Make.com",
+      "discovered_at": "2026-05-06T10:13:51.247783+00:00"
+    },
+    {
+      "topic": "How to start an AI lead generation business in 2026",
+      "context": "Lead generation is a crucial task for businesses, and AI can help automate and optimize the process. Solo entrepreneurs can offer AI-powered lead generation services to businesses using tools like Apollo.io and PhantomBuster.",
+      "keywords": [
+        "AI lead generation",
+        "Apollo.io",
+        "PhantomBuster"
+      ],
+      "affiliates": [
+        "Apollo.io",
+        "PhantomBuster",
+        "Make.com"
+      ],
+      "opportunity_angle": "How to Start an AI Lead Generation Business in 2026 (Generate $30K/Month)",
+      "intelligence_angle": "Research, Identify, and Engage AI Lead Generation with Apollo.io and PhantomBuster",
+      "playbook_angle": "Build, Scale, and Automate AI Lead Generation with Make.com",
+      "discovered_at": "2026-05-06T10:13:51.247797+00:00"
+    },
+    {
+      "topic": "How to build an AI customer onboarding and support system in 2026",
+      "context": "Customer onboarding and support are crucial tasks for businesses, and AI can help automate and optimize the process. Solo entrepreneurs can offer AI-powered customer onboarding and support systems to businesses using tools like ChatGPT.",
+      "keywords": [
+        "AI customer onboarding",
+        "support",
+        "ChatGPT"
+      ],
+      "affiliates": [
+        "ChatGPT",
+        "Make.com",
+        "Notion"
+      ],
+      "opportunity_angle": "How to Build an AI Customer Onboarding and Support System in 2026 (Generate $25K/Month)",
+      "intelligence_angle": "Design, Implement, and Optimize AI Customer Onboarding and Support with ChatGPT",
+      "playbook_angle": "Develop, Deploy, and Scale AI Customer Onboarding and Support Solutions with Make.com and Notion",
+      "discovered_at": "2026-05-06T10:13:51.247810+00:00"
+    },
+    {
+      "topic": "How to start an AI newsletter business in 2026",
+      "context": "Newsletters are a great way for businesses to connect with their audience, and AI can help automate tasks such as content creation and distribution. Solo entrepreneurs can offer AI-powered newsletter services to businesses using tools like Beehiiv.",
+      "keywords": [
+        "AI newsletter",
+        "Beehiiv",
+        "content creation"
+      ],
+      "affiliates": [
+        "Beehiiv",
+        "Make.com",
+        "Notion"
+      ],
+      "opportunity_angle": "How to Start an AI Newsletter Business in 2026 (Generate $18K/Month)",
+      "intelligence_angle": "Create, Optimize, and Personalize AI Newsletters with Beehiiv",
+      "playbook_angle": "Build, Scale, and Automate AI Newsletter Creation with Make.com and Notion",
+      "discovered_at": "2026-05-06T10:13:51.247824+00:00"
+    },
+    {
+      "topic": "How to build an AI podcast production and editing agency in 2026",
+      "context": "Podcast production and editing are time-consuming tasks, and AI can help automate tasks such as audio editing and transcription. Solo entrepreneurs can offer AI-powered podcast production and editing services to businesses using tools like Descript and Loom.",
+      "keywords": [
+        "AI podcast production",
+        "editing",
+        "Descript"
+      ],
+      "affiliates": [
+        "Descript",
+        "Loom",
+        "Make.com"
+      ],
+      "opportunity_angle": "How to Build an AI Podcast Production and Editing Agency in 2026 (Generate $20K/Month)",
+      "intelligence_angle": "Record, Edit, and Produce High-Quality Podcasts with Descript and Loom",
+      "playbook_angle": "Develop, Deploy, and Scale AI Podcast Production and Editing Solutions with Make.com",
+      "discovered_at": "2026-05-06T10:13:51.247839+00:00"
+    },
+    {
+      "topic": "How to start an AI video editing and production business in 2026",
+      "context": "High-quality video content is in high demand, and AI can help automate tasks such as video editing and production. Solo entrepreneurs can offer AI-powered video editing and production services to businesses using tools like Descript and Loom.",
+      "keywords": [
+        "AI video editing",
+        "production",
+        "Descript"
+      ],
+      "affiliates": [
+        "Descript",
+        "Loom",
+        "Make.com"
+      ],
+      "opportunity_angle": "How to Start an AI Video Editing and Production Business in 2026 (Generate $25K/Month)",
+      "intelligence_angle": "Edit, Produce, and Optimize AI Video Content with Descript and Loom",
+      "playbook_angle": "Build, Scale, and Automate AI Video Editing and Production with Make.com",
+      "discovered_at": "2026-05-06T10:13:51.247854+00:00"
+    },
+    {
+      "topic": "How to build an AI translation and localization agency in 2026",
+      "context": "As businesses expand globally, they need high-quality translation and localization services. AI can help automate tasks such as translation and localization, making it possible for solo entrepreneurs to offer these services.",
+      "keywords": [
+        "AI translation",
+        "localization",
+        "globalization"
+      ],
+      "affiliates": [
+        "Make.com",
+        "Google Translate",
+        "Loom"
+      ],
+      "opportunity_angle": "How to Build an AI Translation and Localization Agency in 2026 (Generate $20K/Month)",
+      "intelligence_angle": "Translate, Localize, and Optimize AI Content with Google Translate",
+      "playbook_angle": "Develop, Deploy, and Scale AI Translation and Localization Solutions with Make.com and Loom",
+      "discovered_at": "2026-05-06T10:13:51.247868+00:00"
     }
   ],
   "used_topics": [
@@ -1449,6 +1827,10 @@
     {
       "topic": "How to start an AI personal finance automation service in 2026",
       "used_at": "2026-05-03T14:01:19.074441+00:00"
+    },
+    {
+      "topic": "How to build an AI translation and localization service in 2026",
+      "used_at": "2026-05-06T10:28:53.560265+00:00"
     }
   ]
 }
