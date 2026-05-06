@@ -1,5 +1,5 @@
 ---
-title: "The AI Lead Generation Business Playbook"
+title: "The AI Lead Generation Business Playbook: 39 Steps to $20K/Month"
 date: 2026-05-01
 category: "Playbook"
 price: "₦25,000"

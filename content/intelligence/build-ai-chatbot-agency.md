@@ -1,5 +1,5 @@
 ---
-title: "Build and Scale an AI Chatbot Agency End-to-End"
+title: "Build an AI Chatbot Agency with ChatGPT: The Complete Step-by-Step Guide"
 date: 2026-04-22
 category: "Implementation"
 difficulty: "INTERMEDIATE"

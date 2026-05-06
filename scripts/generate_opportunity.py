@@ -3,7 +3,7 @@
 
 This generator produces full-length (~5,000-5,500 word) articles that follow
 the exact Menshly Global deep-dive template:
-  - SEO-optimized title (How to X in 2026...)
+  - SEO-optimized title (How to Build an AI [Service] ($X-Y/Month))
   - Opening hook paragraph
   - Why This Works Right Now
   - The Realistic Picture (4 ugly truths in accent-box shortcodes)
@@ -234,12 +234,20 @@ def generate_article(topic_data: dict):
     # Generate the title first
     title_prompt = f"""Generate an SEO-optimized title for an article about: {topic}
 
-The title must follow this pattern:
-"How to [VERB] [TOPIC] in 2026 ([BENEFIT/REVENUE HOOK])"
+The title MUST follow this exact pattern:
+"How to Build an AI [SERVICE] ($X-$Y/Month)"
+
+RULES:
+- Always start with "How to Build an AI"
+- Drop the year — do NOT include "in 2026" or any year
+- Always include a revenue range in parentheses like ($X-$Y/Month)
+- Use a hyphen in the revenue range: $3K-$20K (not $3K-$20K/Month → use /Month at the end)
+- Keep the service name concise — remove unnecessary words
 
 Examples:
-- "How to Start an AI SEO Agency in 2026 ($5K-$30K/Month)"
-- "How to Launch an AI Content Repurposing Agency in 2026 ($3K-$15K/Month)"
+- "How to Build an AI SEO Agency ($5K-$30K/Month)"
+- "How to Build an AI Content Repurposing Agency ($3K-$15K/Month)"
+- "How to Build an AI Translation and Localization Service ($3K-$20K/Month)"
 
 Return ONLY the title, nothing else."""
 
@@ -258,7 +266,7 @@ Return ONLY the title, nothing else."""
             print(f"  Title generation attempt {attempt+1} failed: {str(e)[:100]}")
             time.sleep(3)
     else:
-        title_text = f"How to Start an {topic} in 2026 ($5K-$25K/Month)"
+        title_text = f"How to Build an {topic} ($5K-$25K/Month)"
 
     print(f"  Title: {title_text}")
 

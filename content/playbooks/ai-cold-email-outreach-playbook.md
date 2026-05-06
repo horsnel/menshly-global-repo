@@ -1,5 +1,5 @@
 ---
-title: "The AI Cold Email Outreach Agency Playbook"
+title: "The AI Cold Email Outreach Agency Playbook: 44 Steps to $15K/Month"
 date: 2026-05-01
 category: "Playbook"
 price: "₦35,000"

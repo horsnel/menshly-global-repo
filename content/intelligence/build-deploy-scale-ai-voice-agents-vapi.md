@@ -1,5 +1,5 @@
 ---
-title: "Build, Deploy, and Scale AI Voice Agents with Vapi: The Complete Step-by-Step Guide"
+title: "Build and Scale AI Voice Agents with Vapi: The Complete Step-by-Step Guide"
 date: 2026-04-29
 category: "Implementation"
 difficulty: "INTERMEDIATE"

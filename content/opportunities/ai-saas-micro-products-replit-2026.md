@@ -1,5 +1,5 @@
 ---
-title: "How to Build AI SaaS Micro Products on Replit in 2026 ($2K-20K/Month)"
+title: "How to Build AI SaaS Micro Products on Replit ($2K-$20K/Month)"
 date: 2026-04-29
 category: "AI Opportunity"
 readTime: "20 MIN"

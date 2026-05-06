@@ -1,5 +1,5 @@
 ---
-title: "Design, Build, and Deploy Make.com Automation Workflows"
+title: "Build Make.com Automation Workflows: The Complete Step-by-Step Guide"
 date: 2026-04-20
 category: "Implementation"
 difficulty: "ADVANCED"

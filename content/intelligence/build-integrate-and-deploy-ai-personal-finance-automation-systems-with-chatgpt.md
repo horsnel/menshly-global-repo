@@ -1,5 +1,5 @@
 ---
-title: "Build, Integrate, and Deploy AI Personal Finance Automation Systems with ChatGPT"
+title: "Build an AI Personal Finance Automation System with ChatGPT: The Complete Step-by-Step Guide"
 date: 2026-05-05
 category: "Implementation"
 difficulty: "ADVANCED"

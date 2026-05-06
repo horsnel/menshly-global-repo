@@ -1,5 +1,5 @@
 ---
-title: "How to Build an AI API Wrapper Business in 2026 ($5K-$50K/Month)"
+title: "How to Build an AI API Wrapper Business ($5K-$50K/Month)"
 date: 2026-05-01
 category: "AI Opportunity"
 readTime: "35 MIN"

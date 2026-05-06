@@ -1,5 +1,5 @@
 ---
-title: "How to Start an AI Copywriting Agency in 2026 (Words That Sell at Scale)"
+title: "How to Build an AI Copywriting Agency ($3K-$20K/Month)"
 date: 2026-04-23
 category: "AI Opportunity"
 readTime: "14 MIN"

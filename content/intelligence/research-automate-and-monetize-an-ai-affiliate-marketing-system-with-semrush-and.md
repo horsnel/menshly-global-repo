@@ -1,5 +1,5 @@
 ---
-title: "Research, Automate, and Monetize an AI Affiliate Marketing System with Semrush and Make.com"
+title: "Build an AI Affiliate Marketing System with Semrush and Make.com: The Complete Step-by-Step Guide"
 date: 2026-05-01
 category: "Implementation"
 difficulty: "ADVANCED"

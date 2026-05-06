@@ -1,5 +1,5 @@
 ---
-title: "How to Start an AI Lead Generation Agency in 2026 ($5K-20K/Month)"
+title: "How to Build an AI Lead Generation Agency ($5K-$20K/Month)"
 date: 2026-04-27
 category: "AI Opportunity"
 readTime: "16 MIN"

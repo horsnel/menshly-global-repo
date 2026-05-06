@@ -1,5 +1,5 @@
 ---
-title: "How to Start an AI Customer Support Automation Agency in 2026 ($8K‑35K/Month)"
+title: "How to Build an AI Customer Support Automation Agency ($8K-$35K/Month)"
 date: 2026-04-30
 category: "AI Opportunity"
 readTime: "35 MIN"

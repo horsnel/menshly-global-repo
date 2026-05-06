@@ -1,5 +1,5 @@
 ---
-title: "Build, Configure, and Scale an AI Data Annotation Pipeline with Label Studio and Make.com"
+title: "Build an AI Data Annotation Pipeline with Label Studio and Make.com: The Complete Step-by-Step Guide"
 date: 2026-05-01
 category: "Implementation"
 difficulty: "ADVANCED"

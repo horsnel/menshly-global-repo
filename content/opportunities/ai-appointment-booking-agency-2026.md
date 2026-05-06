@@ -1,5 +1,5 @@
 ---
-title: "How to Start an AI Appointment Booking Agency in 2026 ($3K-25K/Month)"
+title: "How to Build an AI Appointment Booking Agency ($3K-$25K/Month)"
 date: 2026-04-29
 category: "AI Opportunity"
 readTime: "18 MIN"

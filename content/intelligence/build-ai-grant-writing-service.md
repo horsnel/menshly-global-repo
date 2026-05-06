@@ -1,5 +1,5 @@
 ---
-title: "Build and Automate an AI Grant Writing Service with Make.com, OpenAI, and Grants.gov"
+title: "Build an AI Grant Writing Service with Make.com: The Complete Step-by-Step Guide"
 date: 2026-05-01
 category: "Implementation"
 difficulty: "INTERMEDIATE"

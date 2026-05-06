@@ -1,5 +1,5 @@
 ---
-title: "How to Start an AI Content Repurposing Agency in 2026 ($3K-15K/Month)"
+title: "How to Build an AI Content Repurposing Agency ($3K-$15K/Month)"
 date: 2026-04-29
 category: "AI Opportunity"
 readTime: "20 MIN"

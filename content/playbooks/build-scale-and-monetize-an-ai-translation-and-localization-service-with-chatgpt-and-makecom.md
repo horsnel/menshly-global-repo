@@ -1,5 +1,5 @@
 ---
-title: "22 procedures. 8 modules. Build, Scale, and Monetize an AI Translation and Localization Service"
+title: "The AI Translation and Localization Playbook: 22 Steps to $20K/Month"
 date: 2026-05-06
 category: "Playbook"
 price: "₦25,000"

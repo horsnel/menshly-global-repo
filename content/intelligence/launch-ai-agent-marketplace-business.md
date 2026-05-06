@@ -1,5 +1,5 @@
 ---
-title: "Launch an AI Agent Marketplace Business: The Complete Step-by-Step Guide"
+title: "Build an AI Agent Marketplace Business with ChatGPT: The Complete Step-by-Step Guide"
 date: 2026-04-24
 category: "Implementation"
 difficulty: "INTERMEDIATE"

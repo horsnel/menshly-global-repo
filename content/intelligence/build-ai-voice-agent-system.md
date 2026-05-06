@@ -1,5 +1,5 @@
 ---
-title: "Build and Deploy an AI Voice Agent System with Vapi"
+title: "Build an AI Voice Agent System with Vapi: The Complete Step-by-Step Guide"
 date: 2026-04-21
 category: "Implementation"
 difficulty: "ADVANCED"

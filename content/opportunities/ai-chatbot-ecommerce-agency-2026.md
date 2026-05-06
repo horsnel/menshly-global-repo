@@ -1,5 +1,5 @@
 ---
-title: "How to Build an AI Chatbot Agency for E-Commerce in 2026 ($8K-25K/Month)"
+title: "How to Build an AI Chatbot Agency for E-Commerce ($8K-$25K/Month)"
 date: 2026-04-27
 category: "AI Opportunity"
 readTime: "16 MIN"

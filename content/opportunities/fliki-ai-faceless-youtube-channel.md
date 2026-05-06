@@ -1,5 +1,5 @@
 ---
-title: "How Fliki AI Turns Text Into Faceless YouTube Videos That Generate $5,000+/Month"
+title: "How to Build a Faceless YouTube Channel With Fliki AI ($5K+/Month)"
 date: 2026-04-24
 category: "AI Opportunity"
 readTime: "12 MIN"

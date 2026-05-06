@@ -1,5 +1,5 @@
 ---
-title: "How to Launch an AI Personal Finance Automation Service in 2026 ($2K-10K/Month)"
+title: "How to Build an AI Personal Finance Automation Service ($2K-$10K/Month)"
 date: 2026-05-01
 category: "AI Opportunity"
 readTime: "16 MIN"

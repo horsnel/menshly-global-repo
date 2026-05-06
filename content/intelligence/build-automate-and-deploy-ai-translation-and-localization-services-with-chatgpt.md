@@ -1,5 +1,5 @@
 ---
-title: "Build, Automate, and Deploy AI Translation and Localization Services with ChatGPT"
+title: "Build an AI Translation and Localization Service with ChatGPT: The Complete Step-by-Step Guide"
 date: 2026-05-06
 category: "Implementation"
 difficulty: "ADVANCED"

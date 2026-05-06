@@ -1,5 +1,5 @@
 ---
-title: "How to Start an AI Real Estate Marketing Agency in 2026 ($3K‑25K/Month)"
+title: "How to Build an AI Real Estate Marketing Agency ($3K-$25K/Month)"
 date: 2026-04-30
 category: "AI Opportunity"
 readTime: "35 MIN"

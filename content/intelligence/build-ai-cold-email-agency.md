@@ -1,5 +1,5 @@
 ---
-title: "Build and Scale an AI Cold Email Agency with Automated Workflows"
+title: "Build an AI Cold Email Agency with Make.com: The Complete Step-by-Step Guide"
 date: 2026-04-24
 category: "Implementation"
 difficulty: "INTERMEDIATE"

@@ -1,5 +1,5 @@
 ---
-title: "Build an AI Course Creation Business: The Complete Step-by-Step Guide"
+title: "Build an AI Course Creation Business with ChatGPT: The Complete Step-by-Step Guide"
 date: 2026-04-29
 category: "Implementation"
 difficulty: "INTERMEDIATE"

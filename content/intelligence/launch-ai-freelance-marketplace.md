@@ -1,5 +1,5 @@
 ---
-title: "Launch an AI Freelance Marketplace: The Complete Step-by-Step Guide"
+title: "Build an AI Freelance Marketplace with Replit: The Complete Step-by-Step Guide"
 date: 2026-04-29
 category: "Implementation"
 difficulty: "ADVANCED"

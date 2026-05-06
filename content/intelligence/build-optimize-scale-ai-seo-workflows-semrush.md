@@ -1,5 +1,5 @@
 ---
-title: "Build, Optimize, and Scale AI-Powered SEO Workflows with Semrush: The Complete Step-by-Step Guide"
+title: "Build AI-Powered SEO Workflows with Semrush: The Complete Step-by-Step Guide"
 date: 2026-04-29
 category: "Implementation"
 difficulty: "INTERMEDIATE"

@@ -1,5 +1,5 @@
 ---
-title: "How to Build AI-Powered Email Marketing Automation in 2026 ($5,000/Month Revenue Potential)"
+title: "How to Build AI-Powered Email Marketing Automation ($5K/Month)"
 date: 2026-04-24
 category: "AI Opportunity"
 readTime: "22 MIN"

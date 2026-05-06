@@ -1,5 +1,5 @@
 ---
-title: "Design and Deploy AI-Powered Email Marketing Automations"
+title: "Build AI-Powered Email Marketing Automations with Klaviyo: The Complete Step-by-Step Guide"
 date: 2026-04-23
 category: "Implementation"
 difficulty: "INTERMEDIATE"

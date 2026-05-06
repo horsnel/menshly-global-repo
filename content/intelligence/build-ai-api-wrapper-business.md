@@ -1,5 +1,5 @@
 ---
-title: "Design, Build, and Scale an AI API Wrapper Business with OpenAI and Vercel"
+title: "Build an AI API Wrapper Business with OpenAI and Vercel: The Complete Step-by-Step Guide"
 date: 2026-05-01
 category: "Intelligence"
 readTime: "35 MIN"

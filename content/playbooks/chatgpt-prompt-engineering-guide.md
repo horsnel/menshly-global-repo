@@ -1,5 +1,5 @@
 ---
-title: "ChatGPT Prompt Engineering Guide"
+title: "The ChatGPT Prompt Engineering Guide: 20 Steps to Master AI Prompts"
 date: 2026-04-17
 category: "Playbook"
 price: "₦35,000"

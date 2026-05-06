@@ -1,5 +1,5 @@
 ---
-title: "How to Start an AI HR & Recruitment Automation Agency in 2026 ($3K-$25K/Month Potential)"
+title: "How to Build an AI HR & Recruitment Automation Agency ($3K-$25K/Month)"
 date: 2026-05-01
 category: "AI Opportunity"
 readTime: "15 MIN"

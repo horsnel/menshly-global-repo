@@ -189,6 +189,14 @@ The opening paragraph must:
 4. Be 150-250 words long
 5. Sound commanding and instructional
 
+IMPORTANT: The FIRST LINE must be the playbook title in this exact format:
+**The AI [SERVICE] Playbook: [N] Steps to $X/Month**
+
+For example:
+- **The AI Translation and Localization Playbook: 22 Steps to $20K/Month**
+- **The AI SEO Agency Playbook: 36 Steps to $25K/Month**
+- **The AI Cold Email Outreach Agency Playbook: 44 Steps to $15K/Month**
+
 {"Mention: 'This playbook extends our free implementation guide with complete procedures, SOPs, and revenue calculators.'" if "implementation guide" in cross_link_context else ""}
 
 Return ONLY the opening paragraph as Markdown. No title, no heading — just the paragraph."""
@@ -208,7 +216,7 @@ Return ONLY the opening paragraph as Markdown. No title, no heading — just the
             print(f"  Opening generation attempt {attempt+1} failed: {str(e)[:100]}")
             time.sleep(5)
 
-    return f"This is your complete operating system for {topic}. **25 procedures. 10 modules. 12+ hours of reading and execution.** Follow every procedure in order and you will have a fully operational business generating revenue within 30 days. Skip nothing. Every step exists because someone before you failed by skipping it."
+    return f"This is your complete operating system for {topic}. **The AI Playbook: 25 Steps to $25K/Month.** **25 procedures. 10 modules. 12+ hours of reading and execution.** Follow every procedure in order and you will have a fully operational business generating revenue within 30 days. Skip nothing. Every step exists because someone before you failed by skipping it."
 
 
 def generate_module_overview(module_def: dict, topic: str, context: str) -> str:
@@ -604,10 +612,10 @@ At the end, mention: "For the free step-by-step guide, see our [implementation g
 def extract_title(body: str) -> str:
     """Extract or infer the title from the playbook body.
 
-    Looks for the bold text in the opening paragraph first (e.g. "25 procedures. 10 modules..."),
+    Looks for the bold text in the opening paragraph first (e.g. "The AI X Playbook: N Steps to $X/Month"),
     then falls back to the first H1 heading.
     """
-    # First: look for bold text in the first 5 lines
+    # First: look for bold text in the first 10 lines that matches the playbook title format
     for line in body.split("\n")[:10]:
         line = line.strip()
         bold_match = re.match(r"^\*\*(.+?)\*\*", line)
@@ -616,6 +624,7 @@ def extract_title(body: str) -> str:
             # Skip generic titles like "25 procedures. 10 modules..."
             if re.match(r"^\d+\s+(procedure|step|module)", title, re.IGNORECASE):
                 continue
+            # Accept titles that match "The AI ... Playbook" or similar
             return title
 
     # Second: look for the first H1 that's NOT "MODULE X"
@@ -732,8 +741,8 @@ if __name__ == "__main__":
             print(f"  Trending topic discovery failed: {e}")
             print("  Using fallback topic...")
             topic_data = {
-                "topic": "How to start an AI automation agency in 2026",
-                "playbook_angle": "Build, Scale, and Monetize an AI Automation Agency with Make.com",
+                "topic": "How to build an AI automation agency",
+                "playbook_angle": "The AI Automation Agency Playbook: 25 Steps to $25K/Month",
                 "context": "AI automation agencies are booming as businesses seek to automate workflows",
                 "affiliates": ["Make.com", "ChatGPT", "Notion", "Zapier"],
             }
@@ -744,7 +753,7 @@ if __name__ == "__main__":
 
     if not topic_data.get("playbook_angle"):
         topic_text = topic_data.get("topic", "")
-        topic_data["playbook_angle"] = f"Build, Scale, and Monetize {topic_text}"
+        topic_data["playbook_angle"] = f"The AI {topic_text} Playbook: 25 Steps to $25K/Month"
 
     topic = topic_data.get("playbook_angle", topic_data.get("topic", ""))
 

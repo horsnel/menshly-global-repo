@@ -1,5 +1,5 @@
 ---
-title: "How to Build an AI Translation and Localization Service in 2026 ($3K-20K/Month)"
+title: "How to Build an AI Translation and Localization Service ($3K-20K/Month)"
 date: 2026-05-04
 category: "AI Opportunity"
 readTime: "16 MIN"

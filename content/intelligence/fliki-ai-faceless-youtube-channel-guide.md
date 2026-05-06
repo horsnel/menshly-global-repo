@@ -1,5 +1,5 @@
 ---
-title: "Fliki AI Faceless YouTube Channel: The Complete Step-by-Step Execution Guide"
+title: "Build a Faceless YouTube Channel with Fliki AI: The Complete Step-by-Step Execution Guide"
 date: 2026-04-24
 category: "Implementation"
 difficulty: "BEGINNER"

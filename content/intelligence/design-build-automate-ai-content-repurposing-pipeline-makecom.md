@@ -1,5 +1,5 @@
 ---
-title: "Design, Build, and Automate an AI Content Repurposing Pipeline with Make.com: The Complete Step-by-Step Guide"
+title: "Build an AI Content Repurposing Pipeline with Make.com: The Complete Step-by-Step Guide"
 date: 2026-04-29
 category: "Implementation"
 difficulty: "INTERMEDIATE"

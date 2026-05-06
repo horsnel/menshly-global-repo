@@ -1,5 +1,5 @@
 ---
-title: "Fetch the transaction from Plaid sandbox"
+title: "The Plaid Integration Playbook: 25 Steps to Payment Processing"
 date: 2026-05-03
 category: "Playbook"
 price: "₦15,000"
@@ -535,7 +535,7 @@ You are an AI financial assistant. Use the Plaid access token stored in Replit e
          )
          return response.choices[0].message.content.strip()
 
-     # Fetch the transaction from Plaid sandbox
+     # The Plaid Integration Playbook: 25 Steps to Payment Processing
      url = "https://sandbox.plaid.com/transactions/get"
      payload = {
          "client_id": "YOUR_CLIENT_ID",

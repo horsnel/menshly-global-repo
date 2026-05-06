@@ -1,5 +1,5 @@
 ---
-title: "The AI SEO Agency Playbook"
+title: "The AI SEO Agency Playbook: 36 Steps to $25K/Month"
 date: 2026-05-01
 category: "Playbook"
 price: "₦35,000"

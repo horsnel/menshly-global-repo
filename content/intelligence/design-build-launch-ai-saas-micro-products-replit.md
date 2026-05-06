@@ -1,5 +1,5 @@
 ---
-title: "Design, Build, and Launch AI SaaS Micro Products with Replit: The Complete Step-by-Step Guide"
+title: "Build AI SaaS Micro Products with Replit: The Complete Step-by-Step Guide"
 date: 2026-04-29
 category: "Implementation"
 difficulty: "INTERMEDIATE"

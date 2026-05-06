@@ -1,5 +1,5 @@
 ---
-title: "26 procedures. 10 modules. 12+ hours of reading and execution"
+title: "The AI Automation Agency Playbook: 26 Steps to $25K/Month"
 date: 2026-05-02
 category: "Playbook"
 price: "₦25,000"

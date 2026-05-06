@@ -1,5 +1,5 @@
 ---
-title: "Build an AI Resume & Career Service: The Complete Step-by-Step Guide"
+title: "Build an AI Resume & Career Service with ChatGPT: The Complete Step-by-Step Guide"
 date: 2026-04-29
 category: "Implementation"
 difficulty: "BEGINNER"

@@ -1,5 +1,5 @@
 ---
-title: "AI Side Hustle Blueprint"
+title: "The AI Side Hustle Blueprint: 5 Steps to $5K/Month"
 date: 2026-04-21
 category: "Playbook"
 price: "₦15,000"

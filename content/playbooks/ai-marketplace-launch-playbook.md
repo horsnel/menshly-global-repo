@@ -1,5 +1,5 @@
 ---
-title: "The AI Marketplace Launch Playbook"
+title: "The AI Marketplace Launch Playbook: 15 Steps to $40K/Month"
 date: 2026-04-29
 category: "Playbook"
 price: "₦35,000"

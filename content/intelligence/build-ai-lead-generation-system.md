@@ -1,5 +1,5 @@
 ---
-title: "Build and Automate an AI Lead Generation System with Make.com and OpenAI"
+title: "Build an AI Lead Generation System with Make.com and OpenAI: The Complete Step-by-Step Guide"
 date: 2026-04-18
 category: "Implementation"
 difficulty: "INTERMEDIATE"

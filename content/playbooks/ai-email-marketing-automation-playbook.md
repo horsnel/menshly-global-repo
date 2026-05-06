@@ -1,5 +1,5 @@
 ---
-title: "The AI Email Marketing Automation Playbook"
+title: "The AI Email Marketing Automation Playbook: 52 Steps to $5K/Month"
 date: 2026-05-01
 category: "Playbook"
 price: "₦35,000"

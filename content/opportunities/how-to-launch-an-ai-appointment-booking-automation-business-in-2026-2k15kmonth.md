@@ -1,5 +1,5 @@
 ---
-title: "How to Launch an AI Appointment Booking Automation Business in 2026 ($2K‑15K/Month)"
+title: "How to Build an AI Appointment Booking Automation Business ($2K-$15K/Month)"
 date: 2026-04-29
 category: "AI Opportunity"
 readTime: "35 MIN"

@@ -1,5 +1,5 @@
 ---
-title: "Launch an AI Data Analysis Service: The Complete Step-by-Step Guide"
+title: "Build an AI Data Analysis Service with ChatGPT: The Complete Step-by-Step Guide"
 date: 2026-04-24
 category: "Implementation"
 difficulty: "INTERMEDIATE"

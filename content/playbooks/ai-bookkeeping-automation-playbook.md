@@ -1,5 +1,5 @@
 ---
-title: "The AI Bookkeeping Automation Playbook"
+title: "The AI Bookkeeping Automation Playbook: 37 Steps to $20K/Month"
 date: 2026-05-01
 category: "Playbook"
 price: "₦35,000"

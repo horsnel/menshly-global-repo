@@ -1,5 +1,5 @@
 ---
-title: "The AI Automation Agency Playbook"
+title: "The AI Automation Agency Playbook: 32 Steps to $35K/Month"
 date: 2026-04-23
 category: "Playbook"
 price: "₦35,000"

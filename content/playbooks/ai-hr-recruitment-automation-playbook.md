@@ -1,5 +1,5 @@
 ---
-title: "The AI HR & Recruitment Automation Playbook"
+title: "The AI HR & Recruitment Automation Playbook: 30 Steps to $25K/Month"
 date: 2026-05-01
 category: "Playbook"
 price: "₦35,000"

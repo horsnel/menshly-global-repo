@@ -1,5 +1,5 @@
 ---
-title: "The AI Customer Onboarding Agency Playbook"
+title: "The AI Customer Onboarding Agency Playbook: 32 Steps to $35K/Month"
 date: 2026-04-29
 category: "Playbook"
 price: "₦35,000"

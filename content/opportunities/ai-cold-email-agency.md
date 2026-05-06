@@ -1,5 +1,5 @@
 ---
-title: "How to Start an AI Cold Email Agency in 2026 ($5K-$15K/Month Potential)"
+title: "How to Build an AI Cold Email Agency ($5K-$15K/Month)"
 date: 2026-04-24
 category: "AI Opportunity"
 readTime: "16 MIN"

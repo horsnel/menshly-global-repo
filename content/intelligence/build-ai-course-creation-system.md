@@ -1,5 +1,5 @@
 ---
-title: "Build an AI-Powered Course Creation System: The Complete Step-by-Step Guide"
+title: "Build an AI Course Creation System with ChatGPT: The Complete Step-by-Step Guide"
 date: 2026-04-24
 category: "Implementation"
 difficulty: "BEGINNER"

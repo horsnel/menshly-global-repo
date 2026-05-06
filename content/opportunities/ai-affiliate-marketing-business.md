@@ -1,5 +1,5 @@
 ---
-title: "How to Build an AI Affiliate Marketing Business in 2026 ($10K-$50K/Month)"
+title: "How to Build an AI Affiliate Marketing Business ($10K-$50K/Month)"
 date: 2026-04-27
 category: "AI Opportunity"
 readTime: "18 MIN"

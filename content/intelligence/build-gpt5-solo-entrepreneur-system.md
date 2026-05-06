@@ -1,5 +1,5 @@
 ---
-title: "Build a GPT-5 Solo Entrepreneur System: The Complete Step-by-Step Guide"
+title: "Build a GPT-5 Solo Entrepreneur System with ChatGPT: The Complete Step-by-Step Guide"
 date: 2026-04-24
 category: "Implementation"
 difficulty: "ADVANCED"

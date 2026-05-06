@@ -1,5 +1,5 @@
 ---
-title: "How to Build an AI Contract and Proposal Writing Service in 2026 ($5K‑25K/Month)"
+title: "How to Build an AI Contract and Proposal Writing Service ($5K-$25K/Month)"
 date: 2026-05-01
 category: "AI Opportunity"
 readTime: "35 MIN"

@@ -1,5 +1,5 @@
 ---
-title: "Build, Configure, and Deploy an AI Appointment Booking System with Vapi and Calendly"
+title: "Build an AI Appointment Booking System with Vapi and Calendly: The Complete Step-by-Step Guide"
 date: 2026-04-30
 category: "Implementation"
 difficulty: "INTERMEDIATE"

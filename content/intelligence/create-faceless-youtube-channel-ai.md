@@ -1,5 +1,5 @@
 ---
-title: "Create and Scale a Faceless YouTube Channel with AI Tools"
+title: "Build a Faceless YouTube Channel with Fliki AI: The Complete Step-by-Step Guide"
 date: 2026-04-23
 category: "Implementation"
 difficulty: "INTERMEDIATE"

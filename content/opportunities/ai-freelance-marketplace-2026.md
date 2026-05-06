@@ -1,5 +1,5 @@
 ---
-title: "How to Launch an AI Freelance Marketplace in 2026 ($5K-40K/Month)"
+title: "How to Build an AI Freelance Marketplace ($5K-$40K/Month)"
 date: 2026-04-29
 category: "AI Opportunity"
 readTime: "18 MIN"

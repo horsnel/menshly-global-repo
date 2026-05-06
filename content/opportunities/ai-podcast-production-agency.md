@@ -1,5 +1,5 @@
 ---
-title: "How to Start an AI Podcast Production Agency in 2026 ($8K-$40K/Month)"
+title: "How to Build an AI Podcast Production Agency ($8K-$40K/Month)"
 date: 2026-04-27
 category: "AI Opportunity"
 readTime: "16 MIN"

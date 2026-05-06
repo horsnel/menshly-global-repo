@@ -1,5 +1,5 @@
 ---
-title: "How to Start an AI Newsletter Business in 2026 ($10K+/Month From Your Inbox)"
+title: "How to Build an AI Newsletter Business ($10K+/Month)"
 date: 2026-04-23
 category: "AI Opportunity"
 readTime: "14 MIN"

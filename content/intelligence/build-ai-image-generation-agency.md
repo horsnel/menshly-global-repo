@@ -1,5 +1,5 @@
 ---
-title: "Build an AI Image Generation Agency: The Complete Step-by-Step Guide"
+title: "Build an AI Image Generation Agency with Midjourney: The Complete Step-by-Step Guide"
 date: 2026-04-24
 category: "Implementation"
 difficulty: "BEGINNER"

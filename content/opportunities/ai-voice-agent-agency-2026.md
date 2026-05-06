@@ -1,5 +1,5 @@
 ---
-title: "How to Start an AI Voice Agent Agency in 2026 ($5K-30K/Month)"
+title: "How to Build an AI Voice Agent Agency ($5K-$30K/Month)"
 date: 2026-04-29
 category: "AI Opportunity"
 readTime: "20 MIN"

@@ -1,5 +1,5 @@
 ---
-title: "How to Start an AI Video Production Agency in 2026 ($2K-$20K/Month Potential)"
+title: "How to Build an AI Video Production Agency ($2K-$20K/Month)"
 date: 2026-05-01
 category: "AI Opportunity"
 readTime: "15 MIN"

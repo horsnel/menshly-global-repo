@@ -1,5 +1,5 @@
 ---
-title: "Automation Agency Starter Kit"
+title: "The Automation Agency Starter Kit: 26 Steps to $15K/Month"
 date: 2026-04-19
 category: "Playbook"
 price: "₦20,000"

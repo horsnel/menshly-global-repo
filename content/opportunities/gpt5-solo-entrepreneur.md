@@ -1,5 +1,5 @@
 ---
-title: "How to Build a One-Person Business With GPT-5 in 2026 (Solo Entrepreneur Guide)"
+title: "How to Build a One-Person Business With GPT-5 ($5K-$25K/Month)"
 date: 2026-04-20
 category: "AI Opportunity"
 readTime: "15 MIN"

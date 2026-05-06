@@ -1,5 +1,5 @@
 ---
-title: "Build, Automate, and Scale AI Social Media Pipelines with Buffer and Make.com: The Complete Step-by-Step Guide"
+title: "Build an AI Social Media Pipeline with Buffer and Make.com: The Complete Step-by-Step Guide"
 date: 2026-04-29
 category: "Implementation"
 difficulty: "INTERMEDIATE"

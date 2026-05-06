@@ -249,11 +249,22 @@ Link back at the end: "Ready to understand the full business opportunity? Read o
     # Generate the title first
     title_prompt = f"""Generate an SEO-optimized title for a technical implementation article about: {topic}
 
-The title must use IMPERATIVE VERBS (NOT "How to"):
-Pattern: "[VERB], [VERB], and [VERB] [THING] with [TOOL]"
+The title MUST follow this exact pattern:
+"Build an AI [SERVICE] with [PRIMARY TOOL]: The Complete Step-by-Step Guide"
+
+RULES:
+- Always start with "Build an AI" (or "Build a" if the next word starts with a consonant sound)
+- Include the PRIMARY tool name after "with" (e.g., "with ChatGPT", "with Make.com", "with Vapi")
+- Always end with ": The Complete Step-by-Step Guide"
+- For the Fliki AI faceless YouTube guide, use ": The Complete Step-by-Step Execution Guide" instead
+- Keep the service name concise
+- Do NOT use verb triads like "Build, Automate, and Deploy" — just "Build"
+
 Examples:
-- "Train, Serve, and Deploy a Scikit-learn Model with FastAPI"
-- "Design, Build, and Deploy Make.com Automation Workflows"
+- "Build an AI Translation and Localization Service with ChatGPT: The Complete Step-by-Step Guide"
+- "Build an AI Cold Email Agency with Make.com: The Complete Step-by-Step Guide"
+- "Build an AI Voice Agent System with Vapi: The Complete Step-by-Step Guide"
+- "Build a Faceless YouTube Channel with Fliki AI: The Complete Step-by-Step Execution Guide"
 
 Return ONLY the title, nothing else."""
 
@@ -272,7 +283,7 @@ Return ONLY the title, nothing else."""
             print(f"  Title generation attempt {attempt+1} failed: {str(e)[:100]}")
             time.sleep(3)
     else:
-        title_text = f"Build, Deploy, and Scale {topic}"
+        title_text = f"Build an {topic} with ChatGPT: The Complete Step-by-Step Guide"
 
     print(f"  Title: {title_text}")
 
@@ -515,7 +526,7 @@ if __name__ == "__main__":
     # If intelligence_angle is missing, derive it from the topic
     if not topic_data.get("intelligence_angle"):
         topic_text = topic_data.get("topic", "")
-        topic_data["intelligence_angle"] = f"Build, Deploy, and Scale {topic_text}"
+        topic_data["intelligence_angle"] = f"Build an {topic_text} with ChatGPT"
         print(f"  No intelligence_angle found, derived: {topic_data['intelligence_angle']}")
 
     topic = topic_data.get("intelligence_angle", topic_data.get("topic", ""))

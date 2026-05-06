@@ -1,5 +1,5 @@
 ---
-title: "The AI Video Production Agency Playbook"
+title: "The AI Video Production Agency Playbook: 31 Steps to $20K/Month"
 date: 2026-05-01
 category: "Playbook"
 price: "₦35,000"

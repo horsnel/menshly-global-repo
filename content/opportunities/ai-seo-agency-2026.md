@@ -1,5 +1,5 @@
 ---
-title: "How to Start an AI SEO Agency in 2026 ($4K-25K/Month)"
+title: "How to Build an AI SEO Agency ($4K-$25K/Month)"
 date: 2026-04-29
 category: "AI Opportunity"
 readTime: "20 MIN"

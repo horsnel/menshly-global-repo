@@ -1,5 +1,5 @@
 ---
-title: "The AI Copywriting Agency Playbook"
+title: "The AI Copywriting Agency Playbook: 44 Steps to $20K/Month"
 date: 2026-05-01
 category: "Playbook"
 price: "₦25,000"

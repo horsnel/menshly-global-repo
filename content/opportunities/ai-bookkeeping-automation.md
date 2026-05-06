@@ -1,5 +1,5 @@
 ---
-title: "How to Start an AI Bookkeeping Automation Business in 2026 ($3K-$20K/Month Potential)"
+title: "How to Build an AI Bookkeeping Automation Business ($3K-$20K/Month)"
 date: 2026-05-01
 category: "AI Opportunity"
 readTime: "15 MIN"

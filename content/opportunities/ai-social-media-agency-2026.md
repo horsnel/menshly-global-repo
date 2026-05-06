@@ -1,5 +1,5 @@
 ---
-title: "How to Start an AI Social Media Agency in 2026 ($3K-20K/Month)"
+title: "How to Build an AI Social Media Agency ($3K-$20K/Month)"
 date: 2026-04-29
 category: "AI Opportunity"
 readTime: "20 MIN"

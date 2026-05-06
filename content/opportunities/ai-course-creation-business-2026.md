@@ -1,5 +1,5 @@
 ---
-title: "How to Start an AI Course Creation Business in 2026 ($3K-25K/Month)"
+title: "How to Build an AI Course Creation Business ($3K-$25K/Month)"
 date: 2026-04-29
 category: "AI Opportunity"
 readTime: "16 MIN"

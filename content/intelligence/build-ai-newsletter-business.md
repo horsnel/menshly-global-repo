@@ -1,5 +1,5 @@
 ---
-title: "Build an AI Newsletter Business: The Complete Step-by-Step Guide"
+title: "Build an AI Newsletter Business with Beehiiv: The Complete Step-by-Step Guide"
 date: 2026-04-24
 category: "Implementation"
 difficulty: "BEGINNER"

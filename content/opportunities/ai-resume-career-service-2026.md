@@ -1,5 +1,5 @@
 ---
-title: "How to Launch an AI Resume & Career Service in 2026 ($2K-20K/Month)"
+title: "How to Build an AI Resume & Career Service ($2K-$20K/Month)"
 date: 2026-04-29
 category: "AI Opportunity"
 readTime: "17 MIN"
