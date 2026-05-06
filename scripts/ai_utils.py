@@ -444,7 +444,7 @@ def _direct_call(payload, max_retries=5, api_key=None, api_base=None):
     resp.raise_for_status()
 
 
-def _pollinations_call(payload, max_retries=5):
+def _pollinations_call(payload, max_retries=2):
     """Call Pollinations AI — free, no key.
 
     Uses the OpenAI-compatible endpoint with the "openai" model.
@@ -466,7 +466,7 @@ def _pollinations_call(payload, max_retries=5):
                 f"{POLLINATIONS_OPENAI_BASE}/chat/completions",
                 headers=headers,
                 json=poll_payload,
-                timeout=600,  # 10 min — reasoning models can be slow
+                timeout=180,  # 3 min — was 600s, reduced to prevent workflow timeouts
             )
 
             if resp.status_code == 429:
@@ -510,7 +510,7 @@ def _pollinations_call(payload, max_retries=5):
 
         except requests.exceptions.Timeout:
             if attempt < max_retries:
-                wait = min(20 * (attempt + 1), 40)
+                wait = min(10 * (attempt + 1), 20)
                 print(f"  [pollinations] Timed out. Waiting {wait}s...")
                 time.sleep(wait)
                 continue
@@ -518,7 +518,7 @@ def _pollinations_call(payload, max_retries=5):
 
         except requests.exceptions.ConnectionError:
             if attempt < max_retries:
-                wait = min(15 * (attempt + 1), 30)
+                wait = min(5 * (attempt + 1), 15)
                 print(f"  [pollinations] Connection error. Waiting {wait}s...")
                 time.sleep(wait)
                 continue

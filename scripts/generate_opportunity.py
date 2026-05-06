@@ -303,7 +303,8 @@ Be specific with real numbers, real tool names, and real prices."""
             {"role": "user", "content": section_prompt},
         ]
 
-        for attempt in range(3):
+        section_result = None
+        for attempt in range(2):  # Reduced from 3 to 2 retries to prevent workflow timeouts
             try:
                 result = _call_api(messages, max_tokens=3000, temperature=0.75)
                 word_count = len(result.split())
@@ -319,25 +320,36 @@ Be specific with real numbers, real tool names, and real prices."""
                         result = f"## {heading}\n\n{result}"
 
                     sections.append(result)
+                    section_result = result
                     break
                 else:
                     print(f"    {heading} attempt {attempt+1}: too short ({word_count} words), retrying...")
-                    time.sleep(3)
+                    section_result = result
+                    time.sleep(2)  # Reduced from 3s
             except Exception as e:
                 print(f"    {heading} attempt {attempt+1} failed: {str(e)[:100]}")
-                time.sleep(5)
+                time.sleep(3)  # Reduced from 5s
         else:
-            # Use whatever we got
-            print(f"    {heading}: using best available after retries")
-            if include_heading and not result.strip().startswith("## "):
-                result = f"## {heading}\n\n{result}"
-            sections.append(result)
+            # Use whatever we got — partial content is better than nothing
+            if section_result:
+                print(f"    {heading}: using best available after retries")
+                if include_heading and not section_result.strip().startswith("## "):
+                    section_result = f"## {heading}\n\n{section_result}"
+                sections.append(section_result)
+            else:
+                # Generate a placeholder section so the article still works
+                print(f"    {heading}: generating placeholder (API exhausted)")
+                placeholder = f"## {heading}\n\nDetails coming soon. Check back for updates on this section."
+                sections.append(placeholder)
 
     # Assemble the full article
     body = f"# {title_text}\n\n" + "\n\n".join(sections)
 
     final_words = len(body.split())
+    placeholder_count = sum(1 for s in sections if "Details coming soon" in s)
     print(f"\n  Total article: {final_words} words")
+    if placeholder_count:
+        print(f"  WARNING: {placeholder_count} section(s) used placeholders (API issues)")
 
     # Inject affiliate links into tool mentions
     body = inject_affiliate_links(body, affiliates)
