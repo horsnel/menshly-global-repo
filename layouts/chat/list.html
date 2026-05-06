@@ -3,13 +3,13 @@
 /* Chat Page Styles — Swiss Rounding for Interactive UI */
 .chat-page{max-width:800px;margin:0 auto;padding:120px 24px 40px;min-height:100vh;display:flex;flex-direction:column}
 
-.chat-header{border-bottom:3px solid var(--black);padding-bottom:24px;margin-bottom:24px}
-.chat-badge{display:inline-block;background:var(--yellow);border:3px solid var(--black);padding:4px 12px;font-family:var(--font-heading);font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:16px;border-radius:4px !important}
+.chat-header{padding-bottom:24px;margin-bottom:24px}
+.chat-badge{display:inline-block;background:var(--yellow);;padding:4px 12px;font-family:var(--font-heading);font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:16px;border-radius:4px !important}
 .chat-title{font-family:var(--font-heading);font-size:clamp(2rem,5vw,3.5rem);font-weight:700;letter-spacing:-0.03em;line-height:1;margin-bottom:12px}
 .chat-desc{font-size:15px;line-height:1.7;color:rgba(26,26,26,0.7);max-width:560px}
 
 /* Chat Container */
-.chat-container{flex:1;border:3px solid var(--black);display:flex;flex-direction:column;min-height:500px;max-height:70vh;background:var(--white);border-radius:12px !important;overflow:hidden}
+.chat-container{flex:1;;display:flex;flex-direction:column;min-height:500px;max-height:70vh;background:var(--white);border-radius:12px !important;overflow:hidden}
 
 /* Messages Area */
 .chat-messages{flex:1;overflow-y:auto;padding:20px;display:flex;flex-direction:column;gap:16px;scroll-behavior:smooth}
@@ -22,31 +22,31 @@
 .chat-msg.assistant{align-self:flex-start}
 
 .chat-msg-bubble{padding:14px 18px;font-size:14px;line-height:1.7;word-wrap:break-word;border-radius:8px !important}
-.chat-msg.user .chat-msg-bubble{background:var(--black);color:var(--white);border:3px solid var(--black);border-radius:8px !important}
-.chat-msg.assistant .chat-msg-bubble{background:var(--off-white);color:var(--black);border:3px solid var(--black);border-radius:8px !important}
+.chat-msg.user .chat-msg-bubble{background:var(--black);color:var(--white);;border-radius:8px !important}
+.chat-msg.assistant .chat-msg-bubble{background:var(--off-white);color:var(--black);;border-radius:8px !important}
 
 .chat-msg-label{font-family:var(--font-heading);font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:0.15em;margin-bottom:4px;color:rgba(26,26,26,0.4)}
 .chat-msg.user .chat-msg-label{text-align:right;color:rgba(255,255,255,0.4)}
 
 /* Typing indicator */
-.chat-typing{display:flex;gap:4px;padding:14px 18px;background:var(--off-white);border:3px solid var(--black);max-width:120px;align-self:flex-start;border-radius:8px !important}
+.chat-typing{display:flex;gap:4px;padding:14px 18px;background:var(--off-white);;max-width:120px;align-self:flex-start;border-radius:8px !important}
 .chat-typing span{width:8px;height:8px;background:var(--black);border-radius:50% !important;animation:typeBounce 1.4s infinite}
 .chat-typing span:nth-child(2){animation-delay:0.2s}
 .chat-typing span:nth-child(3){animation-delay:0.4s}
 @keyframes typeBounce{0%,60%,100%{transform:translateY(0)}30%{transform:translateY(-6px)}}
 
 /* Input Area */
-.chat-input-area{border-top:3px solid var(--black);padding:12px;display:flex;gap:8px;background:var(--off-white);border-radius:0 0 12px 12px !important}
-.chat-input{flex:1;border:3px solid var(--black);padding:12px 16px;font-family:var(--font-body);font-size:14px;background:var(--white);outline:none;resize:none;max-height:120px;border-radius:8px !important}
+.chat-input-area{;padding:12px;display:flex;gap:8px;background:var(--off-white);border-radius:0 0 12px 12px !important}
+.chat-input{flex:1;;padding:12px 16px;font-family:var(--font-body);font-size:14px;background:var(--white);outline:none;resize:none;max-height:120px;border-radius:8px !important}
 .chat-input:focus{border-color:var(--red)}
 .chat-input::placeholder{color:#999;text-transform:uppercase;letter-spacing:0.05em;font-size:12px}
-.chat-send{font-family:var(--font-heading);text-transform:uppercase;letter-spacing:0.08em;font-size:13px;font-weight:700;border:3px solid var(--black);background:var(--yellow);color:var(--black);padding:12px 24px;cursor:pointer;transition:all 0.15s ease;white-space:nowrap;border-radius:8px !important}
+.chat-send{font-family:var(--font-heading);text-transform:uppercase;letter-spacing:0.08em;font-size:13px;font-weight:700;;background:var(--yellow);color:var(--black);padding:12px 24px;cursor:pointer;transition:all 0.15s ease;white-space:nowrap;border-radius:8px !important}
 .chat-send:hover{background:var(--black);color:var(--white)}
 .chat-send:disabled{opacity:0.4;cursor:not-allowed}
 
 /* Quick Prompts */
 .chat-quick{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px}
-.chat-quick-btn{font-family:var(--font-heading);font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.05em;border:2px solid var(--black);background:var(--white);color:var(--black);padding:8px 14px;cursor:pointer;transition:all 0.15s ease;border-radius:6px !important}
+.chat-quick-btn{font-family:var(--font-heading);font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.05em;;background:var(--white);color:var(--black);padding:8px 14px;cursor:pointer;transition:all 0.15s ease;border-radius:6px !important}
 .chat-quick-btn:hover{background:var(--yellow)}
 
 /* Welcome Message */
@@ -73,7 +73,7 @@
 .chat-msg.assistant .chat-msg-bubble strong{font-family:var(--font-heading);text-transform:uppercase;letter-spacing:0.02em}
 .chat-msg.assistant .chat-msg-bubble ul,.chat-msg.assistant .chat-msg-bubble ol{margin:8px 0;padding-left:20px}
 .chat-msg.assistant .chat-msg-bubble li{margin-bottom:4px;font-size:13px}
-.chat-msg.assistant .chat-msg-bubble code{background:var(--white);border:1px solid var(--black);padding:1px 5px;font-size:12px}
+.chat-msg.assistant .chat-msg-bubble code{background:var(--white);border:1px solid rgba(26,26,26,0.15);padding:1px 5px;font-size:12px}
 </style>
 
 <div class="chat-page">
@@ -81,7 +81,7 @@
     <div class="chat-badge">AI POWERED</div>
     <h1 class="chat-title">AI BUSINESS ADVISOR</h1>
     <p class="chat-desc">Get instant, actionable advice on AI monetization. Ask about opportunities, tools, pricing, workflows, or any AI business question.</p>
-    <div id="chat-api-status" style="margin-top:12px;font-size:11px;font-family:var(--font-heading);font-weight:700;letter-spacing:0.05em;padding:4px 10px;display:inline-block;border:2px solid var(--black);">CHECKING CONNECTION...</div>
+    <div id="chat-api-status" style="margin-top:12px;font-size:11px;font-family:var(--font-heading);font-weight:700;letter-spacing:0.05em;padding:4px 10px;display:inline-block;;">CHECKING CONNECTION...</div>
   </div>
 
   <div class="chat-quick" id="quickPrompts">

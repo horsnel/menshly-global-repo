@@ -113,9 +113,9 @@
       {{ range first 3 $playbooks }}
       <a href="{{ .RelPermalink }}" class="playbook-card">
         {{ with .Params.image }}
-        <img src="{{ . }}" alt="{{ $.Title }}" style="width:100%;aspect-ratio:3/2;object-fit:cover;border-bottom:3px solid var(--black);background:var(--off-white);">
+        <img src="{{ . }}" alt="{{ $.Title }}" style="width:100%;aspect-ratio:3/2;object-fit:cover;background:var(--off-white);">
         {{ else }}
-        <div style="width:100%;aspect-ratio:3/2;background:var(--off-white);display:flex;align-items:center;justify-content:center;border-bottom:3px solid var(--black);">
+        <div style="width:100%;aspect-ratio:3/2;background:var(--off-white);display:flex;align-items:center;justify-content:center;">
           <span style="font-family:var(--font-heading);font-size:48px;color:rgba(26,26,26,0.1);font-weight:700;">{{ substr $.Title 0 1 }}</span>
         </div>
         {{ end }}
