@@ -13,8 +13,12 @@
   --off-white: #fafafa;
   --font-heading: "Inter", sans-serif;
   --font-body: "Public Sans", sans-serif;
-  --swiss-radius: 8px;
-  --swiss-radius-sm: 4px;
+  --radius-xl: 24px;
+  --radius-lg: 20px;
+  --radius-md: 12px;
+  --radius-sm: 8px;
+  --radius-pill: 9999px;
+  --radius-circle: 50%;
   --glass-bg: rgba(255, 255, 255, 0.72);
   --glass-border: rgba(255, 255, 255, 0.4);
   --glass-blur: 12px;
@@ -22,22 +26,16 @@
 
 /* --- Reset & Base --- */
 *, *::before, *::after {
-  border-radius: 0 !important;
   box-sizing: border-box;
 }
 
-/* --- Swiss Rounding Override --- */
-/* Applied via .swiss-rect on structural bars and .swiss-badge on small elements */
-.swiss-rect {
-  border-radius: var(--swiss-radius) !important;
-  overflow: hidden;
-}
+/* --- Rounding Utility Classes --- */
+.round-lg { border-radius: var(--radius-lg) !important; overflow: hidden; }
+.round-md { border-radius: var(--radius-md) !important; }
+.round-pill { border-radius: var(--radius-pill) !important; }
+.round-circle { border-radius: var(--radius-circle) !important; }
 
-.swiss-badge {
-  border-radius: var(--swiss-radius-sm) !important;
-}
-
-/* --- Structural Bars & Boxes: Swiss Radius --- */
+/* --- Structural Bars & Boxes: Large Radius --- */
 .nav-mobile-menu,
 .stats-bar,
 .article-meta-bar,
@@ -65,11 +63,11 @@
 .process-detail-list,
 .hiw-grid,
 .card-grid {
-  border-radius: var(--swiss-radius) !important;
+  border-radius: var(--radius-lg) !important;
   overflow: hidden;
 }
 
-/* --- Small Badges: Tight Swiss Radius --- */
+/* --- Small Badges: Pill Shape --- */
 .hero-badge,
 .hero-right-badge span,
 .article-category,
@@ -85,24 +83,28 @@
 .chat-quick-btn,
 .popup-close,
 .process-progress-bar {
-  border-radius: var(--swiss-radius-sm) !important;
+  border-radius: var(--radius-pill) !important;
 }
 
-/* --- Buttons: Swiss Radius --- */
+/* --- Buttons: Pill Shape --- */
 .listen-btn,
 .like-btn,
 .bookmark-btn,
 .speed-btn,
 .btn-brutal,
-.input-brutal,
 .playbook-btn,
 .tool-toggle-btn,
-.chat-input,
 .chat-send {
-  border-radius: var(--swiss-radius-sm) !important;
+  border-radius: var(--radius-pill) !important;
 }
 
-/* --- Cards & Boxes: Swiss Radius --- */
+/* --- Inputs: Medium Radius --- */
+.input-brutal,
+.chat-input {
+  border-radius: var(--radius-md) !important;
+}
+
+/* --- Cards & Boxes: Large Radius --- */
 .article-card,
 .playbook-card,
 .affiliate-card,
@@ -111,23 +113,23 @@
 .playbook-paywall-inner,
 .hiw-step,
 .tool-card {
-  border-radius: var(--swiss-radius) !important;
+  border-radius: var(--radius-lg) !important;
   overflow: hidden;
 }
 
 /* --- Table of Contents Active Indicator --- */
 .toc-link.active {
-  border-radius: 0 var(--swiss-radius-sm) var(--swiss-radius-sm) 0 !important;
+  border-radius: 0 var(--radius-md) var(--radius-md) 0 !important;
 }
 
 /* --- Blockquote: Round all corners --- */
 .article-content blockquote {
-  border-radius: var(--swiss-radius) !important;
+  border-radius: var(--radius-lg) !important;
 }
 
 /* --- Article Hero Image: Round corners --- */
 .article-hero-image {
-  border-radius: var(--swiss-radius) !important;
+  border-radius: var(--radius-lg) !important;
   overflow: hidden;
 }
 
@@ -137,24 +139,24 @@
 
 /* --- Article Content Pre: Round corners --- */
 .article-content pre {
-  border-radius: var(--swiss-radius) !important;
+  border-radius: var(--radius-lg) !important;
 }
 
 /* --- Article Content Table: Round corners --- */
 .article-content table {
-  border-radius: var(--swiss-radius) !important;
+  border-radius: var(--radius-lg) !important;
   overflow: hidden;
 }
 
 /* --- Roster Table: Round corners --- */
 .roster-table {
-  border-radius: var(--swiss-radius) !important;
+  border-radius: var(--radius-lg) !important;
   overflow: hidden;
 }
 
-/* --- Code inline: Tiny radius --- */
+/* --- Code inline: Medium radius --- */
 .article-content code {
-  border-radius: var(--swiss-radius-sm) !important;
+  border-radius: var(--radius-md) !important;
 }
 
 html {
@@ -1185,7 +1187,7 @@ img {
   -webkit-backdrop-filter: blur(var(--glass-blur));
   border: 1px solid var(--glass-border);
   padding: 16px;
-  border-radius: var(--swiss-radius);
+  border-radius: var(--radius-lg);
 }
 
 @media (min-width: 640px) {
