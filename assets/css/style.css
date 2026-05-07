@@ -1,6 +1,6 @@
 /* ============================================
    MENSHLY GLOBAL — Premium Brutalist Design
-   Inter + Lora | Acid Yellow + Red + Black
+   Inter + Public Sans | Acid Yellow + Red + Black
    ============================================ */
 
 /* --- Design Tokens --- */
@@ -11,7 +11,7 @@
   --white: #FFFFFF;
   --off-white: #fafafa;
   --font-heading: "Inter", sans-serif;
-  --font-body: "Lora", serif;
+  --font-body: "Public Sans", sans-serif;
   --swiss-radius: 8px;
   --swiss-radius-sm: 4px;
 }
@@ -1383,7 +1383,7 @@ img {
 
 .article-content p {
   font-size: 16px;
-  line-height: 1.8;
+  line-height: 1.7;
   margin: 0 0 20px;
   color: rgba(26, 26, 26, 0.85);
 }
@@ -1395,7 +1395,7 @@ img {
 
 .article-content li {
   font-size: 16px;
-  line-height: 1.8;
+  line-height: 1.7;
   margin-bottom: 8px;
   color: rgba(26, 26, 26, 0.85);
 }
