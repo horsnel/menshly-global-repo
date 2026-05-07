@@ -1,13 +1,13 @@
 /* ============================================
    MENSHLY GLOBAL — Premium Brutalist Design
-   Inter + Public Sans | Acid Yellow + Red + Black
+   Inter + Public Sans | Warm Gold + Red + Black
    Glass Body Layer
    ============================================ */
 
 /* --- Design Tokens --- */
 :root {
   --black: #1a1a1a;
-  --yellow: #F9FF00;
+  --yellow: #F0C040;
   --red: #FF0004;
   --white: #FFFFFF;
   --off-white: #fafafa;
@@ -20,7 +20,7 @@
   --radius-pill: 9999px;
   --radius-circle: 50%;
   --glass-bg: rgba(255, 255, 255, 0.72);
-  --glass-border: rgba(255, 255, 255, 0.4);
+  --glass-border: rgba(240, 192, 64, 0.12);
   --glass-blur: 12px;
 }
 
@@ -166,7 +166,7 @@ html {
 
 body {
   font-family: var(--font-body);
-  background: linear-gradient(135deg, #fafafa 0%, #f0f0f0 50%, #fafafa 100%);
+  background: linear-gradient(135deg, #fafaf8 0%, #f2efe6 50%, #fafaf8 100%);
   background-attachment: fixed;
   color: var(--black);
   -webkit-font-smoothing: antialiased;
@@ -509,7 +509,7 @@ img {
 .hero-right {
   position: relative;
   min-height: 50vh;
-  background: var(--yellow);
+  background: linear-gradient(160deg, var(--yellow) 0%, #E8B931 60%, #D4A520 100%);
   overflow: hidden;
   display: flex;
   align-items: flex-end;
@@ -524,7 +524,7 @@ img {
 .hero-visual {
   position: absolute;
   inset: 0;
-  background: var(--yellow);
+  background: linear-gradient(160deg, var(--yellow) 0%, #E8B931 60%, #D4A520 100%);
   overflow: hidden;
 }
 
