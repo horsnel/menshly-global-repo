@@ -6,6 +6,7 @@ readTime: "16 MIN"
 excerpt: "$2.5 billion - that's how much the translation and localization industry is projected to be worth by 2027. Yet, most translators and localizers are still stuck in the dark ages, manually translating d..."
 image: "/images/articles/opportunities/how-to-build-an-ai-translation-and-localization-service-in-2026-3k-20kmonth.png"
 heroImage: "/images/heroes/opportunities/how-to-build-an-ai-translation-and-localization-service-in-2026-3k-20kmonth.png"
+relatedGuide: "/intelligence/build-an-ai-translation-and-localization-service-with-chatgpt-the-complete-step-/"
 ---
 
 
