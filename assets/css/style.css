@@ -1,6 +1,7 @@
 /* ============================================
    MENSHLY GLOBAL — Premium Brutalist Design
    Inter + Public Sans | Acid Yellow + Red + Black
+   Glass Body Layer
    ============================================ */
 
 /* --- Design Tokens --- */
@@ -14,6 +15,9 @@
   --font-body: "Public Sans", sans-serif;
   --swiss-radius: 8px;
   --swiss-radius-sm: 4px;
+  --glass-bg: rgba(255, 255, 255, 0.72);
+  --glass-border: rgba(255, 255, 255, 0.4);
+  --glass-blur: 12px;
 }
 
 /* --- Reset & Base --- */
@@ -160,7 +164,8 @@ html {
 
 body {
   font-family: var(--font-body);
-  background: var(--white);
+  background: linear-gradient(135deg, #fafafa 0%, #f0f0f0 50%, #fafafa 100%);
+  background-attachment: fixed;
   color: var(--black);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -186,6 +191,14 @@ img {
   max-width: 100%;
   height: auto;
   display: block;
+}
+
+/* --- Glass Utility Classes --- */
+.glass {
+  background: var(--glass-bg);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  border: 1px solid var(--glass-border);
 }
 
 /* --- Brutalist Utility Classes --- */
@@ -565,7 +578,10 @@ img {
 .stats-bar {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  background: var(--off-white);
+  background: var(--glass-bg);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  border: 1px solid var(--glass-border);
   margin-top: 40px;
 }
 
@@ -684,6 +700,10 @@ img {
   overflow: hidden;
   transition: background 0.15s ease;
   cursor: pointer;
+  background: var(--glass-bg);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  border: 1px solid var(--glass-border);
 }
 
 .article-card {
@@ -740,7 +760,7 @@ img {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background: var(--white);
+  background: rgba(255, 255, 255, 0.5);
 }
 
 .article-card:hover .article-card-meta {
@@ -769,6 +789,10 @@ img {
   transition: background 0.15s ease;
   cursor: pointer;
   position: relative;
+  background: var(--glass-bg);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  border: 1px solid var(--glass-border);
 }
 
 .playbook-card {
@@ -863,6 +887,10 @@ img {
   overflow: hidden;
   box-shadow: 0 1px 3px rgba(26, 26, 26, 0.06);
   transition: all 0.2s ease;
+  background: var(--glass-bg);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  border: 1px solid var(--glass-border);
 }
 }
 
@@ -1152,7 +1180,10 @@ img {
   display: flex;
   flex-direction: column;
   gap: 12px;
-  background: var(--off-white);
+  background: var(--glass-bg);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  border: 1px solid var(--glass-border);
   padding: 16px;
   border-radius: var(--swiss-radius);
 }
@@ -1265,7 +1296,9 @@ img {
 /* --- Section Page Hero --- */
 .section-page-hero {
   padding: 100px 24px 48px;
-  background: var(--off-white);
+  background: rgba(250, 250, 250, 0.85);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
 }
 
 @media (min-width: 768px) {
@@ -1292,7 +1325,9 @@ img {
 /* --- Single Article --- */
 .article-header {
   padding: 120px 24px 48px;
-  background: var(--off-white);
+  background: rgba(250, 250, 250, 0.85);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
   max-width: 1080px;
   margin: 0 auto;
 }
@@ -1334,7 +1369,10 @@ img {
   display: flex;
   flex-wrap: wrap;
   gap: 0;
-  background: var(--off-white);
+  background: var(--glass-bg);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  border: 1px solid var(--glass-border);
   max-width: 600px;
 }
 
@@ -1606,7 +1644,10 @@ img {
   flex-direction: column;
   padding: 20px;
   box-shadow: 0 1px 3px rgba(26, 26, 26, 0.06);
-  background: var(--white);
+  background: var(--glass-bg);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  border: 1px solid var(--glass-border);
   text-decoration: none;
   color: inherit;
   transition: transform 0.15s ease, box-shadow 0.15s ease;
@@ -1666,6 +1707,10 @@ img {
   margin: 0 auto;
   box-shadow: 0 2px 8px rgba(26, 26, 26, 0.08);
   margin-top: 48px;
+  background: var(--glass-bg);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  border: 1px solid var(--glass-border);
 }
 
 @media (min-width: 768px) {
@@ -1733,7 +1778,10 @@ img {
 }
 
 .playbook-buy-inner {
-  background: var(--off-white);
+  background: var(--glass-bg);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  border: 1px solid var(--glass-border);
   box-shadow: 0 2px 8px rgba(26, 26, 26, 0.08);
   overflow: hidden;
 }
@@ -1804,7 +1852,10 @@ img {
 }
 
 .playbook-paywall-inner {
-  background: var(--off-white);
+  background: var(--glass-bg);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  border: 1px solid var(--glass-border);
   box-shadow: 0 2px 8px rgba(26, 26, 26, 0.08);
   padding: 40px 24px;
   text-align: center;
@@ -2498,8 +2549,10 @@ img {
 }
 
 .popup-card {
-  background: var(--white);
-  
+  background: var(--glass-bg);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  border: 1px solid var(--glass-border);
   max-width: 480px;
   width: 100%;
   padding: 40px 32px;
