@@ -104,7 +104,7 @@
     <div class="tool-form-fields">
       <div class="tool-form-group">
         <label>Your Skills</label>
-        <select class="input-brutal" id="idea-skills">
+        <select class="input-primary" id="idea-skills">
           <option value="writing">Writing & Content</option>
           <option value="coding">Coding & Development</option>
           <option value="design">Design & Creative</option>
@@ -115,7 +115,7 @@
       </div>
       <div class="tool-form-group">
         <label>Time Available</label>
-        <select class="input-brutal" id="idea-time">
+        <select class="input-primary" id="idea-time">
           <option value="5h">5 hours/week</option>
           <option value="10h">10 hours/week</option>
           <option value="20h">20 hours/week</option>
@@ -124,14 +124,14 @@
       </div>
       <div class="tool-form-group">
         <label>Budget</label>
-        <select class="input-brutal" id="idea-budget">
+        <select class="input-primary" id="idea-budget">
           <option value="0">$0 (Start free)</option>
           <option value="50">$50/month</option>
           <option value="200">$200/month</option>
           <option value="500">$500+/month</option>
         </select>
       </div>
-      <button class="btn-brutal btn-yellow" style="width:100%;justify-content:center;" onclick="generateIdea()">GENERATE IDEAS</button>
+      <button class="btn-primary btn-yellow" style="width:100%;justify-content:center;" onclick="generateIdea()">GENERATE IDEAS</button>
       <div class="tool-result" id="idea-result" style="display:none;"></div>
     </div>
   </div>
@@ -146,7 +146,7 @@
     <div class="tool-form-fields">
       <div class="tool-form-group">
         <label>Project Type</label>
-        <select class="input-brutal" id="pricing-type">
+        <select class="input-primary" id="pricing-type">
           <option value="simple">Simple Workflow (Zapier/Make)</option>
           <option value="moderate">Moderate Automation (Multi-step)</option>
           <option value="complex">Complex System (Custom API + AI)</option>
@@ -155,13 +155,13 @@
       </div>
       <div class="tool-form-group">
         <label>Number of Integrations</label>
-        <input type="number" class="input-brutal" id="pricing-integrations" value="3" min="1" max="20">
+        <input type="number" class="input-primary" id="pricing-integrations" value="3" min="1" max="20">
       </div>
       <div class="tool-form-group">
         <label>Monthly Maintenance (hours)</label>
-        <input type="number" class="input-brutal" id="pricing-maintenance" value="5" min="0" max="40">
+        <input type="number" class="input-primary" id="pricing-maintenance" value="5" min="0" max="40">
       </div>
-      <button class="btn-brutal btn-yellow" style="width:100%;justify-content:center;" onclick="calculatePricing()">CALCULATE PRICE</button>
+      <button class="btn-primary btn-yellow" style="width:100%;justify-content:center;" onclick="calculatePricing()">CALCULATE PRICE</button>
       <div class="tool-result" id="pricing-result" style="display:none;"></div>
     </div>
   </div>
@@ -176,21 +176,21 @@
     <div class="tool-form-fields">
       <div class="tool-form-group">
         <label>Desired Annual Income ($)</label>
-        <input type="number" class="input-brutal" id="rate-income" value="80000" min="10000" step="5000">
+        <input type="number" class="input-primary" id="rate-income" value="80000" min="10000" step="5000">
       </div>
       <div class="tool-form-group">
         <label>Annual Business Expenses ($)</label>
-        <input type="number" class="input-brutal" id="rate-expenses" value="12000" min="0" step="1000">
+        <input type="number" class="input-primary" id="rate-expenses" value="12000" min="0" step="1000">
       </div>
       <div class="tool-form-group">
         <label>Billable Hours Per Week</label>
-        <input type="number" class="input-brutal" id="rate-hours" value="30" min="10" max="60">
+        <input type="number" class="input-primary" id="rate-hours" value="30" min="10" max="60">
       </div>
       <div class="tool-form-group">
         <label>Vacation Weeks Per Year</label>
-        <input type="number" class="input-brutal" id="rate-vacation" value="4" min="0" max="12">
+        <input type="number" class="input-primary" id="rate-vacation" value="4" min="0" max="12">
       </div>
-      <button class="btn-brutal btn-yellow" style="width:100%;justify-content:center;" onclick="calculateRate()">CALCULATE RATE</button>
+      <button class="btn-primary btn-yellow" style="width:100%;justify-content:center;" onclick="calculateRate()">CALCULATE RATE</button>
       <div class="tool-result" id="rate-result" style="display:none;"></div>
     </div>
   </div>
@@ -205,7 +205,7 @@
     <div class="tool-form-fields">
       <div class="tool-form-group">
         <label>Business Type</label>
-        <select class="input-brutal" id="stack-business">
+        <select class="input-primary" id="stack-business">
           <option value="content">Content Creator</option>
           <option value="agency">Automation Agency</option>
           <option value="freelance">AI Freelancer</option>
@@ -215,7 +215,7 @@
       </div>
       <div class="tool-form-group">
         <label>Primary Need</label>
-        <select class="input-brutal" id="stack-need">
+        <select class="input-primary" id="stack-need">
           <option value="content-gen">Content Generation</option>
           <option value="automation">Workflow Automation</option>
           <option value="analytics">Analytics & Insights</option>
@@ -223,7 +223,7 @@
           <option value="sales">Sales & Outreach</option>
         </select>
       </div>
-      <button class="btn-brutal btn-yellow" style="width:100%;justify-content:center;" onclick="matchStack()">FIND MY STACK</button>
+      <button class="btn-primary btn-yellow" style="width:100%;justify-content:center;" onclick="matchStack()">FIND MY STACK</button>
       <div class="tool-result" id="stack-result" style="display:none;"></div>
     </div>
   </div>
@@ -238,7 +238,7 @@
     <div class="tool-form-fields">
       <div class="tool-form-group">
         <label>Article Category</label>
-        <select class="input-brutal" id="article-category">
+        <select class="input-primary" id="article-category">
           <option value="opportunity">OPPORTUNITY — Deep-dive AI business discovery</option>
           <option value="intelligence">INTELLIGENCE — Step-by-step implementation guide</option>
           <option value="playbook">PLAYBOOK — Premium procedure-based system</option>
@@ -246,11 +246,11 @@
       </div>
       <div class="tool-form-group">
         <label>Topic / Niche</label>
-        <input type="text" class="input-brutal" id="article-topic" placeholder="E.G. AI COPYWRITING AGENCY, VOICE AI BUSINESS...">
+        <input type="text" class="input-primary" id="article-topic" placeholder="E.G. AI COPYWRITING AGENCY, VOICE AI BUSINESS...">
       </div>
       <div class="tool-form-group">
         <label>Target Revenue Range</label>
-        <select class="input-brutal" id="article-revenue">
+        <select class="input-primary" id="article-revenue">
           <option value="1k-5k">$800-$4K/month</option>
           <option value="5k-10k">$4K-$8K/month</option>
           <option value="10k-25k" selected>$8K-$20K/month</option>
@@ -260,13 +260,13 @@
       </div>
       <div class="tool-form-group">
         <label>Difficulty Level</label>
-        <select class="input-brutal" id="article-difficulty">
+        <select class="input-primary" id="article-difficulty">
           <option value="beginner">BEGINNER — No experience needed</option>
           <option value="intermediate" selected>INTERMEDIATE — Some AI/tool experience</option>
           <option value="advanced">ADVANCED — Technical skills required</option>
         </select>
       </div>
-      <button class="btn-brutal btn-yellow" style="width:100%;justify-content:center;" id="article-gen-btn" onclick="generateArticle()">GENERATE ARTICLE</button>
+      <button class="btn-primary btn-yellow" style="width:100%;justify-content:center;" id="article-gen-btn" onclick="generateArticle()">GENERATE ARTICLE</button>
       <div class="tool-result" id="article-result" style="display:none;"></div>
     </div>
   </div>
@@ -579,8 +579,8 @@ async function generateArticle() {
     }
 
     html += `<div style="margin-top:16px;display:flex;gap:8px;flex-wrap:wrap;">`;
-    html += `<button class="btn-brutal btn-yellow" style="font-size:0.8rem;padding:8px 16px;" onclick="copyArticleMarkdown()">COPY MARKDOWN</button>`;
-    html += `<button class="btn-brutal" style="font-size:0.8rem;padding:8px 16px;background:var(--black);color:var(--white);" onclick="downloadArticle()">DOWNLOAD .MD</button>`;
+    html += `<button class="btn-primary btn-yellow" style="font-size:0.8rem;padding:8px 16px;" onclick="copyArticleMarkdown()">COPY MARKDOWN</button>`;
+    html += `<button class="btn-primary" style="font-size:0.8rem;padding:8px 16px;background:var(--black);color:var(--white);" onclick="downloadArticle()">DOWNLOAD .MD</button>`;
     html += `</div></div>`;
 
     window._generatedMarkdown = article.content || '';

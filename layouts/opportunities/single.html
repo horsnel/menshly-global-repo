@@ -1,9 +1,9 @@
 {{ define "main" }}
 <article>
   <div class="article-header">
-    <div class="article-category swiss-badge">OPPORTUNITIES</div>
+    <div class="article-category">OPPORTUNITIES</div>
     <h1 class="article-title">{{ .Title }}</h1>
-    <div class="article-meta-bar swiss-rect">
+    <div class="article-meta-bar">
       <span class="article-meta-item">{{ .Date.Format "Jan 02, 2006" }}</span>
       <span class="article-meta-item">{{ .Params.author | default "MENSHLY GLOBAL" }}</span>
       <span class="article-meta-item">{{ .Params.readTime | default "5 MIN READ" }}</span>
@@ -56,13 +56,13 @@
   <!-- Cross-link: Get Started Now → Intelligence Guide -->
   {{ with .Params.relatedGuide }}
   <div class="crosslink-cta">
-    <div class="crosslink-cta-inner swiss-rect">
+    <div class="crosslink-cta-inner">
       <div class="crosslink-cta-icon">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
       </div>
       <h3>READY TO START BUILDING?</h3>
       <p>Get the complete step-by-step execution guide with every tool, setting, and optimization.</p>
-      <a href="{{ . }}" class="btn-brutal btn-yellow" style="font-size:1.1rem;padding:16px 40px;">GET STARTED NOW</a>
+      <a href="{{ . }}" class="btn-primary btn-yellow" style="font-size:1.1rem;padding:16px 40px;">GET STARTED NOW</a>
     </div>
   </div>
   {{ end }}
@@ -73,12 +73,12 @@
   {{ with $playbook }}
   <div class="playbook-cta-inline">
     <div class="playbook-cta-inner">
-      <div class="playbook-cta-badge swiss-badge">PLAYBOOK</div>
+      <div class="playbook-cta-badge">PLAYBOOK</div>
       <h4>{{ .Title }}</h4>
       <p>{{ .Params.excerpt | default "Complete step-by-step procedures, tools, templates, and revenue projections." }}</p>
       <div class="playbook-cta-footer">
         <span class="playbook-cta-price">{{ .Params.price | default "FREE" }}</span>
-        <a href="{{ .Permalink }}" class="btn-brutal btn-red" style="font-size:0.9rem;padding:10px 24px;">GET THE PLAYBOOK</a>
+        <a href="{{ .Permalink }}" class="btn-primary btn-red" style="font-size:0.9rem;padding:10px 24px;">GET THE PLAYBOOK</a>
       </div>
     </div>
   </div>
@@ -86,8 +86,8 @@
   {{ end }}
 
   <!-- Share Your Startup Story -->
-  <div class="story-box swiss-rect">
-    <div class="story-box-header swiss-rect">
+  <div class="story-box">
+    <div class="story-box-header">
       <svg class="story-box-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
       <div>
         <div class="story-box-title">SHARE YOUR STARTUP STORY</div>
@@ -96,11 +96,11 @@
     </div>
     <form class="story-box-form" action="https://formspree.io/f/xreawkow" method="POST">
       <input type="hidden" name="_subject" value="Menshly Global - Startup Story Submission">
-      <input type="text" name="name" class="input-brutal" placeholder="YOUR NAME" required>
-      <input type="email" name="email" class="input-brutal" placeholder="YOUR EMAIL" required>
-      <input type="text" name="startup_name" class="input-brutal" placeholder="STARTUP NAME" required>
-      <textarea name="story" class="input-brutal story-box-textarea" placeholder="TELL US YOUR STORY — WHAT DID YOU BUILD? HOW DID AI HELP? WHAT REVENUE ARE YOU GENERATING?" rows="4" required></textarea>
-      <button type="submit" class="btn-brutal btn-yellow" style="width:100%;justify-content:center;">SUBMIT YOUR STORY</button>
+      <input type="text" name="name" class="input-primary" placeholder="YOUR NAME" required>
+      <input type="email" name="email" class="input-primary" placeholder="YOUR EMAIL" required>
+      <input type="text" name="startup_name" class="input-primary" placeholder="STARTUP NAME" required>
+      <textarea name="story" class="input-primary story-box-textarea" placeholder="TELL US YOUR STORY — WHAT DID YOU BUILD? HOW DID AI HELP? WHAT REVENUE ARE YOU GENERATING?" rows="4" required></textarea>
+      <button type="submit" class="btn-primary btn-yellow" style="width:100%;justify-content:center;">SUBMIT YOUR STORY</button>
     </form>
   </div>
 </article>

@@ -1,7 +1,7 @@
 <nav class="nav-bar" id="nav">
   <!-- Universal nav bar — logo left, hamburger right (Tesla style, all screen sizes) -->
   <div class="nav-mobile-trigger">
-    <a href="/" class="nav-mobile-brand"><img src="/images/logo.png" alt="" class="nav-mobile-logo">{{ .Site.Title }}</a>
+    <a href="/" class="nav-mobile-brand"><img src="/images/logo.svg" alt="" class="nav-mobile-logo">{{ .Site.Title }}</a>
     <button class="hamburger" id="hamburgerBtn" onclick="toggleMobileMenu()" aria-label="Menu">
       <span class="hamburger-line"></span>
       <span class="hamburger-line"></span>
@@ -14,7 +14,7 @@
 <div class="mobile-overlay" id="mobileOverlay">
   <div class="mobile-overlay-inner">
     <div class="mobile-overlay-header">
-      <a href="/" class="nav-mobile-brand" onclick="closeMobileMenu()"><img src="/images/logo.png" alt="" class="nav-mobile-logo">{{ .Site.Title }}</a>
+      <a href="/" class="nav-mobile-brand" onclick="closeMobileMenu()"><img src="/images/logo.svg" alt="" class="nav-mobile-logo">{{ .Site.Title }}</a>
       <button class="hamburger is-active" onclick="closeMobileMenu()" aria-label="Close">
         <span class="hamburger-line"></span>
         <span class="hamburger-line"></span>

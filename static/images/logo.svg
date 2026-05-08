@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="none">
+  <!-- Menshly M Mark — Braun/Tesla inspired geometric chevron -->
+  <!-- Left chevron -->
+  <path d="M96 416 L96 128 L192 128 L256 280 L320 128 L416 128 L416 416 L320 416 L320 272 L256 416 L192 272 L192 416 Z" fill="#111111"/>
+  <!-- Gold accent diagonal stroke on right leg -->
+  <path d="M320 128 L416 128 L416 192 L352 192 Z" fill="#F0C040"/>
+</svg>

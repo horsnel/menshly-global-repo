@@ -8,13 +8,13 @@
 .ai-page {
   max-width: 100%;
   margin: 0 auto;
-  min-height: 100vh;
-  min-height: 100dvh;
+  height: 100vh;
+  height: 100dvh;
   display: flex;
   flex-direction: column;
   position: relative;
   background: var(--white);
-  -webkit-overflow-scrolling: touch;
+  overflow: hidden;
 }
 
 /* --- AI HOME SCREEN --- */
@@ -22,26 +22,30 @@
   flex: 1;
   display: flex;
   flex-direction: column;
-  padding: 72px 16px 16px;
-  padding-top: calc(72px + env(safe-area-inset-top, 0px));
+  padding: 68px 16px 16px;
+  padding-top: calc(68px + env(safe-area-inset-top, 0px));
   padding-bottom: calc(16px + env(safe-area-inset-bottom, 0px));
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior: contain;
 }
 
 .ai-home.hidden { display: none; }
 
 @media (min-width: 768px) {
   .ai-home {
-    padding: 120px 48px 48px;
-    padding-top: calc(120px + env(safe-area-inset-top, 0px));
+    padding: 100px 48px 48px;
+    padding-top: calc(100px + env(safe-area-inset-top, 0px));
     padding-bottom: calc(48px + env(safe-area-inset-bottom, 0px));
   }
 }
 
 .ai-home-header {
   text-align: center;
-  padding: 12px 0 20px;
+  padding: 8px 0 16px;
   max-width: 440px;
   margin: 0 auto;
+  flex-shrink: 0;
 }
 
 @media (min-width: 768px) {
@@ -110,7 +114,8 @@
   gap: 8px;
   max-width: 480px;
   width: 100%;
-  margin: 0 auto 16px;
+  margin: 0 auto 12px;
+  flex-shrink: 0;
 }
 
 @media (min-width: 768px) {
@@ -130,7 +135,7 @@
   transition: all 0.25s ease;
   display: flex;
   flex-direction: column;
-  min-height: 96px;
+  min-height: 88px;
   -webkit-tap-highlight-color: transparent;
 }
 
@@ -207,6 +212,7 @@
   max-width: 480px;
   width: 100%;
   margin: 0 auto;
+  flex-shrink: 0;
 }
 
 @media (min-width: 768px) { .ai-recent { max-width: 560px; } }
@@ -259,8 +265,9 @@
 .ai-start-bar {
   max-width: 480px;
   width: 100%;
-  margin: 12px auto 0;
-  padding-bottom: calc(12px + env(safe-area-inset-bottom, 0px));
+  margin: 8px auto 0;
+  padding-bottom: calc(8px + env(safe-area-inset-bottom, 0px));
+  flex-shrink: 0;
 }
 
 @media (min-width: 768px) {
@@ -321,12 +328,13 @@
 .ai-chat {
   display: none;
   flex-direction: column;
-  height: 100vh;
-  height: 100dvh;
   position: fixed;
   inset: 0;
   z-index: 50;
   background: var(--white);
+  height: 100vh;
+  height: 100dvh;
+  height: -webkit-fill-available;
 }
 
 .ai-chat.active { display: flex; }
@@ -530,14 +538,18 @@
 
 /* Chat Input Area */
 .ai-chat-input-area {
-  padding: 8px 10px;
-  padding-bottom: calc(8px + env(safe-area-inset-bottom, 0px));
+  padding: 6px 10px;
+  padding-bottom: calc(6px + env(safe-area-inset-bottom, 0px));
   display: flex;
-  align-items: center;
+  align-items: flex-end;
   gap: 6px;
   background: var(--white);
   border-top: 1px solid rgba(0, 0, 0, 0.05);
   flex-shrink: 0;
+  /* Prevent iOS zoom on focus */
+  position: sticky;
+  bottom: 0;
+  z-index: 5;
 }
 
 @media (min-width: 768px) {
@@ -604,7 +616,7 @@
   flex: 1;
   padding: 6px 0;
   font-family: var(--font-body);
-  font-size: 13px;
+  font-size: 16px;
   background: transparent;
   outline: none;
   resize: none;
@@ -612,11 +624,12 @@
   border: none;
   line-height: 1.4;
   color: var(--black);
+  /* 16px prevents iOS auto-zoom on focus */
 }
 
 .ai-chat-input::placeholder {
   color: rgba(26, 26, 26, 0.3);
-  font-size: 12px;
+  font-size: 13px;
 }
 
 @media (min-width: 768px) {
@@ -736,6 +749,9 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
+  flex: 1;
+  min-height: 0;
 }
 
 .ai-voice-avatar {
@@ -905,17 +921,36 @@
   .ai-voice-keyboard svg { width: 22px; height: 22px; }
 }
 
-/* Extra small phones */
-@media (max-width: 360px) {
-  .ai-cards { gap: 6px; }
-  .ai-card { padding: 12px 10px; min-height: 86px; }
-  .ai-card-icon { width: 32px; height: 32px; margin-bottom: 6px; }
-  .ai-card-icon svg { width: 16px; height: 16px; }
+/* Extra small phones — compact everything */
+@media (max-width: 374px) {
+  .ai-home { padding: 60px 12px 12px; }
+  .ai-home-header { padding: 4px 0 10px; }
+  .ai-avatar { width: 40px; height: 40px; font-size: 14px; margin-bottom: 8px; }
+  .ai-greeting { font-size: 1.05rem; }
+  .ai-greeting-sub { font-size: 11px; }
+  .ai-cards { gap: 6px; margin-bottom: 8px; }
+  .ai-card { padding: 10px 10px; min-height: 78px; }
+  .ai-card-icon { width: 30px; height: 30px; border-radius: 8px; margin-bottom: 5px; }
+  .ai-card-icon svg { width: 14px; height: 14px; }
   .ai-card-title { font-size: 10px; }
   .ai-card-desc { font-size: 9px; }
+  .ai-recent-item { padding: 8px 10px; }
+  .ai-recent-text { font-size: 12px; }
+  .ai-start-bar { margin-top: 6px; }
+  .ai-start-btn { padding: 12px 14px; font-size: 11px; border-radius: 14px; }
   .ai-voice-mic { width: 56px; height: 56px; }
   .ai-voice-mic svg { width: 20px; height: 20px; }
-  .ai-voice-avatar { width: 48px; height: 48px; font-size: 15px; }
+  .ai-voice-avatar { width: 44px; height: 44px; font-size: 15px; margin-bottom: 8px; }
+  .ai-voice-status { font-size: 12px; }
+  .ai-voice-transcript { font-size: 12px; max-width: 240px; }
+  .ai-voice-keyboard { width: 40px; height: 40px; }
+  .ai-voice-keyboard svg { width: 18px; height: 18px; }
+  .chat-msg-bubble { padding: 9px 12px; font-size: 12px; }
+  .ai-chat-input { font-size: 16px; /* Prevents iOS zoom */ }
+  .ai-voice-btn { width: 32px; height: 32px; }
+  .ai-voice-btn svg { width: 16px; height: 16px; }
+  .ai-chat-send { width: 32px; height: 32px; }
+  .ai-chat-send svg { width: 14px; height: 14px; }
 }
 </style>
 
@@ -924,7 +959,7 @@
   <!-- ========== AI HOME SCREEN ========== -->
   <div class="ai-home" id="aiHome">
     <div class="ai-home-header">
-      <div class="ai-avatar">MG</div>
+      <img src="/images/logo.svg" alt="Menshly" style="width:44px;height:44px;margin:0 auto 10px;display:block;">
       <h1 class="ai-greeting">How can I help you today?</h1>
       <p class="ai-greeting-sub">Instant AI advice on business, tools, pricing & workflows.</p>
     </div>
@@ -970,6 +1005,9 @@
       <div class="ai-recent-list" id="aiRecentList"></div>
     </div>
 
+    <!-- Spacer to push start bar down -->
+    <div style="flex:1;"></div>
+
     <!-- Start New Chat -->
     <div class="ai-start-bar">
       <button class="ai-start-btn" onclick="openChat('')">
@@ -993,7 +1031,7 @@
 
     <div class="ai-chat-messages" id="chatMessages">
       <div class="chat-welcome" id="chatWelcome">
-        <div class="chat-welcome-avatar">MG</div>
+        <img src="/images/logo.svg" alt="Menshly" style="width:36px;height:36px;opacity:0.15;margin:0 auto 12px;display:block;">
         <h3>Ask anything about AI business</h3>
         <p>Strategies, tools, pricing, workflows — no fluff, just actionable advice.</p>
       </div>

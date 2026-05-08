@@ -188,8 +188,12 @@
   {{ $css := resources.Get "css/style.css" }}
   {{ $cssMin := $css | minify | fingerprint }}
   <link rel="stylesheet" href="{{ $cssMin.RelPermalink }}">
+  <link rel="icon" type="image/svg+xml" href="/images/logo.svg">
   <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
-  <link rel="icon" type="image/png" sizes="1024x1024" href="/images/favicon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+  <meta name="msapplication-TileColor" content="#111111">
 
   <!-- Analytics Tracker -->
   <script src="/js/analytics.js" async></script>
