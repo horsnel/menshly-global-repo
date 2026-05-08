@@ -1039,56 +1039,304 @@ img {
   color: var(--white);
 }
 
-/* --- Tool Card --- */
-.tool-card {
-  overflow: hidden;
-  box-shadow: var(--shadow-sm);
-  transition: all 0.2s ease;
-  background: var(--card-bg);
-  border: 1px solid var(--card-border);
+/* --- Tools Carousel (Type 1 Hero) --- */
+.tools-carousel {
+  position: relative;
+  margin-bottom: 32px;
 }
 
-.tool-card-header {
+.tools-carousel-track {
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  padding: 8px 0 24px;
+  scrollbar-width: none;
+}
+
+.tools-carousel-track::-webkit-scrollbar {
+  display: none;
+}
+
+/* Individual slide card */
+.tool-slide {
+  flex: 0 0 calc(100vw - 80px);
+  max-width: 380px;
+  scroll-snap-align: start;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+@media (min-width: 768px) {
+  .tool-slide {
+    flex: 0 0 calc(33.333% - 12px);
+  }
+}
+
+@media (min-width: 1024px) {
+  .tool-slide {
+    flex: 0 0 calc(25% - 12px);
+  }
+}
+
+.tool-slide:hover {
+  transform: translateY(-4px);
+}
+
+.tool-slide:hover .tool-slide-inner {
+  border-color: var(--yellow);
+  box-shadow: var(--shadow-md);
+}
+
+.tool-slide-inner {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius-lg);
+  padding: 32px 24px;
+  min-height: 320px;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.25s ease;
+  box-shadow: var(--shadow-sm);
+}
+
+.tool-slide-number {
+  font-family: var(--font-heading);
+  font-size: 48px;
+  font-weight: 900;
+  color: rgba(26, 26, 26, 0.06);
+  line-height: 1;
+  margin-bottom: 8px;
+}
+
+.tool-slide-icon {
+  margin-bottom: 16px;
+}
+
+.tool-slide-title {
+  font-family: var(--font-heading);
+  font-size: 18px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  line-height: 1.2;
+  margin-bottom: 12px;
+  color: var(--black);
+}
+
+.tool-slide-desc {
+  font-size: 14px;
+  line-height: 1.6;
+  color: rgba(26, 26, 26, 0.65);
+  flex: 1;
+  margin-bottom: 20px;
+}
+
+.tool-slide-cta {
+  font-family: var(--font-heading);
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--yellow);
+  transition: padding-left 0.2s ease;
+}
+
+.tool-slide:hover .tool-slide-cta {
+  padding-left: 8px;
+}
+
+/* Carousel arrows */
+.carousel-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-pill);
   background: var(--black);
   color: var(--white);
-  padding: 16px;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  z-index: 10;
+  box-shadow: var(--shadow-md);
+}
+
+.carousel-arrow:hover {
+  background: var(--yellow);
+  color: var(--black);
+}
+
+.carousel-arrow-prev {
+  left: -12px;
+}
+
+.carousel-arrow-next {
+  right: -12px;
+}
+
+@media (max-width: 767px) {
+  .carousel-arrow {
+    display: none;
+  }
+}
+
+/* Carousel dots */
+.carousel-dots {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.carousel-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: var(--radius-pill);
+  background: rgba(26, 26, 26, 0.15);
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  padding: 0;
+}
+
+.carousel-dot.active {
+  background: var(--yellow);
+  width: 24px;
+}
+
+/* --- Expanded Tool Overlay (Hero Slide) --- */
+.tool-expanded-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1002;
+  background: var(--cream);
+  transform: translateY(100%);
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow-y: auto;
+}
+
+.tool-expanded-overlay.open {
+  transform: translateY(0);
+}
+
+.tool-expanded-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  padding: 12px 24px;
+  background: var(--black);
 }
 
-.tool-card-icon {
-  font-size: 28px;
-  line-height: 1;
+@media (min-width: 768px) {
+  .tool-expanded-header {
+    padding: 12px 48px;
+  }
 }
 
-.tool-card-name {
+.tool-expanded-close {
   font-family: var(--font-heading);
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.1em;
+  background: none;
+  color: var(--white);
+  border: none;
+  cursor: pointer;
+  transition: color 0.2s ease;
+  padding: 8px 0;
 }
 
-.tool-card-body {
-  padding: 16px;
+.tool-expanded-close:hover {
+  color: var(--yellow);
 }
 
-.tool-card-desc {
-  font-size: 13px;
-  line-height: 1.6;
-  color: rgba(26, 26, 26, 0.7);
+.tool-expanded-nav {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.tool-expanded-arrow {
+  background: none;
+  border: none;
+  color: var(--white);
+  cursor: pointer;
+  font-size: 18px;
+  padding: 4px 8px;
+  transition: color 0.2s ease;
+}
+
+.tool-expanded-arrow:hover {
+  color: var(--yellow);
+}
+
+.tool-expanded-counter {
+  font-family: var(--font-heading);
+  font-size: 12px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.5);
+  letter-spacing: 0.08em;
+}
+
+.tool-expanded-body {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 48px 24px 64px;
+}
+
+@media (min-width: 768px) {
+  .tool-expanded-body {
+    padding: 64px 48px 80px;
+  }
+}
+
+/* Form header inside expanded view */
+.tool-form-header {
+  margin-bottom: 32px;
+}
+
+.tool-form-number {
+  font-family: var(--font-heading);
+  font-size: 64px;
+  font-weight: 900;
+  color: rgba(26, 26, 26, 0.05);
+  line-height: 1;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.tool-form-header h3 {
+  font-size: clamp(1.5rem, 4vw, 2rem);
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: -0.01em;
   margin-bottom: 12px;
 }
 
-.tool-card-form {
-  display: none;
-  padding: 16px;
-  background: var(--off-white);
+.tool-form-header p {
+  font-size: 15px;
+  line-height: 1.7;
+  color: rgba(26, 26, 26, 0.65);
 }
 
-.tool-card.expanded .tool-card-form {
-  display: block;
+.tool-form-fields {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  box-shadow: var(--shadow-sm);
 }
 
 .tool-form-group {
