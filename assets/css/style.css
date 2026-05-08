@@ -130,14 +130,38 @@
   border-radius: var(--radius-lg) !important;
 }
 
-/* --- Article Hero Image: Round corners --- */
+/* --- Article Hero Image: Premium Treatment --- */
 .article-hero-image {
-  border-radius: var(--radius-lg) !important;
+  border-radius: var(--radius-xl) !important;
   overflow: hidden;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+  position: relative;
+}
+
+.article-hero-image::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 40%;
+  background: linear-gradient(to top, rgba(0,0,0,0.25), transparent);
+  pointer-events: none;
+  z-index: 1;
 }
 
 .article-hero-image img {
   border-radius: 0 !important;
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 420px;
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.article-hero-image:hover img {
+  transform: scale(1.02);
 }
 
 /* --- Article Content Pre: Round corners --- */
@@ -145,11 +169,7 @@
   border-radius: var(--radius-lg) !important;
 }
 
-/* --- Article Content Table: Round corners --- */
-.article-content table {
-  border-radius: var(--radius-lg) !important;
-  overflow: hidden;
-}
+/* --- Article Content Table: Round corners via wrapper --- */
 
 /* --- Roster Table: Round corners --- */
 .roster-table {
@@ -579,6 +599,14 @@ a:focus-visible {
   }
 }
 
+.mobile-overlay-header .nav-mobile-logo {
+  filter: invert(1);
+}
+
+.mobile-overlay-header .nav-mobile-brand {
+  color: var(--black);
+}
+
 .mobile-overlay-header .hamburger-line {
   background: var(--black);
 }
@@ -740,8 +768,19 @@ a:focus-visible {
 .hero-visual {
   position: absolute;
   inset: 0;
-  background: var(--cream-dark);
+  background: linear-gradient(160deg, var(--cream-dark) 0%, #e8e4de 50%, #ddd8d0 100%);
   overflow: hidden;
+}
+
+.hero-visual::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -50%;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle, rgba(240,192,64,0.08) 0%, transparent 60%);
+  pointer-events: none;
 }
 
 .hero-visual-content {
@@ -915,13 +954,14 @@ a:focus-visible {
   cursor: pointer;
   background: var(--card-bg);
   border: 1px solid var(--card-border);
+  border-radius: var(--radius-lg);
   box-shadow: var(--shadow-sm);
-  transition: all 0.2s ease;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .article-card:hover {
-  box-shadow: var(--shadow-lg);
-  transform: translateY(-2px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  transform: translateY(-3px);
   border-color: var(--yellow);
 }
 
@@ -930,6 +970,11 @@ a:focus-visible {
   aspect-ratio: 3/2;
   object-fit: cover;
   background: var(--off-white);
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.article-card:hover .article-card-image {
+  transform: scale(1.04);
 }
 
 .article-card-body {
@@ -998,14 +1043,23 @@ a:focus-visible {
   position: relative;
   background: var(--card-bg);
   border: 1px solid var(--card-border);
+  border-radius: var(--radius-lg);
   box-shadow: var(--shadow-sm);
-  transition: all 0.2s ease;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .playbook-card:hover {
-  box-shadow: var(--shadow-lg);
-  transform: translateY(-2px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  transform: translateY(-3px);
   border-color: var(--yellow);
+}
+
+.playbook-card img {
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.playbook-card:hover img {
+  transform: scale(1.04);
 }
 
 .playbook-card-wide {
@@ -1910,14 +1964,20 @@ a:focus-visible {
 }
 
 /* --- Article Tables (Premium) --- */
+.article-content .table-scroll-wrapper {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  border-radius: var(--radius-lg);
+  margin: 24px 0;
+  border: 1px solid var(--card-border);
+}
+
 .article-content table {
   width: 100%;
-  border: 1px solid var(--card-border);
   border-collapse: collapse;
-  margin: 24px 0;
   font-size: 14px;
-  border-radius: var(--radius-lg) !important;
-  overflow: hidden;
+  min-width: 600px;
 }
 
 .article-content thead {
@@ -2023,11 +2083,10 @@ a:focus-visible {
 
 
 
-/* --- Article Hero Image --- */
+/* --- Article Hero Image (layout) --- */
 .article-hero-image {
   max-width: 1080px;
   margin: 0 auto;
-  
 }
 
 .article-hero-image img {
@@ -2036,6 +2095,39 @@ a:focus-visible {
   max-height: 420px;
   object-fit: cover;
   display: block;
+}
+
+/* --- Article Content Images: Premium Treatment --- */
+.article-content img {
+  border-radius: var(--radius-lg);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+  max-width: 100%;
+  height: auto;
+}
+
+/* --- Section Page Hero: Premium Overlay --- */
+.section-page-hero {
+  position: relative;
+  z-index: 1;
+}
+
+.section-page-hero--has-image {
+  background-size: cover;
+  background-position: center;
+}
+
+.section-page-hero--has-image::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(26,26,26,0.92) 0%, rgba(26,26,26,0.75) 100%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.section-page-hero--has-image > * {
+  position: relative;
+  z-index: 1;
 }
 
 /* --- Article Actions & Affiliate styles moved to unified section below --- */
@@ -2484,7 +2576,7 @@ a:focus-visible {
   color: var(--white);
 }
 
-/* --- Article Next/Prev Navigation --- */
+/* --- Article Next/Prev Navigation (Premium Tesla/Braun) --- */
 .article-nav {
   max-width: 1080px;
   margin: 0 auto;
@@ -2498,7 +2590,7 @@ a:focus-visible {
 @media (min-width: 768px) {
   .article-nav {
     padding: 0 48px;
-    gap: 24px;
+    gap: 20px;
   }
 }
 
@@ -2506,21 +2598,60 @@ a:focus-visible {
   flex: 1;
   display: flex;
   align-items: center;
-  gap: 12px;
-  padding: 16px 20px;
-  
-  background: var(--off-white);
+  gap: 16px;
+  padding: 20px 24px;
+  background: var(--white);
   text-decoration: none;
   color: var(--black);
-  transition: all 0.2s ease;
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius-lg);
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+  position: relative;
+  overflow: hidden;
+}
+
+.article-nav-item::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--yellow);
+  transform: scaleX(0);
+  transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .article-nav-item:hover {
-  background: var(--yellow);
+  border-color: transparent;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  transform: translateY(-2px);
+}
+
+.article-nav-item:hover::after {
+  transform: scaleX(1);
+}
+
+.article-nav-item svg {
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  color: var(--black);
+  transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.article-nav-prev:hover svg {
+  transform: translateX(-3px);
+}
+
+.article-nav-next:hover svg {
+  transform: translateX(3px);
 }
 
 .article-nav-next {
   justify-content: flex-end;
+  text-align: right;
 }
 
 .article-nav-placeholder {
@@ -2531,16 +2662,16 @@ a:focus-visible {
 .article-nav-text {
   display: flex;
   flex-direction: column;
-  gap: 2px;
+  gap: 4px;
   min-width: 0;
 }
 
 .article-nav-label {
   font-family: var(--font-heading);
-  font-size: 11px;
+  font-size: 10px;
   text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: rgba(26, 26, 26, 0.5);
+  letter-spacing: 0.12em;
+  color: rgba(26, 26, 26, 0.4);
   flex-shrink: 0;
 }
 
@@ -2548,16 +2679,25 @@ a:focus-visible {
   font-family: var(--font-heading);
   font-size: 13px;
   font-weight: 600;
-  line-height: 1.3;
+  line-height: 1.35;
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
+  color: var(--black);
+  transition: color 0.2s ease;
+}
+
+.article-nav-item:hover .article-nav-title {
+  color: var(--black);
 }
 
 @media (min-width: 768px) {
   .article-nav-title {
     font-size: 14px;
+  }
+  .article-nav-item {
+    padding: 24px 28px;
   }
 }
 
@@ -2802,12 +2942,7 @@ body {
   hyphens: auto;
 }
 
-/* --- Article Tables: Scrollable wrapper on mobile --- */
-.article-content table {
-  display: block;
-  overflow-x: auto;
-  -webkit-overflow-scrolling: touch;
-}
+/* --- Article Tables: Scroll handled by wrapper div --- */
 
 /* --- Code blocks: Contain long lines --- */
 .article-content pre {
@@ -2949,11 +3084,11 @@ body {
   .article-nav {
     flex-direction: column !important;
     padding: 0 20px !important;
-    gap: 8px !important;
+    gap: 10px !important;
   }
 
   .article-nav-item {
-    padding: 14px 16px !important;
+    padding: 16px 18px !important;
   }
 
   /* Crosslink CTA: Better mobile padding */

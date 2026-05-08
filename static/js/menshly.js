@@ -374,6 +374,21 @@
   }
 
   // ============================================
+  // WRAP TABLES IN SCROLLABLE CONTAINER
+  // ============================================
+  function initTableWrap() {
+    var tables = document.querySelectorAll('.article-content table');
+    tables.forEach(function (table) {
+      // Skip if already wrapped
+      if (table.parentElement.classList.contains('table-scroll-wrapper')) return;
+      var wrapper = document.createElement('div');
+      wrapper.className = 'table-scroll-wrapper';
+      table.parentNode.insertBefore(wrapper, table);
+      wrapper.appendChild(table);
+    });
+  }
+
+  // ============================================
   // INIT ALL
   // ============================================
   function init() {
@@ -387,6 +402,7 @@
     initBookmark();
     initShareButtons();
     initHeartBurst();
+    initTableWrap();
   }
 
   // Run on DOM ready

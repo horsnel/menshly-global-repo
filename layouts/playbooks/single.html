@@ -106,8 +106,8 @@ function payWithPaystack() {
     return;
   }
   const priceStr = '{{ .Params.price }}';
-  const amountInDollars = parseFloat(priceStr.replace(/[^0-9.]/g, ''));
-  const amountInKobo = Math.round(amountInDollars * 100);
+  const amountInNaira = parseFloat(priceStr.replace(/[^0-9.]/g, '').replace(/,/g, ''));
+  const amountInKobo = Math.round(amountInNaira * 100);
   const productTitle = '{{ .Title }}';
   const publicKey = '{{ .Site.Params.paystackPublicKey | default "pk_test_xxx" }}';
   const pdfUrl = '{{ .Params.pdfUrl | default (printf "/pdfs/%s.pdf" .File.ContentBaseName) }}';
@@ -116,7 +116,7 @@ function payWithPaystack() {
     key: publicKey,
     email: email,
     amount: amountInKobo,
-    currency: 'USD',
+    currency: 'NGN',
     metadata: {
       product: productTitle,
       type: 'playbook',
