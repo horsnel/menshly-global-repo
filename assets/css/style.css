@@ -546,19 +546,26 @@ img {
   }
 }
 
-/* Braun spacious: generous letter-spacing, breathing room */
+/* Tesla + Braun: restrained size, maximum spacing, precision */
 .mobile-overlay-nav a {
   display: block;
-  padding: 24px 0;
+  padding: 20px 0;
   font-family: var(--font-heading);
-  font-size: clamp(2.2rem, 9vw, 4rem);
-  font-weight: 700;
+  font-size: clamp(1.25rem, 4vw, 1.5rem);
+  font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.18em;
   color: var(--black);
   transition: all 0.25s ease;
   border-bottom: 1px solid rgba(0, 0, 0, 0.05);
   text-decoration: none;
+}
+
+@media (min-width: 768px) {
+  .mobile-overlay-nav a {
+    padding: 28px 0;
+    font-size: 1.5rem;
+  }
 }
 
 .mobile-overlay-nav a:last-child {
@@ -567,7 +574,7 @@ img {
 
 .mobile-overlay-nav a:hover {
   color: var(--yellow);
-  padding-left: 16px;
+  padding-left: 20px;
 }
 
 .mobile-overlay-footer {
