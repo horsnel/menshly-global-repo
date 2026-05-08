@@ -5,7 +5,6 @@
 
   {{ partial "nav.html" . }}
   {{ block "main" . }}{{ end }}
-  {{ partial "newsletter.html" . }}
   {{ partial "footer.html" . }}
 
   <!-- CloudFlare Web Analytics -->
@@ -14,7 +13,7 @@
   <!-- Menshly Interactive Features -->
   <script src="/js/menshly.js" defer></script>
 
-  <!-- Email Capture Popup -->
+  <!-- Subscribe Popup (triggered by SUBSCRIBE button only) -->
   <div id="emailPopup" class="popup-overlay" style="display:none;">
     <div class="popup-card">
       <button class="popup-close" onclick="closePopup()" aria-label="Close">&times;</button>
@@ -31,15 +30,8 @@
     </div>
   </div>
   <script>
-  // Popup logic: show after 15s on first visit, dismiss for 7 days
-  (function(){
-    var seen=localStorage.getItem('mg_popup_seen');
-    if(seen){var t=parseInt(seen);if(Date.now()-t<7*86400000)return;}
-    setTimeout(function(){
-      document.getElementById('emailPopup').style.display='flex';
-      localStorage.setItem('mg_popup_seen',Date.now().toString());
-    },15000);
-  })();
+  // Popup: only opens when user clicks SUBSCRIBE button
+  function openPopup(){document.getElementById('emailPopup').style.display='flex';}
   function closePopup(){document.getElementById('emailPopup').style.display='none';}
   document.getElementById('emailPopup').addEventListener('click',function(e){if(e.target===this)closePopup();});
   // Popup form submit

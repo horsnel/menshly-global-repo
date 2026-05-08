@@ -338,6 +338,8 @@
   </div>
 </section>
 
+{{ partial "newsletter.html" . }}
+
 {{ else }}
 {{ if and .IsSection (eq .Pages.Len 0) }}
 <!-- Standalone page section (About, Contact, Legal) — show content directly -->
