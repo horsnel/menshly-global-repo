@@ -515,7 +515,6 @@ img {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: center;
 }
 
 .mobile-overlay-header {
@@ -540,18 +539,16 @@ img {
   background: var(--black);
 }
 
-/* Nav links — no flex:1 so subscribe button stays visible */
+/* Nav links — top-aligned so subscribe button stays visible */
 .mobile-overlay-nav {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  padding: 0 32px 24px;
+  padding: 16px 32px 24px;
 }
 
 @media (min-width: 768px) {
   .mobile-overlay-nav {
-    justify-content: flex-start;
-    padding: 48px 64px 32px;
+    padding: 32px 64px 32px;
     max-width: 720px;
   }
 }
