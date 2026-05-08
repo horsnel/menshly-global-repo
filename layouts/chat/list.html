@@ -1,153 +1,1050 @@
 {{ define "main" }}
 <style>
-/* Chat Page Styles — Swiss Rounding for Interactive UI */
-.chat-page{max-width:800px;margin:0 auto;padding:120px 24px 40px;min-height:100vh;display:flex;flex-direction:column}
+/* ============================================
+   AI PAGE — Smart Home + Chat + Voice Mode
+   Inspired by clean AI assistant interfaces
+   ============================================ */
 
-.chat-header{padding-bottom:24px;margin-bottom:24px}
-.chat-badge{display:inline-block;background:var(--yellow);;padding:4px 12px;font-family:var(--font-heading);font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:16px;border-radius:var(--radius-pill) !important}
-.chat-title{font-family:var(--font-heading);font-size:clamp(2rem,5vw,3.5rem);font-weight:800;letter-spacing:-0.02em;line-height:1.05;margin-bottom:12px}
-.chat-desc{font-size:15px;line-height:1.7;color:rgba(26,26,26,0.7);max-width:560px}
+.ai-page {
+  max-width: 100%;
+  margin: 0 auto;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  background: var(--white);
+}
 
-/* Chat Container */
-.chat-container{flex:1;;display:flex;flex-direction:column;min-height:500px;max-height:70vh;background:var(--white);border-radius:var(--radius-xl) !important;overflow:hidden}
+/* --- AI HOME SCREEN (Card-based landing) --- */
+.ai-home {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 100px 24px 24px;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.ai-home.hidden {
+  display: none;
+}
+
+.ai-home-header {
+  text-align: center;
+  padding: 32px 0 40px;
+  max-width: 480px;
+  margin: 0 auto;
+}
+
+.ai-avatar {
+  width: 72px;
+  height: 72px;
+  border-radius: var(--radius-circle);
+  background: var(--black);
+  color: var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px;
+  font-family: var(--font-heading);
+  font-size: 24px;
+  font-weight: 900;
+  letter-spacing: -0.02em;
+}
+
+.ai-greeting {
+  font-family: var(--font-heading);
+  font-size: clamp(1.5rem, 4vw, 2.25rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  margin-bottom: 8px;
+  color: var(--black);
+}
+
+.ai-greeting-sub {
+  font-size: 15px;
+  line-height: 1.6;
+  color: rgba(26, 26, 26, 0.55);
+}
+
+/* Action Cards Grid — 2x2 */
+.ai-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  max-width: 560px;
+  width: 100%;
+  margin: 0 auto 32px;
+}
+
+.ai-card {
+  background: var(--cream);
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius-lg);
+  padding: 24px 20px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  display: flex;
+  flex-direction: column;
+  min-height: 140px;
+}
+
+.ai-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--yellow);
+  box-shadow: var(--shadow-md);
+}
+
+.ai-card-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 14px;
+  font-size: 20px;
+}
+
+.ai-card-icon.voice { background: #E8E0FF; color: #6C3FC5; }
+.ai-card-icon.write { background: #FFF3D6; color: #B8860B; }
+.ai-card-icon.analyze { background: #D6F0E8; color: #1A7A5A; }
+.ai-card-icon.translate { background: #FFE0E0; color: #CC3333; }
+
+.ai-card-title {
+  font-family: var(--font-heading);
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-bottom: 4px;
+  color: var(--black);
+}
+
+.ai-card-desc {
+  font-size: 12px;
+  line-height: 1.5;
+  color: rgba(26, 26, 26, 0.55);
+}
+
+/* Recent Queries */
+.ai-recent {
+  max-width: 560px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.ai-recent-label {
+  font-family: var(--font-heading);
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: rgba(26, 26, 26, 0.35);
+  margin-bottom: 12px;
+}
+
+.ai-recent-list {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.ai-recent-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 16px;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+
+.ai-recent-item:hover {
+  background: var(--cream);
+}
+
+.ai-recent-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: var(--radius-circle);
+  background: var(--yellow);
+  flex-shrink: 0;
+}
+
+.ai-recent-text {
+  font-size: 14px;
+  color: rgba(26, 26, 26, 0.7);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Start New Chat Bar — bottom CTA */
+.ai-start-bar {
+  max-width: 560px;
+  width: 100%;
+  margin: 24px auto 0;
+  padding-bottom: 32px;
+}
+
+.ai-start-btn {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 18px 24px;
+  background: var(--black);
+  color: var(--white);
+  border: none;
+  border-radius: var(--radius-lg);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-family: var(--font-heading);
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.ai-start-btn:hover {
+  background: var(--yellow);
+  color: var(--black);
+}
+
+.ai-start-btn svg {
+  width: 20px;
+  height: 20px;
+  transition: transform 0.2s ease;
+}
+
+.ai-start-btn:hover svg {
+  transform: translateX(4px);
+}
+
+/* --- CHAT MODE --- */
+.ai-chat {
+  display: none;
+  flex-direction: column;
+  height: 100vh;
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  background: var(--white);
+}
+
+.ai-chat.active {
+  display: flex;
+}
+
+.ai-chat-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 20px;
+  background: var(--white);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  flex-shrink: 0;
+}
+
+.ai-chat-back {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--black);
+  transition: color 0.2s ease;
+}
+
+.ai-chat-back:hover {
+  color: var(--yellow);
+}
+
+.ai-chat-back svg {
+  width: 20px;
+  height: 20px;
+}
+
+.ai-chat-title-bar {
+  font-family: var(--font-heading);
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.ai-chat-menu {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  color: var(--black);
+  transition: color 0.2s ease;
+}
+
+.ai-chat-menu:hover {
+  color: var(--yellow);
+}
+
+.ai-chat-menu svg {
+  width: 20px;
+  height: 20px;
+}
 
 /* Messages Area */
-.chat-messages{flex:1;overflow-y:auto;padding:20px;display:flex;flex-direction:column;gap:16px;scroll-behavior:smooth}
+.ai-chat-messages {
+  flex: 1;
+  overflow-y: auto;
+  padding: 24px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  scroll-behavior: smooth;
+}
 
-/* Message Bubbles */
-.chat-msg{max-width:85%;animation:msgIn 0.3s ease}
-@keyframes msgIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+/* Chat Message Bubbles */
+.chat-msg {
+  max-width: 82%;
+  animation: msgIn 0.3s ease;
+}
 
-.chat-msg.user{align-self:flex-end}
-.chat-msg.assistant{align-self:flex-start}
+@keyframes msgIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
 
-.chat-msg-bubble{padding:14px 18px;font-size:14px;line-height:1.7;word-wrap:break-word;border-radius:var(--radius-lg) !important}
-.chat-msg.user .chat-msg-bubble{background:var(--black);color:var(--white);;border-radius:var(--radius-lg) !important}
-.chat-msg.assistant .chat-msg-bubble{background:var(--off-white);color:var(--black);;border-radius:var(--radius-lg) !important}
+.chat-msg.user { align-self: flex-end; }
+.chat-msg.assistant { align-self: flex-start; }
 
-.chat-msg-label{font-family:var(--font-heading);font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:4px;color:rgba(26,26,26,0.4)}
-.chat-msg.user .chat-msg-label{text-align:right;color:rgba(255,255,255,0.4)}
+.chat-msg-bubble {
+  padding: 14px 18px;
+  font-size: 14px;
+  line-height: 1.7;
+  word-wrap: break-word;
+  border-radius: var(--radius-lg);
+}
+
+.chat-msg.user .chat-msg-bubble {
+  background: var(--black);
+  color: var(--white);
+  border-bottom-right-radius: 4px;
+}
+
+.chat-msg.assistant .chat-msg-bubble {
+  background: var(--cream);
+  color: var(--black);
+  border-bottom-left-radius: 4px;
+}
+
+.chat-msg-label {
+  font-family: var(--font-heading);
+  font-size: 9px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 6px;
+  color: rgba(26, 26, 26, 0.3);
+}
+
+.chat-msg.user .chat-msg-label {
+  text-align: right;
+  color: rgba(26, 26, 26, 0.3);
+}
 
 /* Typing indicator */
-.chat-typing{display:flex;gap:4px;padding:14px 18px;background:var(--off-white);;max-width:120px;align-self:flex-start;border-radius:var(--radius-lg) !important}
-.chat-typing span{width:8px;height:8px;background:var(--black);border-radius:var(--radius-circle) !important;animation:typeBounce 1.4s infinite}
-.chat-typing span:nth-child(2){animation-delay:0.2s}
-.chat-typing span:nth-child(3){animation-delay:0.4s}
-@keyframes typeBounce{0%,60%,100%{transform:translateY(0)}30%{transform:translateY(-6px)}}
+.chat-typing {
+  display: flex;
+  gap: 5px;
+  padding: 14px 18px;
+  background: var(--cream);
+  max-width: 100px;
+  align-self: flex-start;
+  border-radius: var(--radius-lg);
+  border-bottom-left-radius: 4px;
+}
 
-/* Input Area */
-.chat-input-area{;padding:12px;display:flex;gap:8px;background:var(--off-white);border-radius:0 0 var(--radius-xl) var(--radius-xl) !important}
-.chat-input{flex:1;;padding:12px 16px;font-family:var(--font-body);font-size:14px;background:var(--white);outline:none;resize:none;max-height:120px;border-radius:var(--radius-md) !important}
-.chat-input:focus{box-shadow:0 0 0 3px rgba(255,0,4,0.1)}
-.chat-input::placeholder{color:#999;text-transform:uppercase;letter-spacing:0.04em;font-size:12px}
-.chat-send{font-family:var(--font-heading);text-transform:uppercase;letter-spacing:0.08em;font-size:13px;font-weight:700;;background:var(--yellow);color:var(--black);padding:12px 24px;cursor:pointer;transition:all 0.15s ease;white-space:nowrap;border-radius:var(--radius-pill) !important}
-.chat-send:hover{background:var(--black);color:var(--white)}
-.chat-send:disabled{opacity:0.4;cursor:not-allowed}
+.chat-typing span {
+  width: 8px;
+  height: 8px;
+  background: rgba(26, 26, 26, 0.3);
+  border-radius: var(--radius-circle);
+  animation: typeBounce 1.4s infinite;
+}
 
-/* Quick Prompts */
-.chat-quick{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px}
-.chat-quick-btn{font-family:var(--font-heading);font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.04em;;background:var(--white);color:var(--black);padding:8px 14px;cursor:pointer;transition:all 0.15s ease;border-radius:var(--radius-pill) !important}
-.chat-quick-btn:hover{background:var(--yellow)}
+.chat-typing span:nth-child(2) { animation-delay: 0.2s; }
+.chat-typing span:nth-child(3) { animation-delay: 0.4s; }
 
-/* Welcome Message */
-.chat-welcome{text-align:center;padding:40px 20px}
-.chat-welcome-icon{font-size:48px;margin-bottom:16px;opacity:0.15;font-family:var(--font-heading);font-weight:900}
-.chat-welcome h3{font-family:var(--font-heading);font-size:18px;font-weight:700;margin-bottom:8px}
-.chat-welcome p{font-size:13px;color:rgba(26,26,26,0.6);line-height:1.6;max-width:400px;margin:0 auto}
+@keyframes typeBounce {
+  0%, 60%, 100% { transform: translateY(0); }
+  30% { transform: translateY(-6px); }
+}
 
-/* Error message in chat */
-.chat-error{background:rgba(255,0,4,0.08);border:3px solid var(--red);padding:12px 16px;font-size:13px;color:var(--red);border-radius:var(--radius-lg) !important}
+/* Chat Input Area — with voice button */
+.ai-chat-input-area {
+  padding: 12px 16px 20px;
+  display: flex;
+  align-items: flex-end;
+  gap: 10px;
+  background: var(--white);
+  border-top: 1px solid rgba(0, 0, 0, 0.06);
+  flex-shrink: 0;
+}
 
-/* API status badge */
-#chat-api-status{border-radius:var(--radius-pill) !important}
+.ai-chat-input-wrap {
+  flex: 1;
+  display: flex;
+  align-items: flex-end;
+  background: var(--cream);
+  border-radius: var(--radius-lg);
+  padding: 4px 4px 4px 16px;
+  border: 1px solid var(--card-border);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
 
-/* Responsive */
-@media(max-width:640px){
-  .chat-container{max-height:65vh}
-  .chat-msg{max-width:92%}
-  .chat-input-area{flex-direction:column}
-  .chat-send{width:100%;text-align:center}
+.ai-chat-input-wrap:focus-within {
+  border-color: var(--yellow);
+  box-shadow: 0 0 0 3px rgba(240, 192, 64, 0.15);
+}
+
+.ai-chat-input {
+  flex: 1;
+  padding: 10px 0;
+  font-family: var(--font-body);
+  font-size: 14px;
+  background: transparent;
+  outline: none;
+  resize: none;
+  max-height: 120px;
+  border: none;
+  line-height: 1.5;
+  color: var(--black);
+}
+
+.ai-chat-input::placeholder {
+  color: rgba(26, 26, 26, 0.35);
+  font-size: 13px;
+}
+
+.ai-chat-send {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-circle);
+  background: var(--black);
+  color: var(--white);
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  flex-shrink: 0;
+}
+
+.ai-chat-send:hover {
+  background: var(--yellow);
+  color: var(--black);
+}
+
+.ai-chat-send:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+.ai-chat-send svg {
+  width: 18px;
+  height: 18px;
+}
+
+/* Voice mode button — next to chat bar */
+.ai-voice-btn {
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-circle);
+  background: var(--cream);
+  border: 1px solid var(--card-border);
+  color: #6C3FC5;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  flex-shrink: 0;
+}
+
+.ai-voice-btn:hover {
+  background: #E8E0FF;
+  border-color: #6C3FC5;
+}
+
+.ai-voice-btn svg {
+  width: 20px;
+  height: 20px;
 }
 
 /* Markdown in assistant messages */
-.chat-msg.assistant .chat-msg-bubble strong{font-family:var(--font-heading);text-transform:uppercase;letter-spacing:-0.01em}
-.chat-msg.assistant .chat-msg-bubble ul,.chat-msg.assistant .chat-msg-bubble ol{margin:8px 0;padding-left:20px}
-.chat-msg.assistant .chat-msg-bubble li{margin-bottom:4px;font-size:13px}
-.chat-msg.assistant .chat-msg-bubble code{background:var(--off-white);border:none;padding:1px 5px;font-size:12px}
+.chat-msg.assistant .chat-msg-bubble strong {
+  font-family: var(--font-heading);
+  text-transform: uppercase;
+  letter-spacing: -0.01em;
+}
+
+.chat-msg.assistant .chat-msg-bubble ul,
+.chat-msg.assistant .chat-msg-bubble ol {
+  margin: 8px 0;
+  padding-left: 20px;
+}
+
+.chat-msg.assistant .chat-msg-bubble li {
+  margin-bottom: 4px;
+  font-size: 13px;
+}
+
+.chat-msg.assistant .chat-msg-bubble code {
+  background: rgba(0, 0, 0, 0.05);
+  border: none;
+  padding: 1px 5px;
+  font-size: 12px;
+}
+
+/* Error message */
+.chat-error {
+  background: rgba(255, 0, 4, 0.08);
+  border: 2px solid var(--red);
+  padding: 12px 16px;
+  font-size: 13px;
+  color: var(--red);
+  border-radius: var(--radius-lg);
+}
+
+/* --- VOICE MODE (Full-screen overlay) --- */
+.ai-voice {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  background: linear-gradient(160deg, #F5E6FF 0%, #E0F0FF 50%, #FFF5E6 100%);
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 24px;
+}
+
+.ai-voice.active {
+  display: flex;
+}
+
+.ai-voice-close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: rgba(0, 0, 0, 0.08);
+  border: none;
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-circle);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(26, 26, 26, 0.5);
+  transition: all 0.2s ease;
+  font-size: 18px;
+}
+
+.ai-voice-close:hover {
+  background: rgba(0, 0, 0, 0.15);
+  color: var(--black);
+}
+
+.ai-voice-content {
+  text-align: center;
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.ai-voice-avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: var(--radius-circle);
+  background: var(--black);
+  color: var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 24px;
+  font-family: var(--font-heading);
+  font-size: 28px;
+  font-weight: 900;
+  letter-spacing: -0.02em;
+}
+
+.ai-voice-status {
+  font-family: var(--font-heading);
+  font-size: clamp(1rem, 3vw, 1.25rem);
+  font-weight: 600;
+  color: rgba(26, 26, 26, 0.7);
+  margin-bottom: 8px;
+  letter-spacing: 0.02em;
+  min-height: 28px;
+}
+
+.ai-voice-transcript {
+  font-size: 16px;
+  line-height: 1.7;
+  color: rgba(26, 26, 26, 0.55);
+  max-width: 340px;
+  min-height: 60px;
+  margin-bottom: 48px;
+  transition: opacity 0.3s ease;
+}
+
+/* Microphone Button — large, central */
+.ai-voice-mic {
+  width: 88px;
+  height: 88px;
+  border-radius: var(--radius-circle);
+  background: var(--black);
+  color: var(--white);
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.15);
+  position: relative;
+}
+
+.ai-voice-mic svg {
+  width: 32px;
+  height: 32px;
+  position: relative;
+  z-index: 2;
+}
+
+.ai-voice-mic:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 32px rgba(0, 0, 0, 0.2);
+}
+
+.ai-voice-mic.listening {
+  background: #6C3FC5;
+  animation: micPulse 1.5s ease-in-out infinite;
+}
+
+@keyframes micPulse {
+  0% { box-shadow: 0 0 0 0 rgba(108, 63, 197, 0.4); }
+  50% { box-shadow: 0 0 0 20px rgba(108, 63, 197, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(108, 63, 197, 0); }
+}
+
+/* Voice mode bottom controls */
+.ai-voice-controls {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  margin-top: 48px;
+}
+
+.ai-voice-keyboard {
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-circle);
+  background: rgba(0, 0, 0, 0.06);
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(26, 26, 26, 0.5);
+  transition: all 0.2s ease;
+}
+
+.ai-voice-keyboard:hover {
+  background: rgba(0, 0, 0, 0.12);
+  color: var(--black);
+}
+
+.ai-voice-keyboard svg {
+  width: 22px;
+  height: 22px;
+}
+
+/* Voice waveform visualization */
+.ai-voice-wave {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  height: 40px;
+  margin-bottom: 24px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.ai-voice-wave.active {
+  opacity: 1;
+}
+
+.ai-voice-wave span {
+  width: 3px;
+  height: 8px;
+  background: rgba(108, 63, 197, 0.5);
+  border-radius: 4px;
+  animation: waveBar 1.2s ease-in-out infinite;
+}
+
+.ai-voice-wave span:nth-child(1) { animation-delay: 0s; }
+.ai-voice-wave span:nth-child(2) { animation-delay: 0.1s; }
+.ai-voice-wave span:nth-child(3) { animation-delay: 0.2s; }
+.ai-voice-wave span:nth-child(4) { animation-delay: 0.3s; }
+.ai-voice-wave span:nth-child(5) { animation-delay: 0.4s; }
+.ai-voice-wave span:nth-child(6) { animation-delay: 0.3s; }
+.ai-voice-wave span:nth-child(7) { animation-delay: 0.2s; }
+
+@keyframes waveBar {
+  0%, 100% { height: 8px; }
+  50% { height: 32px; }
+}
+
+/* --- Responsive --- */
+@media (max-width: 480px) {
+  .ai-cards {
+    grid-template-columns: 1fr;
+  }
+  .ai-card {
+    min-height: auto;
+    padding: 18px 16px;
+    flex-direction: row;
+    align-items: center;
+    gap: 14px;
+  }
+  .ai-card-icon {
+    margin-bottom: 0;
+    width: 40px;
+    height: 40px;
+    flex-shrink: 0;
+  }
+  .ai-card-body {
+    flex: 1;
+  }
+}
+
+@media (min-width: 768px) {
+  .ai-home {
+    padding: 120px 48px 48px;
+  }
+  .ai-cards {
+    gap: 16px;
+  }
+  .ai-card {
+    padding: 28px 24px;
+    min-height: 160px;
+  }
+}
 </style>
 
-<div class="chat-page">
-  <div class="chat-header">
-    <div class="chat-badge">AI POWERED</div>
-    <h1 class="chat-title">AI BUSINESS ADVISOR</h1>
-    <p class="chat-desc">Get instant, actionable advice on AI monetization. Ask about opportunities, tools, pricing, workflows, or any AI business question.</p>
-    <div id="chat-api-status" style="margin-top:12px;font-size:11px;font-family:var(--font-heading);font-weight:700;letter-spacing:0.04em;padding:4px 10px;display:inline-block;;">CHECKING CONNECTION...</div>
-  </div>
+<div class="ai-page">
 
-  <div class="chat-quick" id="quickPrompts">
-    <button class="chat-quick-btn" onclick="sendQuick('What AI business can I start with $0?')">START WITH $0</button>
-    <button class="chat-quick-btn" onclick="sendQuick('What are the best AI automation agency niches in 2026?')">BEST NICHES 2026</button>
-    <button class="chat-quick-btn" onclick="sendQuick('How do I price my AI freelance services?')">PRICING GUIDE</button>
-    <button class="chat-quick-btn" onclick="sendQuick('What AI tools do I need for a content agency?')">TOOL STACK</button>
-    <button class="chat-quick-btn" onclick="sendQuick('How to get my first AI automation client?')">FIRST CLIENT</button>
-  </div>
+  <!-- ========== AI HOME SCREEN ========== -->
+  <div class="ai-home" id="aiHome">
+    <div class="ai-home-header">
+      <div class="ai-avatar">MG</div>
+      <h1 class="ai-greeting">How can I help you today?</h1>
+      <p class="ai-greeting-sub">Get instant, actionable advice on AI business, tools, pricing, and workflows.</p>
+    </div>
 
-  <div class="chat-container">
-    <div class="chat-messages" id="chatMessages">
-      <div class="chat-welcome" id="chatWelcome">
-        <div class="chat-welcome-icon">MG</div>
-        <h3>ASK ME ANYTHING ABOUT AI BUSINESS</h3>
-        <p>I specialize in AI monetization strategies, tool recommendations, pricing, and step-by-step implementation guidance. No fluff — just actionable advice.</p>
+    <!-- Action Cards — 2x2 grid -->
+    <div class="ai-cards">
+      <div class="ai-card" onclick="startVoiceMode()">
+        <div class="ai-card-icon voice">
+          <!-- Mic icon -->
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"></path><path d="M19 10v2a7 7 0 0 1-14 0v-2"></path><line x1="12" y1="19" x2="12" y2="23"></line><line x1="8" y1="23" x2="16" y2="23"></line></svg>
+        </div>
+        <div class="ai-card-body">
+          <div class="ai-card-title">Talk with AI</div>
+          <div class="ai-card-desc">Voice conversation</div>
+        </div>
+      </div>
+
+      <div class="ai-card" onclick="openChat('Write a compelling AI business pitch for my startup')">
+        <div class="ai-card-icon write">
+          <!-- Pen icon -->
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"></path><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path></svg>
+        </div>
+        <div class="ai-card-body">
+          <div class="ai-card-title">Write Content</div>
+          <div class="ai-card-desc">AI-generated copy</div>
+        </div>
+      </div>
+
+      <div class="ai-card" onclick="openChat('Analyze the best AI monetization strategies for 2026')">
+        <div class="ai-card-icon analyze">
+          <!-- Chart icon -->
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
+        </div>
+        <div class="ai-card-body">
+          <div class="ai-card-title">Analyze Data</div>
+          <div class="ai-card-desc">Business insights</div>
+        </div>
+      </div>
+
+      <div class="ai-card" onclick="openChat('Help me translate my AI service offering into 5 languages')">
+        <div class="ai-card-icon translate">
+          <!-- Globe icon -->
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+        </div>
+        <div class="ai-card-body">
+          <div class="ai-card-title">Translate</div>
+          <div class="ai-card-desc">Multi-language AI</div>
+        </div>
       </div>
     </div>
-    <div class="chat-input-area">
-      <textarea class="chat-input" id="chatInput" placeholder="ASK ABOUT AI BUSINESS, TOOLS, PRICING, WORKFLOWS..." rows="1" onkeydown="handleKeydown(event)"></textarea>
-      <button class="chat-send" id="chatSend" onclick="sendMessage()">SEND</button>
+
+    <!-- Recent Queries -->
+    <div class="ai-recent" id="aiRecent" style="display:none;">
+      <div class="ai-recent-label">Recent</div>
+      <div class="ai-recent-list" id="aiRecentList"></div>
+    </div>
+
+    <!-- Start New Chat Button -->
+    <div class="ai-start-bar">
+      <button class="ai-start-btn" onclick="openChat('')">
+        Start new chat
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+      </button>
     </div>
   </div>
+
+  <!-- ========== CHAT MODE ========== -->
+  <div class="ai-chat" id="aiChat">
+    <div class="ai-chat-header">
+      <button class="ai-chat-back" onclick="closeChat()" aria-label="Back">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+      </button>
+      <div class="ai-chat-title-bar">Menshly AI</div>
+      <button class="ai-chat-menu" onclick="clearChat()" aria-label="New chat">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+      </button>
+    </div>
+
+    <div class="ai-chat-messages" id="chatMessages">
+      <!-- Welcome message shown when no messages -->
+    </div>
+
+    <div class="ai-chat-input-area">
+      <!-- Voice mode button -->
+      <button class="ai-voice-btn" onclick="startVoiceMode()" aria-label="Voice mode">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"></path><path d="M19 10v2a7 7 0 0 1-14 0v-2"></path><line x1="12" y1="19" x2="12" y2="23"></line><line x1="8" y1="23" x2="16" y2="23"></line></svg>
+      </button>
+
+      <div class="ai-chat-input-wrap">
+        <textarea class="ai-chat-input" id="chatInput" placeholder="Ask about AI business..." rows="1" onkeydown="handleKeydown(event)"></textarea>
+        <button class="ai-chat-send" id="chatSend" onclick="sendMessage()" aria-label="Send">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========== VOICE MODE ========== -->
+  <div class="ai-voice" id="aiVoice">
+    <button class="ai-voice-close" onclick="stopVoiceMode()" aria-label="Close voice mode">
+      <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+    </button>
+
+    <div class="ai-voice-content">
+      <div class="ai-voice-avatar">MG</div>
+      <div class="ai-voice-status" id="voiceStatus">Tap to speak</div>
+
+      <!-- Waveform visualization -->
+      <div class="ai-voice-wave" id="voiceWave">
+        <span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+      </div>
+
+      <div class="ai-voice-transcript" id="voiceTranscript">Your words will appear here as you speak...</div>
+
+      <!-- Mic button -->
+      <button class="ai-voice-mic" id="voiceMic" onclick="toggleVoice()">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"></path><path d="M19 10v2a7 7 0 0 1-14 0v-2"></path><line x1="12" y1="19" x2="12" y2="23"></line><line x1="8" y1="23" x2="16" y2="23"></line></svg>
+      </button>
+
+      <!-- Bottom controls -->
+      <div class="ai-voice-controls">
+        <button class="ai-voice-keyboard" onclick="switchToChat()" aria-label="Switch to text">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2" ry="2"></rect><line x1="6" y1="8" x2="6.01" y2="8"></line><line x1="10" y1="8" x2="10.01" y2="8"></line><line x1="14" y1="8" x2="14.01" y2="8"></line><line x1="18" y1="8" x2="18.01" y2="8"></line><line x1="6" y1="12" x2="6.01" y2="12"></line><line x1="18" y1="12" x2="18.01" y2="12"></line><line x1="8" y1="16" x2="16" y2="16"></line></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+
 </div>
 
 <script>
-// Check API health on page load
-(function() {
-  var statusEl = document.getElementById('chat-api-status');
-  if (!statusEl) return;
-
-  fetch('/api/health')
-    .then(function(r) { return r.json(); })
-    .then(function(data) {
-      // Check if ANY LLM is available (Pollinations is always free)
-      var hasLLM = data.connected || (data.services && (data.services.pollinations || data.services.cerebras || data.services.deepseek));
-      if (hasLLM) {
-        var providers = [];
-        if (data.services && data.services.pollinations) providers.push('Pollinations');
-        if (data.services && data.services.cerebras) providers.push('Cerebras');
-        if (data.services && data.services.deepseek) providers.push('DeepSeek');
-        statusEl.textContent = 'AI CONNECTED — ' + providers.join(' + ');
-        statusEl.style.background = 'var(--yellow)';
-        statusEl.style.color = 'var(--black)';
-      } else {
-        statusEl.textContent = 'AI NOT CONNECTED — CHAT UNAVAILABLE';
-        statusEl.style.background = 'var(--red)';
-        statusEl.style.color = 'var(--white)';
-      }
-    })
-    .catch(function() {
-      statusEl.textContent = 'OFFLINE — CHECK BACK SOON';
-      statusEl.style.background = 'var(--red)';
-      statusEl.style.color = 'var(--white)';
-    });
-})();
-
+// ========== STATE ==========
 var chatHistory = [];
 var isGenerating = false;
+var isListening = false;
+var recognition = null;
+var chatReturnTo = 'home'; // where to go when closing chat
 
+// ========== NAVIGATION ==========
+function openChat(prefill) {
+  var home = document.getElementById('aiHome');
+  var chat = document.getElementById('aiChat');
+  home.classList.add('hidden');
+  chat.classList.add('active');
+  chatReturnTo = 'home';
+  document.body.style.overflow = 'hidden';
+
+  if (prefill) {
+    var input = document.getElementById('chatInput');
+    input.value = prefill;
+    setTimeout(function() { sendMessage(); }, 300);
+  } else {
+    setTimeout(function() { document.getElementById('chatInput').focus(); }, 100);
+  }
+}
+
+function closeChat() {
+  var home = document.getElementById('aiHome');
+  var chat = document.getElementById('aiChat');
+  chat.classList.remove('active');
+  home.classList.remove('hidden');
+  document.body.style.overflow = '';
+
+  // Save recent queries
+  updateRecentQueries();
+}
+
+function clearChat() {
+  chatHistory = [];
+  var msgs = document.getElementById('chatMessages');
+  msgs.innerHTML = '';
+}
+
+// ========== VOICE MODE ==========
+function startVoiceMode() {
+  var voice = document.getElementById('aiVoice');
+  voice.classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+
+function stopVoiceMode() {
+  var voice = document.getElementById('aiVoice');
+  voice.classList.remove('active');
+  stopListening();
+  document.body.style.overflow = '';
+
+  // If chat was open, keep it; otherwise show home
+  var chat = document.getElementById('aiChat');
+  if (!chat.classList.contains('active')) {
+    document.body.style.overflow = '';
+  }
+}
+
+function switchToChat() {
+  stopVoiceMode();
+  var home = document.getElementById('aiHome');
+  var chat = document.getElementById('aiChat');
+  if (!chat.classList.contains('active')) {
+    home.classList.add('hidden');
+    chat.classList.add('active');
+  }
+  setTimeout(function() { document.getElementById('chatInput').focus(); }, 100);
+}
+
+function toggleVoice() {
+  if (isListening) {
+    stopListening();
+  } else {
+    startListening();
+  }
+}
+
+function startListening() {
+  var SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+  if (!SpeechRecognition) {
+    document.getElementById('voiceStatus').textContent = 'Voice not supported';
+    return;
+  }
+
+  recognition = new SpeechRecognition();
+  recognition.continuous = true;
+  recognition.interimResults = true;
+  recognition.lang = 'en-US';
+
+  var statusEl = document.getElementById('voiceStatus');
+  var transcriptEl = document.getElementById('voiceTranscript');
+  var waveEl = document.getElementById('voiceWave');
+  var micEl = document.getElementById('voiceMic');
+
+  recognition.onstart = function() {
+    isListening = true;
+    statusEl.textContent = 'Listening...';
+    waveEl.classList.add('active');
+    micEl.classList.add('listening');
+    transcriptEl.textContent = '';
+  };
+
+  recognition.onresult = function(event) {
+    var transcript = '';
+    for (var i = event.resultIndex; i < event.results.length; i++) {
+      transcript += event.results[i][0].transcript;
+    }
+    transcriptEl.textContent = transcript;
+  };
+
+  recognition.onerror = function(event) {
+    statusEl.textContent = 'Could not hear you. Tap to try again.';
+    stopListening();
+  };
+
+  recognition.onend = function() {
+    if (isListening) {
+      // Auto-stopped — process the transcript
+      var text = transcriptEl.textContent.trim();
+      if (text) {
+        // Send to chat
+        statusEl.textContent = 'Got it!';
+        setTimeout(function() {
+          stopVoiceMode();
+          openChat(text);
+        }, 800);
+      } else {
+        statusEl.textContent = 'Tap to speak';
+        stopListening();
+      }
+    }
+  };
+
+  recognition.start();
+}
+
+function stopListening() {
+  isListening = false;
+  if (recognition) {
+    try { recognition.stop(); } catch(e) {}
+  }
+  var waveEl = document.getElementById('voiceWave');
+  var micEl = document.getElementById('voiceMic');
+  var statusEl = document.getElementById('voiceStatus');
+  if (waveEl) waveEl.classList.remove('active');
+  if (micEl) micEl.classList.remove('listening');
+  if (statusEl && !isListening) statusEl.textContent = 'Tap to speak';
+}
+
+// ========== CHAT LOGIC ==========
 function handleKeydown(e) {
   if (e.key === 'Enter' && !e.shiftKey) {
     e.preventDefault();
     sendMessage();
   }
-  // Auto-resize textarea
+  // Auto-resize
   var el = e.target;
   setTimeout(function() {
     el.style.height = 'auto';
@@ -155,21 +1052,11 @@ function handleKeydown(e) {
   }, 0);
 }
 
-function sendQuick(text) {
-  var input = document.getElementById('chatInput');
-  input.value = text;
-  sendMessage();
-}
-
 function sendMessage() {
   if (isGenerating) return;
   var input = document.getElementById('chatInput');
   var text = input.value.trim();
   if (!text) return;
-
-  // Hide welcome
-  var welcome = document.getElementById('chatWelcome');
-  if (welcome) welcome.style.display = 'none';
 
   // Add user message
   addMessage('user', text);
@@ -179,10 +1066,8 @@ function sendMessage() {
   input.value = '';
   input.style.height = 'auto';
 
-  // Show typing indicator
+  // Show typing
   showTyping();
-
-  // Send to API
   isGenerating = true;
   document.getElementById('chatSend').disabled = true;
 
@@ -208,9 +1093,9 @@ function sendMessage() {
     hideTyping();
     var errMsg = 'Something went wrong. Please try again.';
     if (err.message && err.message.indexOf('Server error') !== -1) {
-      errMsg = 'The AI service is having issues. Our team has been notified — please try again in a moment.';
+      errMsg = 'The AI service is having issues. Please try again in a moment.';
     } else if (err.message && err.message.indexOf('Failed to fetch') !== -1) {
-      errMsg = 'Cannot reach the server. Please check your internet connection and try again.';
+      errMsg = 'Cannot reach the server. Please check your connection.';
     }
     addMessage('assistant', errMsg);
   })
@@ -228,7 +1113,7 @@ function addMessage(role, content) {
 
   var label = document.createElement('div');
   label.className = 'chat-msg-label';
-  label.textContent = role === 'user' ? 'YOU' : 'MENSHLY AI';
+  label.textContent = role === 'user' ? 'You' : 'Menshly AI';
 
   var bubble = document.createElement('div');
   bubble.className = 'chat-msg-bubble';
@@ -237,8 +1122,6 @@ function addMessage(role, content) {
   msg.appendChild(label);
   msg.appendChild(bubble);
   container.appendChild(msg);
-
-  // Scroll to bottom
   container.scrollTop = container.scrollHeight;
 }
 
@@ -266,20 +1149,53 @@ function escapeHtml(text) {
 function renderContent(text) {
   if (!text) return '';
   var html = escapeHtml(text);
-  // Bold
   html = html.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
-  // Headers
   html = html.replace(/^### (.+)$/gm, '<h4 style="font-family:var(--font-heading);font-size:14px;margin:12px 0 6px;">$1</h4>');
   html = html.replace(/^## (.+)$/gm, '<h3 style="font-family:var(--font-heading);font-size:15px;margin:14px 0 6px;">$1</h3>');
-  // Bullet lists
   html = html.replace(/^- (.+)$/gm, '<li>$1</li>');
   html = html.replace(/((?:<li>.*<\/li>\s*)+)/g, '<ul style="margin:6px 0;padding-left:20px;">$1</ul>');
-  // Numbered lists
   html = html.replace(/^\d+\. (.+)$/gm, '<li>$1</li>');
-  // Line breaks for paragraphs
   html = html.replace(/\n\n/g, '<br><br>');
   html = html.replace(/\n/g, '<br>');
   return html;
 }
+
+// ========== RECENT QUERIES ==========
+function updateRecentQueries() {
+  try {
+    var queries = chatHistory
+      .filter(function(m) { return m.role === 'user'; })
+      .slice(-5)
+      .map(function(m) { return m.content; });
+    if (queries.length > 0) {
+      localStorage.setItem('menshly_recent', JSON.stringify(queries));
+    }
+  } catch(e) {}
+}
+
+function loadRecentQueries() {
+  try {
+    var stored = localStorage.getItem('menshly_recent');
+    if (stored) {
+      var queries = JSON.parse(stored);
+      var container = document.getElementById('aiRecent');
+      var list = document.getElementById('aiRecentList');
+      if (queries.length > 0 && container && list) {
+        container.style.display = 'block';
+        list.innerHTML = '';
+        queries.reverse().forEach(function(q) {
+          var item = document.createElement('div');
+          item.className = 'ai-recent-item';
+          item.innerHTML = '<div class="ai-recent-dot"></div><div class="ai-recent-text">' + escapeHtml(q) + '</div>';
+          item.onclick = function() { openChat(q); };
+          list.appendChild(item);
+        });
+      }
+    }
+  } catch(e) {}
+}
+
+// Init
+loadRecentQueries();
 </script>
 {{ end }}
