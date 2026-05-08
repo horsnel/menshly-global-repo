@@ -1,20 +1,5 @@
 <nav class="nav-bar" id="nav">
-  <!-- Desktop Nav -->
-  <div class="nav-desktop">
-    <div class="nav-brand">
-      <a href="/"><img src="/images/logo.png" alt="Menshly Global" class="nav-logo"><span>{{ .Site.Title }}</span></a>
-    </div>
-    <div class="nav-links">
-      {{ range .Site.Menus.main }}
-      <a href="{{ .URL }}" class="{{ if $.Page.IsMenuCurrent "main" . }}active{{ end }}">{{ .Name }}</a>
-      {{ end }}
-    </div>
-    <div class="nav-actions">
-      <button onclick="openPopup()" class="nav-subscribe-btn">SUBSCRIBE</button>
-    </div>
-  </div>
-
-  <!-- Mobile Nav -->
+  <!-- Universal nav bar — logo left, hamburger right (Tesla style, all screen sizes) -->
   <div class="nav-mobile-trigger">
     <a href="/" class="nav-mobile-brand"><img src="/images/logo.png" alt="" class="nav-mobile-logo">{{ .Site.Title }}</a>
     <button class="hamburger" id="hamburgerBtn" onclick="toggleMobileMenu()" aria-label="Menu">
@@ -25,7 +10,7 @@
   </div>
 </nav>
 
-<!-- Full-screen Mobile Menu Overlay -->
+<!-- Full-screen overlay drawer (Tesla style, all screen sizes) -->
 <div class="mobile-overlay" id="mobileOverlay">
   <div class="mobile-overlay-inner">
     <div class="mobile-overlay-header">
@@ -50,15 +35,19 @@
 <script>
   // No scroll-based nav transitions — always-black bar (Tesla style)
 
-  // Mobile menu toggle
+  // Menu toggle
   function toggleMobileMenu() {
     const overlay = document.getElementById('mobileOverlay');
+    const btn = document.getElementById('hamburgerBtn');
     overlay.classList.add('open');
+    btn.classList.add('is-active');
     document.body.style.overflow = 'hidden';
   }
   function closeMobileMenu() {
     const overlay = document.getElementById('mobileOverlay');
+    const btn = document.getElementById('hamburgerBtn');
     overlay.classList.remove('open');
+    btn.classList.remove('is-active');
     document.body.style.overflow = '';
   }
 </script>

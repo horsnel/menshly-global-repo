@@ -313,19 +313,9 @@ img {
   background: var(--black);
 }
 
+/* Desktop horizontal nav — hidden, replaced by universal hamburger (Tesla style) */
 .nav-desktop {
   display: none;
-  grid-template-columns: 3fr 6fr 3fr;
-  align-items: center;
-}
-
-@media (min-width: 768px) {
-  .nav-desktop {
-    display: grid;
-  }
-  .nav-mobile-trigger {
-    display: none !important;
-  }
 }
 
 .nav-brand {
@@ -420,13 +410,26 @@ img {
   color: var(--black);
 }
 
-/* Mobile nav trigger */
+/* Universal nav trigger — always visible, logo left + hamburger right (Tesla style) */
 .nav-mobile-trigger {
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 12px 20px;
   background: var(--black);
+}
+
+@media (min-width: 768px) {
+  .nav-mobile-trigger {
+    padding: 14px 32px;
+  }
+  .nav-mobile-brand {
+    font-size: 18px;
+  }
+  .nav-mobile-logo {
+    height: 24px;
+    margin-right: 10px;
+  }
 }
 
 .nav-mobile-brand {
@@ -514,6 +517,12 @@ img {
   background: var(--white);
 }
 
+@media (min-width: 768px) {
+  .mobile-overlay-header {
+    padding: 14px 32px;
+  }
+}
+
 .mobile-overlay-header .hamburger-line {
   background: var(--black);
 }
@@ -528,6 +537,13 @@ img {
   flex-direction: column;
   justify-content: center;
   padding: 0 32px 48px;
+}
+
+@media (min-width: 768px) {
+  .mobile-overlay-nav {
+    padding: 0 64px 64px;
+    max-width: 720px;
+  }
 }
 
 /* Braun spacious: generous letter-spacing, breathing room */
@@ -556,6 +572,13 @@ img {
 
 .mobile-overlay-footer {
   padding: 24px 32px 48px;
+}
+
+@media (min-width: 768px) {
+  .mobile-overlay-footer {
+    padding: 24px 64px 64px;
+    max-width: 720px;
+  }
 }
 
 .mobile-overlay-footer .nav-subscribe-btn {
