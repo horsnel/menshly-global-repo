@@ -164,7 +164,6 @@
         <div>
           <span class="tool-card-icon"><svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 4h14" stroke="#F9FF00" stroke-width="2.5" stroke-linecap="round"/><path d="M4 10h20" stroke="#F9FF00" stroke-width="2.5" stroke-linecap="round"/><path d="M4 16h12" stroke="#F9FF00" stroke-width="2.5" stroke-linecap="round"/><path d="M4 22h8" stroke="#F9FF00" stroke-width="2.5" stroke-linecap="round"/><path d="M20 18l3 3-6 3-1-1 4-5z" fill="#F9FF00" stroke="#F9FF00" stroke-width="1.5" stroke-linejoin="round"/></svg></span>
           <span class="tool-card-name">AI Article Generator</span>
-          <span id="api-status" style="font-size:10px;font-family:var(--font-heading);font-weight:700;letter-spacing:0.05em;padding:3px 8px;margin-left:8px;;">CHECKING...</span>
         </div>
         <button class="tool-toggle-btn" onclick="toggleTool('tool-5')" style="width:auto;margin:0;">EXPAND</button>
       </div>
@@ -211,37 +210,7 @@
 </section>
 
 <script>
-// Check API health on page load
-(function() {
-  var statusEl = document.getElementById('api-status');
-  if (!statusEl) return;
-
-  fetch('/api/health')
-    .then(function(r) { return r.json(); })
-    .then(function(data) {
-      // Check if ANY LLM is available (Pollinations is always free)
-      var hasLLM = data.connected || (data.services && (data.services.pollinations || data.services.cerebras || data.services.deepseek));
-      if (hasLLM) {
-        var providers = [];
-        if (data.services && data.services.pollinations) providers.push('Pollinations');
-        if (data.services && data.services.huggingface) providers.push('HF');
-        if (data.services && data.services.cerebras) providers.push('Cerebras');
-        if (data.services && data.services.deepseek) providers.push('DeepSeek');
-        statusEl.textContent = 'API CONNECTED (' + providers.join('+') + ')';
-        statusEl.style.background = 'var(--yellow)';
-        statusEl.style.color = 'var(--black)';
-      } else {
-        statusEl.textContent = 'API NOT CONNECTED';
-        statusEl.style.background = 'var(--red)';
-        statusEl.style.color = 'var(--white)';
-      }
-    })
-    .catch(function() {
-      statusEl.textContent = 'OFFLINE';
-      statusEl.style.background = 'var(--red)';
-      statusEl.style.color = 'var(--white)';
-    });
-})();
+// API status badge removed
 
 function toggleTool(id) {
   const card = document.getElementById(id);
