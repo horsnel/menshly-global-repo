@@ -2327,11 +2327,291 @@ img {
   letter-spacing: 0.05em;
 }
 
+/* ============================================
+   MOBILE OPTIMIZATION PASS
+   Fixes: overflow, cut-off text, cramped padding,
+   code block overflow, table scroll, readability
+   ============================================ */
+
+/* --- Global: Prevent any content from overflowing viewport --- */
+body {
+  overflow-x: hidden;
+}
+
+/* --- Word-break safety for all text content --- */
+.article-content p,
+.article-content li,
+.article-content td,
+.article-content th,
+.article-content blockquote,
+.accent-box,
+.page-content p,
+.page-content li {
+  overflow-wrap: break-word;
+  word-break: break-word;
+  hyphens: auto;
+}
+
+/* --- Article Tables: Scrollable wrapper on mobile --- */
+.article-content table {
+  display: block;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* --- Code blocks: Contain long lines --- */
+.article-content pre {
+  max-width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  white-space: pre;
+  word-wrap: normal;
+  tab-size: 2;
+}
+
+.article-content pre code {
+  white-space: pre;
+  word-wrap: normal;
+}
+
+/* --- Inline code: break long strings --- */
+.article-content code {
+  word-break: break-all;
+}
+
 /* --- Responsive Helpers --- */
 @media (max-width: 767px) {
   .hide-mobile { display: none !important; }
+
+  /* Article header: Reduce top padding that wastes screen space */
+  .article-header {
+    padding: 80px 20px 32px !important;
+  }
+
+  /* Article content: Generous side padding for readability */
+  .article-content {
+    padding: 32px 20px !important;
+  }
+
+  /* Article content typography: Better mobile line-height */
+  .article-content h2 {
+    font-size: clamp(1.4rem, 6vw, 1.75rem) !important;
+    margin-top: 36px !important;
+    margin-bottom: 12px !important;
+  }
+
+  .article-content h3 {
+    font-size: clamp(1.15rem, 5vw, 1.25rem) !important;
+    margin-top: 24px !important;
+    margin-bottom: 10px !important;
+  }
+
+  .article-content p {
+    font-size: 15px !important;
+    line-height: 1.75 !important;
+    margin-bottom: 16px !important;
+  }
+
+  .article-content li {
+    font-size: 15px !important;
+    line-height: 1.75 !important;
+  }
+
+  .article-content ul,
+  .article-content ol {
+    padding-left: 20px !important;
+  }
+
+  /* Blockquote: Better mobile padding */
+  .article-content blockquote {
+    padding: 16px 18px !important;
+    margin: 20px 0 !important;
+    font-size: 14px !important;
+  }
+
+  /* Code blocks: Compact for mobile */
+  .article-content pre {
+    padding: 14px 16px !important;
+    font-size: 13px !important;
+    margin: 16px 0 !important;
+  }
+
+  /* Accent box: Better mobile padding and font */
   .accent-box {
-    padding: 16px 18px;
+    padding: 16px 18px !important;
+    font-size: 14px !important;
+    line-height: 1.65 !important;
+  }
+
+  /* Article meta bar: Allow wrapping with gaps */
+  .article-meta-bar {
+    max-width: 100% !important;
+    flex-wrap: wrap !important;
+    gap: 0 !important;
+  }
+
+  .article-meta-item {
+    padding: 8px 12px !important;
+    font-size: 9px !important;
+  }
+
+  /* Article title: Better mobile sizing */
+  .article-header .article-title {
+    font-size: clamp(1.75rem, 7vw, 2.25rem) !important;
+    line-height: 1.1 !important;
+    margin-bottom: 16px !important;
+  }
+
+  /* Hero image: Reduce max height on mobile */
+  .article-hero-image img {
+    max-height: 260px !important;
+  }
+
+  /* Section page hero: Less top padding on mobile */
+  .section-page-hero {
+    padding: 80px 20px 32px !important;
+  }
+
+  /* Page content: Better mobile padding */
+  .page-content {
+    padding: 32px 20px !important;
+  }
+
+  /* Section headers: Stack on mobile */
+  .section-header {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 12px !important;
+    margin-bottom: 32px !important;
+  }
+
+  /* Section inner: Consistent mobile padding */
+  .section-inner {
+    padding: 0 20px !important;
+  }
+
+  /* Section padding: Less vertical waste */
+  .section {
+    padding: 48px 0 !important;
+  }
+
+  /* Article nav: Stack vertically on mobile */
+  .article-nav {
+    flex-direction: column !important;
+    padding: 0 20px !important;
+    gap: 8px !important;
+  }
+
+  .article-nav-item {
+    padding: 14px 16px !important;
+  }
+
+  /* Crosslink CTA: Better mobile padding */
+  .crosslink-cta-inner {
+    padding: 28px 20px !important;
+  }
+
+  .crosslink-back-inner {
+    padding: 10px 16px !important;
+    flex-wrap: wrap !important;
+  }
+
+  /* Playbook CTA inline: Stack on mobile */
+  .playbook-cta-inner {
+    padding: 20px 18px !important;
+  }
+
+  .playbook-cta-footer {
+    width: 100% !important;
+    justify-content: flex-start !important;
+  }
+
+  /* Story box: Better mobile padding */
+  .story-box-form {
+    padding: 16px !important;
+  }
+
+  .story-box-header {
+    padding: 16px 18px !important;
+  }
+
+  /* Stats bar: Compact on mobile */
+  .stats-bar {
+    margin-top: 24px !important;
+  }
+
+  .stats-bar > div {
+    padding: 12px 8px !important;
+  }
+
+  .stats-number {
+    font-size: 1.2rem !important;
+  }
+
+  .stats-label {
+    font-size: 9px !important;
+  }
+
+  /* Process steps: Reduce min-height and padding on mobile */
+  .process-right .process-step {
+    min-height: auto !important;
+    padding: 32px 20px !important;
+  }
+
+  .process-step-inner {
+    gap: 20px !important;
+  }
+
+  /* Newsletter: Better mobile padding */
+  .newsletter-inner {
+    padding: 0 20px !important;
+  }
+
+  /* Hero left: Better mobile padding */
+  .hero-left {
+    padding: 32px 20px !important;
+  }
+
+  /* Footer: Better mobile spacing */
+  .footer-col {
+    padding: 24px 20px !important;
+  }
+
+  /* Roster table: Ensure scroll on mobile */
+  .roster-table {
+    min-width: auto !important;
+    display: block;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* Playbook buy box: Better mobile padding */
+  .playbook-buy-box {
+    padding: 24px 20px 32px !important;
+  }
+
+  .playbook-buy-header {
+    padding: 14px 18px !important;
+    flex-wrap: wrap !important;
+    gap: 8px !important;
+  }
+
+  .playbook-buy-body {
+    padding: 16px 18px !important;
+  }
+
+  /* Paywall: Better mobile padding */
+  .playbook-paywall {
+    padding: 0 20px 32px !important;
+  }
+
+  .playbook-paywall-inner {
+    padding: 28px 20px !important;
+  }
+
+  /* Page header: Less top padding on mobile */
+  .page-header {
+    padding: 80px 20px 32px !important;
   }
 }
 
