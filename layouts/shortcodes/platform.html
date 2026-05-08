@@ -1,0 +1,38 @@
+{{- /*
+  Platform Icon Shortcode
+  
+  Usage:
+    Inline: {{< platform "chatgpt" >}} — small icon + text
+    Block:  {{< platform "chatgpt" display="card" >}} — card with icon + name + description
+    Icon only: {{< platform "chatgpt" display="icon" >}} — just the icon
+    Custom size: {{< platform "chatgpt" size="32" >}} — custom pixel size
+    Custom text: {{< platform "chatgpt" text="ChatGPT Plus" >}} — override display name
+*/ -}}
+
+{{- $name := .Get 0 -}}
+{{- $display := .Get "display" | default "inline" -}}
+{{- $size := .Get "size" | default "20" -}}
+{{- $text := .Get "text" | default (title $name) -}}
+{{- $iconPath := printf "/icons/%s.svg" $name -}}
+
+{{- if eq $display "icon" -}}
+<span class="platform-icon" style="width:{{ $size }}px;height:{{ $size }}px;">
+  <img src="{{ $iconPath }}" alt="{{ $text }}" width="{{ $size }}" height="{{ $size }}" loading="lazy">
+</span>
+{{- else if eq $display "card" -}}
+<div class="platform-card">
+  <div class="platform-card-icon">
+    <img src="{{ $iconPath }}" alt="{{ $text }}" width="28" height="28" loading="lazy">
+  </div>
+  <div class="platform-card-info">
+    <span class="platform-card-name">{{ $text }}</span>
+  </div>
+</div>
+{{- else -}}
+<span class="platform-inline">
+  <span class="platform-inline-icon">
+    <img src="{{ $iconPath }}" alt="{{ $text }}" width="{{ $size }}" height="{{ $size }}" loading="lazy">
+  </span>
+  <span class="platform-inline-text">{{ $text }}</span>
+</span>
+{{- end -}}

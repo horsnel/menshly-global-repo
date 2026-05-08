@@ -4031,3 +4031,93 @@ body {
     display: initial;
   }
 }
+
+/* --- Platform Icons (Shortcode) --- */
+.platform-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  vertical-align: middle;
+}
+
+.platform-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.platform-inline {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  vertical-align: middle;
+  white-space: nowrap;
+}
+
+.platform-inline-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+}
+
+.platform-inline-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.platform-inline-text {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 0.95em;
+}
+
+.platform-card {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 16px;
+  background: var(--white);
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius-md);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+  transition: all 0.2s ease;
+}
+
+.platform-card:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transform: translateY(-1px);
+}
+
+.platform-card-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  flex-shrink: 0;
+}
+
+.platform-card-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.platform-card-name {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 13px;
+  letter-spacing: -0.01em;
+}
+
+/* Platform icon in article content */
+.article-content .platform-inline {
+  background: var(--off-white);
+  padding: 2px 8px 2px 4px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--card-border);
+}
