@@ -1,0 +1,211 @@
+name: Auto-Generate Article Images
+
+on:
+  # Run every day at 11:00 UTC — generates images for a few articles each run
+  schedule:
+    - cron: '0 11 * * *'
+  # Manual trigger with parameters
+  workflow_dispatch:
+    inputs:
+      force:
+        description: 'Force regenerate ALL images (not just missing)'
+        required: false
+        default: 'false'
+        type: choice
+        options:
+          - 'false'
+          - 'true'
+      section:
+        description: 'Only process one section (opportunities/intelligence/playbooks)'
+        required: false
+        default: ''
+        type: choice
+        options:
+          - ''
+          - opportunities
+          - intelligence
+          - playbooks
+      slug:
+        description: 'Only process one specific article slug'
+        required: false
+        default: ''
+        type: string
+      limit:
+        description: 'Max articles to process per run (0 = no limit)'
+        required: false
+        default: '5'
+        type: string
+      thumbnails_only:
+        description: 'Only generate thumbnails (skip hero images)'
+        required: false
+        default: 'false'
+        type: choice
+        options:
+          - 'false'
+          - 'true'
+      heroes_only:
+        description: 'Only generate hero images (skip thumbnails)'
+        required: false
+        default: 'false'
+        type: choice
+        options:
+          - 'false'
+          - 'true'
+      low_quality:
+        description: 'Regenerate low-quality placeholder images (<20KB)'
+        required: false
+        default: 'false'
+        type: choice
+        options:
+          - 'false'
+          - 'true'
+
+permissions:
+  contents: write
+
+jobs:
+  generate-images:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Install deps
+        run: |
+          pip install requests python-dateutil python-dotenv Pillow
+          npm install z-ai-web-dev-sdk
+          # Make z-ai-generate CLI available
+          echo "Installing z-ai-generate CLI..."
+          npx z-ai-generate --help || echo "CLI check done"
+
+      - name: Scan for missing images
+        run: |
+          echo "📊 Scanning articles for missing images..."
+          python3 scripts/auto_generate_images.py --limit 0 2>&1 | head -20 || true
+
+          echo ""
+          echo "📁 Current image inventory:"
+          echo "  Thumbnails (opportunities): $(ls static/images/articles/opportunities/*.png 2>/dev/null | wc -l)"
+          echo "  Thumbnails (intelligence): $(ls static/images/articles/intelligence/*.png 2>/dev/null | wc -l)"
+          echo "  Thumbnails (playbooks): $(ls static/images/articles/playbooks/*.png 2>/dev/null | wc -l)"
+          echo "  Heroes (opportunities): $(ls static/images/heroes/opportunities/*.png 2>/dev/null | wc -l)"
+          echo "  Heroes (intelligence): $(ls static/images/heroes/intelligence/*.png 2>/dev/null | wc -l)"
+          echo "  Heroes (playbooks): $(ls static/images/heroes/playbooks/*.png 2>/dev/null | wc -l)"
+
+      - name: Generate Images
+        timeout-minutes: 75
+        env:
+          AI_API_KEY: ${{ secrets.AI_API_KEY || '' }}
+          AI_API_BASE: ${{ secrets.AI_API_BASE || '' }}
+          AI_MODEL: ${{ secrets.AI_MODEL || '' }}
+        run: |
+          # Build the command from workflow inputs
+          CMD="python3 scripts/auto_generate_images.py"
+
+          # Force flag
+          if [ "${{ github.event.inputs.force }}" = "true" ]; then
+            CMD="$CMD --force"
+          fi
+
+          # Low-quality mode
+          if [ "${{ github.event.inputs.low_quality }}" = "true" ]; then
+            CMD="$CMD --low-quality"
+          fi
+
+          # Section filter
+          if [ -n "${{ github.event.inputs.section }}" ]; then
+            CMD="$CMD --section ${{ github.event.inputs.section }}"
+          fi
+
+          # Slug filter
+          if [ -n "${{ github.event.inputs.slug }}" ]; then
+            CMD="$CMD --slug ${{ github.event.inputs.slug }}"
+          fi
+
+          # Limit
+          LIMIT="${{ github.event.inputs.limit }}"
+          if [ -z "$LIMIT" ]; then
+            LIMIT="5"
+          fi
+          CMD="$CMD --limit $LIMIT"
+
+          # Thumbnails only
+          if [ "${{ github.event.inputs.thumbnails_only }}" = "true" ]; then
+            CMD="$CMD --thumbnails-only"
+          fi
+
+          # Heroes only
+          if [ "${{ github.event.inputs.heroes_only }}" = "true" ]; then
+            CMD="$CMD --heroes-only"
+          fi
+
+          echo "🚀 Running: $CMD"
+          $CMD || echo "⚠️ Some images failed to generate (non-fatal)"
+
+      - name: Check for changes
+        id: check_changes
+        run: |
+          git add static/images/ content/ data/image_generation_report.json
+          if git diff --cached --quiet; then
+            echo "has_changes=false" >> $GITHUB_OUTPUT
+            echo "No changes to commit"
+          else
+            echo "has_changes=true" >> $GITHUB_OUTPUT
+            CHANGED_THUMBS=$(git diff --cached --name-only | grep "static/images/articles/" | wc -l)
+            CHANGED_HEROES=$(git diff --cached --name-only | grep "static/images/heroes/" | wc -l)
+            CHANGED_FM=$(git diff --cached --name-only | grep "content/" | wc -l)
+            echo "  Changed thumbnails: $CHANGED_THUMBS"
+            echo "  Changed heroes: $CHANGED_HEROES"
+            echo "  Changed front matter: $CHANGED_FM"
+          fi
+
+      - name: Commit and Push
+        if: steps.check_changes.outputs.has_changes == 'true'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+          # Generate descriptive commit message
+          THUMBS=$(git diff --cached --name-only | grep "static/images/articles/" | wc -l)
+          HEROES=$(git diff --cached --name-only | grep "static/images/heroes/" | wc -l)
+          FM=$(git diff --cached --name-only | grep "content/" | wc -l)
+
+          MSG="auto: generate article images (${THUMBS} thumbnails, ${HEROES} heroes, ${FM} front matter updates)"
+
+          git commit -m "$MSG"
+          for i in 1 2 3; do
+            git pull --rebase origin main || true
+            git push origin main && break
+            echo "Push attempt $i failed, retrying in 10s..."
+            sleep 10
+          done
+
+      - name: Summary
+        if: always()
+        run: |
+          echo "## 🖼️ Image Generation Summary" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+
+          if [ -f data/image_generation_report.json ]; then
+            REPORT=$(cat data/image_generation_report.json)
+            echo "| Metric | Count |" >> $GITHUB_STEP_SUMMARY
+            echo "|--------|-------|" >> $GITHUB_STEP_SUMMARY
+            echo "| Thumbnails Generated | $(echo $REPORT | python3 -c 'import sys,json; print(json.load(sys.stdin).get("thumbnails_generated",0))') |" >> $GITHUB_STEP_SUMMARY
+            echo "| Heroes Generated | $(echo $REPORT | python3 -c 'import sys,json; print(json.load(sys.stdin).get("heroes_generated",0))') |" >> $GITHUB_STEP_SUMMARY
+            echo "| Skipped (already exist) | $(echo $REPORT | python3 -c 'import sys,json; print(json.load(sys.stdin).get("skipped",0))') |" >> $GITHUB_STEP_SUMMARY
+            echo "| Failed | $(echo $REPORT | python3 -c 'import sys,json; print(json.load(sys.stdin).get("failed",0))') |" >> $GITHUB_STEP_SUMMARY
+          else
+            echo "No report generated" >> $GITHUB_STEP_SUMMARY
+          fi
