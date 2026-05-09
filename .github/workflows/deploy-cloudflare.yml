@@ -87,6 +87,7 @@ jobs:
       - name: Build Hugo site
         id: build
         run: |
+          rm -rf resources/
           hugo --minify
           echo "pages=$(find public -name '*.html' | wc -l)" >> $GITHUB_OUTPUT
           echo "assets=$(find public -type f | wc -l)" >> $GITHUB_OUTPUT

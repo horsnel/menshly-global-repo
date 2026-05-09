@@ -16,6 +16,7 @@ const path = require('path');
 function findSDK() {
   const paths = [
     path.join(process.cwd(), 'node_modules', 'z-ai-web-dev-sdk'),
+    path.join(process.cwd(), 'scripts', 'node_modules', 'z-ai-web-dev-sdk'),
     '/home/z/.bun/install/global/node_modules/z-ai-web-dev-sdk',
   ];
   for (const p of paths) {
@@ -25,6 +26,13 @@ function findSDK() {
     } catch (e) {
       continue;
     }
+  }
+  // Last resort: try require() without path (resolves from NODE_PATH or global)
+  try {
+    const mod = require('z-ai-web-dev-sdk');
+    return mod.default || mod;
+  } catch (e) {
+    // Not found anywhere
   }
   throw new Error('z-ai-web-dev-sdk not found');
 }
