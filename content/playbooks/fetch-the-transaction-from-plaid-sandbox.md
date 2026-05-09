@@ -1101,7 +1101,7 @@ Estimated time to complete this module: **4–5 hours** of focused work.
 4. **Verify your email**: Open your inbox, open the Make.com email, click **“Verify email”**.  
 5. **Log in** again at `https://www.make.com/dashboard`.  Do you see the **“Dashboard”** screen with a welcome banner? If not, refresh or clear browser cache.  
 
-**Check‑in #1** – Do you see the **“Dashboard”** with the “Welcome to Make.com” banner?  
+**Check‑in No. 1** – Do you see the **“Dashboard”** with the “Welcome to Make.com” banner?  
 If not, ensure you’re logged in and that the email was verified.  
 
 6. **Create a new scenario**: Click the button **“Create new scenario”** (top‑right).  
@@ -1111,7 +1111,7 @@ If not, ensure you’re logged in and that the email was verified.
    `https://hook.make.com/xxxxxx`.  
 10. **Test the webhook**: Click **“Run once”** and then open the URL in a new tab to trigger it. You should see a green “Webhook received” message.  
 
-**Check‑in #2** – Do you see the “Webhook received” confirmation?  
+**Check‑in No. 2** – Do you see the “Webhook received” confirmation?  
 If not, double‑check the URL and click **“Run once”** again.
 
 11. **Add the first action**: Click the big **“+”** next to the webhook.  
@@ -1124,7 +1124,7 @@ If not, double‑check the URL and click **“Run once”** again.
     - Click **“Save”**.  
 15. **Map the webhook payload**: Click the small gear icon on the webhook module → **“Map fields”** → map `email` to Apollo.io’s **“Email”** field.  
 
-**Check‑in #3** – Do you see Apollo.io Search Leads module with the criteria you set?  
+**Check‑in No. 3** – Do you see Apollo.io Search Leads module with the criteria you set?  
 If not, check that the connection status says “Connected”.
 
 16. **Add the second action**: Click the next **“+”** → search for **“ChatGPT”** → select **“OpenAI > Create Completion”**.  
@@ -1142,7 +1142,7 @@ If not, check that the connection status says “Connected”.
     - Click **“Save”**.  
 19. **Map the output**: Click the gear icon on the ChatGPT module → **“Map fields”** → map `Name` from Apollo.io to `{Name}` and `Company` to `{Company}`.  
 
-**Check‑in #4** – Do you see the ChatGPT module prompt field populated with the script above?  
+**Check‑in No. 4** – Do you see the ChatGPT module prompt field populated with the script above?  
 If not, ensure the placeholders match the field names from Apollo.io.
 
 20. **Add the third action**: Click the next **“+”** → search for **“Mailchimp”** (or **“SendGrid”** if you prefer).  
@@ -1153,7 +1153,7 @@ If not, ensure the placeholders match the field names from Apollo.io.
     - **Send**: tick **“Send immediately”**.  
     - Click **“Save”**.  
 
-**Check‑in #5** – Do you see the Mailchimp module with the audience name correctly displayed?  
+**Check‑in No. 5** – Do you see the Mailchimp module with the audience name correctly displayed?  
 If not, re‑authenticate or verify the audience exists.
 
 23. **Set scenario schedule**: Click **“Schedule settings”** (top‑right) → **“Every 15 minutes”**.  

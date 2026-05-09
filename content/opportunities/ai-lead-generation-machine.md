@@ -22,13 +22,13 @@ Three things collided: AI can now research prospects in seconds (what used to ta
 
 ## The Realistic Picture (Before You Get Excited)
 
-> **Truth #1:** Most AI-generated outreach is still spam. Just because AI can personalize a message doesn't mean the recipient wants it. If you're sending 1,000 messages and getting 5 replies, you're spamming, not generating leads. Quality over quantity, always. The goal is 50 messages with 10 replies, not 1,000 messages with 5.
+> **Truth No. 1:** Most AI-generated outreach is still spam. Just because AI can personalize a message doesn't mean the recipient wants it. If you're sending 1,000 messages and getting 5 replies, you're spamming, not generating leads. Quality over quantity, always. The goal is 50 messages with 10 replies, not 1,000 messages with 5.
 
-> **Truth #2:** Data quality determines everything. Your AI is only as good as the data it's working with. Outdated email addresses, wrong company sizes, incorrect job titles — bad data produces bad leads. Expect to spend 30% of your time on data cleaning and verification.
+> **Truth No. 2:** Data quality determines everything. Your AI is only as good as the data it's working with. Outdated email addresses, wrong company sizes, incorrect job titles — bad data produces bad leads. Expect to spend 30% of your time on data cleaning and verification.
 
-> **Truth #3:** Clients will blame you for their bad sales process. You deliver 20 qualified leads. The client's sales team takes 3 days to respond, gives a terrible pitch, and loses the deal. Then they say "your leads aren't good." Lead generation and lead closing are different skills. Set expectations clearly.
+> **Truth No. 3:** Clients will blame you for their bad sales process. You deliver 20 qualified leads. The client's sales team takes 3 days to respond, gives a terrible pitch, and loses the deal. Then they say "your leads aren't good." Lead generation and lead closing are different skills. Set expectations clearly.
 
-> **Truth #4:** Compliance is a minefield. GDPR, CAN-SPAM, and various state laws govern cold outreach. One wrong move — an unsubscribed contact, a missing opt-out link — can result in fines that dwarf your revenue. Build compliance into every process from day one.
+> **Truth No. 4:** Compliance is a minefield. GDPR, CAN-SPAM, and various state laws govern cold outreach. One wrong move — an unsubscribed contact, a missing opt-out link — can result in fines that dwarf your revenue. Build compliance into every process from day one.
 
 ## The Free Stack: Starting With Zero Dollars
 

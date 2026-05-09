@@ -491,8 +491,8 @@ This video is your highest-converting asset. Record it, re-record it until it's 
 Send 10 client emails per day. Follow this sequence for each contact:
 
 **Day 0:** Send the initial outreach email
-**Day 3:** Follow-up #1: "Hey [Name], just checking if you saw my email. Happy to send over some freelancer profiles that match what [Company] might need — no commitment."
-**Day 7:** Follow-up #2: "Last ping — if finding [niche] talent is ever a pain point, I'm a message away. Here's our marketplace: [link]"
+**Day 3:** Follow-up No. 1: "Hey [Name], just checking if you saw my email. Happy to send over some freelancer profiles that match what [Company] might need — no commitment."
+**Day 7:** Follow-up No. 2: "Last ping — if finding [niche] talent is ever a pain point, I'm a message away. Here's our marketplace: [link]"
 
 Track every email and response in your Client Acquisition Tracker.
 

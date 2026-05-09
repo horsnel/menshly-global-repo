@@ -27,13 +27,13 @@ I'm going to lay out everything: the exact tools, every hack, every ugly truth, 
 
 ## The Realistic Picture (Before You Get Excited)
 
-> **Truth #1:** Your first 3 clients will each take 2-3x longer than you expect because you're building your workflow in real-time. That $800/month client might cost you $600 in time and mistakes in month one. Plan for it. You're not just producing podcasts — you're debugging your own business with real money on the line.
+> **Truth No. 1:** Your first 3 clients will each take 2-3x longer than you expect because you're building your workflow in real-time. That $800/month client might cost you $600 in time and mistakes in month one. Plan for it. You're not just producing podcasts — you're debugging your own business with real money on the line.
 
-> **Truth #2:** Most podcasters are disorganized. They'll send you audio recorded on a Blue Yeti in a closet with the AC running, then wonder why the episode doesn't sound like NPR. You will spend hours fixing problems that shouldn't exist, and you need to price that into your packages or you'll bleed margin every single month.
+> **Truth No. 2:** Most podcasters are disorganized. They'll send you audio recorded on a Blue Yeti in a closet with the AC running, then wonder why the episode doesn't sound like NPR. You will spend hours fixing problems that shouldn't exist, and you need to price that into your packages or you'll bleed margin every single month.
 
-> **Truth #3:** Churn is real. About 30-40% of podcast clients will cancel within 6 months — usually because their show wasn't growing and they blame production, even if the real problem was their content. You need a constant pipeline of new clients to replace the ones who leave, and that pipeline has to run even when you're busy delivering work.
+> **Truth No. 3:** Churn is real. About 30-40% of podcast clients will cancel within 6 months — usually because their show wasn't growing and they blame production, even if the real problem was their content. You need a constant pipeline of new clients to replace the ones who leave, and that pipeline has to run even when you're busy delivering work.
 
-> **Truth #4:** AI can do 70-80% of the production work, but the remaining 20-30% requires genuine taste and judgment. Knowing which 30-second clip will actually get shares, deciding when to cut a tangent versus when it's gold, writing a show notes hook that makes people click — that stuff still takes a human who gives a damn, and there's no shortcut around it.
+> **Truth No. 4:** AI can do 70-80% of the production work, but the remaining 20-30% requires genuine taste and judgment. Knowing which 30-second clip will actually get shares, deciding when to cut a tangent versus when it's gold, writing a show notes hook that makes people click — that stuff still takes a human who gives a damn, and there's no shortcut around it.
 
 ## The Free Stack: Starting With Zero Dollars
 
@@ -170,7 +170,7 @@ Your unit economics break down like this: a Growth-tier client at $1,800/month g
 
 **Your workflow will break at the worst times.** Make.com will fail silently at 2am and 3 episodes won't post on schedule. Descript will have a server outage the morning of a client's big launch. ChatGPT will hallucinate a quote that never happened in a show notes draft, and you'll only catch it because you actually read the thing before hitting publish. Build redundancy into everything. Keep manual backup steps for critical path items — a checklist in Notion that walks you through the manual publish process when automation fails. Always review AI-generated content before it goes live. Not just skim — actually read it. One embarrassing mistake can cost you a client and your reputation.
 
-**Burnout in this business doesn't come from too much work — it comes from too many small decisions.** Every episode requires choosing the right clip, the right social angle, the right headline, the right newsletter subject line. By client #8, you're making 200+ micro-decisions per week, and decision fatigue is real and it sneaks up on you. Counter this by building templates for everything — social post structures, show notes formats, audiogram selection criteria, email subject line formulas. The less you have to think about routine choices, the more mental energy you have for the creative work that actually differentiates you from the competition.
+**Burnout in this business doesn't come from too much work — it comes from too many small decisions.** Every episode requires choosing the right clip, the right social angle, the right headline, the right newsletter subject line. By client No. 8, you're making 200+ micro-decisions per week, and decision fatigue is real and it sneaks up on you. Counter this by building templates for everything — social post structures, show notes formats, audiogram selection criteria, email subject line formulas. The less you have to think about routine choices, the more mental energy you have for the creative work that actually differentiates you from the competition.
 
 ## Start This Weekend (Literally)
 

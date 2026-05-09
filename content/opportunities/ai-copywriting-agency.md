@@ -20,13 +20,13 @@ AI can now write copy that passes for professional output. GPT-4o with the right
 
 ## The Realistic Picture (Before You Get Excited)
 
-> **Truth #1:** AI copy without human editing is mediocre at best. The output is grammatically correct and structurally sound, but it lacks the specificity, emotional punch, and cultural awareness that great copy requires. You must edit every word. AI is your first draft, not your final product.
+> **Truth No. 1:** AI copy without human editing is mediocre at best. The output is grammatically correct and structurally sound, but it lacks the specificity, emotional punch, and cultural awareness that great copy requires. You must edit every word. AI is your first draft, not your final product.
 
-> **Truth #2:** Clients don't know the difference between good and bad copy. They'll ask for "something catchy" without being able to define what that means. You'll produce brilliant copy and they'll ask you to make it "more professional" (which means more generic). Managing creative expectations is a skill you must develop.
+> **Truth No. 2:** Clients don't know the difference between good and bad copy. They'll ask for "something catchy" without being able to define what that means. You'll produce brilliant copy and they'll ask you to make it "more professional" (which means more generic). Managing creative expectations is a skill you must develop.
 
-> **Truth #3:** Testing is the only proof. Your beautifully crafted headline might lose to "Hey, check this out" in an A/B test. Copywriting is empirical, not artistic. The copy that converts is the best copy, regardless of your opinion. Get comfortable with data over ego.
+> **Truth No. 3:** Testing is the only proof. Your beautifully crafted headline might lose to "Hey, check this out" in an A/B test. Copywriting is empirical, not artistic. The copy that converts is the best copy, regardless of your opinion. Get comfortable with data over ego.
 
-> **Truth #4:** Revisions will eat your margins. "Can you try a different angle?" "This doesn't feel right." "My wife thinks it should be funnier." Set revision limits in your contracts: 2 rounds included, additional rounds billed at $100/hour. Unlimited revisions are unlimited poverty.
+> **Truth No. 4:** Revisions will eat your margins. "Can you try a different angle?" "This doesn't feel right." "My wife thinks it should be funnier." Set revision limits in your contracts: 2 rounds included, additional rounds billed at $100/hour. Unlimited revisions are unlimited poverty.
 
 ## The Free Stack: Starting With Zero Dollars
 

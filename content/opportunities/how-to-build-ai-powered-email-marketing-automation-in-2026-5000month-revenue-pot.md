@@ -26,13 +26,13 @@ I'm going to lay out everything: the exact tools, the tricks nobody shares, the 
 
 ## The Realistic Picture (Before You Get Excited)
 
-> **Truth #1:** Your first 3 clients will probably pay you $500/month, not $2,000/month. The premium rates only come after you have case studies showing real ROI. Expect to invest 60-90 days at lower rates building proof before you can charge what the service is worth.
+> **Truth No. 1:** Your first 3 clients will probably pay you $500/month, not $2,000/month. The premium rates only come after you have case studies showing real ROI. Expect to invest 60-90 days at lower rates building proof before you can charge what the service is worth.
 
-> **Truth #2:** AI email automation still requires human strategy. The AI can optimize send times, predict churn, and generate subject line variations. But it can't figure out your client's brand voice, decide which products to promote, or understand the emotional triggers that make their specific audience buy. If you skip the strategy work, the AI just automates mediocrity at scale.
+> **Truth No. 2:** AI email automation still requires human strategy. The AI can optimize send times, predict churn, and generate subject line variations. But it can't figure out your client's brand voice, decide which products to promote, or understand the emotional triggers that make their specific audience buy. If you skip the strategy work, the AI just automates mediocrity at scale.
 
-> **Truth #3:** You will lose subscribers. Any time you increase email frequency or introduce new automated flows, some people will unsubscribe. A healthy list loses 1-2% per month naturally. Badly executed automation can spike that to 8-10% in a single week. You need to monitor and adjust, not just set it and forget it.
+> **Truth No. 3:** You will lose subscribers. Any time you increase email frequency or introduce new automated flows, some people will unsubscribe. A healthy list loses 1-2% per month naturally. Badly executed automation can spike that to 8-10% in a single week. You need to monitor and adjust, not just set it and forget it.
 
-> **Truth #4:** Deliverability is a silent killer. If you don't warm up domains properly, authenticate with DKIM/SPF/DMARC, and maintain sender reputation, your beautifully crafted AI emails will land in spam. I've seen businesses with 50,000 subscribers getting 12% open rates because their deliverability was destroyed. Fixing it takes weeks. Preventing it takes 2 hours upfront.
+> **Truth No. 4:** Deliverability is a silent killer. If you don't warm up domains properly, authenticate with DKIM/SPF/DMARC, and maintain sender reputation, your beautifully crafted AI emails will land in spam. I've seen businesses with 50,000 subscribers getting 12% open rates because their deliverability was destroyed. Fixing it takes weeks. Preventing it takes 2 hours upfront.
 
 Here's the deal — these aren't reasons to skip this opportunity. They're reasons to take it seriously. The people who fail at AI email automation are the ones who treat it like a magic bullet. The ones who succeed treat it like a real skill that requires real work. The good news? The work isn't that complicated once you know the playbook. And most of your competitors won't bother learning it, which is exactly why the opportunity exists.
 

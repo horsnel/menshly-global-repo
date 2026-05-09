@@ -616,7 +616,7 @@ When a client signs, send them this questionnaire immediately. Create it as a Go
 11. Do you use emojis? If yes, which ones and how often?
 12. Do you share personal stories or keep things professional?
 13. Who is your target audience? (Demographics, job titles, interests)
-14. What is the #1 goal for your content? (Build authority / Drive sales / Grow audience / Generate leads)
+14. What is the No. 1 goal for your content? (Build authority / Drive sales / Grow audience / Generate leads)
 15. How do you prefer to receive deliverables? (Google Doc / Notion / Email / Other)
 
 ### 6.2 Build the Voice Profile

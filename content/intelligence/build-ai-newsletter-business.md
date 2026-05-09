@@ -281,7 +281,7 @@ Create a second database called "Issue Tracker." Add these columns:
 
 | Column | Type | Purpose |
 |--------|------|---------|
-| Issue # | Title | e.g., "Issue #7" |
+| Issue # | Title | e.g., "Issue No. 7" |
 | Publish Date | Date | Scheduled send date |
 | Status | Select | Options: Planning, Drafting, Editing, Scheduled, Sent |
 | Open Rate | Number | Filled after send |
@@ -443,7 +443,7 @@ Your first issue is live. Now you need to make sure it actually reaches people a
 In Beehiiv, before sending your first issue:
 
 1. Click **Posts** → select your draft post → click **Settings** (the gear icon in the top right).
-2. **Subject line:** Write a subject line that includes the newsletter name and a curiosity hook. Example: "AI Law Brief #1: The AI tool that just replaced 40 hours of legal research." Keep it under 60 characters. Subject lines that start with the newsletter name get 20% higher open rates because subscribers recognize the sender.
+2. **Subject line:** Write a subject line that includes the newsletter name and a curiosity hook. Example: "AI Law Brief No. 1: The AI tool that just replaced 40 hours of legal research." Keep it under 60 characters. Subject lines that start with the newsletter name get 20% higher open rates because subscribers recognize the sender.
 3. **Preview text:** Write 80-100 characters of preview text that complements (not repeats) the subject line. Example: "Plus: Why the new GPT-5 regulations matter for your firm."
 4. **Send time:** Schedule for Tuesday or Thursday at 7:00 AM in your primary audience's timezone. Tuesday and Thursday consistently outperform other days for B2B newsletters. 7 AM catches people during their morning email scan.
 5. **Segment:** Send to "All Subscribers."
@@ -455,7 +455,7 @@ Click **Schedule** or **Send Now** (if you have subscribers). If you have zero s
 You need your first 50 subscribers. These are your seed audience. Do this:
 
 1. **Personal network:** Email 20-30 people you know who fit your reader persona. Write a personal email (not a template). "Hey [Name], I just launched a newsletter about [niche]. I think you'd find it useful because [specific reason]. Would you subscribe? [Link]" Target: 15-20 subscribers.
-2. **Social media:** Post about your launch on Twitter, LinkedIn, and any relevant Facebook groups or Slack communities. Write a specific post, not a generic "check out my newsletter." Example: "I just launched AI Law Brief — a free weekly email that surfaces the 5 most important AI developments for solo lawyers. Issue #1 covers [3 specific topics]. Subscribe here: [link]" Target: 10-20 subscribers.
+2. **Social media:** Post about your launch on Twitter, LinkedIn, and any relevant Facebook groups or Slack communities. Write a specific post, not a generic "check out my newsletter." Example: "I just launched AI Law Brief — a free weekly email that surfaces the 5 most important AI developments for solo lawyers. Issue No. 1 covers [3 specific topics]. Subscribe here: [link]" Target: 10-20 subscribers.
 3. **HARO / Source of Sources:** If you have expertise in your niche, sign up at connectively.us (formerly HARO). Respond to journalist queries. Your bio includes your newsletter link. Target: 5-10 subscribers per response that gets published.
 
 ### Optimize Your Subscribe Page

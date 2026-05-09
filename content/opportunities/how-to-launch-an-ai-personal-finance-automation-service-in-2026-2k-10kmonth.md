@@ -25,22 +25,22 @@ The third reason is the availability of affordable AI tools. With tools like Mak
 
 ## The Realistic Picture (Before You Get Excited)
 {{% accent-box %}}
-**Truth #1:** You'll need to invest time and effort into building your service, with an estimated 100 hours of setup and testing before you can launch.
+**Truth No. 1:** You'll need to invest time and effort into building your service, with an estimated 100 hours of setup and testing before you can launch.
 {{% /accent-box %}}
 This includes setting up your AI tools, creating a client onboarding process, and developing a marketing strategy. You'll also need to continuously update and improve your service to stay ahead of the competition.
 
 {{% accent-box %}}
-**Truth #2:** You'll face competition from established financial institutions and fintech companies, with an estimated 500 competitors in the market.
+**Truth No. 2:** You'll face competition from established financial institutions and fintech companies, with an estimated 500 competitors in the market.
 {{% /accent-box %}}
 To stand out, you'll need to focus on providing exceptional customer service, offering personalized advice, and using AI to automate financial tasks more efficiently.
 
 {{% accent-box %}}
-**Truth #3:** You'll need to comply with financial regulations, such as GDPR and PCI-DSS, which can be complex and time-consuming.
+**Truth No. 3:** You'll need to comply with financial regulations, such as GDPR and PCI-DSS, which can be complex and time-consuming.
 {{% /accent-box %}}
 This includes implementing data encryption, secure storage, and access controls to protect client data.
 
 {{% accent-box %}}
-**Truth #4:** You'll need to continuously educate yourself on the latest AI trends and technologies, with an estimated 10 hours of learning per month.
+**Truth No. 4:** You'll need to continuously educate yourself on the latest AI trends and technologies, with an estimated 10 hours of learning per month.
 {{% /accent-box %}}
 This includes staying up-to-date with the latest AI research, attending webinars and conferences, and participating in online communities to stay ahead of the curve.
 

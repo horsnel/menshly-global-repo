@@ -31,7 +31,7 @@ The third reason this opportunity exists right now is the increasing adoption of
 **The Realistic Picture (Before You Get Excited)**  
 
 {{% accent-box %}}
-**Truth #1:** The market is already crowded.  
+**Truth No. 1:** The market is already crowded.  
 The top 10 translation agencies capture 70 % of the $3 B industry.  
 You’ll be fighting for the same 15‑20 % of the pie that freelancers and in‑house teams already serve.  
 That means you’ll need to undercut prices or offer a niche that no one else does.  
@@ -40,7 +40,7 @@ If you’re going for bulk corporate contracts, think $0.02–$0.05 per word in 
 {{% /accent-box %}}
 
 {{% accent-box %}}
-**Truth #2:** Automation alone won’t deliver quality.  
+**Truth No. 2:** Automation alone won’t deliver quality.  
 Make.com and Zapier can stitch together a pipeline that pulls text from a Shopify store, feeds it to ChatGPT‑4, and pushes back a draft.  
 But the raw output is still 40‑70 % error‑prone for legal or marketing material.  
 You’ll need a human editor on standby, or a secondary AI layer like Replit‑hosted grammatical checks.  
@@ -50,7 +50,7 @@ Your break‑even point climbs to $5 K/month, not $3 K.
 {{% /accent-box %}}
 
 {{% accent-box %}}
-**Truth #3:** Localization is more than translation.  
+**Truth No. 3:** Localization is more than translation.  
 You need to localize images, dates, currencies, and cultural references.  
 Midjourney or Canva can remix visuals, but each tweak takes 15‑20 minutes of design time.  
 Expect to spend at least 10 % of your revenue on asset creation or outsourcing.  
@@ -59,7 +59,7 @@ If you’re offering 10 clients a month, that’s another $2 K in hidden costs
 {{% /accent-box %}}
 
 {{% accent-box %}}
-**Truth #4:** Compliance and IP protection bite hard.  
+**Truth No. 4:** Compliance and IP protection bite hard.  
 Every contract must pass GDPR, CCPA, and local data residency laws.  
 Using ElevenLabs for voice synthesis or Vapi for AI chatbots adds layers of data handling that cost a compliance audit every 12 months—about $5 K.  
 And if you store raw text in Hostinger’s shared VPS, a single breach could cost you $10 K in legal fees and brand damage.  

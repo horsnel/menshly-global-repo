@@ -984,13 +984,13 @@ Cross-selling to existing customers costs zero in acquisition. Conversion rates 
 
 Your product portfolio should target adjacent problems in the same customer segment. If your first product serves e-commerce stores, your next products should too:
 
-- **Product #1:** AI Product Description Generator ($19/mo)
-- **Product #2:** AI Email Subject Line Tester ($9/mo) — Same e-commerce customers, different workflow
-- **Product #3:** AI Real Estate Listing Generator ($19/mo) — Different customer segment, same codebase
-- **Product #4:** AI Social Media Caption Writer ($9/mo) — Same e-commerce customers, different content type
-- **Product #5:** AI Invoice Data Extractor ($29/mo) — Same businesses, back-office workflow
+- **Product No. 1:** AI Product Description Generator ($19/mo)
+- **Product No. 2:** AI Email Subject Line Tester ($9/mo) — Same e-commerce customers, different workflow
+- **Product No. 3:** AI Real Estate Listing Generator ($19/mo) — Different customer segment, same codebase
+- **Product No. 4:** AI Social Media Caption Writer ($9/mo) — Same e-commerce customers, different content type
+- **Product No. 5:** AI Invoice Data Extractor ($29/mo) — Same businesses, back-office workflow
 
-Each product shares 80% of the codebase. You change the AI prompt, the input/output format, and the marketing copy. Build time for product #2: 1 week. Product #3: 4-5 days. Product #4: 3-4 days.
+Each product shares 80% of the codebase. You change the AI prompt, the input/output format, and the marketing copy. Build time for product No. 2: 1 week. Product No. 3: 4-5 days. Product No. 4: 3-4 days.
 
 #### Automate Support
 
@@ -1064,7 +1064,7 @@ Before launching any AI SaaS micro product to the public, verify every item:
 
 Once your first product has 50+ paying users, expand with these specific moves:
 
-1. **Build product #2 immediately** — Use your template. Change the AI prompt and marketing copy. The fastest path to $10K/mo is 5 products at 100 users each, not 1 product at 500 users. Each additional product compounds your revenue without proportionally increasing your costs.
+1. **Build product No. 2 immediately** — Use your template. Change the AI prompt and marketing copy. The fastest path to $10K/mo is 5 products at 100 users each, not 1 product at 500 users. Each additional product compounds your revenue without proportionally increasing your costs.
 
 2. **Set up an affiliate program** — Use Stripe's affiliate features or a tool like Rewardful. Offer 20-30% recurring commissions. Affiliates promote your tool to their audience for a cut of the revenue. Zero upfront cost. This is how you grow from 100 to 500+ users without spending on ads.
 

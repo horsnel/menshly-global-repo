@@ -447,11 +447,11 @@ Create a five‑email welcome sequence for subscribers who join your email list 
 
 | Email | Delay | Subject | Purpose |
 |-------|-------|---------|---------|
-| #1 | Immediate | Your [Niche] Comparison Checklist is Here | Deliver the lead magnet, introduce your brand |
-| #2 | Day 2 | The #1 Mistake People Make When Choosing [Niche] Tools | Educational content that builds trust |
-| #3 | Day 4 | Our Top Pick for [Niche] in 2026 | Soft recommendation with affiliate link |
-| #4 | Day 7 | [Tool A] vs [Tool B]: Which One Wins? | Detailed comparison with multiple affiliate links |
-| #5 | Day 10 | Ready to Decide? Here's Our Final Recommendation | Strong CTA with the highest‑commission product |
+| No. 1 | Immediate | Your [Niche] Comparison Checklist is Here | Deliver the lead magnet, introduce your brand |
+| No. 2 | Day 2 | The No. 1 Mistake People Make When Choosing [Niche] Tools | Educational content that builds trust |
+| No. 3 | Day 4 | Our Top Pick for [Niche] in 2026 | Soft recommendation with affiliate link |
+| No. 4 | Day 7 | [Tool A] vs [Tool B]: Which One Wins? | Detailed comparison with multiple affiliate links |
+| No. 5 | Day 10 | Ready to Decide? Here's Our Final Recommendation | Strong CTA with the highest‑commission product |
 
 ### 6.2 Ongoing Content Newsletter
 

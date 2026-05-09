@@ -345,10 +345,10 @@ In the Keywords Explorer results, apply these filters:
 
 - **Volume:** 10+
 - **Keyword Difficulty:** 0-70
-- **Traffic Potential:** 50+ (this estimates total traffic if you ranked #1 for this keyword AND all related long-tail variations)
+- **Traffic Potential:** 50+ (this estimates total traffic if you ranked No. 1 for this keyword AND all related long-tail variations)
 - **SERP Features:** Select "Featured snippet available" — these are opportunities to win Position Zero
 
-Sort by **Traffic Potential** descending. This gives you keywords where ranking #1 produces real traffic, not just vanity metrics.
+Sort by **Traffic Potential** descending. This gives you keywords where ranking No. 1 produces real traffic, not just vanity metrics.
 
 #### Find Keyword Gaps
 
@@ -567,7 +567,7 @@ Activate the scenario. Test with one article from your Content Calendar.
 
 ### Procedure 4.4: Content Refresh Automation
 
-Ranking content decays. An article that ranks #3 today will drop to #8 in 6 months if untouched. You need a content refresh system.
+Ranking content decays. An article that ranks No. 3 today will drop to No. 8 in 6 months if untouched. You need a content refresh system.
 
 Create a Make.com scenario called "Content Decay Monitor."
 
@@ -1074,7 +1074,7 @@ Use this process to build a list of 50 prospects:
 | Website | Domain URL |
 | DR | From Semrush (under 30 = high priority) |
 | Organic Keywords | From Semrush (under 100 = high priority) |
-| Top Competitor | The business ranking #1 for their main keyword |
+| Top Competitor | The business ranking No. 1 for their main keyword |
 | Contact Email | From their website or LinkedIn |
 | Contact Name | From LinkedIn or website team page |
 | Audit Status | Not Started, Recorded, Sent, Replied, Meeting Booked |
@@ -1096,7 +1096,7 @@ Find 50 businesses. This takes 3-4 hours. Do it in one sitting.
 > Quick findings:
 > - Your site has [X] pages with missing meta descriptions
 > - [Competitor Name] is ranking for [Y] keywords that you're not targeting
-> - Your Domain Rating is [Z], while the #1 ranking site in your niche is at [Z+20]
+> - Your Domain Rating is [Z], while the No. 1 ranking site in your niche is at [Z+20]
 >
 > I recorded a 5-minute walkthrough showing exactly what's happening and how to fix it: [Loom link]
 >

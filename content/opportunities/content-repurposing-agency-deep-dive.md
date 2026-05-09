@@ -30,13 +30,13 @@ Third: every platform's algorithm now rewards posting frequency over quality. Th
 
 Let me hit you with the ugly truths before the sexy numbers, because I don't want you walking into this with rose-tinted glasses.
 
-> **Truth #1:** You will not make $10K in your first month. Anyone telling you that is lying. The realistic timeline is: Month 1 you get zero clients while you build your workflow and portfolio. Month 2 you land one or two clients at $1,000-$1,500 each. Month 3-4 you hit $3K-$5K. Month 6-8 is when you cross $10K if you're consistent. That's the real timeline.
+> **Truth No. 1:** You will not make $10K in your first month. Anyone telling you that is lying. The realistic timeline is: Month 1 you get zero clients while you build your workflow and portfolio. Month 2 you land one or two clients at $1,000-$1,500 each. Month 3-4 you hit $3K-$5K. Month 6-8 is when you cross $10K if you're consistent. That's the real timeline.
 
-> **Truth #2:** AI output is not plug-and-play. You cannot just feed a transcript into ChatGPT, copy the output, and ship it to a client. Every single piece needs human review. Every single one. The AI gets you 80% of the way there in 10 seconds; the remaining 20% takes you 5-10 minutes per piece. That's the unsexy reality. If you skip the review step, you will lose clients fast.
+> **Truth No. 2:** AI output is not plug-and-play. You cannot just feed a transcript into ChatGPT, copy the output, and ship it to a client. Every single piece needs human review. Every single one. The AI gets you 80% of the way there in 10 seconds; the remaining 20% takes you 5-10 minutes per piece. That's the unsexy reality. If you skip the review step, you will lose clients fast.
 
-> **Truth #3:** Clients will ghost you. Creators are some of the flakiest people on earth. They'll love your work for three months, then suddenly stop responding. Or they'll ask for a discount because "times are tight." Or they'll take your work and try to replicate your process themselves. You need to be mentally prepared for a 20-30% annual churn rate, and you need to always be prospecting, even when your roster is full.
+> **Truth No. 3:** Clients will ghost you. Creators are some of the flakiest people on earth. They'll love your work for three months, then suddenly stop responding. Or they'll ask for a discount because "times are tight." Or they'll take your work and try to replicate your process themselves. You need to be mentally prepared for a 20-30% annual churn rate, and you need to always be prospecting, even when your roster is full.
 
-> **Truth #4:** The market is getting crowded. This article exists, and so do a hundred YouTube videos about this exact business model. The window where you could be the only person offering this in your niche is closing. In 12-18 months, having an AI repurposing service will be table stakes, not a competitive advantage. The time to start is literally now, not "after you do more research."
+> **Truth No. 4:** The market is getting crowded. This article exists, and so do a hundred YouTube videos about this exact business model. The window where you could be the only person offering this in your niche is closing. In 12-18 months, having an AI repurposing service will be table stakes, not a competitive advantage. The time to start is literally now, not "after you do more research."
 
 Still here? Good. If those realities didn't scare you off, you might actually have what it takes. Now let's get into the real meat.
 

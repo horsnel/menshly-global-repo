@@ -141,7 +141,7 @@ Output format for every email:
 ### Procedure 2.6: Configure Canva (Visual Asset Production)
 
 1. Go to [canva.com](https://canva.com) and subscribe to Canva Pro at $13/month (approximately ₦21,000/month).
-2. Create a Brand Kit for each client: upload their logo, set their primary color (#hex), secondary color (#hex), and font pair (one heading font, one body font).
+2. Create a Brand Kit for each client: upload their logo, set their primary color (`#hex`), secondary color (`#hex`), and font pair (one heading font, one body font).
 3. Create three email header templates (1200×400px): promotional, educational, transactional. Save them in a folder named `[Client Name] — Email Assets`.
 
 ### Procedure 2.7: Configure Slack (Client Communication)
@@ -542,7 +542,7 @@ Rules:
 - Rank by predicted open rate (highest first)
 ```
 
-2. For every campaign, generate 10 subject lines. Select the top 3. Use the #1 pick for the send. Save the other two for A/B testing (Module 7).
+2. For every campaign, generate 10 subject lines. Select the top 3. Use the No. 1 pick for the send. Save the other two for A/B testing (Module 7).
 
 ### Procedure 5.4: Set Up the AI Batch Production System
 

@@ -27,25 +27,25 @@ The third reason is that existing translation agencies are slow and expensive. T
 ## The Realistic Picture (Before You Get Excited)
 
 {{% accent-box %}}
-**Truth #1:** AI translations are not perfect. They make subtle errors in tone, cultural nuance, and domain-specific terminology that can embarrass your clients or even create legal liability.
+**Truth No. 1:** AI translations are not perfect. They make subtle errors in tone, cultural nuance, and domain-specific terminology that can embarrass your clients or even create legal liability.
 {{% /accent-box %}}
 
 You need a human review step in your pipeline. Period. Selling raw AI output as "professional translation" is a fast track to bad reviews and lost clients. Budget for human editors who can review and correct the AI output. This cuts your margins but protects your reputation and lets you charge premium rates.
 
 {{% accent-box %}}
-**Truth #2:** The low barrier to entry means competition is coming. If you can do it, so can anyone with a ChatGPT account and a Make.com subscription.
+**Truth No. 2:** The low barrier to entry means competition is coming. If you can do it, so can anyone with a ChatGPT account and a Make.com subscription.
 {{% /accent-box %}}
 
 Your moat is not the technology. It is your workflow, your quality control process, your client relationships, and your domain expertise. Specialize in something, whether it is legal translation, medical device localization, or SaaS app translation. Specialists charge three to five times what generalists charge.
 
 {{% accent-box %}}
-**Truth #3:** Some clients will never trust AI translation, no matter how good it is. You will lose deals to traditional agencies simply because of the perception that human equals better.
+**Truth No. 3:** Some clients will never trust AI translation, no matter how good it is. You will lose deals to traditional agencies simply because of the perception that human equals better.
 {{% /accent-box %}}
 
 Position your service as "AI-accelerated with human review" rather than "AI translation." The framing matters enormously. Clients who reject "AI translation" will often accept "AI-accelerated translation with expert review" at the same price point.
 
 {{% accent-box %}}
-**Truth #4:** Language is messy. Right-to-left languages, character encoding issues, formatting preservation, and context-dependent translations will eat your margins if you are not prepared.
+**Truth No. 4:** Language is messy. Right-to-left languages, character encoding issues, formatting preservation, and context-dependent translations will eat your margins if you are not prepared.
 {{% /accent-box %}}
 
 Arabic, Hebrew, Thai, and other non-Latin script languages require specialized handling. Start with European languages (Spanish, French, German, Italian, Portuguese) where AI models are strongest and formatting is straightforward. Expand to Asian and Middle Eastern markets once your pipeline is battle-tested.

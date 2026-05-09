@@ -30,7 +30,7 @@ The third reason is the regulatory environment demanding consistency and auditab
 **The Realistic Picture (Before You Get Excited)**
 
 {{% accent-box %}}
-**Truth #1:** You’ll spend at least $3,500 in the first month just to get a legal‑grade AI starter kit running.  
+**Truth No. 1:** You’ll spend at least $3,500 in the first month just to get a legal‑grade AI starter kit running.  
 - Host your stack on Hostinger for $4.99/mo.  
 - Build the core in Replit; the IDE is free but you’ll need the paid AI plan at $10/mo for model access.  
 - Hook up Make.com for automating document flows; their “Automation” tier is $99/mo.  
@@ -41,7 +41,7 @@ The ugly truth: you almost always need to keep a developer on standby. A freelan
 {{% /accent-box %}}
 
 {{% accent-box %}}
-**Truth #2:** The first 30 clients pay $3–$5k each, but only 25% stick around past 3 months.  
+**Truth No. 2:** The first 30 clients pay $3–$5k each, but only 25% stick around past 3 months.  
 You’re chasing a cycle where every new client costs you a full month of support, QA, and custom training.  
 The stack looks good: use Apollo.io for prospecting ($49/mo), PhantomBuster for LinkedIn outreach ($79/mo), and Buffer for content distribution ($15/mo).  
 Still, the churn rate is high because law firms hate to switch providers. They’re locked into legacy systems and have stricter audit trails, so your “plug‑and‑play” solution has to be battle‑tested, which takes time and money.  
@@ -49,7 +49,7 @@ Still, the churn rate is high because law firms hate to switch providers. They�
 {{% /accent-box %}}
 
 {{% accent-box %}}
-**Truth #3:** Compliance isn’t optional. Every document you auto‑generate triggers a GDPR, HIPAA, or SEC audit.  
+**Truth No. 3:** Compliance isn’t optional. Every document you auto‑generate triggers a GDPR, HIPAA, or SEC audit.  
 If you use ChatGPT for drafting, you must pass the OpenAI content policy check—fail that, and you’re out of business.  
 You’ll need a legal review team that’s willing to check every output, costing $200–$300 per new document.  
 Your email marketing needs to be on top of it, so you’ll pay for Klaviyo at $30/mo and use Grammarly’s premium ($12/mo) to shave off errors.  
@@ -58,7 +58,7 @@ If you slip on a single clause, that’s a potential lawsuit that can wipe out t
 {{% /accent-box %}}
 
 {{% accent-box %}}
-**Truth #4:** Scaling is a nightmare. Automation tools like Zapier ($19/mo) and Make.com ($99/mo) may look cheap, but the real cost comes from the people who need to monitor them.  
+**Truth No. 4:** Scaling is a nightmare. Automation tools like Zapier ($19/mo) and Make.com ($99/mo) may look cheap, but the real cost comes from the people who need to monitor them.  
 You’ll have to build a small support desk—on-call at $25/hr, plus a Slack channel that’s always monitored.  
 Every new feature you roll out (e.g., adding Vapi for AI voice summaries) costs you an engineering sprint that takes 2–3 weeks.  
 If you bet on Midjourney for custom cover art ($7/mo) and Canva for branding, you’ll still be spending that 5–10% of revenue on marketing until you hit the $30k/month sweet spot.  

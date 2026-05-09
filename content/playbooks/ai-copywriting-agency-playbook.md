@@ -929,7 +929,7 @@ Create a Typeform or Google Form with these questions:
 1. Company name and website URL
 2. Describe your product/service in 2-3 sentences
 3. Who is your ideal customer? (Be specific: age, income, location, pain points)
-4. What is the #1 result your customers get?
+4. What is the No. 1 result your customers get?
 5. List your top 3 competitors (with URLs)
 6. What makes you different from each competitor?
 7. What tone should the copy have? (Pick 3: Bold, Professional, Witty, Empathetic, Urgent, Casual, Authoritative, Friendly)
@@ -1167,7 +1167,7 @@ Document every MBR in the client's Notion folder.
 
 Implement these early warning systems:
 
-1. **Payment delay:** If a client's payment is 3+ days late, send a friendly reminder. If it's 7+ days late, schedule a call. Late payment is the #1 churn signal.
+1. **Payment delay:** If a client's payment is 3+ days late, send a friendly reminder. If it's 7+ days late, schedule a call. Late payment is the No. 1 churn signal.
 2. **Reduced communication:** If a client stops responding to emails or skips an MBR, reach out within 48 hours. Radio silence means they're either too busy (manageable) or losing interest (dangerous).
 3. **Satisfaction score drop:** If the MBR satisfaction score drops below 4, immediately offer a revision sprint — redo the last batch at no extra charge. The cost of rework is always less than the cost of replacing a client.
 4. **Scope creep without revenue:** If a client consistently asks for "just one more thing" without expanding the retainer, have this conversation: "I love that you're getting value from our work. The additional requests are beyond our current scope. I'd recommend upgrading to [next tier]. Here's what that includes..."
@@ -1313,7 +1313,7 @@ Complete SOP list:
 
 Once your operations can handle more clients, turn on acquisition:
 
-1. **LinkedIn content (daily):** Post about AI copywriting, share results (anonymized), and document your process. This is your #1 organic channel. Use Prompt F from Module 3 to generate your own LinkedIn content.
+1. **LinkedIn content (daily):** Post about AI copywriting, share results (anonymized), and document your process. This is your No. 1 organic channel. Use Prompt F from Module 3 to generate your own LinkedIn content.
 2. **Referral program:** Offer existing clients one free deliverable for every referral that signs a retainer. Cost to you: minimal. Value to client: high.
 3. **Cold outreach (weekly):** Use Apollo.io to find 50 prospects per week. Send this email:
 

@@ -228,7 +228,7 @@ Do you see the published form URL? Save it in your Notion Templates page under "
 
 - [ ] Make.com account with 5 connected services (all green)
 - [ ] OpenAI API key with $20+ credit and $50 monthly limit
-- [ ] Slack workspace with #automation-errors, #hot-leads, #new-clients channels
+- [ ] Slack workspace with `#automation-errors`, `#hot-leads`, `#new-clients` channels
 - [ ] Loom account with test video recorded and clear audio
 - [ ] Tally account with a published test form
 - [ ] All tool costs documented in Notion Finance page

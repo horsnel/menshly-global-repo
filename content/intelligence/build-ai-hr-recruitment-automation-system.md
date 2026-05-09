@@ -135,9 +135,9 @@ Source: {{source}}
 4. **Module 3 — Parse JSON:** Convert the OpenAI response into structured variables
 
 5. **Module 4 — Router:**
-   - **Path A (ADVANCE):** Greenhouse → Move to "AI Pre-Screen Passed" + Gmail → Send advancement email + Slack → Notify #candidate-alerts
+   - **Path A (ADVANCE):** Greenhouse → Move to "AI Pre-Screen Passed" + Gmail → Send advancement email + Slack → Notify `#candidate-alerts`
    - **Path B (PHONE_SCREEN):** Greenhouse → Move to "Phone Screen" + Gmail → Send scheduling email with Cal.com link
-   - **Path C (MANUAL_REVIEW):** Greenhouse → Move to "Manual Review" + Google Sheets → Add to Review Queue + Slack → Summary to #candidate-alerts
+   - **Path C (MANUAL_REVIEW):** Greenhouse → Move to "Manual Review" + Google Sheets → Add to Review Queue + Slack → Summary to `#candidate-alerts`
    - **Path D (REJECT):** Greenhouse → Move to "Rejected" + Gmail → Send respectful rejection email
 
 6. **Module 5 — Error Handler:** On any OpenAI failure, add Break (3 retries, 30-second interval) + Slack notification

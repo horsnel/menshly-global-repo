@@ -295,7 +295,7 @@ Create this structure now. Do you see all the folders? This organization prevent
 - [ ] Zapier account with 5 connected services (all green)
 - [ ] OpenAI API key with $20+ credit and $100 monthly limit
 - [ ] Claude API key with $10+ credit (recommended)
-- [ ] Slack workspace with #automation-errors, #reconciliation-alerts, #new-clients channels
+- [ ] Slack workspace with `#automation-errors`, `#reconciliation-alerts`, `#new-clients` channels
 - [ ] Loom account with test video recorded and clear audio
 - [ ] Google Drive folder structure created
 - [ ] All tool costs documented in Notion Finance page

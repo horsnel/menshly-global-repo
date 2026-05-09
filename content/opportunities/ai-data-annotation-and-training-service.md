@@ -27,19 +27,19 @@ I am going to lay out everything: the exact tools, the hacks nobody shares, the 
 ## The Realistic Picture (Before You Get Excited)
 
 {{% accent-box %}}
-**Truth #1:** Recruiting domain experts is the hardest part of this business. You cannot post a job listing on Indeed for "part‑time radiologist annotator" and expect a flood of applications. Domain experts are busy, well‑compensated professionals who need a compelling reason to spend their evenings labeling data. Your pitch must emphasize flexibility (work from anywhere, choose your hours), intellectual stimulation (interesting AI problems, not drudgery), and above‑market pay. Expect to spend 3 to 4 months building your initial annotator pool before you can accept your first large contract.
+**Truth No. 1:** Recruiting domain experts is the hardest part of this business. You cannot post a job listing on Indeed for "part‑time radiologist annotator" and expect a flood of applications. Domain experts are busy, well‑compensated professionals who need a compelling reason to spend their evenings labeling data. Your pitch must emphasize flexibility (work from anywhere, choose your hours), intellectual stimulation (interesting AI problems, not drudgery), and above‑market pay. Expect to spend 3 to 4 months building your initial annotator pool before you can accept your first large contract.
 {{% /accent-box %}}
 
 {{% accent-box %}}
-**Truth #2:** Quality control will consume your life. Annotators make mistakes — lots of them. Inter‑annotator agreement rates in domain‑specific tasks typically range from 70 to 85%, which means 15 to 30% of labels are disputed or incorrect. You need multi‑pass review workflows, statistical quality checks, and escalation protocols. A single bad batch of annotations can cost you a client permanently. Budget 20 to 30% of your project time for quality assurance, not the 5% you will be tempted to allocate.
+**Truth No. 2:** Quality control will consume your life. Annotators make mistakes — lots of them. Inter‑annotator agreement rates in domain‑specific tasks typically range from 70 to 85%, which means 15 to 30% of labels are disputed or incorrect. You need multi‑pass review workflows, statistical quality checks, and escalation protocols. A single bad batch of annotations can cost you a client permanently. Budget 20 to 30% of your project time for quality assurance, not the 5% you will be tempted to allocate.
 {{% /accent-box %}}
 
 {{% accent-box %}}
-**Truth #3:** Client acquisition is slow and relationship‑driven. AI companies do not find data annotation services through Google ads. They find them through referrals, conference networking, and insider connections. Your first client will take 2 to 3 months of relationship building. After that, referrals accelerate, but the initial cold‑start problem is real. You need to be genuinely embedded in the AI community — attend meetups, contribute to open‑source datasets, publish blog posts about annotation methodology — to build credibility.
+**Truth No. 3:** Client acquisition is slow and relationship‑driven. AI companies do not find data annotation services through Google ads. They find them through referrals, conference networking, and insider connections. Your first client will take 2 to 3 months of relationship building. After that, referrals accelerate, but the initial cold‑start problem is real. You need to be genuinely embedded in the AI community — attend meetups, contribute to open‑source datasets, publish blog posts about annotation methodology — to build credibility.
 {{% /accent-box %}}
 
 {{% accent-box %}}
-**Truth #4:** Annotator turnover is a silent killer. Domain experts who annotate data part‑time tend to churn after 3 to 6 months because the work is repetitive, even with AI assistance. You need to constantly recruit new annotators, maintain a bench of backups, and design workflows that keep the work intellectually engaging. A 25% monthly churn rate among your annotator pool is normal — plan for it, not around it.
+**Truth No. 4:** Annotator turnover is a silent killer. Domain experts who annotate data part‑time tend to churn after 3 to 6 months because the work is repetitive, even with AI assistance. You need to constantly recruit new annotators, maintain a bench of backups, and design workflows that keep the work intellectually engaging. A 25% monthly churn rate among your annotator pool is normal — plan for it, not around it.
 {{% /accent-box %}}
 
 ## The Free Stack: Starting With Zero Dollars

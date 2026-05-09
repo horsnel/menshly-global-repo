@@ -460,7 +460,7 @@ Every Monday at 9:00 AM, you will audit enrichment quality. Build this scenario:
   Output: List of record IDs that need re-enrichment, with the specific issue for each.
   ```
 
-**Module 4:** Slack (or Notion) — Send the audit report to your #ops channel
+**Module 4:** Slack (or Notion) — Send the audit report to your `#ops` channel
 
 Fix any flagged records by re-running enrichment manually or adjusting your prompts. Target: fewer than 5% of enriched records flagged in any given week.
 
@@ -1394,7 +1394,7 @@ Record these milestones in your Notion Revenue Tracker:
 | Level 4: Full Agency | ₦10M — ₦25M | 13-25 | 8-10 | + Account Manager + 2 Analysts + Sales Rep |
 | Level 5: Platform Business | ₦25M+ | 25+ | 15+ | + Product Manager (build SaaS) |
 
-You are currently at Level 1. Do not hire until you hit ₦2M MRR. Premature hiring is the #1 killer of service businesses.
+You are currently at Level 1. Do not hire until you hit ₦2M MRR. Premature hiring is the No. 1 killer of service businesses.
 
 ### Procedure 10.2: Hire the Lead Research Analyst
 

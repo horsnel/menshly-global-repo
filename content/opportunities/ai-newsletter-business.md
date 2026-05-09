@@ -30,13 +30,13 @@ Third: the subscription economy trained people to pay for curated information. B
 
 Let me hit you with the ugly truths, because the newsletter game looks glamorous from the outside but requires a specific kind of persistence.
 
-> **Truth #1:** Growing from 0 to 1,000 subscribers is brutally hard. The first thousand is the hardest thousand. You have no social proof, no momentum, and no word-of-mouth. Expect to spend 3-6 months grinding to 1,000 subscribers. Most people quit at 200 subscribers because the growth feels impossibly slow. The people who succeed are the ones who keep publishing when nobody's reading.
+> **Truth No. 1:** Growing from 0 to 1,000 subscribers is brutally hard. The first thousand is the hardest thousand. You have no social proof, no momentum, and no word-of-mouth. Expect to spend 3-6 months grinding to 1,000 subscribers. Most people quit at 200 subscribers because the growth feels impossibly slow. The people who succeed are the ones who keep publishing when nobody's reading.
 
-> **Truth #2:** Open rates are declining across the industry. The average newsletter open rate has dropped from 25% to 18% over the past three years. Apple's Mail Privacy Protection inflated open rate data. Gmail's promotions tab buries commercial newsletters. Your actual readership is lower than your open rate suggests. This matters for advertisers and for your own morale.
+> **Truth No. 2:** Open rates are declining across the industry. The average newsletter open rate has dropped from 25% to 18% over the past three years. Apple's Mail Privacy Protection inflated open rate data. Gmail's promotions tab buries commercial newsletters. Your actual readership is lower than your open rate suggests. This matters for advertisers and for your own morale.
 
-> **Truth #3:** You'll feel like you're shouting into the void for months. Writing a newsletter that 50 people read is demoralizing. Writing one that 500 people read is slightly less demoralizing. The emotional toll of creating content for a small audience is real. You need to believe in the long-term vision or you'll quit before the compounding kicks in.
+> **Truth No. 3:** You'll feel like you're shouting into the void for months. Writing a newsletter that 50 people read is demoralizing. Writing one that 500 people read is slightly less demoralizing. The emotional toll of creating content for a small audience is real. You need to believe in the long-term vision or you'll quit before the compounding kicks in.
 
-> **Truth #4:** Monetization doesn't happen until you hit 5,000+ subscribers. Most advertisers won't touch a list under 5,000. Premium subscriptions need a critical mass of free readers to convert. Affiliate revenue is modest at small scale. Plan to operate at a loss — or at least without meaningful revenue — for the first 4-6 months.
+> **Truth No. 4:** Monetization doesn't happen until you hit 5,000+ subscribers. Most advertisers won't touch a list under 5,000. Premium subscriptions need a critical mass of free readers to convert. Affiliate revenue is modest at small scale. Plan to operate at a loss — or at least without meaningful revenue — for the first 4-6 months.
 
 Still here? Good. The people who survive the early grind are the ones who cash the checks later.
 
@@ -72,7 +72,7 @@ Once you have 2,500+ subscribers and early revenue signals, invest in the tools 
 
 **Feedly Pro — $6/mo** — AI-powered "Leo" research assistant that automatically prioritizes stories based on your interests. Saves 30 minutes per day on curation. Worth every penny.
 
-**SparkLoop — $49/mo** — Newsletter referral and growth tool. Subscribers earn rewards for referring friends. The #1 growth accelerator for newsletters. Expect 20-30% of new subscribers to come from referrals.
+**SparkLoop — $49/mo** — Newsletter referral and growth tool. Subscribers earn rewards for referring friends. The No. 1 growth accelerator for newsletters. Expect 20-30% of new subscribers to come from referrals.
 
 **Beehiiv Ad Network — Revenue share** — Access to premium advertisers who pay $20-50 CPM (cost per thousand subscribers). No upfront cost — Beehiiv takes a cut of ad revenue.
 
@@ -165,8 +165,8 @@ SEO: Publish each newsletter issue as a blog post on your Beehiiv site. Over tim
 
 **Saturday morning:** Pick your niche. Make it specific. Sign up for Beehiiv (free). Set up your newsletter with a clean design, a compelling tagline, and a clear value proposition. Write your first issue using the AI curation pipeline.
 
-**Saturday afternoon:** Set up Google Alerts for 15 keywords in your niche. Add 50 sources to Feedly. Create your content template in Notion. Write issue #2. You now have a 2-issue buffer.
+**Saturday afternoon:** Set up Google Alerts for 15 keywords in your niche. Add 50 sources to Feedly. Create your content template in Notion. Write issue No. 2. You now have a 2-issue buffer.
 
-**Sunday:** Post about your newsletter on Twitter and LinkedIn. "I just launched a newsletter about [niche]. Issue #1 covers [3 interesting topics]. Free to subscribe." Ask 10 friends to subscribe and share. Set a goal of 50 subscribers by end of day. It's modest, but it's a start. The first 50 are the hardest — and the most important.
+**Sunday:** Post about your newsletter on Twitter and LinkedIn. "I just launched a newsletter about [niche]. Issue No. 1 covers [3 interesting topics]. Free to subscribe." Ask 10 friends to subscribe and share. Set a goal of 50 subscribers by end of day. It's modest, but it's a start. The first 50 are the hardest — and the most important.
 
 Publish consistently for 12 weeks. That's the minimum viable experiment. If you can't commit to 12 weekly issues, don't start. If you can, you'll have enough data to know whether this business has legs. The newsletter game rewards the obsessed and the consistent. Be both.

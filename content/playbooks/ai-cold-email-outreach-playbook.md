@@ -265,7 +265,7 @@ Funding: Series A, Series B, Series C (they have money to spend)
 
 **Target list size per campaign: 500–2,000 contacts.** Below 500 means you will exhaust the list too quickly. Above 2,000 means your ICP is too broad and reply rates will suffer.
 
-### Procedure 3.3: Build Saved Search #2 (Professional Services ICP)
+### Procedure 3.3: Build Saved Search No. 2 (Professional Services ICP)
 
 ```
 Location: United States, United Kingdom
@@ -754,7 +754,7 @@ For each campaign, prepare 3 subject line variants. Split your lead list into th
 
 9. Schedule: **Every 60 minutes** during business hours. Follow-ups should arrive at different times than the initial send.
 
-{{% accent-box %}}HACK: Add a "reply detection" module between each follow-up stage. In Instantly, enable webhooks for reply events. In Make.com, add a Webhook module that updates `reply_status` = "replied" when a prospect responds. This prevents you from sending follow-up #2 to someone who already replied to follow-up #1 — the #1 agency embarrassment.{{% /accent-box %}}
+{{% accent-box %}}HACK: Add a "reply detection" module between each follow-up stage. In Instantly, enable webhooks for reply events. In Make.com, add a Webhook module that updates `reply_status` = "replied" when a prospect responds. This prevents you from sending follow-up No. 2 to someone who already replied to follow-up No. 1 — the No. 1 agency embarrassment.{{% /accent-box %}}
 
 ### Procedure 6.4: Configure Sending Throttling and Domain Rotation
 
@@ -1464,7 +1464,7 @@ You have built the complete operating system. 44 procedures executed across 10 m
 3. Send your first campaign on Day 15.
 4. Deliver your first weekly report on Day 21.
 5. Book your first 10 meetings by Day 30.
-6. Use those results to sign Client #2.
+6. Use those results to sign Client No. 2.
 7. Repeat.
 
 The machine is built. Now turn it on.

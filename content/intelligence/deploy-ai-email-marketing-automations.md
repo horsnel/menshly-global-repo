@@ -232,7 +232,7 @@ In Mailchimp, click **Automations** → **Create** → **Welcome new subscribers
 - CTA: Download the lead magnet
 
 **Email 2 — 24 hours after Email 1**
-- Subject: "The #1 mistake most [AUDIENCE] make with [TOPIC]"
+- Subject: "The No. 1 mistake most [AUDIENCE] make with [TOPIC]"
 - Body: Share one common mistake and how to avoid it. Position your business as the antidote.
 - CTA: Read the full guide / Watch the tutorial
 

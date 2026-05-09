@@ -25,19 +25,19 @@ I have spent the last year building and scaling an AI contract writing service, 
 ## The Realistic Picture (Before You Get Excited)
 
 {{% accent-box %}}
-**Truth #1:** You will be front‑loading a lot of work. Setting up templates, fine‑tuning prompts, building a brand, and creating your first ten sample contracts will cost you $2,000 to $3,000 in time and tool subscriptions during the first month. You are building a product, not just selling a service, and products require upfront investment before they generate revenue.
+**Truth No. 1:** You will be front‑loading a lot of work. Setting up templates, fine‑tuning prompts, building a brand, and creating your first ten sample contracts will cost you $2,000 to $3,000 in time and tool subscriptions during the first month. You are building a product, not just selling a service, and products require upfront investment before they generate revenue.
 {{% /accent-box %}}
 
 {{% accent-box %}}
-**Truth #2:** Your margin starts at 20 to 30% if you charge $300 per contract. You will need 30 contracts a month to hit $9K in revenue. At $500 per contract, you need 18. The math works, but only if your pipeline is consistently full. Feast‑and‑famine revenue cycles are the number one reason contract services fail — you need systems that generate a steady stream of inbound leads.
+**Truth No. 2:** Your margin starts at 20 to 30% if you charge $300 per contract. You will need 30 contracts a month to hit $9K in revenue. At $500 per contract, you need 18. The math works, but only if your pipeline is consistently full. Feast‑and‑famine revenue cycles are the number one reason contract services fail — you need systems that generate a steady stream of inbound leads.
 {{% /accent-box %}}
 
 {{% accent-box %}}
-**Truth #3:** The legal industry is litigious and protective of its turf. If a client files a complaint about a contract you generated, you are liable. You will need a solid disclaimer on every document, a terms of service that clearly states you are not providing legal advice, and possibly a lawyer to review every tenth contract as a quality control measure. Budget $500 to $1,000 per month for legal review and liability insurance.
+**Truth No. 3:** The legal industry is litigious and protective of its turf. If a client files a complaint about a contract you generated, you are liable. You will need a solid disclaimer on every document, a terms of service that clearly states you are not providing legal advice, and possibly a lawyer to review every tenth contract as a quality control measure. Budget $500 to $1,000 per month for legal review and liability insurance.
 {{% /accent-box %}}
 
 {{% accent-box %}}
-**Truth #4:** You will lose clients if you cannot scale. A single contract takes 15 to 20 minutes to polish after the AI generates the first draft. If you are not automating the review and formatting steps, you cannot grow past $10K per month because your time becomes the bottleneck. The operators who scale successfully are the ones who invest in automation early, even before the revenue justifies it.
+**Truth No. 4:** You will lose clients if you cannot scale. A single contract takes 15 to 20 minutes to polish after the AI generates the first draft. If you are not automating the review and formatting steps, you cannot grow past $10K per month because your time becomes the bottleneck. The operators who scale successfully are the ones who invest in automation early, even before the revenue justifies it.
 {{% /accent-box %}}
 
 ## The Free Stack: Starting With Zero Dollars
@@ -179,15 +179,15 @@ Use Semrush to identify keywords like "AI contract generator," "fast NDA service
 
 ## Common Mistakes That Kill New Operators
 
-**Mistake #1: Skipping the human review step.** Sending AI‑generated contracts without review is a liability minefield. Even the best LLMs occasionally hallucinate clause numbers, reference non‑existent sections, or use inconsistent terminology. A single bad contract can destroy your reputation and expose you to legal liability. Always review, even if it adds ten minutes per document.
+**Mistake No. 1: Skipping the human review step.** Sending AI‑generated contracts without review is a liability minefield. Even the best LLMs occasionally hallucinate clause numbers, reference non‑existent sections, or use inconsistent terminology. A single bad contract can destroy your reputation and expose you to legal liability. Always review, even if it adds ten minutes per document.
 
-**Mistake #2: Competing on price alone.** If you charge $50 per contract, you attract clients who treat contracts as commodities and will leave for a cheaper provider tomorrow. Price at $300+ and sell on speed, quality, and the professional presentation that justifies the premium. Your clients are not buying words on a page — they are buying confidence that their business interests are protected.
+**Mistake No. 2: Competing on price alone.** If you charge $50 per contract, you attract clients who treat contracts as commodities and will leave for a cheaper provider tomorrow. Price at $300+ and sell on speed, quality, and the professional presentation that justifies the premium. Your clients are not buying words on a page — they are buying confidence that their business interests are protected.
 
-**Mistake #3: Ignoring compliance and disclaimers.** Every contract you deliver must include a clear disclaimer stating that you are not providing legal advice and that the client should consult a licensed attorney for legal questions. This is not optional — it is the difference between a legitimate business and a lawsuit waiting to happen.
+**Mistake No. 3: Ignoring compliance and disclaimers.** Every contract you deliver must include a clear disclaimer stating that you are not providing legal advice and that the client should consult a licensed attorney for legal questions. This is not optional — it is the difference between a legitimate business and a lawsuit waiting to happen.
 
-**Mistake #4: Not building a template library.** The first time you generate an NDA, you spend 30 minutes on the prompt. The fiftieth time, you should spend 30 seconds. Build a library of battle‑tested prompts for each contract type, and refine them after every client engagement. Your template library is your most valuable asset — it is what lets you scale from 10 contracts a month to 100.
+**Mistake No. 4: Not building a template library.** The first time you generate an NDA, you spend 30 minutes on the prompt. The fiftieth time, you should spend 30 seconds. Build a library of battle‑tested prompts for each contract type, and refine them after every client engagement. Your template library is your most valuable asset — it is what lets you scale from 10 contracts a month to 100.
 
-**Mistake #5: Failing to upsell.** A client who buys an NDA today needs a services agreement tomorrow, a privacy policy next week, and an employment contract next month. If you are not systematically upselling related documents, you are leaving 60% of your potential revenue on the table.
+**Mistake No. 5: Failing to upsell.** A client who buys an NDA today needs a services agreement tomorrow, a privacy policy next week, and an employment contract next month. If you are not systematically upselling related documents, you are leaving 60% of your potential revenue on the table.
 
 ## The 12‑Month Revenue Roadmap
 

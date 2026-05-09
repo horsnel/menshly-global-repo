@@ -762,7 +762,7 @@ Do you have all tasks for Days 1–15 logged in your Notion workspace? Create a 
 | Discovery Calls Booked | 5 | 10 | +5 |
 | Conversion Rate | {rate}% | 30% | Optimize |
 
-4. Identify your **#1 bottleneck** from Month 1:
+4. Identify your **No. 1 bottleneck** from Month 1:
    - If leads < 10 → invest more time in Apollo.io outreach
    - If calls < 5 → improve your landing page and email copy
    - If conversions < 20% → improve your discovery call script

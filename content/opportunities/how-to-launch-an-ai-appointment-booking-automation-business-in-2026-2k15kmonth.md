@@ -28,19 +28,19 @@ The confluence of cheap, high‑quality AI voice technology, surging market dema
 ## The Realistic Picture (Before You Get Excited)
 
 {{% accent-box %}}
-**Truth #1: It's not all sunshine.** You will pay $499 a month for a robust hosting plan and API fees of roughly $0.02 per booking. The margin is real only after you hit 200 bookings a month per client, or about 6.6 bookings per day. Below that threshold, you are essentially subsidizing each client's automation out of your own pocket while you wait for their call volume to ramp up. The first three months are a cash‑flow test.
+**Truth No. 1: It's not all sunshine.** You will pay $499 a month for a robust hosting plan and API fees of roughly $0.02 per booking. The margin is real only after you hit 200 bookings a month per client, or about 6.6 bookings per day. Below that threshold, you are essentially subsidizing each client's automation out of your own pocket while you wait for their call volume to ramp up. The first three months are a cash‑flow test.
 {{% /accent-box %}}
 
 {{% accent-box %}}
-**Truth #2: Lead generation is the hard part.** Ninety percent of your clients will come from cold outreach — LinkedIn DMs, email sequences, and in‑person networking — not organic traffic. Your funnel must be rock‑solid or the entire business collapses before it starts. You can have the best AI booking system in the world, but if you cannot get it in front of decision‑makers who are actively frustrated with their current scheduling chaos, you will not make a single sale.
+**Truth No. 2: Lead generation is the hard part.** Ninety percent of your clients will come from cold outreach — LinkedIn DMs, email sequences, and in‑person networking — not organic traffic. Your funnel must be rock‑solid or the entire business collapses before it starts. You can have the best AI booking system in the world, but if you cannot get it in front of decision‑makers who are actively frustrated with their current scheduling chaos, you will not make a single sale.
 {{% /accent-box %}}
 
 {{% accent-box %}}
-**Truth #3: Data is your lifeline.** A single bot that fails to log a booking into your client's CRM can cost you that customer forever. Automated data sync with ActiveCampaign, HubSpot, or Klaviyo is non‑optional — it is the difference between a client who renews and one who churns in month two because their front desk still has to manually enter appointments. Every integration point is a potential failure mode, and you need monitoring and alerting from day one.
+**Truth No. 3: Data is your lifeline.** A single bot that fails to log a booking into your client's CRM can cost you that customer forever. Automated data sync with ActiveCampaign, HubSpot, or Klaviyo is non‑optional — it is the difference between a client who renews and one who churns in month two because their front desk still has to manually enter appointments. Every integration point is a potential failure mode, and you need monitoring and alerting from day one.
 {{% /accent-box %}}
 
 {{% accent-box %}}
-**Truth #4: Scaling is a slow burn.** Going from $2K to $15K a month takes twelve months of consistent effort and reinvestment. Expect a five‑month ramp‑up where you are building the product, closing your first three to five clients, and refining your onboarding playbook. Then expect a fifteen‑month plateau where growth depends on referrals, upsells, and expanding into adjacent verticals. The operators who make it through the plateau are the ones who treat this as a real business, not a side hustle.
+**Truth No. 4: Scaling is a slow burn.** Going from $2K to $15K a month takes twelve months of consistent effort and reinvestment. Expect a five‑month ramp‑up where you are building the product, closing your first three to five clients, and refining your onboarding playbook. Then expect a fifteen‑month plateau where growth depends on referrals, upsells, and expanding into adjacent verticals. The operators who make it through the plateau are the ones who treat this as a real business, not a side hustle.
 {{% /accent-box %}}
 
 ## The Free Stack: Starting With Zero Dollars
@@ -168,15 +168,15 @@ Use your own AI booking agent as a demo while cold‑calling prospects. When the
 
 ## Common Mistakes That Kill New Operators
 
-**Mistake #1: Trying to serve every industry.** You cannot be an expert in dental scheduling, real estate viewings, legal consultations, and medical spa bookings simultaneously. Each vertical has unique terminology, compliance requirements, and workflow patterns. Pick one and go deep.
+**Mistake No. 1: Trying to serve every industry.** You cannot be an expert in dental scheduling, real estate viewings, legal consultations, and medical spa bookings simultaneously. Each vertical has unique terminology, compliance requirements, and workflow patterns. Pick one and go deep.
 
-**Mistake #2: Underpricing to win deals.** Charging $99/month signals low value and attracts price‑sensitive clients who churn at the first budget cut. Price at $299+ and deliver enough ROI to make cancellation financially irrational.
+**Mistake No. 2: Underpricing to win deals.** Charging $99/month signals low value and attracts price‑sensitive clients who churn at the first budget cut. Price at $299+ and deliver enough ROI to make cancellation financially irrational.
 
-**Mistake #3: Ignoring no‑show reduction.** The single most valuable feature of an AI booking agent is automated reminders and rescheduling. If you focus only on booking new appointments and neglect the no‑show problem, your clients will not see the ROI they need to justify the monthly fee.
+**Mistake No. 3: Ignoring no‑show reduction.** The single most valuable feature of an AI booking agent is automated reminders and rescheduling. If you focus only on booking new appointments and neglect the no‑show problem, your clients will not see the ROI they need to justify the monthly fee.
 
-**Mistake #4: Skipping the demo.** Prospects need to see the product in action. Written proposals and feature lists do not convert. Live demos and recorded walkthroughs do. Invest time in making your demo flawless and specific to each prospect's vertical.
+**Mistake No. 4: Skipping the demo.** Prospects need to see the product in action. Written proposals and feature lists do not convert. Live demos and recorded walkthroughs do. Invest time in making your demo flawless and specific to each prospect's vertical.
 
-**Mistake #5: Not tracking metrics.** If you cannot tell a client exactly how many bookings your AI agent handled this week, what the no‑show rate was, and how much revenue those bookings represent, you are flying blind. Build a simple reporting dashboard from day one, even if it is just a Google Sheet with weekly numbers.
+**Mistake No. 5: Not tracking metrics.** If you cannot tell a client exactly how many bookings your AI agent handled this week, what the no‑show rate was, and how much revenue those bookings represent, you are flying blind. Build a simple reporting dashboard from day one, even if it is just a Google Sheet with weekly numbers.
 
 ## The 12‑Month Revenue Roadmap
 

@@ -40,15 +40,15 @@ Open your browser and go to midjourney.com. Click **Join the Beta**. You will be
 
 Do you see the Midjourney server? If you see only your own username and no servers, the invite did not process. Go back to midjourney.com, click **Join the Beta** again, and accept the Discord invite when prompted.
 
-Click on the Midjourney server. You should see a list of channels on the left sidebar. Find any channel named "newbies" followed by a number (e.g., #newbies-42). Click it. This is where you will generate your first images.
+Click on the Midjourney server. You should see a list of channels on the left sidebar. Find any channel named "newbies" followed by a number (e.g., `#newbies-42`). Click it. This is where you will generate your first images.
 
 #### Subscribe to a Paid Plan
 
-Midjourney no longer offers free generations. You need a paid plan. In the #newbies channel, type `/subscribe` and press Enter. A link will appear. Click it. You will be taken to the Midjourney pricing page.
+Midjourney no longer offers free generations. You need a paid plan. In the `#newbies` channel, type `/subscribe` and press Enter. A link will appear. Click it. You will be taken to the Midjourney pricing page.
 
 Select the **Basic Plan** at $10/mo. This gives you approximately 200 fast generations per month. Enter your payment details. Confirm.
 
-After subscribing, go back to Discord. Type `/imagine` in the #newbies channel. A prompt box should appear. If you see "You need an active subscription to use this bot," your payment has not processed. Wait 5 minutes and try again. If it still fails, check your billing page at midjourney.com/account.
+After subscribing, go back to Discord. Type `/imagine` in the `#newbies` channel. A prompt box should appear. If you see "You need an active subscription to use this bot," your payment has not processed. Wait 5 minutes and try again. If it still fails, check your billing page at midjourney.com/account.
 
 #### Generate Your First Image
 

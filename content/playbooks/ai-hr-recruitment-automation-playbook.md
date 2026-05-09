@@ -255,7 +255,7 @@ Do you see all the channels in your Slack sidebar? The `#automation-errors` chan
 - [ ] Claude API key with $10+ credit (recommended)
 - [ ] LinkedIn Recruiter Lite or free LinkedIn search configured
 - [ ] Apollo.io account with free plan active
-- [ ] Slack workspace with #automation-errors, #candidate-alerts, #new-clients channels
+- [ ] Slack workspace with `#automation-errors`, `#candidate-alerts`, `#new-clients` channels
 - [ ] All tool costs documented in Notion Finance page
 
 8 checkmarks required to proceed. Do you have all 8?

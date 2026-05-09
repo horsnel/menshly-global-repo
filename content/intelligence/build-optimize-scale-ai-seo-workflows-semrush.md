@@ -530,7 +530,7 @@ Role: Second-pass content review, technical SEO fixes, Semrush configuration man
 
 **Hire 3: Content Editor (Month 8-10)**
 Cost: $20-30/hr, 20 hrs/week = $1,600-2,400/mo
-Role: Polishes AI-generated content before delivery. Ensures brand voice, fixes factual errors, adds human quality. This role exists because the #1 reason clients churn is content that reads like AI wrote it.
+Role: Polishes AI-generated content before delivery. Ensures brand voice, fixes factual errors, adds human quality. This role exists because the No. 1 reason clients churn is content that reads like AI wrote it.
 
 ### Margin Analysis at Scale
 

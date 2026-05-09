@@ -476,7 +476,7 @@ Prompt chaining breaks complex tasks into a sequence of prompts, where each prom
 
 **Example chain for writing a blog post:**
 1. Prompt 1: "Generate 10 blog post titles about [TOPIC] targeting [KEYWORD]. For each, rate the SEO potential (1-10) and explain why."
-2. Prompt 2: "Take title #3 and create a detailed content brief: H2 headings, key points to cover in each section, target word count per section, and internal linking suggestions."
+2. Prompt 2: "Take title No. 3 and create a detailed content brief: H2 headings, key points to cover in each section, target word count per section, and internal linking suggestions."
 3. Prompt 3: "Using this content brief, write the full article. Follow the brief exactly."
 4. Prompt 4: "Review this article for: factual accuracy, logical flow, SEO optimization, and readability. Suggest specific improvements."
 

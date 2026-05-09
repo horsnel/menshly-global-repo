@@ -98,7 +98,7 @@ Create a Google Sheet called "Course Topic Validation." Build a scoring matrix:
 
 Score each topic 1-5 on each criterion. Add them up. The topic with the highest total wins. If two topics are tied, pick the one where you have deeper knowledge. Knowledge gaps can be filled with research. Audience gaps cannot be filled at all.
 
-Write your chosen topic down. This is your course topic. Do not change it. Second-guessing your topic is the #1 reason courses never get finished.
+Write your chosen topic down. This is your course topic. Do not change it. Second-guessing your topic is the No. 1 reason courses never get finished.
 
 ### Interactive Check-in
 
@@ -351,7 +351,7 @@ Before recording your first lesson:
 1. **Close every application** on your computer except OBS, your slide presentation, and your lesson script. Browser tabs, notifications, and Discord popups destroy professionalism.
 2. **Turn on Do Not Disturb** on your operating system (macOS: Control Center → Focus → Do Not Disturb; Windows: Settings → System → Focus Assist → Alarms Only).
 3. **Position a light source** in front of you, not behind you. A desk lamp pointed at your face from 45 degrees above eliminates shadows. A window behind you turns you into a silhouette.
-4. **Record in a quiet room.** Close the door. Turn off the air conditioner during recording. Put your phone on silent. Background noise is the #1 reason students abandon video courses.
+4. **Record in a quiet room.** Close the door. Turn off the air conditioner during recording. Put your phone on silent. Background noise is the No. 1 reason students abandon video courses.
 5. **Position your microphone** 6-8 inches from your mouth. If using a built-in laptop mic, lean in slightly. If using a USB mic (even a $30 one like the Fifine K669B), position it on a stand at mouth level.
 
 ### 4.3 Record a Test Video
@@ -671,7 +671,7 @@ Build this in ConvertKit as a second automation:
 
 1. **Trigger:** Subscriber completes the mini-course sequence (tag `mini-course-completed` added).
 2. **Email 1 (Day 6 after mini-course):** "Here's what the full course covers" — link to sales page.
-3. **Email 2 (Day 9):** "The #1 question students ask before joining" — address the biggest objection.
+3. **Email 2 (Day 9):** "The No. 1 question students ask before joining" — address the biggest objection.
 4. **Email 3 (Day 12):** Case study or testimonial — one specific result.
 5. **Email 4 (Day 14):** "Your [TOPIC] roadmap" — a visual showing the path from where they are to where they want to be, with your course as the vehicle.
 6. **Email 5 (Day 16):** Soft close — "If you've been thinking about it, now is a good time."
