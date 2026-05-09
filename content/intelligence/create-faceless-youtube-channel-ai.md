@@ -11,20 +11,20 @@ relatedOpportunity: "/opportunities/ai-faceless-video-factory/"
 relatedPlaybook: "/playbooks/ai-side-hustle-blueprint/"
 ---
 
-A faceless YouTube channel eliminates the biggest barrier to content creation: you. No camera. No on-camera presence. No studio. Every element — script, voiceover, visuals, editing, and upload — can be produced with AI tools. This guide covers the full pipeline from niche selection to monetization. Follow it in order. Do not skip steps.
+A faceless {{< platform name="youtube" text="YouTube" >}} channel eliminates the biggest barrier to content creation: you. No camera. No on-camera presence. No studio. Every element — script, voiceover, visuals, editing, and upload — can be produced with AI tools. This guide covers the full pipeline from niche selection to monetization. Follow it in order. Do not skip steps.
 
 ## Prerequisites
 
 Before you start, you need the following:
 
 - A laptop with a modern browser (Chrome or Firefox)
-- A ChatGPT Plus or Claude Pro account ($20/mo) — for script generation and ideation
-- An ElevenLabs account (free tier gives 10,000 characters/mo) — go to elevenlabs.io and sign up
-- A Midjourney subscription ($10/mo Basic) OR a DALL-E-enabled ChatGPT Plus account — for visual creation
-- A Canva account (free tier works) — go to canva.com and sign up
+- A {{< platform name="chatgpt" text="ChatGPT" >}} Plus or Claude Pro account ($20/mo) — for script generation and ideation
+- An {{< platform name="elevenlabs" text="ElevenLabs" >}} account (free tier gives 10,000 characters/mo) — go to elevenlabs.io and sign up
+- A {{< platform name="midjourney" text="Midjourney" >}} subscription ($10/mo Basic) OR a DALL-E-enabled ChatGPT Plus account — for visual creation
+- A {{< platform name="canva" text="Canva" >}} account (free tier works) — go to canva.com and sign up
 - CapCut desktop (free) or Descript (free tier) — for video editing
 - A YouTube account with a new channel — go to youtube.com, sign in, click your profile, then "Create a channel"
-- A Make.com account (free tier gives 1,000 operations/mo) — go to make.com and sign up
+- A {{< platform name="make" text="Make" >}} account (free tier gives 1,000 operations/mo) — go to make.com and sign up
 - 6-8 hours of uninterrupted time for your first full production cycle
 
 Total upfront cost: $30-50 for the first month depending on your tool choices. Everything else has a free tier that works until you are ready to scale.
@@ -82,7 +82,7 @@ You will now build the four-stage production pipeline: script → voiceover → 
 
 ### Script Generation with ChatGPT or Claude
 
-Open ChatGPT or Claude. Use this prompt template for every video script:
+Open ChatGPT or {{< platform name="claude" text="Claude" >}} Use this prompt template for every video script:
 
 ```
 You are a YouTube scriptwriter specializing in [NICHE]. Write a [LENGTH]-minute video script on the topic: "[TOPIC]".
@@ -206,7 +206,7 @@ Manual production works for 1-2 videos per week. To scale to 5-7 videos per week
 
 Open Make.com and click **Create a new scenario**. You will build the following pipeline:
 
-**Module 1: Trigger — Google Sheets (Watch Rows)**
+**Module 1: Trigger — {{< platform name="google" text="Google" >}} Sheets (Watch Rows)**
 
 Create a Google Sheet called "YouTube Content Pipeline" with these columns: Topic | Status | Script | Audio URL | Thumbnail URL | Video URL | YouTube URL
 
@@ -214,7 +214,7 @@ Add a row with a test topic, e.g., "How Compound Interest Actually Works." In Ma
 
 **Expected output:** The module triggers whenever a new row has "IDEA" in the Status column.
 
-**Module 2: Script Generation — OpenAI (Create a Chat Completion)**
+**Module 2: Script Generation — {{< platform name="openai" text="OpenAI" >}} (Create a Chat Completion)**
 
 Add an **OpenAI — Create a Chat Completion** module. Connect your OpenAI API key. Configure:
 
@@ -438,7 +438,7 @@ These are US/UK/Canada CPMs. Global CPMs average 40-60% lower. Optimize your con
 You do not need 1,000 subscribers to earn affiliate revenue. Start on day one.
 
 1. **Amazon Associates** — Sign up at affiliate-program.amazon.com. Link to books, tools, or products mentioned in your videos. Commission: 1-10% depending on category.
-2. **Software affiliates** — For tech and business channels, promote SaaS tools (e.g., Notion, Canva, trading platforms). These pay 15-30% recurring commissions. Sign up through the company's affiliate page or use Impact.com or PartnerStack.
+2. **Software affiliates** — For tech and business channels, promote SaaS tools (e.g., {{< platform name="notion" text="Notion" >}}, Canva, trading platforms). These pay 15-30% recurring commissions. Sign up through the company's affiliate page or use Impact.com or PartnerStack.
 3. **Financial product affiliates** — For finance channels, promote credit cards, brokerage accounts, or budgeting apps. These pay $50-200 per sign-up. Use Commission Junction or direct affiliate programs.
 
 Place affiliate links in the top 3 lines of your description (above the fold) and mention them verbally once mid-video: "I've linked the tools I mentioned in the description below."

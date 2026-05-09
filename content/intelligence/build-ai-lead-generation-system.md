@@ -11,7 +11,7 @@ relatedOpportunity: "/opportunities/ai-lead-generation-machine/"
 relatedPlaybook: "/playbooks/ai-lead-generation-playbook/"
 ---
 
-Lead generation is the lifeblood of every business. Most businesses do it manually — searching LinkedIn, copying emails into spreadsheets, writing generic outreach messages, and hoping something sticks. That process is slow, inconsistent, and does not scale. An AI-powered lead generation system fixes every one of those problems. It finds prospects, enriches their data, scores them, writes personalized outreach, and routes the best leads to your sales team — all without human intervention.
+Lead generation is the lifeblood of every business. Most businesses do it manually — searching {{< platform name="linkedin" text="LinkedIn" >}}, copying emails into spreadsheets, writing generic outreach messages, and hoping something sticks. That process is slow, inconsistent, and does not scale. An AI-powered lead generation system fixes every one of those problems. It finds prospects, enriches their data, scores them, writes personalized outreach, and routes the best leads to your sales team — all without human intervention.
 
 This guide builds the complete system from zero. Follow every step in order. Each step depends on the previous one. If you skip ahead, your data will not flow correctly and troubleshooting will take longer than building it right the first time.
 
@@ -19,11 +19,11 @@ This guide builds the complete system from zero. Follow every step in order. Eac
 
 Before you start, gather these accounts and tools:
 
-- A Make.com account — go to make.com and sign up for the Free plan (1,000 operations/mo)
-- An OpenAI API key with $10 credit — go to platform.openai.com/api-keys
-- An Apollo.io account (free tier) — go to apollo.io and sign up, or a Hunter.io account (free tier) — go to hunter.io
-- A Google account (for Google Sheets and Gmail modules)
-- A Slack account with a workspace where you have admin or app-install permissions
+- A {{< platform name="make" text="Make" >}} account — go to make.com and sign up for the Free plan (1,000 operations/mo)
+- An {{< platform name="openai" text="OpenAI" >}} API key with $10 credit — go to platform.openai.com/api-keys
+- An {{< platform name="apollo" text="Apollo" >}}.io account (free tier) — go to apollo.io and sign up, or a Hunter.io account (free tier) — go to hunter.io
+- A {{< platform name="google" text="Google" >}} account (for Google Sheets and Gmail modules)
+- A {{< platform name="slack" text="Slack" >}} account with a workspace where you have admin or app-install permissions
 - A LinkedIn Sales Navigator account (free trial works for setup)
 - A test email address you control (separate from your personal email)
 - 6-8 hours of uninterrupted time for your first full build
@@ -355,7 +355,7 @@ On this path, add a **Google Sheets — Update a Row** module that sets the Stat
 
 ### CRM Integration for Warm Leads
 
-If your client uses a CRM (HubSpot, Pipedrive, Salesforce), add the integration on the warm lead path. For HubSpot:
+If your client uses a CRM ({{< platform name="hubspot" text="HubSpot" >}}, Pipedrive, Salesforce), add the integration on the warm lead path. For HubSpot:
 
 1. Add a **HubSpot — Create a Contact** module on Path 2
 2. Map the lead's first name, last name, email, company, and title
@@ -405,7 +405,7 @@ A lead generation system that runs without monitoring will degrade. Email delive
 
 ### Dashboard Setup in Google Sheets or Notion
 
-Create a new Google Sheet called "Lead Gen Dashboard" or a Notion database. Track these metrics weekly:
+Create a new Google Sheet called "Lead Gen Dashboard" or a {{< platform name="notion" text="Notion" >}} database. Track these metrics weekly:
 
 | Metric | How to Measure | Target |
 |--------|---------------|--------|

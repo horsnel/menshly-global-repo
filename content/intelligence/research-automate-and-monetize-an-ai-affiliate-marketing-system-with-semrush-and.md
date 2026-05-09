@@ -11,7 +11,7 @@ relatedOpportunity: "/opportunities/ai-affiliate-marketing-business/"
 relatedPlaybook: "/playbooks/24-procedures-12-modules-12-hours-of-reading-and-execution/"
 ---
 
-This is the execution guide for building the **AI Affiliate Marketing** business we outlined in our opportunity deep‑dive. Follow the steps below and you will have a fully automated content research, creation, and monetization pipeline that generates affiliate revenue around the clock. This system uses Semrush for keyword intelligence, Make.com for workflow automation, and AI for content generation — all connected into a self‑reinforcing loop that compounds over time.
+This is the execution guide for building the **AI Affiliate Marketing** business we outlined in our opportunity deep‑dive. Follow the steps below and you will have a fully automated content research, creation, and monetization pipeline that generates affiliate revenue around the clock. This system uses Semrush for keyword intelligence, {{< platform name="make" text="Make" >}} for workflow automation, and AI for content generation — all connected into a self‑reinforcing loop that compounds over time.
 
 Ready to understand the full business opportunity? Read our [opportunity deep‑dive](/opportunities/ai-affiliate-marketing-business/).
 
@@ -65,7 +65,7 @@ Create accounts for each tool in the prerequisites table. Use a consistent email
 
 ### 1.2 Capture API Keys
 
-Every tool in this pipeline exposes an API that Make.com or your Replit app will call programmatically. Generate and store these keys now:
+Every tool in this pipeline exposes an API that Make.com or your {{< platform name="replit" text="Replit" >}} app will call programmatically. Generate and store these keys now:
 
 | Tool | Where to Find the API Key | How to Copy |
 |------|---------------------------|-------------|
@@ -135,7 +135,7 @@ npm install axios dotenv nodemon openai
 - **axios** — HTTP client for all API calls throughout the pipeline
 - **dotenv** — Load environment variables from the `.env` file
 - **nodemon** — Auto‑restart the server during development
-- **openai** — Official OpenAI SDK for content generation
+- **openai** — Official {{< platform name="openai" text="OpenAI" >}} SDK for content generation
 
 Add start scripts to `package.json`:
 
@@ -152,7 +152,7 @@ Add start scripts to `package.json`:
 
 ## Step 2: Build the Keyword Discovery Pipeline
 
-The heart of an AI affiliate marketing system is the keyword discovery pipeline. This module fetches keyword ideas from Semrush, enriches them with traffic and competition metrics, and prioritizes them by affiliate potential. A well‑configured keyword pipeline is the difference between writing content that ranks and writing content that disappears into the void.
+The heart of an AI affiliate marketing system is the keyword discovery pipeline. This module fetches keyword ideas from {{< platform name="semrush" text="Semrush" >}}, enriches them with traffic and competition metrics, and prioritizes them by affiliate potential. A well‑configured keyword pipeline is the difference between writing content that ranks and writing content that disappears into the void.
 
 ### 2.1 Semrush Keyword Extraction
 
@@ -359,8 +359,8 @@ This scenario runs every Monday at 6 AM, fetches new keyword opportunities from 
 2. **Module 1:** HTTP request to your Replit app's `/api/keywords/fetch` endpoint
 3. **Module 2:** JSON Parser to extract the top 10 keywords
 4. **Module 3:** Iterator to loop through each keyword
-5. **Module 4:** Notion — Create a new page in the "Content Queue" database for each keyword, including the search volume, CPC, competition score, and affiliate potential score
-6. **Module 5:** Slack or Email — Send yourself a weekly summary of the top 10 opportunities
+5. **Module 4:** {{< platform name="notion" text="Notion" >}} — Create a new page in the "Content Queue" database for each keyword, including the search volume, CPC, competition score, and affiliate potential score
+6. **Module 5:** {{< platform name="slack" text="Slack" >}} or Email — Send yourself a weekly summary of the top 10 opportunities
 
 ### 4.2 Scenario 2: Content Generation Pipeline
 
@@ -377,9 +377,9 @@ This scenario monitors the Notion "Content Queue" database and generates article
 After you review and approve a draft, this scenario publishes it to your Hostinger site and distributes it across channels.
 
 1. **Trigger:** Notion — Watch for pages with status "Approved"
-2. **Module 1:** HTTP request to Hostinger to create a new blog post via the WordPress REST API (if using WordPress) or Hugo content file (if using Hugo)
-3. **Module 2:** Canva — Generate a featured image using the keyword as a prompt
-4. **Module 3:** Fliki AI — Convert the article into a 60‑second video summary for YouTube Shorts and social media
+2. **Module 1:** HTTP request to Hostinger to create a new blog post via the {{< platform name="wordpress" text="WordPress" >}} REST API (if using WordPress) or Hugo content file (if using Hugo)
+3. **Module 2:** {{< platform name="canva" text="Canva" >}} — Generate a featured image using the keyword as a prompt
+4. **Module 3:** Fliki AI — Convert the article into a 60‑second video summary for {{< platform name="youtube" text="YouTube" >}} Shorts and social media
 5. **Module 4:** ActiveCampaign — Add the published article to your newsletter queue
 6. **Module 5:** Notion — Update the page status to "Published" and record the publication date and URL
 
@@ -435,7 +435,7 @@ title = "Your Niche Reviews"
 2. Upload the `public/` directory to your Hostinger server via SFTP or the Hostinger File Manager
 3. Configure your domain's DNS to point to the Hostinger server
 4. Enable SSL via Hostinger's one‑click Let's Encrypt integration
-5. Submit your sitemap to Google Search Console: `https://your-affiliate-site.com/sitemap.xml`
+5. Submit your sitemap to {{< platform name="google" text="Google" >}} Search Console: `https://your-affiliate-site.com/sitemap.xml`
 
 ---
 
@@ -468,7 +468,7 @@ After the welcome sequence, subscribers enter a weekly newsletter that delivers:
 
 ### 7.1 Automate Video Creation
 
-For each published article, automatically generate a 60‑second video summary using Fliki AI:
+For each published article, automatically generate a 60‑second video summary using {{< platform name="fliki" text="Fliki" >}} AI:
 
 ```javascript
 // src/fliki.js

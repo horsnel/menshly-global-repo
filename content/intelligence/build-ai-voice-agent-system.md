@@ -18,13 +18,13 @@ Voice agents are not chatbots with a microphone. They are real-time, full-duplex
 Before you start, you need the following:
 
 - A laptop with a modern browser (Chrome or Firefox)
-- A Vapi account — go to vapi.ai and sign up for the free tier
-- An OpenAI API key with at least $20 credit — go to platform.openai.com/api-keys
-- An ElevenLabs account for voice synthesis — go to elevenlabs.io and sign up (free tier includes 10,000 characters/mo)
+- A {{< platform name="vapi" text="Vapi" >}} account — go to vapi.ai and sign up for the free tier
+- An {{< platform name="openai" text="OpenAI" >}} API key with at least $20 credit — go to platform.openai.com/api-keys
+- An {{< platform name="elevenlabs" text="ElevenLabs" >}} account for voice synthesis — go to elevenlabs.io and sign up (free tier includes 10,000 characters/mo)
 - A Twilio account for phone number provisioning — go to twilio.com/referral (free trial includes $20 credit and one phone number)
-- A Google Cloud account with Calendar API enabled — go to console.cloud.google.com
-- A Slack workspace where you can create a webhook (any free Slack workspace works)
-- A Stripe account for collecting payments — go to stripe.com
+- A {{< platform name="google" text="Google" >}} Cloud account with Calendar API enabled — go to console.cloud.google.com
+- A {{< platform name="slack" text="Slack" >}} workspace where you can create a webhook (any free Slack workspace works)
+- A {{< platform name="stripe" text="Stripe" >}} account for collecting payments — go to stripe.com
 - 6-8 hours of uninterrupted time for your first build
 
 Total upfront cost: $20 for the OpenAI API key. Everything else is free until you have paying clients. The Vapi free tier includes 100 minutes of outbound calls per month — enough to build, test, and run your first demo.
@@ -191,7 +191,7 @@ Click **Save**.
 
 When the voice agent calls a patient (outbound calls for appointment reminders, follow-ups), it needs to detect whether a human or voicemail system answered. Leaving an AI message on a voicemail sounds unprofessional and can create legal issues.
 
-In the assistant configuration, scroll to **Voicemail Detection**. Toggle it **On**. Set the following:
+In the assistant configuration, scroll to **Voicemail Detection**. {{< platform name="toggl" text="Toggl" >}} Toggle it **On**. Set the following:
 
 - **Detection mode:** Machine
 - **Action on voicemail:** Hang Up
@@ -249,7 +249,7 @@ The voice agent is functional but isolated — appointment data goes nowhere, no
 
 ### Integrate with Google Calendar for Scheduling
 
-You need a server endpoint that receives the `schedule_appointment` function call and creates a Google Calendar event. The simplest way is a Make.com scenario (or n8n if you prefer self-hosted).
+You need a server endpoint that receives the `schedule_appointment` function call and creates a Google Calendar event. The simplest way is a {{< platform name="make" text="Make" >}} scenario (or n8n if you prefer self-hosted).
 
 **Set up Make.com:**
 
@@ -287,7 +287,7 @@ For CRM logging, you have two options depending on the client's tooling:
 
 **Option A — Google Sheets (universal, works for every client):** Add a **Google Sheets** module in Make.com. Select **Add a Row**. Map each parameter to a column: Patient Name, Phone, Appointment Type, Date, Time, Source ("AI Voice Agent"). This gives the client a searchable spreadsheet of all AI-booked appointments.
 
-**Option B — HubSpot/ Salesforce (if the client uses a CRM):** Add the appropriate CRM module in Make.com and map the fields to create a Contact + Deal/Opportunity. This is more complex but commands a higher price.
+**Option B — {{< platform name="hubspot" text="HubSpot" >}}/ Salesforce (if the client uses a CRM):** Add the appropriate CRM module in Make.com and map the fields to create a Contact + Deal/Opportunity. This is more complex but commands a higher price.
 
 For your first deployment, use Option A. It works universally and you can upsell CRM integration later.
 
@@ -477,5 +477,5 @@ Once you have delivered your first 3-5 voice agents in one business category, ex
 - **Add SMS follow-up** — After each call, send the caller a text summary using Twilio SMS. "Hi Alex, your teeth whitening appointment is confirmed for Thursday at 10 AM. Reply HELP if you need to reschedule." This reduces no-shows by 30-40% and is a premium upsell ($200/mo additional).
 - **Build a second industry agent** — HVAC and plumbing have the highest call urgency and the worst after-hours coverage. An AI agent that answers "My furnace stopped working" at 2 AM and dispatches a technician is worth $10,000+ in setup to the right client.
 - **Add outbound calling** — Configure the agent to make appointment reminder calls 24 hours before scheduled appointments. Vapi supports outbound campaigns. This is a $300-500/mo upsell that pays for itself in reduced no-shows.
-- **Create a client dashboard** — Build a simple Notion or Google Sheets dashboard where clients can see call volume, appointment bookings, and transfer rates without logging into Vapi. This makes the retainer feel tangible and reduces churn.
+- **Create a client dashboard** — Build a simple {{< platform name="notion" text="Notion" >}} or Google Sheets dashboard where clients can see call volume, appointment bookings, and transfer rates without logging into Vapi. This makes the retainer feel tangible and reduces churn.
 - **Explore white-label partnerships** — Approach 5 local marketing agencies. Offer to provide voice agent services under their brand. Each partnership can generate 3-5 clients with zero sales effort on your part.

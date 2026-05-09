@@ -23,11 +23,11 @@ This is not a blog post condensed into a PDF. This is an operating system for bu
 
 Before you open a single tool, you will define the exact business you are building. An AI lead generation business sells qualified, scored, and enriched prospect data to companies that need pipeline. You do not sell "marketing." You do not sell "consulting." You sell verified contact records that convert to meetings. The AI layer is your competitive moat — it lets you produce 10x the output at 1/10th the labour cost of a traditional SDR team.
 
-Your revenue model is simple: clients pay you a monthly retainer to deliver a guaranteed volume of qualified leads per month. You use Apollo.io for data, Make.com for automation, ChatGPT for scoring and personalization, and Notion as your operating dashboard. Total tooling cost at launch: under ₦150,000/month. First client pays for everything.
+Your revenue model is simple: clients pay you a monthly retainer to deliver a guaranteed volume of qualified leads per month. You use Apollo.io for data, Make.com for automation, {{< platform name="chatgpt" text="ChatGPT" >}} for scoring and personalization, and Notion as your operating dashboard. Total tooling cost at launch: under ₦150,000/month. First client pays for everything.
 
 ### Procedure 1.1: Define Your Service Tier Structure
 
-Open a new Notion page. Title it "LeadGen OS — Pricing Matrix." Create a table with three rows and the following columns:
+Open a new {{< platform name="notion" text="Notion" >}} page. Title it "LeadGen OS — Pricing Matrix." Create a table with three rows and the following columns:
 
 | Column | Starter | Growth | Enterprise |
 |---|---|---|---|
@@ -48,10 +48,10 @@ Save this page. You will reference it in every client proposal. Do not negotiate
 Execute these steps in this exact order:
 
 1. **Register a domain** at Namecheap (https://namecheap.com). Use a `.co` or `.io` domain. Suggested: `[yourbrand]leads.co`. Cost: ₦8,000/year.
-2. **Set up Google Workspace** (https://workspace.google.com). Business Starter plan at $6/month per user. Create two users: `hello@[domain].co` and `outreach@[domain].co`. You will use `outreach@` for all cold email sending to protect domain reputation.
-3. **Register a LinkedIn Sales Navigator account** (https://linkedin.com/sales). Core plan at $99/month. Link it to your personal LinkedIn profile.
+2. **Set up {{< platform name="google" text="Google" >}} Workspace** (https://workspace.google.com). Business Starter plan at $6/month per user. Create two users: `hello@[domain].co` and `outreach@[domain].co`. You will use `outreach@` for all cold email sending to protect domain reputation.
+3. **Register a {{< platform name="linkedin" text="LinkedIn" >}} Sales Navigator account** (https://linkedin.com/sales). Core plan at $99/month. Link it to your personal LinkedIn profile.
 4. **Open a Wise business account** (https://wise.com) for international invoicing. You will receive USD and GBP payments here. Conversion rate beats Nigerian banks by 3-5%.
-5. **Create an Apollo.io account** (https://apollo.io). Free tier first — you will upgrade to Custom plan ($119/month) in Module 2.
+5. **Create an {{< platform name="apollo" text="Apollo" >}}.io account** (https://apollo.io). Free tier first — you will upgrade to Custom plan ($119/month) in Module 2.
 
 Verify: You can log into all five platforms. Your domain resolves. Your Google Workspace inbox receives mail. Do not proceed until all five are confirmed.
 
@@ -64,7 +64,7 @@ Open Notion (https://notion.so). Create a new workspace titled "LeadGen OS." Ins
 3. **Prospect Database** — Table view. This will hold 50,000+ records.
 4. **Outreach Tracker** — Table view linked to Prospect Database.
 5. **Scoring Models** — Page with sub-pages for each client scoring prompt.
-6. **Automation Logs** — Table view for Make.com execution records.
+6. **Automation Logs** — Table view for {{< platform name="make" text="Make" >}} execution records.
 7. **Revenue Tracker** — Table view. Columns: Client, Tier, MRR, Start Date, Status.
 8. **SOPs** — Page housing all standard operating procedures.
 9. **Playbook Reference** — Duplicate this playbook for quick access.
@@ -123,8 +123,8 @@ Log into Make.com (https://make.com). Create a new organization named "LeadGen O
 2. **Connect Apollo.io Module** — Click "Create a new scenario." Search for "Apollo.io" in the module library. Click "Create a connection." Enter your Apollo API key (found at Apollo.io → Settings → Integrations → API). Grant read + write permissions.
 3. **Connect Notion Module** — In the same scenario, add a Notion module. Click "Create a connection." OAuth into your Notion workspace. Grant full page + database access.
 4. **Connect Google Sheets Module** — Add a Google Sheets module. OAuth with your Google Workspace account. Grant read/write access to all spreadsheets.
-5. **Connect ChatGPT Module** — Add an OpenAI (ChatGPT) module. Enter your OpenAI API key (from https://platform.openai.com/api-keys). Model selection: **gpt-4o** for scoring tasks.
-6. **Connect Slack Module** (optional) — Add a Slack module if you use Slack for client comms. OAuth with your workspace.
+5. **Connect ChatGPT Module** — Add an {{< platform name="openai" text="OpenAI" >}} (ChatGPT) module. Enter your OpenAI API key (from https://platform.openai.com/api-keys). Model selection: **gpt-4o** for scoring tasks.
+6. **Connect {{< platform name="slack" text="Slack" >}} Module** (optional) — Add a Slack module if you use Slack for client comms. OAuth with your workspace.
 
 Save this scenario as "Master Pipeline — DO NOT DELETE." You will build automation chains on top of this in later modules.
 
@@ -159,7 +159,7 @@ Log into ChatGPT (https://chat.openai.com). You need a Plus subscription ($20/mo
      "recommended_action": "<specific next step>"
    }
    ```
-4. **Enable Web Browsing** — Toggle ON. This allows the GPT to research company data in real-time during scoring.
+4. **Enable Web Browsing** — {{< platform name="toggl" text="Toggl" >}} Toggle ON. This allows the GPT to research company data in real-time during scoring.
 5. **Save** the Custom GPT. Copy its URL. You will use it in Make.com scenarios.
 
 {{% accent-box %}}HACK: Create a second Custom GPT called "Outreach Copywriter" with instructions to generate 7-email cold sequences using the AIDA framework. Give it this constraint: "No email exceeds 90 words. Subject lines must be under 7 words. Never use the word 'excited' or 'opportunity.' Always open with a specific observation about the prospect's company." This produces copy that books 2-3x more meetings than generic ChatGPT output.{{% /accent-box %}}
@@ -854,7 +854,7 @@ You will automate the process of adding scored prospects to the correct sequence
 
 ### Overview
 
-Your client's CRM is where leads become revenue. If your leads sit in your Notion database and never reach the client's CRM, you have no proof of value and no retention. This module builds the bridge between your system and the client's CRM. You will integrate with HubSpot, Salesforce, and Pipedrive — the three CRMs you will encounter in 90% of client engagements.
+Your client's CRM is where leads become revenue. If your leads sit in your Notion database and never reach the client's CRM, you have no proof of value and no retention. This module builds the bridge between your system and the client's CRM. You will integrate with {{< platform name="hubspot" text="HubSpot" >}}, Salesforce, and Pipedrive — the three CRMs you will encounter in 90% of client engagements.
 
 ### Procedure 7.1: Build the HubSpot Integration
 
@@ -1132,7 +1132,7 @@ The MBR is your retention tool. It is a deeper analysis sent on the 1st of every
 You need your own dashboard to run the business. This is separate from client-facing reports. Add to your Notion Dashboard:
 
 **Table 1: Client Performance Summary**
-- Columns: Client Name | Tier | MRR | Leads Delivered MTD | Meetings MTD | SLA Status (On Track / At Risk / Behind) | Retention Risk (Low / Medium / High)
+- Columns: Client Name | Tier | MRR | Leads Delivered MTD | Meetings MTD | SLA Status (On Track / At Risk / Behind) | Retention Risk (Low / {{< platform name="medium" text="Medium" >}} / High)
 - Update this table every Monday morning
 
 **Table 2: System Health**

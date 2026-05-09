@@ -11,7 +11,7 @@ relatedOpportunity: "/opportunities/ai-seo-agency-2026/"
 relatedPlaybook: "/playbooks/ai-seo-agency-playbook/"
 ---
 
-This is the execution guide for building the AI-powered SEO agency we outlined in our opportunity deep-dive. SEO agencies that rely on manual audits, spreadsheet rank tracking, and content written from scratch will be outcompeted by agencies that automate the repetitive work and apply AI to the creative work. This guide builds the automated version: Semrush-powered audits that run themselves, ChatGPT content pipelines that produce optimized articles at scale, Grammarly-polished deliverables, Make.com orchestration that ties everything together, and client reports that generate on a schedule without you touching them. Follow it in order. Do not skip steps.
+This is the execution guide for building the AI-powered SEO agency we outlined in our opportunity deep-dive. SEO agencies that rely on manual audits, spreadsheet rank tracking, and content written from scratch will be outcompeted by agencies that automate the repetitive work and apply AI to the creative work. This guide builds the automated version: Semrush-powered audits that run themselves, {{< platform name="chatgpt" text="ChatGPT" >}} content pipelines that produce optimized articles at scale, Grammarly-polished deliverables, Make.com orchestration that ties everything together, and client reports that generate on a schedule without you touching them. Follow it in order. Do not skip steps.
 
 ## Prerequisites
 
@@ -19,14 +19,14 @@ Before you configure a single workflow, set up these accounts. Every tool listed
 
 **Required accounts (create these now):**
 
-- Semrush account — go to semrush.com and sign up (7-day free trial of Pro plan, then $129/mo)
+- {{< platform name="semrush" text="Semrush" >}} account — go to semrush.com and sign up (7-day free trial of Pro plan, then $129/mo)
 - ChatGPT account (Plus plan recommended) — go to chat.openai.com and sign up
-- Grammarly account — go to grammarly.com and sign up (free tier includes basic grammar and spelling)
-- Make.com account — go to make.com and sign up (free tier includes 1,000 operations/mo)
+- {{< platform name="grammarly" text="Grammarly" >}} account — go to grammarly.com and sign up (free tier includes basic grammar and spelling)
+- {{< platform name="make" text="Make" >}} account — go to make.com and sign up (free tier includes 1,000 operations/mo)
 - Hostinger account — go to hostinger.com and sign up (for client site hosting and audit staging)
-- Notion account — go to notion.so and sign up (free tier includes unlimited pages)
-- Google Workspace account — go to workspace.google.com (for Drive, Docs, Sheets, and Search Console)
-- OpenAI API key — go to platform.openai.com/api-keys (load $20 credit for content generation)
+- {{< platform name="notion" text="Notion" >}} account — go to notion.so and sign up (free tier includes unlimited pages)
+- {{< platform name="google" text="Google" >}} Workspace account — go to workspace.google.com (for Drive, Docs, Sheets, and Search Console)
+- {{< platform name="openai" text="OpenAI" >}} API key — go to platform.openai.com/api-keys (load $20 credit for content generation)
 
 **Time required:** 10-12 hours of uninterrupted time for your first complete workflow build, from Semrush setup through end-to-end reporting automation.
 
@@ -46,7 +46,7 @@ If you see a "Choose your plan" screen instead of the dashboard, your trial has 
 
 You need a test domain to practice with. If you have your own website, use it. If not, set up a test site on Hostinger:
 
-1. Go to hostinger.com and sign in. Purchase a basic hosting plan (starts at $2.99/mo). Register a test domain (e.g., `seo-test-site.com`). Hostinger's onboarding walks you through WordPress installation. Complete it.
+1. Go to hostinger.com and sign in. Purchase a basic hosting plan (starts at $2.99/mo). Register a test domain (e.g., `seo-test-site.com`). Hostinger's onboarding walks you through {{< platform name="wordpress" text="WordPress" >}} installation. Complete it.
 2. Add 5-10 pages of basic content to the test site. This gives the audit tool something to analyze.
 
 Now configure the Semrush Site Audit:
@@ -137,7 +137,7 @@ Not all SEO issues are equal. A 404 error on a high-traffic page is critical. A 
 Add a **Router** module after the Google Sheets step. Configure three paths:
 
 **Path A — Critical (Severity = Error AND Affected Pages > 5):**
-Route to a **Slack — Create a Message** module (or Gmail) with an alert:
+Route to a **{{< platform name="slack" text="Slack" >}} — Create a Message** module (or Gmail) with an alert:
 ```
 :rotating_light: CRITICAL SEO ISSUE — {{clientName}}
 Issue: {{issueType}}
@@ -500,7 +500,7 @@ You should now have:
 - ✓ Free audit sales process tested (at least 3 audits generated and reviewed)
 - ✓ Outreach email template crafted
 - ✓ Client onboarding checklist documented in Notion
-- ✓ Stripe payment link ready for retainer collection
+- ✓ {{< platform name="stripe" text="Stripe" >}} payment link ready for retainer collection
 
 ## Step 6: Scale Your AI SEO Agency
 

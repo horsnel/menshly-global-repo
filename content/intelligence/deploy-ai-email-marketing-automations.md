@@ -18,9 +18,9 @@ Email marketing is not dead. Bad email marketing is dead. The difference between
 Before you start, you need the following:
 
 - A laptop with a modern browser (Chrome or Firefox)
-- A Mailchimp account (free tier works for your first 1,000 subscribers) — go to mailchimp.com and sign up, or use ConvertKit if you prefer (free tier covers 1,000 subscribers)
-- An OpenAI API key ($10 minimum credit) — go to platform.openai.com/api-keys
-- A Make.com account (free tier allows 1,000 operations/month) — go to make.com and sign up
+- A {{< platform name="mailchimp" text="Mailchimp" >}} account (free tier works for your first 1,000 subscribers) — go to mailchimp.com and sign up, or use ConvertKit if you prefer (free tier covers 1,000 subscribers)
+- An {{< platform name="openai" text="OpenAI" >}} API key ($10 minimum credit) — go to platform.openai.com/api-keys
+- A {{< platform name="make" text="Make" >}} account (free tier allows 1,000 operations/month) — go to make.com and sign up
 - A custom domain you own (required for email deliverability) — if you do not have one, buy one at Namecheap for ~$10/yr
 - Access to your domain's DNS settings (through your registrar or Cloudflare)
 - 5-7 hours of uninterrupted time for your first full build
@@ -90,7 +90,7 @@ Log in to Make.com. Click **Create a New Scenario**. You should see an empty can
 
 Do you see the empty scenario canvas? If you see a template gallery instead, click "Create new" in the top-right corner.
 
-Click the "+" button. Search for **OpenAI (ChatGPT)** and select it. Choose the **Create a Chat Completion** module. A configuration panel will appear.
+Click the "+" button. Search for **OpenAI ({{< platform name="chatgpt" text="ChatGPT" >}})** and select it. Choose the **Create a Chat Completion** module. A configuration panel will appear.
 
 In the "Connection" field, click **Add**. Enter your OpenAI API key (the one starting with `sk-`). Click **Save**. You should see "Connected" in green. If you see an error, your API key is wrong or your account has no credit. Go to platform.openai.com/billing, add credit, and try again.
 
@@ -483,8 +483,8 @@ Before delivering any email automation system — to yourself or a client — ve
 Once your AI email automation system is running and generating results, expand in these directions:
 
 - **Add SMS automation** using a tool like Postscript or Attentive. SMS open rates are 98% compared to email's 20-30%. Combine email + SMS for a multi-channel lifecycle strategy.
-- **Build a client reporting dashboard** in Google Sheets or Looker Studio that pulls Mailchimp analytics via API and displays weekly trends automatically. Clients who see data stay clients.
+- **Build a client reporting dashboard** in {{< platform name="google" text="Google" >}} Sheets or Looker Studio that pulls Mailchimp analytics via API and displays weekly trends automatically. Clients who see data stay clients.
 - **Create a referral sequence** — an automated email triggered when a customer refers someone. Referral customers have 37% higher retention rates.
 - **Offer list cleaning as a service** — run re-engagement campaigns for other businesses and charge $500-1,000 per cleanup. It is a low-effort, high-value service that leads to full retainers.
-- **Expand into other email platforms** — learn ConvertKit (better for creators), Klaviyo (better for e-commerce), and ActiveCampaign (better for B2B). Each platform has clients willing to pay for expertise.
+- **Expand into other email platforms** — learn ConvertKit (better for creators), {{< platform name="klaviyo" text="Klaviyo" >}} (better for e-commerce), and ActiveCampaign (better for B2B). Each platform has clients willing to pay for expertise.
 - **Set up AI-powered review analysis** — use OpenAI to analyze customer reviews and generate email content that addresses common objections. This creates a feedback loop between customer sentiment and email messaging.

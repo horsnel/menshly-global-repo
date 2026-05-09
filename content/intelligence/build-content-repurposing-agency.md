@@ -19,17 +19,17 @@ Before you do anything else, set up these accounts. Every tool listed here has a
 
 **Required accounts (create these now):**
 
-- ChatGPT account (free tier works) — go to chat.openai.com and sign up
-- Canva account (free tier works) — go to canva.com and sign up
-- Google account for Google Docs and Google Drive — go to accounts.google.com
-- Buffer account (free tier works) — go to buffer.com and sign up
-- Notion account (free tier works) — go to notion.so and sign up
+- {{< platform name="chatgpt" text="ChatGPT" >}} account (free tier works) — go to chat.openai.com and sign up
+- {{< platform name="canva" text="Canva" >}} account (free tier works) — go to canva.com and sign up
+- {{< platform name="google" text="Google" >}} account for Google Docs and Google Drive — go to accounts.google.com
+- {{< platform name="buffer" text="Buffer" >}} account (free tier works) — go to buffer.com and sign up
+- {{< platform name="notion" text="Notion" >}} account (free tier works) — go to notion.so and sign up
 
 **Optional but recommended (start free trials when you have a client):**
 
 - Opus Clip — go to opus.pro and start a 7-day free trial
 - Repurpose.io — go to repurpose.io and start a 14-day free trial
-- Make.com — go to make.com and start a 14-day free trial
+- {{< platform name="make" text="Make" >}} — go to make.com and start a 14-day free trial
 - Descript — go to descript.com and start a 7-day free trial
 
 **Time required:** 6-8 hours to build your first complete workflow and produce portfolio-ready samples.
@@ -88,12 +88,12 @@ You need to get raw content into text form fast. Every second counts when you ar
 
 **For YouTube videos:**
 
-1. Open the YouTube video in your browser
+1. Open the {{< platform name="youtube" text="YouTube" >}} video in your browser
 2. Click the "...More" button below the video description
 3. Click "Show Transcript"
 4. The transcript panel opens on the right side of the screen
 5. Click the three-dot menu in the transcript panel
-6. Click "Toggle timestamps" to remove timestamps
+6. Click "{{< platform name="toggl" text="Toggl" >}} Toggle timestamps" to remove timestamps
 7. Select all text (Ctrl+A or Cmd+A)
 8. Copy (Ctrl+C or Cmd+C)
 9. Open a new Google Doc in the client's `02_Working` folder
@@ -349,7 +349,7 @@ This step is where amateurs fail and professionals win. Every single piece of AI
 
 **Fact check:** AI fabricates things with confidence. Verify every statistic, every name, every claim. If the transcript says "70% of founders" and the AI output says "most founders," change it back to "70% of founders" — specificity is better. If the AI added a statistic that was not in the transcript, remove it.
 
-**Platform formatting:** LinkedIn posts need double line breaks between paragraphs. Twitter threads need proper numbering. Reel scripts need the visual/text/voiceover format. Blog articles need H2 headings. Email newsletters need a subject line at the top. Check every piece against its platform's formatting requirements.
+**Platform formatting:** {{< platform name="linkedin" text="LinkedIn" >}} posts need double line breaks between paragraphs. Twitter threads need proper numbering. Reel scripts need the visual/text/voiceover format. Blog articles need H2 headings. Email newsletters need a subject line at the top. Check every piece against its platform's formatting requirements.
 
 **Repetition check:** Since all six pieces come from the same transcript, you will naturally see the same insights repeated. This is fine across platforms — your LinkedIn audience is not your Twitter audience. But within a single platform, make sure each piece offers a unique angle. If the LinkedIn post and the email segment both use the same anecdote, change one.
 
@@ -479,7 +479,7 @@ This scenario watches a Google Drive folder for new transcripts and notifies you
 Now add the notification module:
 
 1. Click the "+" that appears on the right side of the Google Drive module
-2. Search for "Slack" (or "Gmail" if you prefer email notifications)
+2. Search for "{{< platform name="slack" text="Slack" >}}" (or "Gmail" if you prefer email notifications)
 3. Select "Send a Message" (Slack) or "Send an Email" (Gmail)
 4. Connect your Slack or Gmail account
 5. Configure the message:
@@ -496,7 +496,7 @@ This is the advanced automation. It takes a new transcript, sends it to ChatGPT 
 1. Create a new scenario called "Auto-Twitter-Thread"
 2. Add a Google Drive "Watch Files" module (same as 4.2, pointing to `01_Inbox`)
 3. Add a Google Drive "Download a File" module connected to the watch module
-4. Add an OpenAI "Create a Chat Completion" module:
+4. Add an {{< platform name="openai" text="OpenAI" >}} "Create a Chat Completion" module:
    - Connect your OpenAI API key (from platform.openai.com/api-keys)
    - **Model:** Select "gpt-4o"
    - **Messages:** Add a system message with your voice calibration prompt text. Add a user message with your Twitter Thread prompt text plus the transcript content (mapped from the download module output)

@@ -20,7 +20,7 @@ This playbook extends our free implementation guide with complete procedures, SO
 ### Overview
 In this module you will create every foundational account you need. Skipping this step will mean you cannot pay for services, host code, or collect payments. Every downstream module depends on the accounts and infrastructure you set up here — without a domain, hosting, and a workspace, nothing else works.
 **Time to complete:** 90 minutes
-**Tools needed:** Hostinger, Notion, Calendly
+**Tools needed:** Hostinger, {{< platform name="notion" text="Notion" >}}, Calendly
 
 | Tool | Purpose | Free Tier | Paid Tier |
 |------|---------|-----------|-----------|
@@ -100,7 +100,7 @@ echo "<h1>Welcome to AI Personal Finance Automation</h1>";
 5. Set the duration to **30 minutes**.
 6. Under **"When are you available?"**, select **Monday–Friday, 9:00 AM – 5:00 PM** in your timezone.
 7. Click **Save & Close**.
-8. Copy your Calendly link (e.g., `https://calendly.com/yourname/ai-finance-automation-discovery-call`).
+8. Copy your {{< platform name="calendly" text="Calendly" >}} link (e.g., `https://calendly.com/yourname/ai-finance-automation-discovery-call`).
 9. Paste the link into your Notion **"Command Center"** page under a new heading called **"Booking Links"**.
 10. Do you see the link in Notion? If not, make sure you saved the Calendly event first.
 
@@ -115,9 +115,9 @@ echo "<h1>Welcome to AI Personal Finance Automation</h1>";
 ## MODULE 2: TECH STACK – Acquire API Keys and Set Up Make.com Automation
 
 ### Overview
-You will secure all the API keys you need and wire them into Make.com, our central automation engine. Missing any key will break downstream workflows. This module connects every tool in your stack so that data flows automatically from one service to the next without manual intervention.
+You will secure all the API keys you need and wire them into {{< platform name="make" text="Make" >}}.com, our central automation engine. Missing any key will break downstream workflows. This module connects every tool in your stack so that data flows automatically from one service to the next without manual intervention.
 **Time to complete:** 75 minutes
-**Tools needed:** Make.com, ChatGPT (OpenAI), Vapi, ElevenLabs, Klaviyo
+**Tools needed:** Make.com, {{< platform name="chatgpt" text="ChatGPT" >}} (OpenAI), Vapi, ElevenLabs, Klaviyo
 
 | Tool | Purpose | Free Tier | Paid Tier |
 |------|---------|-----------|-----------|
@@ -141,10 +141,10 @@ You will secure all the API keys you need and wire them into Make.com, our centr
 
 ### Procedure 2.2: Create and Store All Required API Keys
 
-1. **ChatGPT (OpenAI):** Visit https://platform.openai.com/account/api-keys. Log in, click **API keys**, then **Create new secret key**. Copy the key and paste it into Notion under **OpenAI Key**.
-2. **Vapi:** Visit https://app.vapi.ai/. Sign up, then navigate to **Dashboard → API Keys**. Click **Create Key**, copy it, and paste into Notion under **Vapi Key**.
-3. **ElevenLabs:** Visit https://elevenlabs.io/. Sign up, then go to **Profile → API Keys**. Copy the key and save in Notion under **ElevenLabs Key**.
-4. **Klaviyo:** Visit https://www.klaviyo.com/. Sign up, then go to **Settings → API Keys → Create API Key**. Set permissions to **Full Access** and copy the key into Notion.
+1. **ChatGPT ({{< platform name="openai" text="OpenAI" >}}):** Visit https://platform.openai.com/account/api-keys. Log in, click **API keys**, then **Create new secret key**. Copy the key and paste it into Notion under **OpenAI Key**.
+2. **{{< platform name="vapi" text="Vapi" >}}:** Visit https://app.vapi.ai/. Sign up, then navigate to **Dashboard → API Keys**. Click **Create Key**, copy it, and paste into Notion under **Vapi Key**.
+3. **{{< platform name="elevenlabs" text="ElevenLabs" >}}:** Visit https://elevenlabs.io/. Sign up, then go to **Profile → API Keys**. Copy the key and save in Notion under **ElevenLabs Key**.
+4. **{{< platform name="klaviyo" text="Klaviyo" >}}:** Visit https://www.klaviyo.com/. Sign up, then go to **Settings → API Keys → Create API Key**. Set permissions to **Full Access** and copy the key into Notion.
 5. **Hostinger:** In the Hostinger dashboard, go to **Hosting → Manage → Advanced → API**. Generate a token and save it in Notion.
 
 Do you see all 5 API keys in your Notion **API Keys Vault** table? If any are missing, go back and complete that step before proceeding.
@@ -253,7 +253,7 @@ Dining Out: ₦40,000
 ### Overview
 In this module you build, deploy, and test the core AI Personal Finance Automation product. This is the minimum viable product that your first paying client will use. You will create a Python application that ingests transaction data, runs it through ChatGPT for analysis, and outputs a structured financial report. If you skip this module, you have nothing to sell.
 **Time to complete:** 3 hours
-**Tools needed:** Replit, ChatGPT API, Make.com, Hostinger
+**Tools needed:** {{< platform name="replit" text="Replit" >}}, ChatGPT API, Make.com, Hostinger
 
 | Tool | Purpose | Free Tier | Paid Tier |
 |------|---------|-----------|-----------|
@@ -337,7 +337,7 @@ if __name__ == "__main__":
 ### Procedure 4.3: Deploy the App to Production on Hostinger
 
 1. In Replit, click the **Version Control** tab (git icon in the sidebar).
-2. Click **Connect to GitHub** and authorize Replit to access your GitHub account.
+2. Click **Connect to {{< platform name="github" text="GitHub" >}}** and authorize Replit to access your GitHub account.
 3. Create a new repository named **`ai-finance-bot`** and push the code.
 4. In Hostinger, go to **Hosting → Manage → SSH Access**. Enable SSH and note the credentials.
 5. Connect via SSH using Terminal: `ssh u123456789@myfinancebot.com` (replace with your actual SSH credentials).
@@ -359,7 +359,7 @@ if __name__ == "__main__":
 ### Overview
 This module builds the systems that turn strangers into paying clients. You will create a landing page, set up automated outreach, and build a lead nurturing sequence. Without these systems, you will have a great product but no revenue.
 **Time to complete:** 90 minutes
-**Tools needed:** Shopify, Klaviyo, Apollo.io, Buffer
+**Tools needed:** {{< platform name="shopify" text="Shopify" >}}, Klaviyo, Apollo.io, Buffer
 
 | Tool | Purpose | Free Tier | Paid Tier |
 |------|---------|-----------|-----------|
@@ -430,7 +430,7 @@ This module builds the systems that turn strangers into paying clients. You will
 
 ### Check-In: Module 5 Complete
 - [ ] Shopify landing page live with email capture form and pricing tiers
-- [ ] Apollo.io prospect list created with 25+ leads
+- [ ] {{< platform name="apollo" text="Apollo" >}}.io prospect list created with 25+ leads
 - [ ] 3-email outreach sequence active in Apollo.io
 - [ ] Klaviyo nurture flow live with 4-email sequence
 
@@ -507,7 +507,7 @@ Any questions? Book a call: {calendly_link}
 ### Overview
 Scaling a boutique AI service requires disciplined delegation, documented SOPs, and margin analysis. This module transforms your one-person operation into a lean, repeatable system that can handle 10–50 clients without breaking.
 **Time to complete:** 90 minutes
-**Tools needed:** Notion, Upwork, Google Sheets
+**Tools needed:** Notion, Upwork, {{< platform name="google" text="Google" >}} Sheets
 
 ### Procedure 7.1: Hire Your First Contractor on Upwork
 
@@ -522,7 +522,7 @@ Scaling a boutique AI service requires disciplined delegation, documented SOPs, 
    - Make.com experience (look for portfolio screenshots)
    - API integration experience
    - Response time and communication quality
-5. Send each shortlisted candidate the same test task: "Describe how you would build a Make.com scenario that triggers on a new Stripe payment and sends a customized email via Klaviyo."
+5. Send each shortlisted candidate the same test task: "Describe how you would build a Make.com scenario that triggers on a new {{< platform name="stripe" text="Stripe" >}} payment and sends a customized email via Klaviyo."
 6. Hire the best candidate and create a **Notion** page for onboarding with links to all API keys, the service delivery framework, and communication templates.
 
 ### Procedure 7.2: Build SOPs for Task Delegation in Notion
@@ -596,7 +596,7 @@ This module converts your lean MVP into a recurring-revenue engine. You will add
    - Trigger: **Shopify → New Order** (filter by product = "Financial Freedom Blueprint")
    - Action 1: **Klaviyo → Add to List** ("Premium Clients")
    - Action 2: **Notion → Create Page** (in Client Pipeline, set Status = "Onboarding", Revenue = ₦50,000)
-   - Action 3: **Slack/Email → Send Notification** to you ("New Premium client signed up!")
+   - Action 3: **{{< platform name="slack" text="Slack" >}}/Email → Send Notification** to you ("New Premium client signed up!")
 
 ### Procedure 8.2: Build Recurring Revenue with Subscription Tiers on Shopify
 

@@ -22,7 +22,7 @@ Three forces have converged simultaneously, and if you understand the collision,
 
 First: AI categorization became genuinely accurate. GPT-4o and Gemini 2.5 can now read a transaction description like "AMZN MKTP US*2K7J34" and correctly categorize it as "Office Supplies - Amazon Purchase" with 95%+ accuracy when given a proper chart of accounts. Three years ago, AI categorization was a party trick — it worked maybe 60% of the time and made embarrassing mistakes that required more human cleanup than doing it manually. Today, with the right prompt engineering and a well-structured chart of accounts, AI categorization is more consistent than a junior bookkeeper who's having a Monday morning. The key phrase is "with the right prompt engineering" — and that skill is your competitive moat.
 
-Second: accounting platforms opened their APIs. QuickBooks Online, Xero, and FreshBooks now have robust APIs that allow automated transaction import, categorization, and reconciliation. Five years ago, you'd have to manually export CSVs, process them, and re-import. Now, Make.com or Zapier can pull transactions directly from QuickBooks, send them to OpenAI for categorization, and push the categorized data back — all without a human touching a keyboard. This eliminated the technical barrier that kept non-developers out of bookkeeping automation.
+Second: accounting platforms opened their APIs. QuickBooks Online, Xero, and FreshBooks now have robust APIs that allow automated transaction import, categorization, and reconciliation. Five years ago, you'd have to manually export CSVs, process them, and re-import. Now, Make.com or Zapier can pull transactions directly from QuickBooks, send them to {{< platform name="openai" text="OpenAI" >}} for categorization, and push the categorized data back — all without a human touching a keyboard. This eliminated the technical barrier that kept non-developers out of bookkeeping automation.
 
 Third: small businesses are drowning in financial chaos. According to a U.S. Bank study, 82% of small businesses that fail cite poor cash flow management as the primary reason. They don't fail because their product is bad — they fail because they don't know their numbers. A baker who can't tell you their profit margin per loaf, a consultant who doesn't invoice for 60 days because they lost track, a retailer who orders inventory based on gut feeling instead of data — these are your potential clients, and there are 33 million of them in the US alone. They need bookkeeping desperately, and traditional bookkeepers charge $200-400/month for basic services that still require the client to do most of the data entry. You can deliver 10x the value at half the price using AI automation.
 
@@ -40,13 +40,13 @@ Third: small businesses are drowning in financial chaos. According to a U.S. Ban
 
 **Wave Accounting — $0** — Free accounting software with bank feeds, invoicing, and receipt scanning. Enough for your first 3-5 small business clients. Not as API-friendly as QuickBooks, but perfect for validating the business model.
 
-**Google Sheets — $0** — Your transaction database, categorization workspace, and client reporting tool. Build a sheet for each client with columns for date, description, amount, AI-suggested category, human-verified category, and notes. This is all you need to manage your first 10 clients.
+**{{< platform name="google" text="Google" >}} Sheets — $0** — Your transaction database, categorization workspace, and client reporting tool. Build a sheet for each client with columns for date, description, amount, AI-suggested category, human-verified category, and notes. This is all you need to manage your first 10 clients.
 
-**ChatGPT Free — $0** — Copy-paste transaction descriptions into ChatGPT and ask it to categorize them. It's manual but it proves the concept. Feed it your client's chart of accounts and a batch of 50 transactions. Watch it categorize 45 of them correctly in 10 seconds. That's your pitch.
+**{{< platform name="chatgpt" text="ChatGPT" >}} Free — $0** — Copy-paste transaction descriptions into ChatGPT and ask it to categorize them. It's manual but it proves the concept. Feed it your client's chart of accounts and a batch of 50 transactions. Watch it categorize 45 of them correctly in 10 seconds. That's your pitch.
 
 **Gemini API Free Tier — $0** — 15 requests per minute on the free tier. Build a simple categorization tool that takes a transaction description and returns a category from your chart of accounts. This replaces copy-pasting into ChatGPT and scales to 900 transactions per hour.
 
-**Make.com Free Plan — $0** — 1,000 operations per month. Enough to build and test your first 2-3 automation workflows connecting Google Sheets to Gemini and back.
+**{{< platform name="make" text="Make" >}} Free Plan — $0** — 1,000 operations per month. Enough to build and test your first 2-3 automation workflows connecting Google Sheets to Gemini and back.
 
 **Tally — $0** — Client onboarding forms. Collect business details, chart of accounts preferences, bank connection info, and receipt submission. Professional and free.
 
@@ -66,9 +66,9 @@ Third: small businesses are drowning in financial chaos. According to a U.S. Ban
 
 **Dext — $15/mo (Starter)** — Receipt and invoice capture with OCR. Clients snap photos of receipts, Dext extracts the data, and your automation pushes it to QuickBooks/Xero. This eliminates the "shoebox of receipts" problem.
 
-**Notion Team — $10/mo** — Client dashboards, SOPs, chart of accounts library, and onboarding documentation. Share a Notion page with each client showing their bookkeeping status, pending items, and monthly reports.
+**{{< platform name="notion" text="Notion" >}} Team — $10/mo** — Client dashboards, SOPs, chart of accounts library, and onboarding documentation. Share a Notion page with each client showing their bookkeeping status, pending items, and monthly reports.
 
-**Stripe — Pay-as-you-go** — Client invoicing and payment collection. Create subscription products for your monthly bookkeeping packages. Stripe takes 2.9% + $0.30 per transaction.
+**{{< platform name="stripe" text="Stripe" >}} — Pay-as-you-go** — Client invoicing and payment collection. Create subscription products for your monthly bookkeeping packages. Stripe takes 2.9% + $0.30 per transaction.
 
 **Total monthly cost: $76-126.** A single client at $500/month covers this 4x over. Three clients at $300/month and you're profitable. The tool costs don't scale linearly — the same Make.com plan handles 1 client or 15.
 

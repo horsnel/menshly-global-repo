@@ -20,11 +20,11 @@ This guide assumes you have zero infrastructure set up. By the end, you'll have 
 Before you start, you need the following:
 
 - **QuickBooks Online Accountant** — Free (sign up at quickbooks.intuit.com/accountants)
-- **Make.com** — $16/mo (Teams plan for 10,000 operations/month)
-- **OpenAI API key** — $10 credit minimum (platform.openai.com/api-keys)
-- **Google Workspace** — $6/mo for professional email and Sheets access
+- **{{< platform name="make" text="Make" >}}.com** — $16/mo (Teams plan for 10,000 operations/month)
+- **{{< platform name="openai" text="OpenAI" >}} API key** — $10 credit minimum (platform.openai.com/api-keys)
+- **{{< platform name="google" text="Google" >}} Workspace** — $6/mo for professional email and Sheets access
 - **Dext** — $15/mo (Starter plan for receipt and invoice capture)
-- **Notion** — Free (client dashboards and documentation)
+- **{{< platform name="notion" text="Notion" >}}** — Free (client dashboards and documentation)
 - **6-8 hours of uninterrupted time** for initial setup
 
 Total upfront cost: $47/mo + $10 API credit. A single client at $500/month covers this 10x over.
@@ -134,14 +134,14 @@ Vendor: {{2.vendor}}
 ```
 
 4. **Module 3 — Router:**
-   - **Path A:** If OpenAI response equals "Review Needed" → Google Sheets "Add Row" to a "Review Queue" sheet + Slack notification to you
+   - **Path A:** If OpenAI response equals "Review Needed" → Google Sheets "Add Row" to a "Review Queue" sheet + {{< platform name="slack" text="Slack" >}} notification to you
    - **Path B:** If OpenAI response is a category name → QuickBooks Online "Update Transaction" with the categorized account
 
 5. **Module 4 — Error Handler:** On any OpenAI failure (rate limit, timeout), add a Break module with automatic retry (3 retries, 30-second interval). After the Break, add a Slack notification: "Categorization failed for transaction: {{2.description}}. Manual review required."
 
 ### Sub-step 2c: Test the Categorization Engine
 
-Add 10 test transactions to your QuickBooks test client. Include a variety: an Amazon purchase, a Stripe fee, a restaurant charge, an Uber ride, a software subscription, a rent payment, and a few ambiguous ones. Run the Make.com scenario once.
+Add 10 test transactions to your QuickBooks test client. Include a variety: an Amazon purchase, a {{< platform name="stripe" text="Stripe" >}} fee, a restaurant charge, an Uber ride, a software subscription, a rent payment, and a few ambiguous ones. Run the Make.com scenario once.
 
 Check QuickBooks: do the transactions now show categories? Check the Review Queue sheet: did the ambiguous transactions get flagged? Check Slack: did any error notifications appear?
 
@@ -274,7 +274,7 @@ Respond in JSON:
 
 4. **Module 3 — Router:**
    - **Path A (High Severity):** Slack alert to `#bookkeeping-alerts` + Google Sheets log + email to client
-   - **Path B (Medium Severity):** Google Sheets log + Slack alert to you only
+   - **Path B ({{< platform name="medium" text="Medium" >}} Severity):** Google Sheets log + Slack alert to you only
    - **Path C (Low Severity):** Google Sheets log only
    - **Path D (No Anomaly):** No action, transaction passes through normally
 

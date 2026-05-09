@@ -24,11 +24,11 @@ This is not a blog post condensed into a PDF. This is an operating system for bu
 Before you render a single frame, you need the infrastructure that runs your video production agency. This module sets up your project management, client portal, financial tracking, and communication systems. These are not optional. Every successful video agency operator has these systems in place before their first client call. Every failed operator skipped them.
 
 **Time to complete:** 3-4 hours
-**Tools needed:** Notion (free), Zapier (free tier), Paystack (free), Frame.io (free trial)
+**Tools needed:** Notion (free), {{< platform name="zapier" text="Zapier" >}} (free tier), Paystack (free), Frame.io (free trial)
 
 ### Procedure 1.1: Create Your Video Production Command Center in Notion
 
-Open your browser and go to notion.so. Sign in or create a free account. You should see the Notion dashboard — a clean sidebar on the left and a main area with a "New page" button.
+Open your browser and go to notion.so. Sign in or create a free account. You should see the {{< platform name="notion" text="Notion" >}} dashboard — a clean sidebar on the left and a main area with a "New page" button.
 
 Click **New page** in the left sidebar. Name it: `[Your Agency Name] Command Center`. This is the single source of truth for your entire business.
 
@@ -115,7 +115,7 @@ In your Notion **Finance** page, create a table called `Revenue Tracker` with th
 
 #### Create Your Business Email
 
-Set up Google Workspace ($6/mo) with a custom domain. Create your professional email address.
+Set up {{< platform name="google" text="Google" >}} Workspace ($6/mo) with a custom domain. Create your professional email address.
 
 #### Create Your Review and Approval System
 
@@ -157,7 +157,7 @@ Your video agency runs on tools. This module sets up every AI video tool you nee
 
 #### HeyGen — AI Avatar Videos
 
-Go to heygen.com and create a free account. HeyGen produces the most realistic AI avatar videos available in 2026. You type a script, select an avatar, and receive a video of a realistic human presenter speaking your words with natural gestures and expressions.
+Go to heygen.com and create a free account. {{< platform name="heygen" text="HeyGen" >}} produces the most realistic AI avatar videos available in 2026. You type a script, select an avatar, and receive a video of a realistic human presenter speaking your words with natural gestures and expressions.
 
 After signing in, test the system: create a 30-second video using a default avatar. Type a script: "Welcome to our company. We help businesses grow through the power of AI video production. Let me show you how." Select a professional-looking avatar. Click **Generate**.
 
@@ -165,19 +165,19 @@ Wait for the video to render (typically 2-5 minutes). Watch the playback. Does t
 
 #### Runway ML — AI Visual Effects and B-Roll
 
-Go to runwayml.com and create a free account. Runway is the leading AI video generation platform. You describe a scene in text, and Runway generates video footage from that description. Use it for: B-roll generation, visual effects, background scenes, and creative transitions.
+Go to runwayml.com and create a free account. {{< platform name="runway" text="Runway" >}} is the leading AI video generation platform. You describe a scene in text, and Runway generates video footage from that description. Use it for: B-roll generation, visual effects, background scenes, and creative transitions.
 
 Test the system: generate a 4-second clip using the prompt "Aerial view of a modern office building at sunrise, cinematic, 4K." Wait for the generation (typically 1-3 minutes). Does the output look professional? Runway's Gen-3 Alpha model produces remarkably realistic footage, though it sometimes generates artifacts in complex scenes.
 
 #### Fliki — Text-to-Video for Social Content
 
-Go to fliki.ai and create a free account. Fliki converts text scripts into social media videos with AI voiceovers, stock footage, and captions. It is the fastest way to produce Instagram Reels, TikToks, and YouTube Shorts.
+Go to fliki.ai and create a free account. Fliki converts text scripts into social media videos with AI voiceovers, stock footage, and captions. It is the fastest way to produce Instagram Reels, TikToks, and {{< platform name="youtube" text="YouTube" >}} Shorts.
 
 Test the system: paste a 100-word script about "5 AI tools every business needs" and generate a 60-second video. Does the voiceover sound natural? Are the stock clips relevant? Are the captions synced?
 
 #### ElevenLabs — AI Voice Generation
 
-Go to elevenlabs.io and create a free account. ElevenLabs produces the most natural-sounding AI voices available. You will use it for voiceovers on all video content.
+Go to elevenlabs.io and create a free account. {{< platform name="elevenlabs" text="ElevenLabs" >}} produces the most natural-sounding AI voices available. You will use it for voiceovers on all video content.
 
 Test the system: paste your script into the text box and generate a voiceover using the "Adam" voice. Listen to the output. Does it sound human? Is the pacing natural? Are difficult words pronounced correctly? If you hear robotic artifacts, try different voice models until you find one that passes the "could this be a real person?" test.
 
@@ -189,11 +189,11 @@ Go to capcut.com and download CapCut (free). CapCut is the best free video edito
 
 #### Canva Pro — Thumbnail and Social Asset Creation
 
-Go to canva.com and sign up for Canva Pro ($13/month). You will use Canva to create video thumbnails, social media graphics, and branded templates for clients.
+Go to canva.com and sign up for {{< platform name="canva" text="Canva" >}} Pro ($13/month). You will use Canva to create video thumbnails, social media graphics, and branded templates for clients.
 
 #### Midjourney — AI Image Generation for Storyboards
 
-Go to midjourney.com and create an account. You will use Midjourney to generate storyboard frames, concept art, and visual references for client projects.
+Go to midjourney.com and create an account. You will use {{< platform name="midjourney" text="Midjourney" >}} to generate storyboard frames, concept art, and visual references for client projects.
 
 ### Procedure 2.3: Connect Everything with Zapier
 
@@ -204,7 +204,7 @@ In Zapier, connect these services:
 3. **Gmail** — For client communication
 4. **Notion** — For project management
 5. **Frame.io** — For review and approval workflows
-6. **Slack** — For team notifications
+6. **{{< platform name="slack" text="Slack" >}}** — For team notifications
 
 Verify all connections show green status.
 
@@ -230,7 +230,7 @@ Verify all connections show green status.
 
 - [ ] HeyGen account with test video generated
 - [ ] Runway ML account with test clip generated
-- [ ] Fliki account with test social video generated
+- [ ] {{< platform name="fliki" text="Fliki" >}} account with test social video generated
 - [ ] ElevenLabs account with test voiceover generated
 - [ ] CapCut installed and tested
 - [ ] Canva Pro account active
@@ -249,7 +249,7 @@ Verify all connections show green status.
 Every great video starts with a great script. This module builds the AI-powered scriptwriting and storyboarding system that turns a client brief into a production-ready script in minutes instead of days. The script is the foundation of every video — a bad script produces a bad video regardless of how impressive the AI visuals are.
 
 **Time to complete:** 3-4 hours
-**Tools needed:** OpenAI API, Notion, Google Sheets
+**Tools needed:** {{< platform name="openai" text="OpenAI" >}} API, Notion, Google Sheets
 
 ### Procedure 3.1: Create Your Script Template Library
 

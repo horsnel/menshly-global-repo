@@ -10,7 +10,7 @@ relatedPlaybook: "/playbooks/chatgpt-prompt-engineering-guide/"
 relatedGuide: "/intelligence/build-content-repurposing-agency/"
 ---
 
-Here's the thing nobody wants to admit about the creator economy: most creators are producing content that dies within 24 hours. They spend eight hours scripting, filming, and editing a YouTube video, and three days later it's buried. The podcast episode they recorded? 800 downloads if they're lucky. That newsletter they agonized over? 35% open rate on a good day. Meanwhile, every platform they're on is screaming for more content. LinkedIn wants daily posts. Twitter wants threads. Instagram wants Reels. TikTok wants three uploads a day. It's exhausting just thinking about it, and that's exactly why there's a massive pile of money sitting on the table for anyone willing to do the unglamorous work of repurposing.
+Here's the thing nobody wants to admit about the creator economy: most creators are producing content that dies within 24 hours. They spend eight hours scripting, filming, and editing a {{< platform name="youtube" text="YouTube" >}} video, and three days later it's buried. The podcast episode they recorded? 800 downloads if they're lucky. That newsletter they agonized over? 35% open rate on a good day. Meanwhile, every platform they're on is screaming for more content. LinkedIn wants daily posts. Twitter wants threads. Instagram wants Reels. TikTok wants three uploads a day. It's exhausting just thinking about it, and that's exactly why there's a massive pile of money sitting on the table for anyone willing to do the unglamorous work of repurposing.
 
 Content repurposing isn't sexy. Nobody dreams of being a content repurposer when they're twelve. But here's what *is* sexy: 90%+ gross margins, monthly recurring revenue, and a business you can run from your laptop in under 20 hours a week. The old way of doing this required a team: a writer, a video editor, a social media manager, maybe a graphic designer too. That team cost $15,000 to $25,000 a month. The new way? You, a browser, and about $200 a month in AI subscriptions. That's not a marginal improvement. That's a complete demolition of the old economics.
 
@@ -22,7 +22,7 @@ Three things collided at the same time, and if you're paying attention, you'll s
 
 First: the creator economy grew up. We're past the phase where creators are hobbyists posting for fun. There are over 50 million people who call themselves content creators worldwide, and roughly 2 million of them earn a full-time living from their work. These people are running businesses, and they all have the same bottleneck: distribution. They can produce the content. They just can't produce it in twelve different formats for seven different platforms without burning out. That's your opening.
 
-Second: AI tools stopped being garbage. This is the part nobody talks about enough. A year ago, if you fed a YouTube transcript into GPT-4 and asked for a LinkedIn post, you'd get something that screamed "I was written by a robot." Stiff language, weird phrasing, that uncanny valley of almost-human. But GPT-4o and Claude 3.5 Sonnet changed the game completely. With the right prompt engineering, which I'll get into later, the output is genuinely indistinguishable from content written by the creator themselves. This quality leap happened in the last six months, and most people haven't caught on yet.
+Second: AI tools stopped being garbage. This is the part nobody talks about enough. A year ago, if you fed a YouTube transcript into GPT-4 and asked for a {{< platform name="linkedin" text="LinkedIn" >}} post, you'd get something that screamed "I was written by a robot." Stiff language, weird phrasing, that uncanny valley of almost-human. But GPT-4o and Claude 3.5 Sonnet changed the game completely. With the right prompt engineering, which I'll get into later, the output is genuinely indistinguishable from content written by the creator themselves. This quality leap happened in the last six months, and most people haven't caught on yet.
 
 Third: every platform's algorithm now rewards posting frequency over quality. This is the dirty secret of social media in 2026. LinkedIn doesn't care if your post is a masterpiece; it cares if you post every day. Twitter pushes accounts that thread consistently. Instagram's algorithm favors Reels creators who post four to five times per week. The game has shifted from "create one amazing piece" to "create many good-enough pieces," and that's exactly the game that AI repurposing wins.
 
@@ -32,7 +32,7 @@ Let me hit you with the ugly truths before the sexy numbers, because I don't wan
 
 > **Truth No. 1:** You will not make $10K in your first month. Anyone telling you that is lying. The realistic timeline is: Month 1 you get zero clients while you build your workflow and portfolio. Month 2 you land one or two clients at $1,000-$1,500 each. Month 3-4 you hit $3K-$5K. Month 6-8 is when you cross $10K if you're consistent. That's the real timeline.
 
-> **Truth No. 2:** AI output is not plug-and-play. You cannot just feed a transcript into ChatGPT, copy the output, and ship it to a client. Every single piece needs human review. Every single one. The AI gets you 80% of the way there in 10 seconds; the remaining 20% takes you 5-10 minutes per piece. That's the unsexy reality. If you skip the review step, you will lose clients fast.
+> **Truth No. 2:** AI output is not plug-and-play. You cannot just feed a transcript into {{< platform name="chatgpt" text="ChatGPT" >}}, copy the output, and ship it to a client. Every single piece needs human review. Every single one. The AI gets you 80% of the way there in 10 seconds; the remaining 20% takes you 5-10 minutes per piece. That's the unsexy reality. If you skip the review step, you will lose clients fast.
 
 > **Truth No. 3:** Clients will ghost you. Creators are some of the flakiest people on earth. They'll love your work for three months, then suddenly stop responding. Or they'll ask for a discount because "times are tight." Or they'll take your work and try to replicate your process themselves. You need to be mentally prepared for a 20-30% annual churn rate, and you need to always be prospecting, even when your roster is full.
 
@@ -50,11 +50,11 @@ You do not need to spend a single dollar to validate this business model. Let me
 
 **Otter.ai Free — $0** — 300 minutes of transcription per month. Use for podcast episodes and audio content. Good enough to start.
 
-**Canva Free — $0** — Basic design templates for social graphics, quote cards, and carousel posts. Limited but functional.
+**{{< platform name="canva" text="Canva" >}} Free — $0** — Basic design templates for social graphics, quote cards, and carousel posts. Limited but functional.
 
-**Buffer Free Plan — $0** — Schedule up to 10 posts per channel across 3 social accounts. Tight but workable for 1-2 clients.
+**{{< platform name="buffer" text="Buffer" >}} Free Plan — $0** — Schedule up to 10 posts per channel across 3 social accounts. Tight but workable for 1-2 clients.
 
-**Google Docs — $0** — Client onboarding docs, content calendars, delivery sheets. Share with clients for approval workflows.
+**{{< platform name="google" text="Google" >}} Docs — $0** — Client onboarding docs, content calendars, delivery sheets. Share with clients for approval workflows.
 
 **TLDV (Free Tier) — $0** — Record and transcribe Zoom/Google Meet calls. Use for client onboarding calls to capture their voice and preferences.
 
@@ -68,7 +68,7 @@ Once you have two or three clients paying you $1,500+ per month, upgrade. The pa
 
 **ChatGPT Plus — $20/mo** — GPT-4o with higher limits. Essential at 3+ clients. The $20 pays for itself with one client. Get it early.
 
-**Claude Pro — $20/mo** — Best model for long-form content analysis and nuanced writing. Use it alongside GPT. Some outputs are noticeably better for LinkedIn and blog posts.
+**{{< platform name="claude" text="Claude" >}} Pro — $20/mo** — Best model for long-form content analysis and nuanced writing. Use it alongside GPT. Some outputs are noticeably better for LinkedIn and blog posts.
 
 **Opus Clip — $19/mo** — Auto-generates short clips from long videos with AI scoring for engagement. Saves 3-4 hours per video. Worth every penny at 2+ clients.
 
@@ -78,11 +78,11 @@ Once you have two or three clients paying you $1,500+ per month, upgrade. The pa
 
 **Buffer Essentials — $6/channel/mo** — Scheduling across unlimited channels. Analytics included. Better than Hootsuite for solo operators. Simpler UI, cheaper.
 
-**Make.com — $9/mo** — Automation glue. Connect YouTube to Google Docs to ChatGPT to Buffer. Build once, runs forever. This is your secret weapon for speed.
+**{{< platform name="make" text="Make" >}} — $9/mo** — Automation glue. Connect YouTube to Google Docs to ChatGPT to Buffer. Build once, runs forever. This is your secret weapon for speed.
 
 **Repurpose.io — $15/mo** — One-click cross-platform posting. Upload a TikTok, it auto-posts to Reels and YouTube Shorts. Huge time saver for video content.
 
-**Notion — $8/mo** — Client portals, content calendars, SOPs, prompt libraries. Notion becomes your operating system. Free tier works for first 2 clients.
+**{{< platform name="notion" text="Notion" >}} — $8/mo** — Client portals, content calendars, SOPs, prompt libraries. Notion becomes your operating system. Free tier works for first 2 clients.
 
 **Total monthly cost: $134** (or $89 if you skip Claude Pro and Make.com initially). That's less than 6% of a single $1,500 retainer. The ROI on these tools is insane. If you're agonizing over spending $20 on ChatGPT Plus while sitting on $3,000 in monthly revenue, you have a mindset problem, not a budget problem.
 
@@ -190,7 +190,7 @@ Post your own content showing your process. Screenshot your workflow. Share befo
 
 Pitch yourself as a guest on creator economy podcasts. The angle: "How AI is Changing Content Distribution." Podcasts in this space are hungry for guests, and the audience is literally your target market. Every listener is either a creator who needs your service or knows one. After the episode airs, post clips on social media (using your own repurposing workflow, obviously). The compound effect is powerful.
 
-> **HACK: The Referral Engine.** Once you have 2-3 clients, offer them a free month for every referral that signs a 3-month contract. Creators talk to each other constantly. They're in group chats, masterminds, and Slack communities. One happy client in a creator mastermind can generate 3-5 warm leads. The free month costs you almost nothing (your marginal cost is ~$77/month) but the referral is worth $2,500/month in new revenue. Asymmetric trade.
+> **HACK: The Referral Engine.** Once you have 2-3 clients, offer them a free month for every referral that signs a 3-month contract. Creators talk to each other constantly. They're in group chats, masterminds, and {{< platform name="slack" text="Slack" >}} communities. One happy client in a creator mastermind can generate 3-5 warm leads. The free month costs you almost nothing (your marginal cost is ~$77/month) but the referral is worth $2,500/month in new revenue. Asymmetric trade.
 
 ## Tricks and Hacks They Don't Share in Courses
 

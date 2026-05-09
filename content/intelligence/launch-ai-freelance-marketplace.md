@@ -19,8 +19,8 @@ Before you start, you need the following:
 
 - A laptop with a modern browser (Chrome or Firefox)
 - A Sharetribe account (14-day free trial) — go to sharetribe.com and sign up
-- A Stripe account for collecting payments — go to stripe.com and sign up
-- A Notion account for documentation — free tier is fine
+- A {{< platform name="stripe" text="Stripe" >}} account for collecting payments — go to stripe.com and sign up
+- A {{< platform name="notion" text="Notion" >}} account for documentation — free tier is fine
 - A Cal.com account for scheduling calls — free tier is fine
 - A Gmail account for communication
 - 6-8 hours of uninterrupted time for initial setup
@@ -70,17 +70,17 @@ Your vetting system is what separates your marketplace from Fiverr. Without it, 
 
 ### Design the Skills Assessment
 
-Open a new Google Doc. Design a three-tier vetting process:
+Open a new {{< platform name="google" text="Google" >}} Doc. Design a three-tier vetting process:
 
 **Tier 1: Portfolio Review** — Every applicant submits a portfolio with at least 2 completed AI projects. Score on: relevance, complexity, client evidence, documentation quality. Pass threshold: 6 out of 8.
 
-**Tier 2: Live Build Test** — A standardized 60-90 minute technical assessment. Example for AI Automation Specialists: "Build a Make.com scenario that takes a form submission, enriches the data with OpenAI, and routes output based on a score threshold. Record a Loom walkthrough." Score on: functionality (40%), conversation design (25%), error handling (20%), code quality (15%). Pass threshold: 70%.
+**Tier 2: Live Build Test** — A standardized 60-90 minute technical assessment. Example for AI Automation Specialists: "Build a Make.com scenario that takes a form submission, enriches the data with {{< platform name="openai" text="OpenAI" >}}, and routes output based on a score threshold. Record a Loom walkthrough." Score on: functionality (40%), conversation design (25%), error handling (20%), code quality (15%). Pass threshold: 70%.
 
 **Tier 3: Vetting Call** — 15-minute video call with three questions testing authenticity, problem-solving, and professionalism. Pass threshold: 4 out of 6.
 
 ### Create the Application Form
 
-Go to typeform.com. Create a freelancer application form collecting: name, email, primary AI skill, years of experience, portfolio URL, LinkedIn URL, and a 200-word response to "Describe a recent AI project and its measurable results."
+Go to typeform.com. Create a freelancer application form collecting: name, email, primary AI skill, years of experience, portfolio URL, {{< platform name="linkedin" text="LinkedIn" >}} URL, and a 200-word response to "Describe a recent AI project and its measurable results."
 
 Embed this form on your marketplace's "Become a Freelancer" page.
 
@@ -132,7 +132,7 @@ Send 10 emails per day. Expected results: 30-40% reply rate, 10-18 complete the 
 
 ### Source Clients
 
-**Apollo.io (15 clients):** Filter by company size 11-500, relevant industries, titles: CEO, CTO, VP Operations. Export contacts.
+**{{< platform name="apollo" text="Apollo" >}}.io (15 clients):** Filter by company size 11-500, relevant industries, titles: CEO, CTO, VP Operations. Export contacts.
 
 **LinkedIn (5 clients):** Search for "[industry] CEO." Filter by posted in last 30 days.
 
@@ -190,7 +190,7 @@ The matching engine is what makes your marketplace better than a job board. When
 ### Optimize Based on Metrics
 
 If Fill Rate below 85%: Recruit more freelancers in the under-served specialty.
-If Time to First Proposal over 12 hours: Set up a Slack group for instant project alerts.
+If Time to First Proposal over 12 hours: Set up a {{< platform name="slack" text="Slack" >}} group for instant project alerts.
 If Take Rate below 80%: Add kickoff call facilitation and milestone payments.
 
 ## Step 7: Scale with Premium Tiers

@@ -20,11 +20,11 @@ I am going to walk you through every dimension of this opportunity: why AI voice
 
 Three converging forces make the AI appointment booking agency one of the most accessible and profitable B2B opportunities in 2026.
 
-First: AI voice agents can now handle real booking conversations. Two years ago, automated phone answering meant a robotic IVR that said "Press 1 for sales, Press 2 for support." Today, platforms like Vapi and Bland.ai let you deploy AI voice agents that understand natural speech, ask follow-up questions, check real-time availability, and book appointments directly into a calendar. A patient calls a dental office at 10 PM — the AI voice agent answers, understands they want a cleaning, checks the calendar, offers two available slots, and books the appointment. The front desk arrives the next morning to find the appointment already on the schedule. This is not science fiction. This is live and deployable today, and 95% of appointment-based businesses do not have it.
+First: AI voice agents can now handle real booking conversations. Two years ago, automated phone answering meant a robotic IVR that said "Press 1 for sales, Press 2 for support." Today, platforms like {{< platform name="vapi" text="Vapi" >}} and Bland.ai let you deploy AI voice agents that understand natural speech, ask follow-up questions, check real-time availability, and book appointments directly into a calendar. A patient calls a dental office at 10 PM — the AI voice agent answers, understands they want a cleaning, checks the calendar, offers two available slots, and books the appointment. The front desk arrives the next morning to find the appointment already on the schedule. This is not science fiction. This is live and deployable today, and 95% of appointment-based businesses do not have it.
 
 Second: the no-show problem is expensive and solvable. A dental practice with 50 appointments per week and a 20% no-show rate loses 10 appointments weekly. At an average revenue of $200 per appointment, that is $2,000 per week or $104,000 per year in lost revenue. Automated SMS and email reminders reduce no-show rates by 50-80%. A client who implements your booking system and sees their no-show rate drop from 20% to 8% gains $62,400 per year in recovered revenue. They will happily pay you $500-1,500/month for a system that makes them $5,200/month. The ROI sells itself.
 
-Third: existing booking software is not intelligent. Calendly, Acuity, and Book Like A Boss provide booking pages, but they cannot handle the nuances of real appointment management: routing based on service type, handling insurance verification for medical practices, managing room and equipment availability, adapting to last-minute schedule changes, or re-engaging patients who have not booked in 6 months. Your agency adds the intelligence layer that turns a booking page into a complete appointment management system. Software provides the skeleton. You provide the brain.
+Third: existing booking software is not intelligent. {{< platform name="calendly" text="Calendly" >}}, Acuity, and Book Like A Boss provide booking pages, but they cannot handle the nuances of real appointment management: routing based on service type, handling insurance verification for medical practices, managing room and equipment availability, adapting to last-minute schedule changes, or re-engaging patients who have not booked in 6 months. Your agency adds the intelligence layer that turns a booking page into a complete appointment management system. Software provides the skeleton. You provide the brain.
 
 ## The Realistic Picture (Before You Get Excited)
 
@@ -46,17 +46,17 @@ You can learn, build demos, and land your first client without spending a single
 
 **Vapi Free Trial — $0** — AI voice agent platform. The free tier gives you enough minutes to build and test a voice agent. Go to vapi.ai and create an account. This is your primary tool for building voice-based booking agents.
 
-**Cal.com Free — $0** — Open-source scheduling platform. Connect it to Google Calendar. Provides the booking infrastructure that your AI agents will interact with.
+**Cal.com Free — $0** — Open-source scheduling platform. Connect it to {{< platform name="google" text="Google" >}} Calendar. Provides the booking infrastructure that your AI agents will interact with.
 
 **Google Calendar — $0** — Calendar backbone. Most small businesses already use it. Your booking automations will read and write appointments here.
 
-**Make.com Free Tier — $0** — 1,000 operations/month. Build the automation workflows that connect voice agents, chatbots, calendars, and notification systems.
+**{{< platform name="make" text="Make" >}} Free Tier — $0** — 1,000 operations/month. Build the automation workflows that connect voice agents, chatbots, calendars, and notification systems.
 
 **Twilio Free Trial — $0** — SMS messaging. Send appointment reminders and confirmations. The trial gives you a phone number and enough credits for testing.
 
-**Notion Free — $0** — SOP documentation, client onboarding forms, project tracking.
+**{{< platform name="notion" text="Notion" >}} Free — $0** — SOP documentation, client onboarding forms, project tracking.
 
-**ChatGPT Free — $0** — Generate conversation scripts, email templates, and marketing copy.
+**{{< platform name="chatgpt" text="ChatGPT" >}} Free — $0** — Generate conversation scripts, email templates, and marketing copy.
 
 > **HACK: The After-Hours Demo.** Here is how to land your first client without cold outreach. Find a local dental practice or salon that closes at 5 PM but has an answering machine for after-hours calls. Build a Vapi voice agent that handles after-hours booking calls for that specific business type. Call the business during business hours and say: "I noticed you close at 5 PM. I built an AI receptionist that answers calls after hours, books appointments, and sends you a summary the next morning. Want to try it free for 2 weeks?" The business owner hears a working demo, sees that it handles real calls, and converts at 25-40% because the value is immediately obvious and the risk is zero.
 
@@ -72,11 +72,11 @@ Once you have 2-3 paying clients and $2,000+ in monthly revenue, invest in the t
 
 **Twilio — Pay-as-you-go (~$20-50/mo)** — Production SMS messaging. Approximately $0.0079 per SMS segment.
 
-**OpenAI API — Pay-as-you-go (~$20-50/mo)** — Power the AI steps in your booking automations: conversation handling, personalization, and intelligent routing.
+**{{< platform name="openai" text="OpenAI" >}} API — Pay-as-you-go (~$20-50/mo)** — Power the AI steps in your booking automations: conversation handling, personalization, and intelligent routing.
 
 **Calendly Pro — $12/mo** — Professional scheduling with advanced features like group events, custom questions, and workflow automations.
 
-**Stripe — Free + 2.9% per transaction** — Collect payments from clients.
+**{{< platform name="stripe" text="Stripe" >}} — Free + 2.9% per transaction** — Collect payments from clients.
 
 **Total monthly cost: $148-208.** A single retainer client at $1,000/month covers this 5x over.
 
@@ -134,7 +134,7 @@ Structure your service as a monthly retainer with these deliverables:
 
 **Growth Package ($1,000-1,500/month + $2,500 setup):** 24/7 voice agent + website chatbot + email + SMS reminders + AI-powered re-engagement. For businesses with 3-5 service providers.
 
-**Enterprise Package ($2,000-3,000/month + $5,000 setup):** Multi-location voice agents + chatbot + full appointment lifecycle management + HIPAA compliance + dedicated Slack channel. For businesses with 6+ service providers or multiple locations.
+**Enterprise Package ($2,000-3,000/month + $5,000 setup):** Multi-location voice agents + chatbot + full appointment lifecycle management + HIPAA compliance + dedicated {{< platform name="slack" text="Slack" >}} channel. For businesses with 6+ service providers or multiple locations.
 
 **One-Time Setup Only ($2,000-5,000):** Deploy the system without a retainer. The client handles their own maintenance. Lower revenue but faster cash. Some setup-only clients convert to retainers when they realize they cannot maintain the system themselves.
 

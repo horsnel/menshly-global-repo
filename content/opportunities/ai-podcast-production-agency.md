@@ -19,7 +19,7 @@ I'm going to lay out everything: the exact tools, every hack, every ugly truth, 
 
 ## Why This Works Right Now
 
-**AI audio tools just crossed the "good enough" threshold.** Two years ago, AI-generated show notes read like a robot wrote them, and AI audio editing left artifacts that made hosts sound like they were underwater. That changed fast. Descript now removes filler words, tightens pacing, and fixes audio quality in one click — output that would've required a skilled audio engineer earning $40-60/hour. ElevenLabs can clone a host's voice for consistent intros and ad reads that sound indistinguishable from the real thing. ChatGPT writes show notes, social captions, and email drafts that need maybe 10 minutes of human polish instead of 2 hours of staring at a blank page. The quality gap between "AI-assisted" and "human-only" production has essentially closed for 90% of podcasts, and most listeners genuinely can't tell the difference.
+**AI audio tools just crossed the "good enough" threshold.** Two years ago, AI-generated show notes read like a robot wrote them, and AI audio editing left artifacts that made hosts sound like they were underwater. That changed fast. Descript now removes filler words, tightens pacing, and fixes audio quality in one click — output that would've required a skilled audio engineer earning $40-60/hour. ElevenLabs can clone a host's voice for consistent intros and ad reads that sound indistinguishable from the real thing. {{< platform name="chatgpt" text="ChatGPT" >}} writes show notes, social captions, and email drafts that need maybe 10 minutes of human polish instead of 2 hours of staring at a blank page. The quality gap between "AI-assisted" and "human-only" production has essentially closed for 90% of podcasts, and most listeners genuinely can't tell the difference.
 
 **Podcast ad revenue is projected to hit $4 billion in 2026.** Brands are dumping money into podcast advertising at a compound annual growth rate of about 15%. That means more shows are launching, more shows are getting serious about production quality, and more creators are willing to pay for help because the revenue upside is real. A podcaster making $2,000/month from sponsors will happily pay $800/month for production if it frees them up to sell more ads. The math works for both sides. This isn't a hobbyist market anymore — it's a business market with business budgets and ROI expectations that your service can directly satisfy.
 
@@ -39,17 +39,17 @@ I'm going to lay out everything: the exact tools, every hack, every ugly truth, 
 
 **ChatGPT (free tier) — $0** — Write show notes, social captions, newsletter drafts, and email pitches in seconds instead of hours.
 
-**Canva (free tier) — $0** — Design episode cover art, audiogram thumbnails, and social graphics with drag-and-drop templates that look professional.
+**{{< platform name="canva" text="Canva" >}} (free tier) — $0** — Design episode cover art, audiogram thumbnails, and social graphics with drag-and-drop templates that look professional.
 
 **Descript (free tier) — $0** — Edit audio by editing text, remove filler words automatically, and generate basic transcripts for show notes.
 
-**Notion — $0** — Track every client's production calendar, episode status, asset links, and communication history in one workspace you can share.
+**{{< platform name="notion" text="Notion" >}} — $0** — Track every client's production calendar, episode status, asset links, and communication history in one workspace you can share.
 
-**Buffer (free tier) — $0** — Schedule and auto-post podcast social content across 3 channels without logging into each platform daily.
+**{{< platform name="buffer" text="Buffer" >}} (free tier) — $0** — Schedule and auto-post podcast social content across 3 channels without logging into each platform daily.
 
 **Loom (free tier) — $0** — Record quick walkthrough videos for clients showing episode drafts, audiogram options, or workflow onboarding without scheduling a call.
 
-**Calendly (free tier) — $0** — Let clients and prospects book discovery calls or recording sessions without the back-and-forth email dance.
+**{{< platform name="calendly" text="Calendly" >}} (free tier) — $0** — Let clients and prospects book discovery calls or recording sessions without the back-and-forth email dance.
 
 > **HACK:** Stack Descript's free tier with ChatGPT to produce a complete episode package — edited audio, transcript, show notes, and social posts — in under 2 hours. The free limits reset monthly, and for 1-2 clients, you'll never hit the ceiling. By the time you do, you'll have paying clients covering the upgrade. The free stack is a proof-of-concept, not a permanent setup. Use it to get your first revenue, then reinvest immediately.
 
@@ -57,11 +57,11 @@ I'm going to lay out everything: the exact tools, every hack, every ugly truth, 
 
 **Descript Pro — $24/mo** — Unlimited transcripts, filler word removal, studio sound enhancement, and 4K video editing for video podcast clients.
 
-**ElevenLabs Creator — $22/mo** — Clone host voices for consistent intros/outros, generate ad reads, and produce narration for repurposed content.
+**{{< platform name="elevenlabs" text="ElevenLabs" >}} Creator — $22/mo** — Clone host voices for consistent intros/outros, generate ad reads, and produce narration for repurposed content.
 
 **ChatGPT Plus — $20/mo** — GPT-4 access for higher-quality show notes, better social copy, and custom GPTs tailored to each client's brand voice.
 
-**Make.com — $9/mo** — Automate the entire post-production pipeline: when a file hits Google Drive, trigger transcription, push to Descript, notify the team, and schedule social posts.
+**{{< platform name="make" text="Make" >}} — $9/mo** — Automate the entire post-production pipeline: when a file hits Google Drive, trigger transcription, push to Descript, notify the team, and schedule social posts.
 
 **Canva Pro — $13/mo** — Brand kits, background remover, resizable audiogram templates, and the full template library for polished client deliverables.
 
@@ -73,11 +73,11 @@ I'm going to lay out everything: the exact tools, every hack, every ugly truth, 
 
 **Loom Business — $13/mo** — Custom branding on walkthrough videos, viewer insights, and auto-generated chapters for client review sessions.
 
-**Calendly Standard — $10/mo** — Group events for podcast guest scheduling, custom intake forms that collect episode topic and bio before the call, and Stripe integration for paid consulting upsells.
+**Calendly Standard — $10/mo** — Group events for podcast guest scheduling, custom intake forms that collect episode topic and bio before the call, and {{< platform name="stripe" text="Stripe" >}} integration for paid consulting upsells.
 
 **Total monthly cost: $164** — which you'll cover with your first half-client.
 
-> **HACK:** Build a Make.com scenario that watches your Google Drive for new audio files, auto-sends them to Descript for transcription, triggers a ChatGPT prompt to draft show notes from the transcript, and drops everything into the client's Notion board. One automation replaces 45 minutes of manual copy-pasting per episode. At 4 episodes per client per month and 6 clients, you just saved yourself 18 hours. That's the difference between a lifestyle business and a real agency.
+> **HACK:** Build a Make.com scenario that watches your {{< platform name="google" text="Google" >}} Drive for new audio files, auto-sends them to Descript for transcription, triggers a ChatGPT prompt to draft show notes from the transcript, and drops everything into the client's Notion board. One automation replaces 45 minutes of manual copy-pasting per episode. At 4 episodes per client per month and 6 clients, you just saved yourself 18 hours. That's the difference between a lifestyle business and a real agency.
 
 ## The Workflow: Step-by-Step With Every Shortcut
 
@@ -85,13 +85,13 @@ I'm going to lay out everything: the exact tools, every hack, every ugly truth, 
 
 This is where most of the disasters happen. The client records their episode — usually on Riverside or Zoom — and drops the raw audio file into a shared Google Drive folder. Your first job is making that audio not sound like garbage. Run it through Descript's Studio Sound, which uses AI to remove background noise, normalize volume, and add warmth. It's not perfect — you'll still need to listen through on 1.5x speed to catch obvious issues — but it handles 80% of the cleanup that used to require expensive plugins and a trained ear. Next, run Descript's filler word removal. It catches "um," "uh," "like," and "you know" with about 90% accuracy. Scan the transcript for anything it missed or overcut, then export the cleaned audio.
 
-For video podcasts, do the same cleanup but also use Descript's eye-contact correction feature, which subtly adjusts the speaker's gaze to look at the camera. It's a small thing that makes a huge difference on LinkedIn clips and YouTube thumbnails. Export the video in 1080p and 4K if the client's platform supports it. You're not just cleaning audio here — you're creating the foundation that every other deliverable will build on. Sloppy audio cleanup means sloppy show notes, sloppy clips, and a sloppy client experience. Get this step right and everything downstream gets easier.
+For video podcasts, do the same cleanup but also use Descript's eye-contact correction feature, which subtly adjusts the speaker's gaze to look at the camera. It's a small thing that makes a huge difference on LinkedIn clips and {{< platform name="youtube" text="YouTube" >}} thumbnails. Export the video in 1080p and 4K if the client's platform supports it. You're not just cleaning audio here — you're creating the foundation that every other deliverable will build on. Sloppy audio cleanup means sloppy show notes, sloppy clips, and a sloppy client experience. Get this step right and everything downstream gets easier.
 
 > **HACK:** Create a Descript template for each client with their intro music, outro, ad read placement markers, and preferred loudness target (-16 LUFS for most platforms). Every new episode starts with the template instead of from scratch. This alone saves 15-20 minutes per episode and ensures brand consistency across every single show. It also means if you ever bring on a freelance editor, they follow the exact same template and the client can't tell the difference.
 
 ### Step 2: Content Repurposing (60-90 minutes per episode)
 
-Here's where the margin lives. One 45-minute podcast episode should produce 12 to 15 pieces of content if you're doing it right. Start by pulling the transcript from Descript and feeding it into ChatGPT with a custom prompt tuned to the client's brand voice. You want: a 400-word show notes post, a 3-paragraph newsletter blurb, 5 tweets, 2 LinkedIn posts, 1 Instagram caption, and 3 short-form video scripts. ChatGPT handles all of this in about 3 minutes. You'll spend another 15-20 minutes editing the output so it doesn't sound like AI wrote it — swap in specific names, add personality, cut anything generic or weirdly formal.
+Here's where the margin lives. One 45-minute podcast episode should produce 12 to 15 pieces of content if you're doing it right. Start by pulling the transcript from Descript and feeding it into ChatGPT with a custom prompt tuned to the client's brand voice. You want: a 400-word show notes post, a 3-paragraph newsletter blurb, 5 tweets, 2 {{< platform name="linkedin" text="LinkedIn" >}} posts, 1 Instagram caption, and 3 short-form video scripts. ChatGPT handles all of this in about 3 minutes. You'll spend another 15-20 minutes editing the output so it doesn't sound like AI wrote it — swap in specific names, add personality, cut anything generic or weirdly formal.
 
 For audiograms, pull 30-90 second clips from Descript — pick the moments with energy, hot takes, or actionable advice. Drop those into Canva using a branded audiogram template. Add captions (Descript auto-generates these), export as MP4, and schedule through Buffer. For clients on Beehiiv, format the newsletter draft, add the episode link, and queue it. Each piece of repurposed content is an asset the client would otherwise pay a separate social media manager $1,500+/month to produce. You're not just editing a podcast — you're running a content engine, and that's what justifies your monthly retainer.
 
@@ -101,7 +101,7 @@ For audiograms, pull 30-90 second clips from Descript — pick the moments with 
 
 Once all the assets are ready — cleaned audio/video, show notes, social posts, audiograms, newsletter — they need to land in the right places at the right times. Use Make.com to orchestrate this. When you mark an episode as "approved" in Notion, Make triggers a chain: the audio file gets pushed to the hosting platform (Buzzsprout, Libsyn, Transistor), social posts get queued in Buffer, the newsletter gets scheduled in Beehiiv, and the client gets a Loom video walkthrough of everything that went out. That chain used to take 30-45 minutes of tab-switching and copy-pasting. Now it takes 3 minutes of QA.
 
-For client communication, keep it tight. Record a 3-minute Loom video showing the episode draft, the audiogram options, and any decisions they need to make. No 45-minute Zoom calls. No Slack threads that go in circles. The Loom approach respects their time, gives them something to reference later, and — critically — creates a record of what you delivered and when. If there's ever a dispute about whether an audiogram was posted or a newsletter was sent, you have the timestamped video. This alone will save you from at least two "but I didn't approve that" conversations per month.
+For client communication, keep it tight. Record a 3-minute Loom video showing the episode draft, the audiogram options, and any decisions they need to make. No 45-minute Zoom calls. No {{< platform name="slack" text="Slack" >}} threads that go in circles. The Loom approach respects their time, gives them something to reference later, and — critically — creates a record of what you delivered and when. If there's ever a dispute about whether an audiogram was posted or a newsletter was sent, you have the timestamped video. This alone will save you from at least two "but I didn't approve that" conversations per month.
 
 > **HACK:** Set up a Notion dashboard for each client that shows episode status (Recording → Editing → Review → Published), upcoming publishing dates, social post counts, and a "feedback" section. Clients login anytime to check progress instead of texting you at 10pm asking "where's the episode?" This one system eliminates 60% of your client communication overhead and makes you look like you're running a much bigger operation than you actually are.
 

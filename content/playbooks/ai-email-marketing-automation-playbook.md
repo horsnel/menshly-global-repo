@@ -47,7 +47,7 @@ Write these tiers into a one-page PDF. This is your rate card. You will send thi
 
 ### Procedure 1.3: Set Up Your Financial Tracking
 
-1. Create a Notion workspace at [notion.so](https://notion.so). Name it `[Your Brand] Operations`.
+1. Create a {{< platform name="notion" text="Notion" >}} workspace at [notion.so](https://notion.so). Name it `[Your Brand] Operations`.
 2. Inside this workspace, create three databases:
    - **Clients**: Columns — Client Name, Tier, Monthly Fee, Start Date, Status (Active/Churned), MRR Contribution, Next Renewal Date
    - **Revenue Tracker**: Columns — Month, Total MRR, New MRR, Churned MRR, Net New MRR, Tool Costs, Net Profit
@@ -77,8 +77,8 @@ You will configure exactly seven tools. Not six. Not eight. Seven. Every tool in
 
 1. Go to [klaviyo.com](https://klaviyo.com) and create an account. Select the "Email + SMS" plan.
 2. Pricing at launch (under 250 contacts): ₦0 free tier. You will upgrade when you cross 250 contacts. The ₦0 tier gives you 500 emails/month. This is enough for your first client.
-3. Install the Klaviyo snippet on your client's store:
-   - **Shopify**: Go to Klaviyo → Integrations → Shopify → Click "Install" → Authorize. Done in 90 seconds.
+3. Install the {{< platform name="klaviyo" text="Klaviyo" >}} snippet on your client's store:
+   - **{{< platform name="shopify" text="Shopify" >}}**: Go to Klaviyo → Integrations → Shopify → Click "Install" → Authorize. Done in 90 seconds.
    - **WooCommerce**: Go to Klaviyo → Integrations → WooCommerce → Copy the API key → Install the [Klaviyo WooCommerce plugin](https://wordpress.org/plugins/klaviyo/) → Paste API key in Settings → Enable "Track Added to Cart" and "Track Checkout Start."
 4. Verify the integration: Go to Klaviyo → Analytics → Activity Feed. Add an item to cart on the client store. If the activity appears within 60 seconds, the integration works. If it does not, recheck the API key and JavaScript snippet placement.
 5. Enable double opt-in: Go to Klaviyo → Account → Settings → Email → Set "Double Opt-In" to "On." This protects deliverability. Do not skip this.
@@ -101,7 +101,7 @@ You will configure exactly seven tools. Not six. Not eight. Seven. Every tool in
 
 ### Procedure 2.3: Configure ChatGPT (Content Engine)
 
-1. Go to [chat.openai.com](https://chat.openai.com) and subscribe to ChatGPT Plus at $20/month (approximately ₦32,000/month).
+1. Go to [chat.openai.com](https://chat.openai.com) and subscribe to {{< platform name="chatgpt" text="ChatGPT" >}} Plus at $20/month (approximately ₦32,000/month).
 2. Create a Custom GPT named "Email Copy Engine." Configure it with the following system prompt:
 
 ```
@@ -120,12 +120,12 @@ Output format for every email:
 ### Procedure 2.4: Configure Make.com (Automation Orchestration)
 
 1. Go to [make.com](https://www.make.com/en/register?pc=menshly) and create an account. Select the "Core" plan at €9/month (approximately ₦16,000/month).
-2. Connect the following modules in Make.com:
+2. Connect the following modules in {{< platform name="make" text="Make" >}}.com:
    - Klaviyo (OAuth connection)
    - ActiveCampaign (API key + URL from Settings → Developer)
    - ChatGPT (API key from [platform.openai.com](https://platform.openai.com) → API Keys → Create New Key)
-   - Google Sheets (OAuth connection)
-   - Slack (OAuth connection — for internal alerts)
+   - {{< platform name="google" text="Google" >}} Sheets (OAuth connection)
+   - {{< platform name="slack" text="Slack" >}} (OAuth connection — for internal alerts)
 3. Test each connection by creating a simple scenario: "Watch Google Sheet → Send a test Slack message." If the message arrives, your connections work.
 
 ### Procedure 2.5: Configure Google Sheets (Data Backbone)
@@ -140,7 +140,7 @@ Output format for every email:
 
 ### Procedure 2.6: Configure Canva (Visual Asset Production)
 
-1. Go to [canva.com](https://canva.com) and subscribe to Canva Pro at $13/month (approximately ₦21,000/month).
+1. Go to [canva.com](https://canva.com) and subscribe to {{< platform name="canva" text="Canva" >}} Pro at $13/month (approximately ₦21,000/month).
 2. Create a Brand Kit for each client: upload their logo, set their primary color (`#hex`), secondary color (`#hex`), and font pair (one heading font, one body font).
 3. Create three email header templates (1200×400px): promotional, educational, transactional. Save them in a folder named `[Client Name] — Email Assets`.
 
@@ -230,7 +230,7 @@ Send to the most engaged segment first (people who opened an email in the last 3
 
 ### Procedure 3.3: Set Up Deliverability Monitoring
 
-1. Create a free account at [google.com/postmaster](https://www.google.com/postmaster). Add each client domain. This gives you Google's direct reputation score for that domain. You want to see "High" or "Medium." If you see "Low" or "Bad," you have a deliverability emergency.
+1. Create a free account at [google.com/postmaster](https://www.google.com/postmaster). Add each client domain. This gives you Google's direct reputation score for that domain. You want to see "High" or "{{< platform name="medium" text="Medium" >}}." If you see "Low" or "Bad," you have a deliverability emergency.
 2. Set up a Make.com scenario that runs daily:
    - **Trigger**: Schedule → Every day at 08:00 WAT
    - **Action 1**: HTTP Request → Call the Klaviyo API endpoint `GET /api/v1/metrics` → Filter for `email_delivery_rate`
@@ -977,9 +977,9 @@ Results:
 | 4 | 14 days | "Free audit: your email program" | Offer a free mini-audit of their current setup |
 | 5 | 21 days | "Closing the loop" | Final touch, no pressure, leave the door open |
 
-4. Each email must be under 100 words. No attachments. One CTA per email. The CTA is always "Reply to this email" or "Book a 15-minute call" (with Calendly link).
+4. Each email must be under 100 words. No attachments. One CTA per email. The CTA is always "Reply to this email" or "Book a 15-minute call" (with {{< platform name="calendly" text="Calendly" >}} link).
 
-**Channel 2: LinkedIn Outreach via PhantomBuster**
+**Channel 2: {{< platform name="linkedin" text="LinkedIn" >}} Outreach via PhantomBuster**
 
 1. Go to [phantombuster.com](https://phantombuster.com) and subscribe to the Starter plan at $69/month (approximately ₦110,000/month).
 2. Create a LinkedIn search for: "Founder" OR "CEO" + "E-commerce" + Location: "Nigeria" or "Lagos"
@@ -1044,7 +1044,7 @@ Results:
 
 - [ ] Three case studies written and designed as PDFs
 - [ ] Case studies published on website or Notion page
-- [ ] Apollo.io account created with first prospect list exported
+- [ ] {{< platform name="apollo" text="Apollo" >}}.io account created with first prospect list exported
 - [ ] 5-email cold outreach sequence built in ActiveCampaign
 - [ ] PhantomBuster LinkedIn outreach campaign live
 - [ ] Free audit landing page created

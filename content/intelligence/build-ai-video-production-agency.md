@@ -19,14 +19,14 @@ This guide assumes you have zero infrastructure set up. By the end, you will hav
 
 Before you start, you need the following:
 
-- **HeyGen** — $24/mo (Creator plan for 15 avatar video credits)
-- **Runway ML** — $12/mo (Standard plan for 625 credits)
-- **ElevenLabs** — $5/mo (Starter plan for 30,000 characters)
-- **Fliki** — $21/mo (Standard plan for 180 minutes)
-- **Make.com** — $16/mo (Teams plan for 10,000 operations/month)
-- **OpenAI API key** — $10 credit minimum (platform.openai.com/api-keys)
+- **{{< platform name="heygen" text="HeyGen" >}}** — $24/mo (Creator plan for 15 avatar video credits)
+- **{{< platform name="runway" text="Runway" >}} ML** — $12/mo (Standard plan for 625 credits)
+- **{{< platform name="elevenlabs" text="ElevenLabs" >}}** — $5/mo (Starter plan for 30,000 characters)
+- **{{< platform name="fliki" text="Fliki" >}}** — $21/mo (Standard plan for 180 minutes)
+- **{{< platform name="make" text="Make" >}}.com** — $16/mo (Teams plan for 10,000 operations/month)
+- **{{< platform name="openai" text="OpenAI" >}} API key** — $10 credit minimum (platform.openai.com/api-keys)
 - **CapCut** — Free (video editing and assembly)
-- **Canva Pro** — $13/mo (thumbnails and branded assets)
+- **{{< platform name="canva" text="Canva" >}} Pro** — $13/mo (thumbnails and branded assets)
 - **Frame.io** — $15/mo (client review and approval)
 - **6-8 hours of uninterrupted time** for initial setup
 
@@ -46,7 +46,7 @@ Navigate to **Settings** → **API** and generate an API key. Store it securely.
 
 Go to runwayml.com and sign up for the Standard plan. Generate a test 4-second clip using the prompt: "Professional office workspace, warm lighting, cinematic, 4K." Verify the quality and download the clip.
 
-Runway does not have a public API as of May 2026. You will trigger Runway generation manually and download clips to Google Drive for automated assembly. Build a Make.com scenario that monitors the Google Drive folder for new clips and routes them to the appropriate project.
+Runway does not have a public API as of May 2026. You will trigger Runway generation manually and download clips to {{< platform name="google" text="Google" >}} Drive for automated assembly. Build a Make.com scenario that monitors the Google Drive folder for new clips and routes them to the appropriate project.
 
 ### Sub-step 1c: ElevenLabs Setup and API Configuration
 
@@ -141,8 +141,8 @@ Score this video script on a scale of 1-10 for:
 If any score is below 7, regenerate the script with improvements.
 ```
 
-4. **Module 3 — Code by Zapier:** Parse the script and validate against quality framework rules
-5. **Module 4 — Notion:** Create a script page in the client's Scripts database
+4. **Module 3 — Code by {{< platform name="zapier" text="Zapier" >}}:** Parse the script and validate against quality framework rules
+5. **Module 4 — {{< platform name="notion" text="Notion" >}}:** Create a script page in the client's Scripts database
 6. **Module 5 — Gmail:** Send the draft script to the client for review
 
 ### Sub-step 2c: Build the Three-Hook A/B Testing System
@@ -175,7 +175,7 @@ Create a Make.com scenario: "Explainer Production — [Client Name]"
 2. **Module 1 — ElevenLabs:** Generate voiceover from the script's voiceover text
 3. **Module 2 — HeyGen:** Generate AI avatar segments for presenter-led sections
 4. **Module 3 — Google Sheets:** Log all generated assets with file URLs
-5. **Module 4 — Slack:** Notify you that assets are ready for assembly
+5. **Module 4 — {{< platform name="slack" text="Slack" >}}:** Notify you that assets are ready for assembly
 
 Assembly in CapCut (manual, 30-60 minutes per video):
 1. Import all generated assets

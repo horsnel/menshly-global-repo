@@ -22,13 +22,13 @@ First: the real estate marketing industry is drowning in overpriced, underperfor
 
 Second: social media is now the No. 1 source of real estate leads for agents under 40, and those agents have zero time to create content. The National Association of Realtors reported that 89% of home buyers start their search online, and Instagram Reels + TikTok are where the attention lives. An agent who posts consistently — 4-5 times per week with Reels, carousels, and neighborhood spotlights — gets 3-5x more inbound leads than one who doesn't. But filming, editing, writing captions, and posting takes 8-12 hours a week that agents simply don't have. AI tools can shrink that to 90 minutes. You're selling them their time back, and their time is worth $150-$500 per hour when they're with clients.
 
-Third: AI voice and video tools crossed the quality threshold in late 2025. This is the thing that changed everything. You can now create a neighborhood walking tour video with an AI narrator that sounds like a local agent, overlay property photos, add market data, and produce a 60-second Reel that gets more engagement than most agents' actual video content. ElevenLabs voices are indistinguishable from human narrators in blind tests. ChatGPT writes listing descriptions that agents can't distinguish from their own copy. Canva's AI tools generate branded social templates in seconds. The output quality finally matches what agents expect, which means you can deliver professional-grade marketing at freelance prices with AI-assisted production speed.
+Third: AI voice and video tools crossed the quality threshold in late 2025. This is the thing that changed everything. You can now create a neighborhood walking tour video with an AI narrator that sounds like a local agent, overlay property photos, add market data, and produce a 60-second Reel that gets more engagement than most agents' actual video content. ElevenLabs voices are indistinguishable from human narrators in blind tests. {{< platform name="chatgpt" text="ChatGPT" >}} writes listing descriptions that agents can't distinguish from their own copy. Canva's AI tools generate branded social templates in seconds. The output quality finally matches what agents expect, which means you can deliver professional-grade marketing at freelance prices with AI-assisted production speed.
 
 ## The Realistic Picture (Before You Get Excited)
 
 > **Truth No. 1:** Real estate agents are notoriously cheap and skeptical. The average agent grosses $54K/year and nets way less after broker splits, MLS fees, and existing marketing costs. Many have been burned by marketing agencies that promised leads and delivered vanity metrics. You will hear "I've tried marketing agencies before" constantly. Your close rate on cold outreach will be 2-5% until you build case studies, and even then, agents will negotiate hard. Budget 3-4 months of lean revenue before momentum hits.
 
-> **Truth No. 2:** You're competing against free. Agents can use Canva themselves. They can ask ChatGPT to write listing descriptions. They can schedule posts natively on Instagram. Your value isn't the tools — it's the system, the consistency, and the results. If an agent can't clearly see how you're generating leads they wouldn't have gotten otherwise, they'll cancel. Retention in this business averages 4-6 months unless you tie your work directly to closed deals.
+> **Truth No. 2:** You're competing against free. Agents can use {{< platform name="canva" text="Canva" >}} themselves. They can ask ChatGPT to write listing descriptions. They can schedule posts natively on Instagram. Your value isn't the tools — it's the system, the consistency, and the results. If an agent can't clearly see how you're generating leads they wouldn't have gotten otherwise, they'll cancel. Retention in this business averages 4-6 months unless you tie your work directly to closed deals.
 
 > **Truth No. 3:** Real estate is hyper-local and every market is different. What works for a luxury agent in Austin won't work for a first-time-buyer specialist in Cleveland. You can't build one template and scale it everywhere. Each client needs custom market knowledge, local content strategies, and area-specific lead magnets. This limits how many clients you can effectively serve without hiring, which limits your ceiling until you build repeatable systems.
 
@@ -40,15 +40,15 @@ Third: AI voice and video tools crossed the quality threshold in late 2025. This
 
 **Canva Free — $0** — Design property flyers, Instagram carousels, story templates, and branded social graphics. The free tier has enough templates and elements to produce professional real estate content.
 
-**Buffer Free Plan — $0** — Schedule up to 10 posts per channel across 3 social accounts. Enough to manage your first 2-3 clients' social posting on a basic schedule.
+**{{< platform name="buffer" text="Buffer" >}} Free Plan — $0** — Schedule up to 10 posts per channel across 3 social accounts. Enough to manage your first 2-3 clients' social posting on a basic schedule.
 
-**Notion Free — $0** — Your command center. Build client onboarding docs, content calendars, listing trackers, and SOPs all in one workspace. Share pages with clients for transparency.
+**{{< platform name="notion" text="Notion" >}} Free — $0** — Your command center. Build client onboarding docs, content calendars, listing trackers, and SOPs all in one workspace. Share pages with clients for transparency.
 
-**Google Sheets — $0** — Track lead metrics, content performance, and client ROI data. Build simple dashboards that show agents exactly what their marketing is producing.
+**{{< platform name="google" text="Google" >}} Sheets — $0** — Track lead metrics, content performance, and client ROI data. Build simple dashboards that show agents exactly what their marketing is producing.
 
 **CapCut Free — $0** — Edit short-form video content for Reels and TikTok. Auto-captions, transitions, and a music library that make phone-shot footage look polished.
 
-**Mailchimp Free — $0** — Email marketing for up to 500 contacts and 1,000 sends per month. Enough to set up basic drip campaigns for your first client's lead database.
+**{{< platform name="mailchimp" text="Mailchimp" >}} Free — $0** — Email marketing for up to 500 contacts and 1,000 sends per month. Enough to set up basic drip campaigns for your first client's lead database.
 
 > **HACK: The Phantom Agency Site.** Build a free Notion page or Google Site that looks like a legit agency. Include 3 fake case studies with realistic numbers (e.g., "Agent in Denver: 47 leads in 30 days, 3 closed deals, $28K commission"). Nobody's going to verify your case studies when you're cold-DMing them — they're going to click the link, see professional presentation, and decide whether to reply. Once you get real results, swap the fake ones out. Ethics aside, this is how every agency gets started.
 
@@ -58,13 +58,13 @@ Third: AI voice and video tools crossed the quality threshold in late 2025. This
 
 **Canva Pro — $13/mo** — Brand kits, magic resize, background remover, and unlimited premium templates. Saves 2-3 hours per client per month on design work.
 
-**Make.com — $9/mo** — The automation backbone. Connect listing feeds to social schedulers. Auto-generate listing posts when a new property hits the MLS. Route leads from Facebook ads to email sequences. This is where you become a machine, not a freelancer.
+**{{< platform name="make" text="Make" >}} — $9/mo** — The automation backbone. Connect listing feeds to social schedulers. Auto-generate listing posts when a new property hits the MLS. Route leads from Facebook ads to email sequences. This is where you become a machine, not a freelancer.
 
-**Klaviyo — $45/mo** — Purpose-built email and SMS marketing that destroys Mailchimp for real estate. Behavioral triggers, lead scoring, and segmentation that actually converts. Your agents will see open rates jump from 15% to 35%.
+**{{< platform name="klaviyo" text="Klaviyo" >}} — $45/mo** — Purpose-built email and SMS marketing that destroys Mailchimp for real estate. Behavioral triggers, lead scoring, and segmentation that actually converts. Your agents will see open rates jump from 15% to 35%.
 
 **Buffer Essentials — $6/mo per channel** — Schedule unlimited posts, analytics, and team collaboration. Upgrade from the free tier when you hit 4+ clients who need daily posting.
 
-**ElevenLabs — $5/mo** — AI voice generation for property tour narrations, video voiceovers, and even voicemail drops. Record one script and generate 50 variations. Agents think you hired a voiceover artist.
+**{{< platform name="elevenlabs" text="ElevenLabs" >}} — $5/mo** — AI voice generation for property tour narrations, video voiceovers, and even voicemail drops. Record one script and generate 50 variations. Agents think you hired a voiceover artist.
 
 **Notion Plus — $8/mo** — Unlimited file uploads, 30-day page history, and guest access for client collaboration. Your operating system for managing 8+ clients without chaos.
 

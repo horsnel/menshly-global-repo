@@ -12,7 +12,7 @@ relatedPlaybook: "/playbooks/ai-automation-agency-playbook/"
 
 Here's a number that should blow your mind: businesses in America spend $400 billion a year on phone-based customer interactions. Four hundred billion. And right now, less than 2% of those interactions involve AI voice agents. That means $392 billion is still being spent on humans sitting at desks, answering phones, reading scripts, and getting frustrated. The opportunity sitting on this table isn't just big — it's grotesquely, absurdly large, and almost nobody is going after it correctly.
 
-Voice AI crossed the line from "impressive demo" to "actual business infrastructure" about six months ago, and most people still haven't noticed. The models got better. The latency dropped below human conversation speed. The voice quality became indistinguishable from real people. And the platforms — Vapi, Bland AI, Retell, Synthflow — made it possible to deploy a production-ready voice agent in an afternoon instead of a month. The technology is ready. The market is ready. The money is sitting there. But the people building voice AI businesses are mostly doing it wrong, and I'm going to tell you exactly what "right" looks like.
+Voice AI crossed the line from "impressive demo" to "actual business infrastructure" about six months ago, and most people still haven't noticed. The models got better. The latency dropped below human conversation speed. The voice quality became indistinguishable from real people. And the platforms — {{< platform name="vapi" text="Vapi" >}}, Bland AI, Retell, Synthflow — made it possible to deploy a production-ready voice agent in an afternoon instead of a month. The technology is ready. The market is ready. The money is sitting there. But the people building voice AI businesses are mostly doing it wrong, and I'm going to tell you exactly what "right" looks like.
 
 I'm going to lay out everything: which voice platforms actually work, how to build agents that don't sound like robots, the free and paid tools you need, the pricing models that make businesses say yes, the tricks that voice AI veterans don't share publicly, and the ugly truths about running a business where your product talks to your client's customers. This is the kind of information that people are packaging into $2,000 "AI Agency" bootcamps. I'm giving it to you straight because this opportunity is too important to be gatekept by grifters.
 
@@ -20,7 +20,7 @@ I'm going to lay out everything: which voice platforms actually work, how to bui
 
 Three things collided at the same time, and if you understand why they matter, you'll see why voice AI is the most underpriced opportunity in technology today.
 
-First: the voice quality leap happened and nobody noticed. A year ago, AI voices had tells — weird pauses, unnatural emphasis, that robotic cadence that made callers immediately suspicious. Today's models from ElevenLabs, OpenAI, and Cartesia produce speech that humans genuinely cannot distinguish from real people in blind tests. I'm not talking about short clips. I'm talking about full 5-minute conversations where the AI responds naturally, uses filler words appropriately, laughs at the right moments, and adjusts its tone based on the caller's emotional state. This quality leap happened in the last 6 months, and the business world hasn't caught on yet.
+First: the voice quality leap happened and nobody noticed. A year ago, AI voices had tells — weird pauses, unnatural emphasis, that robotic cadence that made callers immediately suspicious. Today's models from ElevenLabs, {{< platform name="openai" text="OpenAI" >}}, and Cartesia produce speech that humans genuinely cannot distinguish from real people in blind tests. I'm not talking about short clips. I'm talking about full 5-minute conversations where the AI responds naturally, uses filler words appropriately, laughs at the right moments, and adjusts its tone based on the caller's emotional state. This quality leap happened in the last 6 months, and the business world hasn't caught on yet.
 
 Second: the deployment infrastructure matured overnight. Building a voice agent used to require managing WebSocket connections, handling speech-to-text pipelines, orchestrating conversation state, and deploying text-to-speech models. It was a 3-month engineering project. Now, platforms like Vapi and Bland AI handle all of it. You describe the agent's behavior, configure a phone number, and deploy. The time from idea to live production agent went from months to hours. This is what makes the business model viable for non-engineers.
 
@@ -46,17 +46,17 @@ You can validate the voice AI business model without spending a single dollar. Y
 
 **Vapi Free Tier — $0** — 100 minutes of voice AI usage per month. Enough to build, test, and demo an agent. The free tier includes phone numbers, speech-to-text, and text-to-speech. This is your primary building platform.
 
-**ElevenLabs Free Tier — $0** — 10,000 characters of voice generation per month. Use for testing voice quality and creating demo audio. The voices are the best in the industry. Limited volume but sufficient for prototyping.
+**{{< platform name="elevenlabs" text="ElevenLabs" >}} Free Tier — $0** — 10,000 characters of voice generation per month. Use for testing voice quality and creating demo audio. The voices are the best in the industry. Limited volume but sufficient for prototyping.
 
 **OpenAI API Free Credits — $0** — New accounts get free credits. Use for the conversation logic (GPT-4o-mini is cheap and fast enough for voice). The free credits last through your prototyping phase.
 
 **Twilio Trial — $0** — Free phone number with trial credits. Use for testing inbound and outbound calls. The trial number has limitations (plays a "this is a trial account" message), but it's enough to validate the tech.
 
-**n8n Self-Hosted — $0** — Workflow automation for connecting your voice agent to external systems. Self-host on a free cloud instance. Connect to Google Calendar for appointment booking, to a CRM for logging calls, to Slack for notifications.
+**n8n Self-Hosted — $0** — Workflow automation for connecting your voice agent to external systems. Self-host on a free cloud instance. Connect to {{< platform name="google" text="Google" >}} Calendar for appointment booking, to a CRM for logging calls, to Slack for notifications.
 
-**Google Sheets — $0** — Your knowledge base for the voice agent. Store business information, FAQs, pricing, hours, policies. The agent can query this in real-time via n8n. It's not elegant, but it works for MVPs.
+**Google Sheets — $0** — Your knowledge base for the voice agent. Store business information, FAQs, pricing, hours, policies. The agent can query this in real-time via {{< platform name="n8n" text="n8n" >}} It's not elegant, but it works for MVPs.
 
-**Canva Free — $0** — Create demo videos, promotional materials, and pitch decks. Screen-record your agent handling a call, add branding, and use it in your sales outreach. Visual proof converts.
+**{{< platform name="canva" text="Canva" >}} Free — $0** — Create demo videos, promotional materials, and pitch decks. Screen-record your agent handling a call, add branding, and use it in your sales outreach. Visual proof converts.
 
 The free stack gets you to a working demo. That's all you need to land your first client. Once you have revenue, upgrade immediately — the free stack is not suitable for production deployment.
 
@@ -74,17 +74,17 @@ Production voice AI requires paid tools. There's no way around it. The good news
 
 **Twilio — Pay-as-you-go (~$1-5/mo per number + usage)** — Business phone numbers, call routing, SMS. Each client gets a dedicated number. Port their existing number if they prefer. ~$0.0085/min for inbound calls.
 
-**Make.com — $9/mo** — Integration layer. Connect voice agent to client's CRM, calendar, email, and internal systems. Essential for making the agent useful, not just conversational.
+**{{< platform name="make" text="Make" >}} — $9/mo** — Integration layer. Connect voice agent to client's CRM, calendar, email, and internal systems. Essential for making the agent useful, not just conversational.
 
 **Retell AI — $0.07-0.12/min** — Alternative to Vapi. Some people prefer it for specific use cases. Worth testing both and using whichever gives lower latency for your agent type.
 
 **GoHighLevel — $97/mo** — CRM, funnel builder, appointment scheduling, and client management all in one. Many voice AI agencies use this as their client delivery platform. Pricey but comprehensive.
 
-**Notion — $8/mo** — SOPs, client documentation, agent configurations, prompt libraries. Your operating system for managing multiple voice agents across clients.
+**{{< platform name="notion" text="Notion" >}} — $8/mo** — SOPs, client documentation, agent configurations, prompt libraries. Your operating system for managing multiple voice agents across clients.
 
 **Total monthly cost: $226-326 + usage**. A single client at $1,000/month covers this with room to spare. The unit economics of voice AI are exceptional because you're replacing expensive human labor with cheap API calls.
 
-> **HACK: The Usage Cost Buffer.** Always add a 30% buffer to your estimated usage costs when pricing client contracts. API costs vary, call volumes spike unexpectedly, and model prices change. If you estimate $100/month in usage for a client, charge them $130. This buffer protects your margins and prevents the common trap of underpricing because you underestimated API consumption. Clients understand "infrastructure costs" — they don't understand why you're asking for more money three months into the contract.
+> **HACK: The Usage Cost {{< platform name="buffer" text="Buffer" >}}.** Always add a 30% buffer to your estimated usage costs when pricing client contracts. API costs vary, call volumes spike unexpectedly, and model prices change. If you estimate $100/month in usage for a client, charge them $130. This buffer protects your margins and prevents the common trap of underpricing because you underestimated API consumption. Clients understand "infrastructure costs" — they don't understand why you're asking for more money three months into the contract.
 
 ## The Workflow: Step-by-Step With Every Shortcut
 
@@ -162,7 +162,7 @@ Pick one industry — restaurants, dental offices, real estate agencies, auto re
 
 This section is the stuff people normally gate behind a $2,000 bootcamp. Read it twice.
 
-> **HACK 1: The Transfer Trick.** The most common caller question is "Can I speak to a human?" If your agent can't handle this gracefully, you'll lose the client. Build a smooth transfer protocol: "Absolutely, let me connect you with [name/department]. Can I tell them what you're calling about so they can help you faster?" The agent summarizes the call, sends it to the human via SMS or Slack, then transfers. The human picks up already knowing the context. This is the single most important feature in any voice agent. Get this right and clients will forgive every other imperfection.
+> **HACK 1: The Transfer Trick.** The most common caller question is "Can I speak to a human?" If your agent can't handle this gracefully, you'll lose the client. Build a smooth transfer protocol: "Absolutely, let me connect you with [name/department]. Can I tell them what you're calling about so they can help you faster?" The agent summarizes the call, sends it to the human via SMS or {{< platform name="slack" text="Slack" >}}, then transfers. The human picks up already knowing the context. This is the single most important feature in any voice agent. Get this right and clients will forgive every other imperfection.
 
 > **HACK 2: The Knowledge Base Structure.** Don't dump a wall of text into your agent's knowledge base. Structure it as Q&A pairs: "Q: What are your hours? A: We're open Monday through Friday 9 AM to 6 PM and Saturday 10 AM to 2 PM." "Q: Do you accept insurance? A: We accept most major insurance plans including Aetna, Blue Cross, and United Healthcare. Bring your insurance card to your appointment and we'll verify coverage." This format dramatically reduces hallucinations because the agent retrieves structured answers instead of trying to extract information from paragraphs.
 

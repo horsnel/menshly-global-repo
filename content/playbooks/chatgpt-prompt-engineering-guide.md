@@ -9,7 +9,7 @@ image: "/images/articles/playbooks/chatgpt-prompt-engineering-guide.png"
 heroImage: "/images/heroes/playbooks/chatgpt-prompt-engineering-guide.png"
 ---
 
-Prompt engineering is not about clever tricks or secret formulas. It is about communicating clearly with a powerful but literal-minded assistant. Think of ChatGPT as a brilliant intern who can do anything you ask — but only exactly what you ask. If your instructions are vague, the output is vague. If your instructions are precise, the output is precise. This guide teaches you the systematic approach to crafting prompts that consistently produce high-quality outputs, regardless of the AI model you are using.
+Prompt engineering is not about clever tricks or secret formulas. It is about communicating clearly with a powerful but literal-minded assistant. Think of {{< platform name="chatgpt" text="ChatGPT" >}} as a brilliant intern who can do anything you ask — but only exactly what you ask. If your instructions are vague, the output is vague. If your instructions are precise, the output is precise. This guide teaches you the systematic approach to crafting prompts that consistently produce high-quality outputs, regardless of the AI model you are using.
 
 **The CRISP framework. 200+ prompts organized by business function. Advanced techniques for power users.** After reading this guide, you will never again stare at a chat box wondering what to type. You will have a library of proven prompts and the skill to adapt them for any situation.
 
@@ -206,7 +206,7 @@ Content marketing is where most businesses use AI — and where most get mediocr
 [Parameters] The hook must be specific — no "Here's how to..." Start with a bold claim or surprising fact instead.
 ```
 
-**Prompt 10: YouTube Video Script**
+**Prompt 10: {{< platform name="youtube" text="YouTube" >}} Video Script**
 ```
 [Context] I'm making a YouTube video about [TOPIC] for [AUDIENCE] on my channel about [NICHE].
 [Role] You are a YouTube scriptwriter who specializes in high-retention educational content.
@@ -412,7 +412,7 @@ AI excels at analysis when you give it structured data and the right analytical 
 [Parameters] Do not use hockey-stick growth assumptions. Revenue should grow realistically month-over-month. Be transparent about which numbers are assumptions vs. facts.
 ```
 
-**Prompt 30: Business Model Canvas**
+**Prompt 30: Business Model {{< platform name="canva" text="Canva" >}} Canvas**
 ```
 [Context] I'm building a [BUSINESS TYPE] that offers [PRODUCT/SERVICE] to [TARGET MARKET].
 [Role] You are a business model designer who uses the Business Model Canvas framework.
@@ -488,7 +488,7 @@ Each prompt builds on the previous one's output. The result is a researched, str
 
 System prompts set persistent instructions that apply to an entire conversation. Instead of repeating context and constraints in every message, you set them once and the AI maintains them throughout.
 
-**How to use it:** In ChatGPT, create a Custom Instruction or use the system message in API calls. In Claude, use the system prompt field.
+**How to use it:** In ChatGPT, create a Custom Instruction or use the system message in API calls. In {{< platform name="claude" text="Claude" >}}, use the system prompt field.
 
 **Example system prompt:**
 ```
@@ -551,7 +551,7 @@ Not all AI models are the same. ChatGPT, Claude, Gemini, and Llama each have dif
 
 ### Google Gemini
 
-**Strengths:** Strong at research-backed content, good at synthesis from multiple sources, integrates with Google ecosystem, handles multimodal inputs well.
+**Strengths:** Strong at research-backed content, good at synthesis from multiple sources, integrates with {{< platform name="google" text="Google" >}} ecosystem, handles multimodal inputs well.
 
 **Weaknesses:** Sometimes inconsistent output quality, may over-cite or under-cite sources, formatting can be unpredictable.
 
@@ -601,7 +601,7 @@ Here are the 20 prompts you should save first, organized by category. Each one i
 1. SEO Blog Post (Prompt 1 from Module 2)
 2. Listicle (Prompt 2 from Module 2)
 3. How-To Guide (Prompt 3 from Module 2)
-4. LinkedIn Post (Prompt 6 from Module 2)
+4. {{< platform name="linkedin" text="LinkedIn" >}} Post (Prompt 6 from Module 2)
 5. Twitter/X Thread (Prompt 7 from Module 2)
 6. Welcome Email Sequence (Prompt 11 from Module 2)
 7. Sales Email (Prompt 14 from Module 2)

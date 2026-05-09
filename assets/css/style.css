@@ -4121,3 +4121,43 @@ body {
   border-radius: var(--radius-md);
   border: 1px solid var(--card-border);
 }
+
+/* --- Platform Icons: Article Content Pill Badge --- */
+.article-content .platform-inline {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  vertical-align: middle;
+  white-space: nowrap;
+  padding: 2px 8px 2px 4px;
+  background: var(--off-white);
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius-pill);
+  transition: all 0.15s ease;
+}
+
+.article-content .platform-inline:hover {
+  background: var(--cream);
+  border-color: var(--yellow);
+  box-shadow: 0 0 0 2px rgba(240, 192, 64, 0.15);
+}
+
+.article-content .platform-inline-icon {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+}
+
+.article-content .platform-inline-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.article-content .platform-inline-text {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 0.85em;
+  letter-spacing: 0.01em;
+  color: var(--black);
+}

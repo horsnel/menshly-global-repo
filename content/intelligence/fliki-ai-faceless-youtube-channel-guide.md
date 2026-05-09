@@ -11,16 +11,16 @@ relatedOpportunity: "/opportunities/fliki-ai-faceless-youtube-channel/"
 relatedPlaybook: "/playbooks/ai-side-hustle-blueprint/"
 ---
 
-This guide assumes you have read the [Fliki AI opportunity overview](/opportunities/fliki-ai-faceless-youtube-channel/) and understand the revenue potential, niche dynamics, and strategy phases. This document is pure execution: every click you need to make, every setting you need to configure, and every optimization you need to apply. Follow it in order. Do not skip steps.
+This guide assumes you have read the [{{< platform name="fliki" text="Fliki" >}} AI opportunity overview](/opportunities/fliki-ai-faceless-youtube-channel/) and understand the revenue potential, niche dynamics, and strategy phases. This document is pure execution: every click you need to make, every setting you need to configure, and every optimization you need to apply. Follow it in order. Do not skip steps.
 
 ## Prerequisites
 
 Before you begin, ensure you have the following:
 
 - A laptop or desktop with Chrome or Firefox browser
-- A Google account for YouTube channel creation
+- A {{< platform name="google" text="Google" >}} account for YouTube channel creation
 - A Fliki AI account — sign up at [Fliki.ai](https://fliki.ai?referral=noah-wilson-w84be4) (free tier works for testing; Standard plan at $21/month recommended for production)
-- A Canva account (free tier works) for thumbnail creation — sign up at canva.com
+- A {{< platform name="canva" text="Canva" >}} account (free tier works) for thumbnail creation — sign up at canva.com
 - 4-6 hours of uninterrupted time for your first full production cycle
 - A niche selected using the criteria in the opportunity overview (target: $6+ RPM, 100+ video topics possible, at least 5 competing channels under 100K subscribers)
 
@@ -41,7 +41,7 @@ Before creating your first video, set your default preferences. Click your profi
    - Health/wellness: Choose a warm, reassuring voice (e.g., "Emma" or "James")
    Click **Set as Default** on your chosen voice. This saves you from selecting a voice every time you create a new video.
 
-2. **Default Aspect Ratio:** Set to **16:9 (Landscape)** for YouTube long-form content. You will change this to 9:16 only when producing YouTube Shorts.
+2. **Default Aspect Ratio:** Set to **16:9 (Landscape)** for {{< platform name="youtube" text="YouTube" >}} long-form content. You will change this to 9:16 only when producing YouTube Shorts.
 
 3. **Default Subtitle Style:** Click **Subtitles** in the left sidebar. Choose **Bold Center** style with white text and a semi-transparent black background. This is the most readable style for YouTube viewers and matches the aesthetic of top-performing faceless channels.
 
@@ -223,7 +223,7 @@ Tools mentioned in this video:
 - Fliki AI (AI video creation): https://fliki.ai?referral=noah-wilson-w84be4
 ```
 
-**Tags:** Use 10-15 tags mixing broad and specific keywords. Generate them with ChatGPT using the prompt: "Generate 15 YouTube tags for a video titled '[TITLE]' about '[TOPIC]'. Mix broad and long-tail keywords."
+**Tags:** Use 10-15 tags mixing broad and specific keywords. Generate them with {{< platform name="chatgpt" text="ChatGPT" >}} using the prompt: "Generate 15 YouTube tags for a video titled '[TITLE]' about '[TOPIC]'. Mix broad and long-tail keywords."
 
 **Upload process:**
 
@@ -310,7 +310,7 @@ This 90-minute cycle produces one long-form video and one YouTube Short per day.
 
 ### Content Calendar Template
 
-Create a simple content calendar in Google Sheets or Notion with these columns:
+Create a simple content calendar in Google Sheets or {{< platform name="notion" text="Notion" >}} with these columns:
 
 | Date | Video Title | Search Keyword | Script Status | Fliki Status | Thumbnail | Uploaded |
 |------|-------------|---------------|---------------|-------------|-----------|----------|
@@ -408,7 +408,7 @@ Produce a week's worth of videos in a single 4-5 hour session. Write 3-4 scripts
 
 ### Fliki API for Automation
 
-Fliki offers an API on Premium plans. If you are producing 5+ videos per week across multiple channels, use the API to automate video creation directly from a spreadsheet or Make.com scenario. The API accepts a script and configuration, renders the video, and returns a download URL — enabling fully automated production pipelines.
+Fliki offers an API on Premium plans. If you are producing 5+ videos per week across multiple channels, use the API to automate video creation directly from a spreadsheet or {{< platform name="make" text="Make" >}} scenario. The API accepts a script and configuration, renders the video, and returns a download URL — enabling fully automated production pipelines.
 
 ### Repurposing Content Across Platforms
 
@@ -434,7 +434,7 @@ One script produces content for 5 platforms. This maximizes the return on every 
 **Starter cost:** $41/month (Fliki Standard + ChatGPT Plus)
 **Scaling cost:** $54/month (add Canva Pro at 10+ videos)
 
-Compare this to the traditional tool stack: ChatGPT Plus ($20) + ElevenLabs ($22) + Midjourney ($10) + CapCut Pro ($8) = $60/month. Fliki replaces ElevenLabs, Midjourney, and CapCut — saving $39/month while cutting production time by 80%.
+Compare this to the traditional tool stack: ChatGPT Plus ($20) + {{< platform name="elevenlabs" text="ElevenLabs" >}} ($22) + Midjourney ($10) + CapCut Pro ($8) = $60/month. Fliki replaces ElevenLabs, Midjourney, and CapCut — saving $39/month while cutting production time by 80%.
 
 ## Production Checklist
 

@@ -10,7 +10,7 @@ heroImage: "/images/heroes/intelligence/build-automate-scale-ai-social-media-pip
 relatedOpportunity: "/opportunities/ai-social-media-agency-2026/"
 ---
 
-This is the execution guide for building the AI social media agency we outlined in our opportunity deep-dive. Social media management is no longer a manual hustle of opening tabs, writing captions, and hoping something sticks. It is a systems engineering problem. The agencies that win in 2026 are the ones that treat content creation, scheduling, and distribution as a repeatable pipeline — one that takes raw ideas, transforms them into platform-native assets, and distributes them on optimized schedules without a human touching each post. This guide covers every Buffer configuration, every Make.com scenario, every ChatGPT prompt, every Canva template setup, every Fliki AI video workflow, and every Beehiiv integration. Follow it in order. Do not skip steps.
+This is the execution guide for building the AI social media agency we outlined in our opportunity deep-dive. Social media management is no longer a manual hustle of opening tabs, writing captions, and hoping something sticks. It is a systems engineering problem. The agencies that win in 2026 are the ones that treat content creation, scheduling, and distribution as a repeatable pipeline — one that takes raw ideas, transforms them into platform-native assets, and distributes them on optimized schedules without a human touching each post. This guide covers every Buffer configuration, every Make.com scenario, every {{< platform name="chatgpt" text="ChatGPT" >}} prompt, every Canva template setup, every Fliki AI video workflow, and every Beehiiv integration. Follow it in order. Do not skip steps.
 
 ## Prerequisites
 
@@ -18,18 +18,18 @@ Before you build anything, set up these accounts. Every tool listed here has a f
 
 **Required accounts (create these now):**
 
-- **Buffer** — go to buffer.com and sign up (free tier includes 3 social channels and 10 scheduled posts per channel). Upgrade to Essentials at $6/mo per channel when you land your first client.
-- **Make.com** — go to make.com and sign up (free tier includes 1,000 operations/mo and 2 active scenarios). Upgrade to Core at $9/mo when you need more than 2 scenarios running simultaneously.
-- **Canva** — go to canva.com and sign up (free tier includes basic templates, 5GB storage, and limited brand kit features). Upgrade to Pro at $13/mo when you need custom brand kits, premium templates, and background remover.
+- **{{< platform name="buffer" text="Buffer" >}}** — go to buffer.com and sign up (free tier includes 3 social channels and 10 scheduled posts per channel). Upgrade to Essentials at $6/mo per channel when you land your first client.
+- **{{< platform name="make" text="Make" >}}.com** — go to make.com and sign up (free tier includes 1,000 operations/mo and 2 active scenarios). Upgrade to Core at $9/mo when you need more than 2 scenarios running simultaneously.
+- **{{< platform name="canva" text="Canva" >}}** — go to canva.com and sign up (free tier includes basic templates, 5GB storage, and limited brand kit features). Upgrade to Pro at $13/mo when you need custom brand kits, premium templates, and background remover.
 - **ChatGPT** — go to chat.openai.com and sign up for the Plus plan at $20/mo. You need GPT-4o for the quality of content this pipeline demands. The free tier's GPT-3.5 output is noticeably worse — it produces generic, templated content that will not pass client review. Budget this $20/mo from day one.
-- **Fliki AI** — go to fliki.ai and sign up (free trial includes 5 minutes of video/mo). Upgrade to Standard at $21/mo when you need to produce more than one short-form video per client per month.
+- **{{< platform name="fliki" text="Fliki" >}} AI** — go to fliki.ai and sign up (free trial includes 5 minutes of video/mo). Upgrade to Standard at $21/mo when you need to produce more than one short-form video per client per month.
 - **Beehiiv** — go to beehiiv.com and sign up (free tier includes up to 2,500 subscribers and all core publishing features). Upgrade to Scale at $49/mo only when a client's subscriber list exceeds 2,500.
-- **Notion** — go to notion.so and sign up (free tier includes unlimited pages and blocks for individual use). Upgrade to Plus at $10/mo when you add team members.
-- **Google Workspace** — go to workspace.google.com and sign up (free Gmail works for testing, but a Workspace account at $7.20/mo gives you Drive, Docs, Sheets, and a professional email).
+- **{{< platform name="notion" text="Notion" >}}** — go to notion.so and sign up (free tier includes unlimited pages and blocks for individual use). Upgrade to Plus at $10/mo when you add team members.
+- **{{< platform name="google" text="Google" >}} Workspace** — go to workspace.google.com and sign up (free Gmail works for testing, but a Workspace account at $7.20/mo gives you Drive, Docs, Sheets, and a professional email).
 
 **Supporting tools (install these):**
 
-- **Grammarly** — go to grammarly.com and install the browser extension (free tier handles grammar and spelling). Use it to QC all AI-generated content before client delivery.
+- **{{< platform name="grammarly" text="Grammarly" >}}** — go to grammarly.com and install the browser extension (free tier handles grammar and spelling). Use it to QC all AI-generated content before client delivery.
 - **Loom** — go to loom.com and sign up (free tier includes 25 videos/mo). Use it to record client onboarding walkthroughs and training videos.
 
 **Time required:** 12-15 hours for your first complete pipeline build, from account creation to end-to-end test with simulated client content.
@@ -43,7 +43,7 @@ Before you build any automation, both Buffer and Make.com need to be properly co
 ### Set Up Your Buffer Workspace
 
 1. Go to buffer.com and sign in. You should see the Buffer dashboard with a prompt to connect your first social account.
-2. Click **Connect a Channel**. Select **Twitter/X** and authenticate with the account you will manage. Repeat for **LinkedIn Page** (not personal profile — you want the company page), **Instagram Business Account**, and **Facebook Page**. Buffer will walk you through OAuth for each. If any connection fails, ensure the account meets Buffer's requirements: Instagram must be a Business or Creator account linked to a Facebook Page; LinkedIn must be a Company Page where you have admin access.
+2. Click **Connect a Channel**. Select **Twitter/X** and authenticate with the account you will manage. Repeat for **{{< platform name="linkedin" text="LinkedIn" >}} Page** (not personal profile — you want the company page), **Instagram Business Account**, and **Facebook Page**. Buffer will walk you through OAuth for each. If any connection fails, ensure the account meets Buffer's requirements: Instagram must be a Business or Creator account linked to a Facebook Page; LinkedIn must be a Company Page where you have admin access.
 3. Once all channels are connected, click **Settings** → **Posting Schedule**. For each channel, set default posting times:
    - **Twitter/X:** Monday through Friday at 9:00 AM and 12:00 PM (your client's timezone)
    - **LinkedIn:** Tuesday and Thursday at 8:00 AM
@@ -56,10 +56,10 @@ Before you build any automation, both Buffer and Make.com need to be properly co
 
 1. Go to make.com and sign in. Click **Create a new scenario**. You should see a blank canvas with a large "+" button in the center. If you see a templates gallery, click **Skip** or **Create from scratch**.
 2. Before building scenarios, connect your services. Click the "+" button, search for **Buffer**, and select it. Click **Create a connection** and authenticate with your Buffer account. If Make.com cannot find Buffer in the module list, search for "Buffer" specifically — it is a native integration, not a community module.
-3. Connect **OpenAI** — click "+", search for "OpenAI", select it, and authenticate using your OpenAI API key (find it at platform.openai.com → API Keys → Create new secret key). This is separate from your ChatGPT Plus subscription. The API key gives Make.com programmatic access to GPT-4o. If you do not have API access, go to platform.openai.com, add billing information, and deposit $5 to activate pay-as-you-go access.
+3. Connect **{{< platform name="openai" text="OpenAI" >}}** — click "+", search for "OpenAI", select it, and authenticate using your OpenAI API key (find it at platform.openai.com → API Keys → Create new secret key). This is separate from your ChatGPT Plus subscription. The API key gives Make.com programmatic access to GPT-4o. If you do not have API access, go to platform.openai.com, add billing information, and deposit $5 to activate pay-as-you-go access.
 4. Connect **Google Drive** — authenticate with your Google Workspace account. Grant all requested permissions (Make.com needs read/write access to Drive files and the ability to create documents).
 5. Connect **Google Sheets** — authenticate with the same Google account.
-6. Connect **Slack** (optional but recommended) — authenticate with your Slack workspace. If you do not use Slack, use Gmail as your notification module instead.
+6. Connect **{{< platform name="slack" text="Slack" >}}** (optional but recommended) — authenticate with your Slack workspace. If you do not use Slack, use Gmail as your notification module instead.
 
 ### Create Your Folder Structure
 
@@ -309,7 +309,7 @@ Short-form video dominates every platform's algorithm. You need a pipeline for g
    - Select a voice that matches the client's brand (Fliki offers 2,000+ AI voices)
    - Select visual style: "Stock footage" for educational content, "AI-generated images" for motivational content, "Text-on-screen" for data-driven content
    - Click **Generate** and wait 2-3 minutes for rendering
-   - Preview and download as MP4 (9:16 aspect ratio for Instagram Reels and YouTube Shorts, 16:9 for LinkedIn and Facebook)
+   - Preview and download as MP4 (9:16 aspect ratio for Instagram Reels and {{< platform name="youtube" text="YouTube" >}} Shorts, 16:9 for LinkedIn and Facebook)
 
 2. Once you are satisfied with the quality, automate via Make.com. Add a new scenario called "Generate — Fliki Videos."
 3. Add a **Google Drive — Watch Files** trigger. Point it to `02_AI_Outputs/Instagram` (where reel scripts are saved).
@@ -929,7 +929,7 @@ Once you have 5+ clients on the pipeline, expand with these specific moves:
 
 - **Build a client self-service portal in Notion** — Give clients a dashboard where they can submit content requests, view their content calendar, approve posts, and see performance metrics in real-time. This reduces your communication overhead by 30-40% and makes the retainer feel more tangible.
 
-- **Integrate Apollo.io for client prospecting** — Use Apollo.io to find businesses in your niche verticals that are active on social media but posting inconsistently. Build a prospect list of 500+ targets. Automate outreach using Make.com + Gmail: send a personalized email with a "proof of value" — take 2 of their recent posts and show how you would improve them. Conversion rate on proof-of-value outreach: 5-10%.
+- **Integrate {{< platform name="apollo" text="Apollo" >}}.io for client prospecting** — Use Apollo.io to find businesses in your niche verticals that are active on social media but posting inconsistently. Build a prospect list of 500+ targets. Automate outreach using Make.com + Gmail: send a personalized email with a "proof of value" — take 2 of their recent posts and show how you would improve them. Conversion rate on proof-of-value outreach: 5-10%.
 
 - **Offer competitor intelligence reports** — Use ChatGPT to analyze a client's top 3 competitors' social media performance. Identify content gaps, posting frequency, and engagement patterns. Deliver a monthly competitor report. Charge $250-500/mo additional. This takes 1-2 hours to produce using your existing pipeline.
 

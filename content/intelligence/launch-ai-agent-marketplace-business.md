@@ -18,13 +18,13 @@ Selling AI agents on marketplaces is not a theory. It is a repeatable process th
 Before you start, you need the following:
 
 - A laptop with a modern browser (Chrome or Firefox)
-- A ChatGPT Plus account ($20/mo) — go to chatgpt.com and upgrade. You need Plus to build and publish custom GPTs to the GPT Store. Free tier does not include GPT Builder or publishing.
-- An OpenAI API key with $5 minimum credit — go to platform.openai.com/api-keys. Click "Create new secret key." Copy it. Store it somewhere safe. You need this for any code-based agents you build later.
+- A {{< platform name="chatgpt" text="ChatGPT" >}} Plus account ($20/mo) — go to chatgpt.com and upgrade. You need Plus to build and publish custom GPTs to the GPT Store. Free tier does not include GPT Builder or publishing.
+- An {{< platform name="openai" text="OpenAI" >}} API key with $5 minimum credit — go to platform.openai.com/api-keys. Click "Create new secret key." Copy it. Store it somewhere safe. You need this for any code-based agents you build later.
 - A Gumroad account — go to gumroad.com and sign up. Free to create. Gumroad charges 10% per transaction. This is your independent sales channel.
-- A Stripe account — go to stripe.com and sign up. You need this for collecting subscription payments outside marketplace platforms.
-- A Canva account (free tier works) — go to canva.com. You need this for agent logos, banners, and promotional graphics.
-- A Google account — for Google Forms (user feedback), Google Docs (prompt writing), and YouTube (marketing videos).
-- A Notion account (free tier works) — go to notion.so. You need this for tracking your agent portfolio, user feedback, and revenue.
+- A {{< platform name="stripe" text="Stripe" >}} account — go to stripe.com and sign up. You need this for collecting subscription payments outside marketplace platforms.
+- A {{< platform name="canva" text="Canva" >}} account (free tier works) — go to canva.com. You need this for agent logos, banners, and promotional graphics.
+- A {{< platform name="google" text="Google" >}} account — for Google Forms (user feedback), Google Docs (prompt writing), and YouTube (marketing videos).
+- A {{< platform name="notion" text="Notion" >}} account (free tier works) — go to notion.so. You need this for tracking your agent portfolio, user feedback, and revenue.
 - 8-10 hours of uninterrupted time for your first build
 
 Total upfront cost: $20 for ChatGPT Plus + $5 for OpenAI API credit = $25. Everything else is free until you have paying users.
@@ -45,7 +45,7 @@ You will eventually list on every platform. But you start with one. Here is the 
 | Replit Agent Hub | You keep 85% | Developer audience | $0 | Code-based agents, custom logic agents |
 | Custom Site (your own) | You keep ~97% (minus Stripe 2.9% + 30¢) | You drive all traffic | $10-12/yr domain + hosting | Brand building, highest margins, full ownership |
 
-**Your primary platform is the ChatGPT GPT Store.** Here is why: it has the largest audience, it costs nothing to list, and the GPT Builder lets you create a functional agent without writing a single line of code. You will build your first agent here. Then you will port it to Gumroad and your own site. Then you will expand to CrewAI and Replit.
+**Your primary platform is the ChatGPT GPT Store.** Here is why: it has the largest audience, it costs nothing to list, and the GPT Builder lets you create a functional agent without writing a single line of code. You will build your first agent here. Then you will port it to Gumroad and your own site. Then you will expand to CrewAI and {{< platform name="replit" text="Replit" >}}.
 
 ### Set Up Your GPT Store Account
 
@@ -78,7 +78,7 @@ Open three browser tabs.
 
 **Tab 1: GPT Store Competitor Analysis.** Go to chatgpt.com/gpts. Search for "customer service" — this is your first niche. You will build a customer service chatbot agent. Sort results by "Most popular." Open the top 10 GPTs. For each one, click on it and scroll down to the reviews section. Read every 1-star, 2-star, and 3-star review. Write down the specific complaints in a Google Doc. Common complaints you will find: "It doesn't know my company policies," "It gives generic answers," "It hallucinated pricing information," "It can't handle complex issues," "It doesn't know when to escalate to a human."
 
-**Tab 2: Reddit Pain Point Search.** Go to reddit.com. Search for "customer service chatbot" and sort by "Top" in the past year. Then search for "hate customer service emails" and "customer support takes too long." Read the top 20 posts. You are looking for specific, repeated frustrations. Copy every complaint into your Google Doc. Small business owners will say things like: "I spend 3 hours a day answering the same 10 questions," "I can't afford a full-time support person," "My customers get frustrated waiting for email responses."
+**Tab 2: {{< platform name="reddit" text="Reddit" >}} Pain Point Search.** Go to reddit.com. Search for "customer service chatbot" and sort by "Top" in the past year. Then search for "hate customer service emails" and "customer support takes too long." Read the top 20 posts. You are looking for specific, repeated frustrations. Copy every complaint into your Google Doc. Small business owners will say things like: "I spend 3 hours a day answering the same 10 questions," "I can't afford a full-time support person," "My customers get frustrated waiting for email responses."
 
 **Tab 3: Facebook Group Reconnaissance.** Go to facebook.com/groups. Search for "small business owners" and "ecommerce entrepreneurs." Join 2-3 active groups (groups with 10,000+ members and daily posts). Search within each group for "customer support," "chatbot," "answering emails." Read what people are asking for. Note the specific language they use — this is your listing copy.
 
@@ -241,7 +241,7 @@ The GPT Store listing is your free tier. It drives discovery and user acquisitio
 
 Create two more Gumroad products:
 
-**Pro Tier ($29/mo):** Everything in Starter plus priority support, custom integration guide (connect to email, Slack, WhatsApp), and monthly knowledge base updates.
+**Pro Tier ($29/mo):** Everything in Starter plus priority support, custom integration guide (connect to email, {{< platform name="slack" text="Slack" >}}, WhatsApp), and monthly knowledge base updates.
 
 **Enterprise Tier ($99/mo):** Everything in Pro plus team access (up to 5 seats), API documentation, white-label options, and dedicated email support.
 
@@ -367,7 +367,7 @@ Open Google Docs. Write a 3-5 page setup guide titled "Customer Service Agent Pr
 1. **Getting Started (1 page):** How to access the agent, what you need (your FAQ document, policies document, product catalog), how to upload your knowledge files.
 2. **Uploading Your Knowledge Base (1 page):** Step-by-step instructions for creating and uploading the three knowledge files. Include a template for each: FAQ template, policies template, product catalog template. Provide a link to copy a Google Docs template.
 3. **Testing Your Agent (1 page):** How to test with 10 sample customer questions. How to identify gaps in your knowledge base. How to fix common issues (agent giving wrong answers, agent not finding information, agent being too generic).
-4. **Connecting to Your Business (1 page):** How to add the agent to your website (for Pro and Enterprise tiers). Include the embed code snippet and instructions for common platforms (Shopify, WordPress, Squarespace). For the GPT Store version, explain how to share the direct link with customers.
+4. **Connecting to Your Business (1 page):** How to add the agent to your website (for Pro and Enterprise tiers). Include the embed code snippet and instructions for common platforms ({{< platform name="shopify" text="Shopify" >}}, WordPress, Squarespace). For the GPT Store version, explain how to share the direct link with customers.
 5. **Troubleshooting (1 page):** Common problems and solutions. "Agent gives wrong answers" → update knowledge base. "Agent is too slow" → reduce knowledge file sizes. "Agent doesn't handle my specific industry" → add industry-specific knowledge files.
 
 ### Export and Upload to Gumroad
@@ -376,7 +376,7 @@ Open Google Docs. Write a 3-5 page setup guide titled "Customer Service Agent Pr
 2. Go to your Gumroad dashboard
 3. Edit each pricing tier product
 4. Upload the PDF as the deliverable content
-5. For the Pro tier, also include the integration guide (a separate PDF explaining how to connect the agent to email, Slack, and WhatsApp using n8n or Make.com)
+5. For the Pro tier, also include the integration guide (a separate PDF explaining how to connect the agent to email, Slack, and WhatsApp using n8n or {{< platform name="make" text="Make" >}}.com)
 6. For the Enterprise tier, include both guides plus the API documentation (a document explaining how to access the agent via OpenAI API for custom integrations)
 
 ### Create the Google Docs Templates
@@ -423,7 +423,7 @@ Post in: r/smallbusiness, r/Entrepreneur, r/ecommerce (maximum 2 subreddits per 
 
 **Hour 3-4: Facebook Group Posts.** Post in the 2-3 groups you joined in Step 2. Use a similar template but adapted for the group's culture. If the group is informal, be conversational. If it's professional, be direct. Include a screenshot of the agent handling a customer inquiry — visual proof converts better than text description.
 
-**Hour 5-6: LinkedIn Post.** Write a LinkedIn post targeting small business owners:
+**Hour 5-6: {{< platform name="linkedin" text="LinkedIn" >}} Post.** Write a LinkedIn post targeting small business owners:
 
 > I spent 2 hours/day answering customer emails for my business. So I built an AI agent that does it for me.
 >
@@ -444,7 +444,7 @@ Do not put the link in the main post — LinkedIn suppresses posts with external
 4. Ask an off-topic question (show the agent declining politely)
 5. Ask a frustrated customer question (show the agent handling it with empathy)
 
-Post this video on YouTube (unlisted is fine — you just need a shareable link), embed it on your landing page, and share it in every community where you posted on Day 1 as a follow-up: "I recorded a quick demo showing how it works — [link]."
+Post this video on {{< platform name="youtube" text="YouTube" >}} (unlisted is fine — you just need a shareable link), embed it on your landing page, and share it in every community where you posted on Day 1 as a follow-up: "I recorded a quick demo showing how it works — [link]."
 
 **Hour 4-6: Cold Outreach.** Find 30 small businesses that do not have chatbots on their websites. Use Google Maps — search "coffee shop [city]" or "dental practice [city]" — and visit their websites. If they do not have a chat widget, send this email:
 
@@ -620,8 +620,7 @@ When someone purchases your agent on Gumroad, they should receive an automated o
 **Email 3 (Day 5):** "Quick tip — here's how to get the most accurate responses from your agent: [tip]."
 **Email 4 (Day 14):** "We just updated the agent with [feature]. Here's how to use it: [instructions]."
 
-Set this up using Gumroad's built-in email sequences or connect Gumroad to Mailchimp/ConvertKit via Zapier.
-
+Set this up using Gumroad's built-in email sequences or connect Gumroad to Mailchimp/ConvertKit via {{< platform name="zapier" text="Zapier" >}} 
 ### Implement Usage Analytics
 
 You need to know how users interact with your agent. On the GPT Store, you can see basic analytics (total conversations, daily active users). For deeper insights:
@@ -692,10 +691,10 @@ Before considering any agent "production ready," verify every item:
 
 Once you have 3-5 agents live and 50+ paid subscribers, expand aggressively:
 
-- **Add voice capability.** Integrate Vapi ($30-80/mo) to create voice-based versions of your agents. Voice agents command 3-5x higher pricing. A customer service agent that answers phone calls is worth $99-299/mo versus $29/mo for text-only.
+- **Add voice capability.** Integrate {{< platform name="vapi" text="Vapi" >}} ($30-80/mo) to create voice-based versions of your agents. Voice agents command 3-5x higher pricing. A customer service agent that answers phone calls is worth $99-299/mo versus $29/mo for text-only.
 - **Build vertical bundles.** Combine 3-5 agents targeting the same industry into a bundle. "The Complete Real Estate AI Toolkit: Listing Writer + Market Analyzer + Client Email Responder + Property Description Generator." Bundles reduce churn and increase ARPU.
 - **White-label your agents.** Let other agencies and consultants resell your agents under their brand for a 40-50% revenue split. You build once, they sell repeatedly. Five white-label partners each generating $1,000/mo in sales adds $2,500/mo to your revenue.
 - **Hire a builder.** Once you have documented your process (system prompt template, knowledge file format, testing protocol, listing optimization checklist), hire a junior builder on Upwork ($15-25/hr) to produce agents while you focus on marketing and partnerships. A trained builder can complete one agent in 4-6 hours.
-- **Build API integrations.** Connect your agents to real business tools — Shopify for order management, Zendesk for ticket routing, Slack for team notifications. Agents that take action (not just provide answers) command premium pricing and have lower churn because they are embedded in the user's workflow.
+- **Build API integrations.** Connect your agents to real business tools — Shopify for order management, {{< platform name="zendesk" text="Zendesk" >}} for ticket routing, Slack for team notifications. Agents that take action (not just provide answers) command premium pricing and have lower churn because they are embedded in the user's workflow.
 - **Launch an affiliate program.** Offer 30% recurring commission to anyone who refers paying users. Affiliates with audiences in your target niches will acquire users faster than you can on your own. Set this up through Gumroad's affiliate feature or using Rewardful ($29/mo).
 - **Diversify off-platform.** Build an email list. Create a weekly newsletter with AI agent tips. Run webinars. Own your audience. Platform risk is real — OpenAI can change their revenue split or deprecate features tomorrow. Your email list is the only distribution channel nobody can take away from you.

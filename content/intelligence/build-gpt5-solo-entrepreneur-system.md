@@ -18,13 +18,13 @@ This guide assumes you have read the [GPT-5 Solo Entrepreneur opportunity overvi
 Before you begin, ensure you have the following:
 
 - A laptop with Chrome or Firefox browser
-- A ChatGPT Plus account ($20/mo) — go to chatgpt.com and upgrade
-- A Claude Pro account ($20/mo) — go to claude.ai and subscribe
-- A Make.com account (Free tier works for your first 2 clients) — go to make.com
-- A Notion account (Free tier works) — go to notion.so
-- A Google Workspace account for Drive, Docs, Sheets — go to workspace.google.com
-- A Stripe account for payment collection — go to stripe.com
-- A Calendly account (Free tier works) — go to calendly.com
+- A {{< platform name="chatgpt" text="ChatGPT" >}} Plus account ($20/mo) — go to chatgpt.com and upgrade
+- A {{< platform name="claude" text="Claude" >}} Pro account ($20/mo) — go to claude.ai and subscribe
+- A {{< platform name="make" text="Make" >}} account (Free tier works for your first 2 clients) — go to make.com
+- A {{< platform name="notion" text="Notion" >}} account (Free tier works) — go to notion.so
+- A {{< platform name="google" text="Google" >}} Workspace account for Drive, Docs, Sheets — go to workspace.google.com
+- A {{< platform name="stripe" text="Stripe" >}} account for payment collection — go to stripe.com
+- A {{< platform name="calendly" text="Calendly" >}} account (Free tier works) — go to calendly.com
 - 6-8 hours of uninterrupted time for your first full system build
 
 Total upfront cost: $40/month (ChatGPT Plus + Claude Pro). Everything else has a free tier that works until you have paying clients.
@@ -167,7 +167,7 @@ Verify each agent before moving on:
 1. Open each GPT and send a test prompt
 2. Research Agent: "Research the top 5 AI content repurposing tools"
 3. Content Agent: "Write a Twitter thread about the benefits of AI for small business" (it should ask for a voice profile first)
-4. Sales Agent: "Write an outreach message to a real estate agent who posts on LinkedIn but not on other platforms"
+4. Sales Agent: "Write an outreach message to a real estate agent who posts on {{< platform name="linkedin" text="LinkedIn" >}} but not on other platforms"
 5. Operations Agent: "Draft a welcome email for a new client who signed up for the Growth tier at $3,000/month"
 
 Do you get relevant, structured, high-quality output from each? If any agent produces generic or off-target responses, refine its Instructions and re-test. The quality of your agents determines the quality of your business.
@@ -186,7 +186,7 @@ Go to Google Forms. Create a form called "Client Onboarding — [Your Business N
 4. **Industry/niche** (dropdown: Real Estate, SaaS, E-commerce, Coaching, Finance, Health, Other)
 5. **Website URL** (short text, required)
 6. **Describe your brand voice in 3 words** (short text, required)
-7. **What platforms do you currently post on?** (checkboxes: LinkedIn, Twitter/X, Instagram, YouTube, Email Newsletter, Blog, TikTok)
+7. **What platforms do you currently post on?** (checkboxes: LinkedIn, Twitter/X, Instagram, {{< platform name="youtube" text="YouTube" >}}, Email Newsletter, Blog, TikTok)
 8. **How often do you currently post?** (dropdown: Daily, 2-3x/week, Weekly, Bi-weekly, Monthly, Rarely)
 9. **Who are your top 3 competitors?** (long text, required)
 10. **Link to your best-performing content piece** (short text)
@@ -209,7 +209,7 @@ Go to Make.com. Click **Create a new scenario**. Name it "Client Onboarding."
 
 Click the "+" button. Search for **Google Forms** and select **Watch Responses**. Connect your Google account. Select the onboarding form you just created. This module triggers every time someone submits the form.
 
-**Module 2: OpenAI (ChatGPT) — Generate Voice Profile**
+**Module 2: {{< platform name="openai" text="OpenAI" >}} (ChatGPT) — Generate Voice Profile**
 
 Add an **OpenAI — Create a Chat Completion** module. Use `gpt-4o`. Set the system prompt:
 
@@ -305,7 +305,7 @@ For each path, add an OpenAI module that calls your Content Agent's prompt. The 
 
 Add a Google Docs module for each path that creates a document in the client's folder with the generated content.
 
-**Module 5: Slack or Email — Notification**
+**Module 5: {{< platform name="slack" text="Slack" >}} or Email — Notification**
 
 Add a notification module that alerts you: "Content generated for [Client Name]. Ready for QC review."
 
@@ -478,7 +478,7 @@ In Notion, create a "Weekly Schedule" page with these fixed blocks:
 Set hard limits in your Notion:
 
 - **Maximum clients:** 8 (beyond this, hire a VA or raise prices)
-- **Maximum working hours:** 45/week (track with Toggl or Clockify)
+- **Maximum working hours:** 45/week (track with {{< platform name="toggl" text="Toggl" >}} or Clockify)
 - **Mandatory break:** 1 hour lunch, no screens
 - **No client work on weekends** (systems improvement and learning only)
 - **Vacation protocol:** Pre-produce 2 weeks of content before any week off

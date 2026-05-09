@@ -10,9 +10,9 @@ heroImage: "/images/heroes/intelligence/build-automate-and-deploy-ai-translation
 relatedOpportunity: "/opportunities/how-to-build-an-ai-translation-and-localization-service-in-2026-3k-20kmonth/"
 ---
 
-This is the execution guide for the AI translation and localization service we outlined in our opportunity deep-dive. By following this advanced guide, you will build and deploy a comprehensive AI-powered translation pipeline using ChatGPT, Make.com for automation, and [ElevenLabs](https://elevenlabs.io/) for audio localization. Upon completion, you will have a fully functional system capable of translating content into 12+ languages, with human review workflows, quality scoring, and automated delivery to client CMS platforms, generating $3K-20K per month.
+This is the execution guide for the AI translation and localization service we outlined in our opportunity deep-dive. By following this advanced guide, you will build and deploy a comprehensive AI-powered translation pipeline using {{< platform name="chatgpt" text="ChatGPT" >}}, Make.com for automation, and [ElevenLabs](https://elevenlabs.io/) for audio localization. Upon completion, you will have a fully functional system capable of translating content into 12+ languages, with human review workflows, quality scoring, and automated delivery to client CMS platforms, generating $3K-20K per month.
 
-This is not a blog post, but a detailed execution guide walking you through every step of the process. You will need to commit approximately 20-30 hours and $300-500 to complete this project, depending on your existing tool subscriptions. The cost includes expenses for tools like ChatGPT Plus, Make.com, DeepL Pro, and [Railway](https://railway.com?referralCode=fJobV0) for deployment. Throughout this guide, you will work with real APIs, build production-ready automation scenarios, and integrate with client platforms.
+This is not a blog post, but a detailed execution guide walking you through every step of the process. You will need to commit approximately 20-30 hours and $300-500 to complete this project, depending on your existing tool subscriptions. The cost includes expenses for tools like ChatGPT Plus, {{< platform name="make" text="Make" >}}.com, DeepL Pro, and [Railway](https://railway.com?referralCode=fJobV0) for deployment. Throughout this guide, you will work with real APIs, build production-ready automation scenarios, and integrate with client platforms.
 
 Ready to understand the full business opportunity? Read our [opportunity deep-dive](/opportunities/how-to-build-an-ai-translation-and-localization-service-in-2026-3k-20kmonth/).
 
@@ -25,7 +25,7 @@ To begin, you will need the following:
 * A Make.com account (automation platform) with a paid plan (starting at $9/month) to automate translation workflows and integrate with client platforms
 * A ChatGPT Plus account (AI assistant, $20/month) for advanced translation with GPT-4o and custom GPTs for specialized language pairs
 * A DeepL Pro account ($25/month) for high-quality European language translation and glossary support
-* An ElevenLabs account (AI voice synthesis, $5/month) for audio localization and dubbing as a premium upsell
+* An {{< platform name="elevenlabs" text="ElevenLabs" >}} account (AI voice synthesis, $5/month) for audio localization and dubbing as a premium upsell
 * A [Railway](https://railway.com?referralCode=fJobV0) account (cloud deployment, free tier available) for hosting your translation API and webhooks
 * A [Notion](https://notion.so/) workspace (free) for client management, translation glossaries, and project tracking
 * A [Canva](https://www.canva.com/) account ($12.95/month) for visual localization and localized marketing materials
@@ -149,7 +149,7 @@ Different AI models excel at different language pairs and content types. Your pi
      "glossary_id": "{{1.glossary_id}}"
    }
    ```
-5. For **Route 2**, add an **HTTP** module configured for OpenAI Chat Completions:
+5. For **Route 2**, add an **HTTP** module configured for {{< platform name="openai" text="OpenAI" >}} Chat Completions:
    - **URL:** `https://api.openai.com/v1/chat/completions`
    - **Method:** POST
    - **Headers:** `Authorization: Bearer YOUR_OPENAI_KEY`
@@ -175,7 +175,7 @@ Different AI models excel at different language pairs and content types. Your pi
      "temperature": 0.2
    }
    ```
-7. Add a **Filter** after quality check: Only route segments scoring below 7 to the **Human Review Queue** (Notion database). Segments scoring 7+ go directly to delivery.
+7. Add a **Filter** after quality check: Only route segments scoring below 7 to the **Human Review Queue** ({{< platform name="notion" text="Notion" >}} database). Segments scoring 7+ go directly to delivery.
 
 {{% accent-box %}}
 **HACK: The dual-model quality check is your competitive advantage.** Most translation services use a single model. Running a second model as a reviewer catches errors that self-review misses. The quality scoring gives you an objective metric to show clients, and the flagged segments reduce human review time by 60-70%.
@@ -318,7 +318,7 @@ COPY scripts/ .
 CMD ["python", "translation_api.py"]
 ```
 
-3. Push to GitHub, then connect the repository to [Railway](https://railway.com?referralCode=fJobV0):
+3. Push to {{< platform name="github" text="GitHub" >}}, then connect the repository to [Railway](https://railway.com?referralCode=fJobV0):
    - Log in to Railway, click **New Project → Deploy from GitHub repo**
    - Select your repository
    - Add environment variables: `OPENAI_API_KEY`, `DEEPL_API_KEY`
@@ -360,7 +360,7 @@ Audio dubbing is your highest-margin upsell. Most competitors stop at text. Addi
      }
    }
    ```
-4. Save the audio output to a cloud storage service (Google Drive, AWS S3, or Railway volume).
+4. Save the audio output to a cloud storage service ({{< platform name="google" text="Google" >}} Drive, AWS S3, or Railway volume).
 5. Generate a signed URL and send it to the client via Notion or email.
 
 ### Voice Selection Strategy
@@ -380,12 +380,12 @@ This step connects your pipeline to client platforms so translations publish aut
 Build Make.com scenarios for common client platforms:
 
 **Shopify Integration:**
-1. Trigger: **Shopify → Product Updated**
+1. Trigger: **{{< platform name="shopify" text="Shopify" >}} → Product Updated**
 2. Action: Extract product title, description, and metadata
 3. Action: Send to translation API
 4. Action: **Shopify → Update Product** with translated fields in the locale market
 
-**WordPress/WooCommerce Integration:**
+**{{< platform name="wordpress" text="WordPress" >}}/WooCommerce Integration:**
 1. Trigger: **WordPress → New Post Published**
 2. Action: Extract post content
 3. Action: Send to translation API
@@ -439,13 +439,13 @@ Before you switch the "Live" toggle, run through this checklist:
 
 ## What to Do Next
 
-**1. Add Visual Localization with Canva**
+**1. Add Visual Localization with {{< platform name="canva" text="Canva" >}}**
 Use the Canva API to auto-generate localized versions of social media graphics, infographics, and marketing materials. When a client's marketing content is translated, automatically create the visual assets in the target language using Canva templates.
 
 **2. Build a Translation Memory Dashboard in Notion**
 Create a database that tracks every translation, its quality score, and whether it was AI-generated or human-reviewed. This data helps you identify which language pairs and content types need more human oversight, and gives clients visibility into your quality process.
 
-**3. Add SEO Localization with Semrush**
+**3. Add SEO Localization with {{< platform name="semrush" text="Semrush" >}}**
 Use [Semrush](https://www.semrush.com/) to research local keywords in target markets before translating content. Adapt the translation to include local search terms rather than just translating the original keywords literally. This turns your translation service into a localization growth engine.
 
 **4. Scale Audio Dubbing with ElevenLabs**

@@ -20,12 +20,12 @@ Gather these accounts and tools before you start. Total setup time: 60-90 minute
 **Required Accounts (Free):**
 
 - A Beehiiv account — go to beehiiv.com and click "Start for free." You will use the free tier (up to 2,500 subscribers).
-- A ChatGPT account — go to chat.openai.com and sign up. The free tier works for weekly production. ChatGPT Plus at $20/month is better but not required at launch.
-- A Google account — for Google Sheets, Google Alerts, and Google Analytics.
+- A ChatGPT account — go to chat.openai.com and sign up. The free tier works for weekly production. {{< platform name="chatgpt" text="ChatGPT" >}} Plus at $20/month is better but not required at launch.
+- A {{< platform name="google" text="Google" >}} account — for Google Sheets, Google Alerts, and Google Analytics.
 - A Twitter/X account — your primary organic growth channel. If you don't have one, create it at x.com.
 - A Feedly account — go to feedly.com and sign up for the free tier. This is your content curation dashboard.
-- A Canva account — go to canva.com and sign up for free. You will use this for header images and social graphics.
-- A Notion account — go to notion.so and sign up for free. This is your operational HQ: content calendar, sponsor tracker, idea database.
+- A {{< platform name="canva" text="Canva" >}} account — go to canva.com and sign up for free. You will use this for header images and social graphics.
+- A {{< platform name="notion" text="Notion" >}} account — go to notion.so and sign up for free. This is your operational HQ: content calendar, sponsor tracker, idea database.
 - A SparkLoop account — go to sparkloop.app and sign up for the free trial. This is your referral growth engine. Set it up after you have your Beehiiv account.
 
 **Optional (Upgrade Later):**
@@ -70,7 +70,7 @@ Go specific. "AI news" is a bloodbath — you are competing with The Verge, Tech
 
 Before you commit, validate that real people want this content. Do this:
 
-1. Search Reddit for subreddits related to your niche. If you find subreddits with 10,000+ members and regular activity, people are actively seeking information in this space.
+1. Search {{< platform name="reddit" text="Reddit" >}} for subreddits related to your niche. If you find subreddits with 10,000+ members and regular activity, people are actively seeking information in this space.
 2. Search Twitter for your niche keywords. Are people posting about it? Are there active conversations? If the hashtag has recent posts, the audience exists.
 3. Search "site:substack.com [niche]" and "site:beehiiv.com [niche]" on Google. Find 3-5 existing newsletters. Subscribe to them. Read 3 issues each. Note what they do well and what they miss. Your job is to do what they miss.
 
@@ -91,7 +91,7 @@ If any of these are missing, do not proceed. The niche is the foundation. A weak
 
 ## Step 2: Set Up Your Newsletter Platform
 
-You have three serious options: Beehiiv, Substack, and ConvertKit. Each serves a different purpose. Here is the decision framework and the exact setup steps for each.
+You have three serious options: Beehiiv, {{< platform name="substack" text="Substack" >}}, and ConvertKit. Each serves a different purpose. Here is the decision framework and the exact setup steps for each.
 
 ### Platform Comparison
 
@@ -241,7 +241,7 @@ These alerts arrive daily in your inbox. Skim them each morning. Flag the 3-5 mo
 
 Go to feedly.com and sign in. You see the Feedly dashboard — a left sidebar with "Today," "Boards," and "Feeds."
 
-Click the **+** button in the left sidebar (or click "Add Content"). Search for publications, blogs, and YouTube channels in your niche. For each relevant source:
+Click the **+** button in the left sidebar (or click "Add Content"). Search for publications, blogs, and {{< platform name="youtube" text="YouTube" >}} channels in your niche. For each relevant source:
 1. Click the **Follow** button
 2. Assign it to a Feed (create feeds like "Must Read," "Scan," "Background")
 
@@ -455,7 +455,7 @@ Click **Schedule** or **Send Now** (if you have subscribers). If you have zero s
 You need your first 50 subscribers. These are your seed audience. Do this:
 
 1. **Personal network:** Email 20-30 people you know who fit your reader persona. Write a personal email (not a template). "Hey [Name], I just launched a newsletter about [niche]. I think you'd find it useful because [specific reason]. Would you subscribe? [Link]" Target: 15-20 subscribers.
-2. **Social media:** Post about your launch on Twitter, LinkedIn, and any relevant Facebook groups or Slack communities. Write a specific post, not a generic "check out my newsletter." Example: "I just launched AI Law Brief — a free weekly email that surfaces the 5 most important AI developments for solo lawyers. Issue No. 1 covers [3 specific topics]. Subscribe here: [link]" Target: 10-20 subscribers.
+2. **Social media:** Post about your launch on Twitter, LinkedIn, and any relevant Facebook groups or {{< platform name="slack" text="Slack" >}} communities. Write a specific post, not a generic "check out my newsletter." Example: "I just launched AI Law Brief — a free weekly email that surfaces the 5 most important AI developments for solo lawyers. Issue No. 1 covers [3 specific topics]. Subscribe here: [link]" Target: 10-20 subscribers.
 3. **HARO / Source of Sources:** If you have expertise in your niche, sign up at connectively.us (formerly HARO). Respond to journalist queries. Your bio includes your newsletter link. Target: 5-10 subscribers per response that gets published.
 
 ### Optimize Your Subscribe Page
@@ -626,8 +626,8 @@ Affiliate revenue is passive income that compounds. Every time you recommend a t
 4. **Recommend strategically:** Place affiliate links in the Tool Spotlight section (natural fit) and in the News Roundup when covering tool launches or updates. Do not force affiliate links into unrelated sections — readers see through it.
 
 **High-paying affiliate categories:**
-- AI tools: 20-30% recurring (Jasper, Copy.ai, Writesonic, etc.)
-- SaaS products: 15-25% recurring (Notion, ClickUp, Calendly, etc.)
+- AI tools: 20-30% recurring (Jasper, {{< platform name="copyai" text="Copy.ai" >}}, Writesonic, etc.)
+- SaaS products: 15-25% recurring (Notion, ClickUp, {{< platform name="calendly" text="Calendly" >}}, etc.)
 - Courses and education: 30-50% one-time (Udemy, Skillshare, Teachable, etc.)
 - Web hosting: $50-200 one-time (Bluehost, SiteGround, etc.)
 
@@ -665,7 +665,7 @@ If revenue is below $200/month, your monetization activation is incomplete. Chec
 
 ## Step 8: Automate with Make.com
 
-Manual processes kill newsletter businesses. You spend time on repetitive tasks instead of content and growth. Make.com automates the repetitive parts. Here are the five automations to build.
+Manual processes kill newsletter businesses. You spend time on repetitive tasks instead of content and growth. {{< platform name="make" text="Make" >}} automates the repetitive parts. Here are the five automations to build.
 
 ### Automation 1: New Subscriber Welcome Sequence
 
@@ -708,7 +708,7 @@ Automatically convert your newsletter issues into Twitter threads.
 
 1. Create a new Make.com scenario.
 2. Add a trigger: **Beehiiv — Watch New Posts.** This fires when you publish a new issue.
-3. Add a module: **OpenAI — Create a Chat Completion.** System prompt:
+3. Add a module: **{{< platform name="openai" text="OpenAI" >}} — Create a Chat Completion.** System prompt:
 
 ```
 You are a Twitter thread writer. Given a newsletter issue, extract the most shareable insight and write a 8-tweet thread about it. Rules:

@@ -11,16 +11,16 @@ relatedOpportunity: "/opportunities/ai-course-creation-business-2026/"
 relatedPlaybook: "/playbooks/ai-automation-agency-playbook/"
 ---
 
-You are going to build an AI course creation business. Not a blog about courses. Not a YouTube channel about teaching. A business that takes your expertise, turns it into structured educational products using AI, and sells those products for money. This guide covers every step. Follow it in order. Do not skip steps.
+You are going to build an AI course creation business. Not a blog about courses. Not a {{< platform name="youtube" text="YouTube" >}} channel about teaching. A business that takes your expertise, turns it into structured educational products using AI, and sells those products for money. This guide covers every step. Follow it in order. Do not skip steps.
 
 ## Prerequisites
 
 - A laptop with a modern browser and webcam
-- A ChatGPT Plus account ($20/mo) — go to chat.openai.com
+- A {{< platform name="chatgpt" text="ChatGPT" >}} Plus account ($20/mo) — go to chat.openai.com
 - A Teachable account (free plan) — go to teachable.com
-- A Canva account (free tier) — go to canva.com
+- A {{< platform name="canva" text="Canva" >}} account (free tier) — go to canva.com
 - A Loom account (free tier) — go to loom.com
-- A Stripe account (free) — go to stripe.com
+- A {{< platform name="stripe" text="Stripe" >}} account (free) — go to stripe.com
 - 4-6 hours of uninterrupted time
 
 Total upfront cost: $20 for ChatGPT Plus.
@@ -31,7 +31,7 @@ Before creating anything, validate that people will pay for your course. This st
 
 ### The 4-Criteria Scoring Framework
 
-Open a Google Sheet. Create columns: Topic, Market Demand (1-5), Willingness to Pay (1-5), Competition Level (1-5, where 5 = low competition), Your Credibility (1-5), Total Score.
+Open a {{< platform name="google" text="Google" >}} Sheet. Create columns: Topic, Market Demand (1-5), Willingness to Pay (1-5), Competition Level (1-5, where 5 = low competition), Your Credibility (1-5), Total Score.
 
 Score potential topics. Topics scoring 14+ are worth pursuing.
 
@@ -45,7 +45,7 @@ Go to udemy.com and search your topic. If there are 3-7 courses with 1,000+ stud
 
 ### Run a Pre-Sale Test
 
-Create a landing page on Carrd (free) with the course title, 5 learning outcomes, and a "Join Waitlist" button. Drive 100 visitors through Twitter or LinkedIn. If 3-5 people sign up, you have demand. If 0, pivot.
+Create a landing page on Carrd (free) with the course title, 5 learning outcomes, and a "Join Waitlist" button. Drive 100 visitors through Twitter or {{< platform name="linkedin" text="LinkedIn" >}} If 3-5 people sign up, you have demand. If 0, pivot.
 
 ### CHECK-IN: Step 1 Complete
 
@@ -128,7 +128,7 @@ Click **Pricing** → **Add Pricing Plan**. Create a "One-Time Payment" plan at 
 ### Build the Sales Page
 
 Use this structure:
-1. **Headline:** The transformation (not the topic). "Automate Your Business and Reclaim 20 Hours Per Week" beats "Master Make.com in 4 Weeks."
+1. **Headline:** The transformation (not the topic). "Automate Your Business and Reclaim 20 Hours Per Week" beats "Master {{< platform name="make" text="Make" >}} in 4 Weeks."
 2. **Problem statement:** 3-4 sentences about the pain your student experiences
 3. **Solution overview:** What the course delivers
 4. **Module breakdown:** Each module with 2-3 bullet points

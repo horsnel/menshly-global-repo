@@ -37,14 +37,14 @@ Ready to understand the full business opportunity? Read our [opportunity deep‑
 
 ## Step 1: Setup Accounts and API Keys
 
-> **Goal:** Create all necessary accounts, generate API keys, and store them securely in Replit's secrets manager.
+> **Goal:** Create all necessary accounts, generate API keys, and store them securely in {{< platform name="replit" text="Replit" >}}'s secrets manager.
 
 ### 1.1 Create a Vapi Account
 
 1. Navigate to **https://app.vapi.io**.
 2. Click **Sign Up** and enter your email and password, then click **Create Account**.
 3. Verify your email address through the confirmation link sent to your inbox.
-4. Log in to the Vapi dashboard.
+4. Log in to the {{< platform name="vapi" text="Vapi" >}} dashboard.
 5. In the dashboard, click **Manage API Keys** and then **Create Key**.
 6. Name the key `PROD_VAPI_KEY`, set the scope to **Read & Write**, and click **Create**.
 7. Copy the key to your clipboard immediately — Vapi will not display it again after you navigate away from the page.
@@ -98,7 +98,7 @@ Open the Replit Shell and run:
 curl -I https://api.vapi.io
 ```
 
-You should receive `HTTP/2 200`. If you see `401 Unauthorized`, your `VAPI_KEY` is incorrect. Verify it in the Vapi dashboard and update the Replit secret. Test Calendly connectivity with:
+You should receive `HTTP/2 200`. If you see `401 Unauthorized`, your `VAPI_KEY` is incorrect. Verify it in the Vapi dashboard and update the Replit secret. Test {{< platform name="calendly" text="Calendly" >}} connectivity with:
 
 ```bash
 curl -H "Authorization: Bearer $CALENDLY_KEY" https://api.calendly.com/users/me
@@ -114,7 +114,7 @@ You should see a JSON response with your user profile. If you get a 401, regener
 
 1. In the Vapi dashboard, click **Create Assistant**.
 2. Set the assistant name to `BookingAgent`.
-3. Under **Voice**, select a voice from the ElevenLabs library. Choose a voice that matches your target vertical — a warm, professional female voice works well for dental and medical practices; a confident, direct male voice suits legal and financial services.
+3. Under **Voice**, select a voice from the {{< platform name="elevenlabs" text="ElevenLabs" >}} library. Choose a voice that matches your target vertical — a warm, professional female voice works well for dental and medical practices; a confident, direct male voice suits legal and financial services.
 4. Under **Model**, select `gpt-4o-mini` for cost efficiency. You can upgrade to `gpt-4o` later if the client needs more nuanced conversation handling.
 5. Under **System Prompt**, paste the following template and customize it for your client:
 
@@ -184,7 +184,7 @@ Rules:
 }
 ```
 
-8. Under **Server URL**, enter your Make.com webhook URL. Vapi will POST function call payloads to this URL whenever the AI agent needs to check availability or book an appointment.
+8. Under **Server URL**, enter your {{< platform name="make" text="Make" >}} webhook URL. Vapi will POST function call payloads to this URL whenever the AI agent needs to check availability or book an appointment.
 9. Click **Save** and then **Test** to verify the agent responds correctly to a simulated call.
 
 ### 2.2 Test the Voice Agent
@@ -253,7 +253,7 @@ This scenario receives a `book_appointment` function call, creates the booking i
    - To: `{{1.caller_email}}`
    - Subject: `Your Appointment is Confirmed — [BUSINESS NAME]`
    - Body: Include the appointment date, time, type, and a link to reschedule or cancel.
-5. Add an **HTTP** module to log the booking in ActiveCampaign or Klaviyo (optional but highly recommended for churn prevention).
+5. Add an **HTTP** module to log the booking in ActiveCampaign or {{< platform name="klaviyo" text="Klaviyo" >}} (optional but highly recommended for churn prevention).
 6. Add a **Webhook Response** module to confirm the booking back to Vapi:
 
 ```json
@@ -577,7 +577,7 @@ Build a simple reporting page that displays:
 - Average time from call to confirmed booking
 - Most common appointment types
 
-You can build this with a simple Flask route that queries your booking log and renders an HTML template, or connect the data to a Google Sheet that updates automatically via Make.com.
+You can build this with a simple Flask route that queries your booking log and renders an HTML template, or connect the data to a {{< platform name="google" text="Google" >}} Sheet that updates automatically via Make.com.
 
 ---
 

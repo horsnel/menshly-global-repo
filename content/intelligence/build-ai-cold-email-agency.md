@@ -19,10 +19,10 @@ This guide assumes you have zero infrastructure set up. By the end, you'll have 
 
 Before you start, you need the following:
 
-- **Instantly.ai** — $37/mo (Growth plan for unlimited sending accounts and warmup)
-- **Make.com** — $16/mo (Teams plan for 10,000 operations/month)
-- **Apollo.io** — $49/mo (Starter plan for 500 export credits/month)
-- **Gemini API key** — Free tier available via Google AI Studio, pay-as-you-go for scale
+- **{{< platform name="instantly" text="Instantly" >}}.ai** — $37/mo (Growth plan for unlimited sending accounts and warmup)
+- **{{< platform name="make" text="Make" >}}.com** — $16/mo (Teams plan for 10,000 operations/month)
+- **{{< platform name="apollo" text="Apollo" >}}.io** — $49/mo (Starter plan for 500 export credits/month)
+- **Gemini API key** — Free tier available via {{< platform name="google" text="Google" >}} AI Studio, pay-as-you-go for scale
 - **5 domain names** — ~$50/year total on Namecheap or Cloudflare
 - **Google Workspace** — $7.20/mo per domain ($36/mo for 5 domains)
 - **8-12 hours of uninterrupted time** for initial setup
@@ -92,7 +92,7 @@ This step builds your automated lead pipeline. Instead of manually scraping pros
 
 ### Sub-step 2a: Apollo.io Configuration
 
-Log into Apollo.io. Go to "Filters" and build your first saved search for your own agency: Target VP Sales, Head of Growth, or Director of Revenue at B2B SaaS companies with 20-200 employees. Add intent signals: "Currently hiring for Sales roles," "Recently raised funding," or "Using Salesforce/HubSpot."
+Log into Apollo.io. Go to "Filters" and build your first saved search for your own agency: Target VP Sales, Head of Growth, or Director of Revenue at B2B SaaS companies with 20-200 employees. Add intent signals: "Currently hiring for Sales roles," "Recently raised funding," or "Using Salesforce/{{< platform name="hubspot" text="HubSpot" >}}."
 
 Save this search as "Agency Prospects — Own Outbound." You'll use this to sell your own services.
 
@@ -101,7 +101,7 @@ For each client, create a new saved search with their specific ICP. Name it "[Cl
 ### Sub-step 2b: Google Sheet Lead Database
 
 Create a Google Sheet called "Lead Database — [Client Name]" with these columns:
-A: First Name | B: Last Name | C: Title | D: Company | E: Email | F: LinkedIn URL | G: Context (auto-filled by Apollo) | H: Personalization (auto-filled by AI) | I: Campaign Status | J: Send Date | K: Reply Status
+A: First Name | B: Last Name | C: Title | D: Company | E: Email | F: {{< platform name="linkedin" text="LinkedIn" >}} URL | G: Context (auto-filled by Apollo) | H: Personalization (auto-filled by AI) | I: Campaign Status | J: Send Date | K: Reply Status
 
 Set up data validation on column I (Campaign Status): "Pending," "Queued," "Sent," "Replied-Positive," "Replied-Negative," "Bounced." This lets you filter and track leads at every stage.
 
@@ -294,11 +294,11 @@ Create a Make.com scenario called "Daily Metrics Reporter":
 1. **Trigger:** Schedule — runs every day at 8 AM
 2. **Module 1 — Instantly.ai "Get Campaign Stats":** Pull yesterday's metrics (emails sent, opens, replies, positive replies, bounces, unsubscribes)
 3. **Module 2 — Google Sheets "Add Row":** Append the data to a "Metrics" sheet with columns for Date, Campaign, Emails Sent, Opens, Open Rate, Replies, Reply Rate, Positive Replies, Meetings Booked
-4. **Module 3 — Conditional:** If reply rate drops below 2% for any campaign, send a Slack/email alert to you
+4. **Module 3 — Conditional:** If reply rate drops below 2% for any campaign, send a {{< platform name="slack" text="Slack" >}}/email alert to you
 
 ### Sub-step 5b: Client Dashboard in Notion
 
-Create a Notion page for each client with these sections:
+Create a {{< platform name="notion" text="Notion" >}} page for each client with these sections:
 
 - **Weekly Snapshot:** Auto-updated table showing this week's metrics vs. last week
 - **Meeting Log:** Every qualified meeting booked, with prospect name, company, and date

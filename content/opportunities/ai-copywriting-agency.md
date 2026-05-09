@@ -10,7 +10,7 @@ relatedGuide: "/intelligence/ai-content-business-guide/"
 relatedPlaybook: "/playbooks/ai-copywriting-agency-playbook/"
 ---
 
-Here's a dirty secret of the marketing world: most copywriters are just prompt engineers who don't know it. They sit down, stare at a blank page, and try to channel their inner Ogilvy. Meanwhile, a 23-year-old with ChatGPT Plus and a library of proven copywriting frameworks is producing the same quality output in 1/10th the time. The difference isn't talent — it's system. And the person with the better system wins.
+Here's a dirty secret of the marketing world: most copywriters are just prompt engineers who don't know it. They sit down, stare at a blank page, and try to channel their inner Ogilvy. Meanwhile, a 23-year-old with {{< platform name="chatgpt" text="ChatGPT" >}} Plus and a library of proven copywriting frameworks is producing the same quality output in 1/10th the time. The difference isn't talent — it's system. And the person with the better system wins.
 
 An AI copywriting agency isn't about replacing human creativity. It's about amplifying it. You use AI to produce 80% of the copy — first drafts, variations, subject lines, and test versions — and then apply your human editorial judgment to refine the remaining 20% into copy that actually converts. The result: you deliver the same quality as a traditional copywriter, in 1/5th the time, at 1/3rd the price, with 3x the volume. The margins are ridiculous. The demand is insatiable. And almost nobody is doing it right.
 
@@ -32,15 +32,15 @@ AI can now write copy that passes for professional output. GPT-4o with the right
 
 **ChatGPT Free — $0** — Copy generation, framework application, and variation creation. Enough for 2-3 small clients.
 
-**Google Docs — $0** — Write, edit, and share copy with clients. Collaborative editing with comments and suggestions.
+**{{< platform name="google" text="Google" >}} Docs — $0** — Write, edit, and share copy with clients. Collaborative editing with comments and suggestions.
 
 **CoSchedule Headline Analyzer — $0** — Score your headlines for emotional impact, power words, and structure. Free browser tool.
 
 **Hemingway Editor — Free web version** — Simplify your copy. Highlight complex sentences, passive voice, and unnecessary adverbs.
 
-**Notion Free — $0** — Client onboarding, prompt library, and project management.
+**{{< platform name="notion" text="Notion" >}} Free — $0** — Client onboarding, prompt library, and project management.
 
-**Canva Free — $0** — Create sample ad visuals to pair with your copy. Clients love seeing copy in context.
+**{{< platform name="canva" text="Canva" >}} Free — $0** — Create sample ad visuals to pair with your copy. Clients love seeing copy in context.
 
 **Google Analytics — $0** — Track the performance of your copy once it's live. Data builds your case studies.
 
@@ -50,15 +50,15 @@ AI can now write copy that passes for professional output. GPT-4o with the right
 
 **ChatGPT Plus — $20/mo** — Better output, more variations, faster production. Essential.
 
-**Claude Pro — $20/mo** — Superior for long-form copy and nuanced tone matching. Use alongside ChatGPT.
+**{{< platform name="claude" text="Claude" >}} Pro — $20/mo** — Superior for long-form copy and nuanced tone matching. Use alongside ChatGPT.
 
 **Jasper — $49/mo** — AI copywriting tool with brand voice features and marketing-specific templates. Some agencies prefer it over raw ChatGPT.
 
-**Grammarly Business — $15/mo** — Advanced grammar, style, and tone checking. Catches what you miss.
+**{{< platform name="grammarly" text="Grammarly" >}} Business — $15/mo** — Advanced grammar, style, and tone checking. Catches what you miss.
 
 **Honeybook — $40/mo** — Proposals, contracts, invoicing, and client communication. Professional and efficient.
 
-**Make.com — $9/mo** — Automate client onboarding: form submission → project creation → deadline tracking → delivery reminders.
+**{{< platform name="make" text="Make" >}} — $9/mo** — Automate client onboarding: form submission → project creation → deadline tracking → delivery reminders.
 
 **Total monthly cost: $153.** A single project at $1,500-3,000 covers this for months.
 
@@ -72,7 +72,7 @@ Send a creative brief questionnaire: product description, target audience, key b
 
 ### Step 2: Research and Strategy (1-2 hours)
 
-Research the client's competitors. Read their copy. Identify gaps — angles they're missing, objections they're not addressing, emotions they're not tapping into. Study the target audience on Reddit, Amazon reviews, and social media. What language do they use? What complaints do they have? What desires drive them? This research is the foundation of persuasive copy.
+Research the client's competitors. Read their copy. Identify gaps — angles they're missing, objections they're not addressing, emotions they're not tapping into. Study the target audience on {{< platform name="reddit" text="Reddit" >}}, Amazon reviews, and social media. What language do they use? What complaints do they have? What desires drive them? This research is the foundation of persuasive copy.
 
 ### Step 3: Production (2-4 hours per project)
 

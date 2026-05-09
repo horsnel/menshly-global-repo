@@ -19,9 +19,9 @@ Before you start, you need the following:
 
 - A laptop with a modern browser (Chrome or Firefox)
 - A Voiceflow account (free tier works for your first 3 bots) — go to voiceflow.com and sign up
-- An OpenAI API key ($5 minimum credit) — go to platform.openai.com/api-keys
-- A Stripe account for collecting payments — go to stripe.com and sign up
-- A Notion account for client documentation — free tier is fine
+- An {{< platform name="openai" text="OpenAI" >}} API key ($5 minimum credit) — go to platform.openai.com/api-keys
+- A {{< platform name="stripe" text="Stripe" >}} account for collecting payments — go to stripe.com and sign up
+- A {{< platform name="notion" text="Notion" >}} account for client documentation — free tier is fine
 - 4-6 hours of uninterrupted time for your first build
 
 Total upfront cost: $5 for the OpenAI API key. Everything else is free until you have paying clients.
@@ -56,7 +56,7 @@ After uploading, you should see your files listed in the Knowledge Base panel wi
 
 ## Step 2: Build the Conversation Flow
 
-Now you are going to build the actual conversation that the chatbot will have with patients. Go back to the canvas (click the **Canvas** tab in the left sidebar).
+Now you are going to build the actual conversation that the chatbot will have with patients. Go back to the canvas (click the **{{< platform name="canva" text="Canva" >}} Canvas** tab in the left sidebar).
 
 ### Create the Welcome Message
 
@@ -205,7 +205,7 @@ Do not send cold emails. Do not run ads. Build a demo for a specific business ca
 
 1. Pick a business category (dental practices, real estate agencies, gyms, law firms)
 2. Build a fully functional demo bot for that category using generic information
-3. Find 20 businesses in that category on Google Maps
+3. Find 20 businesses in that category on {{< platform name="google" text="Google" >}} Maps
 4. Visit each website. Note whether they have a chatbot (most will not)
 5. Send this message to the business owner:
 
@@ -285,7 +285,7 @@ Before delivering any bot to a client, verify every item:
 
 Once you have delivered your first 3-5 bots in one business category, expand:
 - Build bots for a second business category (the same process, different knowledge base)
-- Add voice agent capability using Vapi ($30-80/mo) — voice bots command 2-3x higher pricing
+- Add voice agent capability using {{< platform name="vapi" text="Vapi" >}} ($30-80/mo) — voice bots command 2-3x higher pricing
 - Create a client portal in Notion where clients can submit update requests
-- Set up automated monthly reports using Make.com that pull Voiceflow analytics and email them to clients
+- Set up automated monthly reports using {{< platform name="make" text="Make" >}} that pull Voiceflow analytics and email them to clients
 - Consider white-labeling — let other agencies resell your bots under their brand for a 40-50% revenue split

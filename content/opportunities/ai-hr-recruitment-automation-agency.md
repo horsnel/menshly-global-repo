@@ -20,9 +20,9 @@ An AI recruitment automation agency does not replace recruiters. It makes them 7
 
 Three forces have converged simultaneously, and if you understand the collision, you will see why right now is the best time in history to start an AI recruitment agency.
 
-First: AI resume screening became genuinely accurate. GPT-4o and Claude 3.5 can now read a resume and evaluate it against job requirements with 90-95% consistency — higher than human recruiters who vary based on fatigue, mood, and unconscious bias. Three years ago, AI resume screening was keyword matching dressed up as intelligence. It rejected qualified candidates because their skills used different terminology and passed unqualified ones who stuffed keywords. Today, with the right prompt engineering and a well-structured evaluation rubric, AI screening is more consistent than a panel of three human reviewers. The key phrase is "with the right prompt engineering" — and that skill is your competitive moat.
+First: AI resume screening became genuinely accurate. GPT-4o and {{< platform name="claude" text="Claude" >}} 3.5 can now read a resume and evaluate it against job requirements with 90-95% consistency — higher than human recruiters who vary based on fatigue, mood, and unconscious bias. Three years ago, AI resume screening was keyword matching dressed up as intelligence. It rejected qualified candidates because their skills used different terminology and passed unqualified ones who stuffed keywords. Today, with the right prompt engineering and a well-structured evaluation rubric, AI screening is more consistent than a panel of three human reviewers. The key phrase is "with the right prompt engineering" — and that skill is your competitive moat.
 
-Second: applicant tracking systems opened their APIs. Greenhouse, Lever, Workable, and BambooHR now have robust APIs that allow automated candidate import, screening, routing, and communication. Five years ago, you would have to manually export candidate data, process it, and re-import the results. Now, Zapier or Make.com can pull applications directly from the ATS, send them to OpenAI for screening, and push the results back — all without a human touching a keyboard. This eliminated the technical barrier that kept non-developers out of recruitment automation.
+Second: applicant tracking systems opened their APIs. Greenhouse, Lever, Workable, and BambooHR now have robust APIs that allow automated candidate import, screening, routing, and communication. Five years ago, you would have to manually export candidate data, process it, and re-import the results. Now, Zapier or Make.com can pull applications directly from the ATS, send them to {{< platform name="openai" text="OpenAI" >}} for screening, and push the results back — all without a human touching a keyboard. This eliminated the technical barrier that kept non-developers out of recruitment automation.
 
 Third: the talent shortage is acute and getting worse. There are 8.5 million job openings in the US and only 6.5 million unemployed workers. Companies cannot find talent fast enough, and traditional recruitment is too slow. The average time-to-fill a position is 42 days — that is 42 days of lost productivity, team overload, and revenue leakage. Companies will pay a premium for anyone who can cut that time in half. Your AI automation can cut it to 14 days. That is not an incremental improvement — it is a transformation that companies will pay handsomely for.
 
@@ -38,23 +38,23 @@ Third: the talent shortage is acute and getting worse. There are 8.5 million job
 
 ## The Free Stack: Starting With Zero Dollars
 
-**Google Sheets — $0** — Your candidate database, screening workspace, and client reporting tool. Build a sheet for each client with columns for candidate name, AI score, recommended action, screening date, and status. This is all you need to manage your first 5 clients.
+**{{< platform name="google" text="Google" >}} Sheets — $0** — Your candidate database, screening workspace, and client reporting tool. Build a sheet for each client with columns for candidate name, AI score, recommended action, screening date, and status. This is all you need to manage your first 5 clients.
 
-**ChatGPT Free — $0** — Copy-paste resumes into ChatGPT and ask it to evaluate them against job requirements. It is manual but proves the concept. Feed it a job description and 20 resumes. Watch it rank them by fit in 30 seconds. That is your pitch.
+**{{< platform name="chatgpt" text="ChatGPT" >}} Free — $0** — Copy-paste resumes into ChatGPT and ask it to evaluate them against job requirements. It is manual but proves the concept. Feed it a job description and 20 resumes. Watch it rank them by fit in 30 seconds. That is your pitch.
 
 **Gemini API Free Tier — $0** — 15 requests per minute on the free tier. Build a simple screening tool that takes a resume and job description and returns a fit score. This replaces copy-pasting into ChatGPT and scales to 900 evaluations per hour.
 
-**Make.com Free Plan — $0** — 1,000 operations per month. Enough to build and test your first 2-3 automation workflows connecting Google Sheets to Gemini and back.
+**{{< platform name="make" text="Make" >}} Free Plan — $0** — 1,000 operations per month. Enough to build and test your first 2-3 automation workflows connecting Google Sheets to Gemini and back.
 
 **Tally — $0** — Client onboarding forms. Collect company details, job requirements, screening criteria, and hiring process preferences. Professional and free.
 
-**LinkedIn Free Search — $0** — Use boolean operators to find candidates: `("project manager" OR "program manager") AND (agile OR scrum) AND (remote OR hybrid)`. This is surprisingly effective for sourcing without paying for Recruiter Lite.
+**{{< platform name="linkedin" text="LinkedIn" >}} Free Search — $0** — Use boolean operators to find candidates: `("project manager" OR "program manager") AND (agile OR scrum) AND (remote OR hybrid)`. This is surprisingly effective for sourcing without paying for Recruiter Lite.
 
 > **HACK: The Free Validation Loop.** Before spending a single dollar, do this: find 3 companies hiring right now (check LinkedIn job postings). Download 20 resumes from public profiles. Create a ChatGPT screening prompt with the job requirements. Run all 20 resumes through the prompt. Show the ranked results to the hiring manager. If they say "this ranking is better than what my recruiter produced," you have a validated business. If they say "these rankings are off," your prompt needs work. Either way, you learned for free.
 
 ## The Paid Stack: When You Are Ready to Scale
 
-**Greenhouse or Lever — $100-200/month** — Professional applicant tracking system with robust API access. Greenhouse is the gold standard for structured hiring; Lever excels at candidate relationship management. Both integrate natively with Zapier and Make.com.
+**Greenhouse or Lever — $100-200/month** — Professional applicant tracking system with robust API access. Greenhouse is the gold standard for structured hiring; Lever excels at candidate relationship management. Both integrate natively with {{< platform name="zapier" text="Zapier" >}} and Make.com.
 
 **Make.com Teams — $16/month** — 10,000 operations/month. Connect ATS to AI screening to candidate communication automatically. This is the engine that runs your entire recruitment pipeline.
 
@@ -62,15 +62,15 @@ Third: the talent shortage is acute and getting worse. There are 8.5 million job
 
 **LinkedIn Recruiter Lite — $170/month** — 30 InMail messages per month and access to LinkedIn's full candidate database. This is the single most important sourcing tool in your arsenal. Sign up after your second paying client.
 
-**Apollo.io — $49/month** — B2B contact database with 5,000 email credits per month. Use it to find passive candidates and build targeted outreach lists.
+**{{< platform name="apollo" text="Apollo" >}}.io — $49/month** — B2B contact database with 5,000 email credits per month. Use it to find passive candidates and build targeted outreach lists.
 
-**Notion Team — $10/month** — Client dashboards, SOPs, screening rubrics, and onboarding documentation. Share a Notion page with each client showing their hiring pipeline status and candidate recommendations.
+**{{< platform name="notion" text="Notion" >}} Team — $10/month** — Client dashboards, SOPs, screening rubrics, and onboarding documentation. Share a Notion page with each client showing their hiring pipeline status and candidate recommendations.
 
-**Stripe — Pay-as-you-go** — Client invoicing and payment collection. Create subscription products for your monthly retainer packages.
+**{{< platform name="stripe" text="Stripe" >}} — Pay-as-you-go** — Client invoicing and payment collection. Create subscription products for your monthly retainer packages.
 
 **Total monthly cost: $365-525.** A single client at $1,000/month covers this 2x over. Two clients and you are profitable. The tool costs do not scale linearly — the same Make.com plan handles 1 client or 15.
 
-> **HACK: The ATS Reseller Play.** Many ATS providers offer partner or reseller programs. Sign up as a Greenhouse partner, and you get discounted pricing on client subscriptions plus referral fees. You save clients 20-30% on their ATS subscription and earn 10-15% referral revenue on top. The client gets a discount, you get a recurring commission, and Greenhouse gets a new customer. Triple win.
+> **HACK: The ATS Reseller Play.** Many ATS providers offer partner or reseller programs. Sign up as a {{< platform name="greenhouse" text="Greenhouse" >}} partner, and you get discounted pricing on client subscriptions plus referral fees. You save clients 20-30% on their ATS subscription and earn 10-15% referral revenue on top. The client gets a discount, you get a recurring commission, and Greenhouse gets a new customer. Triple win.
 
 ## The Workflow: Step-by-Step
 

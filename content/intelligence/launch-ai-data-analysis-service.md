@@ -17,15 +17,15 @@ You are going to build an AI data analysis service. Not a blog about data. Not a
 
 Before you write a single line of code or talk to a single client, you need the following tools set up and accounts created. Do not proceed until every item is checked.
 
-- **A laptop with at least 8GB RAM** — You will run Jupyter notebooks locally. 4GB machines will choke on datasets over 50,000 rows.
+- **A laptop with at least 8GB RAM** — You will run {{< platform name="jupyter" text="Jupyter" >}} notebooks locally. 4GB machines will choke on datasets over 50,000 rows.
 - **Python 3.11 or later installed** — Go to python.org/downloads. Download the installer for your OS. Run it. On Windows, check the box that says "Add Python to PATH." On Mac, use the installer. Verify by opening a terminal and typing `python --version`. You should see `Python 3.11.x` or higher. If you see `Python 2.x`, something is wrong — reinstall and check the PATH box.
-- **A ChatGPT Plus account ($20/mo)** — Go to chat.openai.com. Sign up. Click "Upgrade to Plus." You need the Code Interpreter (Advanced Data Analysis) feature, which is Plus-only. This is non-negotiable. The free tier does not support file uploads or code execution.
+- **A {{< platform name="chatgpt" text="ChatGPT" >}} Plus account ($20/mo)** — Go to chat.openai.com. Sign up. Click "Upgrade to Plus." You need the Code Interpreter (Advanced Data Analysis) feature, which is Plus-only. This is non-negotiable. The free tier does not support file uploads or code execution.
 - **A Jupyter Notebook environment** — Open your terminal and run: `pip install jupyterlab pandas plotly openpyxl scipy scikit-learn`. This installs JupyterLab, Pandas (data manipulation), Plotly (interactive charts), openpyxl (Excel file reading), SciPy (statistics), and scikit-learn (machine learning). Wait for the install to complete. Verify by running `jupyter lab` — a browser window should open with the Jupyter interface.
-- **A Google Sheets account (free)** — Go to sheets.google.com. You will use this for quick data previews and sharing with clients who live in Google Workspace.
-- **A Notion account (free tier)** — Go to notion.so. Sign up. You will use this for client onboarding forms, project tracking, and report templates.
-- **A Canva account (free tier)** — Go to canva.com. Sign up. You will use this for presentation-quality report covers and infographics.
-- **A Make.com account (free tier)** — Go to make.com. Sign up. You will use this for automating data pipelines and report delivery later.
-- **A Stripe account (free)** — Go to stripe.com. Sign up. You will use this to collect payments from clients.
+- **A {{< platform name="google" text="Google" >}} Sheets account (free)** — Go to sheets.google.com. You will use this for quick data previews and sharing with clients who live in Google Workspace.
+- **A {{< platform name="notion" text="Notion" >}} account (free tier)** — Go to notion.so. Sign up. You will use this for client onboarding forms, project tracking, and report templates.
+- **A {{< platform name="canva" text="Canva" >}} account (free tier)** — Go to canva.com. Sign up. You will use this for presentation-quality report covers and infographics.
+- **A {{< platform name="make" text="Make" >}} account (free tier)** — Go to make.com. Sign up. You will use this for automating data pipelines and report delivery later.
+- **A {{< platform name="stripe" text="Stripe" >}} account (free)** — Go to stripe.com. Sign up. You will use this to collect payments from clients.
 - **4-6 hours of uninterrupted time for setup and your first practice analysis**
 
 Total upfront cost: $20 for ChatGPT Plus. Everything else is free until you have paying clients.
@@ -1310,7 +1310,7 @@ if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000)
 ```
 
-Deploy this on Render.com: create a free account, connect your GitHub repo, and deploy as a Web Service. You will get a URL like `https://your-analysis-app.onrender.com/analyze`. Use this URL in your Make.com HTTP module.
+Deploy this on Render.com: create a free account, connect your {{< platform name="github" text="GitHub" >}} repo, and deploy as a Web Service. You will get a URL like `https://your-analysis-app.onrender.com/analyze`. Use this URL in your Make.com HTTP module.
 
 **Step 5: Add an Email module.** Click `+` after the HTTP module. Select **Email - Send an email**. Configure it:
 - To: Client's email address
@@ -1358,9 +1358,9 @@ Your three core templates (sales, segmentation, financial) work across industrie
 
 **SaaS Template** — Metrics: MRR, ARR, churn rate, LTV, CAC, payback period, expansion revenue, net revenue retention. Sources: Stripe, Mixpanel, ChartMogul. Key analyses: cohort analysis, churn prediction, upgrade path optimization.
 
-**E-commerce Template** — Metrics: AOV, repeat purchase rate, cart abandonment rate, ROAS, customer acquisition cost, inventory turnover. Sources: Shopify, WooCommerce, Google Analytics. Key analyses: product affinity, seasonality modeling, pricing optimization.
+**E-commerce Template** — Metrics: AOV, repeat purchase rate, cart abandonment rate, ROAS, customer acquisition cost, inventory turnover. Sources: {{< platform name="shopify" text="Shopify" >}}, WooCommerce, Google Analytics. Key analyses: product affinity, seasonality modeling, pricing optimization.
 
-**Agency Template** — Metrics: utilization rate, project profitability, client LTV, employee cost per hour, margin by service type. Sources: Harvest, Toggl, QuickBooks. Key analyses: resource allocation, pricing by client tier, project scoping accuracy.
+**Agency Template** — Metrics: utilization rate, project profitability, client LTV, employee cost per hour, margin by service type. Sources: Harvest, {{< platform name="toggl" text="Toggl" >}}, QuickBooks. Key analyses: resource allocation, pricing by client tier, project scoping accuracy.
 
 For each vertical, create a dedicated notebook in `templates/` with the specific metrics, chart types, and recommendation frameworks for that industry. When you get a new SaaS client, you duplicate the SaaS template, swap in their data, and deliver in 2 hours instead of 10.
 

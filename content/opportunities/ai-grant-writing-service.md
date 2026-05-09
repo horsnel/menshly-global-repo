@@ -19,7 +19,7 @@ An AI grant writing service does not replace grant writers. It makes them 5x mor
 
 Three forces have converged simultaneously, and if you understand the collision, you will see why right now is the best time in history to start an AI grant writing service.
 
-First: AI can parse complex grant requirements with unprecedented accuracy. Federal grant solicitations (called NOFOs or RFPs) are notoriously dense — a typical grant announcement runs 40-80 pages of requirements, eligibility criteria, evaluation metrics, and formatting specifications. Traditionally, a grant writer would spend 4-8 hours just reading and analyzing the requirements before writing a single word. Today, GPT-4o and Claude can ingest the entire document in seconds and produce a structured analysis: eligible applicants, required components, evaluation criteria with weightings, page limits, submission deadlines, and compliance checklist. This analysis that took a human a full day now takes AI 30 seconds. The key insight is that the AI does not just read the document — it understands the implicit priorities, the funder's historical preferences, and the strategic positioning that maximizes win probability.
+First: AI can parse complex grant requirements with unprecedented accuracy. Federal grant solicitations (called NOFOs or RFPs) are notoriously dense — a typical grant announcement runs 40-80 pages of requirements, eligibility criteria, evaluation metrics, and formatting specifications. Traditionally, a grant writer would spend 4-8 hours just reading and analyzing the requirements before writing a single word. Today, GPT-4o and {{< platform name="claude" text="Claude" >}} can ingest the entire document in seconds and produce a structured analysis: eligible applicants, required components, evaluation criteria with weightings, page limits, submission deadlines, and compliance checklist. This analysis that took a human a full day now takes AI 30 seconds. The key insight is that the AI does not just read the document — it understands the implicit priorities, the funder's historical preferences, and the strategic positioning that maximizes win probability.
 
 Second: grant databases are now digitized and searchable. Grants.gov, Foundation Directory Online, and dozens of specialized databases have digitized millions of grant opportunities. AI can search these databases programmatically, matching a client's profile against thousands of active opportunities in minutes. Five years ago, finding relevant grants required a professional researcher with expensive database subscriptions and hours of manual searching. Today, an AI agent can find more relevant opportunities in 10 minutes than a human researcher finds in 10 hours. This democratizes access to grant funding for organizations that could never afford a professional grant researcher.
 
@@ -39,15 +39,15 @@ Third: the nonprofit and startup sectors are desperate for affordable grant writ
 
 **Grants.gov — $0** — The US federal government's grant database. Over 1,000 active grant programs. Search by keyword, agency, eligibility, and category. This is your primary source for federal grant opportunities.
 
-**ChatGPT Free — $0** — Copy-paste grant requirements into ChatGPT and ask it to analyze eligibility, extract evaluation criteria, and draft proposal sections. It is manual but proves the concept. Feed it a grant announcement and a client profile. Watch it identify 5 relevant grant programs and draft a needs assessment in 5 minutes. That is your pitch.
+**{{< platform name="chatgpt" text="ChatGPT" >}} Free — $0** — Copy-paste grant requirements into ChatGPT and ask it to analyze eligibility, extract evaluation criteria, and draft proposal sections. It is manual but proves the concept. Feed it a grant announcement and a client profile. Watch it identify 5 relevant grant programs and draft a needs assessment in 5 minutes. That is your pitch.
 
 **Gemini API Free Tier — $0** — 15 requests per minute. Build a grant matching tool that takes an organization's profile and finds relevant opportunities from a database. This scales beyond copy-pasting into ChatGPT.
 
-**Google Docs — $0** — Proposal drafting and collaboration. Use templates for common proposal sections (executive summary, needs assessment, methodology, budget, evaluation plan). Share documents with clients for review.
+**{{< platform name="google" text="Google" >}} Docs — $0** — Proposal drafting and collaboration. Use templates for common proposal sections (executive summary, needs assessment, methodology, budget, evaluation plan). Share documents with clients for review.
 
 **Tally — $0** — Client onboarding forms. Collect organization details, mission statement, programs, target population, geographic focus, budget size, and previous grant history.
 
-**Make.com Free Plan — $0** — 1,000 operations per month. Build and test your first automation workflows connecting grant databases to AI analysis to proposal drafting.
+**{{< platform name="make" text="Make" >}} Free Plan — $0** — 1,000 operations per month. Build and test your first automation workflows connecting grant databases to AI analysis to proposal drafting.
 
 > **HACK: The Free Validation Loop.** Before spending a single dollar, do this: find a local nonprofit (animal shelter, food bank, community center). Search Grants.gov for 3 grants they are eligible for. Use ChatGPT to draft a needs assessment and executive summary for one grant. Show the draft to the nonprofit's director. If they say "this is better than anything we have produced internally," you have a validated business. If they say "this needs a lot of work," your prompts need refinement. Either way, you learned for free.
 
@@ -55,13 +55,13 @@ Third: the nonprofit and startup sectors are desperate for affordable grant writ
 
 **Foundation Directory Online — $50/month** — The most comprehensive database of private foundations and corporate giving programs. Over 250,000 funders with detailed giving histories, average grant sizes, and application guidelines. Essential for finding foundation grants beyond what Grants.gov lists.
 
-**OpenAI API — ~$20-50/month** — GPT-4o for grant analysis, proposal drafting, and compliance checking. At $0.0025 per 1K tokens, drafting a 40-page proposal costs approximately $1-3 in API calls. The economics are extraordinary.
+**{{< platform name="openai" text="OpenAI" >}} API — ~$20-50/month** — GPT-4o for grant analysis, proposal drafting, and compliance checking. At $0.0025 per 1K tokens, drafting a 40-page proposal costs approximately $1-3 in API calls. The economics are extraordinary.
 
 **Make.com Teams — $16/month** — 10,000 operations/month. Connect grant databases to AI analysis to proposal templates automatically. This is the engine that runs your entire grant writing pipeline.
 
-**Notion Team — $10/month** — Client dashboards, proposal tracking, grant calendars, and document management. Share a Notion page with each client showing their active grants, proposal status, and upcoming deadlines.
+**{{< platform name="notion" text="Notion" >}} Team — $10/month** — Client dashboards, proposal tracking, grant calendars, and document management. Share a Notion page with each client showing their active grants, proposal status, and upcoming deadlines.
 
-**Grammarly Business — $15/month** — Advanced grammar, style, and tone checking. Every proposal must be grammatically flawless. Grammarly catches errors that AI-generated text sometimes introduces.
+**{{< platform name="grammarly" text="Grammarly" >}} Business — $15/month** — Advanced grammar, style, and tone checking. Every proposal must be grammatically flawless. Grammarly catches errors that AI-generated text sometimes introduces.
 
 **Adobe Acrobat Pro — $23/month** — PDF creation, editing, and form filling. Many grants require PDF submission with specific formatting. Acrobat Pro ensures your proposals meet submission requirements.
 

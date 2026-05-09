@@ -39,7 +39,7 @@ Ready to understand the full business opportunity? Read our [opportunity deep‑
 
 #### 1.1 Deploy Label Studio on Hostinger VPS
 
-Label Studio is the backbone of your entire annotation operation. It manages projects, annotator accounts, labeling interfaces, quality workflows, and data export.
+{{< platform name="labelstudio" text="Label Studio" >}} is the backbone of your entire annotation operation. It manages projects, annotator accounts, labeling interfaces, quality workflows, and data export.
 
 1. SSH into your Hostinger VPS: `ssh root@your-server-ip`
 2. Install Docker:
@@ -136,7 +136,7 @@ Create template projects for each annotation type you plan to offer. The most co
 </View>
 ```
 
-Save these templates in a Notion database so you can quickly create new projects by copying the template and importing the client's data.
+Save these templates in a {{< platform name="notion" text="Notion" >}} database so you can quickly create new projects by copying the template and importing the client's data.
 
 ---
 
@@ -146,7 +146,7 @@ AI pre‑annotation is the secret weapon that makes your business profitable. By
 
 #### 2.1 Set Up the Pre‑Annotation Server
 
-Create a new Replit project called `annotation-prelabeler`:
+Create a new {{< platform name="replit" text="Replit" >}} project called `annotation-prelabeler`:
 
 ```javascript
 // src/index.js
@@ -308,7 +308,7 @@ This scenario handles project completion and billing:
 
 #### 4.1 Qualification Test Pipeline
 
-Every annotator must pass a qualification test before they can work on client data. Build this pipeline in Notion and Make.com:
+Every annotator must pass a qualification test before they can work on client data. Build this pipeline in Notion and {{< platform name="make" text="Make" >}}.com:
 
 1. **Notion Database: "Annotator Pipeline"** with the following fields:
    - Name, Email, Domain, Status (Applied → Testing → Qualified → Active → Inactive)
@@ -326,9 +326,9 @@ Every annotator must pass a qualification test before they can work on client da
 
 Create professional training materials for each annotation domain:
 
-1. **Video walkthrough:** Record a 10‑minute Loom video showing how to use Label Studio's interface for the specific annotation task. Use ElevenLabs to add a professional voiceover.
+1. **Video walkthrough:** Record a 10‑minute Loom video showing how to use Label Studio's interface for the specific annotation task. Use {{< platform name="elevenlabs" text="ElevenLabs" >}} to add a professional voiceover.
 
-2. **Written guidelines:** Use ChatGPT to draft annotation guidelines, then edit them for domain specificity. Include 20+ examples covering common cases, edge cases, and ambiguous cases with the correct annotation for each.
+2. **Written guidelines:** Use {{< platform name="chatgpt" text="ChatGPT" >}} to draft annotation guidelines, then edit them for domain specificity. Include 20+ examples covering common cases, edge cases, and ambiguous cases with the correct annotation for each.
 
 3. **Practice dataset:** Create a small practice dataset (50 to 100 items) with known correct labels. New annotators complete this dataset before working on any client project. Their accuracy on the practice set predicts their accuracy on real data with 80%+ correlation.
 

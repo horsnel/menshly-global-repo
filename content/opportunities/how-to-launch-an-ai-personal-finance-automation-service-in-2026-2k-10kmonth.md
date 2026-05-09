@@ -14,14 +14,14 @@ You're about to enter a $1.4 billion market that's growing at a rate of 25% year
 
 The current state of personal finance is a mess. 60% of Americans can't cover a $1,000 emergency expense, and 75% of millennials are stressed about their financial situation. That's where your AI personal finance automation service comes in. You'll help people automate their finances, make smart investment decisions, and achieve financial stability. The best part? You can do it all with a minimal upfront investment. You can start small, with a few clients, and scale up to $2,000-$10,000 per month.
 
-The key to success lies in understanding the current landscape. With the rise of AI, people are looking for ways to automate their finances. They want to track their expenses, create budgets, and get investment insights without lifting a finger. That's where your service comes in. You'll use AI tools like ChatGPT, Make.com, and Replit to automate financial tasks, provide personalized advice, and help clients achieve their financial goals.
+The key to success lies in understanding the current landscape. With the rise of AI, people are looking for ways to automate their finances. They want to track their expenses, create budgets, and get investment insights without lifting a finger. That's where your service comes in. You'll use AI tools like {{< platform name="chatgpt" text="ChatGPT" >}}, Make.com, and Replit to automate financial tasks, provide personalized advice, and help clients achieve their financial goals.
 
 ## Why This Works Right Now
 The first reason this opportunity exists is the increasing adoption of AI in finance. According to a report by McKinsey, AI can help financial institutions reduce costs by up to 30% and improve customer satisfaction by up to 25%. That's a huge incentive for financial institutions to adopt AI-powered solutions. As an entrepreneur, you can tap into this trend by offering AI-powered personal finance automation services to individuals and small businesses.
 
 The second reason is the growing demand for financial wellness. With the rising cost of living, people are looking for ways to manage their finances more effectively. They want to save money, invest wisely, and achieve financial stability. Your AI personal finance automation service can help them do just that. By providing automated budgeting, expense tracking, and investment insights, you can help people make smart financial decisions and achieve their goals.
 
-The third reason is the availability of affordable AI tools. With tools like Make.com ($29/month), Replit ($7/month), and ChatGPT (free), you can build an AI-powered personal finance automation service without breaking the bank. These tools allow you to automate financial tasks, provide personalized advice, and help clients achieve their financial goals. You can also use other tools like Vapi ($49/month) for AI voice agents, Fliki AI ($29/month) for AI text-to-video, and Canva ($12.95/month) for design.
+The third reason is the availability of affordable AI tools. With tools like {{< platform name="make" text="Make" >}} ($29/month), Replit ($7/month), and ChatGPT (free), you can build an AI-powered personal finance automation service without breaking the bank. These tools allow you to automate financial tasks, provide personalized advice, and help clients achieve their financial goals. You can also use other tools like Vapi ($49/month) for AI voice agents, Fliki AI ($29/month) for AI text-to-video, and Canva ($12.95/month) for design.
 
 ## The Realistic Picture (Before You Get Excited)
 {{% accent-box %}}
@@ -45,12 +45,12 @@ This includes implementing data encryption, secure storage, and access controls 
 This includes staying up-to-date with the latest AI research, attending webinars and conferences, and participating in online communities to stay ahead of the curve.
 
 ## The Free Stack: Starting With Zero Dollars
-* **Google Sheets — $0** — A cloud-based spreadsheet tool for tracking expenses and creating budgets.
-* **Trello — $0** — A project management tool for organizing client data and tasks.
-* **Zapier — $0** — An automation tool for connecting different apps and services.
-* **Calendly — $0** — A scheduling tool for booking client meetings.
+* **{{< platform name="google" text="Google" >}} Sheets — $0** — A cloud-based spreadsheet tool for tracking expenses and creating budgets.
+* **{{< platform name="trello" text="Trello" >}} — $0** — A project management tool for organizing client data and tasks.
+* **{{< platform name="zapier" text="Zapier" >}} — $0** — An automation tool for connecting different apps and services.
+* **{{< platform name="calendly" text="Calendly" >}} — $0** — A scheduling tool for booking client meetings.
 * **Loom — $0** — A video messaging tool for communicating with clients.
-* [**Notion — $0**](https://notion.so/) — A workspace tool for creating client databases and tracking progress.
+* [**{{< platform name="notion" text="Notion" >}} — $0**](https://notion.so/) — A workspace tool for creating client databases and tracking progress.
 * **ChatGPT — $0** — An AI assistant for providing personalized advice and automating financial tasks.
 
 While these free tools can help you get started, they have limitations. For example, Google Sheets has limited automation capabilities, and Trello can become cluttered with too many clients. As you scale, you'll need to upgrade to paid tools to streamline your workflow and provide better service to your clients. One hack to get the most out of your free tools is to use {{% accent-box %}}
@@ -59,15 +59,15 @@ While these free tools can help you get started, they have limitations. For exam
 
 ## The Paid Stack: When You're Ready to Scale
 * [**Make.com — $29/month**](https://www.make.com/en/register?pc=menshly) — An automation platform for automating financial tasks and workflows.
-* [**Replit — $7/month**](https://replit.com/refer/egwuokwor) — A cloud IDE for building custom AI models and automating financial tasks.
-* [**Vapi — $49/month**](https://vapi.ai/) — An AI voice agent for providing personalized advice and automating customer support.
-* [**Fliki AI — $29/month**](https://fliki.ai?referral=noah-wilson-w84be4) — An AI text-to-video tool for creating engaging financial content and explaining complex concepts.
-* [**Canva — $12.95/month**](https://www.canva.com/) — A design platform for creating visual financial reports and presentations.
-* **Klaviyo — $25/month** — An email marketing tool for nurturing leads and communicating with clients.
+* [**{{< platform name="replit" text="Replit" >}} — $7/month**](https://replit.com/refer/egwuokwor) — A cloud IDE for building custom AI models and automating financial tasks.
+* [**{{< platform name="vapi" text="Vapi" >}} — $49/month**](https://vapi.ai/) — An AI voice agent for providing personalized advice and automating customer support.
+* [**{{< platform name="fliki" text="Fliki" >}} AI — $29/month**](https://fliki.ai?referral=noah-wilson-w84be4) — An AI text-to-video tool for creating engaging financial content and explaining complex concepts.
+* [**{{< platform name="canva" text="Canva" >}} — $12.95/month**](https://www.canva.com/) — A design platform for creating visual financial reports and presentations.
+* **{{< platform name="klaviyo" text="Klaviyo" >}} — $25/month** — An email marketing tool for nurturing leads and communicating with clients.
 * **ActiveCampaign — $9/month** — A CRM and email marketing tool for managing client relationships and automating workflows.
-* [**Semrush — $119.95/month**](https://www.semrush.com/) — An SEO toolkit for optimizing your website and attracting organic traffic.
+* [**{{< platform name="semrush" text="Semrush" >}} — $119.95/month**](https://www.semrush.com/) — An SEO toolkit for optimizing your website and attracting organic traffic.
 * **Hostinger — $7.99/month** — A web hosting service for hosting your website and client data.
-* **Shopify — $29/month** — An e-commerce platform for selling financial products and services.
+* **{{< platform name="shopify" text="Shopify" >}} — $29/month** — An e-commerce platform for selling financial products and services.
 
 The total monthly cost of the paid stack is $328.89. However, with the potential to earn $2,000-$10,000 per month, the ROI is significant. One hack to get the most out of your paid tools is to use {{% accent-box %}}
 **HACK: Make.com's API integration** to connect your tools and automate workflows, saving you time and effort.
@@ -171,7 +171,7 @@ The unit economics of your AI personal finance automation service will depend on
 
 ### Day 1‑7 – Set Up the Foundations  
 - **Create a brand identity** in Canva. Pick a color palette that feels calm—blue and green work well for finance. Use the brand kit to keep consistency across all touchpoints.  
-- **Build a landing page** on Hostinger using their free WordPress theme. Add a simple form that feeds into a Google Sheet via Zapier. That sheet will become your CRM until you upgrade.  
+- **Build a landing page** on Hostinger using their free {{< platform name="wordpress" text="WordPress" >}} theme. Add a simple form that feeds into a Google Sheet via Zapier. That sheet will become your CRM until you upgrade.  
 - **Install the Make.com connector** for the landing page and Google Sheets. Write a recipe that triggers when a lead signs up: send a welcome email through Klaviyo, add them to a Notion database, and schedule a Calendly meeting.  
 - **Set up a Loom channel** for quick video demos. Record a 2‑minute walkthrough of your budgeting workflow and embed it on your landing page.
 

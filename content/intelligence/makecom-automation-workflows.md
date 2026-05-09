@@ -11,16 +11,16 @@ relatedOpportunity: "/opportunities/ai-automation-agency/"
 relatedPlaybook: "/playbooks/ai-automation-agency-playbook/"
 ---
 
-Make.com (formerly Integromat) is the backbone of the automation economy. Zapier gets the mainstream attention, but Make.com offers superior flexibility, lower costs at scale, and more sophisticated error handling — making it the platform of choice for serious automation builders. This guide takes you from your first workflow to production-grade systems that run reliably for paying clients.
+{{< platform name="make" text="Make" >}} (formerly Integromat) is the backbone of the automation economy. Zapier gets the mainstream attention, but Make.com offers superior flexibility, lower costs at scale, and more sophisticated error handling — making it the platform of choice for serious automation builders. This guide takes you from your first workflow to production-grade systems that run reliably for paying clients.
 
 Follow every step in order. Each step builds on the previous one. If you skip ahead, your workflows will break in ways that are difficult to diagnose later.
 
 ## Prerequisites
 
 - A Make.com account — go to make.com and sign up for the Free plan (1,000 operations/mo)
-- A Google account (for Google Sheets, Gmail, and Google Docs modules)
-- A Slack account with a workspace where you have admin or the ability to install apps
-- An OpenAI API key with $10 credit — go to platform.openai.com/api-keys
+- A {{< platform name="google" text="Google" >}} account (for Google Sheets, Gmail, and Google Docs modules)
+- A {{< platform name="slack" text="Slack" >}} account with a workspace where you have admin or the ability to install apps
+- An {{< platform name="openai" text="OpenAI" >}} API key with $10 credit — go to platform.openai.com/api-keys
 - A test email address you control (separate from your personal email)
 - 6-8 hours of uninterrupted time for your first full build
 
@@ -360,8 +360,8 @@ Before activating any workflow for a client:
 ## What to Do Next
 
 Once this workflow is running smoothly, expand your automation portfolio:
-- Build a **content distribution engine** — one piece of content, automatically reformatted and posted to LinkedIn, Twitter, email, and Slack
+- Build a **content distribution engine** — one piece of content, automatically reformatted and posted to {{< platform name="linkedin" text="LinkedIn" >}}, Twitter, email, and Slack
 - Build a **client onboarding sequence** — contract signed → welcome email → project setup → team notification
-- Build an **e-commerce order pipeline** — Shopify order → fulfillment trigger → customer notification → accounting entry
+- Build an **e-commerce order pipeline** — {{< platform name="shopify" text="Shopify" >}} order → fulfillment trigger → customer notification → accounting entry
 - Add **Make.com Data Stores** for caching API responses and reducing operations
 - Implement **webhook triggers** instead of polling for real-time workflows (webhooks use fewer operations and respond instantly)

@@ -11,7 +11,7 @@ relatedOpportunity: "/opportunities/ai-image-generation-agency/"
 relatedPlaybook: "/playbooks/ai-side-hustle-blueprint/"
 ---
 
-Building an AI image generation agency is not about typing prompts and hoping something pretty comes out. It is about producing consistent, brand-aligned, professionally finished visual assets at a speed and price point that traditional creative agencies cannot match. This guide walks you through every step — from setting up Midjourney and DALL-E 3 to building a batch production system that delivers 50 images to a client in a single afternoon. Follow it in order. Do not skip steps.
+Building an AI image generation agency is not about typing prompts and hoping something pretty comes out. It is about producing consistent, brand-aligned, professionally finished visual assets at a speed and price point that traditional creative agencies cannot match. This guide walks you through every step — from setting up {{< platform name="midjourney" text="Midjourney" >}} and DALL-E 3 to building a batch production system that delivers 50 images to a client in a single afternoon. Follow it in order. Do not skip steps.
 
 ### Prerequisites
 
@@ -20,12 +20,12 @@ Before you start, you need the following:
 - A laptop with a modern browser (Chrome or Firefox)
 - A Discord account — go to discord.com and sign up (required for Midjourney)
 - A Midjourney subscription ($10/mo Basic plan) — go to midjourney.com and subscribe
-- A ChatGPT Plus subscription ($20/mo) — go to chat.openai.com and upgrade (includes DALL-E 3 access)
+- A {{< platform name="chatgpt" text="ChatGPT" >}} Plus subscription ($20/mo) — go to chat.openai.com and upgrade (includes DALL-E 3 access)
 - A Leonardo.ai account (free tier works for your first 10 projects) — go to leonardo.ai and sign up
-- A Canva Pro account ($13/mo) — go to canva.com and sign up (free tier works initially, but Pro is needed for brand kits and background remover)
+- A {{< platform name="canva" text="Canva" >}} Pro account ($13/mo) — go to canva.com and sign up (free tier works initially, but Pro is needed for brand kits and background remover)
 - A Topaz Photo AI license ($15/mo or $199 one-time) — go to topazlabs.com and download (for upscaling AI images to print resolution)
-- A Google Drive or Dropbox account for client delivery — free tier is fine
-- A Notion account for project tracking and style guides — free tier is fine
+- A {{< platform name="google" text="Google" >}} Drive or Dropbox account for client delivery — free tier is fine
+- A {{< platform name="notion" text="Notion" >}} account for project tracking and style guides — free tier is fine
 - 6-8 hours of uninterrupted time for your first complete build
 
 Total upfront cost: $58/mo ($10 Midjourney + $20 ChatGPT Plus + $13 Canva Pro + $15 Topaz). One client paying $300-500 for an image pack covers this for months. If you want to start at zero cost, use Bing Image Creator (free DALL-E 3), Leonardo.ai free tier, and Canva free tier. The workflow is the same. The paid tools just produce better output faster.
@@ -339,7 +339,7 @@ Open Notion. Create a new page called "Client Onboarding — [Client Name]" (you
 **Section 3: Project Details**
 - What types of images do you need? (product shots, social media graphics, blog illustrations, ad creatives, email headers, website banners)
 - How many images per month?
-- What platforms? (Instagram, LinkedIn, Pinterest, website, email, print)
+- What platforms? (Instagram, {{< platform name="linkedin" text="LinkedIn" >}}, Pinterest, website, email, print)
 - Aspect ratios needed for each platform
 - Any text that needs to appear regularly? (taglines, URLs, CTAs)
 - Deadline for first delivery
@@ -831,7 +831,7 @@ Before delivering any image batch to a client, verify every item:
 
 Once you have delivered your first 3-5 client projects and have a repeatable production system, expand:
 
-- **Add video content as an upsell.** Every image you generate can become a 5-second animated clip using Runway Gen-3 or Luma Dream Machine. Charge $20-50 per animated image. This doubles your revenue per client with 10 minutes of extra work per image. Open runway.ml, upload your image, type a motion description ("subtle camera pan to the right, gentle parallax effect"), generate, and deliver the MP4.
+- **Add video content as an upsell.** Every image you generate can become a 5-second animated clip using {{< platform name="runway" text="Runway" >}} Gen-3 or Luma Dream Machine. Charge $20-50 per animated image. This doubles your revenue per client with 10 minutes of extra work per image. Open runway.ml, upload your image, type a motion description ("subtle camera pan to the right, gentle parallax effect"), generate, and deliver the MP4.
 
 - **Build a client portal.** Create a Notion workspace for each client where they can view their Visual Style Guide, submit image requests, track delivery status, and access their asset library. This eliminates "where is that image from March?" emails and makes your service feel like a premium product.
 

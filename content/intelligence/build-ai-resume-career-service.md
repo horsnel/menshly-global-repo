@@ -16,12 +16,12 @@ You are going to build an AI resume and career service. Not a blog about job hun
 ## Prerequisites
 
 - A laptop with a modern browser
-- A ChatGPT Plus account ($20/mo) — go to chat.openai.com
-- A Google Docs account (free)
-- A Canva account (free tier) — go to canva.com
-- A Notion account (free) — for client management
+- A {{< platform name="chatgpt" text="ChatGPT" >}} Plus account ($20/mo) — go to chat.openai.com
+- A {{< platform name="google" text="Google" >}} Docs account (free)
+- A {{< platform name="canva" text="Canva" >}} account (free tier) — go to canva.com
+- A {{< platform name="notion" text="Notion" >}} account (free) — for client management
 - A Gumroad account (free) — or Teachable for selling services
-- A Stripe account (free) — for payments
+- A {{< platform name="stripe" text="Stripe" >}} account (free) — for payments
 - 3-4 hours of uninterrupted time
 
 Total upfront cost: $20 for ChatGPT Plus.
@@ -44,7 +44,7 @@ Your prompts are your product. A mediocre prompt produces a mediocre resume. Inv
 
 ### Prompt 4: LinkedIn Optimization
 
-> "Optimize this LinkedIn profile for [Job Title] in [Industry]. Provide: (1) Headline with title, value prop, keywords (under 120 chars), (2) About section telling a career story with keywords (under 2,000 chars), (3) 5 skills to add, (4) Specific improvements for headline and summary."
+> "Optimize this {{< platform name="linkedin" text="LinkedIn" >}} profile for [Job Title] in [Industry]. Provide: (1) Headline with title, value prop, keywords (under 120 chars), (2) About section telling a career story with keywords (under 2,000 chars), (3) 5 skills to add, (4) Specific improvements for headline and summary."
 
 ### Prompt 5: Interview Prep Questions
 
@@ -160,7 +160,7 @@ This saves you 10-15 minutes per client and ensures nothing falls through the cr
 
 ### CHECK-IN: Step 5 Complete
 
-1. Make.com scenario creates Notion page on new sale
+1. {{< platform name="make" text="Make" >}} scenario creates Notion page on new sale
 2. Confirmation email sent automatically
 3. Status tracking works end to end
 

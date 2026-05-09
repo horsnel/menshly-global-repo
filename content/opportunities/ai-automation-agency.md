@@ -20,7 +20,7 @@ I'm going to lay out everything: the exact automation platforms to learn, how to
 
 Three things collided at the same time, and if you understand the convergence, you'll see why this is the best time in history to start an automation agency.
 
-First: the automation platforms became genuinely powerful. Make.com (formerly Integromat) can now handle complex multi-step workflows with conditional logic, loops, error handling, and AI integrations. n8n offers self-hosted automation with 400+ integrations and a visual builder that makes complex workflows understandable. Zapier added Paths, Tables, and Interfaces. These aren't toy tools anymore — they're enterprise-grade automation platforms that a competent operator can use to replace entire departments.
+First: the automation platforms became genuinely powerful. {{< platform name="make" text="Make" >}} (formerly Integromat) can now handle complex multi-step workflows with conditional logic, loops, error handling, and AI integrations. n8n offers self-hosted automation with 400+ integrations and a visual builder that makes complex workflows understandable. Zapier added Paths, Tables, and Interfaces. These aren't toy tools anymore — they're enterprise-grade automation platforms that a competent operator can use to replace entire departments.
 
 Second: AI made automations smart. A year ago, automation was dumb: if X happens, do Y. It couldn't handle ambiguity, nuance, or judgment calls. Now, you can insert AI steps into your workflows: "Read this email. If it's a complaint, escalate to the manager. If it's an inquiry, draft a response using the knowledge base. If it's spam, delete it." This AI layer transforms automations from rigid rules into flexible, intelligent processes that can handle 85% of the cases that previously required a human.
 
@@ -46,21 +46,21 @@ You can learn automation, build a portfolio, and land your first client without 
 
 **Make.com Free Tier — $0** — 1,000 operations/month, 2 active scenarios. Enough to build demo workflows and service 1-2 small clients. The visual builder is the best in the industry. Start here.
 
-**n8n Self-Hosted — $0** — Open-source, unlimited workflows, unlimited executions. Self-host on a free cloud instance (Oracle Cloud Free Tier gives you a VM forever). This is your secret weapon — unlimited capacity for zero cost.
+**{{< platform name="n8n" text="n8n" >}} Self-Hosted — $0** — Open-source, unlimited workflows, unlimited executions. Self-host on a free cloud instance (Oracle Cloud Free Tier gives you a VM forever). This is your secret weapon — unlimited capacity for zero cost.
 
-**Zapier Free Tier — $0** — 100 tasks/month, 5 Zaps. Limited but useful for simple automations that don't require Make.com's complexity. Good for entry-level client work.
+**{{< platform name="zapier" text="Zapier" >}} Free Tier — $0** — 100 tasks/month, 5 Zaps. Limited but useful for simple automations that don't require Make.com's complexity. Good for entry-level client work.
 
-**ChatGPT Free — $0** — Use for generating automation ideas, writing documentation, and helping clients articulate their processes. Also use for the AI steps within your automations.
+**{{< platform name="chatgpt" text="ChatGPT" >}} Free — $0** — Use for generating automation ideas, writing documentation, and helping clients articulate their processes. Also use for the AI steps within your automations.
 
-**Google Workspace Free — $0** — Sheets, Docs, Forms, Drive. Many automations involve Google tools. Free tier handles personal use and small clients.
+**{{< platform name="google" text="Google" >}} Workspace Free — $0** — Sheets, Docs, Forms, Drive. Many automations involve Google tools. Free tier handles personal use and small clients.
 
-**Notion Free — $0** — SOP documentation, client onboarding forms, project tracking, and your automation recipe library. The free tier is generous.
+**{{< platform name="notion" text="Notion" >}} Free — $0** — SOP documentation, client onboarding forms, project tracking, and your automation recipe library. The free tier is generous.
 
 **Loom Free — $0** — Record walkthrough videos of your automations for client handoff and training. 25 videos/month on the free tier.
 
 The free stack is enough to validate the business model and land your first 2-3 clients. The beauty of automation is that the tools cost nearly nothing — you're selling your expertise in using them.
 
-> **HACK: The Portfolio-First Approach.** Before looking for clients, build 5 demo automations that solve real problems. "Auto-respond to leads from Facebook Ads with a personalized email." "Sync Shopify orders to Google Sheets and send a Slack notification." "Generate weekly sales reports from Stripe data and email them to the CEO." Record walkthroughs of each demo with Loom. These demos are your portfolio, your sales tool, and your proof of competence. When a prospect asks "have you done this before?", you show them the demo that's closest to their need.
+> **HACK: The Portfolio-First Approach.** Before looking for clients, build 5 demo automations that solve real problems. "Auto-respond to leads from Facebook Ads with a personalized email." "Sync Shopify orders to Google Sheets and send a {{< platform name="slack" text="Slack" >}} notification." "Generate weekly sales reports from Stripe data and email them to the CEO." Record walkthroughs of each demo with Loom. These demos are your portfolio, your sales tool, and your proof of competence. When a prospect asks "have you done this before?", you show them the demo that's closest to their need.
 
 ## The Paid Stack: When You're Ready to Scale
 
@@ -70,11 +70,11 @@ Once you have $3,000+/month in revenue, invest in the tools that make you faster
 
 **n8n Cloud Starter — $20/mo** — 2,500 executions/month, managed hosting, no self-hosting headaches. Use alongside Make for clients who prefer n8n's interface.
 
-**OpenAI API — Pay-as-you-go (~$30-80/mo)** — Power the AI steps in your automations. Classification, summarization, drafting, and analysis. The API is cheaper than ChatGPT Plus for production use.
+**{{< platform name="openai" text="OpenAI" >}} API — Pay-as-you-go (~$30-80/mo)** — Power the AI steps in your automations. Classification, summarization, drafting, and analysis. The API is cheaper than ChatGPT Plus for production use.
 
-**HubSpot CRM Free → Starter ($20/mo)** — Track your own sales pipeline, client relationships, and project status. Upgrade to Starter when you need automation within your own business.
+**{{< platform name="hubspot" text="HubSpot" >}} CRM Free → Starter ($20/mo)** — Track your own sales pipeline, client relationships, and project status. Upgrade to Starter when you need automation within your own business.
 
-**Calendly Pro — $12/mo** — Automated scheduling for client calls and discovery meetings. Eliminates the back-and-forth email dance.
+**{{< platform name="calendly" text="Calendly" >}} Pro — $12/mo** — Automated scheduling for client calls and discovery meetings. Eliminates the back-and-forth email dance.
 
 **Honeybook — $40/mo** — Client management, proposals, contracts, and invoicing specifically for service businesses. Professional proposals that look like they came from a $50K agency.
 
@@ -90,7 +90,7 @@ Once you have $3,000+/month in revenue, invest in the tools that make you faster
 
 Before you automate anything, you need to understand the client's processes at a level of detail they don't even understand themselves. Here's how.
 
-Conduct a "day in the life" interview. Ask the client to walk you through their typical workday, task by task. "I check email first. Then I log into Shopify and process orders. Then I update the spreadsheet. Then I send confirmation emails." Every step is a potential automation. Most business owners are shocked when they see how much of their day is repetitive.
+Conduct a "day in the life" interview. Ask the client to walk you through their typical workday, task by task. "I check email first. Then I log into {{< platform name="shopify" text="Shopify" >}} and process orders. Then I update the spreadsheet. Then I send confirmation emails." Every step is a potential automation. Most business owners are shocked when they see how much of their day is repetitive.
 
 Create a process map. For each task, document: what triggers it, what steps are involved, what tools are used, what decisions are made, and what the output is. Use a simple flowchart in Lucidchart (free) or even Google Slides. The process map becomes your build blueprint.
 
@@ -146,7 +146,7 @@ Pick one industry — real estate, e-commerce, healthcare, restaurants — and b
 
 Partner with bookkeepers, virtual assistants, IT consultants, and web developers. They work with businesses that need automation but can't provide it themselves. You become their automation partner. They refer clients to you, and you pay a 10-15% referral fee. One good partnership with a bookkeeping firm can generate 3-5 clients per month.
 
-> **HACK: The "Broken Process" LinkedIn Post.** Post on LinkedIn about a specific broken process you see everywhere. "Every real estate agent I talk to spends 2 hours/day manually entering listing data into 3 different systems. Here's how I automated it in 30 minutes." Include a 30-second demo video. Real estate agents will DM you. This is the most effective lead generation method for automation agencies because it demonstrates expertise, shows proof, and targets a specific pain point — all in one post.
+> **HACK: The "Broken Process" {{< platform name="linkedin" text="LinkedIn" >}} Post.** Post on LinkedIn about a specific broken process you see everywhere. "Every real estate agent I talk to spends 2 hours/day manually entering listing data into 3 different systems. Here's how I automated it in 30 minutes." Include a 30-second demo video. Real estate agents will DM you. This is the most effective lead generation method for automation agencies because it demonstrates expertise, shows proof, and targets a specific pain point — all in one post.
 
 ## Tricks and Hacks They Don't Share in Courses
 

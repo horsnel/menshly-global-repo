@@ -22,7 +22,7 @@ This is not a blog post condensed into a PDF. This is an operating system for bu
 Before you build a single automation, you need the infrastructure that runs your agency. This module sets up your project management, documentation, client portal, and communication systems. These are not optional. Every successful agency operator has these systems in place before their first client call. Every failed operator skipped them.
 
 **Time to complete:** 3-4 hours
-**Tools needed:** Notion (free), Google Workspace (free), Stripe (free)
+**Tools needed:** {{< platform name="notion" text="Notion" >}} (free), Google Workspace (free), Stripe (free)
 
 ### Procedure 1.1: Create Your Agency Command Center in Notion
 
@@ -88,7 +88,7 @@ You will populate this database throughout this playbook. By the end, you will h
 
 Go to stripe.com and create an account. Complete the business verification process (you will need a bank account and personal identification). This typically takes 1-2 business days for approval.
 
-Once approved, you should see the Stripe dashboard with a "Test mode" toggle in the top-right corner. Do you see it? If your account is still pending verification, continue with the rest of this module and return to this step when approved.
+Once approved, you should see the {{< platform name="stripe" text="Stripe" >}} dashboard with a "Test mode" toggle in the top-right corner. Do you see it? If your account is still pending verification, continue with the rest of this module and return to this step when approved.
 
 #### Create Your Payment Products
 
@@ -137,7 +137,7 @@ Add a row for the current month with zero values. This is your starting line.
 
 #### Create Your Business Email
 
-If you do not have a professional email address on a custom domain, set one up now. Go to Google Workspace (workspace.google.com) and sign up for the Business Starter plan ($6/mo). Register a domain that matches your agency name (e.g., youragency.com) and create your email (e.g., hello@youragency.com or yourname@youragency.com).
+If you do not have a professional email address on a custom domain, set one up now. Go to {{< platform name="google" text="Google" >}} Workspace (workspace.google.com) and sign up for the Business Starter plan ($6/mo). Register a domain that matches your agency name (e.g., youragency.com) and create your email (e.g., hello@youragency.com or yourname@youragency.com).
 
 Do not use a personal Gmail address for client communication. It signals amateur status. A custom domain email costs $6/month and instantly elevates your perceived professionalism.
 
@@ -178,7 +178,7 @@ Your agency runs on tools. This module sets up every tool you need, connects the
 
 Go to make.com and sign up for the Free plan. You get 1,000 operations per month — enough to build and test your first 3-5 workflows.
 
-After signing in, you should see the Make.com dashboard with a "Create a new scenario" button in the center. Do you see it? If you see a different interface, click "Scenarios" in the left sidebar.
+After signing in, you should see the {{< platform name="make" text="Make" >}} dashboard with a "Create a new scenario" button in the center. Do you see it? If you see a different interface, click "Scenarios" in the left sidebar.
 
 #### Connect Your Core Services
 
@@ -186,8 +186,8 @@ In Make.com, click your profile icon (top-right) → **Connections** → **Add c
 
 1. **Google Sheets** — Authorize with your Google account
 2. **Gmail** — Authorize with your professional email
-3. **Slack** — Authorize with your Slack workspace (create one at slack.com if needed)
-4. **OpenAI** — Enter your API key from platform.openai.com/api-keys
+3. **{{< platform name="slack" text="Slack" >}}** — Authorize with your Slack workspace (create one at slack.com if needed)
+4. **{{< platform name="openai" text="OpenAI" >}}** — Enter your API key from platform.openai.com/api-keys
 5. **Notion** — Authorize with your Notion account
 
 After connecting each service, you should see a green "Connected" status next to it. Do you see green for all 5? If any show red or yellow:
@@ -206,7 +206,7 @@ Navigate to **Usage limits** and set a monthly limit of $100. This prevents a bu
 
 #### Anthropic Claude API (Optional but Recommended)
 
-Go to console.anthropic.com and create an account. Navigate to **API Keys** and create a key. Add $10 in credit. Claude is superior to GPT-4o for long-form content, nuanced analysis, and complex reasoning tasks. Use GPT-4o for structured outputs and Claude for creative tasks.
+Go to console.anthropic.com and create an account. Navigate to **API Keys** and create a key. Add $10 in credit. {{< platform name="claude" text="Claude" >}} is superior to GPT-4o for long-form content, nuanced analysis, and complex reasoning tasks. Use GPT-4o for structured outputs and Claude for creative tasks.
 
 ### Procedure 2.3: Set Up Your Client Delivery Tools
 
@@ -737,7 +737,7 @@ Solo operators hit a ceiling at ~8-10 clients (~$15-20K/month). Breaking through
 - Client communication (responding to emails, scheduling calls)
 - Data entry (updating Client Roster, logging test results)
 - Basic QC (running test protocols, reporting failures to you)
-- Social media posting (scheduling content in Buffer)
+- Social media posting (scheduling content in {{< platform name="buffer" text="Buffer" >}})
 
 **When you have 10 clients:** Hire a Junior Builder. Budget: $15-25/hour, 20-30 hours/week. The Junior Builder handles:
 - Building new automations from your SOPs

@@ -19,12 +19,12 @@ This guide assumes you have zero infrastructure set up. By the end, you will hav
 
 Before you start, you need the following:
 
-- **Greenhouse or Lever** — Free trial (greenhouse.io or lever.co)
-- **Make.com** — $16/mo (Teams plan for 10,000 operations/month)
-- **OpenAI API key** — $10 credit minimum (platform.openai.com/api-keys)
-- **Google Workspace** — $6/mo for professional email and Sheets access
+- **{{< platform name="greenhouse" text="Greenhouse" >}} or Lever** — Free trial (greenhouse.io or lever.co)
+- **{{< platform name="make" text="Make" >}}.com** — $16/mo (Teams plan for 10,000 operations/month)
+- **{{< platform name="openai" text="OpenAI" >}} API key** — $10 credit minimum (platform.openai.com/api-keys)
+- **{{< platform name="google" text="Google" >}} Workspace** — $6/mo for professional email and Sheets access
 - **Cal.com** — Free (scheduling automation)
-- **Notion** — Free (client dashboards and documentation)
+- **{{< platform name="notion" text="Notion" >}}** — Free (client dashboards and documentation)
 - **6-8 hours of uninterrupted time** for initial setup
 
 Total upfront cost: $32/mo + $10 API credit. A single client at $1,000/month covers this 25x over.
@@ -135,7 +135,7 @@ Source: {{source}}
 4. **Module 3 — Parse JSON:** Convert the OpenAI response into structured variables
 
 5. **Module 4 — Router:**
-   - **Path A (ADVANCE):** Greenhouse → Move to "AI Pre-Screen Passed" + Gmail → Send advancement email + Slack → Notify `#candidate-alerts`
+   - **Path A (ADVANCE):** Greenhouse → Move to "AI Pre-Screen Passed" + Gmail → Send advancement email + {{< platform name="slack" text="Slack" >}} → Notify `#candidate-alerts`
    - **Path B (PHONE_SCREEN):** Greenhouse → Move to "Phone Screen" + Gmail → Send scheduling email with Cal.com link
    - **Path C (MANUAL_REVIEW):** Greenhouse → Move to "Manual Review" + Google Sheets → Add to Review Queue + Slack → Summary to `#candidate-alerts`
    - **Path D (REJECT):** Greenhouse → Move to "Rejected" + Gmail → Send respectful rejection email
@@ -271,7 +271,7 @@ Build a Make.com scenario that updates this dashboard weekly:
 
 1. **Trigger:** Schedule — Every Friday at 4 PM
 2. **Module 1:** Google Sheets → Pull all pipeline data for the week
-3. **Module 2:** Code by Zapier → Calculate KPIs
+3. **Module 2:** Code by {{< platform name="zapier" text="Zapier" >}} → Calculate KPIs
 4. **Module 3:** OpenAI → Generate narrative analysis
 5. **Module 4:** Notion → Update the client dashboard
 6. **Module 5:** Gmail → Send weekly report email

@@ -18,21 +18,21 @@ Before you write a single line of configuration, set up these accounts. Every to
 
 **Required accounts (create these now):**
 
-- **Vapi account** — go to vapi.ai and sign up for the free tier. Includes 100 minutes/mo of call time and 1 assistant. This is the core voice agent platform.
-- **ElevenLabs account** — go to elevenlabs.io and sign up. Free tier includes 10,000 characters/mo of voice synthesis. This provides the human-quality voice for your agent.
-- **Make.com account** — go to make.com and sign up. Free tier includes 1,000 operations/mo. This is the automation layer connecting your voice agent to calendars, CRMs, and notifications.
-- **Replit account** — go to replit.com and sign up. Free tier includes basic compute. Use this for any custom webhook handlers or middleware you need to build.
-- **Calendly account** — go to calendly.com and sign up. Free tier includes 1 event type. This handles availability checking and booking confirmations.
-- **Notion workspace** — go to notion.so and sign up. Free tier includes unlimited pages. Use this for SOPs, client dashboards, knowledge base drafting, and project management.
+- **{{< platform name="vapi" text="Vapi" >}} account** — go to vapi.ai and sign up for the free tier. Includes 100 minutes/mo of call time and 1 assistant. This is the core voice agent platform.
+- **{{< platform name="elevenlabs" text="ElevenLabs" >}} account** — go to elevenlabs.io and sign up. Free tier includes 10,000 characters/mo of voice synthesis. This provides the human-quality voice for your agent.
+- **{{< platform name="make" text="Make" >}} account** — go to make.com and sign up. Free tier includes 1,000 operations/mo. This is the automation layer connecting your voice agent to calendars, CRMs, and notifications.
+- **{{< platform name="replit" text="Replit" >}} account** — go to replit.com and sign up. Free tier includes basic compute. Use this for any custom webhook handlers or middleware you need to build.
+- **{{< platform name="calendly" text="Calendly" >}} account** — go to calendly.com and sign up. Free tier includes 1 event type. This handles availability checking and booking confirmations.
+- **{{< platform name="notion" text="Notion" >}} workspace** — go to notion.so and sign up. Free tier includes unlimited pages. Use this for SOPs, client dashboards, knowledge base drafting, and project management.
 
 **Additional accounts needed during setup:**
 
-- **OpenAI API key** — go to platform.openai.com/api-keys and generate a key. Load $20 credit. This powers the LLM reasoning inside Vapi. ChatGPT Plus is not required — the API key is what Vapi uses directly.
+- **OpenAI API key** — go to platform.openai.com/api-keys and generate a key. Load $20 credit. This powers the LLM reasoning inside Vapi. {{< platform name="chatgpt" text="ChatGPT" >}} Plus is not required — the API key is what Vapi uses directly.
 - **Twilio account** — go to twilio.com and sign up. Free trial includes $20 credit and one phone number. This provides the telephony layer.
 
 **Time required:** 8-10 hours of uninterrupted time for your first complete build, test, and deployment cycle.
 
-**Total upfront cost:** $0 to start, ~$150/mo when scaling. The only immediate spend is $20 for the OpenAI API credit. Everything else remains free until you have paying clients. The Vapi free tier includes 100 minutes of call time per month — sufficient to build, test, and run live demos for 3-5 prospects before upgrading.
+**Total upfront cost:** $0 to start, ~$150/mo when scaling. The only immediate spend is $20 for the {{< platform name="openai" text="OpenAI" >}} API credit. Everything else remains free until you have paying clients. The Vapi free tier includes 100 minutes of call time per month — sufficient to build, test, and run live demos for 3-5 prospects before upgrading.
 
 ## Step 1: Configure Your Vapi Workspace
 
@@ -237,7 +237,7 @@ Leave the URL field blank for now — you will configure this in Step 3 when con
 
 ### Configure Call Handling
 
-Scroll to **Voicemail Detection**. Toggle it **On**. Set:
+Scroll to **Voicemail Detection**. {{< platform name="toggl" text="Toggl" >}} Toggle it **On**. Set:
 
 - **Detection mode:** Machine
 - **Action on voicemail:** Hang Up
@@ -283,13 +283,13 @@ Your voice agent can talk, but it cannot take action. Appointment data goes nowh
 
 1. Go to make.com and sign in. Click **Create a new scenario**.
 2. Add a **Webhook** module as the first step. Click **Add a webhook** → **Create a new webhook**. Name it `appointment-webhook`. Copy the webhook URL — this is the endpoint Vapi will call when the `schedule_appointment` function executes.
-3. Add a **Google Calendar** module as the second step. Select **Create an Event**. Connect your Google account. Map the fields from the webhook payload:
+3. Add a **{{< platform name="google" text="Google" >}} Calendar** module as the second step. Select **Create an Event**. Connect your Google account. Map the fields from the webhook payload:
    - **Summary:** `{{2.appointment_type}} — {{2.patient_name}}`
    - **Start time:** `parseDate({{2.preferred_date}} + " " + {{2.preferred_time}})`
    - **End time:** Start time + 60 minutes (adjust per appointment type — cleanings are 60 min, consultations 30 min, whitening 90 min)
    - **Description:** `Patient: {{2.patient_name}}, Phone: {{2.patient_phone}}, Type: {{2.appointment_type}}, Scheduled by AI voice agent`
 4. Add a **Google Sheets** module as the third step. Select **Add a Row**. Create a spreadsheet called "AI Appointments Log" with columns: Timestamp, Patient Name, Phone, Appointment Type, Date, Time, Source. Map each webhook parameter to the corresponding column. Set Source to "AI Voice Agent."
-5. Add a **Slack** module (or **Gmail** if your client prefers) as the fourth step. Connect your workspace. Configure the message:
+5. Add a **{{< platform name="slack" text="Slack" >}}** module (or **Gmail** if your client prefers) as the fourth step. Connect your workspace. Configure the message:
 
 ```
 :telephone_receiver: New Appointment Scheduled
@@ -556,7 +556,7 @@ Do not send proposals. Do not send cold emails with PDF attachments. The only sa
 
 This converts at 20-30% because the owner hears the agent working in real time — no imagination required. The Slack notification arriving during the demo proves the integration works. The ROI is immediately calculable: if a receptionist costs $35,000/yr and the agent handles 60% of calls, the business saves $21,000/yr against an $18,000/yr Starter-tier agent cost — still a clear win.
 
-Close the deal on the call. Send a Stripe payment link for the setup fee. Schedule the discovery call for the following week.
+Close the deal on the call. Send a {{< platform name="stripe" text="Stripe" >}} payment link for the setup fee. Schedule the discovery call for the following week.
 
 ### Interactive Check-in
 

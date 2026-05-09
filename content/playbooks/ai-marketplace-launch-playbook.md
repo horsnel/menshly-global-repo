@@ -22,11 +22,11 @@ This is not a blog post about marketplaces. This is an operating system for buil
 Before you configure a single platform setting, you must lock down your marketplace niche, map the competitive landscape, and build the command center that runs every operation. This module is the difference between a focused marketplace that dominates a vertical and a generic platform that competes with Fiverr on Fiverr's terms. You will lose that fight. You will win in a niche.
 
 **Time to complete:** 4-5 hours
-**Tools needed:** Notion (free), Google Sheets (free), browser
+**Tools needed:** {{< platform name="notion" text="Notion" >}} (free), Google Sheets (free), browser
 
 ### Procedure 1.1: Select Your Marketplace Niche
 
-Open a new Google Sheet. Title it "Niche Evaluation Matrix." Create columns: Niche, Freelancer Supply (1-10), Client Demand (1-10), Average Project Value, Competition Level (1-10), Your Domain Knowledge (1-10), Composite Score.
+Open a new {{< platform name="google" text="Google" >}} Sheet. Title it "Niche Evaluation Matrix." Create columns: Niche, Freelancer Supply (1-10), Client Demand (1-10), Average Project Value, Competition Level (1-10), Your Domain Knowledge (1-10), Composite Score.
 
 Fill in the following niches and score each one honestly:
 
@@ -69,7 +69,7 @@ For each competitor, visit their website and document:
 - How they position themselves (read their homepage headline and subheadline)
 - Their commission structure (search "[competitor] fees" or "[competitor] commission")
 - Their freelancer onboarding process (sign up as a freelancer to observe it)
-- Their most obvious weakness (read their Trustpilot reviews, search "[competitor] complaints Reddit")
+- Their most obvious weakness (read their Trustpilot reviews, search "[competitor] complaints {{< platform name="reddit" text="Reddit" >}}")
 
 Do you have 6 rows of competitive data? If any competitor's data is incomplete, fill it in now. Incomplete competitive intelligence leads to undifferentiated positioning, and undifferentiated positioning leads to competing on price, and competing on price kills marketplaces.
 
@@ -140,7 +140,7 @@ Count your checkmarks. Do you have all 7? If not, go back and complete the missi
 This module transforms your niche research into a live, functioning marketplace platform. You will configure Sharetribe (the fastest path to a production marketplace), integrate payments, and build the vetting system that separates your platform from the generic freelance sites your competitors run. By the end of this module, a visitor can land on your site, understand your value, and either apply as a freelancer or post a project as a client.
 
 **Time to complete:** 6-8 hours
-**Tools needed:** Sharetribe ($79/mo Standard plan), Stripe (free), Notion
+**Tools needed:** Sharetribe ($79/mo Standard plan), {{< platform name="stripe" text="Stripe" >}} (free), Notion
 
 ### Procedure 2.1: Configure Your Sharetribe Marketplace
 
@@ -249,7 +249,7 @@ Create a standardized test project that every applicant completes. This project 
 - Be impossible to fake or outsource without detection
 
 Example for an AI Voice Agent marketplace:
-"Build a voice agent using Vapi or Bland.ai that answers customer support calls for a fictional pizza restaurant. The agent must: (1) Greet the caller by name if the number is in the system, (2) Handle menu inquiries, (3) Process an order with size, toppings, and delivery address, (4) Escalate to a human when the caller says 'manager.' Submit a working demo link and the agent configuration file."
+"Build a voice agent using {{< platform name="vapi" text="Vapi" >}} or Bland.ai that answers customer support calls for a fictional pizza restaurant. The agent must: (1) Greet the caller by name if the number is in the system, (2) Handle menu inquiries, (3) Process an order with size, toppings, and delivery address, (4) Escalate to a human when the caller says 'manager.' Submit a working demo link and the agent configuration file."
 
 Score the live build test using this rubric:
 
@@ -305,7 +305,7 @@ Do you have the three assessment sections documented in Notion? Do you have the 
 A marketplace without freelancers is an empty store. This module builds your freelancer supply from zero to 30 vetted, active professionals. You will recruit them, assess them through the vetting system you built in Module 2, and onboard them so they can start receiving projects immediately. Without 30 active freelancers, your marketplace cannot fulfill client demand, and clients who post projects with no responses never return.
 
 **Time to complete:** 2-3 weeks of concurrent outreach
-**Tools needed:** LinkedIn (free), Twitter/X (free), Upwork (free), Reddit (free), Cal.com (free), Gmail
+**Tools needed:** {{< platform name="linkedin" text="LinkedIn" >}} (free), Twitter/X (free), Upwork (free), Reddit (free), Cal.com (free), Gmail
 
 ### Procedure 3.1: Build Your Freelancer Recruitment Engine
 
@@ -327,7 +327,7 @@ Search: "[your niche] freelancer" or "[your niche] consultant." Filter by: Open 
 Search: "[your niche] looking for work" or "[your niche] taking clients" or "[your niche] freelance." Find 10 freelancers on Twitter.
 
 **Channel 4: Reddit**
-Go to r/freelance, r/forhire, and niche-specific subreddits (e.g., r/ChatGPT, r/artificial). Search for users posting about your niche. Find 10 freelancers on Reddit.
+Go to r/freelance, r/forhire, and niche-specific subreddits (e.g., r/{{< platform name="chatgpt" text="ChatGPT" >}}, r/artificial). Search for users posting about your niche. Find 10 freelancers on Reddit.
 
 Do you have 70 names in your Recruitment Tracker? If you have fewer, go back and find more. 70 names gives you a realistic shot at 30 active freelancers after vetting (assuming a 50% response rate and a 70% pass rate among respondents).
 
@@ -421,7 +421,7 @@ Do all approved freelancers have completed profiles on Sharetribe? Check by goin
 Freelancers without clients are unemployed professionals on a nice-looking website. This module builds the client acquisition machine that feeds projects into your marketplace. You will identify target businesses, craft outreach that converts, and build the matching engine that connects clients with the right freelancers within 24 hours. Speed of matching is the single most important metric in marketplace success — clients who wait more than 48 hours for a match leave and never return.
 
 **Time to complete:** 2-3 weeks of concurrent outreach
-**Tools needed:** Apollo.io (free), LinkedIn (free), Loom (free), Gmail, Sharetribe Admin
+**Tools needed:** {{< platform name="apollo" text="Apollo" >}}.io (free), LinkedIn (free), Loom (free), Gmail, Sharetribe Admin
 
 ### Procedure 4.1: Build Your Client Acquisition Pipeline
 
@@ -581,7 +581,7 @@ Write these metrics on a whiteboard or sticky note. Update them weekly. They are
 - Offer a "First Project Free" promotion — waive your 10% commission on a client's first transaction
 
 **If Time to First Proposal is over 12 hours:**
-- Set up a Slack or WhatsApp group with all active freelancers for instant project alerts
+- Set up a {{< platform name="slack" text="Slack" >}} or WhatsApp group with all active freelancers for instant project alerts
 - Implement a "First to Respond" bonus — the first freelancer to submit a quality proposal on a new project gets a 2% commission discount on that project
 - Send push notifications (email + in-app) to freelancers when a new project matches their specialty
 

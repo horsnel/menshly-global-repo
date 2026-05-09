@@ -16,11 +16,11 @@ This is the execution guide for the opportunity: [How to Build an AI API Wrapper
 
 An API wrapper business has three layers: the presentation layer (what users see), the orchestration layer (how you manage AI calls), and the data layer (how you store users, usage, and outputs). Each layer must be designed for reliability, cost efficiency, and rapid iteration.
 
-**Presentation Layer:** Next.js 14+ with App Router, deployed on Vercel. Server Components for SEO-critical pages, Client Components for interactive features. Tailwind CSS + shadcn/ui for rapid UI development. The presentation layer should be thin — most of your product's intelligence lives in the orchestration layer.
+**Presentation Layer:** Next.js 14+ with App Router, deployed on {{< platform name="vercel" text="Vercel" >}} Server Components for SEO-critical pages, Client Components for interactive features. Tailwind CSS + shadcn/ui for rapid UI development. The presentation layer should be thin — most of your product's intelligence lives in the orchestration layer.
 
 **Orchestration Layer:** Next.js API Routes (or Route Handlers) running as Vercel Serverless Functions. This layer handles prompt construction, multi-model routing, caching, rate limiting, error handling, and output validation. It's the brain of your wrapper and where 80% of your engineering effort should go.
 
-**Data Layer:** Supabase (PostgreSQL) for user authentication, subscription management, usage tracking, and output storage. Redis (Upstash) for semantic caching and rate limiting. Stripe for billing and subscription management.
+**Data Layer:** Supabase (PostgreSQL) for user authentication, subscription management, usage tracking, and output storage. Redis (Upstash) for semantic caching and rate limiting. {{< platform name="stripe" text="Stripe" >}} for billing and subscription management.
 
 The key architectural principle is separation of concerns: the presentation layer knows nothing about AI models, the orchestration layer knows nothing about UI, and the data layer is a clean interface that both can depend on. This separation lets you swap AI providers, redesign your UI, or change your database without cascading changes across the system.
 
@@ -221,7 +221,7 @@ function calculateCost(model: string, inputTokens: number, outputTokens: number)
 }
 ```
 
-This router provides automatic failover between providers, cost tracking, and complexity-based model selection. When OpenAI has an outage, your wrapper automatically falls back to Claude without your users noticing. When a simple task comes in, it routes to the cheapest model, saving you 80-90% on API costs compared to always using GPT-4o.
+This router provides automatic failover between providers, cost tracking, and complexity-based model selection. When {{< platform name="openai" text="OpenAI" >}} has an outage, your wrapper automatically falls back to Claude without your users noticing. When a simple task comes in, it routes to the cheapest model, saving you 80-90% on API costs compared to always using GPT-4o.
 
 #### Semantic Caching with Upstash Redis
 
@@ -327,7 +327,7 @@ export async function checkRateLimit(userId: string, plan: string): Promise<{ al
 
 ### Prompt Engineering: Your Core IP
 
-Your system prompt is the most valuable asset in your API wrapper business. A great system prompt transforms generic AI output into domain-expert output that users cannot replicate with raw ChatGPT. Here is the complete prompt engineering framework.
+Your system prompt is the most valuable asset in your API wrapper business. A great system prompt transforms generic AI output into domain-expert output that users cannot replicate with raw {{< platform name="chatgpt" text="ChatGPT" >}} Here is the complete prompt engineering framework.
 
 #### The Domain Expert Prompt Template
 
@@ -657,7 +657,7 @@ vercel env add UPSTASH_REDIS_REST_TOKEN
 
 #### Monitoring and Alerts
 
-Set up PostHog for product analytics and Sentry for error monitoring from day one. Track these key metrics:
+Set up {{< platform name="posthog" text="PostHog" >}} for product analytics and Sentry for error monitoring from day one. Track these key metrics:
 
 - **API success rate:** Should be above 99%. Below 97% means your fallback routing needs attention.
 - **Average latency:** Should be under 3 seconds for most requests. Above 5 seconds means users will churn.
@@ -702,6 +702,6 @@ Focus on moat-building and expansion. Your data moat (accumulated prompt-output 
 
 **Hour 20-30:** Create your landing page with clear value proposition, pricing, and testimonials (even if they're from friends who tested the product). Set up analytics and error monitoring.
 
-**Hour 30-48:** Launch. Post in vertical communities, send LinkedIn messages, and create your Product Hunt listing. Process the first users manually if needed. Your priority is getting 10 paying users, not scaling infrastructure.
+**Hour 30-48:** Launch. Post in vertical communities, send {{< platform name="linkedin" text="LinkedIn" >}} messages, and create your Product Hunt listing. Process the first users manually if needed. Your priority is getting 10 paying users, not scaling infrastructure.
 
 This guide gives you everything you need to build a production-ready API wrapper business in one weekend. The code is battle-tested. The architecture is proven. The only variable left is the vertical you choose — and that decision is worth spending a full day on, because it determines whether you build a $5K/month side project or a $50K/month business.

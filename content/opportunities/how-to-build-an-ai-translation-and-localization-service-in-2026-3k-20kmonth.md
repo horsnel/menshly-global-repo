@@ -12,8 +12,7 @@ relatedGuide: "/intelligence/build-automate-and-deploy-ai-translation-and-locali
 
 The global translation market is worth $43.5 billion and AI is eating it alive. Companies that used to pay $0.12 per word for human translators are now getting 90% of the quality at 5% of the cost with AI. The gap between what AI can do and what businesses know it can do is your entire business model. Most businesses still think translation means emailing a Word document to someone in another country and waiting three weeks. They have no idea you can feed their entire website into an AI pipeline and have it localized into 12 languages by tomorrow morning. I'm going to lay out everything: the exact tools, the tricks nobody shares, the ugly truths, and the realistic numbers.
 
-Here is what makes this different from every other "AI business" you have seen: translation is a recurring need. Companies do not translate once. They translate every product update, every marketing email, every support article, every legal document. That means monthly retainers, not one-off projects. One client paying you $1,500 per month for continuous localization across four languages is worth $18,000 per year. Get eight of those clients and you are making $12,000 per month on what is essentially an automated pipeline running through Make.com and ChatGPT.
-
+Here is what makes this different from every other "AI business" you have seen: translation is a recurring need. Companies do not translate once. They translate every product update, every marketing email, every support article, every legal document. That means monthly retainers, not one-off projects. One client paying you $1,500 per month for continuous localization across four languages is worth $18,000 per year. Get eight of those clients and you are making $12,000 per month on what is essentially an automated pipeline running through Make.com and {{< platform name="chatgpt" text="ChatGPT" >}} 
 The economics are absurd in your favor. Traditional translation agencies charge $0.08 to $0.20 per word depending on language pair and subject matter. Your AI pipeline costs roughly $0.001 per word in API calls. That is an 80x to 200x markup on the actual cost. Even if you hire a human editor to review the AI output (which you should), your cost per word is still under $0.02. You charge $0.08, you pay $0.02, you keep $0.06. On a 50,000-word localization project, that is $3,000 profit from one job.
 
 ## Why This Works Right Now
@@ -33,7 +32,7 @@ The third reason is that existing translation agencies are slow and expensive. T
 You need a human review step in your pipeline. Period. Selling raw AI output as "professional translation" is a fast track to bad reviews and lost clients. Budget for human editors who can review and correct the AI output. This cuts your margins but protects your reputation and lets you charge premium rates.
 
 {{% accent-box %}}
-**Truth No. 2:** The low barrier to entry means competition is coming. If you can do it, so can anyone with a ChatGPT account and a Make.com subscription.
+**Truth No. 2:** The low barrier to entry means competition is coming. If you can do it, so can anyone with a ChatGPT account and a {{< platform name="make" text="Make" >}} subscription.
 {{% /accent-box %}}
 
 Your moat is not the technology. It is your workflow, your quality control process, your client relationships, and your domain expertise. Specialize in something, whether it is legal translation, medical device localization, or SaaS app translation. Specialists charge three to five times what generalists charge.
@@ -52,13 +51,13 @@ Arabic, Hebrew, Thai, and other non-Latin script languages require specialized h
 
 ## The Free Stack: Starting With Zero Dollars
 
-* **Google Sheets — $0** — Build a translation tracking spreadsheet where clients submit source text and receive translations. Simple but functional for your first few clients.
+* **{{< platform name="google" text="Google" >}} Sheets — $0** — Build a translation tracking spreadsheet where clients submit source text and receive translations. Simple but functional for your first few clients.
 * **ChatGPT Free — $0** — The core translation engine. GPT-4o free tier handles translations for common language pairs with impressive quality. You will hit rate limits quickly, but it proves the concept.
 * **DeepL Free — $0** — Professional-grade neural machine translation for European languages. Often produces better initial translations than ChatGPT for straightforward content.
 * **Google Translate — $0** — Useful as a secondary validation tool. Run translations through both Google Translate and ChatGPT and compare to catch errors.
-* **Notion Free — $0** — Client management, project tracking, and translation glossary storage. Build a simple CRM and terminology database in a free Notion workspace.
-* **Trello Free — $0** — Kanban board for tracking translation projects through your pipeline: received, in translation, in review, delivered.
-* **Calendly Free — $0** — Book client calls and onboarding sessions without the back-and-forth email chains.
+* **{{< platform name="notion" text="Notion" >}} Free — $0** — Client management, project tracking, and translation glossary storage. Build a simple CRM and terminology database in a free Notion workspace.
+* **{{< platform name="trello" text="Trello" >}} Free — $0** — Kanban board for tracking translation projects through your pipeline: received, in translation, in review, delivered.
+* **{{< platform name="calendly" text="Calendly" >}} Free — $0** — Book client calls and onboarding sessions without the back-and-forth email chains.
 
 While these free tools can get you to your first $3,000 per month, they will not scale. You will spend more time copying and pasting between tools than actually translating. The free stack is for proving your concept and landing your first three clients. Once you hit $3,000 per month in revenue, immediately upgrade to the paid stack. One hack to maximize the free stack is to use {{% accent-box %}}
 **HACK: Use ChatGPT's custom instructions to pre-load your translation style guide.** Set up custom instructions that specify target language formality level, brand voice rules, and terminology preferences. This makes every ChatGPT translation more consistent without manual prompting each time.
@@ -68,11 +67,11 @@ While these free tools can get you to your first $3,000 per month, they will not
 
 * [**Make.com — $29/month**](https://www.make.com/en/register?pc=menshly) — The backbone of your automation pipeline. Connect client submissions to AI translation to human review to delivery, all on autopilot.
 * [**ChatGPT Plus — $20/month**](https://chatgpt.com/) — Higher rate limits, GPT-4o access, and custom GPTs for specialized translation workflows. Worth it for the speed alone.
-* [**ElevenLabs — $5/month**](https://elevenlabs.io/) — Audio translation and dubbing. Add voice-over localization as a premium upsell that most competitors do not offer.
+* [**{{< platform name="elevenlabs" text="ElevenLabs" >}} — $5/month**](https://elevenlabs.io/) — Audio translation and dubbing. Add voice-over localization as a premium upsell that most competitors do not offer.
 * [**Notion Team — $10/month**](https://notion.so/) — Shared workspaces for clients to submit content, track progress, and access deliverables. Removes the email chaos.
 * **DeepL Pro — $25/month** — API access with higher character limits, formal/informal tone control, and glossary support. Essential for consistent translations at scale.
-* [**Canva — $12.95/month**](https://www.canva.com/) — Design localized marketing materials, social media graphics, and presentation decks. Visual localization is a high-margin upsell.
-* [**Semrush — $119.95/month**](https://www.semrush.com/) — SEO localization. Translate content AND optimize it for local search engines. This is where you separate from commodity translation services.
+* [**{{< platform name="canva" text="Canva" >}} — $12.95/month**](https://www.canva.com/) — Design localized marketing materials, social media graphics, and presentation decks. Visual localization is a high-margin upsell.
+* [**{{< platform name="semrush" text="Semrush" >}} — $119.95/month**](https://www.semrush.com/) — SEO localization. Translate content AND optimize it for local search engines. This is where you separate from commodity translation services.
 * **Lokalise — $30/month** — App and software localization platform with translation memory, in-context editing, and API integration. Critical for SaaS clients.
 * [**Hostinger — $7.99/month**](https://www.hostinger.com/) — Host your client portal and portfolio site. Professional web presence builds trust with enterprise clients.
 * [**Railway — Free tier available**](https://railway.com?referralCode=fJobV0) — Deploy your translation API and webhooks in minutes. Auto-scaling from zero to thousands of requests.
@@ -111,10 +110,10 @@ Give your reviewers a clear checklist: check terminology against the glossary, v
 
 ### Step 4: Delivery and Recurring Pipeline Setup (1 hour)
 
-Deliver the translated content through the Notion workspace. Set up automated delivery notifications so the client knows the moment their translations are ready. Then configure the Make.com scenario for recurring translation. Connect it to their content management system, email platform, or GitHub repository so new content automatically flows into your pipeline without manual submission.
+Deliver the translated content through the Notion workspace. Set up automated delivery notifications so the client knows the moment their translations are ready. Then configure the Make.com scenario for recurring translation. Connect it to their content management system, email platform, or {{< platform name="github" text="GitHub" >}} repository so new content automatically flows into your pipeline without manual submission.
 
 {{% accent-box %}}
-**HACK: Connect Make.com to the client's CMS (Shopify, WordPress, Webflow) so translations publish automatically to staging.** The client reviews the live preview, clicks approve, and the content goes live. Zero friction. This level of automation justifies $2,000+ per month retainers.
+**HACK: Connect Make.com to the client's CMS ({{< platform name="shopify" text="Shopify" >}}, WordPress, Webflow) so translations publish automatically to staging.** The client reviews the live preview, clicks approve, and the content goes live. Zero friction. This level of automation justifies $2,000+ per month retainers.
 {{% /accent-box %}}
 
 ## Pricing: What to Charge and How to Defend It
@@ -135,7 +134,7 @@ Here are three pricing tiers that work for AI translation services:
 
 ### Method 1: Cold Outreach to SaaS Companies (Conversion Rate: 8%)
 
-Search Product Hunt and G2 for SaaS tools that have recently raised funding or expanded internationally. These companies desperately need localization but have not found a solution yet. Use Apollo.io to find the Head of Marketing or Head of Product. Send a personalized email showing their website translated into Spanish or German using your pipeline. Include a screenshot. Nothing sells translation like seeing your own content in another language.
+Search Product Hunt and G2 for SaaS tools that have recently raised funding or expanded internationally. These companies desperately need localization but have not found a solution yet. Use {{< platform name="apollo" text="Apollo" >}}.io to find the Head of Marketing or Head of Product. Send a personalized email showing their website translated into Spanish or German using your pipeline. Include a screenshot. Nothing sells translation like seeing your own content in another language.
 
 The key is speed. Generate a sample translation of their homepage or key landing page before you reach out. When they see their product description in perfect German or Japanese, the objection is not "does this work?" but "how fast can we start?"
 

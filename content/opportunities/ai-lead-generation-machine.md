@@ -32,15 +32,15 @@ Three things collided: AI can now research prospects in seconds (what used to ta
 
 ## The Free Stack: Starting With Zero Dollars
 
-**Apollo.io Free — $0** — 60 email credits/month, basic contact data. Your starting point for finding leads. Limited but enough to validate the model.
+**{{< platform name="apollo" text="Apollo" >}}.io Free — $0** — 60 email credits/month, basic contact data. Your starting point for finding leads. Limited but enough to validate the model.
 
-**LinkedIn Free — $0** — Manual prospecting. Search for decision-makers, view profiles, and connect. Slow but effective for high-value B2B leads.
+**{{< platform name="linkedin" text="LinkedIn" >}} Free — $0** — Manual prospecting. Search for decision-makers, view profiles, and connect. Slow but effective for high-value B2B leads.
 
-**ChatGPT Free — $0** — Write personalized outreach messages, analyze prospect profiles, and generate icebreakers.
+**{{< platform name="chatgpt" text="ChatGPT" >}} Free — $0** — Write personalized outreach messages, analyze prospect profiles, and generate icebreakers.
 
-**Google Sheets — $0** — Lead tracking, outreach sequences, and response management.
+**{{< platform name="google" text="Google" >}} Sheets — $0** — Lead tracking, outreach sequences, and response management.
 
-**HubSpot CRM Free — $0** — Contact management, deal pipeline, and email tracking.
+**{{< platform name="hubspot" text="HubSpot" >}} CRM Free — $0** — Contact management, deal pipeline, and email tracking.
 
 **Hunter.io Free — 25 searches/month** — Find email addresses associated with a domain. Essential for building your contact list.
 
@@ -52,7 +52,7 @@ Three things collided: AI can now research prospects in seconds (what used to ta
 
 **Apollo.io Basic — $49/mo** — Unlimited email credits, advanced filters, intent data. Your primary lead database.
 
-**Instantly — $37/mo** — Cold email infrastructure. Unlimited accounts, warm-up, rotation, and analytics. The best tool for high-volume outreach.
+**{{< platform name="instantly" text="Instantly" >}} — $37/mo** — Cold email infrastructure. Unlimited accounts, warm-up, rotation, and analytics. The best tool for high-volume outreach.
 
 **Clay — $149/mo** — AI-powered lead enrichment and personalization. Gathers 50+ data points per prospect. Writes hyper-personalized icebreakers. The secret weapon of top lead gen agencies.
 
@@ -60,9 +60,9 @@ Three things collided: AI can now research prospects in seconds (what used to ta
 
 **Seamless.ai — $149/mo** — Real-time contact data. Finds emails and phone numbers with high accuracy. Alternative to Apollo for certain industries.
 
-**Lemlist — $59/mo** — Cold email with personalized images and videos. Higher reply rates than plain text.
+**{{< platform name="lemlist" text="Lemlist" >}} — $59/mo** — Cold email with personalized images and videos. Higher reply rates than plain text.
 
-**Make.com — $9/mo** — Automate the entire pipeline: find leads → enrich data → generate messages → send sequences → log replies.
+**{{< platform name="make" text="Make" >}} — $9/mo** — Automate the entire pipeline: find leads → enrich data → generate messages → send sequences → log replies.
 
 **Total monthly cost: $452.** Delivering 50 qualified leads per month at $100/lead = $5,000/month. The ROI is immediate.
 

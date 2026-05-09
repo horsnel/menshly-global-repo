@@ -20,9 +20,9 @@ I am going to walk you through every dimension of this opportunity: why AI has c
 
 Three converging forces make the AI data analysis service one of the most attractive B2B opportunities in 2026.
 
-First: AI tools have democratized data analysis. Three years ago, delivering a professional data analysis required proficiency in Python, SQL, Tableau, and statistical modeling. Today, tools like ChatGPT Code Interpreter can clean data, run statistical analyses, generate visualizations, and write narrative explanations — all from a natural language prompt. Julius AI turns spreadsheets into interactive dashboards in minutes. Obviously AI builds predictive models without writing a single line of code. The technical barrier that kept data analysis services limited to PhD statisticians and data scientists has collapsed. A motivated person with strong business acumen and AI fluency can deliver analyses that would have required a team of data engineers two years ago.
+First: AI tools have democratized data analysis. Three years ago, delivering a professional data analysis required proficiency in Python, SQL, Tableau, and statistical modeling. Today, tools like {{< platform name="chatgpt" text="ChatGPT" >}} Code Interpreter can clean data, run statistical analyses, generate visualizations, and write narrative explanations — all from a natural language prompt. Julius AI turns spreadsheets into interactive dashboards in minutes. Obviously AI builds predictive models without writing a single line of code. The technical barrier that kept data analysis services limited to PhD statisticians and data scientists has collapsed. A motivated person with strong business acumen and AI fluency can deliver analyses that would have required a team of data engineers two years ago.
 
-Second: SMBs are drowning in data but starving for insights. A typical small business uses 5-15 software tools that generate data — Shopify, Google Analytics, Mailchimp, QuickBooks, HubSpot, social media platforms — but has zero capacity to synthesize that data into actionable insights. The business owner knows their revenue is growing but cannot tell you why. They know customer churn is increasing but cannot identify the pattern. They make decisions on instinct because they cannot make decisions on data. Your service transforms their raw data into the decision-making infrastructure they desperately need.
+Second: SMBs are drowning in data but starving for insights. A typical small business uses 5-15 software tools that generate data — Shopify, {{< platform name="google" text="Google" >}} Analytics, Mailchimp, QuickBooks, HubSpot, social media platforms — but has zero capacity to synthesize that data into actionable insights. The business owner knows their revenue is growing but cannot tell you why. They know customer churn is increasing but cannot identify the pattern. They make decisions on instinct because they cannot make decisions on data. Your service transforms their raw data into the decision-making infrastructure they desperately need.
 
 Third: the traditional analytics consulting model is broken for SMBs. McKinsey charges $500-1,000/hour. Local analytics consultants charge $150-300/hour. Both require multi-week engagements that cost $20,000-100,000+. A small business generating $500,000-5M in revenue cannot justify that spend. But they can justify $2,000/month for a service that delivers weekly insights, monthly dashboards, and on-demand analysis. Your AI-powered model delivers 80% of the value at 10% of the cost, making data analysis accessible to a market segment that has been completely priced out.
 
@@ -36,7 +36,7 @@ Let me hit you with the ugly truths, because data analysis services look like ea
 
 > **Truth No. 3:** Client churn is high when you are not embedded in their decision-making. If your analysis sits in a PDF that nobody reads, the client will cancel. Your deliverables must be designed for action, not just information. Every insight must include a specific recommendation and the expected impact of acting on it. Reports that get filed away are reports that get your contract cancelled.
 
-> **Truth No. 4:** You are competing against free tools that keep getting better. Google Analytics has built-in AI insights. Shopify has analytics dashboards. Mailchimp has campaign performance reports. Your service must deliver insights that these free tools cannot — cross-platform analysis, predictive modeling, custom benchmarks, and strategic recommendations. If a free tool can answer the question, the client will not pay you to answer it.
+> **Truth No. 4:** You are competing against free tools that keep getting better. Google Analytics has built-in AI insights. {{< platform name="shopify" text="Shopify" >}} has analytics dashboards. Mailchimp has campaign performance reports. Your service must deliver insights that these free tools cannot — cross-platform analysis, predictive modeling, custom benchmarks, and strategic recommendations. If a free tool can answer the question, the client will not pay you to answer it.
 
 Still here? Good. The people who understand these challenges are the ones who build data services that clients retain for years instead of months.
 
@@ -52,9 +52,9 @@ You can deliver your first client analysis this weekend for exactly $0. Here is 
 
 **Obviously AI Free Tier — $0** — No-code predictive analytics. Upload a dataset and get predictions in minutes. Free tier supports basic models.
 
-**Canva Free — $0** — Presentation-quality report design and data visualization. Create client-facing deliverables that look professional.
+**{{< platform name="canva" text="Canva" >}} Free — $0** — Presentation-quality report design and data visualization. Create client-facing deliverables that look professional.
 
-**Notion Free — $0** — Client management, project tracking, and SOP documentation. Your operational headquarters.
+**{{< platform name="notion" text="Notion" >}} Free — $0** — Client management, project tracking, and SOP documentation. Your operational headquarters.
 
 > **HACK: The Free Dashboard Audit.** Here is how to land your first client without cold outreach. Find a local business that uses Google Analytics (most do). Use the free Looker Studio to connect to their public-facing data (Google Business Profile, social media metrics). Build a simple dashboard showing 5 key metrics with month-over-month trends. Email the business owner: "I built a dashboard showing your [metric 1], [metric 2], and [metric 3] trends over the last 6 months. I noticed [specific insight — e.g., 'your website traffic spikes every Thursday but your conversion rate drops on those days']. Want me to show you why this is happening and how to fix it?" The dashboard proves you can deliver. The specific insight proves you can think. This converts at 15-25%.
 
@@ -70,7 +70,7 @@ Once you have 2-3 paying clients and $3,000+ in monthly revenue, invest in the t
 
 **Supermetrics — $39/mo** — Pull data from 100+ marketing platforms into Google Sheets or BigQuery. Essential for clients who want cross-platform marketing analytics.
 
-**Airtable — $20/mo** — Client management, project tracking, and data pipeline organization. More powerful than Notion for relational data.
+**{{< platform name="airtable" text="Airtable" >}} — $20/mo** — Client management, project tracking, and data pipeline organization. More powerful than Notion for relational data.
 
 **Total monthly cost: $194.** At 3 clients paying $2,000/month each ($6,000 total revenue), the tool cost is 3.2% of revenue. The ROI is immediate.
 
@@ -84,7 +84,7 @@ Do not try to serve every industry. Pick one vertical where you understand the b
 
 **E-commerce analytics** — Product performance, customer lifetime value, acquisition channel ROI, inventory forecasting. Tools: Shopify data, Google Analytics, Meta Ads data.
 
-**SaaS metrics** — MRR tracking, churn analysis, cohort retention, feature adoption, pipeline forecasting. Tools: Stripe data, Mixpanel, HubSpot.
+**SaaS metrics** — MRR tracking, churn analysis, cohort retention, feature adoption, pipeline forecasting. Tools: {{< platform name="stripe" text="Stripe" >}} data, Mixpanel, HubSpot.
 
 **Real estate analytics** — Market trend analysis, property valuation models, investment ROI forecasting, rental yield optimization. Tools: MLS data, Zillow API, property management software.
 
@@ -106,7 +106,7 @@ Your demos are your sales material. They must look professional and deliver genu
 
 Use the Free Dashboard Audit hack from the free stack section. Additionally:
 
-**LinkedIn outreach:** Search for "CEO" or "Founder" at companies with 10-50 employees in your chosen niche. Send 10 connection requests per day with a personalized note mentioning a specific data challenge their industry faces.
+**{{< platform name="linkedin" text="LinkedIn" >}} outreach:** Search for "CEO" or "Founder" at companies with 10-50 employees in your chosen niche. Send 10 connection requests per day with a personalized note mentioning a specific data challenge their industry faces.
 
 **Partnership with accountants and bookkeepers:** They already have access to client financial data and are often asked for analysis beyond basic bookkeeping. Offer a white-label data analysis service where they resell your work to their clients.
 

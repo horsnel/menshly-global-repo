@@ -10,7 +10,7 @@ heroImage: "/images/heroes/intelligence/design-build-automate-ai-content-repurpo
 relatedOpportunity: "/opportunities/ai-content-repurposing-agency-2026/"
 ---
 
-This is the execution guide for building the AI content repurposing business we outlined in our opportunity deep-dive. Content repurposing is not about copying and pasting the same caption across three platforms. It is about taking one long-form asset — a YouTube video, a podcast episode, a webinar recording — and systematically transforming it into 30+ platform-native pieces of content, each optimized for the algorithm, audience behavior, and format constraints of its destination platform. This guide covers every Make.com scenario, every ChatGPT prompt template, every Canva configuration, every Fliki AI video setting, every Buffer schedule, and every Beehiiv newsletter integration. Follow it in order. Do not skip steps. By the end, you will have a fully automated pipeline that turns a single piece of source content into an entire week's worth of multi-platform output.
+This is the execution guide for building the AI content repurposing business we outlined in our opportunity deep-dive. Content repurposing is not about copying and pasting the same caption across three platforms. It is about taking one long-form asset — a YouTube video, a podcast episode, a webinar recording — and systematically transforming it into 30+ platform-native pieces of content, each optimized for the algorithm, audience behavior, and format constraints of its destination platform. This guide covers every Make.com scenario, every {{< platform name="chatgpt" text="ChatGPT" >}} prompt template, every Canva configuration, every Fliki AI video setting, every Buffer schedule, and every Beehiiv newsletter integration. Follow it in order. Do not skip steps. By the end, you will have a fully automated pipeline that turns a single piece of source content into an entire week's worth of multi-platform output.
 
 ## Prerequisites
 
@@ -18,23 +18,23 @@ Before you build anything, set up these accounts. Every tool listed here has a f
 
 **Required accounts (create these now):**
 
-- **Make.com** — go to make.com and sign up. Free tier includes 1,000 operations per month and 2 active scenarios. This is your orchestration layer — every module, trigger, and data flow runs through Make.com.
+- **{{< platform name="make" text="Make" >}}.com** — go to make.com and sign up. Free tier includes 1,000 operations per month and 2 active scenarios. This is your orchestration layer — every module, trigger, and data flow runs through Make.com.
 - **ChatGPT API** — go to platform.openai.com and create an account. Add $5-10 of API credit. You will use the API (not the chat interface) inside Make.com for automated content generation. If you prefer to test prompts manually first, sign up for ChatGPT Plus ($20/mo) at chat.openai.com for GPT-4o access.
-- **Canva** — go to canva.com and sign up. Free tier includes basic templates and 5GB storage. You will use Canva for quote card graphics, Instagram story templates, and branded visual assets.
-- **Fliki AI** — go to fliki.ai and sign up. Free tier includes 5 minutes of video per month. You will use Fliki AI to convert text scripts into short-form video clips with AI voiceover and stock visuals.
-- **Buffer** — go to buffer.com and sign up. Free tier includes 3 social channels and 10 scheduled posts per channel. You will use Buffer to schedule and publish content across Twitter/X, LinkedIn, and Instagram.
+- **{{< platform name="canva" text="Canva" >}}** — go to canva.com and sign up. Free tier includes basic templates and 5GB storage. You will use Canva for quote card graphics, Instagram story templates, and branded visual assets.
+- **{{< platform name="fliki" text="Fliki" >}} AI** — go to fliki.ai and sign up. Free tier includes 5 minutes of video per month. You will use Fliki AI to convert text scripts into short-form video clips with AI voiceover and stock visuals.
+- **Buffer** — go to buffer.com and sign up. Free tier includes 3 social channels and 10 scheduled posts per channel. You will use Buffer to schedule and publish content across Twitter/X, {{< platform name="linkedin" text="LinkedIn" >}}, and Instagram.
 - **Beehiiv** — go to beehiiv.com and sign up. Free tier includes up to 2,500 subscribers. You will use Beehiiv to compose and send email newsletters from repurposed content.
 
 **Recommended supplementary accounts:**
 
-- **Notion** — go to notion.so and sign up. Free tier includes unlimited pages. You will use Notion for client dashboards, content calendars, and reporting.
-- **Grammarly** — go to grammarly.com and sign up. Free tier includes basic grammar and spelling checks. Run every AI output through Grammarly before delivery.
+- **{{< platform name="notion" text="Notion" >}}** — go to notion.so and sign up. Free tier includes unlimited pages. You will use Notion for client dashboards, content calendars, and reporting.
+- **{{< platform name="grammarly" text="Grammarly" >}}** — go to grammarly.com and sign up. Free tier includes basic grammar and spelling checks. Run every AI output through Grammarly before delivery.
 - **Loom** — go to loom.com and sign up. Free tier includes 25 videos per month. You will use Loom to record client onboarding walkthroughs and QC review explanations.
-- **Google Workspace** — go to workspace.google.com. You need Google Drive for file storage, Google Sheets for tracking, and Google Docs for transcript storage.
+- **{{< platform name="google" text="Google" >}} Workspace** — go to workspace.google.com. You need Google Drive for file storage, Google Sheets for tracking, and Google Docs for transcript storage.
 
 **Time required:** 10-14 hours for your first complete pipeline build, from Make.com account creation to end-to-end test with 30+ content pieces generated.
 
-**Total upfront cost:** $0 if you use free tiers for everything. ~$20/mo if you upgrade to ChatGPT Plus for prompt testing. ~$5-10 one-time if you add OpenAI API credit. Everything else is free until you have paying clients. Expect to invest ~$100/mo once you have 2-3 active clients and need paid tiers for volume.
+**Total upfront cost:** $0 if you use free tiers for everything. ~$20/mo if you upgrade to ChatGPT Plus for prompt testing. ~$5-10 one-time if you add {{< platform name="openai" text="OpenAI" >}} API credit. Everything else is free until you have paying clients. Expect to invest ~$100/mo once you have 2-3 active clients and need paid tiers for volume.
 
 ## Step 1: Set Up Your Make.com Workspace
 
@@ -68,9 +68,9 @@ Click **Connections** in the left sidebar. You should see an empty connections l
 
 3. **Google Sheets** — Search for "Google Sheets," click it, click **Create a connection**, and authenticate with the same Google Workspace account. Grant all permissions.
 
-4. **Slack** (or Gmail) — Search for "Slack," click it, click **Create a connection**, and authenticate with your Slack workspace. You will use this for pipeline notifications. If you do not use Slack, connect Gmail instead.
+4. **{{< platform name="slack" text="Slack" >}}** (or Gmail) — Search for "Slack," click it, click **Create a connection**, and authenticate with your Slack workspace. You will use this for pipeline notifications. If you do not use Slack, connect Gmail instead.
 
-5. **Buffer** — Search for "Buffer," click it, click **Create a connection**, and authenticate with your Buffer account.
+5. **{{< platform name="buffer" text="Buffer" >}}** — Search for "Buffer," click it, click **Create a connection**, and authenticate with your Buffer account.
 
 6. **HTTP** — This is not a connection but a module type. Make.com includes it by default. You will use HTTP modules to call the Fliki AI and Canva APIs since Make.com does not have native integrations for these.
 
@@ -107,7 +107,7 @@ This is the entry point of your pipeline. Every piece of repurposed content orig
 
 ### Create the Ingest Scenario
 
-1. In Make.com, click **Scenarios** → open the `01_Ingest` folder → click **Create a new scenario**. Name it "Content Ingest — YouTube RSS."
+1. In Make.com, click **Scenarios** → open the `01_Ingest` folder → click **Create a new scenario**. Name it "Content Ingest — {{< platform name="youtube" text="YouTube" >}} RSS."
 
 2. Add a **RSS — Retrieve RSS Feed Items** module as the trigger. Configure:
    - **Feed URL:** Enter the YouTube channel's RSS feed URL. The format is `https://www.youtube.com/feeds/videos.xml?channel_id=CHANNEL_ID`. To find a channel ID, go to the YouTube channel page, view the page source, and search for `channelId`. Alternatively, use a YouTube channel ID finder tool.
@@ -119,7 +119,7 @@ This is the entry point of your pipeline. Every piece of repurposed content orig
 3. Add a **Text Parser** module to extract the video ID from the YouTube URL. Use this regex pattern: `(?:youtube\.com\/(?:watch\?v=|embed\/|v\/)|youtu\.be\/)([a-zA-Z0-9_-]{11})`. Map the RSS feed item's link URL as the input string. The output is the 11-character video ID.
 
 4. Add an **HTTP — Make a Request** module to fetch the YouTube transcript. Configure:
-   - **URL:** `https://youtube-transcript-api.example.com/transcript?video_id={{3.videoId}}` (replace with your actual hosted API endpoint — see the Replit script below)
+   - **URL:** `https://youtube-transcript-api.example.com/transcript?video_id={{3.videoId}}` (replace with your actual hosted API endpoint — see the {{< platform name="replit" text="Replit" >}} script below)
    - **Method:** GET
    - **Headers:** `Content-Type: application/json`
 
@@ -739,7 +739,7 @@ Once your pipeline is running and you have 2-3 clients, expand with these specif
 
 - **Build a client content dashboard in Notion** — Show clients their content pipeline status, upcoming scheduled posts, and performance metrics in a shared Notion workspace. This makes the retainer feel tangible and reduces churn. Set up the dashboard during onboarding (Step 6) and update it weekly.
 
-- **Integrate Apollo.io for lead generation** — Use Apollo.io to find creators and businesses producing long-form content but with weak social media presence. Build a prospect list of 500+ targets. Automate the Proof of Value outreach: find their best content, run it through your pipeline, and send them the repurposed assets as a sample. Conversion rate on this method: 30-40%.
+- **Integrate {{< platform name="apollo" text="Apollo" >}}.io for lead generation** — Use Apollo.io to find creators and businesses producing long-form content but with weak social media presence. Build a prospect list of 500+ targets. Automate the Proof of Value outreach: find their best content, run it through your pipeline, and send them the repurposed assets as a sample. Conversion rate on this method: 30-40%.
 
 - **Offer content strategy consulting as an upsell** — Beyond repurposing, advise clients on what content to create next. Analyze their top-performing pieces. Recommend topics based on keyword research and audience gaps. Charge $500-1,000/mo additional for strategy. This also improves your pipeline inputs — better source content produces better repurposed content.
 

@@ -21,8 +21,7 @@ This playbook extends our free implementation guide with complete procedures, SO
 ### Overview
 In this module you will create every foundational account you need. Every downstream module depends on the accounts and infrastructure you set up here. Without a deployment platform, workspace, and scheduling tool, nothing else works.
 **Time to complete:** 75 minutes
-**Tools needed:** [Railway](https://railway.com?referralCode=fJobV0), [Notion](https://notion.so/), Calendly
-
+**Tools needed:** [Railway](https://railway.com?referralCode=fJobV0), [Notion](https://notion.so/), {{< platform name="calendly" text="Calendly" >}} 
 | Tool | Purpose | Free Tier | Paid Tier |
 |------|---------|-----------|-----------|
 | **Railway** | Cloud deployment & API hosting | $5 credit/month | Pay-as-you-go |
@@ -32,7 +31,7 @@ In this module you will create every foundational account you need. Every downst
 ### Procedure 1.1: Create a Railway Account and Deploy a Starter App
 
 1. Visit **https://railway.com?referralCode=fJobV0** and click **Start a New Project**.
-2. Sign up with your GitHub account (recommended) or email.
+2. Sign up with your {{< platform name="github" text="GitHub" >}} account (recommended) or email.
 3. Click **New Project → Deploy from GitHub repo** (or **Empty Project** if starting fresh).
 4. Name the project **"ai-translation-api"**.
 5. In the project dashboard, click **Variables** and add:
@@ -69,7 +68,7 @@ In this module you will create every foundational account you need. Every downst
 1. Visit **https://www.calendly.com** and click **Get Started**.
 2. Create an event called **"AI Translation Service — Discovery Call"**.
 3. Set duration to **30 minutes**, availability **Monday–Friday, 9AM–5PM**.
-4. Copy the Calendly link and paste it into your Notion Command Center under **"Booking Links"**.
+4. Copy the Calendly link and paste it into your {{< platform name="notion" text="Notion" >}} Command Center under **"Booking Links"**.
 
 ### Check-In: Module 1 Complete
 - [ ] Railway account created with a deployed starter project
@@ -81,9 +80,9 @@ In this module you will create every foundational account you need. Every downst
 ## MODULE 2: TECH STACK — Acquire API Keys and Build the Automation Core
 
 ### Overview
-You will secure all API keys and wire them into Make.com. This module connects every tool so translations flow automatically.
+You will secure all API keys and wire them into {{< platform name="make" text="Make" >}} This module connects every tool so translations flow automatically.
 **Time to complete:** 60 minutes
-**Tools needed:** Make.com, ChatGPT (OpenAI), DeepL, ElevenLabs
+**Tools needed:** Make.com, {{< platform name="chatgpt" text="ChatGPT" >}} (OpenAI), DeepL, ElevenLabs
 
 | Tool | Purpose | Free Tier | Paid Tier |
 |------|---------|-----------|-----------|
@@ -101,9 +100,9 @@ You will secure all API keys and wire them into Make.com. This module connects e
 
 ### Procedure 2.2: Create and Store All Required API Keys
 
-1. **OpenAI:** Visit https://platform.openai.com/account/api-keys → **Create new secret key** → Copy to Notion.
+1. **{{< platform name="openai" text="OpenAI" >}}:** Visit https://platform.openai.com/account/api-keys → **Create new secret key** → Copy to Notion.
 2. **DeepL:** Visit https://www.deepl.com/pro-api → Sign up → Copy API key to Notion.
-3. **ElevenLabs:** Visit https://elevenlabs.io/ → **Profile → API Keys** → Copy to Notion.
+3. **{{< platform name="elevenlabs" text="ElevenLabs" >}}:** Visit https://elevenlabs.io/ → **Profile → API Keys** → Copy to Notion.
 4. Add all keys to Railway environment variables: Go to your Railway project → **Variables** → Add each key.
 
 **Error scenario:** If OpenAI shows "You need to add a payment method," add a card with at least $5 credit. The API requires a payment method even for trial usage.
@@ -228,8 +227,7 @@ This is the minimum viable product your first client will use. You will build a 
 ### Overview
 This module builds the systems that turn strangers into paying clients. Without these, you have a great product but no revenue.
 **Time to complete:** 90 minutes
-**Tools needed:** Hostinger, Klaviyo, Apollo.io, Canva
-
+**Tools needed:** Hostinger, Klaviyo, Apollo.io, {{< platform name="canva" text="Canva" >}} 
 | Tool | Purpose | Free Tier | Paid Tier |
 |------|---------|-----------|-----------|
 | **Hostinger** | Landing page & website | $1.99/mo starter | $3.95/mo premium |
@@ -240,12 +238,11 @@ This module builds the systems that turn strangers into paying clients. Without 
 ### Procedure 5.1: Build a High-Conversion Landing Page on Hostinger
 
 1. Sign up at **https://www.hostinger.com** and select a hosting plan.
-2. Install WordPress using the auto-installer.
+2. Install {{< platform name="wordpress" text="WordPress" >}} using the auto-installer.
 3. Create a landing page with:
    - Headline: "Professional AI Translation — 24-Hour Turnaround, 60% Less Than Agencies"
    - Subheadline: "Get your content localized into 12+ languages with AI-accelerated translation and expert human review"
-   - Email capture form connected to Klaviyo
-   - 3 pricing tiers (Starter $500/mo, Growth $1,500/mo, Enterprise $4,000/mo)
+   - Email capture form connected to {{< platform name="klaviyo" text="Klaviyo" >}}    - 3 pricing tiers (Starter $500/mo, Growth $1,500/mo, Enterprise $4,000/mo)
    - Sample translation showcase (show the same paragraph in 5 languages)
 4. Use [Canva](https://www.canva.com/) to design a professional hero image showing multilingual content.
 
@@ -271,7 +268,7 @@ This module builds the systems that turn strangers into paying clients. Without 
 
 ### Check-In: Module 5 Complete
 - [ ] Landing page live on Hostinger with email capture and pricing
-- [ ] Apollo.io prospect list with 25+ leads
+- [ ] {{< platform name="apollo" text="Apollo" >}}.io prospect list with 25+ leads
 - [ ] 3-email outreach sequence active
 - [ ] Klaviyo nurture flow live with 4-email sequence
 
@@ -299,7 +296,7 @@ Delivery is where the money is made. This module ensures consistent, high-qualit
 1. Create a scenario: **"Audio Localization Pipeline"**.
 2. Trigger: Webhook receives translated text + target language + voice preference.
 3. Add **ElevenLabs** HTTP module: POST to `/v1/text-to-speech/{voice_id}` with the translated text.
-4. Save the audio file to cloud storage (Google Drive or Railway volume).
+4. Save the audio file to cloud storage ({{< platform name="google" text="Google" >}} Drive or Railway volume).
 5. Generate a signed URL and send to client via Notion or email.
 6. Price this at $500-$2,000 extra per project — your margin is nearly 100% since ElevenLabs costs pennies per minute.
 

@@ -16,13 +16,13 @@ You are going to build an AI appointment booking agency. Not a blog about schedu
 ## Prerequisites
 
 - A laptop with a modern browser
-- A Vapi account (free trial) — go to vapi.ai and sign up
+- A {{< platform name="vapi" text="Vapi" >}} account (free trial) — go to vapi.ai and sign up
 - A Cal.com account (free tier) — go to cal.com and sign up
-- A Google Calendar account (free)
-- A Make.com account (free tier) — go to make.com and sign up
+- A {{< platform name="google" text="Google" >}} Calendar account (free)
+- A {{< platform name="make" text="Make" >}} account (free tier) — go to make.com and sign up
 - A Twilio account (free trial) — go to twilio.com and sign up
-- A Notion account (free) — for documentation
-- A Stripe account (free) — for payments
+- A {{< platform name="notion" text="Notion" >}} account (free) — for documentation
+- A {{< platform name="stripe" text="Stripe" >}} account (free) — for payments
 - 4-6 hours of uninterrupted time
 
 Total upfront cost: $0 during trial periods.
@@ -222,5 +222,5 @@ Build a demo for your chosen vertical. Call after-hours and document the experie
 - [ ] 24-hour and 2-hour reminder sequence running
 - [ ] No-show detection and re-engagement configured
 - [ ] Website chatbot handles common inquiries and booking
-- [ ] All scenarios have error handling with Slack notifications
+- [ ] All scenarios have error handling with {{< platform name="slack" text="Slack" >}} notifications
 - [ ] Service packages defined and priced

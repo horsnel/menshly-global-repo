@@ -22,7 +22,7 @@ This is not a blog post condensed into a PDF. This is an operating system for bu
 Before you build a single onboarding workflow, you need the infrastructure that runs your agency. This module sets up your project management, documentation, client portal, and communication systems. These are not optional. Every successful agency operator has these systems in place before their first client call. Every failed operator skipped them.
 
 **Time to complete:** 3-4 hours
-**Tools needed:** Notion (free), Google Workspace (free), Stripe (free)
+**Tools needed:** {{< platform name="notion" text="Notion" >}} (free), Google Workspace (free), Stripe (free)
 
 ### Procedure 1.1: Create Your Agency Command Center in Notion
 
@@ -100,7 +100,7 @@ In your Notion **Finance** page, create a table called `Revenue Tracker` with th
 
 #### Create Your Business Email
 
-Go to Google Workspace (workspace.google.com) and sign up for the Business Starter plan. Register a domain that matches your agency name and create your email.
+Go to {{< platform name="google" text="Google" >}} Workspace (workspace.google.com) and sign up for the Business Starter plan. Register a domain that matches your agency name and create your email.
 
 #### Create Your Client-Facing Calendar
 
@@ -114,7 +114,7 @@ Go to cal.com and create a free account. Set up two meeting types:
 - [ ] Notion Command Center created with all 6 sub-pages
 - [ ] Client Roster database with all 10 columns and a test row
 - [ ] SOPs database with all 6 columns
-- [ ] Stripe account with 4 products and 4 payment links
+- [ ] {{< platform name="stripe" text="Stripe" >}} account with 4 products and 4 payment links
 - [ ] Revenue Tracker table in Notion with current month row
 - [ ] Professional email address on custom domain
 - [ ] Cal.com booking page with Discovery Call and Weekly Check-in
@@ -135,8 +135,8 @@ Go to make.com and sign up for the Free plan. You get 1,000 operations per month
 
 1. **Google Sheets** — Authorize with your Google account
 2. **Gmail** — Authorize with your professional email
-3. **Slack** — Authorize with your Slack workspace
-4. **OpenAI** — Enter your API key from platform.openai.com/api-keys
+3. **{{< platform name="slack" text="Slack" >}}** — Authorize with your Slack workspace
+4. **{{< platform name="openai" text="OpenAI" >}}** — Enter your API key from platform.openai.com/api-keys
 5. **Notion** — Authorize with your Notion account
 
 After connecting each service, you should see a green "Connected" status. Do you see green for all 5?
@@ -149,7 +149,7 @@ Go to platform.openai.com. Navigate to **API Keys** and create a new key. Copy i
 
 #### Anthropic Claude API (Optional but Recommended)
 
-Go to console.anthropic.com and create an account. Add $10 in credit. Claude is superior to GPT-4o for nuanced onboarding copy, personalized welcome messages, and complex client communication.
+Go to console.anthropic.com and create an account. Add $10 in credit. {{< platform name="claude" text="Claude" >}} is superior to GPT-4o for nuanced onboarding copy, personalized welcome messages, and complex client communication.
 
 ### Procedure 2.3: Set Up Your Client Delivery Tools
 
@@ -174,7 +174,7 @@ Go to loom.com and create a free account. Install the browser extension. Record 
 
 ### Check-In: Module 2 Complete
 
-- [ ] Make.com account with 5 connected services (all green)
+- [ ] {{< platform name="make" text="Make" >}} account with 5 connected services (all green)
 - [ ] OpenAI API key with $20+ credit and $100 monthly limit
 - [ ] Claude API key with $10+ credit (optional)
 - [ ] Typeform account with New Client Intake form created
@@ -395,7 +395,7 @@ Build, test, document.
 
 Create a new Make.com scenario: "E-commerce Post-Purchase Onboarding."
 
-**Trigger:** New Shopify order
+**Trigger:** New {{< platform name="shopify" text="Shopify" >}} order
 **Flow:**
 1. Order confirmation email with tracking
 2. Product setup/usage guide (product-specific)

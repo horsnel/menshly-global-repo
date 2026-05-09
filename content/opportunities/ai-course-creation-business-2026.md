@@ -20,9 +20,9 @@ I am going to lay out everything: how to pick a course topic that actually sells
 
 Three forces are colliding to make AI course creation one of the most accessible high-income opportunities available.
 
-First: AI has collapsed the production barrier to near zero. ChatGPT writes your curriculum outline in 15 minutes. AI avatar tools like Synthesia and HeyGen generate video lectures from a script — no camera, no studio, no retakes. Canva AI creates slide decks, worksheets, and promotional graphics. Descript edits video by editing a text transcript. The entire production stack that used to require a team of 5 now requires one person and $100/month in AI tools. This is not a marginal improvement — it is a 50x reduction in production cost and time.
+First: AI has collapsed the production barrier to near zero. {{< platform name="chatgpt" text="ChatGPT" >}} writes your curriculum outline in 15 minutes. AI avatar tools like Synthesia and HeyGen generate video lectures from a script — no camera, no studio, no retakes. Canva AI creates slide decks, worksheets, and promotional graphics. Descript edits video by editing a text transcript. The entire production stack that used to require a team of 5 now requires one person and $100/month in AI tools. This is not a marginal improvement — it is a 50x reduction in production cost and time.
 
-Second: the skills gap is widening and professionals are desperate to upskill. The World Economic Forum estimates that 44% of workers' core skills will be disrupted in the next 5 years. LinkedIn's most-searched courses are all AI-related: prompt engineering, AI automation, AI for business, ChatGPT mastery. People will pay $97-497 for structured, actionable knowledge that helps them stay employed or earn more. The demand is not hypothetical — it is measurable and growing.
+Second: the skills gap is widening and professionals are desperate to upskill. The World Economic Forum estimates that 44% of workers' core skills will be disrupted in the next 5 years. {{< platform name="linkedin" text="LinkedIn" >}}'s most-searched courses are all AI-related: prompt engineering, AI automation, AI for business, ChatGPT mastery. People will pay $97-497 for structured, actionable knowledge that helps them stay employed or earn more. The demand is not hypothetical — it is measurable and growing.
 
 Third: the subscription model makes recurring revenue possible. Platforms like Kajabi and Teachable now support subscription-based courses where students pay $29-49/month for ongoing access to updated content, a community, and live sessions. Instead of a one-time $197 sale, you earn $39/month per student indefinitely. 200 subscribers at $39/month is $7,800/month in recurring revenue. The subscription model turns course creation from a product business into a media business with compounding returns.
 
@@ -48,11 +48,11 @@ You can validate your course idea and create a minimum viable product this weeke
 
 **ChatGPT Free — $0** — Curriculum design engine. Use to generate course outlines, write lesson scripts, create quiz questions, and draft marketing copy. The free tier handles a complete course outline in one session.
 
-**Canva Free — $0** — Slide deck creation, worksheet design, and promotional graphic production. The free tier has thousands of templates and the AI-powered design assistant.
+**{{< platform name="canva" text="Canva" >}} Free — $0** — Slide deck creation, worksheet design, and promotional graphic production. The free tier has thousands of templates and the AI-powered design assistant.
 
 **Loom Free — $0** — Screen recording and video messaging. Record walkthroughs, tutorials, and talking-head lessons with your webcam. Free tier includes 25 videos with unlimited recording time.
 
-**Google Docs — $0** — Script writing, curriculum documentation, and student workbook creation. Your content production hub.
+**{{< platform name="google" text="Google" >}} Docs — $0** — Script writing, curriculum documentation, and student workbook creation. Your content production hub.
 
 **Gumroad — $0** — Alternative to Teachable for selling digital products. Free to start, takes 10% per sale. Simpler than Teachable but fewer course-specific features.
 
@@ -147,7 +147,7 @@ Quality standard: each lesson should be 5-15 minutes. Shorter is better. Student
 
 **Student completion rates are abysmal.** The average online course completion rate is 5-15%. This means 85-95% of your students will never finish your course. This affects refund requests, reviews, and word-of-mouth. Design your course for completion: short lessons, clear milestones, regular check-ins, and a completion certificate that has real value.
 
-**You are not just selling knowledge — you are selling transformation.** Students do not buy a course to learn about AI automation. They buy a course because they want to earn more money, save time, or advance their career. Your marketing, your curriculum, and your student experience must all be oriented around the transformation, not the information. The course that sells "Master Make.com in 4 Weeks" earns less than the course that sells "Automate Your Business and Reclaim 20 Hours Per Week."
+**You are not just selling knowledge — you are selling transformation.** Students do not buy a course to learn about AI automation. They buy a course because they want to earn more money, save time, or advance their career. Your marketing, your curriculum, and your student experience must all be oriented around the transformation, not the information. The course that sells "Master {{< platform name="make" text="Make" >}} in 4 Weeks" earns less than the course that sells "Automate Your Business and Reclaim 20 Hours Per Week."
 
 **Platform dependency is risky.** If you build your entire business on Udemy or Skillshare, you are at the mercy of their algorithm and pricing decisions. Udemy has been known to discount courses to $9.99 without the creator's consent. Own your platform (Kajabi, Teachable on a custom domain) or at minimum own your email list. The email list is the one asset no platform can take from you.
 

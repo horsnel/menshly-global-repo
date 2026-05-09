@@ -21,13 +21,13 @@ This is not a blog post condensed into a PDF. This is an operating system for bu
 
 ### Overview
 
-Before you touch a single tool, you must define what you sell, who you sell it to, and how you position yourself against every other "I use ChatGPT" freelancer on the internet. This module builds the structural skeleton of your agency. Without it, every subsequent module collapses.
+Before you touch a single tool, you must define what you sell, who you sell it to, and how you position yourself against every other "I use {{< platform name="chatgpt" text="ChatGPT" >}}" freelancer on the internet. This module builds the structural skeleton of your agency. Without it, every subsequent module collapses.
 
 Your agency is not "I write copy with AI." Your agency is a content production system that delivers measurable business outcomes — more leads, higher conversion rates, better email open rates — at a fraction of traditional agency cost and time. That distinction is your entire competitive advantage.
 
 ### Procedure 1.1: Define Your Agency Identity
 
-Open a new Notion page. Title it "Agency Identity Document." Fill in every field below. Do not skip any. Do not write vague statements.
+Open a new {{< platform name="notion" text="Notion" >}} page. Title it "Agency Identity Document." Fill in every field below. Do not skip any. Do not write vague statements.
 
 **Agency Name:** [Your chosen name — must include a descriptor like "Copy," "Content," or "Words"]
 **Tagline:** One sentence. No adjectives. Example: "We turn briefs into revenue-generating copy in 24 hours."
@@ -46,12 +46,12 @@ Write your positioning statement using this exact formula:
 
 Example: "For e-commerce brands doing ₦5M-₦50M/month who struggle with inconsistent content output, Velocity Copy provides sales pages, email sequences, and ad copy that increases conversion rates by 15-40% unlike traditional agencies who take 3 weeks and charge ₦2M per project."
 
-This statement goes at the top of your website, your LinkedIn profile, and your proposal template. Do not change it for at least 90 days.
+This statement goes at the top of your website, your {{< platform name="linkedin" text="LinkedIn" >}} profile, and your proposal template. Do not change it for at least 90 days.
 
 ### Procedure 1.3: Set Up Your Agency Domain and Email
 
 1. Go to [Namecheap](https://www.namecheap.com/) or [Hostinger](https://www.hostinger.com/). Purchase your agency domain. Budget: ₦3,000-₦8,000/year.
-2. Set up Google Workspace (₦2,500/month per user). Create these email addresses:
+2. Set up {{< platform name="google" text="Google" >}} Workspace (₦2,500/month per user). Create these email addresses:
    - `hello@youragency.com` — general inquiries
    - `projects@youragency.com` — client communication
    - `billing@youragency.com` — invoices and payments
@@ -92,7 +92,7 @@ This module installs and configures every tool in your agency. You will create a
 ### Procedure 2.1: ChatGPT Configuration
 
 1. Go to [chat.openai.com](https://chat.openai.com/). Sign up for ChatGPT Plus ($20/month ≈ ₦32,000/month). You need GPT-4 for the prompt engineering system in Module 3.
-2. Click your profile → Settings → Data Controls. Toggle OFF "Chat history & training." This prevents your client work from training OpenAI's models.
+2. Click your profile → Settings → Data Controls. Toggle OFF "Chat history & training." This prevents your client work from training {{< platform name="openai" text="OpenAI" >}}'s models.
 3. Create a Custom GPT for your agency:
    - Click "Explore GPTs" → "Create"
    - Name: "[Agency Name] Copy Engine"
@@ -122,7 +122,7 @@ Rules:
 
 ### Procedure 2.2: Grammarly Configuration
 
-1. Go to [grammarly.com](https://www.grammarly.com/). Sign up for Grammarly Business ($15/user/month ≈ ₦24,000/month).
+1. Go to [grammarly.com](https://www.grammarly.com/). Sign up for {{< platform name="grammarly" text="Grammarly" >}} Business ($15/user/month ≈ ₦24,000/month).
 2. Open Settings → Customization. Configure these exact values:
    - **Audience:** General
    - **Formality:** Neutral
@@ -203,7 +203,7 @@ Rules:
 - Step 1: Notion — Create page in Clients database
 - Step 2: Notion — Create card in Active Projects board
 - Step 3: Gmail — Send welcome email to client
-- Step 4: Slack (or WhatsApp via Twilio) — Notify you of new client
+- Step 4: {{< platform name="slack" text="Slack" >}} (or WhatsApp via Twilio) — Notify you of new client
 
 **Scenario B: Content Delivery → Client Notification**
 - Trigger: Notion — Status changed to "Client Review"
@@ -237,7 +237,7 @@ Rules:
 - [ ] ChatGPT Plus active with Custom GPT configured and data training disabled
 - [ ] Grammarly Business active with Style Guide configured
 - [ ] Notion workspace built with all six top-level pages
-- [ ] Make.com three core scenarios tested and running
+- [ ] {{< platform name="make" text="Make" >}} three core scenarios tested and running
 - [ ] Paystack account verified and invoice template created
 - [ ] Total monthly tool spend documented and under ₦150,000
 
@@ -599,7 +599,7 @@ Before prompting ChatGPT, gather this data:
 
 1. **Read the client's existing copy.** Visit their website, social media, and any previous campaigns. Note their current tone, vocabulary, and messaging patterns.
 2. **Research the competitor's copy.** Visit 3 competitor websites. Note their claims, offers, and positioning gaps.
-3. **Audience research.** Search Reddit, Nairaland, or Twitter for discussions about the product category. Note the exact language the audience uses to describe their problems.
+3. **Audience research.** Search {{< platform name="reddit" text="Reddit" >}}, Nairaland, or Twitter for discussions about the product category. Note the exact language the audience uses to describe their problems.
 4. **Create a "Voice File."** In the client's Notion folder, create a page called "Voice File" with:
    - 10 words/phrases the client uses frequently
    - 5 words/phrases the client would never use
@@ -1315,7 +1315,7 @@ Once your operations can handle more clients, turn on acquisition:
 
 1. **LinkedIn content (daily):** Post about AI copywriting, share results (anonymized), and document your process. This is your No. 1 organic channel. Use Prompt F from Module 3 to generate your own LinkedIn content.
 2. **Referral program:** Offer existing clients one free deliverable for every referral that signs a retainer. Cost to you: minimal. Value to client: high.
-3. **Cold outreach (weekly):** Use Apollo.io to find 50 prospects per week. Send this email:
+3. **Cold outreach (weekly):** Use {{< platform name="apollo" text="Apollo" >}}.io to find 50 prospects per week. Send this email:
 
 ```
 Subject: Your [competitor]'s copy is costing them leads

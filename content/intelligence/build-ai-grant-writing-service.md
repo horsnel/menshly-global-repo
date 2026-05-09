@@ -19,12 +19,12 @@ This guide assumes you have zero infrastructure set up. By the end, you will hav
 Before you start, you need the following:
 
 - **Foundation Directory Online** — $50/mo (funder database access)
-- **Make.com** — $16/mo (Teams plan for 10,000 operations/month)
-- **OpenAI API key** — $10 credit minimum (platform.openai.com/api-keys)
-- **Anthropic Claude API key** — $10 credit minimum (console.anthropic.com)
-- **Google Workspace** — $6/mo for professional email and Docs access
-- **Notion** — Free (client dashboards and document management)
-- **Grammarly Business** — $15/mo (grammar and style checking)
+- **{{< platform name="make" text="Make" >}}.com** — $16/mo (Teams plan for 10,000 operations/month)
+- **{{< platform name="openai" text="OpenAI" >}} API key** — $10 credit minimum (platform.openai.com/api-keys)
+- **Anthropic {{< platform name="claude" text="Claude" >}} API key** — $10 credit minimum (console.anthropic.com)
+- **{{< platform name="google" text="Google" >}} Workspace** — $6/mo for professional email and Docs access
+- **{{< platform name="notion" text="Notion" >}}** — Free (client dashboards and document management)
+- **{{< platform name="grammarly" text="Grammarly" >}} Business** — $15/mo (grammar and style checking)
 - **6-8 hours of uninterrupted time** for initial setup
 
 Total upfront cost: $97/mo + $20 API credit. A single client at $1,500/month covers this 13x over.
@@ -77,7 +77,7 @@ oppStatus: "forecasted|posted"
 rows: 50
 ```
 
-3. **Module 2 — Code by Zapier:** Parse the API response and extract: grant title, agency, description, award range, deadline, eligibility requirements, and CFDA number
+3. **Module 2 — Code by {{< platform name="zapier" text="Zapier" >}}:** Parse the API response and extract: grant title, agency, description, award range, deadline, eligibility requirements, and CFDA number
 
 4. **Module 3 — OpenAI "Create a Chat Completion":**
 

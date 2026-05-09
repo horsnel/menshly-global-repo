@@ -11,7 +11,7 @@ heroImage: "/images/heroes/playbooks/ai-bookkeeping-automation-playbook.png"
 
 This is not a blog post condensed into a PDF. This is an operating system for building an AI bookkeeping automation business from zero to ₦10,000,000/month in recurring revenue. Every module contains exact procedures — not theories, not possibilities, not "consider doing X." You will do X, in this order, with these tools, and you will verify it worked before moving on.
 
-**35 procedures. 10 modules. 8+ hours of reading and execution.** If you complete every procedure, you will have a functioning bookkeeping automation practice with paying clients. If you skip procedures, you will have a folder of half-finished Zapier workflows and no revenue. The choice is yours.
+**35 procedures. 10 modules. 8+ hours of reading and execution.** If you complete every procedure, you will have a functioning bookkeeping automation practice with paying clients. If you skip procedures, you will have a folder of half-finished {{< platform name="zapier" text="Zapier" >}} workflows and no revenue. The choice is yours.
 
 ---
 
@@ -22,7 +22,7 @@ This is not a blog post condensed into a PDF. This is an operating system for bu
 Before you automate a single transaction, you need the infrastructure that runs your bookkeeping practice. This module sets up your project management, client portal, financial tracking, and communication systems. These are not optional. Every successful bookkeeping operator has these systems in place before their first client call. Every failed operator skipped them.
 
 **Time to complete:** 3-4 hours
-**Tools needed:** Notion (free), QuickBooks Online Accountant (free for accountants), Zapier (free tier), Paystack (free)
+**Tools needed:** {{< platform name="notion" text="Notion" >}} (free), QuickBooks Online Accountant (free for accountants), Zapier (free tier), Paystack (free)
 
 ### Procedure 1.1: Create Your Bookkeeping Command Center in Notion
 
@@ -130,7 +130,7 @@ Add a row for the current month with zero values. This is your starting line.
 
 #### Create Your Business Email
 
-If you do not have a professional email address on a custom domain, set one up now. Go to Google Workspace (workspace.google.com) and sign up for the Business Starter plan ($6/mo). Register a domain that matches your practice name (e.g., yourpractice.com) and create your email (e.g., hello@yourpractice.com or yourname@yourpractice.com).
+If you do not have a professional email address on a custom domain, set one up now. Go to {{< platform name="google" text="Google" >}} Workspace (workspace.google.com) and sign up for the Business Starter plan ($6/mo). Register a domain that matches your practice name (e.g., yourpractice.com) and create your email (e.g., hello@yourpractice.com or yourname@yourpractice.com).
 
 Do not use a personal Gmail address for client communication. It signals amateur status. A custom domain email costs $6/month and instantly elevates your perceived professionalism.
 
@@ -208,7 +208,7 @@ In Zapier, click **My Apps** in the left sidebar → **Add connection**. Connect
 2. **Google Sheets** — Authorize with your Google account
 3. **Gmail** — Authorize with your professional email
 4. **Notion** — Authorize with your Notion account
-5. **Slack** — Authorize with your Slack workspace (create one at slack.com if needed)
+5. **{{< platform name="slack" text="Slack" >}}** — Authorize with your Slack workspace (create one at slack.com if needed)
 
 After connecting each service, you should see a green "Connected" status next to it. Do you see green for all 5? If any show red or yellow:
 
@@ -227,10 +227,10 @@ Navigate to **Usage limits** and set a monthly limit of $100. This prevents a bu
 
 #### Anthropic Claude API (Recommended for Bookkeeping)
 
-Go to console.anthropic.com and create an account. Navigate to **API Keys** and create a key. Add $10 in credit. Claude is superior to GPT-4o for financial document analysis, nuanced transaction categorization, and complex reasoning tasks involving multi-step accounting logic. Use GPT-4o for structured outputs (JSON) and Claude for document analysis and reconciliation tasks.
+Go to console.anthropic.com and create an account. Navigate to **API Keys** and create a key. Add $10 in credit. {{< platform name="claude" text="Claude" >}} is superior to GPT-4o for financial document analysis, nuanced transaction categorization, and complex reasoning tasks involving multi-step accounting logic. Use GPT-4o for structured outputs (JSON) and Claude for document analysis and reconciliation tasks.
 
 {{% accent-box %}}
-**HACK:** Set up two separate OpenAI API keys — one for production automations and one for testing. When a test workflow goes haywire, it burns through the testing key's credit, not your production budget. Create the keys at platform.openai.com/api-keys and label them "prod-bookkeeping" and "dev-bookkeeping."
+**HACK:** Set up two separate {{< platform name="openai" text="OpenAI" >}} API keys — one for production automations and one for testing. When a test workflow goes haywire, it burns through the testing key's credit, not your production budget. Create the keys at platform.openai.com/api-keys and label them "prod-bookkeeping" and "dev-bookkeeping."
 {{% /accent-box %}}
 
 ### Procedure 2.4: Set Up Your Client Delivery Tools
@@ -478,7 +478,7 @@ This ensures the Zap only processes transactions that QBO's bank rules did NOT a
 
 #### Step C: AI Categorization
 
-Add a **ChatGPT** step (OpenAI in Zapier):
+Add a **{{< platform name="chatgpt" text="ChatGPT" >}}** step (OpenAI in Zapier):
 
 - **Model:** `gpt-4o`
 - **System Message:**
@@ -1202,7 +1202,7 @@ You can automate bookkeeping. Now you need clients who will pay you to automate 
 Pick one business category. Not five. Not three. One. The best categories for AI bookkeeping practices in Nigeria:
 
 - Logistics and transportation companies (high transaction volume, many receipts)
-- E-commerce stores (Shopify, WooCommerce, high invoice volume)
+- E-commerce stores ({{< platform name="shopify" text="Shopify" >}}, WooCommerce, high invoice volume)
 - Restaurants and food businesses (daily cash reconciliation nightmare)
 - Real estate agencies (commission tracking, multiple payment channels)
 - Professional services firms (law firms, consulting, project-based billing)

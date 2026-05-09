@@ -16,11 +16,11 @@ I have spent the last year building and scaling an AI contract writing service, 
 
 ## Why This Works Right Now
 
-**1. LLMs are economical and getting better fast.** GPT‑4‑Turbo and Claude‑3.5 have become remarkably affordable. The cost per 1,000 tokens is under $0.01 on OpenAI's edge tier, and the quality of contract generation has crossed a critical threshold. Where early LLMs produced vaguely worded templates, the current generation can generate jurisdiction‑specific clauses, conditional obligations, and industry‑standard boilerplate that would pass a first‑year associate's review. In the past, law firms charged $250 to $500 per hour for this work; now you can produce equivalent first drafts for a fraction of a cent per page. The economics are so favorable that the entire pricing model for routine legal document preparation is being disrupted from the bottom up.
+**1. LLMs are economical and getting better fast.** GPT‑4‑Turbo and Claude‑3.5 have become remarkably affordable. The cost per 1,000 tokens is under $0.01 on {{< platform name="openai" text="OpenAI" >}}'s edge tier, and the quality of contract generation has crossed a critical threshold. Where early LLMs produced vaguely worded templates, the current generation can generate jurisdiction‑specific clauses, conditional obligations, and industry‑standard boilerplate that would pass a first‑year associate's review. In the past, law firms charged $250 to $500 per hour for this work; now you can produce equivalent first drafts for a fraction of a cent per page. The economics are so favorable that the entire pricing model for routine legal document preparation is being disrupted from the bottom up.
 
 **2. Demand for rapid prototyping is exploding.** Startups, freelancers, and small businesses need documents fast — NDAs before a partnership meeting, service agreements before onboarding a new client, freelance contracts before starting a project. They are willing to pay $200 to $500 for a contract that is ready to send, not $2,500 for a lawyer's retainer plus a two‑week turnaround. The gap between what businesses need and what traditional legal services deliver is enormous, and it grows wider every month as the pace of business accelerates. A startup that needs an NDA signed by end of day cannot wait for a law firm's three‑business‑day turnaround. Your AI service fills that gap instantly.
 
-**3. Automation platforms are mature and reliable.** Zapier, Make.com, and [Replit](https://replit.com/refer/egwuokwor) let you glue together AI, design, email, and CRM tools without hiring a developer. The only overhead is learning the workflow. Five years ago, building a system that ingests a client's requirements, generates a contract, formats it as a branded PDF, and delivers it via email would have required a full‑stack developer and months of custom development. Today, you can build the entire pipeline in a weekend using off‑the‑shelf tools and no‑code integrations.
+**3. Automation platforms are mature and reliable.** Zapier, {{< platform name="make" text="Make" >}}.com, and [Replit](https://replit.com/refer/egwuokwor) let you glue together AI, design, email, and CRM tools without hiring a developer. The only overhead is learning the workflow. Five years ago, building a system that ingests a client's requirements, generates a contract, formats it as a branded PDF, and delivers it via email would have required a full‑stack developer and months of custom development. Today, you can build the entire pipeline in a weekend using off‑the‑shelf tools and no‑code integrations.
 
 ## The Realistic Picture (Before You Get Excited)
 
@@ -42,24 +42,24 @@ I have spent the last year building and scaling an AI contract writing service, 
 
 ## The Free Stack: Starting With Zero Dollars
 
-1. [**Notion — $0**](https://notion.so/) — Free workspace to store prompt libraries, contract templates, and client data. Build a simple database that tracks each client's contract history, preferred clauses, and formatting requirements. Notion's relational databases are powerful enough to serve as your entire CRM in the early days.
+1. [**{{< platform name="notion" text="Notion" >}} — $0**](https://notion.so/) — Free workspace to store prompt libraries, contract templates, and client data. Build a simple database that tracks each client's contract history, preferred clauses, and formatting requirements. Notion's relational databases are powerful enough to serve as your entire CRM in the early days.
 
-2. **ChatGPT — $0 (free tier)** — Unlimited text generation for drafting first versions of contracts, proposals, and amendments. The free tier provides enough capacity to generate 20 to 30 contract drafts per day, which is more than enough for a solo operator getting started.
+2. **{{< platform name="chatgpt" text="ChatGPT" >}} — $0 (free tier)** — Unlimited text generation for drafting first versions of contracts, proposals, and amendments. The free tier provides enough capacity to generate 20 to 30 contract drafts per day, which is more than enough for a solo operator getting started.
 
-3. [**Grammarly — $0**](https://grammarly.com/) — Basic grammar and spelling checks for free. Legal documents demand precision, and a single typo in a clause can create ambiguity that costs thousands to resolve. Grammarly catches the obvious errors that slip past your own proofreading.
+3. [**{{< platform name="grammarly" text="Grammarly" >}} — $0**](https://grammarly.com/) — Basic grammar and spelling checks for free. Legal documents demand precision, and a single typo in a clause can create ambiguity that costs thousands to resolve. Grammarly catches the obvious errors that slip past your own proofreading.
 
-4. [**Canva — $0**](https://www.canva.com/) — Design the contract cover page, add your logo, and export to PDF. A well‑formatted contract on branded letterhead commands a higher price and builds client trust, even if the underlying text was generated by an AI.
+4. [**{{< platform name="canva" text="Canva" >}} — $0**](https://www.canva.com/) — Design the contract cover page, add your logo, and export to PDF. A well‑formatted contract on branded letterhead commands a higher price and builds client trust, even if the underlying text was generated by an AI.
 
-5. **Zapier — $0** — Automate lead capture from your website to your email list. The free tier limits you to 100 tasks per month, but that is sufficient to build a basic lead‑to‑draft pipeline. Connect your website's contact form to a Zap that creates a Notion page with the client's details and sends an automated welcome email.
+5. **{{< platform name="zapier" text="Zapier" >}} — $0** — Automate lead capture from your website to your email list. The free tier limits you to 100 tasks per month, but that is sufficient to build a basic lead‑to‑draft pipeline. Connect your website's contact form to a Zap that creates a Notion page with the client's details and sends an automated welcome email.
 
 6. **Loom — $0** — Record quick walkthrough videos to send to clients explaining the key clauses in their contract. A three‑minute Loom video attached to every delivered contract increases perceived value and reduces revision requests by 40%.
 
-7. **Buffer — $0** — Publish one social media post per week showcasing a sample contract or a before‑and‑after comparison of a manually drafted agreement versus your AI‑generated version. Consistency on LinkedIn is the single most effective organic lead generation strategy for B2B services.
+7. **Buffer — $0** — Publish one social media post per week showcasing a sample contract or a before‑and‑after comparison of a manually drafted agreement versus your AI‑generated version. Consistency on {{< platform name="linkedin" text="LinkedIn" >}} is the single most effective organic lead generation strategy for B2B services.
 
 **Limitations:** Free tiers cap usage aggressively. You will hit Zapier's 100‑task limit after just 10 to 15 client interactions, and ChatGPT's free tier throttles at 400K tokens per month. The free stack is perfect for proof of concept and your first five paying clients, but you will need to upgrade to maintain reliability and throughput as demand grows.
 
 {{% accent-box %}}
-**HACK:** Use Replit's free tier to build a tiny web interface that pulls a prompt from Notion, runs it through ChatGPT, and outputs a formatted PDF. It is a one‑page application that costs nothing and looks professional. Clients interact with a clean web form instead of sending you an email with their requirements scattered across multiple paragraphs.
+**HACK:** Use {{< platform name="replit" text="Replit" >}}'s free tier to build a tiny web interface that pulls a prompt from Notion, runs it through ChatGPT, and outputs a formatted PDF. It is a one‑page application that costs nothing and looks professional. Clients interact with a clean web form instead of sending you an email with their requirements scattered across multiple paragraphs.
 {{% /accent-box %}}
 
 ## The Paid Stack: When You're Ready to Scale
@@ -72,13 +72,13 @@ I have spent the last year building and scaling an AI contract writing service, 
 
 4. **ActiveCampaign — $29/mo** — Email marketing plus CRM with 200 contacts and 3,000 sends per month. Use it to automate your entire client nurture sequence, from initial inquiry to contract delivery to upsell follow‑up.
 
-5. [**Semrush — $129/mo**](https://www.semrush.com/) — Keyword research for your landing pages, competitive analysis, and backlink tracking. If you want organic traffic from businesses searching for "AI contract writer" or "fast NDA service," Semrush is essential.
+5. [**{{< platform name="semrush" text="Semrush" >}} — $129/mo**](https://www.semrush.com/) — Keyword research for your landing pages, competitive analysis, and backlink tracking. If you want organic traffic from businesses searching for "AI contract writer" or "fast NDA service," Semrush is essential.
 
 6. **Zapier — $19/mo (Professional)** — 2,000 tasks per month, multi‑step zaps, and priority support. Use Zapier for the integrations that Make.com does not handle natively, particularly connecting to your clients' existing tools like DocuSign, PandaDoc, or HelloSign.
 
-7. [**Fliki AI — $30/mo**](https://fliki.ai?referral=noah-wilson-w84be4) — Turn contract summaries into short explainer videos. A 60‑second video walkthrough of the key terms in a contract is a premium upsell that adds $100 to $200 per contract.
+7. [**{{< platform name="fliki" text="Fliki" >}} AI — $30/mo**](https://fliki.ai?referral=noah-wilson-w84be4) — Turn contract summaries into short explainer videos. A 60‑second video walkthrough of the key terms in a contract is a premium upsell that adds $100 to $200 per contract.
 
-8. [**ElevenLabs — $20/mo**](https://elevenlabs.io/) — High‑fidelity voiceover for video or audio contract summaries. Pair with Fliki AI to create professional‑quality walkthrough videos that explain complex clauses in plain language.
+8. [**{{< platform name="elevenlabs" text="ElevenLabs" >}} — $20/mo**](https://elevenlabs.io/) — High‑fidelity voiceover for video or audio contract summaries. Pair with Fliki AI to create professional‑quality walkthrough videos that explain complex clauses in plain language.
 
 9. **Canva Pro — $12.99/mo** — Unlimited brand kit, premium templates, and multi‑user access. Your contracts need to look like they came from a professional firm, not a kitchen table. Canva Pro's brand consistency tools ensure every document matches your visual identity.
 
@@ -163,7 +163,7 @@ The contract delivery is not the end of the relationship — it is the beginning
 
 ### Method 1: LinkedIn Direct Outreach (Conversion Rate: 10–15%)
 
-Use PhantomBuster or Apollo.io to auto‑connect with founders, COOs, and operations managers in the SaaS, fintech, and professional services niches. These roles sign contracts weekly and feel the pain of slow turnaround most acutely. Send a two‑sentence message: "Hey [Name], I can draft your next NDA in 30 seconds for $299. Want to see a demo?" The specificity of "30 seconds" and "$299" cuts through the noise of generic LinkedIn pitches.
+Use PhantomBuster or {{< platform name="apollo" text="Apollo" >}}.io to auto‑connect with founders, COOs, and operations managers in the SaaS, fintech, and professional services niches. These roles sign contracts weekly and feel the pain of slow turnaround most acutely. Send a two‑sentence message: "Hey [Name], I can draft your next NDA in 30 seconds for $299. Want to see a demo?" The specificity of "30 seconds" and "$299" cuts through the noise of generic LinkedIn pitches.
 
 ### Method 2: Content Marketing on LinkedIn (Conversion Rate: 5–8%)
 

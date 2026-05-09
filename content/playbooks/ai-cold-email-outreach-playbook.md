@@ -13,7 +13,7 @@ relatedGuide: "/intelligence/build-ai-cold-email-agency/"
 
 This is not a blog post condensed into a PDF. This is an operating system for building an AI cold email outreach agency. Every module contains exact procedures — not theories, not possibilities, not "consider doing X." You will do X, in this order, with these tools, and you will verify it worked before moving on.
 
-**44 procedures. 10 modules. 90+ hours of reading and execution.** If you complete every procedure, you will have a fully operational AI cold email outreach agency generating ₦6M–₦12M/month in recurring revenue within 180 days. If you skip procedures, you will have a half-configured Make.com scenario that burns through domains and lands in spam. The choice is yours.
+**44 procedures. 10 modules. 90+ hours of reading and execution.** If you complete every procedure, you will have a fully operational AI cold email outreach agency generating ₦6M–₦12M/month in recurring revenue within 180 days. If you skip procedures, you will have a half-configured {{< platform name="make" text="Make" >}} scenario that burns through domains and lands in spam. The choice is yours.
 
 ---
 
@@ -23,7 +23,7 @@ This is not a blog post condensed into a PDF. This is an operating system for bu
 
 Before you touch a single tool, you need to understand the exact business model you are building. An AI cold email outreach agency is not a "freelance email service." It is a systems business that acquires leads, warms them through AI-personalized sequences, and delivers booked meetings to clients on a performance or retainer basis. The margin comes from automation. One Make.com scenario can serve 20 clients simultaneously. That is the leverage.
 
-This module covers your agency structure, service definition, ICP (Ideal Client Profile) for your own agency, and the legal/financial skeleton you need before spending ₦1 on tools. Time required: 8–12 hours. Tools: None (yet). A Google Doc or Notion page.
+This module covers your agency structure, service definition, ICP (Ideal Client Profile) for your own agency, and the legal/financial skeleton you need before spending ₦1 on tools. Time required: 8–12 hours. Tools: None (yet). A Google Doc or {{< platform name="notion" text="Notion" >}} page.
 
 ### Procedure 1.1: Define Your Agency Service Model
 
@@ -75,7 +75,7 @@ This procedure is jurisdiction-dependent but mandatory. You will not run an agen
 
 **Nigeria (primary):** Register with CAC (Corporate Affairs Commission) at https://portal.cac.gov.ng as a Business Name or Limited Liability Company. Cost: ₦10,000–₦50,000 depending on structure.
 
-**US-facing (optional):** If targeting US clients, register a Wyoming LLC via https://www.wyomingcompany.com or https://stripe.com/atlas. Cost: $100–$500. This gives you a US bank account via Mercury (https://mercury.com) and Stripe access for card payments.
+**US-facing (optional):** If targeting US clients, register a Wyoming LLC via https://www.wyomingcompany.com or https://stripe.com/atlas. Cost: $100–$500. This gives you a US bank account via Mercury (https://mercury.com) and {{< platform name="stripe" text="Stripe" >}} access for card payments.
 
 Open a business bank account. Connect it to a payment processor:
 
@@ -85,7 +85,7 @@ Open a business bank account. Connect it to a payment processor:
 | Paystack | Nigerian clients, card/bank transfer | 1.5% + ₦100 |
 | Wise | International wire transfers | 0.5–1% |
 
-{{% accent-box %}}HACK: Open a Wise Business account immediately. You will need it for paying domain registrars, Google Workspace, and Apollo.io — all denominated in USD. The Wise virtual card avoids Nigerian card foreign transaction limits.{{% /accent-box %}}
+{{% accent-box %}}HACK: Open a Wise Business account immediately. You will need it for paying domain registrars, {{< platform name="google" text="Google" >}} Workspace, and Apollo.io — all denominated in USD. The Wise virtual card avoids Nigerian card foreign transaction limits.{{% /accent-box %}}
 
 ### Procedure 1.4: Create Your Agency's Outbound Asset (One-Page Site)
 
@@ -98,7 +98,7 @@ Structure:
 1. **Hero:** "We Build AI-Powered Outbound Engines That Book 15+ Meetings/Month for B2B Companies"
 2. **How It Works:** 3-step process (We Research → We Personalize → You Close)
 3. **Results:** "Average client sees 12–20 booked meetings/month within 60 days"
-4. **CTA:** "Book a 15-Minute Outbound Audit" → Calendly link
+4. **CTA:** "Book a 15-Minute Outbound Audit" → {{< platform name="calendly" text="Calendly" >}} link
 
 Connect a custom domain. Buy one at Namecheap (https://namecheap.com) — use `.co` or `.io` if `.com` is taken. Cost: ₦3,000–₦8,000/year.
 
@@ -160,16 +160,16 @@ Write these down in your Notion workspace. Create a page called "Agency Tech Sta
      "organization_num_employees_ranges": ["51-200"]
    }
    ```
-6. Click **Run once**. If you see a 200 response with a `people` array, your Apollo API is live. If you get a 401, your API key is wrong. Regenerate it at https://apollo.io/settings/integrations.
+6. Click **Run once**. If you see a 200 response with a `people` array, your {{< platform name="apollo" text="Apollo" >}} API is live. If you get a 401, your API key is wrong. Regenerate it at https://apollo.io/settings/integrations.
 
 Do you see a successful API response with contact data? If not, check: (1) Apollo plan includes API access (Pro plan required), (2) API key has no trailing spaces, (3) your Make.com account is on a paid plan (free plan has limited HTTP requests).
 
 ### Procedure 2.3: Configure OpenAI API Access
 
 1. Go to https://platform.openai.com/api-keys.
-2. Click **Create new secret key**. Name it: `make-agency-prod`. Copy it immediately — OpenAI will not show it again.
+2. Click **Create new secret key**. Name it: `make-agency-prod`. Copy it immediately — {{< platform name="openai" text="OpenAI" >}} will not show it again.
 3. Go to https://platform.openai.com/settings/organization/billing. Add ₦20,000 ($12) minimum credit. This funds your personalization engine. You will use GPT-4o-mini for most personalization (cheaper, fast) and GPT-4o for complex personalization tasks.
-4. In Make.com, add a new module: **OpenAI (ChatGPT) – Create a Chat Completion**. Connect using your API key.
+4. In Make.com, add a new module: **OpenAI ({{< platform name="chatgpt" text="ChatGPT" >}}) – Create a Chat Completion**. Connect using your API key.
 5. Set model to `gpt-4o-mini`, prompt: "Say 'API connection verified.'" Click **Run once**. You should see the response.
 
 {{% accent-box %}}HACK: Set a monthly spending limit on your OpenAI account at https://platform.openai.com/settings/organization/limits. Set it to $100/month initially. AI personalization for 50,000 emails/month should cost $30–$60. If it crosses $100, something in your Make.com loop is running unnecessarily.{{% /accent-box %}}
@@ -295,7 +295,7 @@ Apollo data is good but not perfect. Email verification rates hover around 85–
 5. Add enrichment columns:
    - **Work Email** (via Hunter.io integration in Clay)
    - **Email Verification** (via ZeroBounce integration in Clay)
-   - **LinkedIn Profile** (via Clay's native enrichment)
+   - **{{< platform name="linkedin" text="LinkedIn" >}} Profile** (via Clay's native enrichment)
    - **Recent Company News** (via Clay's Google News integration — this feeds your AI personalization)
 6. Filter out rows where email verification = "invalid" or "catch-all."
 7. Export the cleaned list as CSV.
@@ -334,7 +334,7 @@ Upload this CSV to Google Sheets. Name the sheet: `[ClientName]-LeadList-[Date]`
 
 Your email infrastructure determines whether your emails land in the primary inbox or the spam folder. This is not a "set it and forget it" operation. Google and Microsoft update their spam filters constantly. Your infrastructure must be built to withstand these updates — multiple domains, proper DNS records, gradual warmup, and continuous deliverability monitoring.
 
-This module is the most technical in the entire playbook. Execute it precisely. A single misconfigured DNS record will destroy your deliverability for weeks. Time required: 12–16 hours (spread over 14–21 days for warmup). Tools: Namecheap, Google Workspace, Instantly.ai, MXToolbox.
+This module is the most technical in the entire playbook. Execute it precisely. A single misconfigured DNS record will destroy your deliverability for weeks. Time required: 12–16 hours (spread over 14–21 days for warmup). Tools: Namecheap, Google Workspace, {{< platform name="instantly" text="Instantly" >}}.ai, MXToolbox.
 
 ### Procedure 4.1: Procure Sending Domains
 

@@ -22,7 +22,7 @@ This is not a blog post condensed into a PDF. This is a launch system for buildi
 Before you build a single automation, you need the infrastructure that runs your agency. This module sets up your project management, payments, email, and scheduling systems. These are not optional. Every successful agency operator has these systems in place before their first client call. Every failed operator skipped them.
 
 **Time to complete:** 2-3 hours
-**Tools needed:** Notion (free), Stripe (free), Google Workspace ($6/mo), Cal.com (free)
+**Tools needed:** {{< platform name="notion" text="Notion" >}} (free), Stripe (free), Google Workspace ($6/mo), Cal.com (free)
 
 ### Procedure 1.1: Create Your Agency Command Center in Notion
 
@@ -73,7 +73,7 @@ Do you see the test row in your table with all columns populated? If any columns
 
 Go to stripe.com and create an account. Complete the business verification process (you will need a bank account and personal identification). This typically takes 1-2 business days for approval.
 
-Once approved, you should see the Stripe dashboard with a "Test mode" toggle in the top-right corner. Do you see it? If your account is still pending verification, continue with the rest of this module and return to this step when approved.
+Once approved, you should see the {{< platform name="stripe" text="Stripe" >}} dashboard with a "Test mode" toggle in the top-right corner. Do you see it? If your account is still pending verification, continue with the rest of this module and return to this step when approved.
 
 #### Create Your Payment Products
 
@@ -113,7 +113,7 @@ Add a row for the current month with zero values. This is your starting line.
 
 #### Create Your Business Email
 
-If you do not have a professional email address on a custom domain, set one up now. Go to Google Workspace (workspace.google.com) and sign up for the Business Starter plan ($6/mo). Register a domain that matches your agency name (e.g., youragency.com) and create your email (e.g., hello@youragency.com or yourname@youragency.com).
+If you do not have a professional email address on a custom domain, set one up now. Go to {{< platform name="google" text="Google" >}} Workspace (workspace.google.com) and sign up for the Business Starter plan ($6/mo). Register a domain that matches your agency name (e.g., youragency.com) and create your email (e.g., hello@youragency.com or yourname@youragency.com).
 
 Do not use a personal Gmail address for client communication. It signals amateur status. A custom domain email costs $6/month and instantly elevates your perceived professionalism.
 
@@ -154,7 +154,7 @@ Your agency runs on tools. This module sets up every tool you need, connects the
 
 Go to make.com and sign up for the Free plan. You get 1,000 operations per month — enough to build and test your first 3-5 workflows.
 
-After signing in, you should see the Make.com dashboard with a "Create a new scenario" button in the center. Do you see it? If you see a different interface, click "Scenarios" in the left sidebar.
+After signing in, you should see the {{< platform name="make" text="Make" >}} dashboard with a "Create a new scenario" button in the center. Do you see it? If you see a different interface, click "Scenarios" in the left sidebar.
 
 #### Connect Your Core Services
 
@@ -162,8 +162,8 @@ In Make.com, click your profile icon (top-right) → **Connections** → **Add c
 
 1. **Google Sheets** — Authorize with your Google account
 2. **Gmail** — Authorize with your professional email
-3. **Slack** — Authorize with your Slack workspace (create one at slack.com if needed)
-4. **OpenAI** — Enter your API key from platform.openai.com/api-keys
+3. **{{< platform name="slack" text="Slack" >}}** — Authorize with your Slack workspace (create one at slack.com if needed)
+4. **{{< platform name="openai" text="OpenAI" >}}** — Enter your API key from platform.openai.com/api-keys
 5. **Notion** — Authorize with your Notion account
 
 After connecting each service, you should see a green "Connected" status next to it. Do you see green for all 5? If any show red or yellow:
@@ -350,7 +350,7 @@ After deploying, create an SOP in your Notion SOPs page for this specific automa
 This SOP serves three purposes: (1) you can rebuild the automation if Make.com loses it, (2) a junior builder can maintain it while you focus on sales, (3) it is a deliverable the client receives as part of their engagement.
 
 {{% accent-box %}}
-**HACK:** After writing the SOP, paste it into ChatGPT with the prompt: "Review this SOP for an automation agency. Identify any steps that are unclear, any missing error-handling scenarios, and any variables that might break if the input data changes format." This 60-second review catches 80% of documentation gaps before they become production problems.
+**HACK:** After writing the SOP, paste it into {{< platform name="chatgpt" text="ChatGPT" >}} with the prompt: "Review this SOP for an automation agency. Identify any steps that are unclear, any missing error-handling scenarios, and any variables that might break if the input data changes format." This 60-second review catches 80% of documentation gaps before they become production problems.
 {{% /accent-box %}}
 
 ### Module Check-In
@@ -796,7 +796,7 @@ Solo operators hit a ceiling at ~6-8 clients (~$10-15K/month). Breaking through 
 - Client communication (responding to emails, scheduling calls)
 - Data entry (updating Client Roster, logging test results)
 - Basic QC (running test protocols, reporting failures to you)
-- Social media posting (scheduling content in Buffer or Hootsuite)
+- Social media posting (scheduling content in {{< platform name="buffer" text="Buffer" >}} or Hootsuite)
 
 **When you have 10 clients:** Hire a Junior Builder. Budget: $15-25/hour, 20-30 hours/week. The Junior Builder handles:
 - Building new automations from your SOPs

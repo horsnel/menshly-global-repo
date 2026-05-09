@@ -10,11 +10,11 @@ heroImage: "/images/heroes/intelligence/build-automate-and-deploy-ai-translation
 relatedOpportunity: "/opportunities/how-to-build-an-ai-translation-and-localization-service-3k-20kmonth/"
 ---
 
-This is the execution guide for the AI translation and localization service business we outlined in our opportunity deep-dive. By following this step-by-step guide, you will build, automate, and deploy a scalable AI translation and localization service using ChatGPT, Make.com, and other industry-leading tools. You will learn how to integrate ChatGPT with Replit for cloud-based AI model training, utilize [Vapi](https://vapi.ai/) for AI voice agents, and leverage [Canva](https://www.canva.com/) for design and branding. Your finished product will be a fully functional AI translation and localization service that can be used to generate significant revenue.
+This is the execution guide for the AI translation and localization service business we outlined in our opportunity deep-dive. By following this step-by-step guide, you will build, automate, and deploy a scalable AI translation and localization service using {{< platform name="chatgpt" text="ChatGPT" >}}, Make.com, and other industry-leading tools. You will learn how to integrate ChatGPT with Replit for cloud-based AI model training, utilize [Vapi](https://vapi.ai/) for AI voice agents, and leverage [Canva](https://www.canva.com/) for design and branding. Your finished product will be a fully functional AI translation and localization service that can be used to generate significant revenue.
 
-This is not a high-level blog post, but a detailed execution guide that will walk you through every step of the process. We will cover everything from setting up your development environment with Replit, to training and deploying your AI models with ChatGPT, to automating workflows with Make.com and Zapier. You will also learn how to use ActiveCampaign for CRM and email marketing, and Klaviyo for targeted email campaigns. By the end of this guide, you will have a complete understanding of how to build, automate, and deploy a successful AI translation and localization service.
+This is not a high-level blog post, but a detailed execution guide that will walk you through every step of the process. We will cover everything from setting up your development environment with Replit, to training and deploying your AI models with ChatGPT, to automating workflows with {{< platform name="make" text="Make" >}} and Zapier. You will also learn how to use ActiveCampaign for CRM and email marketing, and Klaviyo for targeted email campaigns. By the end of this guide, you will have a complete understanding of how to build, automate, and deploy a successful AI translation and localization service.
 
-The total time commitment for this project is approximately 40-60 hours, and the estimated cost is around $500-$1000, depending on the specific tools and services you choose. This includes the cost of ChatGPT, Make.com, Replit, and other tools such as [Semrush](https://www.semrush.com/) for SEO optimization and Hostinger for web hosting. Ready to understand the full business opportunity? Read our opportunity deep-dive (/opportunities/how-to-build-an-ai-translation-and-localization-service-3k-20kmonth.md) to learn more about the potential earnings and market demand for this service.
+The total time commitment for this project is approximately 40-60 hours, and the estimated cost is around $500-$1000, depending on the specific tools and services you choose. This includes the cost of ChatGPT, Make.com, {{< platform name="replit" text="Replit" >}}, and other tools such as [Semrush](https://www.semrush.com/) for SEO optimization and Hostinger for web hosting. Ready to understand the full business opportunity? Read our opportunity deep-dive (/opportunities/how-to-build-an-ai-translation-and-localization-service-3k-20kmonth.md) to learn more about the potential earnings and market demand for this service.
 
 ### Prerequisites
 
@@ -22,7 +22,7 @@ The total time commitment for this project is approximately 40-60 hours, and the
 
 Before you dive into building the AI‑translation pipeline, gather the following accounts, tools, and settings. All items are required to avoid mid‑project roadblocks.
 
-- **OpenAI (ChatGPT) API** – Create an account at [https://platform.openai.com](https://platform.openai.com).  
+- **{{< platform name="openai" text="OpenAI" >}} (ChatGPT) API** – Create an account at [https://platform.openai.com](https://platform.openai.com).  
   - **Key**: Generate an API key in the “API Keys” section.  
   - **Pricing**: Pay‑as‑you‑go starts at **$0.002 per 1 000 tokens** (no upfront fee).  
   - **Setup**: Store the key in an environment variable `OPENAI_API_KEY` on your server or Replit secrets panel.
@@ -42,7 +42,7 @@ Before you dive into building the AI‑translation pipeline, gather the followin
   - **Setup**: Create a scenario that pulls messages from a webhook, calls the Replit container, and returns the JSON payload.  
   - **Free Tier**: 500 tasks/month (not enough for concurrent requests).
 
-- **GitHub** – Optional but recommended for version control.  
+- **{{< platform name="github" text="GitHub" >}}** – Optional but recommended for version control.  
   - **Plan**: Free public repo; paid plans start at $4 / month.
 
 **Estimated Time to Prepare**  
@@ -359,7 +359,7 @@ async def forward(payload):
 ### Step 3: Test and Validate  
 
 Testing is the safety net that guarantees your AI‑translation microservice behaves exactly as expected before you hand it to production.  
-Below you’ll run a series of sanity checks against the **/translate** endpoint, the Make.com webhook, and the Vapi voice‑to‑text pipeline.  Follow each sub‑step carefully and pause for the interactive check‑ins.
+Below you’ll run a series of sanity checks against the **/translate** endpoint, the Make.com webhook, and the {{< platform name="vapi" text="Vapi" >}} voice‑to‑text pipeline.  Follow each sub‑step carefully and pause for the interactive check‑ins.
 
 1. **Verify the API health endpoint**  
    *Navigate to your deployed URL (Hostinger or Replit) and append `/health`.  
@@ -394,7 +394,7 @@ Below you’ll run a series of sanity checks against the **/translate** endpoint
 3. **Validate Make.com webhook trigger**  
    *Open Make.com → **Scenario** → **Add Trigger** → Search “HTTP Request” → Choose **Webhooks** → **Custom webhook**.  
    Paste the URL `https://your‑app.example.com/webhook/translate` into the scenario.  
-   In the scenario editor, add an **HTTP** action that sends the translated text to Shopify:  
+   In the scenario editor, add an **HTTP** action that sends the translated text to {{< platform name="shopify" text="Shopify" >}}:  
    - **Method**: POST  
    - **URL**: `https://{shop}.myshopify.com/admin/api/2024-01/products/{product_id}.json`  
    - **Headers**: `Content-Type: application/json`, `X-Shopify-Access-Token: <token>`  
@@ -496,7 +496,7 @@ In this phase we bring the translation engine from a good prototype to a product
    - URL: `https://your-replit-app.com/api/translate`  
    - Body: JSON, map `{{Text}}` and `{{TargetLang}}` from the webhook payload.  
    3.4. **Action 2**: Add a Filter: `If TargetLang NOT IN ("en","es","fr","de","pt")` → **Route** to “Human Review” path.  
-   3.5. **Action 3**: If the filter passes, add “Send email” via **Klaviyo**:  
+   3.5. **Action 3**: If the filter passes, add “Send email” via **{{< platform name="klaviyo" text="Klaviyo" >}}**:  
    - List: “Translation Requests”  
    - Subject: “New Translation Request – {{TargetLang}}”  
    - Body: Include the translated text (from HTTP response).  
@@ -537,7 +537,7 @@ In this phase we bring the translation engine from a good prototype to a product
    4.3. Call `log_translation()` at the end of `translate_and_speak`.  
    4.4. **Check‑in**: In Hostinger’s cPanel, navigate to **phpMyAdmin** → `translations` → `logs`. You should see a new row after a translation request.  
 
-5. **Monitoring & Alerting with Zapier**  
+5. **Monitoring & Alerting with {{< platform name="zapier" text="Zapier" >}}**  
    5.1. Create a Zap that watches the `logs` table via a MySQL
 
 ### Step 5: Deploy to Production  

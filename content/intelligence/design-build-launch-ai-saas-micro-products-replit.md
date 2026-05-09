@@ -18,19 +18,19 @@ Before you write a single line of code, set up these accounts. Every tool listed
 
 **Required accounts (create these now):**
 
-- **Replit** — go to replit.com and sign up. Free tier includes basic compute and 0.5 GiB memory. Upgrade to Replit Core at $25/mo when you need always-on hosting and more compute. Go to replit.com → Sign Up → follow the email verification.
-- **ChatGPT API** — go to platform.openai.com and create an account. Navigate to API Keys and generate a new key. Load $5 credit for initial development. Expect to spend $5-50/mo depending on usage volume. The API key starts with `sk-` and you will paste it into your application's environment variables.
+- **{{< platform name="replit" text="Replit" >}}** — go to replit.com and sign up. Free tier includes basic compute and 0.5 GiB memory. Upgrade to Replit Core at $25/mo when you need always-on hosting and more compute. Go to replit.com → Sign Up → follow the email verification.
+- **{{< platform name="chatgpt" text="ChatGPT" >}} API** — go to platform.openai.com and create an account. Navigate to API Keys and generate a new key. Load $5 credit for initial development. Expect to spend $5-50/mo depending on usage volume. The API key starts with `sk-` and you will paste it into your application's environment variables.
 - **Hostinger** — go to hostinger.com and sign up. The Single Shared Hosting plan starts at $2.99/mo. You will use Hostinger for custom domain hosting, landing pages, and blog content. Purchase a domain through Hostinger when you are ready to deploy (approximately $10/year for a .com domain).
-- **Stripe account** — go to stripe.com and sign up. Free to create. Stripe charges 2.9% + $0.30 per transaction when you collect payments. There are no monthly fees. You will use Stripe for subscriptions, one-time payments, and usage-based billing.
-- **Calendly** — go to calendly.com and sign up. Free tier includes one event type, which is sufficient for booking demo calls and onboarding sessions with early users. Upgrade when you need multiple meeting types.
-- **Notion** — go to notion.so and sign up. Free tier is sufficient for project management, documentation, MVP scoping, and support tracking. You will use Notion throughout this guide to document decisions and track progress.
+- **{{< platform name="stripe" text="Stripe" >}} account** — go to stripe.com and sign up. Free to create. Stripe charges 2.9% + $0.30 per transaction when you collect payments. There are no monthly fees. You will use Stripe for subscriptions, one-time payments, and usage-based billing.
+- **{{< platform name="calendly" text="Calendly" >}}** — go to calendly.com and sign up. Free tier includes one event type, which is sufficient for booking demo calls and onboarding sessions with early users. Upgrade when you need multiple meeting types.
+- **{{< platform name="notion" text="Notion" >}}** — go to notion.so and sign up. Free tier is sufficient for project management, documentation, MVP scoping, and support tracking. You will use Notion throughout this guide to document decisions and track progress.
 
 **Additional tools (set up as needed):**
 
-- **Make.com** — go to make.com and sign up. Free tier includes 1,000 operations/mo. You will use Make.com for automated email sequences, webhook-based notifications, and cross-product workflows.
+- **{{< platform name="make" text="Make" >}}.com** — go to make.com and sign up. Free tier includes 1,000 operations/mo. You will use Make.com for automated email sequences, webhook-based notifications, and cross-product workflows.
 - **Loom** — go to loom.com and sign up. Free tier for recording product demos and walkthrough videos. Use Loom to create demo videos for your landing page and Product Hunt launch.
 
-**Total startup cost: approximately $30/mo** (Replit Core $25 + Hostinger $3 + domain $1/mo annualized). OpenAI API costs scale with usage and are covered by your first paying customers. Stripe costs nothing until transactions flow. Calendly and Notion are free.
+**Total startup cost: approximately $30/mo** (Replit Core $25 + Hostinger $3 + domain $1/mo annualized). {{< platform name="openai" text="OpenAI" >}} API costs scale with usage and are covered by your first paying customers. Stripe costs nothing until transactions flow. Calendly and Notion are free.
 
 **Time required:** 40-80 hours for your first MVP (1-2 weeks of focused work). Subsequent products take 20-40 hours once you have a reusable template.
 
@@ -40,7 +40,7 @@ Your entire development workflow happens inside Replit. This step covers account
 
 #### Create Your Replit Account and Workspace
 
-1. Go to replit.com and click **Sign Up**. Use your GitHub or Google account for fastest setup.
+1. Go to replit.com and click **Sign Up**. Use your GitHub or {{< platform name="google" text="Google" >}} account for fastest setup.
 2. After email verification, you land on the Replit dashboard. Click **+ Create Repl** in the top-right corner.
 3. Select **Python** as the template language. Name the Repl `ai-micro-saas-v1`. Click **Create Repl**.
 4. The Replit IDE loads. You should see three panels: a file explorer on the left, a code editor in the center, and a console at the bottom. A preview pane appears on the right when you run the application.
@@ -163,7 +163,7 @@ Your MVP must do exactly one thing well. Document this scope in Notion before wr
 - Support for 3 tones: professional, casual, luxury
 
 **Out of Scope (Do Not Build This in V1):**
-- Direct Shopify/WooCommerce integration (add in V2 after user feedback)
+- Direct {{< platform name="shopify" text="Shopify" >}}/WooCommerce integration (add in V2 after user feedback)
 - Bulk image generation for products (add in V3)
 - Custom tone training (add based on user demand)
 - Multi-language support (add when you have international users)
@@ -416,7 +416,7 @@ The application includes Flask-Login for session-based authentication. The flow 
 For production, consider adding:
 - Email verification (send a confirmation link using Make.com + SMTP)
 - Password reset flow (generate a token, send via email, verify on reset)
-- OAuth login (Google, GitHub) using Authlib or Flask-Dance
+- OAuth login (Google, {{< platform name="github" text="GitHub" >}}) using Authlib or Flask-Dance
 
 These are not necessary for your MVP. Ship first, add authentication polish after users confirm they want the product.
 
@@ -858,7 +858,7 @@ Building the product is 30% of the work. Getting people to use it is 70%. This s
 
 Your landing page is separate from your application. It lives on Hostinger and serves as the marketing front door:
 
-1. In Hostinger, install WordPress on your domain (one-click installer in the control panel).
+1. In Hostinger, install {{< platform name="wordpress" text="WordPress" >}} on your domain (one-click installer in the control panel).
 2. Install a lightweight theme (GeneratePress or Astra). Avoid heavy page builders — page speed matters for conversions.
 3. Create a single landing page with these sections, in this order:
    - **Hero:** Headline that states the problem + solution. Example: "Generate product descriptions in seconds, not hours." Subheadline: "Upload a CSV. Get SEO-optimized descriptions for your entire catalog." CTA button: "Start Free — 5 Descriptions."
@@ -901,7 +901,7 @@ Automate your social media presence so you can focus on product development:
 1. **Create a Make.com scenario** that triggers when you publish a new blog post on Hostinger:
    - Module 1: RSS trigger (your blog's RSS feed)
    - Module 2: Create a tweet from the blog title + link
-   - Module 3: Create a LinkedIn post from the blog excerpt + link
+   - Module 3: Create a {{< platform name="linkedin" text="LinkedIn" >}} post from the blog excerpt + link
    - Module 4: Schedule both posts for optimal engagement times (9 AM and 12 PM EST)
 
 2. **Create a second Make.com scenario** for user milestone notifications:
@@ -931,7 +931,7 @@ Target 10-15 demo calls in your first month. Each call generates direct feedback
 
 Post about your product in these communities with a genuine, non-promotional tone:
 
-- **Reddit:** r/SaaS, r/ecommerce, r/Entrepreneur, r/smallbusiness (read each subreddit's self-promotion rules first)
+- **{{< platform name="reddit" text="Reddit" >}}:** r/SaaS, r/ecommerce, r/Entrepreneur, r/smallbusiness (read each subreddit's self-promotion rules first)
 - **Indie Hackers:** Post a "I just launched" thread with revenue numbers
 - **Twitter/X:** Share your build-in-public journey, screenshots, and early user feedback
 - **Facebook Groups:** E-commerce seller groups, Shopify community groups

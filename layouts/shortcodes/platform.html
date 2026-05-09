@@ -1,15 +1,15 @@
 {{- /*
   Platform Icon Shortcode
-  
+
   Usage:
-    Inline: {{< platform "chatgpt" >}} — small icon + text
-    Block:  {{< platform "chatgpt" display="card" >}} — card with icon + name + description
-    Icon only: {{< platform "chatgpt" display="icon" >}} — just the icon
-    Custom size: {{< platform "chatgpt" size="32" >}} — custom pixel size
-    Custom text: {{< platform "chatgpt" text="ChatGPT Plus" >}} — override display name
+    Inline: {{< platform name="chatgpt" >}} — small icon + text
+    Block:  {{< platform name="chatgpt" display="card" >}} — card with icon + name
+    Icon only: {{< platform name="chatgpt" display="icon" >}} — just the icon
+    Custom size: {{< platform name="chatgpt" size="32" >}} — custom pixel size
+    Custom text: {{< platform name="chatgpt" text="ChatGPT Plus" >}} — override display name
 */ -}}
 
-{{- $name := .Get 0 -}}
+{{- $name := .Get "name" -}}
 {{- $display := .Get "display" | default "inline" -}}
 {{- $size := .Get "size" | default "20" -}}
 {{- $text := .Get "text" | default (title $name) -}}

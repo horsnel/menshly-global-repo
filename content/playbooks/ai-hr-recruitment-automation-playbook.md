@@ -13,7 +13,7 @@ relatedGuide: "/intelligence/build-ai-hr-recruitment-automation-system/"
 
 This is not a blog post condensed into a PDF. This is an operating system for building an AI-powered HR and recruitment automation business from zero to ₦10,000,000/month in recurring revenue. Every module contains exact procedures — not theories, not possibilities, not "consider doing X." You will do X, in this order, with these tools, and you will verify it worked before moving on.
 
-**35 procedures. 10 modules. 8+ hours of reading and execution.** If you complete every procedure, you will have a functioning recruitment automation practice with paying clients. If you skip procedures, you will have a folder of half-finished Zapier workflows and no revenue. The choice is yours.
+**35 procedures. 10 modules. 8+ hours of reading and execution.** If you complete every procedure, you will have a functioning recruitment automation practice with paying clients. If you skip procedures, you will have a folder of half-finished {{< platform name="zapier" text="Zapier" >}} workflows and no revenue. The choice is yours.
 
 ---
 
@@ -24,7 +24,7 @@ This is not a blog post condensed into a PDF. This is an operating system for bu
 Before you automate a single resume screening, you need the infrastructure that runs your recruitment practice. This module sets up your project management, client portal, financial tracking, and communication systems. These are not optional. Every successful recruitment operator has these systems in place before their first client call. Every failed operator skipped them.
 
 **Time to complete:** 3-4 hours
-**Tools needed:** Notion (free), Greenhouse or Lever (free trial), Zapier (free tier), Paystack (free)
+**Tools needed:** {{< platform name="notion" text="Notion" >}} (free), Greenhouse or Lever (free trial), Zapier (free tier), Paystack (free)
 
 ### Procedure 1.1: Create Your Recruitment Command Center in Notion
 
@@ -130,7 +130,7 @@ Add a row for the current month with zero values. This is your starting line.
 
 #### Create Your Business Email
 
-If you do not have a professional email address on a custom domain, set one up now. Go to Google Workspace (workspace.google.com) and sign up for the Business Starter plan ($6/mo). Register a domain that matches your practice name and create your email.
+If you do not have a professional email address on a custom domain, set one up now. Go to {{< platform name="google" text="Google" >}} Workspace (workspace.google.com) and sign up for the Business Starter plan ($6/mo). Register a domain that matches your practice name and create your email.
 
 Do not use a personal Gmail address for client communication. It signals amateur status. A custom domain email costs $6/month and instantly elevates your perceived professionalism.
 
@@ -174,7 +174,7 @@ Your recruitment practice runs on tools. This module sets up every tool you need
 
 ### Procedure 2.1: Set Up Your Applicant Tracking System
 
-Go to greenhouse.io or lever.co and sign up for a free trial of their applicant tracking system (ATS). Greenhouse is the industry standard for structured hiring; Lever excels at candidate relationship management. Both offer robust APIs that are essential for automation.
+Go to greenhouse.io or lever.co and sign up for a free trial of their applicant tracking system (ATS). {{< platform name="greenhouse" text="Greenhouse" >}} is the industry standard for structured hiring; Lever excels at candidate relationship management. Both offer robust APIs that are essential for automation.
 
 After signing in, you should see the ATS dashboard. Create a test job posting: "Marketing Manager — Test Client." Add the following stages to the hiring pipeline: Application Received → AI Pre-Screen → Phone Screen → Assessment → Interview → Offer.
 
@@ -190,7 +190,7 @@ In Zapier, click **My Apps** in the left sidebar → **Add connection**. Connect
 2. **Google Sheets** — Authorize with your Google account
 3. **Gmail** — Authorize with your professional email
 4. **Notion** — Authorize with your Notion account
-5. **Slack** — Authorize with your Slack workspace
+5. **{{< platform name="slack" text="Slack" >}}** — Authorize with your Slack workspace
 
 After connecting each service, you should see a green "Connected" status. Do you see green for all 5? If any show red or yellow, re-authorize and make sure you approve all permissions.
 
@@ -206,21 +206,21 @@ Navigate to **Usage limits** and set a monthly limit of $100. This prevents a bu
 
 #### Anthropic Claude API (Recommended for Resume Analysis)
 
-Go to console.anthropic.com and create an account. Navigate to **API Keys** and create a key. Add $10 in credit. Claude is superior to GPT-4o for long-form document analysis, nuanced candidate evaluation, and complex reasoning tasks involving multi-step hiring criteria. Use GPT-4o for structured outputs (JSON) and Claude for resume deep-dives and culture-fit assessments.
+Go to console.anthropic.com and create an account. Navigate to **API Keys** and create a key. Add $10 in credit. {{< platform name="claude" text="Claude" >}} is superior to GPT-4o for long-form document analysis, nuanced candidate evaluation, and complex reasoning tasks involving multi-step hiring criteria. Use GPT-4o for structured outputs (JSON) and Claude for resume deep-dives and culture-fit assessments.
 
 {{% accent-box %}}
-**HACK:** Set up two separate OpenAI API keys — one for production automations and one for testing. When a test workflow goes haywire, it burns through the testing key's credit, not your production budget. Create the keys at platform.openai.com/api-keys and label them "prod-recruitment" and "dev-recruitment."
+**HACK:** Set up two separate {{< platform name="openai" text="OpenAI" >}} API keys — one for production automations and one for testing. When a test workflow goes haywire, it burns through the testing key's credit, not your production budget. Create the keys at platform.openai.com/api-keys and label them "prod-recruitment" and "dev-recruitment."
 {{% /accent-box %}}
 
 ### Procedure 2.4: Set Up Your Candidate Sourcing Tools
 
 #### LinkedIn Recruiter Lite
 
-Go to linkedin.com/recruiter and sign up for Recruiter Lite ($170/month). This gives you 30 InMail messages per month and access to LinkedIn's full candidate database. This is the single most important sourcing tool in your arsenal. If you cannot afford it yet, use the free LinkedIn search with boolean operators.
+Go to linkedin.com/recruiter and sign up for Recruiter Lite ($170/month). This gives you 30 InMail messages per month and access to {{< platform name="linkedin" text="LinkedIn" >}}'s full candidate database. This is the single most important sourcing tool in your arsenal. If you cannot afford it yet, use the free LinkedIn search with boolean operators.
 
 #### Apollo.io Free Plan
 
-Go to apollo.io and create a free account. The free plan gives you access to 5,000 email credits per month and a massive B2B contact database. You will use Apollo to find passive candidates who are not actively applying but match your client's requirements.
+Go to apollo.io and create a free account. The free plan gives you access to 5,000 email credits per month and a massive B2B contact database. You will use {{< platform name="apollo" text="Apollo" >}} to find passive candidates who are not actively applying but match your client's requirements.
 
 #### Slack Workspace Configuration
 
@@ -395,7 +395,7 @@ Test the trigger. Do you see sample application data? You should see fields like
 
 #### Step B: AI Resume Evaluation
 
-Add a **ChatGPT** step (OpenAI in Zapier):
+Add a **{{< platform name="chatgpt" text="ChatGPT" >}}** step (OpenAI in Zapier):
 
 - **Model:** `gpt-4o`
 - **System Message:**
@@ -484,7 +484,7 @@ Add a **Paths** step:
 3. Google Sheets → Log to "Candidate Pipeline" sheet
 4. Slack → Alert `#candidate-alerts` with candidate summary
 
-**Path B: Medium Score (60-79)** — PHONE SCREEN
+**Path B: {{< platform name="medium" text="Medium" >}} Score (60-79)** — PHONE SCREEN
 1. ATS → Move candidate to "Phone Screen" stage
 2. Gmail → Send scheduling email with Cal.com link
 3. Google Sheets → Log to "Candidate Pipeline" sheet

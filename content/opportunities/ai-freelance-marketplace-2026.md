@@ -20,7 +20,7 @@ I am going to walk you through every dimension of this opportunity: why the timi
 
 Three converging trends make the AI freelance marketplace one of the most attractive opportunities in the platform economy.
 
-First: the AI skills premium is real and growing. According to LinkedIn's 2025 Workforce Report, job postings requiring AI skills have increased 2,100% since 2023, and professionals with AI certifications earn 25-40% more than their non-AI counterparts. Freelancers who can demonstrate AI proficiency are booked months in advance. Meanwhile, 73% of businesses report difficulty finding AI-skilled contractors. This supply-demand gap is your marketplace's entire reason for existing.
+First: the AI skills premium is real and growing. According to {{< platform name="linkedin" text="LinkedIn" >}}'s 2025 Workforce Report, job postings requiring AI skills have increased 2,100% since 2023, and professionals with AI certifications earn 25-40% more than their non-AI counterparts. Freelancers who can demonstrate AI proficiency are booked months in advance. Meanwhile, 73% of businesses report difficulty finding AI-skilled contractors. This supply-demand gap is your marketplace's entire reason for existing.
 
 Second: existing freelance platforms are not purpose-built for AI work. Upwork, Fiverr, and Toptal treat AI projects like any other category — buried under generic labels like "Data Science" or "Machine Learning." They do not account for the unique nature of AI freelance work: the need for prompt engineering skills, familiarity with specific AI tools and APIs, understanding of AI workflow automation, and the ability to evaluate AI-generated output quality. A dedicated platform that vets freelancers on these specific competencies and matches them with businesses that need exactly these skills creates a fundamentally better marketplace.
 
@@ -32,7 +32,7 @@ Let me hit you with the ugly truths, because marketplaces look like easy money f
 
 > **Truth No. 1:** Marketplaces have a chicken-and-egg problem. You need freelancers to attract businesses, and you need businesses to attract freelancers. Solving this cold-start problem is the single hardest challenge. Expect to spend 3-4 months manually recruiting both sides before the marketplace becomes self-sustaining.
 
-> **Truth No. 2:** Trust is everything. AI work is inherently harder to evaluate than traditional freelance work. A business hiring a logo designer can look at a portfolio. A business hiring an "AI automation specialist" cannot easily evaluate whether the freelancer's Make.com workflows are well-built or whether their prompt engineering skills are genuinely advanced. You need a vetting system that creates trust or the marketplace will fill with low-quality providers who destroy the platform's reputation.
+> **Truth No. 2:** Trust is everything. AI work is inherently harder to evaluate than traditional freelance work. A business hiring a logo designer can look at a portfolio. A business hiring an "AI automation specialist" cannot easily evaluate whether the freelancer's {{< platform name="make" text="Make" >}} workflows are well-built or whether their prompt engineering skills are genuinely advanced. You need a vetting system that creates trust or the marketplace will fill with low-quality providers who destroy the platform's reputation.
 
 > **Truth No. 3:** Transaction volume starts painfully low. Marketplaces generate revenue on transaction volume. At 10 completed projects per month with an average value of $300 and a 15% take rate, you earn $450/month. That is not a business — that is a side project that costs more to run than it earns. You need to reach critical mass (100+ transactions/month) before the economics become attractive.
 
@@ -48,13 +48,13 @@ You can validate this marketplace concept this weekend for exactly $0. Here is t
 
 **Carrd — $0 (free tier)** — Landing page builder for your marketplace pre-launch page. Collect emails of interested freelancers and businesses before the marketplace goes live.
 
-**Notion Free — $0** — Your operational HQ. Track freelancers, businesses, projects, and revenue in databases. Build your vetting process documentation here.
+**{{< platform name="notion" text="Notion" >}} Free — $0** — Your operational HQ. Track freelancers, businesses, projects, and revenue in databases. Build your vetting process documentation here.
 
-**Google Forms — $0** — Freelancer application form and business project brief form. Use conditional logic to qualify applicants before they join the marketplace.
+**{{< platform name="google" text="Google" >}} Forms — $0** — Freelancer application form and business project brief form. Use conditional logic to qualify applicants before they join the marketplace.
 
-**Slack Free — $0** — Community hub for your freelancers. Free tier supports up to 10,000 messages. This becomes your marketplace's moat — the community and relationships that exist outside the transaction layer.
+**{{< platform name="slack" text="Slack" >}} Free — $0** — Community hub for your freelancers. Free tier supports up to 10,000 messages. This becomes your marketplace's moat — the community and relationships that exist outside the transaction layer.
 
-**ChatGPT Free — $0** — Use AI to generate freelancer assessments, write marketplace copy, create onboarding materials, and draft outreach emails.
+**{{< platform name="chatgpt" text="ChatGPT" >}} Free — $0** — Use AI to generate freelancer assessments, write marketplace copy, create onboarding materials, and draft outreach emails.
 
 > **HACK: The "Curated List" Cold Start.** Do not launch with a full marketplace. Start with a curated list. Create a simple Notion page or Google Sheet called "Top 25 AI Freelancers Available Now." Manually recruit 25 AI-skilled freelancers through Twitter, LinkedIn, and Upwork profiles. List their skills, rates, and availability. Share this list in 10 Facebook groups and Slack communities where small business owners hang out. When businesses want to hire someone from the list, you make the introduction manually (via email). You take a 15% referral fee. This is not a marketplace — it is a matchmaking service. But it validates demand, generates early revenue, and teaches you what both sides actually need before you invest in building a platform.
 
@@ -62,15 +62,14 @@ You can validate this marketplace concept this weekend for exactly $0. Here is t
 
 Once you have validated demand through the matchmaking service and have 50+ freelancers and 30+ businesses in your pipeline, invest in the tools that turn the service into a scalable platform.
 
-**Sharetribe Go — $79/mo** — Full marketplace platform with unlimited listings, Stripe integration for payments, and custom branding. This is your marketplace infrastructure.
+**Sharetribe Go — $79/mo** — Full marketplace platform with unlimited listings, {{< platform name="stripe" text="Stripe" >}} integration for payments, and custom branding. This is your marketplace infrastructure.
 
 **Stripe Connect — 2.9% + 30c per transaction** — Payment processing with marketplace-specific features like split payments (you take your commission, the freelancer gets the rest automatically), escrow, and dispute resolution.
 
-**Typeform — $25/mo** — Professional onboarding forms for freelancers and businesses. Better UX than Google Forms and integrates with Notion via Zapier.
+**Typeform — $25/mo** — Professional onboarding forms for freelancers and businesses. Better UX than Google Forms and integrates with Notion via {{< platform name="zapier" text="Zapier" >}} 
+**{{< platform name="mailchimp" text="Mailchimp" >}} — $13/mo** — Email marketing for nurturing leads, announcing new freelancers, and sending project opportunities to businesses.
 
-**Mailchimp — $13/mo** — Email marketing for nurturing leads, announcing new freelancers, and sending project opportunities to businesses.
-
-**Airtable — $20/mo** — More powerful than Notion for managing the marketplace database. Supports relational data (freelancers linked to projects linked to businesses), advanced filtering, and API access for connecting to your marketplace platform.
+**{{< platform name="airtable" text="Airtable" >}} — $20/mo** — More powerful than Notion for managing the marketplace database. Supports relational data (freelancers linked to projects linked to businesses), advanced filtering, and API access for connecting to your marketplace platform.
 
 **Total monthly cost: $137 + payment processing.** At 50 completed projects per month with an average value of $400 and a 15% take rate, you generate $3,000/month in platform fees. The tools are paid for by month two.
 
@@ -92,7 +91,7 @@ Do not try to cover every AI skill. Start with 4-6 categories where demand is hi
 
 **AI SEO Specialist** — Optimizes websites and content using AI-powered tools and workflows. Verifiable skill: case studies with ranking improvements, familiarity with AI SEO tools. Average project value: $300-2,000.
 
-**AI Voice Agent Developer** — Builds and deploys voice AI agents for phone systems. Verifiable skill: live voice agent demo, familiarity with Vapi/Bland.ai. Average project value: $1,000-10,000.
+**AI Voice Agent Developer** — Builds and deploys voice AI agents for phone systems. Verifiable skill: live voice agent demo, familiarity with {{< platform name="vapi" text="Vapi" >}}/Bland.ai. Average project value: $1,000-10,000.
 
 ### Step 2: Build Your Vetting Process (1 weekend)
 
@@ -100,7 +99,7 @@ The vetting process determines the quality of your marketplace and is the single
 
 **Tier 1: Application Review (5 minutes per applicant).** Every freelancer fills out a Google Form with: name, email, primary AI skill, years of experience, portfolio URL, LinkedIn URL, and a 200-word answer to "Describe a recent AI project you completed and the measurable results." You review applications weekly. Reject anyone without a portfolio or with vague results.
 
-**Tier 2: Skills Assessment (30 minutes per applicant).** Send qualified applicants a skills test tailored to their category. Example for AI Automation Specialist: "Build a Make.com scenario that takes a Typeform submission, enriches the data with OpenAI, and routes the output to a Google Sheet based on a score threshold. Record a Loom video walking through your build." You evaluate the submission on: correctness, efficiency, error handling, and communication clarity. Pass rate should be 30-40%.
+**Tier 2: Skills Assessment (30 minutes per applicant).** Send qualified applicants a skills test tailored to their category. Example for AI Automation Specialist: "Build a Make.com scenario that takes a Typeform submission, enriches the data with {{< platform name="openai" text="OpenAI" >}}, and routes the output to a Google Sheet based on a score threshold. Record a Loom video walking through your build." You evaluate the submission on: correctness, efficiency, error handling, and communication clarity. Pass rate should be 30-40%.
 
 **Tier 3: Trial Project (optional, for premium marketplace).** Assign a small paid trial project. The business pays a discounted rate, the freelancer delivers the work, and you evaluate the communication, timeliness, and quality. This tier is only necessary if you are positioning as a premium marketplace.
 
@@ -122,7 +121,7 @@ Manual recruitment is the only way to start. Here is the playbook.
 
 **Referral partnerships:** Partner with business coaches, startup accelerators, and co-working spaces. They have networks of small business owners who need AI help but do not know where to start. Offer them 5% of your platform fee for any business they refer who completes a project.
 
-**Content marketing:** Write articles like "How to Hire an AI Freelancer (Without Getting Burned)" and publish on LinkedIn and Medium. This positions you as an authority and attracts businesses searching for AI freelance talent.
+**Content marketing:** Write articles like "How to Hire an AI Freelancer (Without Getting Burned)" and publish on LinkedIn and {{< platform name="medium" text="Medium" >}} This positions you as an authority and attracts businesses searching for AI freelance talent.
 
 ## Pricing and Monetization
 

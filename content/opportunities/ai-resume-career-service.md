@@ -20,11 +20,11 @@ I'm going to lay out everything: the exact tools, every hack, every ugly truth, 
 
 ## Why This Works Right Now
 
-**Reason 1: AI can now produce career documents that rival professional writers.** Three years ago, AI-generated resumes sounded robotic and generic — they were obvious to any recruiter who read them. Today, a well-prompted Claude or GPT-4 produces tailored, compelling career documents that pass both ATS systems and human review. The quality gap between AI output and $500 human-written resumes has collapsed to near zero for most use cases. ChatGPT understands industry-specific language, ATS optimization rules, and the subtle art of framing experience as impact rather than duty. The key word is "well-prompted" — garbage in, garbage out still applies, but the ceiling for what AI can produce has risen dramatically, and most traditional resume writers haven't noticed.
+**Reason 1: AI can now produce career documents that rival professional writers.** Three years ago, AI-generated resumes sounded robotic and generic — they were obvious to any recruiter who read them. Today, a well-prompted Claude or GPT-4 produces tailored, compelling career documents that pass both ATS systems and human review. The quality gap between AI output and $500 human-written resumes has collapsed to near zero for most use cases. {{< platform name="chatgpt" text="ChatGPT" >}} understands industry-specific language, ATS optimization rules, and the subtle art of framing experience as impact rather than duty. The key word is "well-prompted" — garbage in, garbage out still applies, but the ceiling for what AI can produce has risen dramatically, and most traditional resume writers haven't noticed.
 
 **Reason 2: Applicant Tracking Systems have created an optimization problem that AI solves perfectly.** Over 98% of Fortune 500 companies use ATS software to filter resumes. These systems scan for specific keywords, formatting patterns, and experience markers before a human ever sees the document. A resume that looks beautiful to a person but lacks the right keywords will never reach a human reviewer. AI can analyze a job description, identify the critical keywords and phrases, and optimize a resume specifically for that posting in seconds. This is not cheating — it is strategic communication, and it is a service that job seekers desperately need and are willing to pay for because the alternative is getting filtered into oblivion by an algorithm.
 
-**Reason 3: The career services market is fragmented and inconsistent.** Independent resume writers charge $200 to $1,500 with wildly varying quality. One writer produces a brilliant resume; another produces mediocrity for the same price. Career coaching platforms charge $100 to $300 per month for generic advice. LinkedIn Learning charges $30 per month but provides no personalized guidance. Your AI-powered service delivers personalized, optimized career documents at $49 to $297, a price point that captures the massive middle market of job seekers who cannot afford traditional services but need more than a DIY approach. This middle market is estimated at over 40 million active job seekers in the US alone at any given time.
+**Reason 3: The career services market is fragmented and inconsistent.** Independent resume writers charge $200 to $1,500 with wildly varying quality. One writer produces a brilliant resume; another produces mediocrity for the same price. Career coaching platforms charge $100 to $300 per month for generic advice. {{< platform name="linkedin" text="LinkedIn" >}} Learning charges $30 per month but provides no personalized guidance. Your AI-powered service delivers personalized, optimized career documents at $49 to $297, a price point that captures the massive middle market of job seekers who cannot afford traditional services but need more than a DIY approach. This middle market is estimated at over 40 million active job seekers in the US alone at any given time.
 
 ## The Realistic Picture (Before You Get Excited)
 
@@ -40,11 +40,11 @@ I'm going to lay out everything: the exact tools, every hack, every ugly truth, 
 
 **ChatGPT Free — $0** — Resume writing, cover letter generation, LinkedIn profile optimization, and interview question preparation. The free tier handles most career document tasks adequately, though GPT-4 output is noticeably better for premium packages.
 
-**Google Docs — $0** — Document creation and formatting. Build resume templates that you customize for each client. Google Docs supports collaborative editing, so clients can review and comment directly.
+**{{< platform name="google" text="Google" >}} Docs — $0** — Document creation and formatting. Build resume templates that you customize for each client. Google Docs supports collaborative editing, so clients can review and comment directly.
 
-**Canva Free — $0** — Resume design templates and visual formatting. Create professional-looking resume layouts that stand out. Canva's free tier has hundreds of resume templates you can customize.
+**{{< platform name="canva" text="Canva" >}} Free — $0** — Resume design templates and visual formatting. Create professional-looking resume layouts that stand out. Canva's free tier has hundreds of resume templates you can customize.
 
-**Notion Free — $0** — Client management, order tracking, and prompt library organization. Build a Notion workspace to manage your entire operation from intake to delivery.
+**{{< platform name="notion" text="Notion" >}} Free — $0** — Client management, order tracking, and prompt library organization. Build a Notion workspace to manage your entire operation from intake to delivery.
 
 **Gumroad — $0** — Sell your services online. Free to start, takes 10% per sale. Simpler than setting up a full e-commerce platform, and the checkout experience is clean enough that it won't hurt conversions.
 
@@ -56,13 +56,13 @@ I'm going to lay out everything: the exact tools, every hack, every ugly truth, 
 
 **ChatGPT Plus — $20/mo** — GPT-4 access for higher-quality output, larger context windows, and priority access. Essential for handling complex career documents and producing the nuanced writing that premium packages demand.
 
-**Claude Pro — $20/mo** — Superior to ChatGPT for nuanced, industry-specific writing. Claude excels at producing text that sounds human and thoughtful rather than AI-generated. Use Claude for premium resume packages that require sophisticated language and careful framing of career transitions.
+**{{< platform name="claude" text="Claude" >}} Pro — $20/mo** — Superior to ChatGPT for nuanced, industry-specific writing. Claude excels at producing text that sounds human and thoughtful rather than AI-generated. Use Claude for premium resume packages that require sophisticated language and careful framing of career transitions.
 
 **Jobscan Pro — $50/mo** — Unlimited ATS scans, keyword optimization, and match rate tracking. Essential for delivering the ATS optimization that justifies your premium pricing and differentiates you from free tools.
 
 **Teachable — $39/mo** — Sell career courses and workshops alongside your resume service. Creates a second revenue stream that scales without requiring one-on-one time.
 
-**Stripe — Free + 2.9% per transaction** — Professional payment processing with subscription support. Stripe handles invoicing, recurring billing, and payment tracking so you can focus on delivering quality work.
+**{{< platform name="stripe" text="Stripe" >}} — Free + 2.9% per transaction** — Professional payment processing with subscription support. Stripe handles invoicing, recurring billing, and payment tracking so you can focus on delivering quality work.
 
 **Cal.com — $0 (free tier)** — Schedule career coaching calls and interview prep sessions. Integrates with your existing calendar and supports group bookings for workshop sessions.
 
@@ -102,7 +102,7 @@ Save these prompts in your Notion Prompt Library. Refine them after every 10 cli
 
 ### Step 3: Build Your Sales Funnel (1 weekend)
 
-**Top of funnel:** Free resume review lead magnet promoted on LinkedIn, Twitter/X, and Reddit communities like r/resumes, r/jobs, and r/careerguidance. Each free review is a qualified lead who has already seen the quality of your analysis. You should also create SEO-optimized blog content targeting keywords like "ATS-friendly resume 2026," "how to optimize resume for ATS," and "AI resume writing service review."
+**Top of funnel:** Free resume review lead magnet promoted on LinkedIn, Twitter/X, and {{< platform name="reddit" text="Reddit" >}} communities like r/resumes, r/jobs, and r/careerguidance. Each free review is a qualified lead who has already seen the quality of your analysis. You should also create SEO-optimized blog content targeting keywords like "ATS-friendly resume 2026," "how to optimize resume for ATS," and "AI resume writing service review."
 
 **Middle of funnel:** Email nurture sequence — 5 emails over 10 days with career tips, ATS insights, and client success stories. Each email includes a soft pitch for your paid service. Use the sequence to build trust and urgency. Day 1: Welcome + top 3 resume mistakes. Day 3: ATS optimization guide. Day 5: Client success story. Day 7: Comparison of DIY vs professional resume. Day 10: Limited-time discount offer.
 
@@ -153,7 +153,7 @@ Most career services are one-and-done transactions. Your advantage is building o
 
 > **HACK No. 3:** Build a "Reverse Job Board" — instead of showing job listings, show companies that are actively hiring and the specific resume keywords and formats their ATS systems prefer. This data comes from analyzing hundreds of job descriptions with ChatGPT and organizing the patterns by company and industry. Offer it as a free resource to attract job seekers, then upsell them on resume optimization tailored to their target companies. The reverse job board costs you nothing to maintain once built and positions you as the expert on how ATS systems actually work.
 
-> **HACK No. 4:** Automate your follow-up sequence with Make.com. When a client receives their resume, trigger a 7-day follow-up sequence: Day 1 asks for feedback, Day 3 offers the interview prep add-on, Day 5 sends a salary negotiation tip, Day 7 requests a review or testimonial. This sequence runs automatically and typically generates an additional $15-30 per client in upsells and referrals without any manual effort.
+> **HACK No. 4:** Automate your follow-up sequence with {{< platform name="make" text="Make" >}} When a client receives their resume, trigger a 7-day follow-up sequence: Day 1 asks for feedback, Day 3 offers the interview prep add-on, Day 5 sends a salary negotiation tip, Day 7 requests a review or testimonial. This sequence runs automatically and typically generates an additional $15-30 per client in upsells and referrals without any manual effort.
 
 > **HACK No. 5:** The "Seasonal Surge" strategy. Job seeking peaks in January-February (New Year's resolutions, annual budgets) and September-October (post-summer hiring). In the 6 weeks before each peak, run targeted ads on LinkedIn and Facebook promoting your service with seasonal messaging: "New Year, New Career — Get Your Resume Ready for the January Hiring Surge." Pre-sell packages at a 20% discount to lock in revenue before the rush. During slow months (November-December, July-August), focus on building your template library, improving your prompts, and creating content for the next peak.
 

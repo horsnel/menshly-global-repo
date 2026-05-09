@@ -18,14 +18,14 @@ Most online courses fail. Not because the content is bad — because the creator
 Before you start, gather these accounts and tools:
 
 - A laptop with a microphone (built-in is fine to start) and a modern browser (Chrome or Firefox)
-- A ChatGPT account — go to chat.openai.com and sign up. Free tier works. ChatGPT Plus ($20/mo) is better for longer outputs and GPT-4o access. Get it if you can afford it.
-- A Canva account (free tier) — go to canva.com and sign up
+- A ChatGPT account — go to chat.openai.com and sign up. Free tier works. {{< platform name="chatgpt" text="ChatGPT" >}} Plus ($20/mo) is better for longer outputs and GPT-4o access. Get it if you can afford it.
+- A {{< platform name="canva" text="Canva" >}} account (free tier) — go to canva.com and sign up
 - An OBS Studio installation — go to obsproject.com, download, and install. Free. This is your recording software.
-- A Google account (for Google Docs, Sheets, and YouTube)
+- A {{< platform name="google" text="Google" >}} account (for Google Docs, Sheets, and YouTube)
 - A Loom account (free tier) — go to loom.com and sign up. 25 videos/month on free. Optional if you use OBS exclusively.
 - A Gumroad account (free to list) — go to gumroad.com and sign up. They take 10% per transaction. No monthly fee. This is your first course platform.
 - A ConvertKit account (free up to 1,000 subscribers) — go to convertkit.com and sign up. This is your email marketing engine.
-- A Notion account (free tier) — go to notion.so and sign up. This is your project management and content organization hub.
+- A {{< platform name="notion" text="Notion" >}} account (free tier) — go to notion.so and sign up. This is your project management and content organization hub.
 - 15-20 hours of focused time across 2-3 weekends
 
 Total upfront cost: $0 if you use all free tiers. $20/mo if you upgrade to ChatGPT Plus. You do not need to spend money until you have a product to sell.
@@ -58,7 +58,7 @@ Reject any topic with a declining trend line. The market is cooling. You do not 
 
 For each topic that passes the Google Trends test, click "Related queries" in the right sidebar. These are the specific phrases people search for. Write down the top 10 related queries for each topic. These become your lesson topics later.
 
-Now open YouTube. Search for each topic. Sort by "View count." Look at the top 10 videos. Record:
+Now open {{< platform name="youtube" text="YouTube" >}} Search for each topic. Sort by "View count." Look at the top 10 videos. Record:
 - The view count of each video
 - The upload date
 - Whether the video is from a course creator selling something (look for links in the description)
@@ -107,8 +107,7 @@ You should have:
 - 10 related search queries from Google Trends
 - View counts from the top 10 YouTube videos on your topic
 - Enrollment counts from the top 5 Udemy courses on your topic
-- A list of 10 specific questions your target audience asks on Reddit
-
+- A list of 10 specific questions your target audience asks on {{< platform name="reddit" text="Reddit" >}} 
 If you are missing any of these, go back and complete the research. You are building on a foundation of data, not guesses. If your chosen topic has fewer than 10,000 total Udemy enrollments across all courses and fewer than 50,000 YouTube views on top videos, pick a different topic. The market is too small.
 
 ## Step 2: Design the Curriculum with AI
@@ -488,7 +487,7 @@ This guide provides setup steps for all three. Follow the one you chose.
 3. Enter your course name and upload the thumbnail.
 4. Click **Add Category** for each module. Under each category, click **Add Post** for each lesson. Upload the video file and attach the worksheet PDF.
 5. Click **Assessments** → **New Quiz** for each module. Enter the quiz questions from your Google Sheet.
-6. Click **Offers** → **New Offer**. Set your pricing (see Step 8). Connect your Stripe or PayPal account for payments.
+6. Click **Offers** → **New Offer**. Set your pricing (see Step 8). Connect your {{< platform name="stripe" text="Stripe" >}} or PayPal account for payments.
 7. Click **Marketing** → **Funnel** → **New Funnel** → **Sales Page**. Build your sales page using Kajabi's drag-and-drop builder (see Step 7 for copy).
 8. Click **Email Campaigns** → **New Campaign**. Set up your email sequences (see Step 9).
 9. Click **Publish**. Your course is live.
@@ -824,4 +823,4 @@ Once your course is live and your first students are enrolling, expand and compo
 - **Launch an affiliate program.** Offer 30-50% commissions to anyone who refers students. Teachable and Kajabi have built-in affiliate management. Your happiest students become your sales force.
 - **Build a cohort-based version.** Run the course live with a group of 20-30 students over 6 weeks. Charge $497-997. Record the live sessions. Use the recordings to update the self-paced course. The cohort version generates higher revenue per student and produces fresh content simultaneously.
 - **Add a subscription tier.** Offer ongoing access to updated content, monthly live Q&A sessions, and a private community for $29-49/month. A student who pays $247 once is valuable. A student who pays $39/month for 12 months is more valuable.
-- **Repurpose course content everywhere.** Turn lesson scripts into blog posts. Turn slide presentations into LinkedIn carousels. Turn quiz questions into Instagram stories. One course's content can generate 6 months of social media posts. Use ChatGPT to reformat each lesson into 5 different content types.
+- **Repurpose course content everywhere.** Turn lesson scripts into blog posts. Turn slide presentations into {{< platform name="linkedin" text="LinkedIn" >}} carousels. Turn quiz questions into Instagram stories. One course's content can generate 6 months of social media posts. Use ChatGPT to reformat each lesson into 5 different content types.

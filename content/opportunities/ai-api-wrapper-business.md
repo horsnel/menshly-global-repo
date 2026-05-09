@@ -14,17 +14,16 @@ relatedPlaybook: "/playbooks/ai-side-hustle-blueprint/"
 
 There's a 23-year-old in Lagos who makes $32,000 a month selling access to an AI writing tool he didn't build. He doesn't train models. He doesn't have a GPU cluster. He doesn't even have a PhD in machine learning. What he has is a clean interface wrapped around GPT-4 that solves one specific problem for one specific type of customer — legal contract drafting for Nigerian SMEs — and he charges $49/month for it. His customers don't know or care that GPT-4 is doing the heavy lifting. They care that his tool saves them 15 hours a week and $800 in lawyer fees. That's the API wrapper business in a nutshell, and almost nobody is talking about it.
 
-Here's what makes this model so powerful: you're not competing with OpenAI or Anthropic. You're standing on their shoulders. They spend billions training models and fighting talent wars. You spend a weekend building a focused product on top of their output, targeting a market they'll never serve directly because it's too small for them to care about. OpenAI is never going to build a "contract drafting tool for Nigerian SMEs." But you can, and you can charge $49/month for it, and there are 41 million SMEs in Nigeria alone. That's the API wrapper gold rush, and it's happening right now while everyone else is busy trying to build the next ChatGPT.
-
+Here's what makes this model so powerful: you're not competing with OpenAI or Anthropic. You're standing on their shoulders. They spend billions training models and fighting talent wars. You spend a weekend building a focused product on top of their output, targeting a market they'll never serve directly because it's too small for them to care about. OpenAI is never going to build a "contract drafting tool for Nigerian SMEs." But you can, and you can charge $49/month for it, and there are 41 million SMEs in Nigeria alone. That's the API wrapper gold rush, and it's happening right now while everyone else is busy trying to build the next {{< platform name="chatgpt" text="ChatGPT" >}} 
 I'm going to lay out everything: the exact tools, every hack, every ugly truth, and the realistic numbers. This is the business model that quietly powers half the AI SaaS products you see on Product Hunt, and the margins will make your head spin.
 
 ## Why This Works Right Now
 
-**Reason 1: AI model APIs have become absurdly cheap and powerful.** When GPT-3 launched in 2020, API access was expensive and the output was mediocre. Today, GPT-4o costs roughly $2.50 per million input tokens and $10 per million output tokens. Claude 3.5 Sonnet is similarly priced. Llama 3 is free if you host it yourself. These prices have dropped 90% in two years and continue falling. This means your cost of goods sold — the raw AI inference — is now a rounding error compared to what you can charge. A single GPT-4o API call that costs you $0.03 can produce output that a customer happily pays $0.50 to $5.00 for, because you've wrapped it in a workflow, interface, and experience that makes it 10x more useful than raw API access.
+**Reason 1: AI model APIs have become absurdly cheap and powerful.** When GPT-3 launched in 2020, API access was expensive and the output was mediocre. Today, GPT-4o costs roughly $2.50 per million input tokens and $10 per million output tokens. {{< platform name="claude" text="Claude" >}} 3.5 Sonnet is similarly priced. Llama 3 is free if you host it yourself. These prices have dropped 90% in two years and continue falling. This means your cost of goods sold — the raw AI inference — is now a rounding error compared to what you can charge. A single GPT-4o API call that costs you $0.03 can produce output that a customer happily pays $0.50 to $5.00 for, because you've wrapped it in a workflow, interface, and experience that makes it 10x more useful than raw API access.
 
 **Reason 2: The gap between raw AI models and usable products is massive.** GPT-4 is the most capable AI model on the planet, but 95% of people cannot use it effectively. They don't know how to write prompts. They don't know how to chain multiple calls together. They don't know how to validate output or handle edge cases. They open ChatGPT, type a vague question, get a mediocre response, and conclude AI isn't ready yet. Your API wrapper bridges this gap. You package the model's raw capability into a focused tool that solves a specific problem for a specific person, with pre-built prompts, validation logic, and a user experience that requires zero AI knowledge. The value isn't in the model — it's in the wrapper.
 
-**Reason 3: Vertical-specific AI tools command premium pricing.** A generic AI writing assistant might charge $10/month and compete with 500 similar products. But a "Real Estate Listing Generator for Dubai Agents" or a "Medical Chart Notes Writer for US Nurse Practitioners" can charge $49 to $199/month because it solves a specific pain point for people who are already spending thousands on the problem. The more specific your wrapper, the higher your price, and the less direct competition you face. OpenAI serves the horizontal market. You serve the verticals they'll never touch because each one is too small to move their revenue needle but large enough to make you rich.
+**Reason 3: Vertical-specific AI tools command premium pricing.** A generic AI writing assistant might charge $10/month and compete with 500 similar products. But a "Real Estate Listing Generator for Dubai Agents" or a "Medical Chart Notes Writer for US Nurse Practitioners" can charge $49 to $199/month because it solves a specific pain point for people who are already spending thousands on the problem. The more specific your wrapper, the higher your price, and the less direct competition you face. {{< platform name="openai" text="OpenAI" >}} serves the horizontal market. You serve the verticals they'll never touch because each one is too small to move their revenue needle but large enough to make you rich.
 
 ## The Realistic Picture (Before You Get Excited)
 
@@ -40,17 +39,17 @@ I'm going to lay out everything: the exact tools, every hack, every ugly truth, 
 
 **OpenAI API — Pay per use** — Start with GPT-4o-mini at $0.15 per million input tokens for prototyping. Move to GPT-4o for production. Your first 100 users will cost you roughly $5-10 in API calls.
 
-**Vercel Free Tier — $0** — Deploy your wrapper as a Next.js app with serverless functions. Free tier includes 100GB bandwidth and serverless function execution. Sufficient for your first 1,000 users.
+**{{< platform name="vercel" text="Vercel" >}} Free Tier — $0** — Deploy your wrapper as a Next.js app with serverless functions. Free tier includes 100GB bandwidth and serverless function execution. Sufficient for your first 1,000 users.
 
 **Next.js — $0** — The framework purpose-built for API wrappers. Server-side rendering, API routes, and a massive ecosystem of components. Deploy to Vercel with one command.
 
 **Supabase Free Tier — $0** — PostgreSQL database, authentication, and storage for user data, API keys, and usage tracking. Free tier handles 50,000 rows and 500MB storage.
 
-**Stripe Free — Pay per transaction (2.9% + $0.30)** — Payment processing with subscription management, usage-based billing, and customer portal. No monthly fees.
+**{{< platform name="stripe" text="Stripe" >}} Free — Pay per transaction (2.9% + $0.30)** — Payment processing with subscription management, usage-based billing, and customer portal. No monthly fees.
 
 **Tailwind CSS — $0** — Utility-first CSS framework for building clean, professional interfaces fast. Pair with shadcn/ui components for production-ready UI.
 
-**GitHub — $0** — Version control and CI/CD. GitHub Actions free tier gives you 2,000 minutes per month for automated testing and deployment.
+**{{< platform name="github" text="GitHub" >}} — $0** — Version control and CI/CD. GitHub Actions free tier gives you 2,000 minutes per month for automated testing and deployment.
 
 > **HACK:** Start with a single-page app that does one thing extremely well. Don't build a dashboard, settings page, and billing system on day one. Build the core feature — the API wrapper that solves the specific problem — and validate that people will pay for it before you build anything else. Use Stripe Payment Links for the first 50 customers so you don't even need to build a checkout page. You can have a paying product live in 48 hours with this approach.
 
@@ -64,7 +63,7 @@ I'm going to lay out everything: the exact tools, every hack, every ugly truth, 
 
 **Resend — $20/mo** — Transactional email for onboarding sequences, password resets, and usage notifications. Much more reliable than self-hosted email.
 
-**PostHog — $0 (free tier)** — Product analytics, session replays, and feature flags. Understand how users interact with your wrapper so you can optimize conversion and retention.
+**{{< platform name="posthog" text="PostHog" >}} — $0 (free tier)** — Product analytics, session replays, and feature flags. Understand how users interact with your wrapper so you can optimize conversion and retention.
 
 **Sentry — $26/mo** — Error monitoring and performance tracking. Essential for catching API failures, slow responses, and edge cases before your users complain.
 
@@ -89,15 +88,15 @@ The most critical step. Do not skip this. The difference between a $5K/month wra
 
 **Where to find verticals:**
 - Browse industry-specific forums and Facebook groups. What questions do people ask repeatedly? What tools do they complain about?
-- Search LinkedIn for job titles that involve repetitive writing or analysis: paralegals, real estate agents, HR managers, medical coders, compliance officers, grant writers, proposal managers
+- Search {{< platform name="linkedin" text="LinkedIn" >}} for job titles that involve repetitive writing or analysis: paralegals, real estate agents, HR managers, medical coders, compliance officers, grant writers, proposal managers
 - Look at existing AI SaaS products on Product Hunt, AppSumo, and G2. Which ones have bad reviews? Those complaints are your product roadmap.
 - Check Upwork and Fiverr for services that people are paying freelancers to do with AI. If someone is paying $50 for a freelancer to use ChatGPT, they'll pay $20/month for your wrapper.
 
 **Validate before you build:**
-- Create a landing page with your value proposition and a "Join Waitlist" button. Drive $50 of traffic to it via LinkedIn or Reddit ads. If you get 50+ signups, the vertical has legs. If you get fewer than 10, pick a different vertical.
+- Create a landing page with your value proposition and a "Join Waitlist" button. Drive $50 of traffic to it via LinkedIn or {{< platform name="reddit" text="Reddit" >}} ads. If you get 50+ signups, the vertical has legs. If you get fewer than 10, pick a different vertical.
 - Call or DM 10 potential customers and ask them to describe their current workflow. If they can explain the problem clearly and it involves repetitive AI-able tasks, you've found gold.
 
-> **HACK:** Search for "ChatGPT prompt for [industry] [task]" on Twitter, Reddit, and YouTube. If you find people sharing prompts for a specific task, that means (1) the task is common enough to warrant prompts, (2) people are currently solving it with raw ChatGPT, and (3) they'd pay for a tool that automates the prompt workflow. The best wrapper opportunities are hiding in plain sight inside prompt-sharing communities.
+> **HACK:** Search for "ChatGPT prompt for [industry] [task]" on Twitter, Reddit, and {{< platform name="youtube" text="YouTube" >}} If you find people sharing prompts for a specific task, that means (1) the task is common enough to warrant prompts, (2) people are currently solving it with raw ChatGPT, and (3) they'd pay for a tool that automates the prompt workflow. The best wrapper opportunities are hiding in plain sight inside prompt-sharing communities.
 
 ### Step 2: Build Your MVP (3-7 days)
 
@@ -140,7 +139,7 @@ Once you have 100+ paying users, shift focus from acquisition to retention and d
 
 **Improve output quality continuously.** Review your AI outputs weekly. Identify patterns in user complaints. Refine your system prompt based on real-world usage. The better your output, the higher your retention and the more justified your pricing.
 
-**Add integrations.** Connect your wrapper to tools your customers already use. If your customers use Google Docs, add a one-click export. If they use Slack, add a Slack bot integration. Each integration makes your product stickier and harder to replace.
+**Add integrations.** Connect your wrapper to tools your customers already use. If your customers use {{< platform name="google" text="Google" >}} Docs, add a one-click export. If they use Slack, add a Slack bot integration. Each integration makes your product stickier and harder to replace.
 
 **Build usage-based features.** Track which features users interact with most. Double down on those. Kill features that nobody uses. Your product should become more valuable over time as you add features that are specifically requested by your paying users.
 

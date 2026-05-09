@@ -20,10 +20,10 @@ Build content businesses, faceless channels, and media pipelines with these AI-p
 
 <a href="https://fliki.ai?referral=noah-wilson-w84be4" target="_blank" rel="nofollow noopener" class="affiliate-card">
   <div class="affiliate-card-header">
-    <span class="affiliate-card-name">Fliki AI</span>
+    <span class="affiliate-card-name">{{< platform name="fliki" text="Fliki" >}} AI</span>
     <span class="affiliate-card-earn">Up to 30% recurring</span>
   </div>
-  <p class="affiliate-card-desc">AI text-to-video platform — script to finished video in 10 minutes. Perfect for faceless YouTube channels and content repurposing.</p>
+  <p class="affiliate-card-desc">AI text-to-video platform — script to finished video in 10 minutes. Perfect for faceless {{< platform name="youtube" text="YouTube" >}} channels and content repurposing.</p>
 </a>
 
 <a href="https://www.opus.pro/" target="_blank" rel="nofollow noopener" class="affiliate-card">
@@ -68,7 +68,7 @@ Ship AI-powered SaaS products, web apps, and automations faster with these tools
 
 <a href="https://replit.com/refer/egwuokwor" target="_blank" rel="nofollow noopener" class="affiliate-card">
   <div class="affiliate-card-header">
-    <span class="affiliate-card-name">Replit</span>
+    <span class="affiliate-card-name">{{< platform name="replit" text="Replit" >}}</span>
     <span class="affiliate-card-earn">$10 per signup</span>
   </div>
   <p class="affiliate-card-desc">Cloud IDE — build and deploy AI SaaS products from your browser. No local setup needed, instant deployment.</p>
@@ -116,7 +116,7 @@ Automate everything — from emails to SEO to project management.
 
 <a href="https://www.make.com/en/register?pc=menshly" target="_blank" rel="nofollow noopener" class="affiliate-card">
   <div class="affiliate-card-header">
-    <span class="affiliate-card-name">Make.com</span>
+    <span class="affiliate-card-name">{{< platform name="make" text="Make" >}}.com</span>
     <span class="affiliate-card-earn">Referral credits</span>
   </div>
   <p class="affiliate-card-desc">Visual automation platform — connect any app without code. The backbone of every AI automation agency.</p>
@@ -124,7 +124,7 @@ Automate everything — from emails to SEO to project management.
 
 <a href="https://notion.so/" target="_blank" rel="nofollow noopener" class="affiliate-card">
   <div class="affiliate-card-header">
-    <span class="affiliate-card-name">Notion</span>
+    <span class="affiliate-card-name">{{< platform name="notion" text="Notion" >}}</span>
     <span class="affiliate-card-earn">$10 credit per referral</span>
   </div>
   <p class="affiliate-card-desc">All-in-one workspace — notes, docs, project management. Run your entire business from one tool.</p>
@@ -156,7 +156,7 @@ Grow audiences, land in inboxes, and scale outreach.
 
 <a href="https://instantly.ai/" target="_blank" rel="nofollow noopener" class="affiliate-card">
   <div class="affiliate-card-header">
-    <span class="affiliate-card-name">Instantly.ai</span>
+    <span class="affiliate-card-name">{{< platform name="instantly" text="Instantly" >}}.ai</span>
     <span class="affiliate-card-earn">30% recurring</span>
   </div>
   <p class="affiliate-card-desc">Cold email outreach — send unlimited emails, land in inbox every time. Essential for lead generation agencies.</p>
@@ -180,7 +180,7 @@ Grow audiences, land in inboxes, and scale outreach.
 
 <a href="https://www.tidio.com/" target="_blank" rel="nofollow noopener" class="affiliate-card">
   <div class="affiliate-card-header">
-    <span class="affiliate-card-name">Tidio</span>
+    <span class="affiliate-card-name">{{< platform name="tidio" text="Tidio" >}}</span>
     <span class="affiliate-card-earn">30% recurring</span>
   </div>
   <p class="affiliate-card-desc">AI live chat and chatbot — automate customer support. Turn website visitors into customers 24/7.</p>
@@ -199,12 +199,12 @@ Rank higher, research faster, and find opportunities before competitors.
     <span class="affiliate-card-name">Surfer SEO</span>
     <span class="affiliate-card-earn">25% recurring</span>
   </div>
-  <p class="affiliate-card-desc">AI SEO tool — optimize content to rank on Google. Content scores, keyword research, and SERP analysis in one platform.</p>
+  <p class="affiliate-card-desc">AI SEO tool — optimize content to rank on {{< platform name="google" text="Google" >}} Content scores, keyword research, and SERP analysis in one platform.</p>
 </a>
 
 <a href="https://www.semrush.com/" target="_blank" rel="nofollow noopener" class="affiliate-card">
   <div class="affiliate-card-header">
-    <span class="affiliate-card-name">Semrush</span>
+    <span class="affiliate-card-name">{{< platform name="semrush" text="Semrush" >}}</span>
     <span class="affiliate-card-earn">$200 per subscription sale</span>
   </div>
   <p class="affiliate-card-desc">All-in-one SEO and marketing toolkit — keyword research, audits, rank tracking. The gold standard for SEO agencies.</p>
@@ -228,7 +228,7 @@ Produce polished content faster — from first draft to final edit.
 
 <a href="https://grammarly.com/" target="_blank" rel="nofollow noopener" class="affiliate-card">
   <div class="affiliate-card-header">
-    <span class="affiliate-card-name">Grammarly</span>
+    <span class="affiliate-card-name">{{< platform name="grammarly" text="Grammarly" >}}</span>
     <span class="affiliate-card-earn">$25 per Premium referral</span>
   </div>
   <p class="affiliate-card-desc">AI writing assistant — grammar, tone, clarity. Make every piece of content professional before you hit publish.</p>
@@ -252,7 +252,7 @@ Build voice agents, clone voices, and create audio content at scale.
 
 <a href="https://elevenlabs.io/" target="_blank" rel="nofollow noopener" class="affiliate-card">
   <div class="affiliate-card-header">
-    <span class="affiliate-card-name">ElevenLabs</span>
+    <span class="affiliate-card-name">{{< platform name="elevenlabs" text="ElevenLabs" >}}</span>
     <span class="affiliate-card-earn">Referral credits</span>
   </div>
   <p class="affiliate-card-desc">AI voice synthesis — natural voiceovers and voice cloning. Create professional audio content in any voice.</p>
@@ -260,7 +260,7 @@ Build voice agents, clone voices, and create audio content at scale.
 
 <a href="https://vapi.ai/" target="_blank" rel="nofollow noopener" class="affiliate-card">
   <div class="affiliate-card-header">
-    <span class="affiliate-card-name">Vapi</span>
+    <span class="affiliate-card-name">{{< platform name="vapi" text="Vapi" >}}</span>
     <span class="affiliate-card-earn">Referral credits</span>
   </div>
   <p class="affiliate-card-desc">AI voice agent platform — build and deploy voice AI. Create phone agents, voice bots, and conversational AI.</p>
@@ -324,7 +324,7 @@ Sell products online and design anything — from merch to marketing assets.
 
 <a href="https://www.shopify.com/" target="_blank" rel="nofollow noopener" class="affiliate-card">
   <div class="affiliate-card-header">
-    <span class="affiliate-card-name">Shopify</span>
+    <span class="affiliate-card-name">{{< platform name="shopify" text="Shopify" >}}</span>
     <span class="affiliate-card-earn">$150 per paying referral</span>
   </div>
   <p class="affiliate-card-desc">E-commerce platform — start an online store and sell globally. The most popular platform for dropshipping and DTC brands.</p>
@@ -340,7 +340,7 @@ Sell products online and design anything — from merch to marketing assets.
 
 <a href="https://www.canva.com/" target="_blank" rel="nofollow noopener" class="affiliate-card">
   <div class="affiliate-card-header">
-    <span class="affiliate-card-name">Canva</span>
+    <span class="affiliate-card-name">{{< platform name="canva" text="Canva" >}}</span>
     <span class="affiliate-card-earn">Canva Credits per referral</span>
   </div>
   <p class="affiliate-card-desc">Design anything — social graphics, presentations, videos with AI. Professional design without the learning curve.</p>

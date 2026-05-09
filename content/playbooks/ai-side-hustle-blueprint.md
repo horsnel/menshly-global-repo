@@ -21,7 +21,7 @@ This playbook is not a motivational speech. It is a catalog of 25 business model
 
 Every model in this section has been verified as viable in 2026. "Verified" means someone is actively earning money from it, the tools exist and work, and the market demand is real. I have excluded models that require significant upfront capital, advanced technical skills, or regulatory compliance (like legal or medical AI). These are side hustles — things you can start this weekend with a laptop and an internet connection.
 
-Each model is rated on three dimensions: **Ease of Start** (how quickly you can begin), **Revenue Ceiling** (how much you can realistically earn at scale), and **Time Flexibility** (how much control you have over when you work). Ratings use a simple scale: Low, Medium, High.
+Each model is rated on three dimensions: **Ease of Start** (how quickly you can begin), **Revenue Ceiling** (how much you can realistically earn at scale), and **Time Flexibility** (how much control you have over when you work). Ratings use a simple scale: Low, {{< platform name="medium" text="Medium" >}}, High.
 
 ---
 
@@ -29,7 +29,7 @@ Each model is rated on three dimensions: **Ease of Start** (how quickly you can 
 
 **What it is:** You write blog posts, articles, website copy, and marketing content for businesses using AI as your first-draft engine. You edit, refine, and deliver polished content that sounds human and converts readers into customers.
 
-**Tools:** ChatGPT ($0-20/mo), Grammarly ($0), Google Docs ($0), Notion ($0)
+**Tools:** {{< platform name="chatgpt" text="ChatGPT" >}} ($0-20/mo), Grammarly ($0), Google Docs ($0), Notion ($0)
 
 **Startup cost:** $0-20
 
@@ -39,8 +39,8 @@ Each model is rated on three dimensions: **Ease of Start** (how quickly you can 
 
 **Step-by-step to first customer:**
 1. Create a portfolio of 5 sample articles in different styles (how-to guide, listicle, thought leadership, product description, case study). Use ChatGPT to generate first drafts, then edit extensively for voice, specificity, and flow.
-2. Set up a simple Notion page or Google Doc as your portfolio. Include the article, the target keyword, and a brief note on the strategy behind each piece.
-3. Search LinkedIn and Twitter for "hiring freelance writer" or "looking for content writer." Apply to 10 postings per day for 5 days.
+2. Set up a simple {{< platform name="notion" text="Notion" >}} page or Google Doc as your portfolio. Include the article, the target keyword, and a brief note on the strategy behind each piece.
+3. Search {{< platform name="linkedin" text="LinkedIn" >}} and Twitter for "hiring freelance writer" or "looking for content writer." Apply to 10 postings per day for 5 days.
 4. Simultaneously, cold-email 20 small businesses with clearly weak website copy. Offer to rewrite one page for free as a sample. Include the rewritten page in the email so they see the value immediately.
 5. Price your first projects at $0.10-0.15/word (below market rate of $0.20-0.50/word) to build testimonials. Raise rates after 5 completed projects.
 
@@ -57,7 +57,7 @@ Each model is rated on three dimensions: **Ease of Start** (how quickly you can 
 
 **What it is:** You build custom AI chatbots for businesses using platforms like Chatbase, Botpress, or Voiceflow. These chatbots handle customer support, qualify leads, book appointments, and answer FAQs — saving businesses hours of manual work every week.
 
-**Tools:** Chatbase ($0-39/mo), Botpress ($0), Voiceflow ($0), OpenAI API ($5-20/mo)
+**Tools:** Chatbase ($0-39/mo), Botpress ($0), Voiceflow ($0), {{< platform name="openai" text="OpenAI" >}} API ($5-20/mo)
 
 **Startup cost:** $0-39
 
@@ -85,7 +85,7 @@ Each model is rated on three dimensions: **Ease of Start** (how quickly you can 
 
 **What it is:** You manage social media accounts for businesses using AI to generate content, schedule posts, write captions, and create graphics. The AI does 80% of the production; you do the strategy, editing, and client communication.
 
-**Tools:** ChatGPT ($0-20/mo), Canva ($0-13/mo), Buffer ($0-6/mo), Later ($0)
+**Tools:** ChatGPT ($0-20/mo), {{< platform name="canva" text="Canva" >}} ($0-13/mo), Buffer ($0-6/mo), Later ($0)
 
 **Startup cost:** $0-39
 
@@ -113,7 +113,7 @@ Each model is rated on three dimensions: **Ease of Start** (how quickly you can 
 
 **What it is:** You set up AI-powered email automation flows for businesses — welcome sequences, abandoned cart recovery, post-purchase follow-ups, and re-engagement campaigns. Most businesses have email lists but no automation. You fix that.
 
-**Tools:** Mailchimp ($0), Klaviyo ($0-45/mo), ActiveCampaign ($0-49/mo), ChatGPT ($0)
+**Tools:** Mailchimp ($0), {{< platform name="klaviyo" text="Klaviyo" >}} ($0-45/mo), ActiveCampaign ($0-49/mo), ChatGPT ($0)
 
 **Startup cost:** $0-49
 
@@ -123,7 +123,7 @@ Each model is rated on three dimensions: **Ease of Start** (how quickly you can 
 
 **Step-by-step to first customer:**
 1. Master 4 core email flows: welcome sequence (5 emails), abandoned cart (3 emails), post-purchase (3 emails), and re-engagement/sunset (3 emails). Build templates for each in your chosen platform.
-2. Find e-commerce businesses on Shopify with email signup forms but clearly no automation (they send one-off newsletters, not triggered sequences).
+2. Find e-commerce businesses on {{< platform name="shopify" text="Shopify" >}} with email signup forms but clearly no automation (they send one-off newsletters, not triggered sequences).
 3. Sign up for their email list. Document what happens after you subscribe. If you only get a generic "thanks for subscribing" or nothing at all, they need you.
 4. Email the owner: "I subscribed to [Business Name]'s email list and noticed you're missing automation flows that could recover $2,000-5,000/month in abandoned cart revenue alone. I set these up for a living. Can I show you a 2-minute demo of what this looks like?"
 5. Record a Loom video showing a working abandoned cart flow. Include it in your email. This converts at 15-20%.
@@ -139,9 +139,9 @@ Each model is rated on three dimensions: **Ease of Start** (how quickly you can 
 
 ### Model 5: AI SEO Content Service
 
-**What it is:** You produce SEO-optimized articles that help businesses rank on Google. You use AI to research keywords, generate content briefs, write drafts, and optimize for search intent. You deliver articles designed to rank, not just fill space.
+**What it is:** You produce SEO-optimized articles that help businesses rank on {{< platform name="google" text="Google" >}} You use AI to research keywords, generate content briefs, write drafts, and optimize for search intent. You deliver articles designed to rank, not just fill space.
 
-**Tools:** ChatGPT ($0-20/mo), Ubersuggest ($0), Google Search Console ($0), SurferSEO ($0-89/mo)
+**Tools:** ChatGPT ($0-20/mo), Ubersuggest ($0), Google Search Console ($0), {{< platform name="surferseo" text="SurferSEO" >}} ($0-89/mo)
 
 **Startup cost:** $0-109
 
@@ -179,7 +179,7 @@ Each model is rated on three dimensions: **Ease of Start** (how quickly you can 
 
 **Step-by-step to first customer:**
 1. Create 3 resume templates in Canva (modern, corporate, creative). Write 5 sample resumes for different industries using ChatGPT + your editorial touch.
-2. Post in job-seeking communities on Reddit (r/resumes, r/jobs), Facebook groups, and LinkedIn. Offer free resume critiques — 3 specific improvements they can make right now.
+2. Post in job-seeking communities on {{< platform name="reddit" text="Reddit" >}} (r/resumes, r/jobs), Facebook groups, and LinkedIn. Offer free resume critiques — 3 specific improvements they can make right now.
 3. When they DM you for the full critique, upsell to a complete rewrite: "I can rewrite your entire resume to pass ATS systems and land 3x more interviews. It's $150 for the full package — resume, cover letter template, and LinkedIn headline optimization."
 4. Collect testimonials and before/after results. After 10 clients, raise to $250-400 per package.
 
@@ -221,7 +221,7 @@ Each model is rated on three dimensions: **Ease of Start** (how quickly you can 
 
 ### Model 8: AI Video Script Writing
 
-**What it is:** You write scripts for YouTube videos, TikToks, Reels, and corporate videos using AI to generate hooks, outlines, and first drafts. You specialize in the structure and storytelling that keeps viewers watching.
+**What it is:** You write scripts for {{< platform name="youtube" text="YouTube" >}} videos, TikToks, Reels, and corporate videos using AI to generate hooks, outlines, and first drafts. You specialize in the structure and storytelling that keeps viewers watching.
 
 **Tools:** ChatGPT ($0-20/mo), Google Docs ($0), Notion ($0)
 
@@ -250,7 +250,7 @@ Each model is rated on three dimensions: **Ease of Start** (how quickly you can 
 
 **What it is:** You build automated lead generation systems for businesses using AI to find, qualify, and nurture prospects. You combine web scraping tools, AI personalization, and email automation to create lead pipelines that run on autopilot.
 
-**Tools:** PhantomBuster ($0-69/mo), Apollo.io ($0-49/mo), Instantly ($0-37/mo), ChatGPT ($0)
+**Tools:** PhantomBuster ($0-69/mo), {{< platform name="apollo" text="Apollo" >}}.io ($0-49/mo), Instantly ($0-37/mo), ChatGPT ($0)
 
 **Startup cost:** $0-155
 
@@ -259,7 +259,7 @@ Each model is rated on three dimensions: **Ease of Start** (how quickly you can 
 **Ease of Start:** Medium | **Revenue Ceiling:** High ($20K+/mo) | **Time Flexibility:** Medium
 
 **Step-by-step to first customer:**
-1. Build a demo lead generation pipeline: use Apollo.io to find 200 prospects in a target industry → use ChatGPT to write personalized email sequences → use Instantly to send and track.
+1. Build a demo lead generation pipeline: use Apollo.io to find 200 prospects in a target industry → use ChatGPT to write personalized email sequences → use {{< platform name="instantly" text="Instantly" >}} to send and track.
 2. Document the results: open rate, reply rate, meetings booked. Even demo results are compelling.
 3. Find B2B companies with sales teams but no systematic outbound process. They're relying on referrals and inbound — which means inconsistent revenue.
 4. Pitch: "I build lead generation systems that produce 5-15 qualified meetings per month on autopilot. Here's what that looks like for [their industry]." Show your demo numbers.
@@ -277,7 +277,7 @@ Each model is rated on three dimensions: **Ease of Start** (how quickly you can 
 
 **What it is:** You create custom images, graphics, and visual assets for businesses using AI image generators. Product photos, social media graphics, blog headers, ad creatives, brand illustrations — businesses need visuals constantly and most can't afford a photographer or designer for every need.
 
-**Tools:** Midjourney ($10/mo), DALL-E ($0-20/mo via ChatGPT Plus), Canva ($0-13/mo), Adobe Firefly ($0)
+**Tools:** {{< platform name="midjourney" text="Midjourney" >}} ($10/mo), DALL-E ($0-20/mo via ChatGPT Plus), Canva ($0-13/mo), Adobe Firefly ($0)
 
 **Startup cost:** $0-43
 
@@ -328,7 +328,7 @@ Create and sell online courses using AI to generate curriculum outlines, lesson 
 
 #### Model 12: AI Newsletter Business
 
-Start a niche newsletter using AI to help research, draft, and curate content. The model is simple: pick a specific niche (AI tools for real estate, marketing tips for Shopify stores, productivity hacks for founders), use ChatGPT to help write each issue, and grow your subscriber list. Revenue comes from sponsorships and premium subscriptions once you hit 5,000+ subscribers. Beehiiv and Substack both offer free hosting with built-in growth tools. The first 3 months are about consistency and audience building — don't expect revenue until month 4-6. But once the flywheel spins, newsletters generate passive income from content you can produce in 3-4 hours per week.
+Start a niche newsletter using AI to help research, draft, and curate content. The model is simple: pick a specific niche (AI tools for real estate, marketing tips for Shopify stores, productivity hacks for founders), use ChatGPT to help write each issue, and grow your subscriber list. Revenue comes from sponsorships and premium subscriptions once you hit 5,000+ subscribers. Beehiiv and {{< platform name="substack" text="Substack" >}} both offer free hosting with built-in growth tools. The first 3 months are about consistency and audience building — don't expect revenue until month 4-6. But once the flywheel spins, newsletters generate passive income from content you can produce in 3-4 hours per week.
 
 #### Model 13: AI Transcription Service
 
@@ -360,11 +360,11 @@ Create professional presentations for executives, consultants, and sales teams u
 
 #### Model 20: AI Voiceover Service
 
-Generate professional voiceovers for videos, podcasts, audiobooks, and ads using ElevenLabs or Murf.ai. The AI voices are remarkably natural in 2026, and you can clone specific voices with permission. Edit the output for pacing, emphasis, and pronunciation. Target video creators, e-learning companies, and ad agencies. Charge $50-200 per minute of final audio.
+Generate professional voiceovers for videos, podcasts, audiobooks, and ads using {{< platform name="elevenlabs" text="ElevenLabs" >}} or Murf.ai. The AI voices are remarkably natural in 2026, and you can clone specific voices with permission. Edit the output for pacing, emphasis, and pronunciation. Target video creators, e-learning companies, and ad agencies. Charge $50-200 per minute of final audio.
 
 #### Model 21: AI Book/eBook Ghostwriting
 
-Ghostwrite books and eBooks using AI as your co-writer. Non-fiction business books, self-help guides, and how-to eBooks are your bread and butter. Use ChatGPT and Claude for research, outlining, and first drafts. Edit extensively for voice, accuracy, and narrative flow. A 30,000-word eBook takes you 2-3 weeks (vs. 3-6 months traditionally). Charge $2,000-5,000 per book. Find clients on LinkedIn, Reedsy, and freelancer platforms.
+Ghostwrite books and eBooks using AI as your co-writer. Non-fiction business books, self-help guides, and how-to eBooks are your bread and butter. Use ChatGPT and {{< platform name="claude" text="Claude" >}} for research, outlining, and first drafts. Edit extensively for voice, accuracy, and narrative flow. A 30,000-word eBook takes you 2-3 weeks (vs. 3-6 months traditionally). Charge $2,000-5,000 per book. Find clients on LinkedIn, Reedsy, and freelancer platforms.
 
 #### Model 22: AI Ad Copywriting
 
@@ -372,7 +372,7 @@ Write ad copy for Facebook, Google, Instagram, and TikTok campaigns. Use AI to g
 
 #### Model 23: AI Workflow Automation Consulting
 
-Design and build automated workflows for businesses using Make.com or Zapier. This is similar to the automation agency model but targeted at one-off projects rather than retainers. Businesses waste enormous time on manual processes: data entry, report generation, email routing, scheduling. You automate these in hours and charge $500-3,000 per workflow. Build a library of 10 common workflow templates that you can customize for each client.
+Design and build automated workflows for businesses using {{< platform name="make" text="Make" >}} or Zapier. This is similar to the automation agency model but targeted at one-off projects rather than retainers. Businesses waste enormous time on manual processes: data entry, report generation, email routing, scheduling. You automate these in hours and charge $500-3,000 per workflow. Build a library of 10 common workflow templates that you can customize for each client.
 
 #### Model 24: AI Market Research Service
 
@@ -461,7 +461,7 @@ Create 3-5 sample deliverables using your tools. These don't need to be for real
 
 #### Day 4: Set Up Your Payment Infrastructure
 
-Create a Stripe account. Set up payment links for your three pricing tiers. Create a simple invoice template in Google Docs. Set up a professional email address if you don't have one. Do not use a personal Gmail address for business.
+Create a {{< platform name="stripe" text="Stripe" >}} account. Set up payment links for your three pricing tiers. Create a simple invoice template in Google Docs. Set up a professional email address if you don't have one. Do not use a personal Gmail address for business.
 
 #### Day 5: Create Your Outreach Assets
 

@@ -24,7 +24,7 @@ This is not a blog post condensed into a PDF. This is an operating system for bu
 Before you touch a single keyword research tool, you need the infrastructure that runs your agency. This module sets up your project management, documentation, client portal, financial tracking, and communication systems. These are not optional. Every successful SEO agency operator has these systems in place before their first client call. Every failed operator skipped them.
 
 **Time to complete:** 3-4 hours
-**Tools needed:** Notion (free), Google Workspace (₦3,600/mo), Paystack (free to set up)
+**Tools needed:** {{< platform name="notion" text="Notion" >}} (free), Google Workspace (₦3,600/mo), Paystack (free to set up)
 
 ### Procedure 1.1: Create Your Agency Command Center in Notion
 
@@ -127,7 +127,7 @@ Go to cal.com and create a free account. Set up two meeting types:
 1. **SEO Discovery Call** — 30 minutes, available Monday through Friday, 9 AM to 5 PM WAT
 2. **Weekly Check-in** — 15 minutes, recurring, for active clients only
 
-Connect your Google Calendar. Copy your booking link and save it in Notion **Templates**.
+Connect your {{< platform name="google" text="Google" >}} Calendar. Copy your booking link and save it in Notion **Templates**.
 
 {{% accent-box %}}HACK: Set your Cal.com minimum scheduling notice to 2 hours. This prevents prospects from booking a call 5 minutes from now when you are unprepared. First impressions are everything — a frantic, unprepared discovery call kills deals before they start.{{% /accent-box %}}
 
@@ -148,16 +148,16 @@ Count your checkmarks. You need all 6. Do not proceed to Module 2 with an incomp
 
 ### Overview
 
-Your agency runs on tools. This module sets up every tool you need — Semrush, Ahrefs, ChatGPT, Make.com — connects them, and verifies each connection. Total cost: under ₦200,000/month at full capacity, but most tools are free or discounted until you have paying clients.
+Your agency runs on tools. This module sets up every tool you need — Semrush, Ahrefs, {{< platform name="chatgpt" text="ChatGPT" >}}, Make.com — connects them, and verifies each connection. Total cost: under ₦200,000/month at full capacity, but most tools are free or discounted until you have paying clients.
 
 **Time to complete:** 4-5 hours
-**Tools needed:** Semrush (₦0-30 day trial → ₦55,000/mo Guru), Ahrefs (₦0-7 day trial → ₦55,000/mo Standard), ChatGPT Plus (₦30,000/mo), Make.com (free tier)
+**Tools needed:** Semrush (₦0-30 day trial → ₦55,000/mo Guru), Ahrefs (₦0-7 day trial → ₦55,000/mo Standard), ChatGPT Plus (₦30,000/mo), {{< platform name="make" text="Make" >}} (free tier)
 
 ### Procedure 2.1: Configure Semrush
 
 Go to semrush.com and start a 30-day free trial of the **Guru plan**. You need Guru (not Pro) because it includes Content Marketing Toolkit and historical data. Pro does not.
 
-After signing in, you should see the Semrush dashboard with a domain search bar at the top. Enter your own website domain (or a client's if you have one). Press Enter.
+After signing in, you should see the {{< platform name="semrush" text="Semrush" >}} dashboard with a domain search bar at the top. Enter your own website domain (or a client's if you have one). Press Enter.
 
 #### Create Your First Project
 
@@ -279,8 +279,8 @@ Click your profile icon → **Connections** → **Add connection**. Connect thes
 
 1. **Google Sheets** — Authorize with your Google account
 2. **Gmail** — Authorize with your professional email
-3. **Slack** — Create a workspace at slack.com if needed, then authorize
-4. **OpenAI** — Enter your API key
+3. **{{< platform name="slack" text="Slack" >}}** — Create a workspace at slack.com if needed, then authorize
+4. **{{< platform name="openai" text="OpenAI" >}}** — Enter your API key
 5. **Notion** — Authorize with your Notion account
 6. **HTTP (Make a request)** — This is built-in, no connection needed
 
@@ -326,7 +326,7 @@ Click **Search**. You should see a table of keywords with columns: Keyword, Volu
 Select keywords by checking the box next to each one. Prioritize by this exact order:
 
 1. **High volume + Low KD (under 30)** — These are your "quick win" keywords. Tag them `PRIORITY-1`.
-2. **Medium volume + Medium KD (30-50)** — These require content investment but are achievable. Tag them `PRIORITY-2`.
+2. **{{< platform name="medium" text="Medium" >}} volume + Medium KD (30-50)** — These require content investment but are achievable. Tag them `PRIORITY-2`.
 3. **High volume + High KD (50-70)** — These need link building support. Tag them `PRIORITY-3`.
 
 Click **Add to keyword list** → Create a new list named `[Client Name] Keyword Map`.
@@ -830,8 +830,8 @@ Common link-worthy formats:
 Using your AI Content Engine, create a version of the competitor's most-linked content that is:
 - 2x more comprehensive
 - Updated with 2026 data
-- Includes original visuals (use Canva or Midjourney)
-- Features expert quotes (reach out to 5 industry experts on LinkedIn for a 1-sentence quote)
+- Includes original visuals (use {{< platform name="canva" text="Canva" >}} or Midjourney)
+- Features expert quotes (reach out to 5 industry experts on {{< platform name="linkedin" text="LinkedIn" >}} for a 1-sentence quote)
 
 #### Step 3: Automated Outreach
 
@@ -1186,7 +1186,7 @@ Solo SEO operators hit a ceiling at ₦3,000,000-₦5,000,000/month in revenue. 
 - Client communication (responding to emails, scheduling calls)
 - Data entry (updating keyword trackers, logging audit results)
 - Basic QC (running Semrush Site Audits, reporting errors to you)
-- Social media posting for clients (scheduling content in Buffer)
+- Social media posting for clients (scheduling content in {{< platform name="buffer" text="Buffer" >}})
 - HARO monitoring and initial response drafting
 
 **When you have 6 clients (₦4,500,000-₦9,000,000 MRR):** Hire a Junior SEO Specialist. Budget: ₦300,000-₦500,000/month, full-time. The Junior SEO handles:

@@ -18,12 +18,12 @@ Follow the steps in order. Each one builds on the previous. If you skip a step, 
 ## Prerequisites
 
 - A laptop with Chrome or Firefox
-- A ChatGPT Plus account ($20/mo) — go to chat.openai.com and upgrade
-- A Claude Pro account ($20/mo) — go to claude.ai and upgrade
-- A Notion account (free tier works) — go to notion.so
-- A Make.com account (free tier) — go to make.com
-- A Buffer account (free tier) — go to buffer.com
-- A Google Analytics account — go to analytics.google.com
+- A {{< platform name="chatgpt" text="ChatGPT" >}} Plus account ($20/mo) — go to chat.openai.com and upgrade
+- A {{< platform name="claude" text="Claude" >}} Pro account ($20/mo) — go to claude.ai and upgrade
+- A {{< platform name="notion" text="Notion" >}} account (free tier works) — go to notion.so
+- A {{< platform name="make" text="Make" >}} account (free tier) — go to make.com
+- A {{< platform name="buffer" text="Buffer" >}} account (free tier) — go to buffer.com
+- A {{< platform name="google" text="Google" >}} Analytics account — go to analytics.google.com
 - 8-10 hours for initial setup
 
 Total upfront cost: $40/mo for the AI subscriptions. Everything else is free until you have revenue.
@@ -77,7 +77,7 @@ Set the default view to a Board grouped by Status. You should see columns: Idea,
 
 Create a table with these columns:
 - Prompt Name (text)
-- Content Type (select: Article, LinkedIn, Twitter Thread, Newsletter, Video Script)
+- Content Type (select: Article, {{< platform name="linkedin" text="LinkedIn" >}}, Twitter Thread, Newsletter, Video Script)
 - Prompt Text (long text)
 - AI Model (select: GPT-4o, Claude)
 - Quality Rating (select: A, B, C, D)
@@ -100,9 +100,9 @@ This database connects to your monetization tracking, which we set up in Step 7.
 
 ### Connect Your Distribution Channels
 
-**Blog Setup:** If you do not already have a blog, set one up now. Use Ghost ($9/mo) or Substack (free). Do not use Medium — you do not own the audience there. Go to ghost.org or substack.com, create an account, and set up your publication. Name it after your vertical. Choose a minimal, clean theme.
+**Blog Setup:** If you do not already have a blog, set one up now. Use Ghost ($9/mo) or Substack (free). Do not use {{< platform name="medium" text="Medium" >}} — you do not own the audience there. Go to ghost.org or substack.com, create an account, and set up your publication. Name it after your vertical. Choose a minimal, clean theme.
 
-**Newsletter Setup:** If you used Substack, the newsletter is built in. If you used Ghost, enable the newsletter feature in Settings → Members. Connect your email sending domain (Ghost walks you through this).
+**Newsletter Setup:** If you used {{< platform name="substack" text="Substack" >}}, the newsletter is built in. If you used Ghost, enable the newsletter feature in Settings → Members. Connect your email sending domain (Ghost walks you through this).
 
 **Social Media Setup:** Connect your social accounts to Buffer. Go to buffer.com, sign up, and connect LinkedIn, Twitter/X, and any other platform you plan to use. Buffer's free tier handles 3 accounts with 10 scheduled posts each.
 
@@ -245,7 +245,7 @@ Set it to run every Monday at 9:00 AM. This is your weekly content production tr
 Search your Content Calendar database for items with Status = "Idea" sorted by oldest first. Limit to 1 result. This picks the next article to produce.
 
 **Module 3: HTTP — Make a Request**
-This module calls the OpenAI API directly (more reliable than the Make.com OpenAI module for long-form content). Configure:
+This module calls the {{< platform name="openai" text="OpenAI" >}} API directly (more reliable than the Make.com OpenAI module for long-form content). Configure:
 
 - URL: `https://api.openai.com/v1/chat/completions`
 - Method: POST
@@ -355,7 +355,7 @@ Create and sell a digital product that solves a specific problem for your audien
 - Mini-courses (2-3 hours of video + worksheets): $97-197
 - Toolkits (curated resources + guides): $49-99
 
-Use Gumroad (free to start, 10% per sale) or your own Stripe checkout. Create the product once, sell it indefinitely.
+Use Gumroad (free to start, 10% per sale) or your own {{< platform name="stripe" text="Stripe" >}} checkout. Create the product once, sell it indefinitely.
 
 ### Path 4: Consulting/Services (Month 1+)
 
@@ -410,6 +410,6 @@ Before publishing any piece of content:
 Once your content engine is running for 30+ days:
 - Add a **second weekly article** — revenue compounds with volume
 - Experiment with **video content** using the article as a script (use Descript for editing)
-- Build a **community** — Discord or Slack group for subscribers who want deeper engagement ($10-29/mo membership)
+- Build a **community** — Discord or {{< platform name="slack" text="Slack" >}} group for subscribers who want deeper engagement ($10-29/mo membership)
 - Create your **first digital product** based on the most popular article topic
 - Set up **automated email sequences** for new subscribers (welcome series → nurture → product pitch)

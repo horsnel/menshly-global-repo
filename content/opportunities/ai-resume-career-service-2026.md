@@ -10,7 +10,7 @@ relatedPlaybook: "/playbooks/ai-automation-agency-playbook/"
 relatedGuide: "/intelligence/build-ai-resume-career-service/"
 ---
 
-The job market in 2026 is a paradox: there are more open positions than qualified candidates, yet the average job seeker submits 200+ applications before landing a role. The bottleneck is not opportunity — it is presentation. Most resumes are terrible. Most cover letters are generic. Most LinkedIn profiles are invisible to recruiters. And most job seekers cannot afford a $500-1,500 professional resume writing service. An AI resume and career service bridges this gap by using AI to produce professional-quality career documents at a fraction of the cost and time of traditional services, while adding intelligent features that human writers cannot match: ATS optimization scoring, keyword gap analysis, and personalized interview preparation.
+The job market in 2026 is a paradox: there are more open positions than qualified candidates, yet the average job seeker submits 200+ applications before landing a role. The bottleneck is not opportunity — it is presentation. Most resumes are terrible. Most cover letters are generic. Most {{< platform name="linkedin" text="LinkedIn" >}} profiles are invisible to recruiters. And most job seekers cannot afford a $500-1,500 professional resume writing service. An AI resume and career service bridges this gap by using AI to produce professional-quality career documents at a fraction of the cost and time of traditional services, while adding intelligent features that human writers cannot match: ATS optimization scoring, keyword gap analysis, and personalized interview preparation.
 
 The market is enormous and growing. The global career coaching market is projected to reach $27 billion by 2027. Resume writing services alone generate $500 million annually in the United States. But the traditional model is broken for the modern job seeker: it is too expensive, too slow, and too inconsistent. One writer produces a brilliant resume; another produces mediocrity. An AI-powered service delivers consistent quality at scale, with prices ranging from $29 for a basic AI-optimized resume to $297 for a complete career transformation package. At 50 orders per month averaging $100, that is $5,000/month. Scale to 200 orders with premium packages, and you approach $20,000/month.
 
@@ -20,7 +20,7 @@ I am going to lay out everything: why AI has transformed career services, the re
 
 Three forces are colliding to make the AI resume and career service one of the most accessible high-income opportunities available.
 
-First: AI can now produce resume and cover letter content that rivals professional writers. ChatGPT and Claude understand industry-specific language, ATS optimization rules, and the subtle art of framing experience as impact rather than duty. Three years ago, AI-generated resumes sounded robotic and generic. Today, a well-prompted AI produces tailored, compelling career documents that pass both ATS systems and human review. The quality gap between AI output and $500 human-written resumes has collapsed to near zero for most use cases.
+First: AI can now produce resume and cover letter content that rivals professional writers. {{< platform name="chatgpt" text="ChatGPT" >}} and Claude understand industry-specific language, ATS optimization rules, and the subtle art of framing experience as impact rather than duty. Three years ago, AI-generated resumes sounded robotic and generic. Today, a well-prompted AI produces tailored, compelling career documents that pass both ATS systems and human review. The quality gap between AI output and $500 human-written resumes has collapsed to near zero for most use cases.
 
 Second: Applicant Tracking Systems have created an optimization problem that AI solves perfectly. Over 98% of Fortune 500 companies use ATS software to filter resumes. These systems scan for specific keywords, formatting patterns, and experience markers. A resume that looks beautiful to a human but lacks the right keywords will never reach a human reviewer. AI can analyze a job description, identify the critical keywords and phrases, and optimize a resume specifically for that posting. This is not cheating — it is strategic communication. And it is a service that job seekers desperately need and are willing to pay for.
 
@@ -46,11 +46,11 @@ You can launch your AI career service this weekend for exactly $0. Here is the c
 
 **ChatGPT Free — $0** — Resume writing, cover letter generation, LinkedIn profile optimization, and interview question preparation. The free tier handles most career document tasks.
 
-**Google Docs — $0** — Document creation and formatting. Build resume templates that you customize for each client.
+**{{< platform name="google" text="Google" >}} Docs — $0** — Document creation and formatting. Build resume templates that you customize for each client.
 
-**Canva Free — $0** — Resume design templates and visual formatting. Create professional-looking resume layouts that stand out.
+**{{< platform name="canva" text="Canva" >}} Free — $0** — Resume design templates and visual formatting. Create professional-looking resume layouts that stand out.
 
-**Notion Free — $0** — Client management, order tracking, and prompt library organization.
+**{{< platform name="notion" text="Notion" >}} Free — $0** — Client management, order tracking, and prompt library organization.
 
 **Gumroad — $0** — Sell your services online. Free to start, takes 10% per sale. Simpler than setting up a full e-commerce platform.
 
@@ -64,13 +64,13 @@ Once you have 10+ paying clients and $1,000+ in monthly revenue, invest in the t
 
 **ChatGPT Plus — $20/mo** — Larger context windows, better output quality, and priority access. Essential for handling complex career documents.
 
-**Claude Pro — $20/mo** — Superior to ChatGPT for nuanced, industry-specific writing. Use Claude for premium resume packages that require sophisticated language.
+**{{< platform name="claude" text="Claude" >}} Pro — $20/mo** — Superior to ChatGPT for nuanced, industry-specific writing. Use Claude for premium resume packages that require sophisticated language.
 
 **Jobscan Pro — $50/mo** — Unlimited ATS scans, keyword optimization, and match rate tracking. Essential for delivering the ATS optimization that justifies your premium pricing.
 
 **Teachable — $39/mo** — Sell career courses and workshops alongside your resume service. Creates a second revenue stream.
 
-**Stripe — Free + 2.9% per transaction** — Professional payment processing with subscription support.
+**{{< platform name="stripe" text="Stripe" >}} — Free + 2.9% per transaction** — Professional payment processing with subscription support.
 
 **Cal.com — $0 (free tier)** — Schedule career coaching calls and interview prep sessions.
 
@@ -114,7 +114,7 @@ Save these prompts in your Notion Prompt Library. Refine them after every 10 cli
 
 ### Step 3: Build Your Sales Funnel (1 weekend)
 
-**Top of funnel:** Free resume review lead magnet (described in the hack above). Promote on LinkedIn, Twitter, and Reddit (r/resumes, r/jobs, r/careerguidance).
+**Top of funnel:** Free resume review lead magnet (described in the hack above). Promote on LinkedIn, Twitter, and {{< platform name="reddit" text="Reddit" >}} (r/resumes, r/jobs, r/careerguidance).
 
 **Middle of funnel:** Email nurture sequence — 5 emails over 10 days with career tips, ATS insights, and client success stories.
 

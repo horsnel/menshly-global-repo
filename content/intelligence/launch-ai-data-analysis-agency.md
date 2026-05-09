@@ -17,11 +17,11 @@ You are going to build an AI data analysis agency. Not a blog about data. Not a 
 
 - A laptop with at least 8GB RAM
 - Python 3.11+ installed — verify with `python --version`
-- A ChatGPT Plus account ($20/mo) — for Code Interpreter
-- A Google Sheets account (free)
+- A {{< platform name="chatgpt" text="ChatGPT" >}} Plus account ($20/mo) — for Code Interpreter
+- A {{< platform name="google" text="Google" >}} Sheets account (free)
 - A Notion account (free)
 - A Canva account (free)
-- A Make.com account (free tier)
+- A {{< platform name="make" text="Make" >}} account (free tier)
 - A Stripe account (free)
 - 4-6 hours of uninterrupted time
 
@@ -45,7 +45,7 @@ Verify:
 python -c "import pandas; import plotly; import scipy; import sklearn; print('All packages installed')"
 ```
 
-You should see `All packages installed`. Start Jupyter:
+You should see `All packages installed`. Start {{< platform name="jupyter" text="Jupyter" >}}:
 
 ```bash
 jupyter lab
@@ -131,7 +131,7 @@ Key sections: Monthly P&L with revenue/expenses/profit bars, expense breakdown t
 
 #### Create the Onboarding Form
 
-In Notion, create a form collecting: company name, industry, data sources, file format, approximate row count, data quality self-assessment (1-5), top 3 questions they want answered, what decision the analysis will inform.
+In {{< platform name="notion" text="Notion" >}}, create a form collecting: company name, industry, data sources, file format, approximate row count, data quality self-assessment (1-5), top 3 questions they want answered, what decision the analysis will inform.
 
 #### Create the Data Handling Agreement
 
@@ -196,7 +196,7 @@ df.to_csv('../cleaned/data_cleaned.csv', index=False)
 
 #### Package for the Client
 
-Use Canva to create a professional cover page. Export the analysis as a PDF. Create a Looker Studio dashboard for interactive exploration.
+Use {{< platform name="canva" text="Canva" >}} to create a professional cover page. Export the analysis as a PDF. Create a Looker Studio dashboard for interactive exploration.
 
 #### CHECK-IN: Step 6 Complete
 

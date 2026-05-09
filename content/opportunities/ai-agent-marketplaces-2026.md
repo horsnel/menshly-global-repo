@@ -12,7 +12,7 @@ relatedGuide: "/intelligence/launch-ai-agent-marketplace-business/"
 
 If you were old enough to remember 2008, you remember the App Store gold rush. Developers were quitting their jobs, building flashlight apps in a weekend, and waking up to $10,000 in overnight revenue. The people who got in early made fortunes. The people who waited? They spent the next decade competing against a million apps for pennies. AI agent marketplaces are that same moment, except the cycle is compressed from years to months, and the barrier to entry isn't knowing Objective-C — it's knowing how to prompt an AI and describe a business problem.
 
-Here's what's happening right now: OpenAI's GPT Store, CrewAI's marketplace, Replit's agent hub, and a dozen smaller platforms are all racing to become the "App Store for AI agents." These are marketplaces where builders create AI agents — specialized tools that automate specific tasks — and list them for other people to buy or subscribe to. The difference between this and the App Store era? AI agents generate real business value from day one. Nobody's downloading a flashlight agent. They're downloading an agent that writes their real estate listings, or one that analyzes their competitor's pricing, or one that handles their customer support emails. These agents replace actual human labor, which means people will pay real money for them, and they'll keep paying every month.
+Here's what's happening right now: {{< platform name="openai" text="OpenAI" >}}'s GPT Store, CrewAI's marketplace, Replit's agent hub, and a dozen smaller platforms are all racing to become the "App Store for AI agents." These are marketplaces where builders create AI agents — specialized tools that automate specific tasks — and list them for other people to buy or subscribe to. The difference between this and the App Store era? AI agents generate real business value from day one. Nobody's downloading a flashlight agent. They're downloading an agent that writes their real estate listings, or one that analyzes their competitor's pricing, or one that handles their customer support emails. These agents replace actual human labor, which means people will pay real money for them, and they'll keep paying every month.
 
 I'm going to lay out everything: which platforms matter, how to find niches that print money, the exact tools you need (free and paid), the tricks that marketplace veterans don't share publicly, and the ugly truths about building on someone else's platform. This is the kind of information that people are currently packaging into $997 courses with webinar funnels. I'm giving it to you straight because the window is closing faster than anyone expects, and I'd rather you build something real than watch another masterclass.
 
@@ -20,9 +20,9 @@ I'm going to lay out everything: which platforms matter, how to find niches that
 
 Three things collided at the exact same time, and if you're paying attention, you'll understand why this opportunity has a shelf life measured in months, not years.
 
-First: the platforms showed up all at once. OpenAI launched the GPT Store. CrewAI opened their marketplace. Replit built their agent hub. Zapier rolled out their AI agent directory. LangChain launched LangSmith with a marketplace component. These aren't small experiments — they're strategic bets by billion-dollar companies who need a supply of agents to attract enterprise buyers. Every marketplace has the same chicken-and-egg problem: they need builders before they can attract buyers, and they need buyers before they can attract builders. Right now, they're all in "attract builders at any cost" mode, which means favorable revenue splits, featured placement for early builders, and organic discovery that won't exist once the marketplaces get crowded. This is the window.
+First: the platforms showed up all at once. OpenAI launched the GPT Store. CrewAI opened their marketplace. Replit built their agent hub. {{< platform name="zapier" text="Zapier" >}} rolled out their AI agent directory. LangChain launched LangSmith with a marketplace component. These aren't small experiments — they're strategic bets by billion-dollar companies who need a supply of agents to attract enterprise buyers. Every marketplace has the same chicken-and-egg problem: they need builders before they can attract buyers, and they need buyers before they can attract builders. Right now, they're all in "attract builders at any cost" mode, which means favorable revenue splits, featured placement for early builders, and organic discovery that won't exist once the marketplaces get crowded. This is the window.
 
-Second: no-code agent building became real. A year ago, building an AI agent meant writing Python, managing API keys, handling conversation state, and deploying to a server. Now? You can build a functional agent inside ChatGPT's GPT Builder by having a conversation. You describe what you want, upload some reference documents, set the behavior, and you're done. CrewAI's visual builder lets you chain multiple agents together with drag-and-drop. Replit's agent builder writes the code for you. The technical barrier that kept normal people out of the AI gold rush has been demolished. If you can describe a business problem clearly, you can build an agent that solves it.
+Second: no-code agent building became real. A year ago, building an AI agent meant writing Python, managing API keys, handling conversation state, and deploying to a server. Now? You can build a functional agent inside {{< platform name="chatgpt" text="ChatGPT" >}}'s GPT Builder by having a conversation. You describe what you want, upload some reference documents, set the behavior, and you're done. CrewAI's visual builder lets you chain multiple agents together with drag-and-drop. Replit's agent builder writes the code for you. The technical barrier that kept normal people out of the AI gold rush has been demolished. If you can describe a business problem clearly, you can build an agent that solves it.
 
 Third: businesses are actually buying. This is the part nobody expected to happen this fast. Small and medium businesses — the plumbers, the real estate agents, the restaurant owners, the law firms — they're scrolling these marketplaces and purchasing agents like they'd buy a SaaS tool. They don't care how the agent works. They care that it saves them three hours a day. The adoption curve for AI agents among non-technical buyers has been steeper than anyone predicted, largely because the agents are packaged as products, not as APIs. A real estate agent doesn't want "access to GPT-4's API." They want "Property Listing Generator Pro" that they can configure in five minutes and start using immediately.
 
@@ -46,17 +46,17 @@ You do not need to spend a single dollar to build and list your first AI agent. 
 
 **ChatGPT GPT Builder — $0** — Build custom GPTs using natural language. Describe what you want, upload knowledge files, test it, publish to the GPT Store. The entire process happens inside ChatGPT's interface. Free tier gets you basic GPT building with limited knowledge file uploads.
 
-**Claude Projects — $0** — Set up project-specific AI assistants with custom instructions and context. Not a marketplace play directly, but perfect for prototyping agent behavior before you build the real thing on a marketplace.
+**{{< platform name="claude" text="Claude" >}} Projects — $0** — Set up project-specific AI assistants with custom instructions and context. Not a marketplace play directly, but perfect for prototyping agent behavior before you build the real thing on a marketplace.
 
-**Replit Free Tier — $0** — Build and deploy code-based agents. Gives you a cloud development environment with instant deployment. Perfect for agents that need custom logic beyond what GPT Builder can handle. Includes free hosting.
+**{{< platform name="replit" text="Replit" >}} Free Tier — $0** — Build and deploy code-based agents. Gives you a cloud development environment with instant deployment. Perfect for agents that need custom logic beyond what GPT Builder can handle. Includes free hosting.
 
-**n8n Self-Hosted — $0** — Open-source workflow automation. Connect your agent to external APIs, databases, and services. Self-host on a free tier cloud instance. This is your integration layer — the thing that makes your agent actually do things instead of just talking.
+**{{< platform name="n8n" text="n8n" >}} Self-Hosted — $0** — Open-source workflow automation. Connect your agent to external APIs, databases, and services. Self-host on a free tier cloud instance. This is your integration layer — the thing that makes your agent actually do things instead of just talking.
 
-**GitHub Pages — $0** — Free static site hosting. Build a landing page for your agent outside the marketplace. This is critical for driving your own traffic, which I'll explain in the hacks section.
+**{{< platform name="github" text="GitHub" >}} Pages — $0** — Free static site hosting. Build a landing page for your agent outside the marketplace. This is critical for driving your own traffic, which I'll explain in the hacks section.
 
-**Google Forms — $0** — Collect user feedback, feature requests, and bug reports. Essential for iterating on your agent based on real user input. Free, simple, and gets the job done.
+**{{< platform name="google" text="Google" >}} Forms — $0** — Collect user feedback, feature requests, and bug reports. Essential for iterating on your agent based on real user input. Free, simple, and gets the job done.
 
-**Canva Free — $0** — Create agent logos, promotional graphics, and social media content. The visual presentation of your agent listing matters more than you think. A professional-looking logo and banner can double your click-through rate.
+**{{< platform name="canva" text="Canva" >}} Free — $0** — Create agent logos, promotional graphics, and social media content. The visual presentation of your agent listing matters more than you think. A professional-looking logo and banner can double your click-through rate.
 
 The free stack is enough to build, list, and start generating revenue. You don't need paid tools until you have paying users. The beauty of agent marketplaces is that the platforms handle the billing infrastructure — you just build and list. Let the revenue fund your tool upgrades.
 
@@ -76,13 +76,13 @@ Once you have agents generating revenue, upgrade strategically. The paid stack i
 
 **n8n Cloud — $20/mo** — Managed workflow automation. Skip the self-hosting headaches. 2,500 executions per month. Connects to 400+ services. Your agents become infinitely more valuable when they can actually do things, not just talk.
 
-**Make.com — $9/mo** — Alternative to n8n with a more visual builder. Some people prefer it. Both are good. Pick one and learn it deeply.
+**{{< platform name="make" text="Make" >}} — $9/mo** — Alternative to n8n with a more visual builder. Some people prefer it. Both are good. Pick one and learn it deeply.
 
-**Vapi — Pay-as-you-go (~$30-80/mo)** — Voice AI layer. If you're building voice-based agents (and you should consider it), Vapi handles the speech-to-text and text-to-speech. Voice agents command 3-5x higher pricing.
+**{{< platform name="vapi" text="Vapi" >}} — Pay-as-you-go (~$30-80/mo)** — Voice AI layer. If you're building voice-based agents (and you should consider it), Vapi handles the speech-to-text and text-to-speech. Voice agents command 3-5x higher pricing.
 
 **CrewAI Cloud — $20/mo** — Multi-agent orchestration. Build teams of agents that work together. The free self-hosted version works, but the cloud version handles deployment and scaling automatically.
 
-**Notion — $8/mo** — Agent documentation, user guides, SOPs for building new agents. Free tier works for first 5 agents, then upgrade.
+**{{< platform name="notion" text="Notion" >}} — $8/mo** — Agent documentation, user guides, SOPs for building new agents. Free tier works for first 5 agents, then upgrade.
 
 **Total monthly cost: $142-182** depending on usage. That's less than one moderate agent's monthly subscription revenue. If you can't cover $150/mo in tool costs from your agent revenue within 60 days, you're building the wrong agents.
 
@@ -98,7 +98,7 @@ This is the most important step, and almost everyone does it wrong. They build a
 
 Start by browsing the marketplace's search trends. On the GPT Store, look at the "Trending" and "Top" categories. These tell you what people are actively searching for. Then go to the bottom of those categories — the agents with 1-2 stars and bad reviews. Those are the problems people want solved but the current solutions are garbage. That's your opening.
 
-Next, go to Reddit, Facebook Groups, and LinkedIn communities for specific professions. Search for "frustrated," "hate doing," "takes too long," "wish there was a tool." These are raw, unfiltered expressions of pain. Real estate agents complaining about writing listing descriptions. Accountants dreading client email responses. Recruiters spending hours on candidate screening messages. Every complaint is a potential agent.
+Next, go to Reddit, Facebook Groups, and {{< platform name="linkedin" text="LinkedIn" >}} communities for specific professions. Search for "frustrated," "hate doing," "takes too long," "wish there was a tool." These are raw, unfiltered expressions of pain. Real estate agents complaining about writing listing descriptions. Accountants dreading client email responses. Recruiters spending hours on candidate screening messages. Every complaint is a potential agent.
 
 The best niches share three characteristics: the task is repetitive (done the same way every time), the task is tedious (nobody enjoys it), and the task requires domain knowledge (which you can embed in the agent's knowledge base). If a task hits all three, you've found gold.
 
