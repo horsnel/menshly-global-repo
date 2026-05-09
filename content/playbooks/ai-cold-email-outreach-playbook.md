@@ -17,15 +17,15 @@ This is not a blog post condensed into a PDF. This is an operating system for bu
 
 ---
 
-# MODULE 1: AGENCY ARCHITECTURE — FOUNDATION
+## MODULE 1: AGENCY ARCHITECTURE — FOUNDATION
 
-## Overview
+### Overview
 
 Before you touch a single tool, you need to understand the exact business model you are building. An AI cold email outreach agency is not a "freelance email service." It is a systems business that acquires leads, warms them through AI-personalized sequences, and delivers booked meetings to clients on a performance or retainer basis. The margin comes from automation. One Make.com scenario can serve 20 clients simultaneously. That is the leverage.
 
 This module covers your agency structure, service definition, ICP (Ideal Client Profile) for your own agency, and the legal/financial skeleton you need before spending ₦1 on tools. Time required: 8–12 hours. Tools: None (yet). A Google Doc or Notion page.
 
-## Procedure 1.1: Define Your Agency Service Model
+### Procedure 1.1: Define Your Agency Service Model
 
 Open a blank document. Type the following headers. Fill them in using the exact specifications below. Do not freelance your way through this — follow the model.
 
@@ -50,7 +50,7 @@ Overage: ₦15,000 per additional booked meeting
 Contract Term: 3-month minimum, month-to-month after
 ```
 
-## Procedure 1.2: Define Your Agency's ICP
+### Procedure 1.2: Define Your Agency's ICP
 
 Your agency's ICP is NOT the same as your clients' ICP. You are selling outbound infrastructure. Your buyers are:
 
@@ -69,7 +69,7 @@ Pain Signal: Hiring SDRs who underperform, spending on ads with no ROI,
 Excluded: B2C, e-commerce, local businesses, companies under ₦20M revenue
 ```
 
-## Procedure 1.3: Register Your Business Entity
+### Procedure 1.3: Register Your Business Entity
 
 This procedure is jurisdiction-dependent but mandatory. You will not run an agency through a personal bank account.
 
@@ -87,7 +87,7 @@ Open a business bank account. Connect it to a payment processor:
 
 {{% accent-box %}}HACK: Open a Wise Business account immediately. You will need it for paying domain registrars, Google Workspace, and Apollo.io — all denominated in USD. The Wise virtual card avoids Nigerian card foreign transaction limits.{{% /accent-box %}}
 
-## Procedure 1.4: Create Your Agency's Outbound Asset (One-Page Site)
+### Procedure 1.4: Create Your Agency's Outbound Asset (One-Page Site)
 
 You will NOT build a full website. You will build a single-page site that exists solely to validate credibility when prospects Google your agency.
 
@@ -102,7 +102,7 @@ Structure:
 
 Connect a custom domain. Buy one at Namecheap (https://namecheap.com) — use `.co` or `.io` if `.com` is taken. Cost: ₦3,000–₦8,000/year.
 
-## Check-In: Module 1 Complete
+### Check-In: Module 1 Complete
 
 - [ ] Agency service model defined and documented (Retainer + Performance)
 - [ ] ICP one-pager written with target, headcount, buyer, pain signals, exclusions
@@ -113,15 +113,15 @@ Connect a custom domain. Buy one at Namecheap (https://namecheap.com) — use `.
 
 ---
 
-# MODULE 2: TECH STACK CONFIGURATION
+## MODULE 2: TECH STACK CONFIGURATION
 
-## Overview
+### Overview
 
 Your tech stack is the engine. Every tool here has been selected for a specific reason: cost efficiency, API accessibility, and compatibility with Make.com. Do not substitute tools unless the procedure explicitly gives you an alternative. Every substitution introduces risk.
 
 This module covers the complete tool procurement and initial configuration. You will create accounts, connect APIs, and verify each integration before moving on. Time required: 6–8 hours. Budget: ₦150,000–₦250,000 for first-month setup.
 
-## Procedure 2.1: Procure Your Core Tool Stack
+### Procedure 2.1: Procure Your Core Tool Stack
 
 Create accounts at each of the following URLs. Use your business email (the Google Workspace domain you will set up in Module 4). If you don't have it yet, use a dedicated Gmail — you will migrate later.
 
@@ -141,7 +141,7 @@ Create accounts at each of the following URLs. Use your business email (the Goog
 
 Write these down in your Notion workspace. Create a page called "Agency Tech Stack" with each tool, login email, and billing date.
 
-## Procedure 2.2: Configure Make.com Workspace
+### Procedure 2.2: Configure Make.com Workspace
 
 1. Go to https://make.com and sign in.
 2. Click **Create a new scenario**. You will NOT build the full scenario yet — you are verifying API connections.
@@ -164,7 +164,7 @@ Write these down in your Notion workspace. Create a page called "Agency Tech Sta
 
 Do you see a successful API response with contact data? If not, check: (1) Apollo plan includes API access (Pro plan required), (2) API key has no trailing spaces, (3) your Make.com account is on a paid plan (free plan has limited HTTP requests).
 
-## Procedure 2.3: Configure OpenAI API Access
+### Procedure 2.3: Configure OpenAI API Access
 
 1. Go to https://platform.openai.com/api-keys.
 2. Click **Create new secret key**. Name it: `make-agency-prod`. Copy it immediately — OpenAI will not show it again.
@@ -174,7 +174,7 @@ Do you see a successful API response with contact data? If not, check: (1) Apoll
 
 {{% accent-box %}}HACK: Set a monthly spending limit on your OpenAI account at https://platform.openai.com/settings/organization/limits. Set it to $100/month initially. AI personalization for 50,000 emails/month should cost $30–$60. If it crosses $100, something in your Make.com loop is running unnecessarily.{{% /accent-box %}}
 
-## Procedure 2.4: Set Up Your Notion Command Center
+### Procedure 2.4: Set Up Your Notion Command Center
 
 Create a Notion workspace with this exact structure:
 
@@ -203,7 +203,7 @@ Create a Notion workspace with this exact structure:
 
 This is your operating system. Every client, campaign, domain, and dollar flows through here. Do not skip this structure. You will reference it daily.
 
-## Check-In: Module 2 Complete
+### Check-In: Module 2 Complete
 
 - [ ] All 9 core tool accounts created with business email
 - [ ] Apollo.io API key generated and tested via Make.com HTTP module
@@ -214,15 +214,15 @@ This is your operating system. Every client, campaign, domain, and dollar flows 
 
 ---
 
-# MODULE 3: LEAD RESEARCH WITH APOLLO.IO
+## MODULE 3: LEAD RESEARCH WITH APOLLO.IO
 
-## Overview
+### Overview
 
 Lead research is where 80% of agencies fail. They buy a list of 10,000 contacts, load them into a sequence, and wonder why their reply rate is 0.3%. Quality leads are not found — they are engineered through precise search criteria, layered filters, and verification. This module gives you the exact Apollo.io search configurations, saved views, and export procedures that produce lists with 8–15% reply rates instead of 0.3%.
 
 You will learn to search, filter, verify, and structure lead lists for any client ICP. Time required: 10–15 hours. Tools: Apollo.io, Clay (optional enrichment), Google Sheets.
 
-## Procedure 3.1: Configure Apollo.io Organization Settings
+### Procedure 3.1: Configure Apollo.io Organization Settings
 
 1. Log in to https://apollo.io.
 2. Navigate to **Settings → Organization**. Set your company name and domain.
@@ -240,7 +240,7 @@ You need the **Professional** plan at minimum for API access. Without API, you c
 
 5. Navigate to **Settings → Email Accounts**. Do NOT connect your sending email here yet — that happens in Module 4. This is only for Apollo's native sequences, which you will use as a backup, not primary.
 
-## Procedure 3.2: Build Your First Saved Search (SaaS ICP)
+### Procedure 3.2: Build Your First Saved Search (SaaS ICP)
 
 This is the search you will run for your first SaaS client. Follow every filter exactly.
 
@@ -265,7 +265,7 @@ Funding: Series A, Series B, Series C (they have money to spend)
 
 **Target list size per campaign: 500–2,000 contacts.** Below 500 means you will exhaust the list too quickly. Above 2,000 means your ICP is too broad and reply rates will suffer.
 
-## Procedure 3.3: Build Saved Search #2 (Professional Services ICP)
+### Procedure 3.3: Build Saved Search #2 (Professional Services ICP)
 
 ```
 Location: United States, United Kingdom
@@ -280,7 +280,7 @@ Company Revenue: $5M–$50M
 
 Save as: `ProfServices-Partner-Consulting-MidMarket`.
 
-## Procedure 3.4: Verify and Enrich Lead Data
+### Procedure 3.4: Verify and Enrich Lead Data
 
 Apollo data is good but not perfect. Email verification rates hover around 85–90%. You will lose 10–15% of your list to bounces if you do not verify.
 
@@ -302,7 +302,7 @@ Apollo data is good but not perfect. Email verification rates hover around 85–
 
 {{% accent-box %}}HACK: The "Recent Company News" enrichment in Clay is the single highest-ROI data point in your entire stack. When your AI personalization engine references a company's recent funding round, product launch, or hire, your reply rate doubles. This is not theoretical — it is the difference between a 3% and a 7% reply rate.{{% /accent-box %}}
 
-## Procedure 3.5: Structure Your Lead Lists for Make.com Import
+### Procedure 3.5: Structure Your Lead Lists for Make.com Import
 
 Your final CSV must have these exact column headers (case-sensitive — your Make.com scenario will reference them):
 
@@ -317,7 +317,7 @@ linkedin_url | company_news | icp_label | sequence_tag
 
 Upload this CSV to Google Sheets. Name the sheet: `[ClientName]-LeadList-[Date]`. This Google Sheet becomes the data source for your Make.com scenario.
 
-## Check-In: Module 3 Complete
+### Check-In: Module 3 Complete
 
 - [ ] Apollo.io Professional plan active with API access confirmed
 - [ ] First saved search (SaaS ICP) created with 500–2,000 results
@@ -328,15 +328,15 @@ Upload this CSV to Google Sheets. Name the sheet: `[ClientName]-LeadList-[Date]`
 
 ---
 
-# MODULE 4: EMAIL INFRASTRUCTURE SETUP
+## MODULE 4: EMAIL INFRASTRUCTURE SETUP
 
-## Overview
+### Overview
 
 Your email infrastructure determines whether your emails land in the primary inbox or the spam folder. This is not a "set it and forget it" operation. Google and Microsoft update their spam filters constantly. Your infrastructure must be built to withstand these updates — multiple domains, proper DNS records, gradual warmup, and continuous deliverability monitoring.
 
 This module is the most technical in the entire playbook. Execute it precisely. A single misconfigured DNS record will destroy your deliverability for weeks. Time required: 12–16 hours (spread over 14–21 days for warmup). Tools: Namecheap, Google Workspace, Instantly.ai, MXToolbox.
 
-## Procedure 4.1: Procure Sending Domains
+### Procedure 4.1: Procure Sending Domains
 
 You will NOT send cold emails from your client's primary domain. Ever. If a domain gets blacklisted from cold outreach, it must NOT be the domain their team uses for business email.
 
@@ -355,7 +355,7 @@ Example: outboundscale.io, getpipeline.co, replyengine.com
 
 **Domain budget per client: ₦15,000–₦40,000** (3–5 domains at ₦3,000–₦8,000 each)
 
-## Procedure 4.2: Configure DNS Records for Each Domain
+### Procedure 4.2: Configure DNS Records for Each Domain
 
 For EACH domain you purchased, you must configure these DNS records in Namecheap:
 
@@ -415,7 +415,7 @@ In Instantly.ai → Settings → Tracking, add a CNAME record:
 - Value: `track.instantly.ai`
 - TTL: Automatic
 
-## Procedure 4.3: Create Email Accounts and Configure Signatures
+### Procedure 4.3: Create Email Accounts and Configure Signatures
 
 For each domain, create 2–3 Google Workspace user accounts:
 
@@ -438,7 +438,7 @@ Configure each account's signature:
 
 Keep signatures minimal. No images, no logos, no social media icons. HTML-rich signatures trigger spam filters. Plain text only.
 
-## Procedure 4.4: Warm Up Email Accounts with Instantly.ai
+### Procedure 4.4: Warm Up Email Accounts with Instantly.ai
 
 This is the most critical procedure in this entire playbook. Skipping warmup = guaranteed spam folder.
 
@@ -464,7 +464,7 @@ Move to Primary: YES (Gmail-specific — moves warmup emails out of Promotions t
 
 {{% accent-box %}}HACK: During warmup, log in to each Google Workspace account manually at least once every 48 hours. Open warmup emails, reply to a few, mark some as important, move some to different folders. Google tracks human-like behavior patterns. A fully automated warmup with zero manual interaction is detectable.{{% /accent-box %}}
 
-## Procedure 4.5: Verify Deliverability with MXToolbox
+### Procedure 4.5: Verify Deliverability with MXToolbox
 
 1. Go to https://mxtoolbox.com/diagnostic.aspx.
 2. Enter each domain. Verify all checks pass (green):
@@ -476,7 +476,7 @@ Move to Primary: YES (Gmail-specific — moves warmup emails out of Promotions t
 3. Run the blacklist check at https://mxtoolbox.com/blacklists.aspx for each domain and each IP.
 4. If any domain is blacklisted, submit delisting requests immediately. This can take 24–72 hours.
 
-## Check-In: Module 4 Complete
+### Check-In: Module 4 Complete
 
 - [ ] 3–5 sending domains procured per client (not client's primary domain)
 - [ ] All DNS records configured: SPF, DKIM, DMARC, MX, CNAME for tracking
@@ -488,15 +488,15 @@ Move to Primary: YES (Gmail-specific — moves warmup emails out of Promotions t
 
 ---
 
-# MODULE 5: AI PERSONALIZATION ENGINE
+## MODULE 5: AI PERSONALIZATION ENGINE
 
-## Overview
+### Overview
 
 Generic cold emails are dead. "I came across your company and thought we could help" gets deleted in 0.3 seconds. AI personalization is your unfair advantage — but only if done correctly. Bad AI personalization (obviously AI-written, hallucinated facts, wrong company references) is worse than no personalization.
 
 This module builds the AI personalization engine that generates first lines, email bodies, and follow-ups that feel like a human spent 15 minutes researching each prospect. You will configure OpenAI prompts, build the Make.com scenario that processes your lead list, and validate output quality before connecting it to your sending engine. Time required: 8–10 hours. Tools: Make.com, OpenAI API, Google Sheets.
 
-## Procedure 5.1: Write Your Personalization Prompt Library
+### Procedure 5.1: Write Your Personalization Prompt Library
 
 You will create three prompt templates in a Google Doc called "Personalization Prompts." Each serves a different purpose.
 
@@ -565,7 +565,7 @@ Follow-up rules:
 No links in follow-up 1. Calendly link OK in follow-up 2 and 3 only.
 ```
 
-## Procedure 5.2: Build the AI Personalization Make.com Scenario
+### Procedure 5.2: Build the AI Personalization Make.com Scenario
 
 This scenario reads your Google Sheet lead list, sends each row to OpenAI for personalization, and writes the personalized emails back to a new sheet.
 
@@ -608,7 +608,7 @@ This scenario reads your Google Sheet lead list, sends each row to OpenAI for pe
 
 7. Click **Run once**. Process 5 contacts. Review the output in the "Personalized-Emails" tab.
 
-## Procedure 5.3: Quality-Control AI Personalization Output
+### Procedure 5.3: Quality-Control AI Personalization Output
 
 This procedure is non-negotiable. AI-generated emails WILL contain errors. You must catch them before they reach prospects.
 
@@ -624,7 +624,7 @@ Log every error in your Quality Log. Track the error rate per batch. If error ra
 
 {{% accent-box %}}HACK: Create a "golden example" folder with 20 manually written cold emails that produced replies. Include 3 examples directly in your OpenAI system prompt as reference. This is called few-shot prompting and reduces hallucination rates by 60%.{{% /accent-box %}}
 
-## Check-In: Module 5 Complete
+### Check-In: Module 5 Complete
 
 - [ ] Three personalization prompts written and saved in Google Doc
 - [ ] Make.com scenario "AI-Personalization-v1" built with Google Sheets → OpenAI → Google Sheets flow
@@ -635,15 +635,15 @@ Log every error in your Quality Log. Track the error rate per batch. If error ra
 
 ---
 
-# MODULE 6: CAMPAIGN BUILD IN MAKE.COM
+## MODULE 6: CAMPAIGN BUILD IN MAKE.COM
 
-## Overview
+### Overview
 
 This is where everything connects. Your lead list, your AI-personalized emails, your sending infrastructure, and your analytics — all wired together through Make.com scenarios. This module builds the complete campaign automation that takes a lead from your Google Sheet, through personalization, through sending, through follow-up sequencing, and into your analytics dashboard.
 
 You will build TWO Make.com scenarios: one for the primary send sequence and one for follow-ups. You will NOT use Apollo's native sequences as your primary sender — Make.com gives you far more control over timing, routing, and error handling. Time required: 10–14 hours. Tools: Make.com, Google Sheets, Instantly.ai (or SMTP direct).
 
-## Procedure 6.1: Build the Primary Send Scenario
+### Procedure 6.1: Build the Primary Send Scenario
 
 1. In Make.com, create a new scenario: `Primary-Send-v1`.
 
@@ -697,7 +697,7 @@ You will build TWO Make.com scenarios: one for the primary send sequence and one
 
 6. Set scenario schedule: **Every 30 minutes** during business hours (8 AM – 6 PM recipient timezone). Do not send outside business hours — reply rates drop 70%.
 
-## Procedure 6.2: Write Subject Lines That Get Opened
+### Procedure 6.2: Write Subject Lines That Get Opened
 
 Subject lines are NOT generated by AI. They are manually crafted and A/B tested. Create a subject line bank in your Notion SOPs page.
 
@@ -718,7 +718,7 @@ Rules:
 
 For each campaign, prepare 3 subject line variants. Split your lead list into thirds. Track open rates by variant. After 200 sends per variant, kill the lowest performer and split traffic between the top two.
 
-## Procedure 6.3: Build the Follow-Up Scenario
+### Procedure 6.3: Build the Follow-Up Scenario
 
 1. In Make.com, create a new scenario: `Follow-Up-Sequence-v1`.
 
@@ -756,7 +756,7 @@ For each campaign, prepare 3 subject line variants. Split your lead list into th
 
 {{% accent-box %}}HACK: Add a "reply detection" module between each follow-up stage. In Instantly, enable webhooks for reply events. In Make.com, add a Webhook module that updates `reply_status` = "replied" when a prospect responds. This prevents you from sending follow-up #2 to someone who already replied to follow-up #1 — the #1 agency embarrassment.{{% /accent-box %}}
 
-## Procedure 6.4: Configure Sending Throttling and Domain Rotation
+### Procedure 6.4: Configure Sending Throttling and Domain Rotation
 
 You must distribute sends across your domains and email accounts. Sending 200 emails from one account in a day = spam folder guaranteed.
 
@@ -783,7 +783,7 @@ You must distribute sends across your domains and email accounts. Sending 200 em
 
 In Make.com, use the built-in schedule with multiple time windows, or add a time-check filter module before the send module.
 
-## Check-In: Module 6 Complete
+### Check-In: Module 6 Complete
 
 - [ ] Primary-Send-v1 scenario built and tested with 5 contacts
 - [ ] Subject line bank created with 3 variants per campaign
@@ -795,15 +795,15 @@ In Make.com, use the built-in schedule with multiple time windows, or add a time
 
 ---
 
-# MODULE 7: DELIVERY AND SENDING OPERATIONS
+## MODULE 7: DELIVERY AND SENDING OPERATIONS
 
-## Overview
+### Overview
 
 Campaign launch is not the finish line — it is the starting line. This module covers the daily, weekly, and monthly operations that keep your agency running. Cold email is a living system: domains get blacklisted, accounts get flagged, reply rates fluctuate, and clients need reporting. Without operational discipline, a profitable campaign can become a deliverability disaster in 48 hours.
 
 You will build the operational runbook — the exact tasks you perform every morning before your coffee gets cold. Time required: 4–6 hours to document. Ongoing: 30–60 minutes daily per client.
 
-## Procedure 7.1: Build the Daily Operations Checklist
+### Procedure 7.1: Build the Daily Operations Checklist
 
 Create a Notion page called "Daily Operations Runbook." Copy this exactly:
 
@@ -840,7 +840,7 @@ Execute between 7:00 AM and 8:00 AM daily.
    - If blacklisted: pause all sending from that domain, submit delisting request
 ```
 
-## Procedure 7.2: Handle Positive Replies
+### Procedure 7.2: Handle Positive Replies
 
 When a prospect replies positively (e.g., "Sure, let's chat," "Send me more info," "When are you free?"), you have a 15-minute window to respond before their attention shifts.
 
@@ -865,7 +865,7 @@ Looking forward to connecting.
 4. Update the Google Sheet: `reply_status` → "positive", `meeting_status` → "booking-in-progress".
 5. Update Notion Campaign Tracker: increment "Meetings Booked" counter.
 
-## Procedure 7.3: Handle Objections and Negative Replies
+### Procedure 7.3: Handle Objections and Negative Replies
 
 Not every reply is positive. Common objections and your responses:
 
@@ -879,7 +879,7 @@ Not every reply is positive. Common objections and your responses:
 
 Log every objection in your Notion Objection Tracker. After 50 objections, analyze the pattern. If 30% say "wrong person," your ICP targeting is off. If 40% say "not interested," your value proposition is weak.
 
-## Procedure 7.4: Manage Bounces and Deliverability Issues
+### Procedure 7.4: Manage Bounces and Deliverability Issues
 
 1. **Hard bounces** (email does not exist): Mark `email_status` → "bounced" in Google Sheet. Remove from all future campaigns. These damage your sender reputation.
 2. **Soft bounces** (mailbox full, temporary issue): Retry once after 48 hours. If still bounces, mark as "bounced."
@@ -893,7 +893,7 @@ Log every objection in your Notion Objection Tracker. After 50 objections, analy
 
 {{% accent-box %}}HACK: Set up Google Alerts for "spam report" + each of your sending domains. If anyone reports your emails as spam on social media or forums, you will know within hours. Reputation damage is easier to prevent than to repair.{{% /accent-box %}}
 
-## Procedure 7.5: Build the Weekly Reporting Cadence
+### Procedure 7.5: Build the Weekly Reporting Cadence
 
 Every Friday at 4:00 PM, run this process for each active client:
 
@@ -910,7 +910,7 @@ Every Friday at 4:00 PM, run this process for each active client:
 
 This weekly email is your retention tool. Clients who receive consistent, data-driven updates stay 3x longer than clients who are left wondering what you are doing.
 
-## Check-In: Module 7 Complete
+### Check-In: Module 7 Complete
 
 - [ ] Daily Operations Runbook created in Notion with all 6 daily checkpoints
 - [ ] Positive reply protocol documented and tested (response within 15 minutes)
@@ -922,15 +922,15 @@ This weekly email is your retention tool. Clients who receive consistent, data-d
 
 ---
 
-# MODULE 8: ANALYTICS AND OPTIMIZATION
+## MODULE 8: ANALYTICS AND OPTIMIZATION
 
-## Overview
+### Overview
 
 You cannot scale what you cannot measure. This module builds the analytics infrastructure that tells you — and your clients — exactly what is working and what is not. Every number in your reports must be traceable to a specific action. "We sent some emails and got some replies" is not a report. "We sent 1,247 emails across 4 sequences, achieved a 6.2% reply rate, and booked 18 meetings at a cost of ₦12,500/meeting" is a report.
 
 You will build a Make.com-powered analytics pipeline, create client-facing dashboards, and establish the optimization loop that improves results every single week. Time required: 6–8 hours. Tools: Make.com, Google Sheets, Notion.
 
-## Procedure 8.1: Build the Analytics Data Pipeline
+### Procedure 8.1: Build the Analytics Data Pipeline
 
 Create a new Google Sheet called "Analytics-RAW." This sheet collects every event from your campaigns. Columns:
 
@@ -958,7 +958,7 @@ Params: campaign_id, start_date, end_date
 
 Write each open event to Analytics-RAW.
 
-## Procedure 8.2: Build the Client-Facing Dashboard
+### Procedure 8.2: Build the Client-Facing Dashboard
 
 Create a Google Sheet called "Dashboard-[ClientName]" with these tabs:
 
@@ -999,7 +999,7 @@ Formulas (all reference Analytics-RAW via COUNTIFS):
 
 Share this Google Sheet with your client (view-only access). Update it every Monday by 9 AM. This is your weekly deliverable alongside booked meetings.
 
-## Procedure 8.3: Establish the Weekly Optimization Loop
+### Procedure 8.3: Establish the Weekly Optimization Loop
 
 Every Friday, run this optimization process:
 
@@ -1015,7 +1015,7 @@ Every Friday, run this optimization process:
 
 {{% accent-box %}}HACK: The single highest-leverage optimization is reply speed. When a positive reply comes in, the chance of booking a meeting drops 10x if you respond after 1 hour versus 15 minutes. Automate the initial reply (Procedure 7.2) and you will see a 40% increase in meetings booked from the same number of positive replies.{{% /accent-box %}}
 
-## Procedure 8.4: Build the Monthly Client Report
+### Procedure 8.4: Build the Monthly Client Report
 
 Create a Notion template called "Monthly Outbound Report." Structure:
 
@@ -1055,7 +1055,7 @@ Create a Notion template called "Monthly Outbound Report." Structure:
 
 Generate this report on the 1st of every month. Send it as a PDF (export from Notion). Schedule a 30-minute review call with the client within the first week of the month.
 
-## Check-In: Module 8 Complete
+### Check-In: Module 8 Complete
 
 - [ ] Analytics-RAW Google Sheet created with all 10 event columns
 - [ ] Analytics pipeline wired into Make.com scenarios (events logged for every send/reply/open)
@@ -1067,15 +1067,15 @@ Generate this report on the 1st of every month. Send it as a PDF (export from No
 
 ---
 
-# MODULE 9: SCALING AND TEAM OPERATIONS
+## MODULE 9: SCALING AND TEAM OPERATIONS
 
-## Overview
+### Overview
 
 You can manage 3 clients alone. At 5 clients, you will drown in operations. At 10 clients, you need a team. This module covers the exact hiring profiles, onboarding procedures, and operational systems that let you scale from ₦2M/month to ₦12M/month without breaking the machine you built in Modules 1–8.
 
 Scaling is not "do more of the same." It is "build systems that let other people do what you did, at 80% of your quality, at 20% of your cost." That 80/20 ratio is the key insight. Perfect is the enemy of scalable. Time required: 10–15 hours to build systems. Ongoing: hire as needed.
 
-## Procedure 9.1: Define Your Hiring Roadmap
+### Procedure 9.1: Define Your Hiring Roadmap
 
 You will hire in this exact order. Do not skip steps.
 
@@ -1091,7 +1091,7 @@ You will hire in this exact order. Do not skip steps.
 
 At 12 clients on the Retainer + Performance model (₦750K/month + ₦225K average overage), you are generating ₦11.7M/month. Team cost is ₦1.85M. Tool cost is ~₦500K. Margin: **₦9.35M/month (80% margin).**
 
-## Procedure 9.2: Build SOPs for Each Role
+### Procedure 9.2: Build SOPs for Each Role
 
 Every task in your agency must be documented as a Standard Operating Procedure. No SOP = no delegation. No delegation = no scaling.
 
@@ -1132,7 +1132,7 @@ Create the following SOPs in your Notion "SOPs" page:
 
 {{% accent-box %}}HACK: Record yourself performing each SOP using Loom (https://loom.com). A 5-minute video is worth 2 pages of text. When onboarding a new Outbound Specialist, assign them 3 Loom videos on Day 1 and have them execute the SOPs on a test client. This cuts onboarding time from 2 weeks to 3 days.{{% /accent-box %}}
 
-## Procedure 9.3: Build the Client Acquisition Engine for Your Agency
+### Procedure 9.3: Build the Client Acquisition Engine for Your Agency
 
 Your agency is a cold email outreach agency. You will use cold email outreach to acquire clients for your cold email outreach agency. This is not ironic — it is proof of concept.
 
@@ -1194,7 +1194,7 @@ If things change, you know where to find me.
 
 Send 100 emails/day across 3 sender accounts targeting your own ICP. Expected results at 5% positive reply rate: 5 conversations/day → 2 meetings/day → 10 meetings/week. Close rate at 25%: 2.5 new clients/week.
 
-## Procedure 9.4: Systematize Client Onboarding
+### Procedure 9.4: Systematize Client Onboarding
 
 When a new client signs, execute this onboarding sequence in exactly this order. No deviations.
 
@@ -1235,7 +1235,7 @@ When a new client signs, execute this onboarding sequence in exactly this order.
 - 30-day review call
 - Optimize based on data
 
-## Check-In: Module 9 Complete
+### Check-In: Module 9 Complete
 
 - [ ] Hiring roadmap documented with all 5 roles, triggers, and salary ranges
 - [ ] All 3 SOPs written in Notion (Lead Research, AI Personalization QC, Client Onboarding)
@@ -1246,15 +1246,15 @@ When a new client signs, execute this onboarding sequence in exactly this order.
 
 ---
 
-# MODULE 10: FINANCIAL OPERATIONS AND PRICING ARCHITECTURE
+## MODULE 10: FINANCIAL OPERATIONS AND PRICING ARCHITECTURE
 
-## Overview
+### Overview
 
 Money in, money out. If you cannot track it, you cannot optimize it. This module covers pricing architecture, invoicing, expense management, and the financial model that takes your agency from ₦2M/month to ₦12M/month with 75–80% margins. You will build a financial tracker, set up recurring invoicing, and model three growth scenarios.
 
 Every number in this module is denominated in Naira (₦). If you bill international clients in USD, convert at the prevailing CBN rate on the date of invoice. Time required: 4–6 hours. Tools: Notion, Stripe/Paystack, Google Sheets.
 
-## Procedure 10.1: Establish Your Three-Tier Pricing Model
+### Procedure 10.1: Establish Your Three-Tier Pricing Model
 
 You will offer three pricing tiers. Every prospect receives a proposal with all three tiers. The middle tier is designed to be the obvious choice (anchoring effect).
 
@@ -1291,7 +1291,7 @@ You will offer three pricing tiers. Every prospect receives a proposal with all 
 
 With setup fee of ₦250,000, first-month margin is ₦1,077,000.
 
-## Procedure 10.2: Build the Financial Tracker
+### Procedure 10.2: Build the Financial Tracker
 
 Create a Google Sheet called "Agency-Financials." Structure:
 
@@ -1323,7 +1323,7 @@ Create a Google Sheet called "Agency-Financials." Structure:
 | Month 2 | | | | | | |
 | ... | | | | | | |
 
-## Procedure 10.3: Set Up Recurring Invoicing
+### Procedure 10.3: Set Up Recurring Invoicing
 
 **For Nigerian clients:** Use Paystack (https://paystack.com).
 
@@ -1348,7 +1348,7 @@ Create a Google Sheet called "Agency-Financials." Structure:
 
 {{% accent-box %}}HACK: Add a clause to every contract: "Payment is due within 5 business days of invoice date. Late payments incur a 5% penalty per week. Services will be paused after 14 days of non-payment." You are not a bank. Do not finance your clients' cash flow problems.{{% /accent-box %}}
 
-## Procedure 10.4: Model Three Growth Scenarios
+### Procedure 10.4: Model Three Growth Scenarios
 
 Create a "Growth Model" tab in your Agency-Financials Google Sheet:
 
@@ -1381,7 +1381,7 @@ Create a "Growth Model" tab in your Agency-Financials Google Sheet:
 
 Note: These models assume all clients are on the Growth tier (₦1.2M/month). Actual mix will vary. Track real numbers in your Financial Tracker and compare against these models monthly.
 
-## Procedure 10.5: Manage Client Churn and Renewals
+### Procedure 10.5: Manage Client Churn and Renewals
 
 Churn kills agencies. Your target: under 5% monthly churn.
 
@@ -1414,7 +1414,7 @@ If a client does decide to churn:
 3. Transfer their domains and data within 7 days (contractual obligation).
 4. Reallocate their infrastructure to a new client immediately.
 
-## Procedure 10.6: Annual Financial Review and Reinvestment
+### Procedure 10.6: Annual Financial Review and Reinvestment
 
 Every December, conduct an annual review:
 
@@ -1427,7 +1427,7 @@ Every December, conduct an annual review:
 
 {{% accent-box %}}HACK: Negotiate annual contracts with Apollo.io, Instantly.ai, and Make.com. Pre-paying for 12 months typically saves 15–25%. At your scale, that is ₦500K–₦1.5M saved per year. That is a junior team member's salary.{{% /accent-box %}}
 
-## Check-In: Module 10 Complete
+### Check-In: Module 10 Complete
 
 - [ ] Three-tier pricing model documented (Starter ₦500K, Growth ₦1.2M, Enterprise ₦2.5M)
 - [ ] Delivery cost per client calculated (Growth tier: ₦373,000/month, 69% margin)
@@ -1439,7 +1439,7 @@ Every December, conduct an annual review:
 
 ---
 
-# COMPLETION: YOUR AGENCY IS LIVE
+## COMPLETION: YOUR AGENCY IS LIVE
 
 You have built the complete operating system. 44 procedures executed across 10 modules. Here is what you now own:
 

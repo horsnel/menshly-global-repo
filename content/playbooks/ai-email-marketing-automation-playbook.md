@@ -17,15 +17,15 @@ This is not a blog post condensed into a PDF. This is an operating system for bu
 
 ---
 
-# MODULE 1: FOUNDATION & BUSINESS ARCHITECTURE
+## MODULE 1: FOUNDATION & BUSINESS ARCHITECTURE
 
-## Overview
+### Overview
 
 You are not building an "email marketing agency." You are building a revenue infrastructure company that uses AI to deliver measurable ROI through email. The distinction is not semantic — it determines what you charge, who you sell to, and how you scale. Every agency sends emails. A revenue infrastructure company owns the systems that turn subscribers into revenue. Your client does not pay you to write newsletters. They pay you because every ₦1 they spend on your service generates ₦15-₦35 in attributed revenue. That ratio is your entire business.
 
 Before you touch a single tool, you will lock down three things: your business entity, your service definition, and your financial architecture. Skipping any of these guarantees failure at scale — you will either lose money on taxes, attract the wrong clients, or fly blind on profitability.
 
-## Procedure 1.1: Register Your Business Entity
+### Procedure 1.1: Register Your Business Entity
 
 1. Go to [cac.gov.ng](https://cac.gov.ng) and register a Limited Liability Company. Name format: `[Your Brand] Digital Ltd.` or `[Your Brand] Marketing Technologies Ltd.` Do not register as a sole proprietorship — you need the liability shield when clients dispute attributed revenue numbers.
 2. Cost: ₦25,000–₦30,000 including name reservation and filing.
@@ -33,7 +33,7 @@ Before you touch a single tool, you will lock down three things: your business e
 4. Obtain your Tax Identification Number (TIN) from [firrs.gov.ng](https://firrs.gov.ng). This takes 48 hours.
 5. Open a business bank account with Moniepoint, OPay Business, or Wema Bank. You need a dedicated account that separates business revenue from personal funds. If you commingle, you will have no idea what your margins are by month 3.
 
-## Procedure 1.2: Define Your Service Architecture
+### Procedure 1.2: Define Your Service Architecture
 
 Your service has three tiers. Do not customize pricing per client. Do not negotiate. The tiers exist to make the buying decision simple and to anchor the client to the middle tier.
 
@@ -45,7 +45,7 @@ Your service has three tiers. Do not customize pricing per client. Do not negoti
 
 Write these tiers into a one-page PDF. This is your rate card. You will send this PDF to prospects. You will not deviate from it.
 
-## Procedure 1.3: Set Up Your Financial Tracking
+### Procedure 1.3: Set Up Your Financial Tracking
 
 1. Create a Notion workspace at [notion.so](https://notion.so). Name it `[Your Brand] Operations`.
 2. Inside this workspace, create three databases:
@@ -56,7 +56,7 @@ Write these tiers into a one-page PDF. This is your rate card. You will send thi
 
 {{% accent-box %}}HACK: Create a "MRR Clock" in Notion — a formula property that multiplies each client's monthly fee by 12 and displays annualized revenue. When you see ₦4,200,000 in annualized recurring revenue from just one Growth-tier client, it changes how you value every prospect call and every hour of work. The MRR Clock is a psychological tool that keeps you selling when you'd rather stop.{{% /accent-box %}}
 
-## Check-In: Module 1 Complete
+### Check-In: Module 1 Complete
 
 - [ ] Business entity registered with CAC
 - [ ] TIN obtained from FIRS
@@ -67,13 +67,13 @@ Write these tiers into a one-page PDF. This is your rate card. You will send thi
 
 ---
 
-# MODULE 2: TECH STACK CONFIGURATION
+## MODULE 2: TECH STACK CONFIGURATION
 
-## Overview
+### Overview
 
 You will configure exactly seven tools. Not six. Not eight. Seven. Every tool in this stack has a specific job. Every tool connects to at least one other tool. If a tool does not integrate or does not serve a measurable purpose, it does not enter the stack. Tool sprawl kills margins. Every ₦1 you spend on a tool that does not directly produce revenue is a ₦1 stolen from your profit.
 
-## Procedure 2.1: Configure Klaviyo (Primary ESP for E-Commerce)
+### Procedure 2.1: Configure Klaviyo (Primary ESP for E-Commerce)
 
 1. Go to [klaviyo.com](https://klaviyo.com) and create an account. Select the "Email + SMS" plan.
 2. Pricing at launch (under 250 contacts): ₦0 free tier. You will upgrade when you cross 250 contacts. The ₦0 tier gives you 500 emails/month. This is enough for your first client.
@@ -83,7 +83,7 @@ You will configure exactly seven tools. Not six. Not eight. Seven. Every tool in
 4. Verify the integration: Go to Klaviyo → Analytics → Activity Feed. Add an item to cart on the client store. If the activity appears within 60 seconds, the integration works. If it does not, recheck the API key and JavaScript snippet placement.
 5. Enable double opt-in: Go to Klaviyo → Account → Settings → Email → Set "Double Opt-In" to "On." This protects deliverability. Do not skip this.
 
-## Procedure 2.2: Configure ActiveCampaign (Primary ESP for Non-E-Commerce & B2B)
+### Procedure 2.2: Configure ActiveCampaign (Primary ESP for Non-E-Commerce & B2B)
 
 1. Go to [activecampaign.com](https://activecampaign.com) and create an account. Select the "Plus" plan at $49/month (approximately ₦78,000/month).
 2. Configure your sending domain:
@@ -99,7 +99,7 @@ You will configure exactly seven tools. Not six. Not eight. Seven. Every tool in
 4. Set up the site tracking snippet: Go to Settings → Tracking → Copy the JavaScript snippet → Paste it before the `</head>` tag on every page of the client's website.
 5. Enable event tracking: Go to Settings → Tracking → Event Tracking → Enable "Track Events" → Add events: `form_submit`, `page_view`, `purchase`, `trial_start`.
 
-## Procedure 2.3: Configure ChatGPT (Content Engine)
+### Procedure 2.3: Configure ChatGPT (Content Engine)
 
 1. Go to [chat.openai.com](https://chat.openai.com) and subscribe to ChatGPT Plus at $20/month (approximately ₦32,000/month).
 2. Create a Custom GPT named "Email Copy Engine." Configure it with the following system prompt:
@@ -117,7 +117,7 @@ Output format for every email:
 
 3. Save the Custom GPT. You will use it in Module 5.
 
-## Procedure 2.4: Configure Make.com (Automation Orchestration)
+### Procedure 2.4: Configure Make.com (Automation Orchestration)
 
 1. Go to [make.com](https://www.make.com/en/register?pc=menshly) and create an account. Select the "Core" plan at €9/month (approximately ₦16,000/month).
 2. Connect the following modules in Make.com:
@@ -128,7 +128,7 @@ Output format for every email:
    - Slack (OAuth connection — for internal alerts)
 3. Test each connection by creating a simple scenario: "Watch Google Sheet → Send a test Slack message." If the message arrives, your connections work.
 
-## Procedure 2.5: Configure Google Sheets (Data Backbone)
+### Procedure 2.5: Configure Google Sheets (Data Backbone)
 
 1. Create a Google Sheet named `[Client Name] — Email Operations`.
 2. Create four tabs:
@@ -138,13 +138,13 @@ Output format for every email:
    - **Revenue Attribution**: Columns — Date, Email/Flow Name, Attributed Revenue, Orders, AOV
 3. Share this sheet with your client using "Viewer" permissions. This sheet is your monthly reporting backbone.
 
-## Procedure 2.6: Configure Canva (Visual Asset Production)
+### Procedure 2.6: Configure Canva (Visual Asset Production)
 
 1. Go to [canva.com](https://canva.com) and subscribe to Canva Pro at $13/month (approximately ₦21,000/month).
 2. Create a Brand Kit for each client: upload their logo, set their primary color (#hex), secondary color (#hex), and font pair (one heading font, one body font).
 3. Create three email header templates (1200×400px): promotional, educational, transactional. Save them in a folder named `[Client Name] — Email Assets`.
 
-## Procedure 2.7: Configure Slack (Client Communication)
+### Procedure 2.7: Configure Slack (Client Communication)
 
 1. Create a Slack workspace named `[Your Brand] Clients`. Use the free plan.
 2. For each client, create a private channel named `#client-[brandname]`.
@@ -154,7 +154,7 @@ Output format for every email:
 
 {{% accent-box %}}HACK: Never give clients your personal WhatsApp number. The moment a client has your WhatsApp, every "quick question" at 11 PM becomes your problem. Slack channels create professional boundaries, keep communication searchable, and let you bring team members into conversations without sharing phone numbers. If a client insists on WhatsApp, create a WhatsApp Business account with automated away hours. But push for Slack — it is the difference between a freelance gig and a real business.{{% /accent-box %}}
 
-## Check-In: Module 2 Complete
+### Check-In: Module 2 Complete
 
 - [ ] Klaviyo account created and integrated with at least one client store
 - [ ] ActiveCampaign account created with custom sending domain configured
@@ -166,13 +166,13 @@ Output format for every email:
 
 ---
 
-# MODULE 3: EMAIL INFRASTRUCTURE SETUP
+## MODULE 3: EMAIL INFRASTRUCTURE SETUP
 
-## Overview
+### Overview
 
 Deliverability is the foundation of everything. If your emails land in spam, nothing else matters — not your copy, not your segmentation, not your automation flows. You will configure the technical infrastructure that ensures every email reaches the inbox. This module is the least glamorous and the most critical. A 5% improvement in inbox placement is worth more than a 50% improvement in copy quality. Complete every procedure. Verify every record. Then verify again.
 
-## Procedure 3.1: Configure DNS Records for Deliverability
+### Procedure 3.1: Configure DNS Records for Deliverability
 
 For every client domain, you will add or verify four DNS record types. Open the client's DNS management panel (Cloudflare, GoDaddy, Namecheap, etc.).
 
@@ -200,7 +200,7 @@ TTL: 3600
 ```
 Start with `p=none` (monitoring mode). After 30 days of clean DMARC reports with no failures, change to `p=quarantine`. After 60 days with no failures, change to `p=reject`.
 
-## Procedure 3.2: Warm Up Sending Domains
+### Procedure 3.2: Warm Up Sending Domains
 
 New sending domains have zero reputation. If you send 10,000 emails on day one, you will land in spam. You must warm up the domain over 14 days.
 
@@ -228,7 +228,7 @@ New sending domains have zero reputation. If you send 10,000 emails on day one, 
 
 Send to the most engaged segment first (people who opened an email in the last 30 days). Do not send to cold or unengaged contacts during warm-up.
 
-## Procedure 3.3: Set Up Deliverability Monitoring
+### Procedure 3.3: Set Up Deliverability Monitoring
 
 1. Create a free account at [google.com/postmaster](https://www.google.com/postmaster). Add each client domain. This gives you Google's direct reputation score for that domain. You want to see "High" or "Medium." If you see "Low" or "Bad," you have a deliverability emergency.
 2. Set up a Make.com scenario that runs daily:
@@ -237,7 +237,7 @@ Send to the most engaged segment first (people who opened an email in the last 3
    - **Action 2**: If `email_delivery_rate` < 95%, send a Slack alert to `#client-[brandname]` with the message: "⚠️ Deliverability drop detected for [Client]. Delivery rate: [X]%. Investigate immediately."
 3. Subscribe to [monitorbacklinks.com](https://monitorbacklinks.com) free plan and add each client domain to monitor if they appear on any blacklists. Check weekly.
 
-## Procedure 3.4: Configure List Hygiene Automation
+### Procedure 3.4: Configure List Hygiene Automation
 
 1. In Klaviyo, go to Lists & Segments → Create Segment → Name it "Unengaged — 90 Days." Set the conditions:
    - `Received Email` at least 1 time AND
@@ -256,7 +256,7 @@ Send to the most engaged segment first (people who opened an email in the last 3
 
 {{% accent-box %}}HACK: Never delete unengaged contacts. Suppress them instead. In Klaviyo, go to the segment → Manage Suppressions → Suppress All. Suppressed contacts don't count toward your bill but remain in your database for future re-engagement campaigns. If you delete them and they re-subscribe, you lose all their historical data. Suppress, don't delete. This saves ₦50,000–₦200,000/year per client on Klaviyo overages.{{% /accent-box %}}
 
-## Check-In: Module 3 Complete
+### Check-In: Module 3 Complete
 
 - [ ] SPF, DKIM (Klaviyo + ActiveCampaign), and DMARC records configured for client domain
 - [ ] DMARC set to `p=none` with calendar reminder to escalate after 30 and 60 days
@@ -268,15 +268,15 @@ Send to the most engaged segment first (people who opened an email in the last 3
 
 ---
 
-# MODULE 4: AUDIENCE SEGMENTATION & DATA ARCHITECTURE
+## MODULE 4: AUDIENCE SEGMENTATION & DATA ARCHITECTURE
 
-## Overview
+### Overview
 
 Segmentation is the difference between a 12% click rate and a 3% click rate. It is the difference between ₦2M in email-attributed revenue and ₦800K. Most email marketers segment by demographics. You will segment by behavioral signals and purchase intent — because behavior predicts revenue, demographics predict assumptions.
 
 You will build a segmentation architecture that automatically categorizes every contact into one of five engagement tiers. This architecture runs on autopilot. Every new subscriber is tagged within 60 seconds of their first action. Every existing contact is re-evaluated daily.
 
-## Procedure 4.1: Define the Five-Tier Engagement Model
+### Procedure 4.1: Define the Five-Tier Engagement Model
 
 Create the following engagement tiers in your Google Sheet under a new tab called "Segmentation Architecture":
 
@@ -288,7 +288,7 @@ Create the following engagement tiers in your Google Sheet under a new tab calle
 | 4 | Cold | No open or click in last 60–90 days | 1/2 weeks | Win-back campaigns, survey emails, sunset warning |
 | 5 | Dormant | No activity in 90+ days | 0 (suppressed) | Sunset flow only |
 
-## Procedure 4.2: Build Klaviyo Segments
+### Procedure 4.2: Build Klaviyo Segments
 
 1. In Klaviyo, go to Lists & Segments → Create Segment. Build each tier as a separate segment.
 
@@ -319,7 +319,7 @@ Create the following engagement tiers in your Google Sheet under a new tab calle
 
 2. Verify: Klaviyo will show you the count of contacts in each segment. These should total approximately 100% of your emailable list (minus suppressed contacts). If they do not, your conditions have overlap or gaps. Fix them before proceeding.
 
-## Procedure 4.3: Build ActiveCampaign Segments
+### Procedure 4.3: Build ActiveCampaign Segments
 
 1. In ActiveCampaign, go to Contacts → Segments → Create Segment.
 
@@ -346,7 +346,7 @@ Create the following engagement tiers in your Google Sheet under a new tab calle
 
 2. ActiveCampaign segments update in real time. Verify by checking the contact count matches your Klaviyo segment counts within a 5% margin (slight differences are normal due to timing).
 
-## Procedure 4.4: Set Up Automated Tagging via Make.com
+### Procedure 4.4: Set Up Automated Tagging via Make.com
 
 1. Create a Make.com scenario named "Engagement Tier Tagger":
    - **Trigger**: Klaviyo → Watch Events → Select "Placed Order" event
@@ -365,7 +365,7 @@ Create the following engagement tiers in your Google Sheet under a new tab calle
 
 This automation ensures contacts are always in the correct tier without manual intervention.
 
-## Procedure 4.5: Build Custom Properties for AI Personalization
+### Procedure 4.5: Build Custom Properties for AI Personalization
 
 In Klaviyo, go to Account → Settings → Custom Properties. Create the following:
 
@@ -382,7 +382,7 @@ In ActiveCampaign, create equivalent custom fields under Contacts → Settings �
 
 {{% accent-box %}}HACK: The `discount_sensitivity` custom property is worth ₦500K–₦2M per client per year. When you know who buys at full price and who only buys on sale, you stop sending 20% off codes to people who would have paid full price anyway. Send full-price new arrivals to "low" sensitivity contacts. Send 15% off clearance to "high" sensitivity contacts. One e-commerce client recovered ₦1.8M in margin in a single quarter by not over-discounting. This property alone justifies your Growth-tier fee.{{% /accent-box %}}
 
-## Check-In: Module 4 Complete
+### Check-In: Module 4 Complete
 
 - [ ] Five-tier engagement model documented in Google Sheet
 - [ ] All five segments created and verified in Klaviyo
@@ -394,13 +394,13 @@ In ActiveCampaign, create equivalent custom fields under Contacts → Settings �
 
 ---
 
-# MODULE 5: AI CONTENT GENERATION ENGINE
+## MODULE 5: AI CONTENT GENERATION ENGINE
 
-## Overview
+### Overview
 
 Content is where most email agencies spend 70% of their time and deliver 30% of their value. You will invert this ratio. AI generates 80% of your first-draft content. You spend 20% of your time on human editing and strategic oversight. This is not lazy — this is leverage. The AI produces competent copy in 90 seconds. You make it excellent in 10 minutes. The alternative is a human writing for 45 minutes and producing something equally competent. Excellence comes from editing, not from typing.
 
-## Procedure 5.1: Build the Email Prompt Library
+### Procedure 5.1: Build the Email Prompt Library
 
 Create a Google Doc named `[Your Brand] — Email Prompt Library`. Organize prompts into five categories. Each prompt follows the same structure: Context → Task → Constraints → Output Format.
 
@@ -509,7 +509,7 @@ Body: [HTML body]
 CTA: [button text]
 ```
 
-## Procedure 5.2: Create the AI Content Production Workflow
+### Procedure 5.2: Create the AI Content Production Workflow
 
 1. Open your "Email Copy Engine" Custom GPT in ChatGPT.
 2. For each email needed, paste the appropriate prompt from your library. Fill in ALL bracketed variables with real data from the client's Klaviyo/ActiveCampaign account.
@@ -528,7 +528,7 @@ CTA: [button text]
 6. Add the Canva-designed header image.
 7. Send a test email to yourself and the client. Verify rendering on desktop and mobile.
 
-## Procedure 5.3: Build the Subject Line Generator
+### Procedure 5.3: Build the Subject Line Generator
 
 1. In ChatGPT, save this prompt as "Subject Line Generator":
 ```
@@ -544,7 +544,7 @@ Rules:
 
 2. For every campaign, generate 10 subject lines. Select the top 3. Use the #1 pick for the send. Save the other two for A/B testing (Module 7).
 
-## Procedure 5.4: Set Up the AI Batch Production System
+### Procedure 5.4: Set Up the AI Batch Production System
 
 You will not write emails one at a time. You will batch-produce an entire month's content in a single 3-hour session.
 
@@ -564,7 +564,7 @@ For each email, use the appropriate prompt template from the Email Prompt Librar
 
 {{% accent-box %}}HACK: Save every AI-generated email that performs well (open rate > 35% OR click rate > 5%) into a "Winning Swipe File" folder in your Google Drive. After 3 months, you will have 30–50 proven email templates. When you onboard a new client, you don't start from zero — you adapt from a library of winners. This swipe file becomes your most valuable asset. It is the difference between "I'll write some emails" and "I have a tested library of high-performing email frameworks adapted to your brand."{{% /accent-box %}}
 
-## Check-In: Module 5 Complete
+### Check-In: Module 5 Complete
 
 - [ ] Email Prompt Library Google Doc created with all five categories
 - [ ] "Email Copy Engine" Custom GPT configured with system prompt
@@ -576,15 +576,15 @@ For each email, use the appropriate prompt template from the Email Prompt Librar
 
 ---
 
-# MODULE 6: AUTOMATION FLOW DESIGN
+## MODULE 6: AUTOMATION FLOW DESIGN
 
-## Overview
+### Overview
 
 Flows are where the money lives. Campaigns are one-time sends. Flows run forever. A single well-configured abandoned cart flow can generate ₦500K–₦3M per month in attributed revenue for a mid-size e-commerce client. A welcome series can convert 15–25% of new subscribers into first-time buyers within 14 days. Flows are the asset that compounds. Every flow you build today generates revenue tomorrow, next week, next month, and next year — without additional effort.
 
 You will build eight core flows. Each flow has a trigger, a series of timed emails, conditional logic, and a revenue attribution tag. Build them in this order. The first four are non-negotiable. The last four differentiate you from every "email marketer" the client has hired before.
 
-## Procedure 6.1: Build the Welcome Series (4 Emails)
+### Procedure 6.1: Build the Welcome Series (4 Emails)
 
 **In Klaviyo:**
 1. Go to Flows → Create Flow → Create From Scratch → Name: "Welcome Series"
@@ -616,7 +616,7 @@ You will build eight core flows. Each flow has a trigger, a series of timed emai
    - **Wait**: 168 hours → Send Email: Welcome 4
 4. Enable "Goal" action: Place Order. If the contact makes a purchase at any point, they exit the Welcome Series and enter the Post-Purchase Flow.
 
-## Procedure 6.2: Build the Abandoned Cart Flow (3 Emails)
+### Procedure 6.2: Build the Abandoned Cart Flow (3 Emails)
 
 **In Klaviyo:**
 1. Go to Flows → Create Flow → Abandoned Cart (pre-built template) → Customize
@@ -642,7 +642,7 @@ You will build eight core flows. Each flow has a trigger, a series of timed emai
 4. Add a Goal action: "Purchases" → If the contact purchases at any point, they exit the flow.
 5. Use ActiveCampaign's dynamic content blocks: Insert `{{contact.fieldValues.product_name}}` and `{{contact.fieldValues.cart_total}}` to personalize the cart contents.
 
-## Procedure 6.3: Build the Browse Abandonment Flow (2 Emails)
+### Procedure 6.3: Build the Browse Abandonment Flow (2 Emails)
 
 **In Klaviyo:**
 1. Trigger: "Viewed Product" → Add condition: `Placed Order` = Zero times in the last 24 hours (exclude recent buyers)
@@ -651,7 +651,7 @@ You will build eight core flows. Each flow has a trigger, a series of timed emai
 4. Email 2 (delay: 24 hours after Email 1): "Customers also loved these" — Show top 3 related products. No discount.
 5. Smart Sending: ON. Max sends per person: 1 per 7 days (prevent over-sending to heavy browsers).
 
-## Procedure 6.4: Build the Post-Purchase Flow (3 Emails)
+### Procedure 6.4: Build the Post-Purchase Flow (3 Emails)
 
 **In Klaviyo:**
 1. Trigger: "Placed Order"
@@ -669,7 +669,7 @@ You will build eight core flows. Each flow has a trigger, a series of timed emai
    - If 2+ orders → send referral program email with unique referral link
 5. Revenue attribution window: 10 days.
 
-## Procedure 6.5: Build the Win-Back Flow (3 Emails)
+### Procedure 6.5: Build the Win-Back Flow (3 Emails)
 
 **In Klaviyo:**
 1. Trigger: "Date-Based" → `Last Purchase Date` is more than 60 days ago
@@ -683,7 +683,7 @@ You will build eight core flows. Each flow has a trigger, a series of timed emai
 
 3. After Win-Back 3: If no purchase → Add to "Tier 5 — Dormant" segment → Suppress from all future campaigns (not flows — they still get transactional emails).
 
-## Procedure 6.6: Build the VIP Loyalty Flow (2 Emails)
+### Procedure 6.6: Build the VIP Loyalty Flow (2 Emails)
 
 **In Klaviyo:**
 1. Trigger: "Entered Segment" → "Tier 1 — VIP"
@@ -691,7 +691,7 @@ You will build eight core flows. Each flow has a trigger, a series of timed emai
 3. Email 2 (30 days after entering segment): "Your VIP [MONTH] perks" — Monthly exclusive offer, birthday reward if applicable, referral bonus.
 4. This flow runs in a loop. Email 2 repeats every 30 days with updated content via a "Time Delay" + "Update Flow" action.
 
-## Procedure 6.7: Build the Customer Re-Engagement Flow (3 Emails)
+### Procedure 6.7: Build the Customer Re-Engagement Flow (3 Emails)
 
 **In ActiveCampaign:**
 1. Trigger: "Tag Added" → `tier-3-warm`
@@ -700,7 +700,7 @@ You will build eight core flows. Each flow has a trigger, a series of timed emai
 4. Email 3 (14 days): "Take [X]% off before these are gone" — Discount offer, urgency.
 5. Goal action: "Clicks Link" in any email → Remove `tier-3-warm` tag, add `tier-2-active` tag → Contact exits flow.
 
-## Procedure 6.8: Build the Sunset Flow (2 Emails)
+### Procedure 6.8: Build the Sunset Flow (2 Emails)
 
 **In Klaviyo:**
 1. Trigger: "Entered Segment" → "Tier 5 — Dormant"
@@ -710,7 +710,7 @@ You will build eight core flows. Each flow has a trigger, a series of timed emai
 
 {{% accent-box %}}HACK: Add a "dead man's switch" to your Sunset Flow. After the second email, if the contact takes no action within 14 days, run a Make.com scenario that suppresses them in Klaviyo, removes them from all ActiveCampaign lists, and logs the suppression date in your Google Sheet. Unengaged contacts destroy your sender reputation and inflate your Klaviyo bill. A 50,000-contact list with 30% dormant contacts costs ₦75,000/month more than it should and drags your deliverability score down by 10-15 points. Aggressive list hygiene is not optional — it is a profit center.{{% /accent-box %}}
 
-## Check-In: Module 6 Complete
+### Check-In: Module 6 Complete
 
 - [ ] Welcome Series (4 emails) built and live in Klaviyo AND ActiveCampaign
 - [ ] Abandoned Cart Flow (3 emails) built with dynamic product blocks and discount-sensitivity branching
@@ -725,13 +725,13 @@ You will build eight core flows. Each flow has a trigger, a series of timed emai
 
 ---
 
-# MODULE 7: A/B TESTING & OPTIMIZATION
+## MODULE 7: A/B TESTING & OPTIMIZATION
 
-## Overview
+### Overview
 
 You will not guess. You will test. Every assumption you hold about subject lines, send times, CTA placement, and offer structure is wrong until proven right by data. A/B testing is not a nice-to-have — it is the mechanism by which you turn a ₦150,000/month Starter client into a ₦350,000/month Growth client by proving that your optimizations generate measurable revenue lift.
 
-## Procedure 7.1: Set Up Your Testing Framework
+### Procedure 7.1: Set Up Your Testing Framework
 
 Create a new tab in your Google Sheet named "A/B Test Log." Columns:
 | Column | Description |
@@ -750,7 +750,7 @@ Create a new tab in your Google Sheet named "A/B Test Log." Columns:
 | Lift % | Percentage improvement of winner over loser |
 | Revenue Impact | ₦ amount attributed to the lift |
 
-## Procedure 7.2: Calculate Required Sample Sizes
+### Procedure 7.2: Calculate Required Sample Sizes
 
 Before running any test, calculate whether you have enough contacts for statistical significance.
 
@@ -764,7 +764,7 @@ Before running any test, calculate whether you have enough contacts for statisti
 
 Example: Baseline open rate = 25%, MDE = 15%, significance = 95%, power = 80% → Required sample per variant = ~5,100 contacts. You need at least 10,200 contacts total to run this test.
 
-## Procedure 7.3: Configure A/B Tests in Klaviyo
+### Procedure 7.3: Configure A/B Tests in Klaviyo
 
 **For Campaigns:**
 1. Create a new campaign → Design your email → At the "Send" step, click "A/B Test"
@@ -784,7 +784,7 @@ Example: Baseline open rate = 25%, MDE = 15%, significance = 95%, power = 80% �
 4. Monitor results in the Flow Analytics tab
 5. After reaching statistical significance, remove the losing variant and keep the winner as the sole email
 
-## Procedure 7.4: Configure A/B Tests in ActiveCampaign
+### Procedure 7.4: Configure A/B Tests in ActiveCampaign
 
 1. Create a new campaign → Design your email → At the "Send" step, select "A/B Test"
 2. Choose your test variable: Subject, From Name, or Full Email
@@ -793,7 +793,7 @@ Example: Baseline open rate = 25%, MDE = 15%, significance = 95%, power = 80% �
 5. Set the test window: 24 hours
 6. ActiveCampaign will automatically send the winner to the remainder of the list after the test window
 
-## Procedure 7.5: Run the First 30-Day Optimization Sprint
+### Procedure 7.5: Run the First 30-Day Optimization Sprint
 
 Week 1: **Subject Line Tests** — Test curiosity-driven vs. urgency-driven subject lines on your Welcome Series Email 1. Run 3 tests, one per campaign send.
 
@@ -805,14 +805,14 @@ Week 4: **Offer Tests** — Test 10% off vs. ₦5,000 off vs. free shipping on y
 
 {{% accent-box %}}HACK: Always test offer structure before offer amount. A "₦5,000 off your next order" consistently outperforms "10% off" even when the monetary value is identical, because flat amounts feel more tangible than percentages. Test flat-amount vs. percentage vs. free shipping vs. free gift before you ever test "10% vs. 15%." The structure of the offer matters more than the size of the discount. This insight alone can increase Win-Back flow revenue by 25–40%.{{% /accent-box %}}
 
-## Procedure 7.6: Build the Optimization Feedback Loop
+### Procedure 7.6: Build the Optimization Feedback Loop
 
 1. After every test, record results in the A/B Test Log Google Sheet.
 2. Implement the winning variant immediately. Do not wait for a "perfect" dataset.
 3. After implementing a win, schedule a follow-up test in 30 days to see if a new challenger can beat the current champion.
 4. Monthly, calculate the cumulative revenue impact of all optimizations. This number goes into your client report and justifies your monthly retainer.
 
-## Check-In: Module 7 Complete
+### Check-In: Module 7 Complete
 
 - [ ] A/B Test Log created in Google Sheet with all columns configured
 - [ ] Sample size calculator bookmarked and used for at least one test
@@ -824,13 +824,13 @@ Week 4: **Offer Tests** — Test 10% off vs. ₦5,000 off vs. free shipping on y
 
 ---
 
-# MODULE 8: ANALYTICS & REPORTING
+## MODULE 8: ANALYTICS & REPORTING
 
-## Overview
+### Overview
 
 Your client does not care about open rates. They care about revenue. You will report on revenue first, attribution second, and engagement metrics third. Every report you deliver must answer one question: "What did my email program generate in revenue this month, and what will it generate next month?"
 
-## Procedure 8.1: Configure Klaviyo Analytics
+### Procedure 8.1: Configure Klaviyo Analytics
 
 1. Go to Klaviyo → Analytics → Configure → Enable the following metrics:
    - Placed Order
@@ -850,7 +850,7 @@ Your client does not care about open rates. They care about revenue. You will re
    - **Widget 5**: Engagement Trend — Last 90 days — Line chart with open rate and click rate
    - **Widget 6**: Top Performing Emails — Last 30 days — Table ranked by revenue per recipient
 
-## Procedure 8.2: Configure ActiveCampaign Analytics
+### Procedure 8.2: Configure ActiveCampaign Analytics
 
 1. Go to Reports → Campaign Reports → Enable tracking for all campaigns
 2. Go to Reports → Automation Reports → Enable revenue tracking by connecting ActiveCampaign to the client's e-commerce platform via the integration settings
@@ -860,7 +860,7 @@ Your client does not care about open rates. They care about revenue. You will re
    - **Section 3**: Contact Growth — Net new contacts, churn rate, segment distribution
 4. Schedule this report to auto-generate on the 1st of every month and email it to your client's address.
 
-## Procedure 8.3: Build the Monthly Client Report Template
+### Procedure 8.3: Build the Monthly Client Report Template
 
 Create a Google Slides or Canva presentation template with the following slides:
 
@@ -893,7 +893,7 @@ Create a Google Slides or Canva presentation template with the following slides:
 - Planned A/B tests
 - Revenue forecast: ₦[X] (based on current trends × planned optimizations)
 
-## Procedure 8.4: Automate Report Generation via Make.com
+### Procedure 8.4: Automate Report Generation via Make.com
 
 1. Create a Make.com scenario named "Monthly Report Generator":
    - **Trigger**: Schedule → Run on the 1st of every month at 06:00 WAT
@@ -903,7 +903,7 @@ Create a Google Slides or Canva presentation template with the following slides:
    - **Action 4**: Slack → Post summary to `#client-[brandname]`: "📊 [Month] Report: ₦[X] attributed revenue. [X]% MoM growth. Full report: [link]"
 2. The detailed slide deck is still built manually — the automation handles data extraction and the Slack notification. Building a fully automated slide deck is possible but error-prone; the 30 minutes of manual deck assembly is time well spent.
 
-## Procedure 8.5: Set Up Real-Time Revenue Alerts
+### Procedure 8.5: Set Up Real-Time Revenue Alerts
 
 1. Create a Make.com scenario named "Revenue Milestone Alerts":
    - **Trigger**: Klaviyo → Watch for "Placed Order" events
@@ -916,7 +916,7 @@ Create a Google Slides or Canva presentation template with the following slides:
    - **Filter**: If bounce count > 2% of total sends in the last 24 hours
    - **Action**: Send Slack alert to your internal channel `#ops-alerts`: "⚠️ High bounce rate for [Client]. [X]% bounce rate in last 24h. Investigate immediately."
 
-## Check-In: Module 8 Complete
+### Check-In: Module 8 Complete
 
 - [ ] Klaviyo analytics configured with all 8 metrics enabled
 - [ ] Klaviyo custom dashboard created with 6 widgets
@@ -929,13 +929,13 @@ Create a Google Slides or Canva presentation template with the following slides:
 
 ---
 
-# MODULE 9: CLIENT ACQUISITION
+## MODULE 9: CLIENT ACQUISITION
 
-## Overview
+### Overview
 
 You have the skills. You have the stack. You have the playbooks. Now you need paying clients. Client acquisition is not a creative exercise — it is a numbers game with a conversion rate. You will run three acquisition channels simultaneously. Each channel has a specific cost-per-acquisition target and a specific conversion rate expectation. You will track both.
 
-## Procedure 9.1: Build Your Case Study Portfolio
+### Procedure 9.1: Build Your Case Study Portfolio
 
 Before you pitch anyone, you need proof. Complete Modules 2–8 for one business — your own, a friend's, or a free-trial client — and document every result.
 
@@ -959,7 +959,7 @@ Results:
 2. Design each case study as a one-page PDF in Canva using the client's brand colors. Export at high resolution.
 3. Post the case studies on your website (even a Notion page published to the web counts).
 
-## Procedure 9.2: Set Up the Cold Outreach Engine
+### Procedure 9.2: Set Up the Cold Outreach Engine
 
 **Channel 1: Cold Email via ActiveCampaign**
 
@@ -1004,7 +1004,7 @@ Results:
 4. At the end of the video: "I can implement all three of these improvements within 2 weeks. Would you like to see what that looks like?"
 5. Conversion rate target: 20–30% of free audit recipients book a discovery call.
 
-## Procedure 9.3: Run the Discovery Call
+### Procedure 9.3: Run the Discovery Call
 
 1. Send a Calendly link for a 30-minute call.
 2. Before the call, research the prospect's email program (sign up for their list, check their flows, review their social media for recent promotions).
@@ -1020,7 +1020,7 @@ Results:
 
 **Minutes 25–30**: If they choose a tier, send the contract immediately after the call. If they hesitate, offer the free audit (if you haven't already delivered one).
 
-## Procedure 9.4: Close and Onboard
+### Procedure 9.4: Close and Onboard
 
 1. Create a contract template in Google Docs. Key terms:
    - Minimum commitment: 3 months
@@ -1040,7 +1040,7 @@ Results:
 
 {{% accent-box %}}HACK: The 3-month minimum commitment is non-negotiable. Email automation takes 60–90 days to show full results. Flows need time to accumulate data. A/B tests need sample sizes. Deliverability warm-up takes 14 days alone. A client who cancels after 30 days has seen zero results and will tell everyone your service doesn't work. A client who stays for 90 days has seen ₦2M–₦10M in attributed revenue and will refer you to three other founders. The minimum commitment protects them from premature termination and protects you from bad reviews. Frame it as: "Results compound over 90 days. The first month is setup, the second month is optimization, the third month is when you see the full revenue impact."{{% /accent-box %}}
 
-## Check-In: Module 9 Complete
+### Check-In: Module 9 Complete
 
 - [ ] Three case studies written and designed as PDFs
 - [ ] Case studies published on website or Notion page
@@ -1056,15 +1056,15 @@ Results:
 
 ---
 
-# MODULE 10: SCALING & TEAM BUILDING
+## MODULE 10: SCALING & TEAM BUILDING
 
-## Overview
+### Overview
 
 At ₦1.5M/month in MRR (roughly 4–5 Growth-tier clients or 10 Starter clients), you will hit the solo operator ceiling. There are only so many hours in a day. You can write emails, build flows, and run reports for 4–5 clients by yourself. Beyond that, quality drops or you burn out. The only way past this ceiling is to build a team and systematize everything you do.
 
 This module is about turning your skills into systems that other people can execute. If the business depends on you personally, you have a job — not a business. If the business runs without you for a week, you have a business.
 
-## Procedure 10.1: Hire Your First Team Member
+### Procedure 10.1: Hire Your First Team Member
 
 You need an Email Operations Associate. This person executes the procedures you've built in Modules 3–8. They do not need to be an email marketing expert. They need to be detail-oriented, comfortable with technology, and able to follow written procedures exactly.
 
@@ -1090,7 +1090,7 @@ TO APPLY: Send a 200-word email to [your email] explaining why you're detail-ori
 3. Screen applicants: Send a paid test (₦10,000 stipend) — "Configure a 3-email welcome series in this Klaviyo account using this procedure document." If they can follow the procedure exactly and produce a working flow, they pass.
 4. Hire within 14 days. Do not spend more than 14 days on hiring — every day without a team member is a day you're capping revenue.
 
-## Procedure 10.2: Document Every Procedure as an SOP
+### Procedure 10.2: Document Every Procedure as an SOP
 
 Every procedure in this playbook becomes a Standard Operating Procedure (SOP) document in Notion. Each SOP follows this format:
 
@@ -1121,7 +1121,7 @@ SCREENSHOTS: [Annotated screenshots of every tool interface]
 3. Your new hire learns by reading the SOP, watching the Loom video, and then executing the procedure on a test account while you watch.
 4. Target: New hire is fully productive within 21 days.
 
-## Procedure 10.3: Implement Quality Assurance
+### Procedure 10.3: Implement Quality Assurance
 
 1. Create a "QA Checklist" in Notion for every deliverable type:
 
@@ -1147,7 +1147,7 @@ SCREENSHOTS: [Annotated screenshots of every tool interface]
 
 2. No email or flow goes live without a completed QA checklist. This is non-negotiable. One misconfigured flow can send 10,000 people a discount code meant for 50 VIPs. The QA checklist is your insurance policy.
 
-## Procedure 10.4: Scale from 5 to 15 Clients
+### Procedure 10.4: Scale from 5 to 15 Clients
 
 **Revenue Target: ₦5.25M/month** (15 Growth-tier clients at ₦350,000 each)
 
@@ -1173,7 +1173,7 @@ SCREENSHOTS: [Annotated screenshots of every tool interface]
    - New business: 6 hours/week
    - **Total: 30 hours/week**
 
-## Procedure 10.5: Scale from 15 to 35 Clients — The ₦12M/month Milestone
+### Procedure 10.5: Scale from 15 to 35 Clients — The ₦12M/month Milestone
 
 **Revenue Target: ₦12.25M/month** (35 clients across all tiers: 15 Starter at ₦150K, 15 Growth at ₦350K, 5 Enterprise at ₦750K)
 
@@ -1191,7 +1191,7 @@ SCREENSHOTS: [Annotated screenshots of every tool interface]
 
 3. At this stage, you stop executing and start leading. If you are still building flows at 35 clients, you have not built a business — you have built a prison. The SOPs, the QA process, and the team structure exist specifically to remove you from execution.
 
-## Procedure 10.6: Build the Recurring Revenue Engine
+### Procedure 10.6: Build the Recurring Revenue Engine
 
 The ultimate goal is not more clients. It is more predictable revenue from existing clients with lower churn.
 
@@ -1218,7 +1218,7 @@ The ultimate goal is not more clients. It is more predictable revenue from exist
 
 {{% accent-box %}}HACK: Create a "Quarterly Business Review" (QBR) for every client, even Starter-tier. This is a 30-minute video call where you present the last 90 days of results and the next 90 days of strategy. The QBR does three things: (1) reminds the client of the value you're delivering, (2) surfaces upsell opportunities, and (3) makes it psychologically harder to cancel because they have a personal relationship with you that goes beyond a monthly invoice. Clients who receive QBRs churn at half the rate of clients who don't. Schedule them on day 90, 180, 270, and 365 from onboarding.{{% /accent-box %}}
 
-## Check-In: Module 10 Complete
+### Check-In: Module 10 Complete
 
 - [ ] Job posting written and published on three platforms
 - [ ] At least one Email Operations Associate hired and trained
@@ -1233,7 +1233,7 @@ The ultimate goal is not more clients. It is more predictable revenue from exist
 
 ---
 
-# THE THREE-TIER PRICING TABLE
+## THE THREE-TIER PRICING TABLE
 
 | | **Starter** | **Growth** | **Enterprise** |
 |---|---|---|---|
@@ -1253,7 +1253,7 @@ The ultimate goal is not more clients. It is more predictable revenue from exist
 
 ---
 
-# TOOL COST SUMMARY
+## TOOL COST SUMMARY
 
 | Tool | Monthly Cost (₦) | Purpose |
 |------|-------------------|---------|
@@ -1273,7 +1273,7 @@ At your first Growth-tier client (₦350,000/month), your tool stack is fully co
 
 ---
 
-# 12-MONTH REVENUE PROJECTION
+## 12-MONTH REVENUE PROJECTION
 
 | Month | Clients | MRR | Tool Costs | Payroll | Net Profit |
 |-------|---------|-----|------------|---------|------------|
@@ -1294,7 +1294,7 @@ These numbers assume: 70% of clients at Growth tier, 20% at Starter, 10% at Ente
 
 ---
 
-# FINAL DIRECTIVE
+## FINAL DIRECTIVE
 
 You now have a complete operating system. 10 modules. 36 procedures. Every tool named. Every setting specified. Every flow configured. Every script written. There is nothing missing. There is no additional information you need to start.
 

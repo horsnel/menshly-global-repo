@@ -16,9 +16,9 @@ This playbook extends our free implementation guide with complete procedures, SO
 
 ---
 
-# MODULE 1: FOUNDATION — Set Up Core Accounts and Infrastructure
+## MODULE 1: FOUNDATION — Set Up Core Accounts and Infrastructure
 
-## Overview
+### Overview
 In this module you will create every foundational account you need. Every downstream module depends on the accounts and infrastructure you set up here. Without a deployment platform, workspace, and scheduling tool, nothing else works.
 **Time to complete:** 75 minutes
 **Tools needed:** [Railway](https://railway.com?referralCode=fJobV0), [Notion](https://notion.so/), Calendly
@@ -29,7 +29,7 @@ In this module you will create every foundational account you need. Every downst
 | **Notion** | Workspace & client management | Free (1 user) | $8/mo per user |
 | **Calendly** | Scheduling & onboarding calls | Free (1 event type) | $10/mo |
 
-## Procedure 1.1: Create a Railway Account and Deploy a Starter App
+### Procedure 1.1: Create a Railway Account and Deploy a Starter App
 
 1. Visit **https://railway.com?referralCode=fJobV0** and click **Start a New Project**.
 2. Sign up with your GitHub account (recommended) or email.
@@ -44,7 +44,7 @@ In this module you will create every foundational account you need. Every downst
 
 **Error scenario:** If you see a "Build Failed" error, check that your repository has a valid `Dockerfile` or `requirements.txt`. Railway auto-detects Python projects.
 
-## Procedure 1.2: Set Up a Notion Workspace for Client and Glossary Management
+### Procedure 1.2: Set Up a Notion Workspace for Client and Glossary Management
 
 1. Open **https://www.notion.so** and click **Sign Up**.
 2. Create a page titled **"AI Translation Service — Command Center"**.
@@ -64,23 +64,23 @@ In this module you will create every foundational account you need. Every downst
    - **Do Not Translate** (Checkbox)
 5. Do you see both tables? If not, scroll down — they may be below the fold.
 
-## Procedure 1.3: Configure Calendly for Discovery Calls
+### Procedure 1.3: Configure Calendly for Discovery Calls
 
 1. Visit **https://www.calendly.com** and click **Get Started**.
 2. Create an event called **"AI Translation Service — Discovery Call"**.
 3. Set duration to **30 minutes**, availability **Monday–Friday, 9AM–5PM**.
 4. Copy the Calendly link and paste it into your Notion Command Center under **"Booking Links"**.
 
-## Check-In: Module 1 Complete
+### Check-In: Module 1 Complete
 - [ ] Railway account created with a deployed starter project
 - [ ] Notion workspace created with Client Pipeline and Glossaries tables
 - [ ] Calendly event created and link saved in Notion
 
 ---
 
-# MODULE 2: TECH STACK — Acquire API Keys and Build the Automation Core
+## MODULE 2: TECH STACK — Acquire API Keys and Build the Automation Core
 
-## Overview
+### Overview
 You will secure all API keys and wire them into Make.com. This module connects every tool so translations flow automatically.
 **Time to complete:** 60 minutes
 **Tools needed:** Make.com, ChatGPT (OpenAI), DeepL, ElevenLabs
@@ -92,14 +92,14 @@ You will secure all API keys and wire them into Make.com. This module connects e
 | **DeepL** | European language translation | 500K chars/month | $25/mo Pro |
 | **ElevenLabs** | Audio localization | 10K chars/month | $5/mo starter |
 
-## Procedure 2.1: Create a Make.com Account and Get the API Token
+### Procedure 2.1: Create a Make.com Account and Get the API Token
 
 1. Open **https://www.make.com** and click **SIGN UP**.
 2. Verify your email and log in.
 3. Click your avatar → **Account Settings → API → Generate a new token**.
 4. Copy the token and save it in your Notion **API Keys Vault** table.
 
-## Procedure 2.2: Create and Store All Required API Keys
+### Procedure 2.2: Create and Store All Required API Keys
 
 1. **OpenAI:** Visit https://platform.openai.com/account/api-keys → **Create new secret key** → Copy to Notion.
 2. **DeepL:** Visit https://www.deepl.com/pro-api → Sign up → Copy API key to Notion.
@@ -108,7 +108,7 @@ You will secure all API keys and wire them into Make.com. This module connects e
 
 **Error scenario:** If OpenAI shows "You need to add a payment method," add a card with at least $5 credit. The API requires a payment method even for trial usage.
 
-## Procedure 2.3: Build the API Health Check Scenario in Make.com
+### Procedure 2.3: Build the API Health Check Scenario in Make.com
 
 1. In Make.com, click **+ Create a new scenario** → name it **"API Health Check"**.
 2. Add **HTTP → Make a Request**: `GET https://api.openai.com/v1/models` with `Authorization: Bearer YOUR_KEY`.
@@ -117,21 +117,21 @@ You will secure all API keys and wire them into Make.com. This module connects e
 5. Repeat for ElevenLabs: `GET https://api.elevenlabs.io/v1/voices` with `xi-api-key: YOUR_KEY`.
 6. All three return 200? Save the scenario.
 
-## Check-In: Module 2 Complete
+### Check-In: Module 2 Complete
 - [ ] Make.com account created with API token saved in Notion
 - [ ] All 4 API keys (OpenAI, DeepL, ElevenLabs, Make.com) stored
 - [ ] API Health Check scenario passes for all 3 services
 
 ---
 
-# MODULE 3: FRAMEWORK — Design Your Service Delivery Framework
+## MODULE 3: FRAMEWORK — Design Your Service Delivery Framework
 
-## Overview
+### Overview
 This module defines every touchpoint from lead capture to final delivery. Without a documented framework, you will deliver inconsistent results and waste hours reinventing the wheel.
 **Time to complete:** 45 minutes
 **Tools needed:** Notion, ChatGPT
 
-## Procedure 3.1: Design the Client Journey Board in Notion
+### Procedure 3.1: Design the Client Journey Board in Notion
 
 1. In your Notion Command Center, type `/board` → **Board — Full Page**.
 2. Name it **"Client Journey"** with stages: **Lead → Qualified → Onboarding → Active → Review → Renewal → Churned**.
@@ -144,7 +144,7 @@ This module defines every touchpoint from lead capture to final delivery. Withou
    - **Renewal:** "Monthly retainer invoice sent"
    - **Churned:** "Exit survey sent; feedback logged"
 
-## Procedure 3.2: Create the Master Translation Prompt Template
+### Procedure 3.2: Create the Master Translation Prompt Template
 
 1. Open ChatGPT and paste this system prompt:
 
@@ -168,20 +168,20 @@ Format: Return the translated text with any flagged segments in [FLAG: reason] m
 
 2. Test with a sample paragraph. Save the prompt template in Notion under **"Prompt Templates"**.
 
-## Check-In: Module 3 Complete
+### Check-In: Module 3 Complete
 - [ ] Client Journey board created with 7 stages
 - [ ] Master translation prompt tested and saved in Notion
 
 ---
 
-# MODULE 4: FIRST BUILD — Build Your Core Translation Pipeline
+## MODULE 4: FIRST BUILD — Build Your Core Translation Pipeline
 
-## Overview
+### Overview
 This is the minimum viable product your first client will use. You will build a Make.com scenario that receives content, translates it through the optimal AI model, runs quality checks, and delivers the result.
 **Time to complete:** 3 hours
 **Tools needed:** Make.com, ChatGPT API, DeepL API, [Railway](https://railway.com?referralCode=fJobV0)
 
-## Procedure 4.1: Build the Multi-Model Translation Scenario in Make.com
+### Procedure 4.1: Build the Multi-Model Translation Scenario in Make.com
 
 1. Create a new scenario: **"Translation Pipeline — Production"**.
 2. Add a **Webhook** trigger → name it `translate-request`. Copy the URL.
@@ -199,7 +199,7 @@ This is the minimum viable product your first client will use. You will build a 
 **HACK: Use the webhook URL as your client-facing API endpoint.** Clients send a POST request with `{content, source_lang, target_lang}` and receive the translation back in the response. No client-side integration needed beyond a simple HTTP call.
 {{% /accent-box %}}
 
-## Procedure 4.2: Deploy the Translation API on Railway
+### Procedure 4.2: Deploy the Translation API on Railway
 
 1. Create `translation_api.py` with Flask endpoints: `/translate`, `/health`, `/languages`.
 2. Create `requirements.txt`: `flask==3.0.0`, `openai==1.40.0`, `deepl==1.18.0`.
@@ -209,13 +209,13 @@ This is the minimum viable product your first client will use. You will build a 
 6. Deploy and test: `curl https://your-app.up.railway.app/health` → should return `{"status": "healthy"}`.
 7. Test translation: POST to `/translate` with `{"content": "Hello world", "target_lang": "es"}`.
 
-## Procedure 4.3: Connect Make.com Webhook to Railway API
+### Procedure 4.3: Connect Make.com Webhook to Railway API
 
 1. In Make.com, replace the direct API calls in your Translation Pipeline scenario with calls to your Railway API endpoint.
 2. This gives you a single entry point that handles model routing, quality checks, and error handling.
 3. Test end-to-end: Send a request to the Make.com webhook → verify it calls Railway → verify translation returns.
 
-## Check-In: Module 4 Complete
+### Check-In: Module 4 Complete
 - [ ] Multi-model translation scenario running in Make.com
 - [ ] Translation API deployed on Railway with /translate and /health endpoints
 - [ ] Quality check integrated with automatic human review routing
@@ -223,9 +223,9 @@ This is the minimum viable product your first client will use. You will build a 
 
 ---
 
-# MODULE 5: CLIENT ACQUISITION — Build Your Lead Generation Engine
+## MODULE 5: CLIENT ACQUISITION — Build Your Lead Generation Engine
 
-## Overview
+### Overview
 This module builds the systems that turn strangers into paying clients. Without these, you have a great product but no revenue.
 **Time to complete:** 90 minutes
 **Tools needed:** Hostinger, Klaviyo, Apollo.io, Canva
@@ -237,7 +237,7 @@ This module builds the systems that turn strangers into paying clients. Without 
 | **Apollo.io** | B2B lead generation | 500 credits/month | $49/mo |
 | **Canva** | Visual assets | Free templates | $12.95/mo |
 
-## Procedure 5.1: Build a High-Conversion Landing Page on Hostinger
+### Procedure 5.1: Build a High-Conversion Landing Page on Hostinger
 
 1. Sign up at **https://www.hostinger.com** and select a hosting plan.
 2. Install WordPress using the auto-installer.
@@ -249,7 +249,7 @@ This module builds the systems that turn strangers into paying clients. Without 
    - Sample translation showcase (show the same paragraph in 5 languages)
 4. Use [Canva](https://www.canva.com/) to design a professional hero image showing multilingual content.
 
-## Procedure 5.2: Set Up Lead Generation with Apollo.io
+### Procedure 5.2: Set Up Lead Generation with Apollo.io
 
 1. Sign up at **https://www.apollo.io** and create a prospect list with filters:
    - **Title:** Head of Marketing, CMO, VP International, Localization Manager
@@ -260,7 +260,7 @@ This module builds the systems that turn strangers into paying clients. Without 
    - **Email 2:** "Quick follow-up — here's a comparison of your current site vs. AI-localized version"
    - **Email 3:** "Last email — our clients see 40% increase in international traffic within 90 days"
 
-## Procedure 5.3: Create an Email Nurture Flow in Klaviyo
+### Procedure 5.3: Create an Email Nurture Flow in Klaviyo
 
 1. Create a flow triggered by "Added to Translation Leads list."
 2. Build a 4-email sequence:
@@ -269,7 +269,7 @@ This module builds the systems that turn strangers into paying clients. Without 
    - **Day 5:** "3 ways localization increases international revenue by 40%"
    - **Day 7:** "Ready to go global? Book your free consultation" + Calendly link
 
-## Check-In: Module 5 Complete
+### Check-In: Module 5 Complete
 - [ ] Landing page live on Hostinger with email capture and pricing
 - [ ] Apollo.io prospect list with 25+ leads
 - [ ] 3-email outreach sequence active
@@ -277,14 +277,14 @@ This module builds the systems that turn strangers into paying clients. Without 
 
 ---
 
-# MODULE 6: DELIVERY — Build Your Client Delivery Pipeline
+## MODULE 6: DELIVERY — Build Your Client Delivery Pipeline
 
-## Overview
+### Overview
 Delivery is where the money is made. This module ensures consistent, high-quality results without burning out.
 **Time to complete:** 60 minutes
 **Tools needed:** Make.com, Notion, ElevenLabs
 
-## Procedure 6.1: Build the Automated Delivery Pipeline in Make.com
+### Procedure 6.1: Build the Automated Delivery Pipeline in Make.com
 
 1. Create a scenario: **"Client Delivery — Weekly Translation Batch"**.
 2. Add a **Schedule** trigger: Every Monday at 8:00 AM UTC.
@@ -294,7 +294,7 @@ Delivery is where the money is made. This module ensures consistent, high-qualit
 6. Add a **Notion** module: Log the translation in the client's delivery history.
 7. Add a **Klaviyo** module: Send the translation to the client with subject "Your [Language] Translation — [Date]".
 
-## Procedure 6.2: Add Audio Localization as a Premium Upsell
+### Procedure 6.2: Add Audio Localization as a Premium Upsell
 
 1. Create a scenario: **"Audio Localization Pipeline"**.
 2. Trigger: Webhook receives translated text + target language + voice preference.
@@ -303,21 +303,21 @@ Delivery is where the money is made. This module ensures consistent, high-qualit
 5. Generate a signed URL and send to client via Notion or email.
 6. Price this at $500-$2,000 extra per project — your margin is nearly 100% since ElevenLabs costs pennies per minute.
 
-## Check-In: Module 6 Complete
+### Check-In: Module 6 Complete
 - [ ] Weekly delivery pipeline running automatically in Make.com
 - [ ] Audio localization upsell built with ElevenLabs integration
 - [ ] Client communication templates saved in Notion
 
 ---
 
-# MODULE 7: SCALING — From Solo to Team
+## MODULE 7: SCALING — From Solo to Team
 
-## Overview
+### Overview
 This module transforms your one-person operation into a system that handles 10-50 clients.
 **Time to complete:** 90 minutes
 **Tools needed:** Notion, Upwork, Google Sheets
 
-## Procedure 7.1: Hire Reviewers on Upwork
+### Procedure 7.1: Hire Reviewers on Upwork
 
 1. Post a job: "Native [Language] Translation Reviewer — AI Output QA"
 2. Budget: $15-25/hour, 10-20 hours/week
@@ -325,7 +325,7 @@ This module transforms your one-person operation into a system that handles 10-5
 4. Give a test: Review a 500-word AI translation and identify errors. Score on: accuracy, speed, communication quality.
 5. Hire the top candidate for each language pair you offer.
 
-## Procedure 7.2: Build SOPs for Task Delegation
+### Procedure 7.2: Build SOPs for Task Delegation
 
 Create in Notion:
 - **SOP-001: New Client Onboarding** — Glossary setup, webhook config, first test translation (18 steps)
@@ -333,7 +333,7 @@ Create in Notion:
 - **SOP-003: Quality Review** — Reviewer checklist, correction workflow, re-delivery (8 steps)
 - **SOP-004: Audio Localization** — Voice selection, generation, QA, delivery (10 steps)
 
-## Procedure 7.3: Run a Margin Analysis
+### Procedure 7.3: Run a Margin Analysis
 
 | Metric | Starter ($500/mo) | Growth ($1,500/mo) | Enterprise ($4,000/mo) |
 |--------|-------------------|--------------------|-----------------------|
@@ -346,21 +346,21 @@ Create in Notion:
 
 Break-even: 2 Growth clients cover all costs + your salary.
 
-## Check-In: Module 7 Complete
+### Check-In: Module 7 Complete
 - [ ] Reviewers hired for top 3 language pairs
 - [ ] 4 SOPs documented in Notion
 - [ ] Margin analysis completed — break-even at 2 Growth clients
 
 ---
 
-# MODULE 8: LAUNCH PLAN — Your 30-Day Execution Calendar
+## MODULE 8: LAUNCH PLAN — Your 30-Day Execution Calendar
 
-## Overview
+### Overview
 This is your action plan to go from zero to first paying client in 30 days. Every day has a specific task.
 **Time to complete:** 30 days (1-3 hours/day)
 **Tools needed:** All tools from previous modules
 
-## Procedure 8.1: Execute Days 1-15 (Foundation to First Build)
+### Procedure 8.1: Execute Days 1-15 (Foundation to First Build)
 
 | Day | Task | Time | Tool |
 |-----|------|------|------|
@@ -380,7 +380,7 @@ This is your action plan to go from zero to first paying client in 30 days. Ever
 | 14 | Send proposals to qualified leads | 60 min | Notion |
 | 15 | QA test entire pipeline end-to-end | 90 min | All |
 
-## Procedure 8.2: Execute Days 16-30 (Delivery to Revenue)
+### Procedure 8.2: Execute Days 16-30 (Delivery to Revenue)
 
 | Day | Task | Time | Tool |
 |-----|------|------|------|
@@ -400,7 +400,7 @@ This is your action plan to go from zero to first paying client in 30 days. Ever
 | 29 | Set Month 2 targets in Notion Revenue Dashboard | 30 min | Notion |
 | 30 | **MILESTONE: Calculate MRR and set growth targets** | 30 min | Notion |
 
-## Procedure 8.3: Set Your Month 2 Growth Targets
+### Procedure 8.3: Set Your Month 2 Growth Targets
 
 | Metric | Month 1 (Actual) | Month 2 (Target) | Growth |
 |--------|-------------------|-------------------|--------|
@@ -411,7 +411,7 @@ This is your action plan to go from zero to first paying client in 30 days. Ever
 | Conversion Rate | {rate}% | 25% | Optimize follow-up |
 | Language Pairs Offered | 5 | 8 | +3 Asian languages |
 
-## Check-In: Module 8 Complete
+### Check-In: Module 8 Complete
 - [ ] Days 1-15 tasks completed — pipeline live and tested
 - [ ] Days 16-30 tasks completed — first client onboarded and paying
 - [ ] Month 2 targets set in Notion

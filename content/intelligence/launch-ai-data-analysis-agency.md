@@ -13,7 +13,7 @@ relatedPlaybook: "/playbooks/ai-side-hustle-blueprint/"
 
 You are going to build an AI data analysis agency. Not a blog about data. Not a course about analytics. A service that takes a business's raw data, extracts insights, and delivers recommendations they can act on — for money. This guide covers every step. Follow it in order. Do not skip steps.
 
-## Prerequisites
+### Prerequisites
 
 - A laptop with at least 8GB RAM
 - Python 3.11+ installed — verify with `python --version`
@@ -27,7 +27,7 @@ You are going to build an AI data analysis agency. Not a blog about data. Not a 
 
 Total upfront cost: $20 for ChatGPT Plus.
 
-## Step 1: Configure Your Python Analysis Environment
+### Step 1: Configure Your Python Analysis Environment
 
 Open your terminal. Run:
 
@@ -67,77 +67,77 @@ pd.set_option('display.float_format', '{:.2f}'.format)
 print("Analysis environment ready.")
 ```
 
-### CHECK-IN: Step 1 Complete
+#### CHECK-IN: Step 1 Complete
 
 1. Virtual environment active (`(venv)` in prompt)
 2. All packages import without errors
 3. Jupyter Lab opens and notebook runs boilerplate
 
-## Step 2: Master the ChatGPT Code Interpreter Pipeline
+### Step 2: Master the ChatGPT Code Interpreter Pipeline
 
-### Upload and Describe
+#### Upload and Describe
 
 Open ChatGPT. Upload a CSV file. Type:
 
 > "Analyze this dataset. Provide: (1) Total rows and columns, (2) Data types, (3) Missing values per column, (4) Duplicate rows, (5) Basic statistics for numeric columns, (6) Unique values for categorical columns, (7) Top 3 data quality issues."
 
-### Identify Patterns
+#### Identify Patterns
 
 > "Identify the 10 most interesting patterns in this data. For each: (1) Describe in plain English, (2) Statistical evidence, (3) Business impact (HIGH/MEDIUM/LOW), (4) One specific action."
 
-### Generate Visualizations
+#### Generate Visualizations
 
 > "Create 5 Plotly visualizations. Each must have a clear title, axis labels, and a 2-sentence annotation. Save as PNG at 1200x800."
 
-### Develop Recommendations
+#### Develop Recommendations
 
 > "Create 7 prioritized recommendations. For each: (1) One-sentence recommendation, (2) Data evidence, (3) Expected impact, (4) Implementation difficulty, (5) Timeline."
 
-### CHECK-IN: Step 2 Complete
+#### CHECK-IN: Step 2 Complete
 
 1. Can upload CSV and get structured summary
 2. Can generate prioritized patterns with evidence
 3. Can produce 5 annotated visualizations
 4. Can generate actionable recommendations
 
-## Step 3: Build Reusable Analysis Templates
+### Step 3: Build Reusable Analysis Templates
 
-### Template 1: Sales Analysis
+#### Template 1: Sales Analysis
 
 Create `templates/sales-analysis.ipynb`. This template analyzes sales data for revenue trends, top products, seasonal patterns, and growth opportunities. Expected columns: date, product, category, quantity, revenue, customer_id, region.
 
 Key sections: Data cleaning, revenue trend analysis with month-over-month comparison, product Pareto analysis (top 20% products by revenue), seasonal pattern detection by day of week.
 
-### Template 2: Customer Segmentation
+#### Template 2: Customer Segmentation
 
 Create `templates/customer-segmentation.ipynb`. This segments customers by RFM (Recency, Frequency, Monetary) analysis and K-means clustering.
 
 Key sections: RFM scoring (1-5 scale per dimension), rule-based segment assignment (Champions, Loyal, New, At Risk, Lost), K-means clustering with elbow method for optimal k, segment visualization and revenue contribution pie chart.
 
-### Template 3: Financial Reporting
+#### Template 3: Financial Reporting
 
 Create `templates/financial-reporting.ipynb`. This turns raw financial data into P&L summaries, expense breakdowns, and cash flow analysis.
 
 Key sections: Monthly P&L with revenue/expenses/profit bars, expense breakdown treemap, cumulative cash flow line chart, margin trend analysis.
 
-### CHECK-IN: Step 3 Complete
+#### CHECK-IN: Step 3 Complete
 
 1. Sales template runs end-to-end on sample CSV
 2. Customer segmentation produces RFM scores and clusters
 3. Financial reporting generates P&L and cash flow charts
 4. All templates export PNGs to output/ folder
 
-## Step 4: Build the Client Onboarding Process
+### Step 4: Build the Client Onboarding Process
 
-### Create the Onboarding Form
+#### Create the Onboarding Form
 
 In Notion, create a form collecting: company name, industry, data sources, file format, approximate row count, data quality self-assessment (1-5), top 3 questions they want answered, what decision the analysis will inform.
 
-### Create the Data Handling Agreement
+#### Create the Data Handling Agreement
 
 A simple document covering: scope of data processing, data security measures, data ownership, confidentiality, and liability limits.
 
-### Set Up Client Folder Structure
+#### Set Up Client Folder Structure
 
 ```
 clients/
@@ -150,13 +150,13 @@ clients/
     contract/       # Signed agreements
 ```
 
-### CHECK-IN: Step 4 Complete
+#### CHECK-IN: Step 4 Complete
 
 1. Onboarding form collects all required information
 2. Data handling agreement exists
 3. Folder structure template ready
 
-## Step 5: Execute the Data Cleaning Workflow
+### Step 5: Execute the Data Cleaning Workflow
 
 When you receive client data, save the original to `clients/CLIENT_NAME/raw/`. Create a data quality notebook:
 
@@ -176,16 +176,16 @@ df.columns = df.columns.str.lower().str.replace(' ', '_')
 df.to_csv('../cleaned/data_cleaned.csv', index=False)
 ```
 
-### CHECK-IN: Step 5 Complete
+#### CHECK-IN: Step 5 Complete
 
 1. Data quality report generated
 2. Cleaning notebook documents every transformation
 3. Cleaned data saved separately from raw
 4. Validation checks all pass
 
-## Step 6: Produce Client Deliverables
+### Step 6: Produce Client Deliverables
 
-### The Analysis Report Structure
+#### The Analysis Report Structure
 
 1. **Executive Summary** — 3 key findings, each with one data point
 2. **Data Quality Assessment** — What was cleaned, what was missing, what was excluded
@@ -194,19 +194,19 @@ df.to_csv('../cleaned/data_cleaned.csv', index=False)
 5. **Recommendations** — 7 prioritized, each tied to a specific finding
 6. **Appendix** — Full statistical output and methodology
 
-### Package for the Client
+#### Package for the Client
 
 Use Canva to create a professional cover page. Export the analysis as a PDF. Create a Looker Studio dashboard for interactive exploration.
 
-### CHECK-IN: Step 6 Complete
+#### CHECK-IN: Step 6 Complete
 
 1. Analysis report follows the structure above
 2. Every recommendation ties to a specific data finding
 3. Professional PDF and interactive dashboard delivered
 
-## Step 7: Scale with Automation and Templates
+### Step 7: Scale with Automation and Templates
 
-### Automate Report Delivery with Make.com
+#### Automate Report Delivery with Make.com
 
 Build a Make.com scenario that:
 1. Triggers when a new Google Sheets row is added (weekly data update)
@@ -214,15 +214,15 @@ Build a Make.com scenario that:
 3. Generates visualizations
 4. Emails the weekly summary to the client
 
-### Build Your Template Library
+#### Build Your Template Library
 
 After 10 clients, you will have 15-20 templates covering 80% of requests. Each template takes 4-8 hours to build initially but reduces delivery from days to hours.
 
-### Hire a Junior Analyst
+#### Hire a Junior Analyst
 
 At 8-10 clients, hire a junior analyst ($15-25/hour on Upwork). Give them your templates and SOPs. They handle delivery while you focus on sales.
 
-## Cost Breakdown
+### Cost Breakdown
 
 | Item | Cost | When |
 |------|------|------|
@@ -237,7 +237,7 @@ At 8-10 clients, hire a junior analyst ($15-25/hour on Upwork). Give them your t
 **Total monthly cost at launch:** $20
 **Total monthly cost at 5 clients:** $49
 
-## Production Checklist
+### Production Checklist
 
 - [ ] Python environment configured and tested
 - [ ] Three analysis templates created and tested with sample data

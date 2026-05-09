@@ -15,9 +15,9 @@ This playbook extends our free implementation guide with complete procedures, SO
 
 ---
 
-# MODULE 1: FOUNDATION – Set Up Core Accounts and Infrastructure
+## MODULE 1: FOUNDATION – Set Up Core Accounts and Infrastructure
 
-## Overview
+### Overview
 In this module you will create every foundational account you need. Skipping this step will mean you cannot pay for services, host code, or collect payments. Every downstream module depends on the accounts and infrastructure you set up here — without a domain, hosting, and a workspace, nothing else works.
 **Time to complete:** 90 minutes
 **Tools needed:** Hostinger, Notion, Calendly
@@ -28,7 +28,7 @@ In this module you will create every foundational account you need. Skipping thi
 | **Notion** | Workspace & documentation | Free (1 user) | $8/mo per user |
 | **Calendly** | Scheduling & appointments | Free (1 event type) | $10/mo |
 
-## Procedure 1.1: Create a Hostinger Web Hosting Account
+### Procedure 1.1: Create a Hostinger Web Hosting Account
 
 1. Visit **https://www.hostinger.com**.
 2. Click the **Get Started** button next to the "Shared Hosting" plan.
@@ -66,7 +66,7 @@ echo "<h1>Welcome to AI Personal Finance Automation</h1>";
 
 **Error scenario:** If you see a *403 Forbidden* error, the folder permissions are wrong. Go back to File Manager, right-click the `financebot` folder, set permissions to **755**, and try again.
 
-## Procedure 1.2: Set Up a Notion Workspace for Client Data
+### Procedure 1.2: Set Up a Notion Workspace for Client Data
 
 1. Open **https://www.notion.so** in your browser.
 2. Click **Sign Up** and create an account with your business email.
@@ -91,7 +91,7 @@ echo "<h1>Welcome to AI Personal Finance Automation</h1>";
 
 **Error scenario:** If you cannot create a table, you may be on a limited workspace. Click **Settings & Members → Plans** and confirm you are on the Free plan with at least 1,000 blocks available.
 
-## Procedure 1.3: Configure Calendly for Client Onboarding Calls
+### Procedure 1.3: Configure Calendly for Client Onboarding Calls
 
 1. Visit **https://www.calendly.com** and click **Get Started**.
 2. Sign up with your business email and set a password.
@@ -104,7 +104,7 @@ echo "<h1>Welcome to AI Personal Finance Automation</h1>";
 9. Paste the link into your Notion **"Command Center"** page under a new heading called **"Booking Links"**.
 10. Do you see the link in Notion? If not, make sure you saved the Calendly event first.
 
-## Check-In: Module 1 Complete
+### Check-In: Module 1 Complete
 - [ ] Hostinger account created and verified
 - [ ] Domain added to hosting plan and index.php deployed
 - [ ] Notion workspace created with Client Pipeline and API Keys tables
@@ -112,9 +112,9 @@ echo "<h1>Welcome to AI Personal Finance Automation</h1>";
 
 ---
 
-# MODULE 2: TECH STACK – Acquire API Keys and Set Up Make.com Automation
+## MODULE 2: TECH STACK – Acquire API Keys and Set Up Make.com Automation
 
-## Overview
+### Overview
 You will secure all the API keys you need and wire them into Make.com, our central automation engine. Missing any key will break downstream workflows. This module connects every tool in your stack so that data flows automatically from one service to the next without manual intervention.
 **Time to complete:** 75 minutes
 **Tools needed:** Make.com, ChatGPT (OpenAI), Vapi, ElevenLabs, Klaviyo
@@ -127,7 +127,7 @@ You will secure all the API keys you need and wire them into Make.com, our centr
 | **ElevenLabs** | Text-to-speech | 10,000 chars/month | $5/mo starter |
 | **Klaviyo** | Email marketing | 250 contacts free | $20/mo |
 
-## Procedure 2.1: Create a Make.com Account and Get the API Token
+### Procedure 2.1: Create a Make.com Account and Get the API Token
 
 1. Open **https://www.make.com**.
 2. Click **SIGN UP** in the top-right corner.
@@ -139,7 +139,7 @@ You will secure all the API keys you need and wire them into Make.com, our centr
 8. Copy the token and paste it into your Notion **API Keys Vault** table under the row for **Make.com**.
 9. Do you see the token displayed in Notion? If not, go back to Make.com and regenerate it.
 
-## Procedure 2.2: Create and Store All Required API Keys
+### Procedure 2.2: Create and Store All Required API Keys
 
 1. **ChatGPT (OpenAI):** Visit https://platform.openai.com/account/api-keys. Log in, click **API keys**, then **Create new secret key**. Copy the key and paste it into Notion under **OpenAI Key**.
 2. **Vapi:** Visit https://app.vapi.ai/. Sign up, then navigate to **Dashboard → API Keys**. Click **Create Key**, copy it, and paste into Notion under **Vapi Key**.
@@ -151,7 +151,7 @@ Do you see all 5 API keys in your Notion **API Keys Vault** table? If any are mi
 
 **Error scenario:** If OpenAI shows *"You need to add a payment method"*, add a card with at least $5 credit. OpenAI requires a payment method on file to use the API, even for the free trial tokens.
 
-## Procedure 2.3: Build Your First Make.com Scenario — API Health Check
+### Procedure 2.3: Build Your First Make.com Scenario — API Health Check
 
 1. In Make.com, click **+ Create a new scenario** in the top-left.
 2. Name the scenario **"API Health Check"**.
@@ -168,7 +168,7 @@ Do you see all 5 API keys in your Notion **API Keys Vault** table? If any are mi
    - ElevenLabs: `https://api.elevenlabs.io/v1/voices` (GET, with `xi-api-key` header)
 9. If all three return 200, your API connections are live. Click **Save** on the scenario.
 
-## Check-In: Module 2 Complete
+### Check-In: Module 2 Complete
 - [ ] Make.com account created with API token saved in Notion
 - [ ] All 5 API keys (OpenAI, Vapi, ElevenLabs, Klaviyo, Hostinger) stored in Notion
 - [ ] Make.com API Health Check scenario runs successfully with 200 responses
@@ -176,14 +176,14 @@ Do you see all 5 API keys in your Notion **API Keys Vault** table? If any are mi
 
 ---
 
-# MODULE 3: FRAMEWORK – Design Your Service Delivery Framework
+## MODULE 3: FRAMEWORK – Design Your Service Delivery Framework
 
-## Overview
+### Overview
 This module turns your tech stack into a repeatable, high-value service. You will define every touchpoint from lead capture to final billing, and codify a client onboarding flow that guarantees 100% data integrity and first-day ROI. Without a documented framework, you will deliver inconsistent results, lose clients to confusion, and waste hours reinventing the wheel for every new customer.
 **Time to complete:** 60 minutes
 **Tools needed:** Notion, ChatGPT
 
-## Procedure 3.1: Design Your Service Delivery Framework in Notion
+### Procedure 3.1: Design Your Service Delivery Framework in Notion
 
 1. Open your Notion **"AI Finance Automation — Command Center"** page.
 2. Below the existing tables, type `/page` and title it **"Service Delivery Framework"**.
@@ -202,7 +202,7 @@ This module turns your tech stack into a repeatable, high-value service. You wil
 8. Add a **Property** called **Revenue** (Number type, Naira format) to the board.
 9. Add a **Property** called **Owner** (Person type) and set yourself as the owner on all cards.
 
-## Procedure 3.2: Create the AI Prompt Template for Financial Analysis
+### Procedure 3.2: Create the AI Prompt Template for Financial Analysis
 
 1. Open **ChatGPT** at https://chat.openai.com.
 2. Start a new chat and paste the following system prompt:
@@ -240,7 +240,7 @@ Dining Out: ₦40,000
 4. Do you see a categorized breakdown with percentages and alerts? If the output is incomplete, add "Continue your response" and re-send.
 5. Save the full prompt as a template in your Notion workspace under a new page titled **"Prompt Templates"**.
 
-## Check-In: Module 3 Complete
+### Check-In: Module 3 Complete
 - [ ] Service Delivery Framework board created with 7 stages
 - [ ] Client Journey Kanban populated with action cards
 - [ ] AI financial analysis prompt tested with sample transactions
@@ -248,9 +248,9 @@ Dining Out: ₦40,000
 
 ---
 
-# MODULE 4: FIRST BUILD – Build Your Core AI Finance Product
+## MODULE 4: FIRST BUILD – Build Your Core AI Finance Product
 
-## Overview
+### Overview
 In this module you build, deploy, and test the core AI Personal Finance Automation product. This is the minimum viable product that your first paying client will use. You will create a Python application that ingests transaction data, runs it through ChatGPT for analysis, and outputs a structured financial report. If you skip this module, you have nothing to sell.
 **Time to complete:** 3 hours
 **Tools needed:** Replit, ChatGPT API, Make.com, Hostinger
@@ -260,7 +260,7 @@ In this module you build, deploy, and test the core AI Personal Finance Automati
 | **Replit** | Cloud IDE & deployment | 500 MB RAM, public repos | $7/mo for private repos |
 | **ChatGPT** | AI analysis engine | Free tier | $20/mo Plus |
 
-## Procedure 4.1: Build the Core Finance Analysis App in Replit
+### Procedure 4.1: Build the Core Finance Analysis App in Replit
 
 1. Open **https://replit.com** and sign up for a free account.
 2. Click **+ Create Repl** in the top-right corner.
@@ -318,7 +318,7 @@ if __name__ == "__main__":
 
 **Error scenario:** If you see `ModuleNotFoundError: No module named 'openai'`, the pip install did not complete. Re-run `pip install openai flask` and wait for the installation to finish.
 
-## Procedure 4.2: Create the Make.com Workflow to Connect ChatGPT and Email Delivery
+### Procedure 4.2: Create the Make.com Workflow to Connect ChatGPT and Email Delivery
 
 1. In Make.com, click **+ Create a new scenario** and name it **"Finance Analysis Pipeline"**.
 2. Add a **Webhook** trigger: Click **+**, search **Webhook**, select **Custom Webhook**. Name it `finance-webhook`. Copy the webhook URL — you will need it later.
@@ -334,7 +334,7 @@ if __name__ == "__main__":
 5. Click **Save** and then **Run once** to test.
 6. Send a test POST to your webhook URL with sample transaction data. Do you see the email arrive in your inbox?
 
-## Procedure 4.3: Deploy the App to Production on Hostinger
+### Procedure 4.3: Deploy the App to Production on Hostinger
 
 1. In Replit, click the **Version Control** tab (git icon in the sidebar).
 2. Click **Connect to GitHub** and authorize Replit to access your GitHub account.
@@ -346,7 +346,7 @@ if __name__ == "__main__":
 8. Start the app with: `nohup python main.py &`
 9. Visit `https://myfinancebot.com/financebot/health`. Do you see the health check response? If you get a 502 error, the app hasn't started yet — wait 30 seconds and retry.
 
-## Check-In: Module 4 Complete
+### Check-In: Module 4 Complete
 - [ ] Replit app created and running with /analyze and /health endpoints
 - [ ] Make.com Finance Analysis Pipeline scenario built and tested
 - [ ] App deployed to Hostinger production server
@@ -354,9 +354,9 @@ if __name__ == "__main__":
 
 ---
 
-# MODULE 5: CLIENT ACQUISITION – Build Your Lead Generation Engine
+## MODULE 5: CLIENT ACQUISITION – Build Your Lead Generation Engine
 
-## Overview
+### Overview
 This module builds the systems that turn strangers into paying clients. You will create a landing page, set up automated outreach, and build a lead nurturing sequence. Without these systems, you will have a great product but no revenue.
 **Time to complete:** 90 minutes
 **Tools needed:** Shopify, Klaviyo, Apollo.io, Buffer
@@ -368,7 +368,7 @@ This module builds the systems that turn strangers into paying clients. You will
 | **Apollo.io** | B2B lead generation | 500 credits/month | $49/mo |
 | **Buffer** | Social media scheduling | 3 accounts, 10 posts | $6/mo |
 
-## Procedure 5.1: Build a High-Conversion Landing Page on Shopify
+### Procedure 5.1: Build a High-Conversion Landing Page on Shopify
 
 1. Visit **https://www.shopify.com** and click **Start free trial**.
 2. Enter your email, password, and store name: **"AI Finance Bot"**.
@@ -397,7 +397,7 @@ This module builds the systems that turn strangers into paying clients. You will
 
 9. Click **Save**. Set the page as your homepage under **Online Store → Preferences → Homepage**.
 
-## Procedure 5.2: Set Up Lead Generation with Apollo.io
+### Procedure 5.2: Set Up Lead Generation with Apollo.io
 
 1. Visit **https://www.apollo.io** and click **Sign Up Free**.
 2. Complete the onboarding — select **"Sales"** as your role and **"Small Business"** as your company size.
@@ -414,7 +414,7 @@ This module builds the systems that turn strangers into paying clients. You will
    - **Email 3 (Day 7):** "Hi {first_name}, last email — our Pro plan is ₦25,000/month and typically pays for itself in the first week. Book a call: [Calendly link]"
 8. Click **Activate Sequence**. Do you see the sequence status as "Active"?
 
-## Procedure 5.3: Create an Automated Email Nurture Sequence in Klaviyo
+### Procedure 5.3: Create an Automated Email Nurture Sequence in Klaviyo
 
 1. Log in to **Klaviyo** at https://www.klaviyo.com.
 2. Go to **Flows → Create Flow → Create from Scratch**.
@@ -428,7 +428,7 @@ This module builds the systems that turn strangers into paying clients. You will
 6. Click **Save** and then **Activate Flow**.
 7. Do you see the flow listed as "Live" in your Flows dashboard?
 
-## Check-In: Module 5 Complete
+### Check-In: Module 5 Complete
 - [ ] Shopify landing page live with email capture form and pricing tiers
 - [ ] Apollo.io prospect list created with 25+ leads
 - [ ] 3-email outreach sequence active in Apollo.io
@@ -436,14 +436,14 @@ This module builds the systems that turn strangers into paying clients. You will
 
 ---
 
-# MODULE 6: DELIVERY – Build Your Client Delivery Pipeline
+## MODULE 6: DELIVERY – Build Your Client Delivery Pipeline
 
-## Overview
+### Overview
 Delivery is where the money is made. This module ensures you can deliver consistent, high-quality results to every client without burning out. You will build a repeatable delivery pipeline with quality checkpoints and client communication templates.
 **Time to complete:** 60 minutes
 **Tools needed:** Make.com, Notion, Loom
 
-## Procedure 6.1: Build the Client Delivery Automation in Make.com
+### Procedure 6.1: Build the Client Delivery Automation in Make.com
 
 1. In Make.com, create a new scenario named **"Client Delivery Pipeline"**.
 2. Add a **Schedule** trigger: Set it to run **every Monday at 8:00 AM**.
@@ -453,7 +453,7 @@ Delivery is where the money is made. This module ensures you can deliver consist
 6. Click **Save** and **Activate** the scenario.
 7. Do you see the scenario listed as "On" in your Make.com dashboard?
 
-## Procedure 6.2: Create Client Communication Templates
+### Procedure 6.2: Create Client Communication Templates
 
 1. Open your Notion workspace and create a new page titled **"Client Communication Templates"**.
 2. Add the following templates:
@@ -495,21 +495,21 @@ Any questions? Book a call: {calendly_link}
 
 3. Save both templates. Do you see them in Notion? Use these for every new client.
 
-## Check-In: Module 6 Complete
+### Check-In: Module 6 Complete
 - [ ] Client Delivery Pipeline scenario running weekly in Make.com
 - [ ] Welcome email and monthly review templates created in Notion
 - [ ] Automated report delivery confirmed via Klaviyo
 
 ---
 
-# MODULE 7: SCALING – From Solo to Team
+## MODULE 7: SCALING – From Solo to Team
 
-## Overview
+### Overview
 Scaling a boutique AI service requires disciplined delegation, documented SOPs, and margin analysis. This module transforms your one-person operation into a lean, repeatable system that can handle 10–50 clients without breaking.
 **Time to complete:** 90 minutes
 **Tools needed:** Notion, Upwork, Google Sheets
 
-## Procedure 7.1: Hire Your First Contractor on Upwork
+### Procedure 7.1: Hire Your First Contractor on Upwork
 
 1. Visit **https://www.upwork.com** and create a client account.
 2. Click **Post a Job** and fill in:
@@ -525,7 +525,7 @@ Scaling a boutique AI service requires disciplined delegation, documented SOPs, 
 5. Send each shortlisted candidate the same test task: "Describe how you would build a Make.com scenario that triggers on a new Stripe payment and sends a customized email via Klaviyo."
 6. Hire the best candidate and create a **Notion** page for onboarding with links to all API keys, the service delivery framework, and communication templates.
 
-## Procedure 7.2: Build SOPs for Task Delegation in Notion
+### Procedure 7.2: Build SOPs for Task Delegation in Notion
 
 1. In Notion, create a new page titled **"Standard Operating Procedures (SOPs)"**.
 2. Create the following SOP documents:
@@ -541,7 +541,7 @@ Scaling a boutique AI service requires disciplined delegation, documented SOPs, 
    - **Check-In:** What "done" looks like
 4. Do you see all 4 SOPs in the Notion page? Share the page with your contractor.
 
-## Procedure 7.3: Run a Margin Analysis
+### Procedure 7.3: Run a Margin Analysis
 
 1. Open **Google Sheets** and create a new spreadsheet titled **"Margin Analysis — AI Finance Bot"**.
 2. Create the following table:
@@ -564,7 +564,7 @@ Scaling a boutique AI service requires disciplined delegation, documented SOPs, 
    - Break-even clients: 50,000 / 16,700 = **3 Pro clients**
 4. Do you see the break-even point? With just 3 Pro clients, you cover all costs.
 
-## Check-In: Module 7 Complete
+### Check-In: Module 7 Complete
 - [ ] Upwork job posted for Make.com specialist
 - [ ] 4 SOPs documented in Notion
 - [ ] Margin analysis spreadsheet completed
@@ -572,14 +572,14 @@ Scaling a boutique AI service requires disciplined delegation, documented SOPs, 
 
 ---
 
-# MODULE 8: ADVANCED PATTERNS – Premium Techniques and Upsells
+## MODULE 8: ADVANCED PATTERNS – Premium Techniques and Upsells
 
-## Overview
+### Overview
 This module converts your lean MVP into a recurring-revenue engine. You will add high-ticket consulting packages, productize the bot into a subscription SaaS, and create upsell paths that increase client lifetime value from ₦25,000/month to ₦75,000+/month.
 **Time to complete:** 90 minutes
 **Tools needed:** Shopify, Stripe, Make.com
 
-## Procedure 8.1: Create a High-Ticket Consulting Package
+### Procedure 8.1: Create a High-Ticket Consulting Package
 
 1. In your **Shopify** admin, go to **Products → Add product**.
 2. Create a product titled **"Financial Freedom Blueprint — 12-Month Consulting"**.
@@ -598,7 +598,7 @@ This module converts your lean MVP into a recurring-revenue engine. You will add
    - Action 2: **Notion → Create Page** (in Client Pipeline, set Status = "Onboarding", Revenue = ₦50,000)
    - Action 3: **Slack/Email → Send Notification** to you ("New Premium client signed up!")
 
-## Procedure 8.2: Build Recurring Revenue with Subscription Tiers on Shopify
+### Procedure 8.2: Build Recurring Revenue with Subscription Tiers on Shopify
 
 1. In Shopify, go to **Settings → Payments** and enable **Shopify Payments**.
 2. Install the **Recharge** app from the Shopify App Store for subscription management.
@@ -614,7 +614,7 @@ This module converts your lean MVP into a recurring-revenue engine. You will add
 5. Add an **upsell flow** in Klaviyo: After 30 days on Starter, send an email offering a Pro upgrade with a 14-day free trial.
 6. Click **Save**. Do you see all 3 subscription products active in your store?
 
-## Check-In: Module 8 Complete
+### Check-In: Module 8 Complete
 - [ ] High-ticket consulting product created on Shopify
 - [ ] Make.com automation for premium client onboarding active
 - [ ] 3 subscription tiers set up with annual discount options
@@ -622,14 +622,14 @@ This module converts your lean MVP into a recurring-revenue engine. You will add
 
 ---
 
-# MODULE 9: FINANCIAL OPERATIONS – Revenue Tracking and Billing
+## MODULE 9: FINANCIAL OPERATIONS – Revenue Tracking and Billing
 
-## Overview
+### Overview
 This module builds your financial backbone. You will create a live revenue dashboard, set up automated billing, and create professional proposal templates. Without these systems, you will lose track of payments, miss renewals, and leave money on the table.
 **Time to complete:** 60 minutes
 **Tools needed:** Notion, Make.com, Stripe
 
-## Procedure 9.1: Build a Live Revenue Dashboard in Notion
+### Procedure 9.1: Build a Live Revenue Dashboard in Notion
 
 1. In Notion, create a new page titled **"Revenue Dashboard"**.
 2. Create a **Table** database with columns:
@@ -652,7 +652,7 @@ This module builds your financial backbone. You will create a live revenue dashb
 5. Add a **Make.com** scenario: Trigger = **Stripe → New Payment** → Action = **Notion → Create Entry** in Payments table.
 6. Activate the scenario. Do you see it running in Make.com?
 
-## Procedure 9.2: Create Proposal Templates and Automated Billing
+### Procedure 9.2: Create Proposal Templates and Automated Billing
 
 1. In Notion, create a page titled **"Proposal Templates"**.
 2. Write a template for new client proposals:
@@ -691,7 +691,7 @@ NEXT STEPS:
    - Copy the **Payment Link** for each product
 4. Add the Stripe payment links to your Shopify landing page.
 
-## Check-In: Module 9 Complete
+### Check-In: Module 9 Complete
 - [ ] Revenue Dashboard live in Notion with MRR calculation
 - [ ] Payments table linked to Stripe via Make.com
 - [ ] Proposal template created in Notion
@@ -699,14 +699,14 @@ NEXT STEPS:
 
 ---
 
-# MODULE 10: LAUNCH PLAN – Your 30-Day Execution Calendar
+## MODULE 10: LAUNCH PLAN – Your 30-Day Execution Calendar
 
-## Overview
+### Overview
 This is your action plan to go from zero to first paying client in 30 days. Every day has a specific task. Follow the calendar exactly — no skipping, no rearranging. The sequence is designed so each day builds on the previous one.
 **Time to complete:** 30 days (1–3 hours/day)
 **Tools needed:** All tools from previous modules
 
-## Procedure 10.1: Execute Days 1–15 (Foundation to First Build)
+### Procedure 10.1: Execute Days 1–15 (Foundation to First Build)
 
 | Day | Task | Time | Tool |
 |-----|------|------|------|
@@ -728,7 +728,7 @@ This is your action plan to go from zero to first paying client in 30 days. Ever
 
 Do you have all tasks for Days 1–15 logged in your Notion workspace? Create a **Checklist** page and mark each day as complete.
 
-## Procedure 10.2: Execute Days 16–30 (Delivery to Revenue)
+### Procedure 10.2: Execute Days 16–30 (Delivery to Revenue)
 
 | Day | Task | Time | Tool |
 |-----|------|------|------|
@@ -748,7 +748,7 @@ Do you have all tasks for Days 1–15 logged in your Notion workspace? Create a 
 | 29 | Conduct 30-day review with first client — ask for referral | 60 min | Calendly, Loom |
 | 30 | **MILESTONE: Calculate MRR and set Month 2 targets** | 30 min | Notion |
 
-## Procedure 10.3: Set Your Month 2 Growth Targets
+### Procedure 10.3: Set Your Month 2 Growth Targets
 
 1. Open your Notion **Revenue Dashboard**.
 2. Add a new page titled **"Month 2 Targets"**.
@@ -768,7 +768,7 @@ Do you have all tasks for Days 1–15 logged in your Notion workspace? Create a 
    - If conversions < 20% → improve your discovery call script
 5. Write your bottleneck and action plan in the Month 2 Targets page.
 
-## Check-In: Module 10 Complete
+### Check-In: Module 10 Complete
 - [ ] Days 1–15 tasks completed and logged in Notion
 - [ ] Days 16–30 tasks completed
 - [ ] First paying client onboarded and receiving reports
@@ -776,7 +776,7 @@ Do you have all tasks for Days 1–15 logged in your Notion workspace? Create a 
 
 ---
 
-# APPENDIX A: COMPLETE TOOL REFERENCE
+## APPENDIX A: COMPLETE TOOL REFERENCE
 
 | Tool | Purpose | Free Tier | Paid Tier | When to Upgrade |
 |------|---------|-----------|-----------|-----------------|
@@ -804,7 +804,7 @@ Do you have all tasks for Days 1–15 logged in your Notion workspace? Create a 
 
 ---
 
-# APPENDIX B: THE COMPLETE SOP INDEX
+## APPENDIX B: THE COMPLETE SOP INDEX
 
 | SOP # | Procedure | Category | Difficulty | Est. Time |
 |-------|-----------|----------|------------|-----------|
@@ -839,9 +839,9 @@ Do you have all tasks for Days 1–15 logged in your Notion workspace? Create a 
 
 ---
 
-# APPENDIX C: THE REVENUE CALCULATOR
+## APPENDIX C: THE REVENUE CALCULATOR
 
-## Revenue Projections
+### Revenue Projections
 
 | Month | Revenue | Clients | Expenses | Profit |
 |-------|---------|---------|----------|--------|
@@ -850,7 +850,7 @@ Do you have all tasks for Days 1–15 logged in your Notion workspace? Create a 
 | 6 | ₦175,000 | 7 | ₦28,000 | ₦147,000 |
 | 12 | ₦500,000 | 15 | ₦55,000 | ₦445,000 |
 
-## Pricing Tiers
+### Pricing Tiers
 
 | Tier | Monthly Price | Deliverables | Margin |
 |------|---------------|-------------|--------|
@@ -859,7 +859,7 @@ Do you have all tasks for Days 1–15 logged in your Notion workspace? Create a 
 | Enterprise | ₦50,000 | Daily reports, custom integrations, analyst | 67% |
 | Consulting | ₦50,000/month | 1-on-1 calls, custom AI, priority support | 75% |
 
-## Break-Even Analysis
+### Break-Even Analysis
 
 | Metric | Value |
 |--------|-------|
@@ -872,7 +872,7 @@ Do you have all tasks for Days 1–15 logged in your Notion workspace? Create a 
 
 *Key take-away:* You need just 3 Pro clients to cover all costs. Every client after that is pure profit. Focus on acquiring your first 3 clients as fast as possible.
 
-## Recommended Tools
+### Recommended Tools
 
 These are the tools we recommend for building and scaling AI automation businesses:
 

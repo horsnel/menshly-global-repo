@@ -12,7 +12,7 @@ difficulty: "INTERMEDIATE"
 
 This is the execution guide for the opportunity: [How to Build an AI API Wrapper Business in 2026]({{< ref "/opportunities/ai-api-wrapper-business.md" >}}). Where that article covers the business model, market dynamics, and revenue projections, this guide provides the complete technical implementation — every architecture decision, code pattern, prompt engineering technique, and deployment strategy you need to go from zero to a production-ready AI wrapper in one weekend.
 
-## Architecture Overview
+### Architecture Overview
 
 An API wrapper business has three layers: the presentation layer (what users see), the orchestration layer (how you manage AI calls), and the data layer (how you store users, usage, and outputs). Each layer must be designed for reliability, cost efficiency, and rapid iteration.
 
@@ -24,9 +24,9 @@ An API wrapper business has three layers: the presentation layer (what users see
 
 The key architectural principle is separation of concerns: the presentation layer knows nothing about AI models, the orchestration layer knows nothing about UI, and the data layer is a clean interface that both can depend on. This separation lets you swap AI providers, redesign your UI, or change your database without cascading changes across the system.
 
-## Setting Up the Foundation
+### Setting Up the Foundation
 
-### Project Initialization
+#### Project Initialization
 
 ```bash
 npx create-next-app@latest ai-wrapper --typescript --tailwind --eslint --app --src-dir
@@ -37,7 +37,7 @@ npm install @upstash/redis @upstash/ratelimit
 npm install lucide-react class-variance-authority clsx tailwind-merge
 ```
 
-### Environment Variables
+#### Environment Variables
 
 ```env
 # AI Providers
@@ -63,7 +63,7 @@ STRIPE_WEBHOOK_SECRET=whsec_...
 NEXT_PUBLIC_APP_URL=https://your-wrapper.com
 ```
 
-### Database Schema
+#### Database Schema
 
 ```sql
 -- Users table (managed by Supabase Auth)
@@ -105,11 +105,11 @@ create index idx_api_usage_user_date on api_usage(user_id, created_at desc);
 create index idx_outputs_user_date on outputs(user_id, created_at desc);
 ```
 
-## The Orchestration Layer: Multi-Model Smart Router
+### The Orchestration Layer: Multi-Model Smart Router
 
 The orchestration layer is the most critical part of your wrapper. It determines which AI model to use, constructs the optimal prompt, handles errors gracefully, and validates output quality. Here's the complete implementation.
 
-### Multi-Model Router
+#### Multi-Model Router
 
 ```typescript
 // src/lib/ai-router.ts
@@ -223,7 +223,7 @@ function calculateCost(model: string, inputTokens: number, outputTokens: number)
 
 This router provides automatic failover between providers, cost tracking, and complexity-based model selection. When OpenAI has an outage, your wrapper automatically falls back to Claude without your users noticing. When a simple task comes in, it routes to the cheapest model, saving you 80-90% on API costs compared to always using GPT-4o.
 
-### Semantic Caching with Upstash Redis
+#### Semantic Caching with Upstash Redis
 
 Caching is the single most impactful optimization for API wrapper economics. When multiple users submit similar inputs, you serve the cached output instead of making a new API call. This reduces costs by 40-60% at scale.
 
@@ -285,7 +285,7 @@ export async function setCache(input: string, systemPrompt: string, output: stri
 
 The embedding-based semantic cache detects when a new input is meaningfully similar to a previously cached one, even if the exact wording differs. This is far more effective than exact-match caching and captures a much larger percentage of repeat queries in vertical-specific wrappers where users tend to ask similar things.
 
-### Rate Limiting
+#### Rate Limiting
 
 ```typescript
 // src/lib/rate-limiter.ts
@@ -325,11 +325,11 @@ export async function checkRateLimit(userId: string, plan: string): Promise<{ al
 }
 ```
 
-## Prompt Engineering: Your Core IP
+### Prompt Engineering: Your Core IP
 
 Your system prompt is the most valuable asset in your API wrapper business. A great system prompt transforms generic AI output into domain-expert output that users cannot replicate with raw ChatGPT. Here is the complete prompt engineering framework.
 
-### The Domain Expert Prompt Template
+#### The Domain Expert Prompt Template
 
 ```typescript
 // src/lib/prompts.ts
@@ -390,7 +390,7 @@ function getOutputFormat(vertical: string, task: string): string {
 }
 ```
 
-### Quality Validation Layer
+#### Quality Validation Layer
 
 After each AI call, run a second, cheaper model call to validate output quality. This catches hallucinations, formatting errors, and off-topic responses before they reach the user.
 
@@ -455,7 +455,7 @@ export async function generateWithValidation(
 
 This quality validation layer automatically retries low-quality outputs with feedback about what went wrong. In testing, this approach improves output quality by 30-40% on the first attempt and catches 85%+ of hallucinations and formatting errors before they reach users.
 
-## The API Route: Bringing It All Together
+### The API Route: Bringing It All Together
 
 ```typescript
 // src/app/api/generate/route.ts
@@ -582,7 +582,7 @@ function getQualityCriteria(vertical: string): string[] {
 }
 ```
 
-## Subscription Management with Stripe
+### Subscription Management with Stripe
 
 ```typescript
 // src/lib/stripe.ts
@@ -638,9 +638,9 @@ export async function handleWebhook(event: Stripe.Event) {
 }
 ```
 
-## Deployment and Operations
+### Deployment and Operations
 
-### Vercel Deployment
+#### Vercel Deployment
 
 ```bash
 # Deploy to Vercel
@@ -655,7 +655,7 @@ vercel env add UPSTASH_REDIS_REST_URL
 vercel env add UPSTASH_REDIS_REST_TOKEN
 ```
 
-### Monitoring and Alerts
+#### Monitoring and Alerts
 
 Set up PostHog for product analytics and Sentry for error monitoring from day one. Track these key metrics:
 
@@ -665,7 +665,7 @@ Set up PostHog for product analytics and Sentry for error monitoring from day on
 - **Cache hit rate:** Should be above 30% after the first month. Below 15% means your vertical is too broad.
 - **Cost per user:** Should be under $3/month for professional plan users. Above $5 means you need better caching or cheaper model routing.
 
-### Security Checklist
+#### Security Checklist
 
 - Never expose API keys in client-side code. All AI calls go through server-side API routes.
 - Implement input sanitization to prevent prompt injection attacks. Strip any instructions embedded in user input.
@@ -674,25 +674,25 @@ Set up PostHog for product analytics and Sentry for error monitoring from day on
 - Store all PII in encrypted fields. For regulated verticals (medical, legal), implement HIPAA/SOC2 compliance measures.
 - Run dependency audits weekly with `npm audit` and keep all packages updated.
 
-## Scaling Strategies
+### Scaling Strategies
 
-### From 0 to 100 Users
+#### From 0 to 100 Users
 
 Focus on reliability and output quality. Every user should get a perfect output every time. Manually review 20% of outputs during this phase. Your prompts will need constant refinement based on real-world usage patterns. Expect to update your system prompt weekly during this phase.
 
-### From 100 to 1,000 Users
+#### From 100 to 1,000 Users
 
 Focus on automation and efficiency. Implement the semantic cache, quality validation layer, and multi-model routing described above. Start tracking unit economics obsessively — cost per user, revenue per user, and gross margin per plan. Your API costs should stay under 15% of revenue at this scale.
 
-### From 1,000 to 10,000 Users
+#### From 1,000 to 10,000 Users
 
 Focus on infrastructure and team. Move to dedicated database hosting (Supabase Pro or self-hosted Postgres). Implement queue-based processing for high-volume requests. Hire a part-time customer support agent. Consider fine-tuning a smaller model (Llama 3) on your accumulated prompt-output pairs to reduce API costs by 70%+ while maintaining quality. At this scale, you should have enough data to train a domain-specific model that outperforms generic GPT-4 for your specific use case.
 
-### From 10,000+ Users
+#### From 10,000+ Users
 
 Focus on moat-building and expansion. Your data moat (accumulated prompt-output pairs, user feedback, and domain expertise) is now your biggest competitive advantage. Expand to adjacent verticals using the same architecture. Build a platform that lets third-party developers create wrappers on your infrastructure. Consider raising venture capital to accelerate growth or stay bootstrapped and enjoy the 80%+ margins.
 
-## The 48-Hour Launch Plan
+### The 48-Hour Launch Plan
 
 **Hour 0-4:** Choose your vertical, set up the project, and configure your environment. Install dependencies and initialize Supabase.
 

@@ -13,7 +13,7 @@ relatedPlaybook: "/playbooks/ai-side-hustle-blueprint/"
 
 You are going to build an AI data analysis service. Not a blog about data. Not a course about data. A service that takes a business's raw data, extracts insights, and delivers recommendations they can act on — for money. This guide covers every step. Every tool. Every setting. Every optimization. Follow it in order. Do not skip steps.
 
-## Prerequisites
+### Prerequisites
 
 Before you write a single line of code or talk to a single client, you need the following tools set up and accounts created. Do not proceed until every item is checked.
 
@@ -30,7 +30,7 @@ Before you write a single line of code or talk to a single client, you need the 
 
 Total upfront cost: $20 for ChatGPT Plus. Everything else is free until you have paying clients.
 
-## Step 1: Configure Your Python Analysis Environment
+### Step 1: Configure Your Python Analysis Environment
 
 Open your terminal. Navigate to the directory where you want your projects to live. Create a project folder:
 
@@ -42,7 +42,7 @@ mkdir templates clients output
 
 You should now have three subdirectories: `templates/` (for reusable analysis scripts), `clients/` (for client data and work), and `output/` (for generated reports and charts). If you are missing any of these, create them now.
 
-### Set Up a Virtual Environment
+#### Set Up a Virtual Environment
 
 Run this in your terminal:
 
@@ -78,7 +78,7 @@ python -c "import pandas; import plotly; import scipy; import sklearn; print('Al
 
 You should see `All packages installed successfully`. If you get an `ImportError`, that specific package failed to install. Run `pip install [package-name]` again and check for error messages.
 
-### Create Your Jupyter Configuration
+#### Create Your Jupyter Configuration
 
 Run:
 
@@ -100,7 +100,7 @@ c.ServerApp.open_browser = True
 
 Save the file. Now when you run `jupyter lab`, it will always open on port 8888 and launch your browser automatically.
 
-### Start Jupyter and Create Your First Notebook
+#### Start Jupyter and Create Your First Notebook
 
 Run:
 
@@ -132,7 +132,7 @@ print("Analysis environment ready.")
 
 You should see `Analysis environment ready.` printed below the cell. Do you? If you get an import error, go back and reinstall the missing package. If you see a warning about deprecated features, ignore it — that is normal.
 
-### CHECK-IN: Step 1 Complete
+#### CHECK-IN: Step 1 Complete
 
 Verify each of these before moving on:
 
@@ -144,11 +144,11 @@ Verify each of these before moving on:
 
 If all 5 pass, move to Step 2. If any fail, stop and fix them now. A broken environment will waste hours later.
 
-## Step 2: Master the ChatGPT Code Interpreter Pipeline
+### Step 2: Master the ChatGPT Code Interpreter Pipeline
 
 ChatGPT's Code Interpreter is your fastest path from raw data to initial insights. You will use it for every new client dataset before you touch Jupyter. It handles the exploratory analysis in minutes instead of hours. Here is the exact prompt sequence you will run for every new dataset.
 
-### Upload and Describe
+#### Upload and Describe
 
 Open ChatGPT. Click the paperclip icon (or the `+` button) in the message input. Upload your client's CSV or Excel file. Type this prompt:
 
@@ -156,7 +156,7 @@ Open ChatGPT. Click the paperclip icon (or the `+` button) in the message input.
 
 ChatGPT will write and execute Python code to analyze your dataset. It will return a structured summary. Save this summary — you will include it in your client's data audit report.
 
-### Identify Patterns and Anomalies
+#### Identify Patterns and Anomalies
 
 In the same conversation, type this prompt:
 
@@ -164,7 +164,7 @@ In the same conversation, type this prompt:
 
 ChatGPT will run correlation analysis, outlier detection, and trend identification. It will prioritize findings by business impact. This output is the backbone of your deliverable.
 
-### Generate Visualizations
+#### Generate Visualizations
 
 Type this prompt:
 
@@ -172,7 +172,7 @@ Type this prompt:
 
 ChatGPT will generate the charts and download them as files. Save each PNG to your `output/` folder. You will include these in your client presentation.
 
-### Develop Recommendations
+#### Develop Recommendations
 
 Type this prompt:
 
@@ -180,7 +180,7 @@ Type this prompt:
 
 This is the section your client cares about most. Every recommendation must tie directly to data. No fluff. No vague advice. "Change X because the data shows Y, expect Z impact."
 
-### Export the Full Analysis
+#### Export the Full Analysis
 
 Type this prompt:
 
@@ -188,7 +188,7 @@ Type this prompt:
 
 ChatGPT will generate a PDF. Download it and save it to your `output/` folder. This is your first draft deliverable. You will refine it in Jupyter for the final version.
 
-### CHECK-IN: Step 2 Complete
+#### CHECK-IN: Step 2 Complete
 
 1. You can upload a CSV to ChatGPT and get a structured data summary
 2. You can generate a prioritized list of patterns with statistical evidence
@@ -198,11 +198,11 @@ ChatGPT will generate a PDF. Download it and save it to your `output/` folder. T
 
 If all 5 pass, move to Step 3. If any fail, practice with a sample dataset from Kaggle (kaggle.com/datasets — search for "sales data" and download any CSV with 1,000+ rows) until you are confident.
 
-## Step 3: Build Reusable Analysis Templates
+### Step 3: Build Reusable Analysis Templates
 
 Templates are your competitive advantage. Without templates, every client project starts from scratch. With templates, you cut build time from 10 hours to 2. You are going to build three templates that cover 80% of client requests: sales analysis, customer segmentation, and financial reporting.
 
-### Template 1: Sales Analysis
+#### Template 1: Sales Analysis
 
 Create a new Jupyter notebook. Save it as `templates/sales-analysis.ipynb`. This template analyzes sales data to identify revenue trends, top products, seasonal patterns, and growth opportunities.
 
@@ -389,7 +389,7 @@ print(f"Revenue gap: {((dow_revenue[peak_day] - dow_revenue[slowest_day]) / dow_
 
 Save the notebook. This template is your starting point for any client with sales data.
 
-### Template 2: Customer Segmentation
+#### Template 2: Customer Segmentation
 
 Create a new notebook. Save it as `templates/customer-segmentation.ipynb`. This template segments customers by behavior and value, identifying who to retain, who to grow, and who to let go.
 
@@ -545,7 +545,7 @@ print(cluster_summary.to_string())
 
 Save the notebook.
 
-### Template 3: Financial Reporting
+#### Template 3: Financial Reporting
 
 Create a new notebook. Save it as `templates/financial-reporting.ipynb`. This template turns raw financial data into P&L summaries, cash flow analysis, and margin tracking.
 
@@ -679,7 +679,7 @@ print(f"Worst Margin Month: {monthly_pl.loc[monthly_pl['margin_pct'].idxmin(), '
 
 Save the notebook.
 
-### CHECK-IN: Step 3 Complete
+#### CHECK-IN: Step 3 Complete
 
 1. Sales analysis template runs end-to-end on a sample CSV
 2. Customer segmentation template produces RFM scores and K-means clusters
@@ -689,11 +689,11 @@ Save the notebook.
 
 If all 5 pass, move to Step 4. If any fail, debug the specific cell that errors before proceeding. Templates are your foundation — they must work flawlessly.
 
-## Step 4: Build the Client Onboarding Process
+### Step 4: Build the Client Onboarding Process
 
 Before you analyze a single row of client data, you need a professional onboarding process. This is where you set expectations, collect the right data, and protect yourself legally. Skip this and you will have scope creep, unhappy clients, and potentially serious liability.
 
-### Create the Onboarding Form in Notion
+#### Create the Onboarding Form in Notion
 
 Open Notion. Create a new page called "Client Onboarding." Add a form using Notion's form feature (or use a free Typeform account at typeform.com if you prefer more customization). Your form must collect the following information:
 
@@ -720,7 +720,7 @@ Open Notion. Create a new page called "Client Onboarding." Add a form using Noti
 - Data handling agreement checkbox (confirming they have the right to share this data with you)
 - NDA acknowledgment checkbox
 
-### Create the Data Handling Agreement
+#### Create the Data Handling Agreement
 
 You need a standard data handling agreement. This is not optional. You are handling potentially sensitive business data. Create a simple document in Notion (or Google Docs) with these sections:
 
@@ -732,7 +732,7 @@ You need a standard data handling agreement. This is not optional. You are handl
 
 Have a lawyer review this if you can afford it. At minimum, use this as your starting framework. It will not fully protect you in court, but it establishes boundaries and signals professionalism.
 
-### Set Up the Client Folder Structure
+#### Set Up the Client Folder Structure
 
 When a client signs, create this folder structure inside your `clients/` directory:
 
@@ -749,7 +749,7 @@ clients/
 
 Create this structure for every client. No exceptions. The `raw/` folder must never be modified — it is your audit trail. If the client disputes a finding, you can trace it back to the original data.
 
-### The First Client Call
+#### The First Client Call
 
 Schedule a 30-minute onboarding call. Here is your agenda, minute by minute:
 
@@ -763,7 +763,7 @@ Schedule a 30-minute onboarding call. Here is your agenda, minute by minute:
 
 **Minutes 25-30:** Confirm timeline, next steps, and send the data handling agreement for signature.
 
-### CHECK-IN: Step 4 Complete
+#### CHECK-IN: Step 4 Complete
 
 1. Onboarding form is live and collects all required information
 2. Data handling agreement document exists and has been reviewed
@@ -773,11 +773,11 @@ Schedule a 30-minute onboarding call. Here is your agenda, minute by minute:
 
 If all 5 pass, move to Step 5. If any fail, complete them before taking on a client.
 
-## Step 5: Execute the Data Cleaning Workflow
+### Step 5: Execute the Data Cleaning Workflow
 
 This is the unglamorous core of data analysis. Every dataset you receive will be messy. Every single one. Your cleaning workflow must be systematic and repeatable. Here is the exact process you follow for every client.
 
-### Step 5.1: Create a Data Quality Report
+#### Step 5.1: Create a Data Quality Report
 
 When you receive client data, save the original file to `clients/CLIENT_NAME/raw/`. Never modify this file. Open a new Jupyter notebook and save it to `clients/CLIENT_NAME/analysis/01-data-quality.ipynb`.
 
@@ -863,7 +863,7 @@ if report['potential_outliers']:
 
 Save this report. Send a summary to the client within 2 business days. This builds trust and sets realistic expectations about what the data can and cannot reveal.
 
-### Step 5.2: Clean the Data
+#### Step 5.2: Clean the Data
 
 Create a second notebook: `clients/CLIENT_NAME/analysis/02-data-cleaning.ipynb`.
 
@@ -935,7 +935,7 @@ print(f"\nFinal dataset: {len(df):,} rows, {len(df.columns)} columns")
 
 This notebook is your audit trail. Every transformation is documented. If the client asks "why did you change X?", you have the answer.
 
-### Step 5.3: Validate the Cleaned Data
+#### Step 5.3: Validate the Cleaned Data
 
 In the same notebook, add a validation cell:
 
@@ -956,7 +956,7 @@ print("All validation checks passed. Data is ready for analysis.")
 
 If any assertion fails, stop and fix the issue before proceeding to analysis.
 
-### CHECK-IN: Step 5 Complete
+#### CHECK-IN: Step 5 Complete
 
 1. Data quality report is generated and sent to the client
 2. Cleaning notebook documents every transformation
@@ -966,11 +966,11 @@ If any assertion fails, stop and fix the issue before proceeding to analysis.
 
 If all 5 pass, move to Step 6. If any fail, do not proceed. Bad data produces bad insights, and bad insights destroy client trust.
 
-## Step 6: Produce Client Visualizations with AI
+### Step 6: Produce Client Visualizations with AI
 
 Your visualizations must tell a story. A chart without context is decoration. A chart with context is a weapon. Here is how to produce weapon-grade visualizations every time.
 
-### The Visualization Rules
+#### The Visualization Rules
 
 Follow these rules for every chart you produce. No exceptions.
 
@@ -980,7 +980,7 @@ Follow these rules for every chart you produce. No exceptions.
 4. **Remove chart junk.** Delete gridlines that do not add information. Remove legends when there is only one data series. Eliminate 3D effects. Every pixel must earn its place.
 5. **Export at 1200x800 minimum, 2x scale.** Charts will be viewed on screens, projected in meetings, and printed. Low-resolution charts look amateur.
 
-### The Chart Generation Workflow
+#### The Chart Generation Workflow
 
 After running your analysis template, you will have a set of Plotly charts. Enhance each one with these formatting additions:
 
@@ -1000,7 +1000,7 @@ fig.update_layout(
 )
 ```
 
-### AI-Enhanced Chart Generation
+#### AI-Enhanced Chart Generation
 
 Use ChatGPT to generate custom visualizations for findings that your templates do not cover. Upload the cleaned dataset and use this prompt:
 
@@ -1008,7 +1008,7 @@ Use ChatGPT to generate custom visualizations for findings that your templates d
 
 ChatGPT will write the code. Copy it into your client notebook. Run it. Verify the output. This is how you produce bespoke visualizations without spending hours on chart design.
 
-### The Insight-to-Chart Mapping
+#### The Insight-to-Chart Mapping
 
 Not every finding deserves a chart. Use this mapping to decide:
 
@@ -1022,7 +1022,7 @@ Not every finding deserves a chart. Use this mapping to decide:
 | Before/after | Grouped bar chart | When comparing periods or scenarios |
 | Ranking | Sorted bar chart | When showing top/bottom performers |
 
-### CHECK-IN: Step 6 Complete
+#### CHECK-IN: Step 6 Complete
 
 1. Every chart has a headline, annotation, and intentional color use
 2. All charts export at 1200x800 minimum, 2x scale
@@ -1032,11 +1032,11 @@ Not every finding deserves a chart. Use this mapping to decide:
 
 If all 5 pass, move to Step 7.
 
-## Step 7: Generate the Automated Client Report
+### Step 7: Generate the Automated Client Report
 
 The report is your deliverable. It is what the client pays for. It must be professional, clear, and actionable. Here is the exact report structure and generation process.
 
-### Report Structure
+#### Report Structure
 
 Every report follows this structure. Do not deviate from it.
 
@@ -1048,7 +1048,7 @@ Every report follows this structure. Do not deviate from it.
 6. **Recommendations** — Prioritized list with expected impact and implementation difficulty
 7. **Appendix** — Methodology, full statistical output, data dictionary
 
-### Generate the Report from Jupyter
+#### Generate the Report from Jupyter
 
 Create a notebook: `clients/CLIENT_NAME/analysis/03-report-generation.ipynb`.
 
@@ -1074,7 +1074,7 @@ else:
 
 The `--no-input` flag hides all code cells. The client sees only your markdown explanations and chart outputs. This is critical — code cells confuse non-technical clients and make the report look unfinished.
 
-### Create the Presentation Version
+#### Create the Presentation Version
 
 For client presentations, you need slides, not an HTML document. Use this approach:
 
@@ -1085,7 +1085,7 @@ For client presentations, you need slides, not an HTML document. Use this approa
 
 Export as PDF. This is your presentation deliverable.
 
-### Automated PDF Report (Advanced)
+#### Automated PDF Report (Advanced)
 
 For a fully automated pipeline, use Python to generate a PDF report directly:
 
@@ -1165,7 +1165,7 @@ print("PDF report generated: ../output/client-report.pdf")
 
 Install fpdf2 first: `pip install fpdf2`. This approach lets you regenerate reports automatically when data updates — essential for monthly retainer clients.
 
-### CHECK-IN: Step 7 Complete
+#### CHECK-IN: Step 7 Complete
 
 1. HTML report generates from Jupyter notebook with code cells hidden
 2. Presentation version exists as a Canva-exported PDF
@@ -1175,11 +1175,11 @@ Install fpdf2 first: `pip install fpdf2`. This approach lets you regenerate repo
 
 If all 5 pass, move to Step 8.
 
-## Step 8: Set Up Pricing and Payment Collection
+### Step 8: Set Up Pricing and Payment Collection
 
 You have a working service. Now you need to charge for it. Here is the pricing model, the payment infrastructure, and the sales approach.
 
-### Pricing Tiers
+#### Pricing Tiers
 
 | Tier | Price | Deliverables | Best For |
 |------|-------|-------------|----------|
@@ -1189,7 +1189,7 @@ You have a working service. Now you need to charge for it. Here is the pricing m
 | **Dashboard Build** | $3,000-10,000 one-time + $300-500/month maintenance | Custom interactive dashboard (Looker Studio or Plotly Dash), data pipeline setup, training session | Businesses that want self-service access to insights |
 | **Predictive Model** | $5,000-15,000 one-time | Custom ML model (churn prediction, sales forecasting, customer segmentation), documentation, integration support | Businesses ready for advanced analytics |
 
-### The Free Sample Strategy
+#### The Free Sample Strategy
 
 This is your primary client acquisition method. It works. Do it exactly as described.
 
@@ -1201,7 +1201,7 @@ This is your primary client acquisition method. It works. Do it exactly as descr
 
 This converts at 20-30%. The free sample proves your value before the client has to make a financial commitment.
 
-### Set Up Stripe for Payments
+#### Set Up Stripe for Payments
 
 Go to stripe.com and complete your account setup. You need a business bank account linked. Under **Products** in the Stripe dashboard, create each of your pricing tiers as separate products with the appropriate pricing.
 
@@ -1209,7 +1209,7 @@ For monthly retainers, create a **Subscription** product. For one-time analyses,
 
 Enable **Stripe Checkout** so clients can pay via a link you send. Go to **Payment Links** in the dashboard, create a payment link for each tier, and save the URLs. You will send these links in your proposal emails.
 
-### The Proposal Template
+#### The Proposal Template
 
 Create a Notion page called "Proposal Template." Use this structure for every proposal:
 
@@ -1247,7 +1247,7 @@ Create a Notion page called "Proposal Template." Use this structure for every pr
 
 Send this as a Notion page (share with "can view" permissions) or export as PDF.
 
-### CHECK-IN: Step 8 Complete
+#### CHECK-IN: Step 8 Complete
 
 1. All pricing tiers are defined with specific deliverables
 2. Stripe account is active with payment links for each tier
@@ -1257,15 +1257,15 @@ Send this as a Notion page (share with "can view" permissions) or export as PDF.
 
 If all 5 pass, move to Step 9.
 
-## Step 9: Automate with Make.com
+### Step 9: Automate with Make.com
 
 Once you have 3+ monthly retainer clients, manual report generation becomes a bottleneck. You need automation. Make.com is your tool. Here is how to build automated data pipelines that generate and deliver reports without your involvement.
 
-### Set Up Your Make.com Account
+#### Set Up Your Make.com Account
 
 Go to make.com. Sign up for the Basic plan ($9/mo). This gives you 10,000 operations per month, which is sufficient for 5-10 automated client pipelines.
 
-### Build the Monthly Report Automation
+#### Build the Monthly Report Automation
 
 This automation runs on the 1st of every month for each retainer client. It pulls fresh data, runs analysis, generates a report, and emails it to the client.
 
@@ -1324,7 +1324,7 @@ Deploy this on Render.com: create a free account, connect your GitHub repo, and 
 
 If everything works, activate the scenario by toggling the ON/OFF switch in the bottom-left corner. It will now run automatically every month.
 
-### Build the Data Freshness Monitor
+#### Build the Data Freshness Monitor
 
 Create a second Make.com scenario that checks if the client's data has been updated. This catches situations where the client forgets to update their spreadsheet — you do not want to send a report based on stale data.
 
@@ -1338,7 +1338,7 @@ Create a second Make.com scenario that checks if the client's data has been upda
 
 This automation prevents the awkward conversation where the client complains about stale insights when they are the ones who stopped updating the data.
 
-### CHECK-IN: Step 9 Complete
+#### CHECK-IN: Step 9 Complete
 
 1. Make.com account is active with the Basic plan
 2. Monthly report automation is configured and tested for at least one client
@@ -1348,11 +1348,11 @@ This automation prevents the awkward conversation where the client complains abo
 
 If all 5 pass, move to Step 10.
 
-## Step 10: Scale the Operation
+### Step 10: Scale the Operation
 
 You can handle 3-5 clients solo. Beyond that, you need systems and (eventually) people. Here is how to scale without breaking the machine.
 
-### Build the Vertical Template Library
+#### Build the Vertical Template Library
 
 Your three core templates (sales, segmentation, financial) work across industries. But industry-specific templates close deals faster because the client sees their exact metrics. Build these vertical templates:
 
@@ -1364,7 +1364,7 @@ Your three core templates (sales, segmentation, financial) work across industrie
 
 For each vertical, create a dedicated notebook in `templates/` with the specific metrics, chart types, and recommendation frameworks for that industry. When you get a new SaaS client, you duplicate the SaaS template, swap in their data, and deliver in 2 hours instead of 10.
 
-### Document Everything as SOPs
+#### Document Everything as SOPs
 
 Create a Notion workspace called "Data Analysis SOPs." Document every process:
 
@@ -1377,13 +1377,13 @@ Create a Notion workspace called "Data Analysis SOPs." Document every process:
 
 These SOPs let you hire junior analysts to execute the work while you focus on sales and strategy.
 
-### Hire Your First Analyst
+#### Hire Your First Analyst
 
 When you hit 5-6 clients and are turning down work, it is time to hire. Post on Upwork for a "Junior Data Analyst (Python/Pandas)" at $15-25/hour. Requirements: Python, Pandas, Plotly, Jupyter, basic statistics. Give them your SOPs and have them complete a test project using one of your templates with sample data.
 
 Review their work. Check: are the insights accurate? Are the visualizations clean? Do the recommendations tie to data? If yes, you have your first team member. A junior analyst can handle 8-10 client projects per month at 4-6 hours each. Your cost: $800-1,500/month. Your revenue from those projects: $8,000-15,000/month.
 
-### The Pricing Evolution
+#### The Pricing Evolution
 
 As you scale, your pricing should increase. Here is the progression:
 
@@ -1394,7 +1394,7 @@ As you scale, your pricing should increase. Here is the progression:
 
 Never race to the bottom on price. A $2,000 analysis and a $500 analysis take roughly the same amount of time. The difference is perceived value, not effort. Invest in presentation quality, recommendation specificity, and industry specialization — these justify premium pricing.
 
-## Cost Breakdown
+### Cost Breakdown
 
 | Item | Free Tier | Paid Tier | When to Upgrade |
 |------|-----------|-----------|-----------------|
@@ -1418,45 +1418,45 @@ Never race to the bottom on price. A $2,000 analysis and a $500 analysis take ro
 
 A single Quick Analysis project at $2,000 covers your tool costs for 6-10 months. The margins in this business are exceptional.
 
-## Production Checklist
+### Production Checklist
 
 Before delivering any analysis to a client, verify every item on this list. No exceptions.
 
-### Data Quality
+#### Data Quality
 - [ ] Raw data is saved unmodified in `clients/CLIENT_NAME/raw/`
 - [ ] Data quality report was generated and shared with the client
 - [ ] All cleaning transformations are documented in the cleaning notebook
 - [ ] Validation checks pass (no excessive missing values, no duplicates, no negative revenue)
 - [ ] Cleaned data is saved separately from raw data
 
-### Analysis
+#### Analysis
 - [ ] The analysis directly addresses the client's stated business questions
 - [ ] Statistical evidence supports every finding (correlation coefficients, p-values, confidence intervals where applicable)
 - [ ] Outlier analysis has been performed and documented
 - [ ] At least 5 key findings are identified with business implications
 - [ ] No finding is presented without a recommended action
 
-### Visualizations
+#### Visualizations
 - [ ] Every chart has a headline-style title (not just a label)
 - [ ] Every chart has a 2-sentence annotation explaining the insight
 - [ ] Colors are used intentionally (green=positive, red=negative, blue=neutral)
 - [ ] Charts are exported at 1200x800 minimum, 2x scale
 - [ ] No chart is included that does not support a key finding
 
-### Report
+#### Report
 - [ ] Report follows the standard structure (Cover, Executive Summary, Data Quality, Findings, Visualizations, Recommendations, Appendix)
 - [ ] Executive Summary contains 3-5 findings with supporting numbers
 - [ ] Every recommendation includes: the action, the data evidence, the expected impact, and implementation difficulty
 - [ ] Data handling agreement is signed and filed
 - [ ] Report is delivered in both PDF and presentation format
 
-### Delivery
+#### Delivery
 - [ ] 30-minute review call is scheduled
 - [ ] Client receives the report at least 24 hours before the review call
 - [ ] Follow-up email is prepared with next steps and retainer proposal
 - [ ] All client data will be deleted within 30 days unless retainer is active
 
-## What to Do Next
+### What to Do Next
 
 You have the complete playbook. Here is what to do in the next 72 hours.
 

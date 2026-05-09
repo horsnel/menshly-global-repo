@@ -17,16 +17,16 @@ This is not a blog post condensed into a PDF. This is an operating system for bu
 
 ---
 
-# MODULE 1: FOUNDATION — YOUR SEO AGENCY OPERATING SYSTEM
+## MODULE 1: FOUNDATION — YOUR SEO AGENCY OPERATING SYSTEM
 
-## Overview
+### Overview
 
 Before you touch a single keyword research tool, you need the infrastructure that runs your agency. This module sets up your project management, documentation, client portal, financial tracking, and communication systems. These are not optional. Every successful SEO agency operator has these systems in place before their first client call. Every failed operator skipped them.
 
 **Time to complete:** 3-4 hours
 **Tools needed:** Notion (free), Google Workspace (₦3,600/mo), Paystack (free to set up)
 
-## Procedure 1.1: Create Your Agency Command Center in Notion
+### Procedure 1.1: Create Your Agency Command Center in Notion
 
 Open your browser and go to notion.so. Sign in or create a free account. You should see the Notion dashboard — a clean sidebar on the left and a main area with a "New page" button.
 
@@ -42,7 +42,7 @@ Inside this page, create seven sub-pages by typing `/page` and naming each one:
 6. **Finance** — Revenue tracking, expense tracking, margin analysis
 7. **Pipeline** — Prospects, leads, and their position in your sales process
 
-### The Clients Database
+#### The Clients Database
 
 Open the **Clients** sub-page. Type `/table` and select **Table — Full page**. Name it `Client Roster`.
 
@@ -63,9 +63,9 @@ Add these columns (click the `+` button at the right end of the header row):
 
 Add one test row: Client Name = "Test Client," Status = "Active," Tier = "Starter," Monthly Revenue = 500000, Setup Fee = 300000. Fill in all remaining fields.
 
-## Procedure 1.2: Set Up Your Financial Infrastructure
+### Procedure 1.2: Set Up Your Financial Infrastructure
 
-### Paystack for Naira Payments
+#### Paystack for Naira Payments
 
 Go to paystack.com and create a business account. Complete the business verification — you will need your BVN, a valid ID, and a corporate bank account. Paystack processes Naira payments directly, supports recurring billing, and charges 1.5% + ₦100 per transaction (capped at ₦2,000).
 
@@ -99,7 +99,7 @@ Once approved, navigate to **Products** in the Paystack dashboard. Create three 
 
 Generate payment links for each product. Save all links in your Notion **Templates** page under "Payment Links."
 
-### Revenue Tracking
+#### Revenue Tracking
 
 In your Notion **Finance** page, create a table called `Revenue Tracker` with these columns:
 
@@ -114,13 +114,13 @@ In your Notion **Finance** page, create a table called `Revenue Tracker` with th
 | Active Clients | Number |
 | Average Revenue Per Client | Formula: Total MRR / Active Clients |
 
-## Procedure 1.3: Configure Your Communication Stack
+### Procedure 1.3: Configure Your Communication Stack
 
-### Business Email
+#### Business Email
 
 Go to workspace.google.com and sign up for the Business Starter plan ($6/mo ≈ ₦9,600/mo). Register a domain that matches your agency name. Create your email: hello@youragency.com or yourname@youragency.com. Do not use a personal Gmail address for client communication.
 
-### Client Booking Calendar
+#### Client Booking Calendar
 
 Go to cal.com and create a free account. Set up two meeting types:
 
@@ -131,7 +131,7 @@ Connect your Google Calendar. Copy your booking link and save it in Notion **Tem
 
 {{% accent-box %}}HACK: Set your Cal.com minimum scheduling notice to 2 hours. This prevents prospects from booking a call 5 minutes from now when you are unprepared. First impressions are everything — a frantic, unprepared discovery call kills deals before they start.{{% /accent-box %}}
 
-## Check-In: Module 1 Complete
+### Check-In: Module 1 Complete
 
 - [ ] Notion Command Center created with all 7 sub-pages
 - [ ] Client Roster database with all 10 columns and a test row
@@ -144,22 +144,22 @@ Count your checkmarks. You need all 6. Do not proceed to Module 2 with an incomp
 
 ---
 
-# MODULE 2: TECH STACK — YOUR SEO ARSENAL
+## MODULE 2: TECH STACK — YOUR SEO ARSENAL
 
-## Overview
+### Overview
 
 Your agency runs on tools. This module sets up every tool you need — Semrush, Ahrefs, ChatGPT, Make.com — connects them, and verifies each connection. Total cost: under ₦200,000/month at full capacity, but most tools are free or discounted until you have paying clients.
 
 **Time to complete:** 4-5 hours
 **Tools needed:** Semrush (₦0-30 day trial → ₦55,000/mo Guru), Ahrefs (₦0-7 day trial → ₦55,000/mo Standard), ChatGPT Plus (₦30,000/mo), Make.com (free tier)
 
-## Procedure 2.1: Configure Semrush
+### Procedure 2.1: Configure Semrush
 
 Go to semrush.com and start a 30-day free trial of the **Guru plan**. You need Guru (not Pro) because it includes Content Marketing Toolkit and historical data. Pro does not.
 
 After signing in, you should see the Semrush dashboard with a domain search bar at the top. Enter your own website domain (or a client's if you have one). Press Enter.
 
-### Create Your First Project
+#### Create Your First Project
 
 Click **Projects** in the left sidebar → **Create project** → Enter your domain → Name it `[Client/Domain] SEO Project`.
 
@@ -190,19 +190,19 @@ Do you see all four modules active in your Project dashboard? If any show "Not c
 
 {{% accent-box %}}HACK: Before your Semrush trial expires, export all Position Tracking data, Site Audit reports, and Keyword Magic Tool results to Google Sheets. If you cannot afford Guru immediately, you retain your research data and can re-subscribe when you land your first client. Never lose research because of a lapsed subscription.{{% /accent-box %}}
 
-## Procedure 2.2: Configure Ahrefs
+### Procedure 2.2: Configure Ahrefs
 
 Go to ahrefs.com and start a 7-day trial of the **Standard plan** ($99/mo ≈ ₦158,000/mo at full price, trial is $7).
 
 After signing in, you should see the Ahrefs dashboard with a search bar. Enter your target domain.
 
-### Set Up Site Explorer Configuration
+#### Set Up Site Explorer Configuration
 
 1. Click **Site Explorer** → Enter your domain → Select mode: **Subdomains** (this captures www and non-www)
 2. In the left sidebar, navigate to **Organic keywords** — this shows all keywords the domain currently ranks for
 3. Click the **Export** button → Export to CSV → Save in your Google Drive under `Clients/[Name]/Discovery/`
 
-### Set Up Ahrefs Alerts
+#### Set Up Ahrefs Alerts
 
 Click **Alerts** in the top navigation. Create three alerts:
 
@@ -222,7 +222,7 @@ Click **Alerts** in the top navigation. Create three alerts:
 - Frequency: Weekly
 - Send to: Your professional email
 
-### Ahrefs Site Audit Setup
+#### Ahrefs Site Audit Setup
 
 Click **Site Audit** in the left sidebar → **+ New project** → Enter domain → Configure:
 
@@ -233,9 +233,9 @@ Click **Site Audit** in the left sidebar → **+ New project** → Enter domain 
 
 Run your first audit. Wait for completion (5-30 minutes depending on site size). Review the Health Score — this is the number you will improve for clients.
 
-## Procedure 2.3: Set Up Your AI Content Engine
+### Procedure 2.3: Set Up Your AI Content Engine
 
-### ChatGPT Plus Configuration
+#### ChatGPT Plus Configuration
 
 Go to chatgpt.com and subscribe to ChatGPT Plus ($20/mo ≈ ₦30,000/mo). You need Plus for GPT-4o access, which produces significantly better SEO content than GPT-3.5.
 
@@ -265,13 +265,13 @@ You are an SEO content production engine. You receive a content brief and produc
 
 Review the output. Does it include the meta title/description? Are H2 headings present? Is the keyword distributed naturally? If not, refine your Custom GPT instructions and test again.
 
-### OpenAI API Access
+#### OpenAI API Access
 
 Go to platform.openai.com. Navigate to **API Keys** and create a new key. Copy it immediately — you cannot view it again. Store it in a password manager (1Password, Bitwarden) — not in Notion.
 
 Navigate to **Billing** and add $20 in credit. Set a monthly limit of $100. This prevents a buggy automation from draining your account overnight.
 
-## Procedure 2.4: Set Up Make.com for SEO Automations
+### Procedure 2.4: Set Up Make.com for SEO Automations
 
 Go to make.com and sign up for the Free plan (1,000 operations/month).
 
@@ -286,7 +286,7 @@ Click your profile icon → **Connections** → **Add connection**. Connect thes
 
 Verify all 5 connected services show a green "Connected" status.
 
-## Check-In: Module 2 Complete
+### Check-In: Module 2 Complete
 
 - [ ] Semrush Guru plan with first project configured (4 modules active)
 - [ ] Ahrefs Standard plan with 3 alerts and Site Audit configured
@@ -299,15 +299,15 @@ Verify all 5 connected services show a green "Connected" status.
 
 ---
 
-# MODULE 3: KEYWORD RESEARCH SYSTEM — THE INTELLIGENCE ENGINE
+## MODULE 3: KEYWORD RESEARCH SYSTEM — THE INTELLIGENCE ENGINE
 
-## Overview
+### Overview
 
 Keyword research is the foundation of every SEO engagement. This module gives you a repeatable system for producing keyword maps that drive content strategy, on-page optimization, and client reporting. You will use Semrush and Ahrefs in tandem — each has strengths the other lacks.
 
 **Time to complete:** 4-6 hours (first time), 2-3 hours per client after system is built
 
-## Procedure 3.1: The Keyword Research Workflow in Semrush
+### Procedure 3.1: The Keyword Research Workflow in Semrush
 
 Open Semrush. Click **Keyword Magic Tool** in the left sidebar.
 
@@ -321,7 +321,7 @@ Enter your client's primary keyword (e.g., "digital marketing Nigeria"). Set the
 
 Click **Search**. You should see a table of keywords with columns: Keyword, Volume, KD%, CPC, Competitive Density, Results, Trend.
 
-### Build the Keyword Map
+#### Build the Keyword Map
 
 Select keywords by checking the box next to each one. Prioritize by this exact order:
 
@@ -333,13 +333,13 @@ Click **Add to keyword list** → Create a new list named `[Client Name] Keyword
 
 Export the list: Click **Export** → **CSV** → Save to `Clients/[Name]/Discovery/` in Google Drive.
 
-## Procedure 3.2: Cross-Reference with Ahrefs Keyword Explorer
+### Procedure 3.2: Cross-Reference with Ahrefs Keyword Explorer
 
 Open Ahrefs. Click **Keywords Explorer** in the top navigation.
 
 Enter the same primary keyword. Select the same country. Click **Search**.
 
-### Apply the Ahrefs Filter Stack
+#### Apply the Ahrefs Filter Stack
 
 In the Keywords Explorer results, apply these filters:
 
@@ -350,7 +350,7 @@ In the Keywords Explorer results, apply these filters:
 
 Sort by **Traffic Potential** descending. This gives you keywords where ranking #1 produces real traffic, not just vanity metrics.
 
-### Find Keyword Gaps
+#### Find Keyword Gaps
 
 In Ahrefs, click **Content Gap** in the left sidebar under **Competitive analysis**.
 
@@ -360,7 +360,7 @@ This shows keywords that competitors rank for but your client does not. Sort by 
 
 Export all results to CSV. Save alongside the Semrush data.
 
-## Procedure 3.3: Build the Content Calendar from Keywords
+### Procedure 3.3: Build the Content Calendar from Keywords
 
 Open a new Google Sheet. Name it `[Client Name] Content Calendar`. Create these columns:
 
@@ -380,7 +380,7 @@ Fill this sheet with 50 keywords minimum. Yes, 50. A proper content calendar cov
 
 {{% accent-box %}}HACK: Use Ahrefs' "Questions" report in Keywords Explorer to find question-based keywords. These produce "People Also Ask" featured snippets at a 3x higher rate than statement keywords. Featured snippets drive 8-12% of all organic clicks for pages that win them. Stack your content calendar with question-based keywords for rapid visibility gains.{{% /accent-box %}}
 
-## Procedure 3.4: Automate Keyword Monitoring with Make.com
+### Procedure 3.4: Automate Keyword Monitoring with Make.com
 
 Create a new Make.com scenario called "Weekly Keyword Rank Tracker."
 
@@ -407,7 +407,7 @@ Create a new Make.com scenario called "Weekly Keyword Rank Tracker."
 
 Activate the scenario. Verify it runs on the next Monday.
 
-## Check-In: Module 3 Complete
+### Check-In: Module 3 Complete
 
 - [ ] Semrush Keyword Magic Tool search completed with all filters applied
 - [ ] Keyword map created with PRIORITY-1, PRIORITY-2, PRIORITY-3 tags
@@ -420,15 +420,15 @@ Activate the scenario. Verify it runs on the next Monday.
 
 ---
 
-# MODULE 4: AI CONTENT STRATEGY — THE PRODUCTION PIPELINE
+## MODULE 4: AI CONTENT STRATEGY — THE PRODUCTION PIPELINE
 
-## Overview
+### Overview
 
 Content production is where most SEO agencies fail. They either produce thin content that never ranks or they spend ₦50,000+ per article on human writers and cannot maintain margins. This module gives you an AI-powered content pipeline that produces publish-ready articles at scale while maintaining quality. You will produce 8-12 articles per month per Growth client while spending less than ₦5,000 per article on AI costs.
 
 **Time to complete:** 5-6 hours to build the pipeline, then 1-2 hours per article
 
-## Procedure 4.1: Create the Content Brief Template
+### Procedure 4.1: Create the Content Brief Template
 
 Before any article is written, you need a content brief. Open your SEO Content Engine Custom GPT and use this prompt to generate briefs:
 
@@ -452,9 +452,9 @@ Include:
 
 Save each generated brief in your Notion **Prompt Library** under "Content Briefs → [Client Name]".
 
-## Procedure 4.2: The AI Content Production Process
+### Procedure 4.2: The AI Content Production Process
 
-### Step 1: Generate the First Draft
+#### Step 1: Generate the First Draft
 
 Open your SEO Content Engine Custom GPT. Paste the content brief and add:
 
@@ -462,7 +462,7 @@ Open your SEO Content Engine Custom GPT. Paste the content brief and add:
 Write this article now. Follow the brief exactly. Do not add a conclusion until I say so. Write at least [WORD COUNT] words. Use short paragraphs (2-3 sentences max). Every H2 section must be substantial — no 50-word filler sections.
 ```
 
-### Step 2: Human Edit Pass (30 minutes per article)
+#### Step 2: Human Edit Pass (30 minutes per article)
 
 Read the entire draft. Fix these specific issues that AI consistently produces:
 
@@ -472,7 +472,7 @@ Read the entire draft. Fix these specific issues that AI consistently produces:
 4. **Verify facts** — AI hallucinates statistics. Every claim with a number must be verified or removed.
 5. **Improve transitions** — AI articles jump between topics. Add transitional sentences between H2 sections.
 
-### Step 3: On-Page Optimization Pass
+#### Step 3: On-Page Optimization Pass
 
 Run the article through Semrush's **SEO Writing Assistant**:
 
@@ -492,7 +492,7 @@ If any score is below target, follow the specific recommendations in the sidebar
 
 {{% accent-box %}}HACK: After the SEO Writing Assistant pass, search your target keyword on Google and open the top 3 ranking articles. Identify one element each article has that yours lacks — a unique statistic, a specific example, a visual element. Add that missing element to your article. This "skyscraper" technique is what pushes your content from page 2 to page 1.{{% /accent-box %}}
 
-### Step 4: Add Schema Markup
+#### Step 4: Add Schema Markup
 
 At the bottom of your article (in the CMS), add JSON-LD schema markup. Use this template:
 
@@ -539,7 +539,7 @@ For FAQ articles, also add:
 }
 ```
 
-## Procedure 4.3: Build the Content Publishing Automation
+### Procedure 4.3: Build the Content Publishing Automation
 
 Create a Make.com scenario called "Content Publishing Pipeline."
 
@@ -565,7 +565,7 @@ Create a Make.com scenario called "Content Publishing Pipeline."
 
 Activate the scenario. Test with one article from your Content Calendar.
 
-## Procedure 4.4: Content Refresh Automation
+### Procedure 4.4: Content Refresh Automation
 
 Ranking content decays. An article that ranks #3 today will drop to #8 in 6 months if untouched. You need a content refresh system.
 
@@ -586,7 +586,7 @@ Create a Make.com scenario called "Content Decay Monitor."
 - Spreadsheet: `[Client Name] Content Refresh Queue`
 - Map: keyword, current position, previous position, AI recommendations, priority level
 
-## Check-In: Module 4 Complete
+### Check-In: Module 4 Complete
 
 - [ ] Content Brief template created and tested with 3 keywords
 - [ ] AI Content Production Process documented as SOP (4 steps)
@@ -599,15 +599,15 @@ Create a Make.com scenario called "Content Decay Monitor."
 
 ---
 
-# MODULE 5: ON-PAGE OPTIMIZATION — THE PRECISION ENGINE
+## MODULE 5: ON-PAGE OPTIMIZATION — THE PRECISION ENGINE
 
-## Overview
+### Overview
 
 On-page optimization is where SEO campaigns are won or lost. You can have perfect keyword research and excellent content, but if your title tags are 80 characters, your images have no alt text, and your internal linking is random, you will not rank. This module gives you a systematic on-page optimization process that you apply to every page on a client's site.
 
 **Time to complete:** 3-4 hours per site (initial optimization), 1 hour per month (maintenance)
 
-## Procedure 5.1: The On-Page Audit Checklist
+### Procedure 5.1: The On-Page Audit Checklist
 
 For every page on the client's site, run this checklist:
 
@@ -626,7 +626,7 @@ For every page on the client's site, run this checklist:
 | Mobile Usability | No mobile usability errors | Google Search Console |
 | Canonical Tags | Self-referencing on canonical pages, pointing to canonical on duplicates | Semrush Site Audit |
 
-## Procedure 5.2: Execute On-Page Optimization Using Semrush
+### Procedure 5.2: Execute On-Page Optimization Using Semrush
 
 Open your Semrush project. Click **On-Page SEO Checker**. This module analyzes your site against the top 10 ranking pages for your target keywords and generates specific recommendations.
 
@@ -640,11 +640,11 @@ Click **Ideas** tab. You will see a list of optimization ideas sorted by estimat
 
 For each optimization you implement, mark it as "Implemented" in the On-Page SEO Checker. Semrush will re-crawl and verify the change within 1-2 weeks.
 
-## Procedure 5.3: Internal Linking Strategy and Automation
+### Procedure 5.3: Internal Linking Strategy and Automation
 
 Internal linking is the most underrated SEO tactic. Most sites have thousands of pages with fewer than 3 internal links pointing to each page. Google uses internal links to understand site structure, distribute page authority, and discover new content.
 
-### Build the Internal Link Map
+#### Build the Internal Link Map
 
 1. Export all published URLs from the client's sitemap (domain.com/sitemap.xml)
 2. In Ahrefs, go to **Site Explorer** → **Best by links** → Sort by **URL Rating (UR)** descending
@@ -652,7 +652,7 @@ Internal linking is the most underrated SEO tactic. Most sites have thousands of
 4. For each power page, add 3-5 internal links pointing to pages that need an authority boost (pages ranking positions 11-20 for their target keywords)
 5. Use descriptive anchor text that includes the target page's keyword
 
-### Automate Internal Link Discovery
+#### Automate Internal Link Discovery
 
 Create a Make.com scenario: "Internal Link Opportunities."
 
@@ -671,7 +671,7 @@ Create a Make.com scenario: "Internal Link Opportunities."
 **Module 4: Google Sheets — Add Rows**
 - Spreadsheet: `[Client Name] Internal Link Opportunities`
 
-## Check-In: Module 5 Complete
+### Check-In: Module 5 Complete
 
 - [ ] On-Page Audit Checklist completed for all priority pages
 - [ ] Semrush On-Page SEO Checker "Implement immediately" ideas all marked done
@@ -684,15 +684,15 @@ Create a Make.com scenario: "Internal Link Opportunities."
 
 ---
 
-# MODULE 6: TECHNICAL SEO AUDITS — THE INFRASTRUCTURE LAYER
+## MODULE 6: TECHNICAL SEO AUDITS — THE INFRASTRUCTURE LAYER
 
-## Overview
+### Overview
 
 Technical SEO is the plumbing of your client's website. If the plumbing is broken, nothing else matters — not content, not links, not keywords. A site with crawl errors, broken redirects, and slow page speed will never rank regardless of how good the content is. This module gives you a systematic technical audit process using Semrush and Ahrefs.
 
 **Time to complete:** 4-6 hours per audit, 2 hours per month for monitoring
 
-## Procedure 6.1: Run the Semrush Site Audit
+### Procedure 6.1: Run the Semrush Site Audit
 
 Open your Semrush project → **Site Audit** → Click **Start audit** if this is your first time, or **Re-audit** if one exists.
 
@@ -702,7 +702,7 @@ Wait for completion (5-30 minutes). Review the **Overview** tab. You will see:
 - **Warnings** (yellow): Important issues that should be fixed within 30 days
 - **Notices** (blue): Informational items to review
 
-### Fix These Errors First (Always)
+#### Fix These Errors First (Always)
 
 1. **Broken pages (4xx errors)** — Find the source of internal links pointing to these pages and update them
 2. **Duplicate content without canonical** — Add canonical tags pointing to the primary version
@@ -711,25 +711,25 @@ Wait for completion (5-30 minutes). Review the **Overview** tab. You will see:
 5. **Missing H1 tags** — Add exactly one H1 per page containing the target keyword
 6. **Mixed content (HTTP/HTTPS)** — Force HTTPS redirect and update all internal links
 
-## Procedure 6.2: Run the Ahrefs Site Audit
+### Procedure 6.2: Run the Ahrefs Site Audit
 
 Open Ahrefs → **Site Audit** → Your project → **View results**.
 
 Focus on the **Performance** and **Crawlability** tabs:
 
-### Performance Issues
+#### Performance Issues
 - **Largest Contentful Paint (LCP)** — Target under 2.5 seconds
 - **Cumulative Layout Shift (CLS)** — Target under 0.1
 - **Total page size** — Flag pages over 3MB
 - **Unused CSS/JS** — Recommend code splitting or deferral
 
-### Crawlability Issues
+#### Crawlability Issues
 - **Orphan pages** — Pages with zero internal links pointing to them. Add at least one internal link to each.
 - **Crawl depth > 4 clicks** — Important pages should be reachable within 3 clicks from the homepage. Restructure navigation.
 - **Blocked resources** — Ensure robots.txt is not blocking CSS/JS files that Googlebot needs to render the page
 - **Redirect chains** — Chains of 3+ redirects waste crawl budget. Consolidate to single 301 redirects.
 
-## Procedure 6.3: Create the Technical SEO Report Template
+### Procedure 6.3: Create the Technical SEO Report Template
 
 Build a Google Docs template called `[Client Name] Technical SEO Report — [Month]`. Structure:
 
@@ -755,7 +755,7 @@ Build a Google Docs template called `[Client Name] Technical SEO Report — [Mon
 **Section 5: Recommendations for Next Month**
 - Prioritized list of 5-10 fixes with estimated impact
 
-## Procedure 6.4: Automate Technical Monitoring
+### Procedure 6.4: Automate Technical Monitoring
 
 Create a Make.com scenario: "Technical SEO Alert System."
 
@@ -778,7 +778,7 @@ Create a Make.com scenario: "Technical SEO Alert System."
 
 {{% accent-box %}}HACK: Set up Google Search Console email forwarding to your professional email. Google sends alerts for critical issues (malware, indexing drops, manual actions) directly. Forward these to your `#seo-critical` Slack channel using Make.com. A 48-hour delay in responding to a manual action penalty can cost a client months of organic traffic.{{% /accent-box %}}
 
-## Check-In: Module 6 Complete
+### Check-In: Module 6 Complete
 
 - [ ] Semrush Site Audit completed with all critical errors documented
 - [ ] Ahrefs Site Audit completed with performance and crawlability issues documented
@@ -791,15 +791,15 @@ Create a Make.com scenario: "Technical SEO Alert System."
 
 ---
 
-# MODULE 7: LINK BUILDING AUTOMATION — THE AUTHORITY ACCELERATOR
+## MODULE 7: LINK BUILDING AUTOMATION — THE AUTHORITY ACCELERATOR
 
-## Overview
+### Overview
 
 Backlinks remain the strongest ranking signal in Google's algorithm. Without them, your content competes with one hand tied behind its back. This module gives you a systematic link building process that combines AI-powered prospecting with automated outreach. You will build 10-20 quality backlinks per month per Growth client.
 
 **Time to complete:** 5-6 hours to build the system, 3-4 hours per week to execute
 
-## Procedure 7.1: Backlink Prospecting with Ahrefs
+### Procedure 7.1: Backlink Prospecting with Ahrefs
 
 Open Ahrefs → **Site Explorer** → Enter a competitor domain → **Backlinks** in the left sidebar.
 
@@ -812,9 +812,9 @@ Filter backlinks:
 
 Export the filtered backlink list. These are websites that have linked to your client's competitors. They are your primary link targets — they have already demonstrated willingness to link to content in this niche.
 
-## Procedure 7.2: The Skyscraper Link Building Method
+### Procedure 7.2: The Skyscraper Link Building Method
 
-### Step 1: Find Link-Worthy Content
+#### Step 1: Find Link-Worthy Content
 
 In Ahrefs, go to **Top content** → **Best by links** for competitor domains. Identify their most-linked pages (pages with 20+ referring domains). These are content formats that naturally attract links in this niche.
 
@@ -825,7 +825,7 @@ Common link-worthy formats:
 - Infographics
 - Case studies with real results
 
-### Step 2: Create Superior Content
+#### Step 2: Create Superior Content
 
 Using your AI Content Engine, create a version of the competitor's most-linked content that is:
 - 2x more comprehensive
@@ -833,7 +833,7 @@ Using your AI Content Engine, create a version of the competitor's most-linked c
 - Includes original visuals (use Canva or Midjourney)
 - Features expert quotes (reach out to 5 industry experts on LinkedIn for a 1-sentence quote)
 
-### Step 3: Automated Outreach
+#### Step 3: Automated Outreach
 
 Create a Make.com scenario: "Link Building Outreach."
 
@@ -858,17 +858,17 @@ Create a Make.com scenario: "Link Building Outreach."
 
 {{% accent-box %}}HACK: Before reaching out to any prospect, link to their content from your client's article first. When you email them, mention the link: "I actually referenced your guide on [TOPIC] in our new article — your section on [SPECIFIC POINT] was excellent." This reciprocity increases response rates by 35-40% compared to cold outreach without a prior link.{{% /accent-box %}}
 
-## Procedure 7.3: HARO and Digital PR Link Building
+### Procedure 7.3: HARO and Digital PR Link Building
 
 HARO (Help A Reporter Out) connects journalists with expert sources. Every quote you provide earns a backlink from a high-DR publication.
 
-### Set Up HARO Monitoring
+#### Set Up HARO Monitoring
 
 1. Go to connectively.us (formerly HARO) and create a free expert account
 2. Select categories relevant to your client's industry
 3. Check emails 3x daily (8 AM, 12 PM, 5 PM WAT) — journalists work on deadlines and the first qualified response wins
 
-### AI-Powered Response System
+#### AI-Powered Response System
 
 When you see a relevant query, use this prompt in your SEO Content Engine:
 
@@ -880,7 +880,7 @@ Add the journalist to a Google Sheet called `HARO Tracker` with columns: Date, Q
 
 Expected conversion: 1 link per 8-10 responses. At 3 responses per day, you earn 2-3 high-DR backlinks per month with minimal effort.
 
-## Check-In: Module 7 Complete
+### Check-In: Module 7 Complete
 
 - [ ] Competitor backlink analysis completed in Ahrefs with prospect list exported
 - [ ] Skyscraper content created for top link opportunity
@@ -893,15 +893,15 @@ Expected conversion: 1 link per 8-10 responses. At 3 responses per day, you earn
 
 ---
 
-# MODULE 8: REPORTING & DASHBOARDS — THE VALUE PROOF
+## MODULE 8: REPORTING & DASHBOARDS — THE VALUE PROOF
 
-## Overview
+### Overview
 
 Clients cancel SEO retainers when they cannot see the value. This module gives you a reporting system that makes progress visible, quantifiable, and undeniable. Every report you send is a retention tool. Every dashboard you build is a reason for the client to renew.
 
 **Time to complete:** 4-5 hours to build templates, 1-2 hours per month per client
 
-## Procedure 8.1: Build the Monthly SEO Report
+### Procedure 8.1: Build the Monthly SEO Report
 
 Create a Google Slides template called `Monthly SEO Report — [Client Name]`. Use this structure:
 
@@ -941,11 +941,11 @@ Create a Google Slides template called `Monthly SEO Report — [Client Name]`. U
 - Content planned for publication
 - Link building targets
 
-## Procedure 8.2: Build the Real-Time SEO Dashboard
+### Procedure 8.2: Build the Real-Time SEO Dashboard
 
 Use Google Looker Studio (free) to create a live dashboard.
 
-### Data Sources
+#### Data Sources
 
 Connect these data sources in Looker Studio:
 
@@ -953,7 +953,7 @@ Connect these data sources in Looker Studio:
 2. **Google Search Console** — Impressions, clicks, average position, CTR
 3. **Google Sheets** — Manual data entry for: keyword rankings (from Semrush), backlinks (from Ahrefs), Domain Rating
 
-### Dashboard Layout
+#### Dashboard Layout
 
 Create these sections on a single page:
 
@@ -978,7 +978,7 @@ Create these sections on a single page:
 
 Share the dashboard with the client. Set it to "View" access so they can check progress anytime without asking you.
 
-## Procedure 8.3: Automate Report Generation
+### Procedure 8.3: Automate Report Generation
 
 Create a Make.com scenario: "Monthly SEO Report Generator."
 
@@ -1002,7 +1002,7 @@ Create a Make.com scenario: "Monthly SEO Report Generator."
 - Channel: `#seo-reports`
 - Message: Monthly summary + link to full report
 
-## Check-In: Module 8 Complete
+### Check-In: Module 8 Complete
 
 - [ ] Monthly SEO Report template created in Google Slides (7 slides)
 - [ ] Real-time Looker Studio dashboard connected to GA4 + GSC + Sheets
@@ -1015,15 +1015,15 @@ Create a Make.com scenario: "Monthly SEO Report Generator."
 
 ---
 
-# MODULE 9: CLIENT ACQUISITION — THE MACHINE THAT FEEDS THE MACHINE
+## MODULE 9: CLIENT ACQUISITION — THE MACHINE THAT FEEDS THE MACHINE
 
-## Overview
+### Overview
 
 You can do SEO. Now you need clients who will pay you to do it. This module gives you the exact scripts, templates, and processes for acquiring SEO clients consistently. No guessing. No hoping. Follow the procedures and clients will appear.
 
 **Time to complete:** 5-6 hours to build assets, then 1-2 hours daily for outreach
 
-## Procedure 9.1: Build Your SEO Demo Portfolio
+### Procedure 9.1: Build Your SEO Demo Portfolio
 
 Before you sell, you need proof. Your portfolio consists of:
 
@@ -1041,11 +1041,11 @@ Each case study must include:
 - Timeline
 - Screenshots of Semrush/Ahrefs dashboards
 
-## Procedure 9.2: The SEO Audit as a Sales Tool
+### Procedure 9.2: The SEO Audit as a Sales Tool
 
 The most effective client acquisition method for SEO agencies is the free mini-audit. You audit a prospect's website, find obvious problems, and present the findings. The prospect sees your expertise before they pay you a kobo.
 
-### Build the Mini-Audit Template
+#### Build the Mini-Audit Template
 
 Create a Loom video walkthrough (5-7 minutes) covering these exact points:
 
@@ -1055,7 +1055,7 @@ Create a Loom video walkthrough (5-7 minutes) covering these exact points:
 4. **Show their Domain Rating vs. competitors** — The gap is your sales hook
 5. **Recommend 3 specific actions** — "If you fix X, Y, and Z, I estimate a 30-50% traffic increase within 90 days"
 
-### Find Prospects for Mini-Audits
+#### Find Prospects for Mini-Audits
 
 Use this process to build a list of 50 prospects:
 
@@ -1081,9 +1081,9 @@ Use this process to build a list of 50 prospects:
 
 Find 50 businesses. This takes 3-4 hours. Do it in one sitting.
 
-## Procedure 9.3: The Outreach Scripts
+### Procedure 9.3: The Outreach Scripts
 
-### Cold Email Script 1: Mini-Audit Offer
+#### Cold Email Script 1: Mini-Audit Offer
 
 **Subject line:** Found 3 SEO issues on [their domain]
 
@@ -1104,7 +1104,7 @@ Find 50 businesses. This takes 3-4 hours. Do it in one sitting.
 >
 > [Your Name]
 
-### Cold Email Script 2: Competitor Gap Approach
+#### Cold Email Script 2: Competitor Gap Approach
 
 **Subject line:** [Competitor Name] is outranking you on [X] keywords
 
@@ -1124,7 +1124,7 @@ Find 50 businesses. This takes 3-4 hours. Do it in one sitting.
 >
 > [Your Name]
 
-### Send Protocol
+#### Send Protocol
 
 - Send 10 emails per day, maximum 15
 - Space throughout the day: 3 at 9 AM, 4 at 12 PM, 3 at 4 PM WAT
@@ -1134,7 +1134,7 @@ Find 50 businesses. This takes 3-4 hours. Do it in one sitting.
 
 Expected results from 50 emails: 10-15 replies (20-30%), 5-7 meetings booked, 2-3 clients closed.
 
-## Procedure 9.4: The Sales Call That Closes
+### Procedure 9.4: The Sales Call That Closes
 
 When a prospect books a discovery call, follow this script:
 
@@ -1158,7 +1158,7 @@ If they say yes, send the Paystack payment link immediately from your Notion Tem
 
 {{% accent-box %}}HACK: When presenting pricing, always show the Enterprise tier first, then Growth, then Starter. This is price anchoring. After seeing ₦3,000,000/month, ₦1,500,000/month feels reasonable. If you present Starter first, Growth feels expensive. The order of presentation determines the perception of value.{{% /accent-box %}}
 
-## Check-In: Module 9 Complete
+### Check-In: Module 9 Complete
 
 - [ ] Agency website live and optimized for target keywords
 - [ ] 3 case study documents created (even from free/experimental work)
@@ -1171,15 +1171,15 @@ If they say yes, send the Paystack payment link immediately from your Notion Tem
 
 ---
 
-# MODULE 10: SCALING & TEAM BUILDING — FROM SOLO TO AGENCY
+## MODULE 10: SCALING & TEAM BUILDING — FROM SOLO TO AGENCY
 
-## Overview
+### Overview
 
 Solo SEO operators hit a ceiling at ₦3,000,000-₦5,000,000/month in revenue. Breaking through requires systems and people. This module shows you exactly how and when to hire, what to delegate, and how to maintain margins as you grow from a one-person shop to a multi-client agency generating ₦15,000,000+/month.
 
 **Time to complete:** Ongoing — implement as you hit each trigger point
 
-## Procedure 10.1: The Hiring Roadmap
+### Procedure 10.1: The Hiring Roadmap
 
 **When you have 3 clients (₦1,500,000-₦4,500,000 MRR):** Hire a Virtual Assistant (VA). Budget: ₦150,000-₦250,000/month (₦800-₦1,500/hour), 15-20 hours/week. The VA handles:
 
@@ -1214,7 +1214,7 @@ Solo SEO operators hit a ceiling at ₦3,000,000-₦5,000,000/month in revenue. 
 - Pipeline management and follow-ups
 - Proposal creation and sending
 
-## Procedure 10.2: The SOP Library You Must Build
+### Procedure 10.2: The SOP Library You Must Build
 
 Every task in your agency must have a written SOP before you can delegate it. If you cannot hand a document to a Junior SEO and have them execute the task without asking you questions, you do not have an SOP — you have notes.
 
@@ -1242,7 +1242,7 @@ Total SOP build time: ~25 hours. This is your most important investment. Done co
 
 {{% accent-box %}}HACK: Record yourself executing each SOP using Loom. A 15-minute video of you actually doing the work is worth more than a 5-page written document. Store Loom links inside each Notion SOP page. New hires watch the video first, then use the written SOP as a reference while they execute. This cuts training time from 2 weeks to 3 days.{{% /accent-box %}}
 
-## Procedure 10.3: Margin Analysis at Scale
+### Procedure 10.3: Margin Analysis at Scale
 
 | Clients | MRR | Team Cost/mo | Tool Cost/mo | Net Profit/mo | Margin |
 |---|---|---|---|---|---|
@@ -1254,30 +1254,30 @@ Total SOP build time: ~25 hours. This is your most important investment. Done co
 
 Margins compress slightly as you hire, but absolute profit increases dramatically. A 72% margin on ₦15,000,000 is ₦10,800,000/month — far more than a solo operator earning 87% on ₦1,500,000 (₦1,305,000/month).
 
-## Procedure 10.4: The Scaling Roadmap — ₦0 to ₦15M/Month
+### Procedure 10.4: The Scaling Roadmap — ₦0 to ₦15M/Month
 
-### Phase 1: Foundation (Months 1-3)
+#### Phase 1: Foundation (Months 1-3)
 - Complete all 10 modules of this playbook
 - Land your first 2-3 clients using Module 9 outreach
 - Deliver exceptional results (focus on quick wins: technical fixes, on-page optimization, easy keywords)
 - Build your case studies from real client results
 - Revenue target: ₦1,000,000-₦1,500,000 MRR
 
-### Phase 2: Systematize (Months 4-6)
+#### Phase 2: Systematize (Months 4-6)
 - Hire your VA
 - Complete all 15 SOPs
 - Automate reporting (Module 8)
 - Increase outreach volume to 20 emails/day
 - Revenue target: ₦3,000,000-₦4,500,000 MRR
 
-### Phase 3: Scale (Months 7-12)
+#### Phase 3: Scale (Months 7-12)
 - Hire Junior SEO and Content Writer
 - Expand to 8-10 clients
 - Introduce Enterprise tier for larger clients
 - Begin content marketing for your own agency (eat your own cooking)
 - Revenue target: ₦7,500,000-₦12,000,000 MRR
 
-### Phase 4: Dominate (Months 12-18)
+#### Phase 4: Dominate (Months 12-18)
 - Hire Sales Representative
 - Build referral partnerships with web development agencies and marketing consultants
 - Launch a "done-with-you" SEO training product for ₦500,000/seat (additional revenue stream)
@@ -1285,7 +1285,7 @@ Margins compress slightly as you hire, but absolute profit increases dramaticall
 
 {{% accent-box %}}HACK: The most overlooked growth lever is the "SEO for SEO agencies" strategy. Your own agency website should be your best case study. Target keywords like "SEO agency Lagos," "SEO services Nigeria," "best SEO company in [city]." When prospects search for an SEO agency and find YOU organically, the sale is 80% closed before the discovery call. A referral prospect has a 30% close rate. An inbound lead from organic search has a 60%+ close rate.{{% /accent-box %}}
 
-## Check-In: Module 10 Complete
+### Check-In: Module 10 Complete
 
 - [ ] Hiring roadmap saved in Notion with trigger points for each role
 - [ ] VA job description drafted and ready to post on Upwork/LinkedIn
@@ -1298,7 +1298,7 @@ Margins compress slightly as you hire, but absolute profit increases dramaticall
 
 ---
 
-# THE PRICING TABLE — YOUR REVENUE ARCHITECTURE
+## THE PRICING TABLE — YOUR REVENUE ARCHITECTURE
 
 This is the complete pricing structure for your AI SEO agency. Every client fits into one of these three tiers. Do not create custom pricing for individual clients — it destroys your margins and confuses your team. If a prospect needs something between tiers, upgrade them to the next tier and include the additional value.
 
@@ -1322,7 +1322,7 @@ This is the complete pricing structure for your AI SEO agency. Every client fits
 
 ---
 
-# FINAL CHECK-IN: PLAYBOOK COMPLETE
+## FINAL CHECK-IN: PLAYBOOK COMPLETE
 
 - [ ] Module 1: Foundation — All infrastructure configured and tested
 - [ ] Module 2: Tech Stack — Semrush, Ahrefs, ChatGPT, Make.com connected

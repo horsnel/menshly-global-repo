@@ -16,7 +16,7 @@ Ready to understand the full business opportunity? Read our [opportunity deep‑
 
 ---
 
-## Prerequisites
+### Prerequisites
 
 | Tool | Account Type | Monthly Cost | Setup Time |
 |------|--------------|--------------|------------|
@@ -35,9 +35,9 @@ Ready to understand the full business opportunity? Read our [opportunity deep‑
 
 ---
 
-## Step 1: Install and Configure Label Studio
+### Step 1: Install and Configure Label Studio
 
-### 1.1 Deploy Label Studio on Hostinger VPS
+#### 1.1 Deploy Label Studio on Hostinger VPS
 
 Label Studio is the backbone of your entire annotation operation. It manages projects, annotator accounts, labeling interfaces, quality workflows, and data export.
 
@@ -69,7 +69,7 @@ sudo certbot --nginx -d annotation.yourdomain.com
 
 > **Check‑in:** Do you see the Label Studio login screen at `https://annotation.yourdomain.com`? If you get a connection refused error, check that Docker is running (`docker ps`) and that port 8080 is open in your firewall.
 
-### 1.2 Configure Annotator Roles and Permissions
+#### 1.2 Configure Annotator Roles and Permissions
 
 1. In Label Studio, go to **Organization** then **Members** and click **Add Member**.
 2. Create two roles:
@@ -78,7 +78,7 @@ sudo certbot --nginx -d annotation.yourdomain.com
 3. For each annotator you recruit, create an account with the Annotator role. For senior annotators and quality leads, use the Reviewer role.
 4. Enable **Task Distribution** under **Settings** so that tasks are automatically assigned to available annotators on a round‑robin basis.
 
-### 1.3 Set Up Project Templates
+#### 1.3 Set Up Project Templates
 
 Create template projects for each annotation type you plan to offer. The most common templates:
 
@@ -140,11 +140,11 @@ Save these templates in a Notion database so you can quickly create new projects
 
 ---
 
-## Step 2: Build the AI Pre‑Annotation Pipeline
+### Step 2: Build the AI Pre‑Annotation Pipeline
 
 AI pre‑annotation is the secret weapon that makes your business profitable. By generating first‑pass labels automatically, you reduce human annotation time by 70 to 80%, which means you can deliver projects faster and with higher margins than competitors who rely on manual annotation alone.
 
-### 2.1 Set Up the Pre‑Annotation Server
+#### 2.1 Set Up the Pre‑Annotation Server
 
 Create a new Replit project called `annotation-prelabeler`:
 
@@ -235,7 +235,7 @@ app.listen(PORT, () => {
 });
 ```
 
-### 2.2 Install Dependencies and Deploy
+#### 2.2 Install Dependencies and Deploy
 
 ```bash
 npm init -y
@@ -255,7 +255,7 @@ curl -X POST http://localhost:3000/prelabel/text \
   }'
 ```
 
-### 2.3 Configure Image Pre‑Annotation
+#### 2.3 Configure Image Pre‑Annotation
 
 For image annotation projects, use a Hugging Face model endpoint. Create a script that:
 
@@ -268,9 +268,9 @@ This pipeline reduces human annotation time for bounding box tasks by approximat
 
 ---
 
-## Step 3: Build the Make.com Automation Scenarios
+### Step 3: Build the Make.com Automation Scenarios
 
-### 3.1 Scenario 1: Project Intake and Task Distribution
+#### 3.1 Scenario 1: Project Intake and Task Distribution
 
 This scenario automates the process of receiving client data and creating Label Studio projects:
 
@@ -281,7 +281,7 @@ This scenario automates the process of receiving client data and creating Label 
 5. **Module 4:** Notion — Create a project tracking page with client details, deadline, and quality targets
 6. **Module 5:** ActiveCampaign — Send the client a confirmation email with project details and estimated delivery date
 
-### 3.2 Scenario 2: Quality Assurance Pipeline
+#### 3.2 Scenario 2: Quality Assurance Pipeline
 
 This scenario runs quality checks on completed annotations:
 
@@ -292,7 +292,7 @@ This scenario runs quality checks on completed annotations:
 5. **Module 4:** HTTP — Assign the annotation to a Reviewer in Label Studio
 6. **Module 5:** Notion — Update the quality tracking database with review assignments
 
-### 3.3 Scenario 3: Delivery and Invoicing
+#### 3.3 Scenario 3: Delivery and Invoicing
 
 This scenario handles project completion and billing:
 
@@ -304,9 +304,9 @@ This scenario handles project completion and billing:
 
 ---
 
-## Step 4: Build the Annotator Onboarding System
+### Step 4: Build the Annotator Onboarding System
 
-### 4.1 Qualification Test Pipeline
+#### 4.1 Qualification Test Pipeline
 
 Every annotator must pass a qualification test before they can work on client data. Build this pipeline in Notion and Make.com:
 
@@ -322,7 +322,7 @@ Every annotator must pass a qualification test before they can work on client da
    - Annotators scoring above 85% are automatically moved to "Qualified" status
    - Annotators scoring above 95% are flagged as "Expert" and prioritized for high‑value projects
 
-### 4.2 Training Materials Production
+#### 4.2 Training Materials Production
 
 Create professional training materials for each annotation domain:
 
@@ -334,9 +334,9 @@ Create professional training materials for each annotation domain:
 
 ---
 
-## Step 5: Deploy the Hostinger Production Server
+### Step 5: Deploy the Hostinger Production Server
 
-### 5.1 Server Architecture
+#### 5.1 Server Architecture
 
 ```
 annotation.yourdomain.com
@@ -347,7 +347,7 @@ annotation.yourdomain.com
 └── Redis (Docker, port 6379)
 ```
 
-### 5.2 Docker Compose Configuration
+#### 5.2 Docker Compose Configuration
 
 Create `docker-compose.yml`:
 
@@ -402,7 +402,7 @@ Start everything:
 docker-compose up -d
 ```
 
-### 5.3 Nginx Configuration
+#### 5.3 Nginx Configuration
 
 ```nginx
 server {
@@ -432,9 +432,9 @@ server {
 
 ---
 
-## Step 6: Quality Assurance Methodology
+### Step 6: Quality Assurance Methodology
 
-### 6.1 Multi‑Pass Review System
+#### 6.1 Multi‑Pass Review System
 
 Implement a three‑pass quality system:
 
@@ -444,7 +444,7 @@ Implement a three‑pass quality system:
 | **Pass 2** | Senior Annotator | Review and correct flagged items | 25–30% random sample |
 | **Pass 3** | Project Lead | Final review of high‑stakes labels | 5–10% random sample |
 
-### 6.2 Inter‑Annotator Agreement Metrics
+#### 6.2 Inter‑Annotator Agreement Metrics
 
 For every project, calculate agreement metrics:
 
@@ -479,7 +479,7 @@ print(f"Cohen's Kappa: {kappa:.3f}")
 print(f"Agreement level: {'Substantial' if kappa > 0.75 else 'Moderate' if kappa > 0.60 else 'Fair'}")
 ```
 
-### 6.3 Annotator Performance Tracking
+#### 6.3 Annotator Performance Tracking
 
 Maintain a performance dashboard in Notion that tracks:
 
@@ -492,9 +492,9 @@ Annotators who consistently score above 95% accuracy get rate increases and prio
 
 ---
 
-## Step 7: Client Reporting and Retention
+### Step 7: Client Reporting and Retention
 
-### 7.1 Automated Quality Reports
+#### 7.1 Automated Quality Reports
 
 Generate a client report for every project that includes:
 
@@ -506,7 +506,7 @@ Generate a client report for every project that includes:
 - AI pre‑annotation accuracy (how much the AI got right before human review)
 - Time to delivery versus estimated timeline
 
-### 7.2 Retention Strategies
+#### 7.2 Retention Strategies
 
 **The Data Quality Guarantee:** Offer a "quality guarantee" in your contract — if the client's model performance does not improve after training on your annotated data, you will re‑annotate the disputed labels at no charge. This sounds risky, but in practice it almost never triggers because your quality processes are rigorous. It is the ultimate trust builder and deal closer.
 
@@ -516,7 +516,7 @@ Generate a client report for every project that includes:
 
 ---
 
-## Troubleshooting Common Issues
+### Troubleshooting Common Issues
 
 | Issue | Cause | Fix |
 |-------|-------|-----|
@@ -528,7 +528,7 @@ Generate a client report for every project that includes:
 
 ---
 
-## Recommended Tools
+### Recommended Tools
 
 These are the tools we recommend for building and scaling AI automation businesses:
 

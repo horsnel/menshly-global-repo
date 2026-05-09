@@ -15,16 +15,16 @@ This is not a blog post condensed into a PDF. This is an operating system for bu
 
 ---
 
-# MODULE 1: FOUNDATION — YOUR AGENCY OPERATING SYSTEM
+## MODULE 1: FOUNDATION — YOUR AGENCY OPERATING SYSTEM
 
-## Overview
+### Overview
 
 Before you build a single onboarding workflow, you need the infrastructure that runs your agency. This module sets up your project management, documentation, client portal, and communication systems. These are not optional. Every successful agency operator has these systems in place before their first client call. Every failed operator skipped them.
 
 **Time to complete:** 3-4 hours
 **Tools needed:** Notion (free), Google Workspace (free), Stripe (free)
 
-## Procedure 1.1: Create Your Agency Command Center in Notion
+### Procedure 1.1: Create Your Agency Command Center in Notion
 
 Open your browser and go to notion.so. Sign in or create a free account. Click **New page** in the left sidebar. Name it: `[Your Agency Name] Command Center`. This is the single source of truth for your entire business.
 
@@ -37,7 +37,7 @@ Inside this page, create six sub-pages by typing `/page` and naming each one:
 5. **Finance** — Revenue tracking, expense tracking, margin analysis
 6. **Pipeline** — Prospects, leads, and their position in your sales process
 
-### The Clients Database
+#### The Clients Database
 
 Open the **Clients** sub-page. Type `/table` and select **Table — Full page**. Name it `Client Roster`. Add these columns:
 
@@ -56,7 +56,7 @@ Open the **Clients** sub-page. Type `/table` and select **Table — Full page**.
 
 Add one test row with dummy data. Do you see the test row with all columns populated? If any columns are missing, add them now.
 
-### The SOPs Database
+#### The SOPs Database
 
 Open the **SOPs** sub-page. Create another full-page table called `Standard Operating Procedures`. Add columns:
 
@@ -69,9 +69,9 @@ Open the **SOPs** sub-page. Create another full-page table called `Standard Oper
 | Last Updated | Date |
 | Quality Rating | Select: Draft, Tested, Production |
 
-## Procedure 1.2: Set Up Your Financial Infrastructure
+### Procedure 1.2: Set Up Your Financial Infrastructure
 
-### Create Your Stripe Account
+#### Create Your Stripe Account
 
 Go to stripe.com and create an account. Complete the business verification process. Once approved, create three products:
 
@@ -82,7 +82,7 @@ Go to stripe.com and create an account. Complete the business verification proce
 
 Create payment links for each product. Save these links in your Notion **Templates** page under "Payment Links."
 
-### Set Up Revenue Tracking
+#### Set Up Revenue Tracking
 
 In your Notion **Finance** page, create a table called `Revenue Tracker` with these columns:
 
@@ -96,20 +96,20 @@ In your Notion **Finance** page, create a table called `Revenue Tracker` with th
 | Net Profit | Formula: Total Revenue - Expenses |
 | Active Clients | Number |
 
-## Procedure 1.3: Configure Your Communication Stack
+### Procedure 1.3: Configure Your Communication Stack
 
-### Create Your Business Email
+#### Create Your Business Email
 
 Go to Google Workspace (workspace.google.com) and sign up for the Business Starter plan. Register a domain that matches your agency name and create your email.
 
-### Create Your Client-Facing Calendar
+#### Create Your Client-Facing Calendar
 
 Go to cal.com and create a free account. Set up two meeting types:
 
 1. **Discovery Call** — 30 minutes, available Monday through Friday, 9 AM to 5 PM
 2. **Weekly Check-in** — 15 minutes, recurring, for active clients only
 
-## Check-In: Module 1 Complete
+### Check-In: Module 1 Complete
 
 - [ ] Notion Command Center created with all 6 sub-pages
 - [ ] Client Roster database with all 10 columns and a test row
@@ -121,15 +121,15 @@ Go to cal.com and create a free account. Set up two meeting types:
 
 ---
 
-# MODULE 2: TECH STACK — YOUR ONBOARDING ARSENAL
+## MODULE 2: TECH STACK — YOUR ONBOARDING ARSENAL
 
-## Overview
+### Overview
 
 Your agency runs on tools. This module sets up every tool you need, connects them, and verifies each connection. The total cost is under ₦50,000/month — and most of it is free until you have paying clients.
 
-## Procedure 2.1: Set Up Your Core Automation Platform
+### Procedure 2.1: Set Up Your Core Automation Platform
 
-### Create Your Make.com Account
+#### Create Your Make.com Account
 
 Go to make.com and sign up for the Free plan. You get 1,000 operations per month. Connect these services:
 
@@ -141,19 +141,19 @@ Go to make.com and sign up for the Free plan. You get 1,000 operations per month
 
 After connecting each service, you should see a green "Connected" status. Do you see green for all 5?
 
-## Procedure 2.2: Set Up Your AI Model Access
+### Procedure 2.2: Set Up Your AI Model Access
 
-### OpenAI API Configuration
+#### OpenAI API Configuration
 
 Go to platform.openai.com. Navigate to **API Keys** and create a new key. Copy it immediately. Navigate to **Billing** and add $20 in credit. Navigate to **Usage limits** and set a monthly limit of $100.
 
-### Anthropic Claude API (Optional but Recommended)
+#### Anthropic Claude API (Optional but Recommended)
 
 Go to console.anthropic.com and create an account. Add $10 in credit. Claude is superior to GPT-4o for nuanced onboarding copy, personalized welcome messages, and complex client communication.
 
-## Procedure 2.3: Set Up Your Client Delivery Tools
+### Procedure 2.3: Set Up Your Client Delivery Tools
 
-### Typeform for Client Intake Forms
+#### Typeform for Client Intake Forms
 
 Go to typeform.com and create a free account. You will use Typeform to collect client information during the onboarding process. Build your first form called "New Client Intake" with these questions:
 
@@ -168,11 +168,11 @@ Go to typeform.com and create a free account. You will use Typeform to collect c
 
 Publish the form and copy the share link. Save it in your Notion **Templates** page.
 
-### Loom for Client Communication
+#### Loom for Client Communication
 
 Go to loom.com and create a free account. Install the browser extension. Record a test video and verify the audio is clear.
 
-## Check-In: Module 2 Complete
+### Check-In: Module 2 Complete
 
 - [ ] Make.com account with 5 connected services (all green)
 - [ ] OpenAI API key with $20+ credit and $100 monthly limit
@@ -182,15 +182,15 @@ Go to loom.com and create a free account. Install the browser extension. Record 
 
 ---
 
-# MODULE 3: THE BUILD FRAMEWORK — HOW TO BUILD ANY ONBOARDING AUTOMATION
+## MODULE 3: THE BUILD FRAMEWORK — HOW TO BUILD ANY ONBOARDING AUTOMATION
 
-## Overview
+### Overview
 
 This module teaches you the universal framework for building customer onboarding automations. Every onboarding you ever build follows this exact process.
 
-## Procedure 3.1: The Five-Phase Build Process
+### Procedure 3.1: The Five-Phase Build Process
 
-### Phase 1: Discovery (1-2 hours)
+#### Phase 1: Discovery (1-2 hours)
 
 Schedule a 30-minute call with the client. Ask these questions:
 
@@ -205,7 +205,7 @@ Schedule a 30-minute call with the client. Ask these questions:
 
 Write the answers in a Google Doc. This document becomes the specification for your build.
 
-### Phase 2: Design (1-2 hours)
+#### Phase 2: Design (1-2 hours)
 
 Map the onboarding as a flowchart:
 
@@ -227,19 +227,19 @@ Map the onboarding as a flowchart:
 
 For each step, write: what it does, what tool you will use, what data it needs, what data it produces, and what happens if it fails.
 
-### Phase 3: Build (2-8 hours)
+#### Phase 3: Build (2-8 hours)
 
 Build the automation following your design document, step by step. Test each module in isolation before connecting.
 
-### Phase 4: Test (2-4 hours)
+#### Phase 4: Test (2-4 hours)
 
 Run the 20-Test Protocol: normal inputs (5 times), empty fields, special characters, long text, race conditions, service offline, invalid credentials, and routing tests for each path.
 
-### Phase 5: Deploy (1-2 hours)
+#### Phase 5: Deploy (1-2 hours)
 
 Activate the scenario. Set the schedule. Configure monitoring with Slack notifications for errors. Check execution logs every 4 hours for the first 48 hours.
 
-## Check-In: Module 3 Complete
+### Check-In: Module 3 Complete
 
 - [ ] You can recite the Five-Phase Build Process from memory
 - [ ] You have a blank SOP template ready for your first build
@@ -248,16 +248,16 @@ Activate the scenario. Set the schedule. Configure monitoring with Slack notific
 
 ---
 
-# MODULE 4: YOUR FIRST CLIENT ONBOARDING — DENTAL PRACTICE
+## MODULE 4: YOUR FIRST CLIENT ONBOARDING — DENTAL PRACTICE
 
-## Overview
+### Overview
 
 This module walks you through building a complete, production-ready customer onboarding automation for a dental practice. After completing it, you will have a portfolio piece and a repeatable service.
 
 **Client:** Bright Smile Dental (fictional)
 **Deliverable:** New patient signup → Welcome sequence → Appointment booking → Pre-visit forms → Post-visit follow-up → Re-engagement for no-shows
 
-## Procedure 4.1: Complete the Discovery Phase
+### Procedure 4.1: Complete the Discovery Phase
 
 **Trigger:** New patient books an appointment on the dental website
 **Current process:** Front desk manually calls patients to confirm, sends paper forms, tracks everything in a spreadsheet. 30% no-show rate.
@@ -266,7 +266,7 @@ This module walks you through building a complete, production-ready customer onb
 **Tools:** Tally (form), Gmail, Twilio (SMS), Google Sheets, OpenAI for personalized messaging
 **Success metric:** No-show rate drops below 10%
 
-## Procedure 4.2: Design the Automation
+### Procedure 4.2: Design the Automation
 
 ```
 [Tally Form: New Patient Booking]
@@ -291,17 +291,17 @@ This module walks you through building a complete, production-ready customer onb
         → NO: [Completion Logged]
 ```
 
-## Procedure 4.3: Build the Automation in Make.com
+### Procedure 4.3: Build the Automation in Make.com
 
-### Step A: Create the Trigger
+#### Step A: Create the Trigger
 
 Create a new scenario. Name it "Patient Onboarding — Bright Smile Dental." Add a **Webhook** module as the trigger. Copy the webhook URL. In Tally, configure the webhook integration.
 
-### Step B: Add Data Cleaning
+#### Step B: Add Data Cleaning
 
 Add a **Set Variable** module that standardizes the patient data: proper case for names, validated email format, normalized phone number.
 
-### Step C: Add Welcome Email
+#### Step C: Add Welcome Email
 
 Add a **Gmail — Send an Email** module. Use this template:
 
@@ -320,7 +320,7 @@ Add a **Gmail — Send an Email** module. Use this template:
 > See you soon!
 > Bright Smile Dental Team
 
-### Step D: Add SMS Reminders
+#### Step D: Add SMS Reminders
 
 Add a **Twilio — Send an SMS** module scheduled 24 hours before the appointment:
 
@@ -330,7 +330,7 @@ Add another Twilio module 2 hours before:
 
 > Hi {{first_name}}! Your dental appointment is in 2 hours at {{appointment_time}}. We're at 123 Main St. See you soon!
 
-### Step E: Add AI-Powered Personalization
+#### Step E: Add AI-Powered Personalization
 
 Add an **OpenAI — Create a Chat Completion** module before the welcome email:
 
@@ -338,19 +338,19 @@ Add an **OpenAI — Create a Chat Completion** module before the welcome email:
 - System message: "You are a friendly dental practice communication assistant. Given patient information, generate a personalized welcome message that mentions their specific service interest. Keep it warm but professional. Under 100 words."
 - User message: Map the patient's name, service interest, and appointment type
 
-### Step F: Add Error Handling
+#### Step F: Add Error Handling
 
 Add **Break** error handlers to every API module. After each Break, add a **Slack notification** to `#automation-errors`. Enable **Automatic retry** (3 retries, 10-second interval) on every API module.
 
-## Procedure 4.4: Run the Test Protocol
+### Procedure 4.4: Run the Test Protocol
 
 Create a Google Sheet called "Patient Onboarding Test Results." Run 10 unique tests. Document each result.
 
-## Procedure 4.5: Deploy and Document
+### Procedure 4.5: Deploy and Document
 
 Activate the scenario. Create the SOP in your Notion SOPs database with all 7 sections from Procedure 3.2.
 
-## Check-In: Module 4 Complete
+### Check-In: Module 4 Complete
 
 - [ ] Patient onboarding automation built and tested in Make.com
 - [ ] Welcome email sends with patient-specific personalization
@@ -362,13 +362,13 @@ Activate the scenario. Create the SOP in your Notion SOPs database with all 7 se
 
 ---
 
-# MODULE 5: CLIENT ACQUISITION — THE MACHINE THAT FEEDS THE MACHINE
+## MODULE 5: CLIENT ACQUISITION — THE MACHINE THAT FEEDS THE MACHINE
 
-## Overview
+### Overview
 
 You can build onboarding automations. Now you need clients who will pay you to build them.
 
-## Procedure 5.1: Build Your Demo Portfolio
+### Procedure 5.1: Build Your Demo Portfolio
 
 Your portfolio consists of three working automations:
 
@@ -376,7 +376,7 @@ Your portfolio consists of three working automations:
 2. **SaaS Free-Trial Onboarding** (you will build this in Procedure 5.2)
 3. **E-commerce Post-Purchase Onboarding** (you will build this in Procedure 5.3)
 
-## Procedure 5.2: Build the SaaS Free-Trial Onboarding Demo
+### Procedure 5.2: Build the SaaS Free-Trial Onboarding Demo
 
 Create a new Make.com scenario: "SaaS Free-Trial Onboarding."
 
@@ -391,7 +391,7 @@ Create a new Make.com scenario: "SaaS Free-Trial Onboarding."
 
 Build, test, document.
 
-## Procedure 5.3: Build the E-commerce Post-Purchase Demo
+### Procedure 5.3: Build the E-commerce Post-Purchase Demo
 
 Create a new Make.com scenario: "E-commerce Post-Purchase Onboarding."
 
@@ -406,9 +406,9 @@ Create a new Make.com scenario: "E-commerce Post-Purchase Onboarding."
 
 Build, test, document.
 
-## Procedure 5.4: The Outreach Machine
+### Procedure 5.4: The Outreach Machine
 
-### Define Your Target Market
+#### Define Your Target Market
 
 Pick one business category. The best categories for onboarding agencies:
 
@@ -419,11 +419,11 @@ Pick one business category. The best categories for onboarding agencies:
 - Gyms and fitness studios (new member onboarding)
 - Insurance agencies (new policyholder experience)
 
-### Build Your Prospect List
+#### Build Your Prospect List
 
 Open Google Maps. Search for "[your category] in [your city/region]." Find 50 businesses. Create a Google Sheet with columns: Business Name, Website, Current Onboarding Quality (1-5), Contact Email, Contact Name, Notes.
 
-### Write Your Cold Outreach Script
+#### Write Your Cold Outreach Script
 
 **Subject line:** Your new [customers/patients/members] deserve better than a spreadsheet
 
@@ -445,7 +445,7 @@ Send this to 50 prospects. No more than 10 per day.
 
 **Expected results:** 8-12 replies. 3-5 meetings booked. 1-2 clients closed.
 
-## Check-In: Module 5 Complete
+### Check-In: Module 5 Complete
 
 - [ ] Three working demo automations in your portfolio
 - [ ] Target market chosen (one category)
@@ -455,13 +455,13 @@ Send this to 50 prospects. No more than 10 per day.
 
 ---
 
-# MODULE 6: CLIENT DELIVERY — THE SYSTEM THAT KEEPS THEM PAYING
+## MODULE 6: CLIENT DELIVERY — THE SYSTEM THAT KEEPS THEM PAYING
 
-## Overview
+### Overview
 
 Landing a client is 20% of the work. Delivering value month after month is 80%. This module gives you the exact delivery framework that keeps clients for 12+ months.
 
-## Procedure 6.1: The First-Week Onboarding Protocol
+### Procedure 6.1: The First-Week Onboarding Protocol
 
 **Day 1:** Send the welcome email. Schedule the kickoff call.
 
@@ -477,7 +477,7 @@ Landing a client is 20% of the work. Delivering value month after month is 80%. 
 
 **Day 7:** Client walkthrough via Loom video. Send the video and the SOP document.
 
-## Procedure 6.2: The Monthly Delivery Calendar
+### Procedure 6.2: The Monthly Delivery Calendar
 
 | Week | Deliverable | Time Investment |
 |---|---|---|
@@ -488,7 +488,7 @@ Landing a client is 20% of the work. Delivering value month after month is 80%. 
 
 Total monthly time per Starter client: ~4 hours. At ₦150,000/month, that is ₦37,500/hour.
 
-## Procedure 6.3: The Churn Prevention System
+### Procedure 6.3: The Churn Prevention System
 
 **Warning Sign 1: Client stops responding to emails**
 Action: Send a Loom video showing a proactive optimization.
@@ -502,7 +502,7 @@ Action: Offer to reduce scope instead of reducing price.
 **Warning Sign 4: Client's business is struggling**
 Action: Offer one additional automation at no extra cost for one month.
 
-## Check-In: Module 6 Complete
+### Check-In: Module 6 Complete
 
 - [ ] First-week onboarding protocol documented as an SOP
 - [ ] Monthly delivery calendar created
@@ -510,13 +510,13 @@ Action: Offer one additional automation at no extra cost for one month.
 
 ---
 
-# MODULE 7: SCALING — FROM SOLO TO AGENCY
+## MODULE 7: SCALING — FROM SOLO TO AGENCY
 
-## Overview
+### Overview
 
 Solo operators hit a ceiling at ~8-10 clients. This module shows you exactly how and when to hire.
 
-## Procedure 7.1: The Hiring Roadmap
+### Procedure 7.1: The Hiring Roadmap
 
 **When you have 5 clients:** Hire a Virtual Assistant (VA). Budget: ₦8,000-15,000/hour, 10-15 hours/week.
 
@@ -526,7 +526,7 @@ Solo operators hit a ceiling at ~8-10 clients. This module shows you exactly how
 
 **When you have 20+ clients:** Hire a Senior Builder.
 
-## Procedure 7.2: Margin Analysis at Scale
+### Procedure 7.2: Margin Analysis at Scale
 
 | Clients | Revenue/mo | Team Cost/mo | Tool Cost/mo | Net Profit/mo | Margin |
 |---|---|---|---|---|---|
@@ -538,20 +538,20 @@ Solo operators hit a ceiling at ~8-10 clients. This module shows you exactly how
 
 Margins compress as you hire, but absolute profit increases.
 
-## Check-In: Module 7 Complete
+### Check-In: Module 7 Complete
 
 - [ ] Hiring roadmap saved in Notion with trigger points
 - [ ] You understand your margin at each growth stage
 
 ---
 
-# MODULE 8: INDUSTRY-SPECIFIC ONBOARDING BLUEPRINTS
+## MODULE 8: INDUSTRY-SPECIFIC ONBOARDING BLUEPRINTS
 
-## Overview
+### Overview
 
 Generic onboarding is mediocre onboarding. This module gives you the exact blueprints for the five most profitable verticals.
 
-## Procedure 8.1: Dental Practice Onboarding Blueprint
+### Procedure 8.1: Dental Practice Onboarding Blueprint
 
 **Trigger:** New patient books online or calls the office
 **Key Touchpoints:**
@@ -563,7 +563,7 @@ Generic onboarding is mediocre onboarding. This module gives you the exact bluep
 **Critical Metrics:** No-show rate, form completion rate, review generation rate
 **Pricing:** ₦200K setup + ₦150K/month retainer
 
-## Procedure 8.2: SaaS Free-Trial Onboarding Blueprint
+### Procedure 8.2: SaaS Free-Trial Onboarding Blueprint
 
 **Trigger:** User creates a free trial account
 **Key Touchpoints:**
@@ -575,7 +575,7 @@ Generic onboarding is mediocre onboarding. This module gives you the exact bluep
 **Critical Metrics:** Trial-to-paid conversion rate, time-to-first-action, feature adoption rate
 **Pricing:** ₦300K setup + ₦250K/month retainer
 
-## Procedure 8.3: E-commerce Post-Purchase Blueprint
+### Procedure 8.3: E-commerce Post-Purchase Blueprint
 
 **Trigger:** New order on Shopify/WooCommerce
 **Key Touchpoints:**
@@ -588,7 +588,7 @@ Generic onboarding is mediocre onboarding. This module gives you the exact bluep
 **Critical Metrics:** Repeat purchase rate, review rate, referral rate
 **Pricing:** ₦200K setup + ₦150K/month retainer
 
-## Procedure 8.4: Real Estate Client Intake Blueprint
+### Procedure 8.4: Real Estate Client Intake Blueprint
 
 **Trigger:** Lead fills out contact form or schedules a viewing
 **Key Touchpoints:**
@@ -601,7 +601,7 @@ Generic onboarding is mediocre onboarding. This module gives you the exact bluep
 **Critical Metrics:** Lead-to-viewing conversion, viewing-to-offer rate, referral rate
 **Pricing:** ₦250K setup + ₦200K/month retainer
 
-## Procedure 8.5: Gym New Member Onboarding Blueprint
+### Procedure 8.5: Gym New Member Onboarding Blueprint
 
 **Trigger:** New member signs up (online or in-person)
 **Key Touchpoints:**
@@ -614,7 +614,7 @@ Generic onboarding is mediocre onboarding. This module gives you the exact bluep
 **Critical Metrics:** Attendance rate in first 30 days, personal training conversion, 3-month retention rate
 **Pricing:** ₦150K setup + ₦100K/month retainer
 
-## Check-In: Module 8 Complete
+### Check-In: Module 8 Complete
 
 - [ ] All 5 industry blueprints documented in Notion Onboarding Blueprints page
 - [ ] Each blueprint has touchpoint sequence, critical metrics, and pricing
@@ -622,13 +622,13 @@ Generic onboarding is mediocre onboarding. This module gives you the exact bluep
 
 ---
 
-# MODULE 9: ADVANCED AI INTEGRATION — MAKING ONBOARDING INTELLIGENT
+## MODULE 9: ADVANCED AI INTEGRATION — MAKING ONBOARDING INTELLIGENT
 
-## Overview
+### Overview
 
 Basic onboarding is a sequence of emails and SMS. Intelligent onboarding adapts to each customer's behavior, predicts their needs, and intervenes before they disengage. This module adds AI layers that transform your automations from scheduled sequences into intelligent systems.
 
-## Procedure 9.1: Implement AI-Powered Personalization
+### Procedure 9.1: Implement AI-Powered Personalization
 
 Add an OpenAI module to your Make.com scenarios that generates personalized onboarding messages based on:
 
@@ -654,7 +654,7 @@ Actions remaining: {{actions_remaining}}
 Last activity: {{last_activity}}
 ```
 
-## Procedure 9.2: Implement Predictive Disengagement Detection
+### Procedure 9.2: Implement Predictive Disengagement Detection
 
 Build a Make.com scenario that runs daily and analyzes onboarding progress:
 
@@ -664,11 +664,11 @@ Build a Make.com scenario that runs daily and analyzes onboarding progress:
 4. If the score is below 5, trigger a re-engagement sequence
 5. Log the prediction and intervention in your Notion Client Roster
 
-## Procedure 9.3: Build the Feedback Loop
+### Procedure 9.3: Build the Feedback Loop
 
 After each onboarding completes, send a short survey (3 questions max). Feed the responses back into OpenAI to generate improvement suggestions for the onboarding sequence. Review these suggestions weekly and implement the most impactful ones.
 
-## Check-In: Module 9 Complete
+### Check-In: Module 9 Complete
 
 - [ ] AI personalization module added to at least one onboarding scenario
 - [ ] Predictive disengagement detection running daily
@@ -676,13 +676,13 @@ After each onboarding completes, send a short survey (3 questions max). Feed the
 
 ---
 
-# MODULE 10: THE COMPLETE DELIVERY PLAYBOOK — FROM FIRST CALL TO RECURRING REVENUE
+## MODULE 10: THE COMPLETE DELIVERY PLAYBOOK — FROM FIRST CALL TO RECURRING REVENUE
 
-## Overview
+### Overview
 
 This module consolidates everything into a single, repeatable delivery process that you execute for every new client. Print this module. Tape it to your wall. Follow it exactly.
 
-## Procedure 10.1: The Client Delivery Checklist
+### Procedure 10.1: The Client Delivery Checklist
 
 **Pre-Kickoff (Day 0):**
 - [ ] Client has signed contract and paid setup fee via Stripe
@@ -726,7 +726,7 @@ This module consolidates everything into a single, repeatable delivery process t
 - [ ] Week 3: Performance report with quantified value
 - [ ] Week 4: Check-in call
 
-## Procedure 10.2: The Revenue Scaling Model
+### Procedure 10.2: The Revenue Scaling Model
 
 | Month | Clients | Monthly Revenue | Cumulative Revenue | Notes |
 |---|---|---|---|---|
@@ -737,7 +737,7 @@ This module consolidates everything into a single, repeatable delivery process t
 | 6 | 12-15 | ₦2M-3M | ₦7.3M-11.5M | VA + Junior Builder hired |
 | 12 | 20-30 | ₦3.5M-5M | ₦25M-40M | Full agency with 2-3 builders |
 
-## Procedure 10.3: Your Daily Operating System
+### Procedure 10.3: Your Daily Operating System
 
 **Morning (9 AM - 12 PM):** Client delivery work — building, testing, optimizing automations. This is your highest-value time. Protect it.
 
@@ -747,7 +747,7 @@ This module consolidates everything into a single, repeatable delivery process t
 
 **Weekly (Friday 4 PM - 5 PM):** Review all client health scores. Identify at-risk accounts. Plan proactive interventions for next week.
 
-## Check-In: Module 10 Complete
+### Check-In: Module 10 Complete
 
 - [ ] Client Delivery Checklist printed and posted at your desk
 - [ ] Revenue scaling model reviewed and understood

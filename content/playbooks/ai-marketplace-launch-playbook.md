@@ -15,16 +15,16 @@ This is not a blog post about marketplaces. This is an operating system for buil
 
 ---
 
-# MODULE 1: FOUNDATION — NICHE SELECTION AND COMMAND CENTER
+## MODULE 1: FOUNDATION — NICHE SELECTION AND COMMAND CENTER
 
-## Overview
+### Overview
 
 Before you configure a single platform setting, you must lock down your marketplace niche, map the competitive landscape, and build the command center that runs every operation. This module is the difference between a focused marketplace that dominates a vertical and a generic platform that competes with Fiverr on Fiverr's terms. You will lose that fight. You will win in a niche.
 
 **Time to complete:** 4-5 hours
 **Tools needed:** Notion (free), Google Sheets (free), browser
 
-## Procedure 1.1: Select Your Marketplace Niche
+### Procedure 1.1: Select Your Marketplace Niche
 
 Open a new Google Sheet. Title it "Niche Evaluation Matrix." Create columns: Niche, Freelancer Supply (1-10), Client Demand (1-10), Average Project Value, Competition Level (1-10), Your Domain Knowledge (1-10), Composite Score.
 
@@ -52,7 +52,7 @@ Do you see the composite scores? The niche with the highest score is your market
 
 Does your chosen niche pass all three gates? If any gate fails, go back to your matrix and select the next-highest niche. Do not proceed with a niche that fails even one gate.
 
-## Procedure 1.2: Conduct Competitive Analysis
+### Procedure 1.2: Conduct Competitive Analysis
 
 Create a new tab in your Google Sheet called "Competitive Landscape." Add these columns: Competitor Name, URL, Focus Niche, Pricing Model, Commission %, Freelancer Count (estimate), Client Count (estimate), Onboarding Process, Weakness.
 
@@ -75,7 +75,7 @@ Do you have 6 rows of competitive data? If any competitor's data is incomplete, 
 
 **Identify Your Wedge:** After completing the analysis, write one sentence that describes how your marketplace is different from all six competitors. This sentence must mention: (1) your specific niche, (2) your vetting approach, and (3) your pricing advantage. Example: "An AI Voice Agent marketplace where every freelancer passes a live build test, businesses get matched within 24 hours, and our 10% commission undercuts Upwork's 20%." This sentence becomes your marketplace positioning statement. Save it in your Notion command center.
 
-## Procedure 1.3: Build Your Marketplace Command Center
+### Procedure 1.3: Build Your Marketplace Command Center
 
 Open Notion. Create a new page called `[Your Marketplace Name] Command Center`. Inside, create these sub-pages by typing `/page`:
 
@@ -117,7 +117,7 @@ Inside the **Client Pipeline** page, create a full-page table with these columns
 
 Add one test row to each table with dummy data. Do you see both tables with all columns and test rows? If any columns are missing, add them now. These databases are the operational backbone of your marketplace — incomplete data tracking is the number one cause of marketplace failure.
 
-## Check-In: Module 1 Complete
+### Check-In: Module 1 Complete
 
 Before moving to Module 2, verify every item:
 
@@ -133,16 +133,16 @@ Count your checkmarks. Do you have all 7? If not, go back and complete the missi
 
 ---
 
-# MODULE 2: PLATFORM SETUP — SHARETRIBE CONFIGURATION, PAYMENTS, AND VETTING
+## MODULE 2: PLATFORM SETUP — SHARETRIBE CONFIGURATION, PAYMENTS, AND VETTING
 
-## Overview
+### Overview
 
 This module transforms your niche research into a live, functioning marketplace platform. You will configure Sharetribe (the fastest path to a production marketplace), integrate payments, and build the vetting system that separates your platform from the generic freelance sites your competitors run. By the end of this module, a visitor can land on your site, understand your value, and either apply as a freelancer or post a project as a client.
 
 **Time to complete:** 6-8 hours
 **Tools needed:** Sharetribe ($79/mo Standard plan), Stripe (free), Notion
 
-## Procedure 2.1: Configure Your Sharetribe Marketplace
+### Procedure 2.1: Configure Your Sharetribe Marketplace
 
 Go to sharetribe.com and create an account. Select the **Standard plan** ($79/month). This plan includes transaction processing, custom listing fields, and the Flex API you need for custom workflows. The free trial lasts 30 days — you will launch before the trial ends if you follow this playbook without deviation.
 
@@ -150,7 +150,7 @@ After signing up, you should see the Sharetribe Admin panel with a left sidebar 
 
 Do you see the Admin panel? If you see a different interface, click "Go to Admin" in the top-right corner.
 
-### Configure Your Marketplace Brand
+#### Configure Your Marketplace Brand
 
 Click **Settings** → **General**. Enter:
 - **Marketplace name:** [Your Marketplace Name]
@@ -160,7 +160,7 @@ Click **Settings** → **General**. Enter:
 
 Click **Save**.
 
-### Configure Listing Types
+#### Configure Listing Types
 
 Click **Settings** → **Listing types** → **Create new listing type**.
 
@@ -199,9 +199,9 @@ Add these listing fields:
 
 Click **Save** for each listing type. Do you see both listing types in your Listing Types settings? If any fields are missing, add them now.
 
-## Procedure 2.2: Configure Payment Integration
+### Procedure 2.2: Configure Payment Integration
 
-### Connect Stripe
+#### Connect Stripe
 
 In Sharetribe Admin, go to **Settings** → **Payments** → **Connect Stripe**. You will be redirected to Stripe's onboarding flow. Complete every field (business name, bank account, tax information).
 
@@ -209,7 +209,7 @@ After completing Stripe onboarding, return to Sharetribe. You should see a green
 
 Do you see "Connected"? If you see "Pending" or "Incomplete," go back to Stripe and complete the missing verification steps. No payments will process until Stripe is fully connected.
 
-### Set Commission Structure
+#### Set Commission Structure
 
 In Sharetribe Admin, go to **Settings** → **Transaction processes** → select your transaction process → **Commission**.
 
@@ -217,15 +217,15 @@ Set the marketplace commission to **10%** on the freelancer's earnings. This mea
 
 Why 10%? Because Upwork charges 10% (down from their previous 20% for enterprise), Fiverr charges 20% to freelancers, and Toptal charges significantly more. At 10%, you are competitive enough to attract supply while still generating meaningful revenue at scale. At 100 transactions per month averaging $2,000 each, that is $20,000/month in commission revenue.
 
-### Configure Payout Schedule
+#### Configure Payout Schedule
 
 In Stripe, go to **Settings** → **Connect** → **Payouts**. Set payouts to **Daily automatic** for connected accounts (freelancers). Fast payouts attract better freelancers. If a freelancer can get paid the same day a project completes, they prefer your platform over competitors that hold funds for 7-14 days.
 
-## Procedure 2.3: Build Your Vetting System
+### Procedure 2.3: Build Your Vetting System
 
 This is the single most important differentiator for your marketplace. Without vetting, you are Fiverr with a smaller user base. With vetting, you are the platform businesses trust to deliver quality.
 
-### Design the Skills Assessment
+#### Design the Skills Assessment
 
 Open a new Google Doc. Title it "[Your Niche] Freelancer Skills Assessment." Design three sections:
 
@@ -271,7 +271,7 @@ Schedule a 15-minute video call with applicants who pass Sections 1 and 2. Use t
 
 Rate each answer 0-2. Minimum passing total: 4 out of 6.
 
-### Automate the Vetting Funnel in Notion
+#### Automate the Vetting Funnel in Notion
 
 In your **Freelancer Pipeline** table, the Status column already has the stages: Applied → Testing → Vetting Call → Approved/Rejected → Active. Add a Notion automation (click the ⚡ icon on the Status column):
 - When Status changes to "Applied," create a task: "Send assessment instructions to [Name] at [Email]"
@@ -281,7 +281,7 @@ In your **Freelancer Pipeline** table, the Status column already has the stages:
 
 Do you have the three assessment sections documented in Notion? Do you have the automated status transitions configured? If the automations are not working, check that you have connected your email in Notion's integration settings.
 
-## Check-In: Module 2 Complete
+### Check-In: Module 2 Complete
 
 - [ ] Sharetribe account on Standard plan with branding configured
 - [ ] Two listing types created (Freelancer Profile + Client Project) with all custom fields
@@ -298,22 +298,22 @@ Do you have the three assessment sections documented in Notion? Do you have the 
 
 ---
 
-# MODULE 3: SUPPLY SIDE — FREELANCER RECRUITMENT, ASSESSMENT, AND ONBOARDING
+## MODULE 3: SUPPLY SIDE — FREELANCER RECRUITMENT, ASSESSMENT, AND ONBOARDING
 
-## Overview
+### Overview
 
 A marketplace without freelancers is an empty store. This module builds your freelancer supply from zero to 30 vetted, active professionals. You will recruit them, assess them through the vetting system you built in Module 2, and onboard them so they can start receiving projects immediately. Without 30 active freelancers, your marketplace cannot fulfill client demand, and clients who post projects with no responses never return.
 
 **Time to complete:** 2-3 weeks of concurrent outreach
 **Tools needed:** LinkedIn (free), Twitter/X (free), Upwork (free), Reddit (free), Cal.com (free), Gmail
 
-## Procedure 3.1: Build Your Freelancer Recruitment Engine
+### Procedure 3.1: Build Your Freelancer Recruitment Engine
 
-### Create Your Master Outreach List
+#### Create Your Master Outreach List
 
 Open a new Google Sheet. Title it "Freelancer Recruitment Tracker." Add columns: Name, Platform Found, Profile URL, Email, Specialty, Estimated Skill Level, Outreach Date, Response, Status (Not Contacted / Contacted / Responded / Applied / Rejected).
 
-### Source Freelancers from These Channels (In Order)
+#### Source Freelancers from These Channels (In Order)
 
 **Channel 1: Upwork (Highest Quality)**
 Go to upwork.com and search for your niche (e.g., "AI voice agent developer" or "AI workflow automation expert"). Filter by: Job Success Score 90%+, Hourly Rate $50+, Completed Projects 5+.
@@ -331,7 +331,7 @@ Go to r/freelance, r/forhire, and niche-specific subreddits (e.g., r/ChatGPT, r/
 
 Do you have 70 names in your Recruitment Tracker? If you have fewer, go back and find more. 70 names gives you a realistic shot at 30 active freelancers after vetting (assuming a 50% response rate and a 70% pass rate among respondents).
 
-### Write and Send Your Recruitment Email
+#### Write and Send Your Recruitment Email
 
 Use this template. Do not modify it until you have sent 50 emails and tracked results:
 
@@ -360,7 +360,7 @@ Send this email to 10 freelancers per day, spread across the day (9 AM, 12 PM, 3
 
 **Expected results:** 30-40% reply rate. 15-25 will express interest. 10-18 will complete the assessment. 7-13 will pass and become active freelancers.
 
-## Procedure 3.2: Execute the Vetting Process
+### Procedure 3.2: Execute the Vetting Process
 
 For every freelancer who responds positively:
 
@@ -376,9 +376,9 @@ For every freelancer who responds positively:
 
 Do you have at least 10 freelancers in "Approved" status? If you have fewer, go back to Procedure 3.1 and recruit more. Your marketplace needs a minimum of 10 active freelancers to launch. 20 is better. 30 is the target for Month 1.
 
-## Procedure 3.3: Onboard Approved Freelancers
+### Procedure 3.3: Onboard Approved Freelancers
 
-### The Onboarding Sequence
+#### The Onboarding Sequence
 
 When a freelancer's status changes to "Approved," execute this sequence over 3 days:
 
@@ -400,7 +400,7 @@ Manually send the freelancer a direct message in Sharetribe introducing them to 
 
 Do all approved freelancers have completed profiles on Sharetribe? Check by going to Sharetribe Admin → Users → filter by "Approved." Every freelancer should have a visible listing with all fields populated. If any profiles are incomplete, email the freelancer with specific instructions for the missing fields.
 
-## Check-In: Module 3 Complete
+### Check-In: Module 3 Complete
 
 - [ ] Freelancer Recruitment Tracker with 70+ names
 - [ ] Outreach email sent to at least 50 freelancers
@@ -414,18 +414,18 @@ Do all approved freelancers have completed profiles on Sharetribe? Check by goin
 
 ---
 
-# MODULE 4: DEMAND SIDE — BUSINESS CLIENT ACQUISITION AND MATCHING ENGINE
+## MODULE 4: DEMAND SIDE — BUSINESS CLIENT ACQUISITION AND MATCHING ENGINE
 
-## Overview
+### Overview
 
 Freelancers without clients are unemployed professionals on a nice-looking website. This module builds the client acquisition machine that feeds projects into your marketplace. You will identify target businesses, craft outreach that converts, and build the matching engine that connects clients with the right freelancers within 24 hours. Speed of matching is the single most important metric in marketplace success — clients who wait more than 48 hours for a match leave and never return.
 
 **Time to complete:** 2-3 weeks of concurrent outreach
 **Tools needed:** Apollo.io (free), LinkedIn (free), Loom (free), Gmail, Sharetribe Admin
 
-## Procedure 4.1: Build Your Client Acquisition Pipeline
+### Procedure 4.1: Build Your Client Acquisition Pipeline
 
-### Define Your Ideal Client Profile (ICP)
+#### Define Your Ideal Client Profile (ICP)
 
 Open a new Google Doc. Title it "Ideal Client Profile." Write the following:
 
@@ -436,7 +436,7 @@ Open a new Google Doc. Title it "Ideal Client Profile." Write the following:
 **Pain Point:** Spending too much time finding and vetting AI freelancers, or getting burned by low-quality freelancers on generic platforms
 **Trigger Events:** Recently posted a job on Upwork/Fiverr, mentioned AI implementation on LinkedIn, received funding, expanding customer support operations
 
-### Source 100 Target Clients
+#### Source 100 Target Clients
 
 **Method 1: Apollo.io (50 clients)**
 Go to apollo.io and create a free account. Use the Search filter:
@@ -455,9 +455,9 @@ Go to Upwork and search for jobs in your niche. Every job post is a business act
 
 Do you have 100 contacts in your Client Acquisition Tracker? If fewer, go back and find more. 100 contacts at a 15-20% reply rate yields 15-20 conversations, which yields 5-8 clients.
 
-## Procedure 4.2: Write and Execute Your Client Outreach
+### Procedure 4.2: Write and Execute Your Client Outreach
 
-### The Client Outreach Email
+#### The Client Outreach Email
 
 **Subject:** Finding [niche] freelancers shouldn't take 2 weeks
 
@@ -475,7 +475,7 @@ Do you have 100 contacts in your Client Acquisition Tracker? If fewer, go back a
 >
 > [Your Name]
 
-### The Loom Demo Video
+#### The Loom Demo Video
 
 Record a 2-minute Loom video showing:
 1. A client posting a project on your Sharetribe marketplace (use a test account)
@@ -486,7 +486,7 @@ Record a 2-minute Loom video showing:
 
 This video is your highest-converting asset. Record it, re-record it until it's smooth, and include it in every client outreach email.
 
-### Outreach Cadence
+#### Outreach Cadence
 
 Send 10 client emails per day. Follow this sequence for each contact:
 
@@ -498,11 +498,11 @@ Track every email and response in your Client Acquisition Tracker.
 
 **Expected results:** 15-20% reply rate. 5-8 discovery calls booked. 3-5 clients who post their first project.
 
-## Procedure 4.3: Build the Matching Engine
+### Procedure 4.3: Build the Matching Engine
 
 The matching engine is what makes your marketplace better than a job board. When a client posts a project, you must deliver 2-3 vetted freelancer profiles within 24 hours. This is a manual process initially — you are the matchmaker.
 
-### The Matching Protocol
+#### The Matching Protocol
 
 When a new client project appears on Sharetribe (check your Admin dashboard every 4 hours):
 
@@ -522,13 +522,13 @@ When a new client project appears on Sharetribe (check your Admin dashboard ever
 
 6. **Monitor the match.** If 24 hours pass and no freelancer has submitted a proposal, manually reach out to 3 more freelancers and escalate urgency. A project with zero proposals after 48 hours is a client who churns.
 
-### Document Every Match
+#### Document Every Match
 
 In your Notion **Transaction Log**, create an entry for every client project with: Project ID, Client Name, Freelancer(s) Matched, Match Date, Proposal Submitted (Y/N), Project Started (Y/N), Project Completed (Y/N), Project Value, Commission Earned, Client Rating, Freelancer Rating.
 
 Do you have a documented matching process that runs every 4 hours? If not, set calendar reminders for 9 AM, 1 PM, and 5 PM to check for new projects and execute the matching protocol.
 
-## Check-In: Module 4 Complete
+### Check-In: Module 4 Complete
 
 - [ ] Ideal Client Profile documented with 5 attributes
 - [ ] Client Acquisition Tracker with 100 contacts
@@ -544,18 +544,18 @@ Do you have a documented matching process that runs every 4 hours? If not, set c
 
 ---
 
-# MODULE 5: SCALE — LIQUIDITY OPTIMIZATION, PREMIUM TIERS, AND COMMUNITY
+## MODULE 5: SCALE — LIQUIDITY OPTIMIZATION, PREMIUM TIERS, AND COMMUNITY
 
-## Overview
+### Overview
 
 You have a working marketplace with freelancers and clients. Now you must optimize the flow between them — this is called liquidity, and it determines whether your marketplace thrives or dies. This module covers liquidity optimization, premium pricing tiers that increase your commission per transaction, and the community infrastructure that creates retention for both sides. A liquid marketplace is one where every project gets filled within 48 hours and every freelancer gets consistent work. That is your target.
 
 **Time to complete:** Ongoing (initial setup 3-4 hours, then weekly optimization)
 **Tools needed:** Sharetribe Analytics, Notion, Circle (free tier) or Discord (free)
 
-## Procedure 5.1: Optimize Marketplace Liquidity
+### Procedure 5.1: Optimize Marketplace Liquidity
 
-### Calculate Your Current Liquidity Metrics
+#### Calculate Your Current Liquidity Metrics
 
 Open your Notion **Transaction Log**. Calculate these three metrics:
 
@@ -573,7 +573,7 @@ Open your Notion **Transaction Log**. Calculate these three metrics:
 
 Write these metrics on a whiteboard or sticky note. Update them weekly. They are your marketplace heartbeat.
 
-### The Liquidity Acceleration Playbook
+#### The Liquidity Acceleration Playbook
 
 **If Fill Rate is below 85%:**
 - Recruit 10 more freelancers in the under-served specialty
@@ -590,23 +590,23 @@ Write these metrics on a whiteboard or sticky note. Update them weekly. They are
 - Create a project milestone system in Sharetribe — clients pay in 2-3 installments tied to deliverables, reducing risk for both sides
 - Add a dispute resolution process: both parties submit their case, you review within 48 hours, and make a binding decision on fund release
 
-## Procedure 5.2: Launch Premium Tiers
+### Procedure 5.2: Launch Premium Tiers
 
 Your 10% commission on standard projects is the floor. Premium tiers increase your revenue per transaction without increasing your workload.
 
-### Tier 1: Standard (Current)
+#### Tier 1: Standard (Current)
 - Client posts a project, receives proposals, selects a freelancer
 - You earn 10% commission
 - No additional services
 
-### Tier 2: Managed Match ($500 setup + 15% commission)
+#### Tier 2: Managed Match ($500 setup + 15% commission)
 - Client describes their need in a 15-minute call
 - You personally select and present 3 pre-vetted freelancers with comparison profiles
 - You facilitate the kickoff call
 - You monitor the project weekly and intervene if it goes off track
 - You earn 15% commission + $500 setup fee
 
-### Tier 3: Enterprise (Custom pricing, minimum $2,000/month retainer)
+#### Tier 3: Enterprise (Custom pricing, minimum $2,000/month retainer)
 - Dedicated account manager (you, initially)
 - Guaranteed 4-hour response time for new projects
 - Custom vetting criteria for the client's specific needs
@@ -615,17 +615,17 @@ Your 10% commission on standard projects is the floor. Premium tiers increase yo
 - Net-30 payment terms (instead of upfront)
 - You earn 20% commission + retainer
 
-### Configure Premium Tiers in Sharetribe
+#### Configure Premium Tiers in Sharetribe
 
 Create new listing types for Managed Match and Enterprise services. Set different commission rates in each transaction process. Create Stripe products for the setup fees and monthly retainers.
 
 Create a pricing page on your marketplace website (or a Notion page linked from your site) that clearly presents all three tiers. Use the three-tier anchoring framework: Standard exists to make Managed Match look reasonable, Managed Match is where you want most revenue, Enterprise exists for clients who demand white-glove service.
 
-## Procedure 5.3: Build the Community Infrastructure
+### Procedure 5.3: Build the Community Infrastructure
 
 Community is the moat. Freelancers who feel connected to your marketplace are less likely to leave for a competitor. Clients who see an active community trust the platform more.
 
-### Create a Private Community Space
+#### Create a Private Community Space
 
 Go to circle.so and create a free community. Name it "[Marketplace Name] Community." Set up these spaces:
 
@@ -636,7 +636,7 @@ Go to circle.so and create a free community. Name it "[Marketplace Name] Communi
 5. **Freelancer Only** — A private space for freelancers to discuss pricing, difficult clients, and strategies (clients cannot see this)
 6. **Client Only** — A private space for clients to discuss hiring strategies and marketplace tips (freelancers cannot see this)
 
-### The Weekly Engagement Protocol
+#### The Weekly Engagement Protocol
 
 **Monday:** Post an announcement — new freelancers who joined, platform improvements, or industry news relevant to your niche.
 
@@ -646,7 +646,7 @@ Go to circle.so and create a free community. Name it "[Marketplace Name] Communi
 
 **Monthly:** Host a 30-minute virtual event — a freelancer presents a technique, a client presents a case study, or you present marketplace metrics and roadmap. Record it and post the replay.
 
-### Implement a Referral Program
+#### Implement a Referral Program
 
 Create a referral system that rewards both sides:
 
@@ -658,7 +658,7 @@ Track referrals in your Notion **Transaction Log** with a new column: "Referred 
 
 Do you see the community space active with at least 10 members? If fewer, directly invite every approved freelancer and active client via email. The first 48 hours of a community are critical — post 3-4 pieces of content yourself so new members see activity, not a ghost town.
 
-## Check-In: Module 5 Complete
+### Check-In: Module 5 Complete
 
 - [ ] Liquidity metrics calculated (Fill Rate, Time to First Proposal, Take Rate)
 - [ ] Liquidity Acceleration Playbook documented for each metric threshold

@@ -17,15 +17,15 @@ This is not a blog post condensed into a PDF. This is an operating system for bu
 
 ---
 
-# MODULE 1: FOUNDATION — AGENCY ARCHITECTURE & POSITIONING
+## MODULE 1: FOUNDATION — AGENCY ARCHITECTURE & POSITIONING
 
-## Overview
+### Overview
 
 Before you touch a single tool, you must define what you sell, who you sell it to, and how you position yourself against every other "I use ChatGPT" freelancer on the internet. This module builds the structural skeleton of your agency. Without it, every subsequent module collapses.
 
 Your agency is not "I write copy with AI." Your agency is a content production system that delivers measurable business outcomes — more leads, higher conversion rates, better email open rates — at a fraction of traditional agency cost and time. That distinction is your entire competitive advantage.
 
-## Procedure 1.1: Define Your Agency Identity
+### Procedure 1.1: Define Your Agency Identity
 
 Open a new Notion page. Title it "Agency Identity Document." Fill in every field below. Do not skip any. Do not write vague statements.
 
@@ -38,7 +38,7 @@ Open a new Notion page. Title it "Agency Identity Document." Fill in every field
 
 Save this document. You will reference it in every client call, every proposal, and every piece of marketing you produce.
 
-## Procedure 1.2: Competitive Positioning Statement
+### Procedure 1.2: Competitive Positioning Statement
 
 Write your positioning statement using this exact formula:
 
@@ -48,7 +48,7 @@ Example: "For e-commerce brands doing ₦5M-₦50M/month who struggle with incon
 
 This statement goes at the top of your website, your LinkedIn profile, and your proposal template. Do not change it for at least 90 days.
 
-## Procedure 1.3: Set Up Your Agency Domain and Email
+### Procedure 1.3: Set Up Your Agency Domain and Email
 
 1. Go to [Namecheap](https://www.namecheap.com/) or [Hostinger](https://www.hostinger.com/). Purchase your agency domain. Budget: ₦3,000-₦8,000/year.
 2. Set up Google Workspace (₦2,500/month per user). Create these email addresses:
@@ -57,7 +57,7 @@ This statement goes at the top of your website, your LinkedIn profile, and your 
    - `billing@youragency.com` — invoices and payments
 3. Create a professional email signature that includes your positioning statement.
 
-## Procedure 1.4: Create Your Service Menu Document
+### Procedure 1.4: Create Your Service Menu Document
 
 In Notion, create a page titled "Service Menu." Build a table with these columns:
 
@@ -73,7 +73,7 @@ This is your starting menu. You will refine pricing in Module 8. For now, these 
 
 {{% accent-box %}}HACK: Never price by the word. Price by the deliverable and the outcome. A 500-word email sequence that generates ₦5M in sales is worth infinitely more than a 5,000-word blog post nobody reads. Your pricing reflects business impact, not word count.{{% /accent-box %}}
 
-## Check-In: Module 1 Complete
+### Check-In: Module 1 Complete
 
 - [ ] Agency Identity Document filled out completely in Notion
 - [ ] Positioning statement written and posted on website/LinkedIn
@@ -83,13 +83,13 @@ This is your starting menu. You will refine pricing in Module 8. For now, these 
 
 ---
 
-# MODULE 2: TECH STACK — TOOL CONFIGURATION & WORKSPACE SETUP
+## MODULE 2: TECH STACK — TOOL CONFIGURATION & WORKSPACE SETUP
 
-## Overview
+### Overview
 
 This module installs and configures every tool in your agency. You will create accounts, set exact settings, and build the workspace structure that your entire operation runs on. Do not substitute tools without understanding why each one was chosen. This stack costs approximately ₦120,000/month at full configuration. Start with the free tiers and upgrade when revenue justifies it.
 
-## Procedure 2.1: ChatGPT Configuration
+### Procedure 2.1: ChatGPT Configuration
 
 1. Go to [chat.openai.com](https://chat.openai.com/). Sign up for ChatGPT Plus ($20/month ≈ ₦32,000/month). You need GPT-4 for the prompt engineering system in Module 3.
 2. Click your profile → Settings → Data Controls. Toggle OFF "Chat history & training." This prevents your client work from training OpenAI's models.
@@ -120,7 +120,7 @@ Rules:
 
 4. Save the Custom GPT. You will add knowledge files in Module 3.
 
-## Procedure 2.2: Grammarly Configuration
+### Procedure 2.2: Grammarly Configuration
 
 1. Go to [grammarly.com](https://www.grammarly.com/). Sign up for Grammarly Business ($15/user/month ≈ ₦24,000/month).
 2. Open Settings → Customization. Configure these exact values:
@@ -142,7 +142,7 @@ Rules:
 
 {{% accent-box %}}HACK: Grammarly's Style Guide feature is your secret weapon for consistency. When you onboard a new client (Module 7), add their brand terms, forbidden words, and tone preferences to a dedicated style guide. Switch style guides per client. This eliminates the "doesn't sound like us" feedback loop.{{% /accent-box %}}
 
-## Procedure 2.3: Notion Workspace Setup
+### Procedure 2.3: Notion Workspace Setup
 
 1. Go to [notion.so](https://www.notion.so/). Create a new workspace titled "[Agency Name] Operations."
 2. Build this exact page structure:
@@ -193,7 +193,7 @@ Rules:
 
 4. Set up the Active Projects Kanban with columns: Brief Received → In Production → QC Review → Client Review → Delivered.
 
-## Procedure 2.4: Make.com Automation Setup
+### Procedure 2.4: Make.com Automation Setup
 
 1. Go to [make.com](https://www.make.com/en/register?pc=menshly). Sign up for the Pro plan (€18/month ≈ ₦30,000/month). You need 10,000 operations/month minimum.
 2. Create these three core scenarios:
@@ -219,7 +219,7 @@ Rules:
 
 3. Test each scenario with sample data. Confirm every step runs without errors before moving on.
 
-## Procedure 2.5: Payment Infrastructure
+### Procedure 2.5: Payment Infrastructure
 
 1. Register for [Paystack](https://paystack.com/) (primary for Nigerian clients). Complete KYC.
 2. Create payment links for each service tier.
@@ -232,7 +232,7 @@ Rules:
    - Payment terms: 50% upfront, 50% on delivery (one-off projects); 1st of month (retainers)
    - Bank transfer details and Paystack link
 
-## Check-In: Module 2 Complete
+### Check-In: Module 2 Complete
 
 - [ ] ChatGPT Plus active with Custom GPT configured and data training disabled
 - [ ] Grammarly Business active with Style Guide configured
@@ -243,15 +243,15 @@ Rules:
 
 ---
 
-# MODULE 3: PROMPT ENGINEERING SYSTEM — THE CORE IP
+## MODULE 3: PROMPT ENGINEERING SYSTEM — THE CORE IP
 
-## Overview
+### Overview
 
 Your prompt library is the single most valuable asset your agency owns. It is your IP. It is the difference between a freelancer typing "write me a sales page" and a professional agency producing consistent, conversion-optimized copy on demand. This module builds that library from scratch.
 
 Every prompt in this module has been tested. Every prompt produces usable first-draft output. Your job is to execute them exactly as written, then refine through the quality control process in Module 5.
 
-## Procedure 3.1: Build the Master Prompt Framework
+### Procedure 3.1: Build the Master Prompt Framework
 
 Every prompt you write for any copy type follows this structure:
 
@@ -289,7 +289,7 @@ Here is an example of the quality level expected:
 
 Save this as "Master Prompt Framework" in your Notion Prompt Library.
 
-## Procedure 3.2: Sales Page Prompts
+### Procedure 3.2: Sales Page Prompts
 
 Create a new Notion sub-page under "Sales Page Prompts." Add these three prompts:
 
@@ -384,7 +384,7 @@ For each headline, also write:
 Output as a numbered table.
 ```
 
-## Procedure 3.3: Email Sequence Prompts
+### Procedure 3.3: Email Sequence Prompts
 
 Create a new Notion sub-page under "Email Sequence Prompts."
 
@@ -434,7 +434,7 @@ Constraints:
 - Include dynamic merge tags: {{first_name}}, {{product_name}}, {{cart_url}}
 ```
 
-## Procedure 3.4: Social Media Prompts
+### Procedure 3.4: Social Media Prompts
 
 **Prompt F: LinkedIn Post Series**
 
@@ -487,7 +487,7 @@ Constraints:
 - Use line breaks for readability on Instagram
 ```
 
-## Procedure 3.5: Ad Copy Prompts
+### Procedure 3.5: Ad Copy Prompts
 
 **Prompt H: Facebook/Meta Ad Copy Set**
 
@@ -544,7 +544,7 @@ Constraints:
 - Each headline must make sense when combined with any description
 ```
 
-## Procedure 3.6: Save and Organize All Prompts
+### Procedure 3.6: Save and Organize All Prompts
 
 1. In your Notion Prompt Library, create a master index table with columns: Prompt ID | Copy Type | Framework Used | Word Count Range | Last Updated | Test Status
 2. Add every prompt (A through I) to this index.
@@ -553,7 +553,7 @@ Constraints:
 
 {{% accent-box %}}HACK: After every client project, copy the final approved copy back into ChatGPT and ask: "Analyze this copy. What patterns make it effective for this specific client?" Paste the analysis into the client's Notion folder under "Voice Guide." Over time, this builds a proprietary voice model that makes every subsequent draft more accurate and reduces revision rounds by 60%.{{% /accent-box %}}
 
-## Check-In: Module 3 Complete
+### Check-In: Module 3 Complete
 
 - [ ] Master Prompt Framework saved in Notion
 - [ ] All 9 prompts (A-I) created and saved in Prompt Library
@@ -564,13 +564,13 @@ Constraints:
 
 ---
 
-# MODULE 4: CONTENT PRODUCTION PIPELINE — FROM BRIEF TO DRAFT
+## MODULE 4: CONTENT PRODUCTION PIPELINE — FROM BRIEF TO DRAFT
 
-## Overview
+### Overview
 
 This module defines the exact steps from receiving a client brief to producing a first draft. No ambiguity. No "figure it out." Follow the sequence. Every time.
 
-## Procedure 4.1: Client Brief Intake
+### Procedure 4.1: Client Brief Intake
 
 When a client sends a brief (via Typeform, email, or Notion form), extract and validate these 12 data points before starting any work:
 
@@ -593,7 +593,7 @@ If any of these 12 points are missing, send the client this exact message:
 
 Do not begin production with an incomplete brief. Incomplete briefs produce unusable copy. Every time.
 
-## Procedure 4.2: Research Phase (30-60 minutes)
+### Procedure 4.2: Research Phase (30-60 minutes)
 
 Before prompting ChatGPT, gather this data:
 
@@ -606,7 +606,7 @@ Before prompting ChatGPT, gather this data:
    - 3 examples of copy the client loves
    - Tone adjectives (from the brief)
 
-## Procedure 4.3: Draft Production
+### Procedure 4.3: Draft Production
 
 1. Open your Custom GPT ("[Agency Name] Copy Engine").
 2. Select the appropriate prompt from your Prompt Library (Procedures 3.2-3.5).
@@ -633,7 +633,7 @@ Copy:
 7. Run the revised copy through Grammarly (Module 2 configuration). Accept all grammar corrections. Review all style suggestions — accept those that align with the client's voice, reject those that don't.
 8. Save the draft in the client's Notion Deliverables Log with status "In Production."
 
-## Procedure 4.4: Multi-Piece Production Batch
+### Procedure 4.4: Multi-Piece Production Batch
 
 When a client order includes multiple pieces (e.g., 5 emails, 20 social posts), produce them in this order:
 
@@ -644,7 +644,7 @@ When a client order includes multiple pieces (e.g., 5 emails, 20 social posts), 
 
 This sequence ensures message consistency across all deliverables. Never write social posts first and then try to reverse-engineer a sales page from them.
 
-## Procedure 4.5: First Draft Delivery Timeline
+### Procedure 4.5: First Draft Delivery Timeline
 
 | Deliverable | Brief to First Draft |
 |---|---|
@@ -659,7 +659,7 @@ These are your internal deadlines. Your client-facing deadlines should be 50% lo
 
 {{% accent-box %}}HACK: Always deliver 24 hours before the client expects it. Under-promise on the call, over-deliver on the calendar. If a client needs copy by Friday, quote Monday delivery in the contract, then deliver Thursday. This single habit generates more referrals than any marketing campaign.{{% /accent-box %}}
 
-## Check-In: Module 4 Complete
+### Check-In: Module 4 Complete
 
 - [ ] Brief intake checklist (12 data points) documented and used on every project
 - [ ] Research phase template created in Notion
@@ -670,13 +670,13 @@ These are your internal deadlines. Your client-facing deadlines should be 50% lo
 
 ---
 
-# MODULE 5: QUALITY CONTROL — GRAMMARLY, HUMAN EDIT, BRAND VOICE LOCK
+## MODULE 5: QUALITY CONTROL — GRAMMARLY, HUMAN EDIT, BRAND VOICE LOCK
 
-## Overview
+### Overview
 
 AI generates first drafts. Quality control turns them into client-ready deliverables. This module defines the exact QC process every piece of copy passes through before delivery. No copy ships without completing every step in this module.
 
-## Procedure 5.1: The Three-Pass QC System
+### Procedure 5.1: The Three-Pass QC System
 
 Every deliverable goes through three passes:
 
@@ -703,7 +703,7 @@ Every deliverable goes through three passes:
 4. Verify the objection handling: Does the copy address at least one of the top 3 objections from the brief?
 5. Confirm urgency/scarcity: Is there a reason to act now, not later?
 
-## Procedure 5.2: The Anti-AI Detection Protocol
+### Procedure 5.2: The Anti-AI Detection Protocol
 
 Clients increasingly worry about AI-generated content being "obvious." Follow these steps to ensure your copy reads as authentically human:
 
@@ -725,7 +725,7 @@ Clients increasingly worry about AI-generated content being "obvious." Follow th
 
 3. **Run the copy through [GPTZero](https://gptzero.me/) or [Originality.ai](https://originality.ai/).** If the AI detection score is above 30%, repeat steps 1-2 until it drops below 30%.
 
-## Procedure 5.3: Client-Specific Quality Standards
+### Procedure 5.3: Client-Specific Quality Standards
 
 Create a "QC Checklist" template in Notion with these fields:
 
@@ -748,7 +748,7 @@ Overall QC Status: PASS / REVISE
 
 No deliverable moves to "Client Review" status in your Notion board until QC Status = PASS.
 
-## Check-In: Module 5 Complete
+### Check-In: Module 5 Complete
 
 - [ ] Three-pass QC system documented as SOP in Notion
 - [ ] Anti-AI fingerprint checklist created and tested on 3 sample drafts
@@ -759,13 +759,13 @@ No deliverable moves to "Client Review" status in your Notion board until QC Sta
 
 ---
 
-# MODULE 6: MULTI-FORMAT OUTPUT — THE REPURPOSING ENGINE
+## MODULE 6: MULTI-FORMAT OUTPUT — THE REPURPOSING ENGINE
 
-## Overview
+### Overview
 
 One core piece of content should produce 8-12 derivative assets. This module builds the repurposing engine that multiplies your output (and your value) without multiplying your effort. Clients pay for deliverables, not hours. The repurposing engine lets you deliver more value per engagement.
 
-## Procedure 6.1: The Repurposing Hierarchy
+### Procedure 6.1: The Repurposing Hierarchy
 
 Start with the longest-form asset and cascade downward:
 
@@ -783,7 +783,7 @@ Sales Page (2,500 words)
 
 This means one sales page project generates 30+ deliverables. Price accordingly.
 
-## Procedure 6.2: Repurposing Prompts
+### Procedure 6.2: Repurposing Prompts
 
 Add these prompts to your Notion Prompt Library under "Custom Client Prompts":
 
@@ -839,7 +839,7 @@ Source copy:
 [PASTE SOURCE]
 ```
 
-## Procedure 6.3: Format-Specific Adaptation Rules
+### Procedure 6.3: Format-Specific Adaptation Rules
 
 When repurposing across formats, apply these mandatory adjustments:
 
@@ -852,7 +852,7 @@ When repurposing across formats, apply these mandatory adjustments:
 | Blog Post | Social | Pull quotable lines. Add "Save this" or "Share this" CTA. |
 | Long-Form | Video Script | Add [PAUSE], [VISUAL: description], [TEXT ON SCREEN: text] annotations. |
 
-## Procedure 6.4: Delivery Packaging
+### Procedure 6.4: Delivery Packaging
 
 When delivering a multi-format package to a client:
 
@@ -875,7 +875,7 @@ When delivering a multi-format package to a client:
 
 {{% accent-box %}}HACK: The Content Map is your upsell tool. When clients see how one sales page feeds 30+ assets, they understand the value of the retainer model. "Imagine getting this level of output every single month" is the line that closes retainers. Include the Content Map in every delivery, even one-off projects.{{% /accent-box %}}
 
-## Check-In: Module 6 Complete
+### Check-In: Module 6 Complete
 
 - [ ] Repurposing hierarchy documented and followed for all projects
 - [ ] Prompts J, K, L created and tested with sample content
@@ -886,13 +886,13 @@ When delivering a multi-format package to a client:
 
 ---
 
-# MODULE 7: CLIENT ONBOARDING — INTAKE TO FIRST DELIVERY
+## MODULE 7: CLIENT ONBOARDING — INTAKE TO FIRST DELIVERY
 
-## Overview
+### Overview
 
 Client onboarding is where trust is built or destroyed. A smooth onboarding experience converts one-off buyers into long-term retainers. A sloppy onboarding experience generates churn, bad reviews, and referral droughts. This module defines the exact 7-step onboarding sequence.
 
-## Procedure 7.1: The Onboarding Sequence
+### Procedure 7.1: The Onboarding Sequence
 
 **Step 1: Contract & Payment (Day 0)**
 - Send the proposal (Module 8) via email.
@@ -961,7 +961,7 @@ Follow the Content Production Pipeline (Module 4) and QC process (Module 5).
 
 The bonus deliverable is strategic. It demonstrates the repurposing engine (Module 6) and plants the seed for a retainer conversation.
 
-## Procedure 7.2: Onboarding Automation in Make.com
+### Procedure 7.2: Onboarding Automation in Make.com
 
 Enhance the "New Client Brief → Project Card" scenario from Procedure 2.4:
 
@@ -979,7 +979,7 @@ Enhance the "New Client Brief → Project Card" scenario from Procedure 2.4:
    - Notion: Log delivery date
    - Calendar: Set reminder for feedback follow-up in 48 hours
 
-## Check-In: Module 7 Complete
+### Check-In: Module 7 Complete
 
 - [ ] Contract template created with scope, revision policy, and kill fee
 - [ ] Welcome email template saved and ready
@@ -990,13 +990,13 @@ Enhance the "New Client Brief → Project Card" scenario from Procedure 2.4:
 
 ---
 
-# MODULE 8: PRICING & PROPOSALS — THREE TIERS, NO GUESSWORK
+## MODULE 8: PRICING & PROPOSALS — THREE TIERS, NO GUESSWORK
 
-## Overview
+### Overview
 
 Pricing is the most common failure point for new agencies. Price too low and you attract bad clients who churn. Price too high and you starve. This module gives you a three-tier pricing system that works, a proposal template that closes, and a negotiation framework that protects your margins.
 
-## Procedure 8.1: The Three-Tier Pricing Table
+### Procedure 8.1: The Three-Tier Pricing Table
 
 These prices are for the Nigerian market. Adjust upward by 2-3x for international clients.
 
@@ -1014,7 +1014,7 @@ These prices are for the Nigerian market. Adjust upward by 2-3x for internationa
 
 **Pricing Psychology:** The Starter tier exists to make Growth look like a bargain. Most clients will choose Growth. Enterprise exists for clients who want to go all-in and don't want to think about limits. Your revenue target per client is the Growth tier.
 
-## Procedure 8.2: One-Off Project Pricing
+### Procedure 8.2: One-Off Project Pricing
 
 For clients not ready for retainers:
 
@@ -1029,7 +1029,7 @@ For clients not ready for retainers:
 
 {{% accent-box %}}HACK: The Full Launch Package is your trojan horse. It's priced at a 25% discount versus buying each piece separately. The client sees savings. You see a relationship. Every Full Launch Package should convert to a Growth retainer within 60 days. Build the retainer pitch into the final delivery call: "You've seen what one launch looks like. Imagine this every month."{{% /accent-box %}}
 
-## Procedure 8.3: The Proposal Template
+### Procedure 8.3: The Proposal Template
 
 Create this in Notion under Templates → Proposal Template. Export as PDF for sending.
 
@@ -1077,7 +1077,7 @@ SECTION 6: NEXT STEPS
 4. First deliverable in your inbox by [DATE]
 ```
 
-## Procedure 8.4: Negotiation Framework
+### Procedure 8.4: Negotiation Framework
 
 When a client pushes back on price, use this framework:
 
@@ -1093,7 +1093,7 @@ Response: "Of course. What specifically do you need to think about? Is it the in
 **Objection: "We've been burned before."**
 Response: "I understand. That's why we offer a first-month trial at the Starter tier. Try us for 30 days. If the copy doesn't meet your standards, you walk away with zero obligation to continue."
 
-## Procedure 8.5: Revenue Modeling
+### Procedure 8.5: Revenue Modeling
 
 Target revenue trajectory:
 
@@ -1108,7 +1108,7 @@ Target revenue trajectory:
 
 By Month 6, you're at ₦12M MRR. That's ₦144M annualized. Even at 60% of target, that's ₦86M/year. The model works because each new client adds predictable recurring revenue, and your cost of delivery stays flat (AI doesn't charge more per client).
 
-## Check-In: Module 8 Complete
+### Check-In: Module 8 Complete
 
 - [ ] Three-tier pricing table finalized and memorized
 - [ ] One-off project pricing table finalized
@@ -1119,13 +1119,13 @@ By Month 6, you're at ₦12M MRR. That's ₦144M annualized. Even at 60% of targ
 
 ---
 
-# MODULE 9: DELIVERY & RETENTION — SYSTEMS FOR RECURRING REVENUE
+## MODULE 9: DELIVERY & RETENTION — SYSTEMS FOR RECURRING REVENUE
 
-## Overview
+### Overview
 
 Landing clients is 30% of the game. Keeping them is 70%. This module builds the delivery cadence and retention systems that make churn rare and expansion revenue common. A retained client is worth 5x a new client because there's zero acquisition cost, zero onboarding cost, and increasing lifetime value.
 
-## Procedure 9.1: The Weekly Delivery Rhythm
+### Procedure 9.1: The Weekly Delivery Rhythm
 
 For Growth and Enterprise clients, follow this weekly cadence:
 
@@ -1151,7 +1151,7 @@ For Growth and Enterprise clients, follow this weekly cadence:
 
 This rhythm trains clients to expect consistent output. Predictability builds trust. Trust builds retention.
 
-## Procedure 9.2: The Monthly Business Review (MBR)
+### Procedure 9.2: The Monthly Business Review (MBR)
 
 On the last Friday of each month, conduct a 30-minute MBR with every Growth and Enterprise client.
 
@@ -1163,7 +1163,7 @@ On the last Friday of each month, conduct a 30-minute MBR with every Growth and 
 
 Document every MBR in the client's Notion folder.
 
-## Procedure 9.3: Churn Prevention Protocol
+### Procedure 9.3: Churn Prevention Protocol
 
 Implement these early warning systems:
 
@@ -1172,7 +1172,7 @@ Implement these early warning systems:
 3. **Satisfaction score drop:** If the MBR satisfaction score drops below 4, immediately offer a revision sprint — redo the last batch at no extra charge. The cost of rework is always less than the cost of replacing a client.
 4. **Scope creep without revenue:** If a client consistently asks for "just one more thing" without expanding the retainer, have this conversation: "I love that you're getting value from our work. The additional requests are beyond our current scope. I'd recommend upgrading to [next tier]. Here's what that includes..."
 
-## Procedure 9.4: Expansion Revenue System
+### Procedure 9.4: Expansion Revenue System
 
 Every client should grow their retainer by 20-40% within 6 months. These are your expansion triggers:
 
@@ -1182,7 +1182,7 @@ Every client should grow their retainer by 20-40% within 6 months. These are you
 
 {{% accent-box %}}HACK: Create a "Client Anniversary" system. Every 90 days, send a personalized report showing: total words delivered, total deliverables shipped, estimated hours saved vs. traditional agency, and top-performing piece. Attach a handwritten note (yes, physically handwritten — buy stamps). This costs you ₦500 and creates more loyalty than any discount ever will.{{% /accent-box %}}
 
-## Check-In: Module 9 Complete
+### Check-In: Module 9 Complete
 
 - [ ] Weekly delivery rhythm (Mon-Fri cadence) documented and followed
 - [ ] Monday check-in and Friday wrap-up email templates created
@@ -1193,13 +1193,13 @@ Every client should grow their retainer by 20-40% within 6 months. These are you
 
 ---
 
-# MODULE 10: SCALING OPERATIONS — FROM SOLO TO AGENCY
+## MODULE 10: SCALING OPERATIONS — FROM SOLO TO AGENCY
 
-## Overview
+### Overview
 
 You can run ₦3M-₦5M MRR solo. Beyond that, you need people. This module defines how to hire, train, and manage a team that produces at your quality standard while you focus on growth. Scaling too early kills agencies. Scaling too late caps your revenue. The trigger for scaling is consistent: when you're at 80% capacity for 3 consecutive weeks, hire.
 
-## Procedure 10.1: The Hiring Roadmap
+### Procedure 10.1: The Hiring Roadmap
 
 | Revenue Milestone | Hire | Role | Monthly Salary (₦) |
 |---|---|---|---|
@@ -1211,7 +1211,7 @@ You can run ₦3M-₦5M MRR solo. Beyond that, you need people. This module defi
 
 Total team cost at ₦10M MRR: ₦950,000/month. That's under 10% of revenue. This is how you maintain 60%+ margins at scale.
 
-## Procedure 10.2: The Training Protocol (New Hire)
+### Procedure 10.2: The Training Protocol (New Hire)
 
 Every new hire completes this 5-day training before touching client work:
 
@@ -1240,7 +1240,7 @@ Every new hire completes this 5-day training before touching client work:
 - You review after delivery
 - Debrief: What went well? What needs improvement? Set 30-day check-in schedule.
 
-## Procedure 10.3: Quality Maintenance at Scale
+### Procedure 10.3: Quality Maintenance at Scale
 
 The biggest risk of scaling is quality dilution. Prevent it with these systems:
 
@@ -1252,7 +1252,7 @@ The biggest risk of scaling is quality dilution. Prevent it with these systems:
 
 4. **Client Satisfaction Tracking.** After every MBR, log the satisfaction score in Notion. If the average drops below 4.0 for any client, investigate immediately. The data tells you where quality is slipping before the client tells you.
 
-## Procedure 10.4: Standard Operating Procedures — The Complete List
+### Procedure 10.4: Standard Operating Procedures — The Complete List
 
 Document these SOPs in your Notion SOPs folder. Every SOP follows this format:
 
@@ -1297,7 +1297,7 @@ Complete SOP list:
 | SOP-011 | Prompt Library Update | Subpar prompt output detected |
 | SOP-012 | New Hire Training | New team member starts |
 
-## Procedure 10.5: Financial Operations at Scale
+### Procedure 10.5: Financial Operations at Scale
 
 1. **Separate business and personal accounts.** Open a dedicated business account. All revenue in, all expenses out. No commingling.
 2. **Monthly P&L review.** On the 1st of every month, calculate:
@@ -1309,7 +1309,7 @@ Complete SOP list:
 3. **Quarterly tax preparation.** Set aside 20% of net revenue for taxes. Use a Nigerian-registered accountant for filing.
 4. **Annual tool audit.** Every December, review every tool subscription. Cancel anything that isn't directly contributing to revenue or quality.
 
-## Procedure 10.6: Growth Marketing — Filling the Pipeline
+### Procedure 10.6: Growth Marketing — Filling the Pipeline
 
 Once your operations can handle more clients, turn on acquisition:
 
@@ -1336,7 +1336,7 @@ Would you like me to send you a free rewrite of one section of your homepage? No
 
 {{% accent-box %}}HACK: The free homepage rewrite in your cold email is your highest-converting acquisition tactic. It costs you 20 minutes (prompt + QC) and demonstrates your quality before the prospect has to make any decision. Track the conversion rate: you should close 15-20% of prospects who receive a free rewrite.{{% /accent-box %}}
 
-## Check-In: Module 10 Complete
+### Check-In: Module 10 Complete
 
 - [ ] Hiring roadmap documented with salary benchmarks in Naira
 - [ ] 5-day training protocol written and ready for first hire
@@ -1348,7 +1348,7 @@ Would you like me to send you a free rewrite of one section of your homepage? No
 
 ---
 
-# FINAL VERIFICATION: THE COMPLETE SYSTEM CHECK
+## FINAL VERIFICATION: THE COMPLETE SYSTEM CHECK
 
 Before you declare your agency operational, confirm every item below:
 
@@ -1377,7 +1377,7 @@ Before you declare your agency operational, confirm every item below:
 
 ---
 
-## THE 90-DAY EXECUTION TIMELINE
+### THE 90-DAY EXECUTION TIMELINE
 
 | Week | Focus | Key Action |
 |---|---|---|

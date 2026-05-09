@@ -16,7 +16,7 @@ This is not a high-level blog post, but a detailed execution guide that will wal
 
 The total time commitment for this project is approximately 40-60 hours, and the estimated cost is around $500-$1000, depending on the specific tools and services you choose. This includes the cost of ChatGPT, Make.com, Replit, and other tools such as [Semrush](https://www.semrush.com/) for SEO optimization and Hostinger for web hosting. Ready to understand the full business opportunity? Read our opportunity deep-dive (/opportunities/how-to-build-an-ai-translation-and-localization-service-3k-20kmonth.md) to learn more about the potential earnings and market demand for this service.
 
-## Prerequisites
+### Prerequisites
 
 **Prerequisites**
 
@@ -64,14 +64,14 @@ Before you dive into building the AI‑translation pipeline, gather the followin
 
 You now have all the foundational accounts, tools, and budget in place to begin constructing the AI translation and localization service. Proceed to the next section to start coding the translation engine.
 
-## Step 1: Setup and Configuration  
+### Step 1: Setup and Configuration  
 *(Difficulty = ADVANCED – 10–30 min per sub‑step)*  
 
 Below is the exact, repeatable procedure you’ll follow to get a clean, reproducible environment in which your AI translation service will live.  Every UI click, command line flag, and file edit is spelled out so that a junior engineer can paste and run without ambiguity.
 
 ---
 
-### 1. Create the Project Skeleton  
+#### 1. Create the Project Skeleton  
 
 1.1 **Open a terminal** (macOS Terminal, Windows PowerShell, or Linux bash).  
 1.2 **Create a root folder** called `chatgpt-translate-service` in your home directory.  
@@ -92,7 +92,7 @@ Do you see a folder named `node_modules` after the next step? If not, you haven�
 
 ---
 
-### 2. Set Up the Node.js Runtime  
+#### 2. Set Up the Node.js Runtime  
 
 2.1 **Install Node.js 20.x** (or newer) if you don’t already have it.  
 - macOS: `brew install node@20`  
@@ -118,7 +118,7 @@ npm init -y
 
 ---
 
-### 3. Add Core Dependencies  
+#### 3. Add Core Dependencies  
 
 3.1 Install the OpenAI SDK, dotenv for environment variables, and a tiny HTTP server.  
 ```bash
@@ -134,7 +134,7 @@ You should see the three packages listed with their version numbers.
 
 ---
 
-### 4. Create the Directory Layout  
+#### 4. Create the Directory Layout  
 
 ```
 chatgpt-translate-service/
@@ -172,7 +172,7 @@ Do you see a file named `src/index.js`? If not, create it with `touch src/index.
 
 ---
 
-### 5. Acquire Your OpenAI API Key  
+#### 5. Acquire Your OpenAI API Key  
 
 5.1 Log in to https://platform.openai.com.  
 5.2 Navigate to **API Keys** → **Create new secret key**.  
@@ -194,7 +194,7 @@ If you see `Error: Cannot find module 'dotenv'` when running your code, you forg
 
 ---
 
-### 6. Write a Basic Translator Script  
+#### 6. Write a Basic Translator Script  
 
 6.1 Open `src/translator.js` in your favorite editor (Replit’s built‑in editor works great for quick prototypes).  
 6.2 Paste the following code:
@@ -266,7 +266,7 @@ Below is a hands‑on blueprint that takes you from an empty repository to a ful
 Create a file named `main.py` and paste the following:
 
 ```python
-# main.py
+## main.py
 import os
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
@@ -346,7 +346,7 @@ If the response contains an error, verify the `OPENAI_API_KEY` value and that th
 4. In Replit, create a new file `webhook_forwarder.py`:
 
 ```python
-# webhook_forwarder.py
+## webhook_forwarder.py
 import httpx, os, json
 
 WEBHOOK_URL = os.getenv("WEBHOOK_URL")
@@ -356,7 +356,7 @@ async def forward(payload):
     async with httpx.AsyncClient() as client:
        
 
-## Step 3: Test and Validate  
+### Step 3: Test and Validate  
 
 Testing is the safety net that guarantees your AI‑translation microservice behaves exactly as expected before you hand it to production.  
 Below you’ll run a series of sanity checks against the **/translate** endpoint, the Make.com webhook, and the Vapi voice‑to‑text pipeline.  Follow each sub‑step carefully and pause for the interactive check‑ins.
@@ -422,7 +422,7 @@ Below you’ll run a series of sanity checks against the **/translate** endpoint
    - **http_req_failed** 0%  
    **Check‑in**: If you see spikes > 3s or a high failure rate, increase the `max_concurrent_requests` in `config.py` and redeploy.  
 
-### 5‑Point Test Checklist  
+#### 5‑Point Test Checklist  
 
 | # | Item | Expected Result | Fix if Wrong |
 |---|------|-----------------|-------------|
@@ -432,7 +432,7 @@ Below you’ll run a series of sanity checks against the **/translate** endpoint
 | 4 | Vapi voice agent returns French translation | ✅ | Ensure Vapi is using the same ChatGPT key and target language. |
 | 5 | Load test metrics stay below thresholds | ✅ | Increase Flask worker count or adjust `timeout`.
 
-## Step 4: Add Advanced Features  
+### Step 4: Add Advanced Features  
 
 In this phase we bring the translation engine from a good prototype to a production‑ready service. The focus is on **AI enrichment**, **robust error handling**, **dynamic routing**, and **monitoring**. All changes are delivered through the same stack we built in the earlier steps: a Replit Python micro‑service, a Make.com automation layer, and a Hostinger‑hosted web UI.  
 
@@ -540,7 +540,7 @@ In this phase we bring the translation engine from a good prototype to a product
 5. **Monitoring & Alerting with Zapier**  
    5.1. Create a Zap that watches the `logs` table via a MySQL
 
-## Step 5: Deploy to Production  
+### Step 5: Deploy to Production  
 
 Below is a clinical, step‑by‑step deployment of the AI translation micro‑service on a Hostinger VPS (vCore 2 GB, 50 GB SSD, 200 Mbps bandwidth). The process assumes you already have the Docker‑ized service from Step 4 and a GitHub repo named **ai‑translator**.
 
@@ -551,7 +551,7 @@ Below is a clinical, step‑by‑step deployment of the AI translation micro‑s
 > • Vapi API key stored in your GitHub secrets under `VAPI_KEY`  
 > • Domain‑level SSL certificate from Let’s Encrypt (auto‑renewed by certbot)
 
-### 5.1 Provision the VPS and Install Docker
+#### 5.1 Provision the VPS and Install Docker
 
 1. **SSH into the VPS**  
    ```bash
@@ -574,7 +574,7 @@ Below is a clinical, step‑by‑step deployment of the AI translation micro‑s
    *Check*: `docker --version` → `Docker version 24.0.7, build 0a3c9b7` (or newer).  
    *If Docker fails to start*: `systemctl status docker` → look for “Failed to start docker.service”.
 
-### 5.2 Pull the Image and Configure Secrets
+#### 5.2 Pull the Image and Configure Secrets
 
 1. **Clone the repo**  
    ```bash
@@ -598,7 +598,7 @@ Below is a clinical, step‑by‑step deployment of the AI translation micro‑s
    ```
    *Expected output*: “Successfully built …” without errors.
 
-### 5.3 Set Up Nginx Reverse Proxy with Let’s Encrypt
+#### 5.3 Set Up Nginx Reverse Proxy with Let’s Encrypt
 
 1. **Install Nginx**  
    ```bash
@@ -632,7 +632,7 @@ Below is a clinical, step‑by‑step deployment of the AI translation micro‑s
    ```
    *Expected output*: “Congratulations! Your certificate …” and `200 OK` on `https://translate.example.com`.
 
-### 5.4 Run the Service in the Background
+#### 5.4 Run the Service in the Background
 
 ```bash
 docker compose up -d
@@ -640,7 +640,7 @@ docker compose up -d
 *Check*: `docker ps` → container `ai-translator` should be `Up`.  
 *If the container exits*: `docker logs ai-translator` → look for “ConnectionError” or “RateLimitError” from OpenAI; ensure the API key is correct.
 
-### 5.5 Automate Scaling with Make.com
+#### 5.5 Automate Scaling with Make.com
 
 1. **Create a Make.com scenario** that polls the Docker Swarm API every 5 min.  
    *Trigger*: “HTTP request” (GET docker‑stats).  

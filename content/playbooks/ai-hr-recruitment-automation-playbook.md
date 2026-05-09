@@ -17,16 +17,16 @@ This is not a blog post condensed into a PDF. This is an operating system for bu
 
 ---
 
-# MODULE 1: FOUNDATION — YOUR RECRUITMENT COMMAND CENTER
+## MODULE 1: FOUNDATION — YOUR RECRUITMENT COMMAND CENTER
 
-## Overview
+### Overview
 
 Before you automate a single resume screening, you need the infrastructure that runs your recruitment practice. This module sets up your project management, client portal, financial tracking, and communication systems. These are not optional. Every successful recruitment operator has these systems in place before their first client call. Every failed operator skipped them.
 
 **Time to complete:** 3-4 hours
 **Tools needed:** Notion (free), Greenhouse or Lever (free trial), Zapier (free tier), Paystack (free)
 
-## Procedure 1.1: Create Your Recruitment Command Center in Notion
+### Procedure 1.1: Create Your Recruitment Command Center in Notion
 
 Open your browser and go to notion.so. Sign in or create a free account. You should see the Notion dashboard — a clean sidebar on the left and a main area with a "New page" button.
 
@@ -44,7 +44,7 @@ Inside this page, create seven sub-pages by typing `/page` and naming each one:
 
 Do you see all seven sub-pages listed inside your Command Center? If any are missing, add them now. You should have exactly seven. Count them.
 
-### The Clients Database
+#### The Clients Database
 
 Open the **Clients** sub-page. Type `/table` and select **Table — Full page**. This creates a database. Name it `Client Roster`.
 
@@ -66,7 +66,7 @@ Add one row for yourself as a test: Client Name = "Test Client," Status = "Activ
 
 Do you see the test row in your table with all columns populated? If any columns are missing, add them. Incomplete data tracking is the number one cause of recruitment practice cash flow problems.
 
-### The Automation Logs Database
+#### The Automation Logs Database
 
 Open the **Automation Logs** sub-page. Create another full-page table called `Zapier Workflow Registry`.
 
@@ -84,15 +84,15 @@ Add these columns:
 
 You will populate this database throughout this playbook. By the end, you will have entries for every Zapier workflow across every client.
 
-## Procedure 1.2: Set Up Your Financial Infrastructure
+### Procedure 1.2: Set Up Your Financial Infrastructure
 
-### Create Your Paystack Account
+#### Create Your Paystack Account
 
 Go to paystack.com and create a business account. Complete the business verification process (you will need a Nigerian bank account, BVN, and business registration documents). This typically takes 2-5 business days for approval.
 
 Once approved, you should see the Paystack dashboard with a "Test mode" toggle in the top-right corner. Do you see it? If your account is still pending verification, continue with the rest of this module and return to this step when approved.
 
-### Create Your Payment Products
+#### Create Your Payment Products
 
 In Paystack, go to **Products** in the left sidebar. Click **Add product**. Create six products — three setup fees and three monthly retainers:
 
@@ -109,7 +109,7 @@ Create payment links for each product (click the product → **Create payment li
 
 Do you see all six products listed in your Paystack dashboard? Do all six have payment links? If any are missing, create them now. A missing payment link means a delayed payment, which means a delayed start, which means a frustrated client.
 
-### Set Up Revenue Tracking
+#### Set Up Revenue Tracking
 
 In your Notion **Finance** page, create a table called `Revenue Tracker` with these columns:
 
@@ -126,15 +126,15 @@ In your Notion **Finance** page, create a table called `Revenue Tracker` with th
 
 Add a row for the current month with zero values. This is your starting line.
 
-## Procedure 1.3: Configure Your Communication Stack
+### Procedure 1.3: Configure Your Communication Stack
 
-### Create Your Business Email
+#### Create Your Business Email
 
 If you do not have a professional email address on a custom domain, set one up now. Go to Google Workspace (workspace.google.com) and sign up for the Business Starter plan ($6/mo). Register a domain that matches your practice name and create your email.
 
 Do not use a personal Gmail address for client communication. It signals amateur status. A custom domain email costs $6/month and instantly elevates your perceived professionalism.
 
-### Create Your Client-Facing Calendar
+#### Create Your Client-Facing Calendar
 
 Go to cal.com and create a free account. Set up a booking page with two meeting types:
 
@@ -147,7 +147,7 @@ Connect your Google Calendar so bookings appear automatically. Copy your booking
 **HACK:** Use Notion's "Template" button inside your Client Roster database to create a pre-filled template for new clients. Include default values for Status ("Onboarding"), Health Score ("Green"), and a checklist of onboarding tasks: "Collect job descriptions," "Obtain ATS access," "Review candidate pipeline," "Set up screening workflows." This saves 15 minutes every time you sign a new client.
 {{% /accent-box %}}
 
-## Check-In: Module 1 Complete
+### Check-In: Module 1 Complete
 
 Before moving to Module 2, verify every item:
 
@@ -163,16 +163,16 @@ Count your checkmarks. Do you have all 7? If not, go back and complete the missi
 
 ---
 
-# MODULE 2: TECH STACK — YOUR RECRUITMENT AUTOMATION ARSENAL
+## MODULE 2: TECH STACK — YOUR RECRUITMENT AUTOMATION ARSENAL
 
-## Overview
+### Overview
 
 Your recruitment practice runs on tools. This module sets up every tool you need, connects them, and verifies each connection. The total cost is under ₦50,000/month — and most of it is free until you have paying clients.
 
 **Time to complete:** 3-4 hours
 **Total monthly cost (startup):** ₦0–₦15,000 depending on your choices
 
-## Procedure 2.1: Set Up Your Applicant Tracking System
+### Procedure 2.1: Set Up Your Applicant Tracking System
 
 Go to greenhouse.io or lever.co and sign up for a free trial of their applicant tracking system (ATS). Greenhouse is the industry standard for structured hiring; Lever excels at candidate relationship management. Both offer robust APIs that are essential for automation.
 
@@ -180,7 +180,7 @@ After signing in, you should see the ATS dashboard. Create a test job posting: "
 
 Do you see the pipeline with all stages? This structure will be cloned for every client. The AI Pre-Screen stage is where your automation delivers the most value — it is the gatekeeper that separates qualified candidates from the noise.
 
-## Procedure 2.2: Set Up Zapier and Connect Core Services
+### Procedure 2.2: Set Up Zapier and Connect Core Services
 
 Go to zapier.com and sign up for the Free plan. You get 100 tasks per month — enough to build and test your first 3-5 workflows.
 
@@ -194,9 +194,9 @@ In Zapier, click **My Apps** in the left sidebar → **Add connection**. Connect
 
 After connecting each service, you should see a green "Connected" status. Do you see green for all 5? If any show red or yellow, re-authorize and make sure you approve all permissions.
 
-## Procedure 2.3: Set Up AI Model Access
+### Procedure 2.3: Set Up AI Model Access
 
-### OpenAI API Configuration
+#### OpenAI API Configuration
 
 Go to platform.openai.com. Navigate to **API Keys** and create a new key. Copy it immediately — you cannot view it again. Store it in a password manager. Do not store API keys in Notion pages that you share with anyone.
 
@@ -204,7 +204,7 @@ Navigate to **Billing** and add $20 in credit. This funds your API usage for app
 
 Navigate to **Usage limits** and set a monthly limit of $100. This prevents a buggy Zap from draining your credit overnight.
 
-### Anthropic Claude API (Recommended for Resume Analysis)
+#### Anthropic Claude API (Recommended for Resume Analysis)
 
 Go to console.anthropic.com and create an account. Navigate to **API Keys** and create a key. Add $10 in credit. Claude is superior to GPT-4o for long-form document analysis, nuanced candidate evaluation, and complex reasoning tasks involving multi-step hiring criteria. Use GPT-4o for structured outputs (JSON) and Claude for resume deep-dives and culture-fit assessments.
 
@@ -212,17 +212,17 @@ Go to console.anthropic.com and create an account. Navigate to **API Keys** and 
 **HACK:** Set up two separate OpenAI API keys — one for production automations and one for testing. When a test workflow goes haywire, it burns through the testing key's credit, not your production budget. Create the keys at platform.openai.com/api-keys and label them "prod-recruitment" and "dev-recruitment."
 {{% /accent-box %}}
 
-## Procedure 2.4: Set Up Your Candidate Sourcing Tools
+### Procedure 2.4: Set Up Your Candidate Sourcing Tools
 
-### LinkedIn Recruiter Lite
+#### LinkedIn Recruiter Lite
 
 Go to linkedin.com/recruiter and sign up for Recruiter Lite ($170/month). This gives you 30 InMail messages per month and access to LinkedIn's full candidate database. This is the single most important sourcing tool in your arsenal. If you cannot afford it yet, use the free LinkedIn search with boolean operators.
 
-### Apollo.io Free Plan
+#### Apollo.io Free Plan
 
 Go to apollo.io and create a free account. The free plan gives you access to 5,000 email credits per month and a massive B2B contact database. You will use Apollo to find passive candidates who are not actively applying but match your client's requirements.
 
-### Slack Workspace Configuration
+#### Slack Workspace Configuration
 
 Create these channels in your Slack workspace:
 
@@ -232,7 +232,7 @@ Create these channels in your Slack workspace:
 
 Do you see all the channels in your Slack sidebar? The `#automation-errors` channel is the most important — it is your early warning system for broken automations.
 
-## Procedure 2.5: Complete Tool Cost Summary
+### Procedure 2.5: Complete Tool Cost Summary
 
 | Tool | Purpose | Free Tier | Paid Tier | When to Upgrade |
 |---|---|---|---|---|
@@ -247,7 +247,7 @@ Do you see all the channels in your Slack sidebar? The `#automation-errors` chan
 
 **Startup cost: $6/mo (Google Workspace only). Everything else is free until you have revenue.**
 
-## Check-In: Module 2 Complete
+### Check-In: Module 2 Complete
 
 - [ ] ATS account with test job posting and pipeline stages configured
 - [ ] Zapier account with 5 connected services (all green)
@@ -262,16 +262,16 @@ Do you see all the channels in your Slack sidebar? The `#automation-errors` chan
 
 ---
 
-# MODULE 3: JOB DESCRIPTION OPTIMIZATION — THE BAIT THAT CATCHES TALENT
+## MODULE 3: JOB DESCRIPTION OPTIMIZATION — THE BAIT THAT CATCHES TALENT
 
-## Overview
+### Overview
 
 Every recruitment engagement starts with a job description that attracts the right candidates and repels the wrong ones. A bad job description floods your pipeline with unqualified applicants, wasting your AI screening capacity and your client's time. A great job description acts as a pre-filter, drawing in candidates who genuinely fit the role. This module gives you the exact AI-powered job description creation process, the exact optimization framework, and the exact A/B testing methodology that makes your practice deliver better candidates faster than any traditional recruiter.
 
 **Time to complete:** 2-3 hours
 **Tools needed:** OpenAI API, Notion, Google Sheets
 
-## Procedure 3.1: Create Your Job Description Template Library
+### Procedure 3.1: Create Your Job Description Template Library
 
 Open your Notion **Templates** page. Create a new sub-page called `Job Description Templates`. This template library will be cloned and customized for every new client and role.
 
@@ -297,7 +297,7 @@ Each template must include these sections:
 
 Do you see all templates in your Notion library? Count them. You should have 6 templates with 8 sections each. This is your starting library — every client will have additions, but no client should receive a job description that does not follow this structure.
 
-## Procedure 3.2: Build the AI Job Description Generator
+### Procedure 3.2: Build the AI Job Description Generator
 
 Create a Zapier workflow that generates optimized job descriptions from client briefs.
 
@@ -343,7 +343,7 @@ Respond in JSON format:
 **HACK:** Run every generated job description through a second AI pass that scores it for inclusivity and bias. Prompt: "Review this job description for gender-coded language, age bias, disability bias, and cultural assumptions. Flag any phrases that could discourage qualified candidates from underrepresented groups. Suggest replacements." This two-pass system ensures your job descriptions attract the widest possible talent pool, which directly translates to better hires for your clients.
 {{% /accent-box %}}
 
-## Procedure 3.3: A/B Test Job Descriptions for Performance
+### Procedure 3.3: A/B Test Job Descriptions for Performance
 
 Create a Google Sheet called "JD Performance Tracker" with these columns:
 
@@ -362,7 +362,7 @@ Create a Google Sheet called "JD Performance Tracker" with these columns:
 
 Post two versions of each job description (A and B) on different platforms or at different times. Track which version attracts more qualified candidates. After 10 job postings, you will have statistical significance to determine which JD structures, headlines, and skill lists perform best for each role category.
 
-## Check-In: Module 3 Complete
+### Check-In: Module 3 Complete
 
 - [ ] Job Description Template Library with 6 role categories and 8 sections each
 - [ ] AI Job Description Generator Zap built and tested with 3+ sample briefs
@@ -374,18 +374,18 @@ Post two versions of each job description (A and B) on different platforms or at
 
 ---
 
-# MODULE 4: RESUME SCREENING AUTOMATION — THE CORE ENGINE
+## MODULE 4: RESUME SCREENING AUTOMATION — THE CORE ENGINE
 
-## Overview
+### Overview
 
 This module builds the core automation engine: resumes flow from the ATS into your screening pipeline, AI evaluates each candidate against the job requirements, and everything is logged and verified. This is the single most valuable automation in your entire practice. It replaces 20-30 hours of manual resume review per role per month.
 
 **Time to complete:** 4-6 hours
 **Tools needed:** Zapier, Greenhouse/Lever, OpenAI API, Google Sheets, Slack
 
-## Procedure 4.1: Build the Resume Screening Zap
+### Procedure 4.1: Build the Resume Screening Zap
 
-### Step A: Create the Trigger
+#### Step A: Create the Trigger
 
 In Zapier, click **Create a Zap**. Name it "Resume Screening Pipeline."
 
@@ -393,7 +393,7 @@ For the trigger, select **Greenhouse** (or **Lever**) → **New Application**. C
 
 Test the trigger. Do you see sample application data? You should see fields like: `Candidate Name`, `Resume URL`, `Cover Letter`, `Source`, `Applied Date`. If the trigger returns empty data, go to the ATS and submit a test application, then re-test the trigger.
 
-### Step B: AI Resume Evaluation
+#### Step B: AI Resume Evaluation
 
 Add a **ChatGPT** step (OpenAI in Zapier):
 
@@ -436,7 +436,7 @@ Cover Letter: {{Cover_Letter}}
 Source: {{Source}}
 ```
 
-### Step C: Parse the AI Response
+#### Step C: Parse the AI Response
 
 Add a **Code by Zapier** step (JavaScript):
 
@@ -474,7 +474,7 @@ try {
 }
 ```
 
-### Step D: Route Based on Score
+#### Step D: Route Based on Score
 
 Add a **Paths** step:
 
@@ -499,7 +499,7 @@ Add a **Paths** step:
 2. Gmail → Send respectful rejection email (always send a rejection — ghosting destroys your client's employer brand)
 3. Google Sheets → Log to "Candidate Pipeline" sheet
 
-## Procedure 4.2: Test the Screening Pipeline
+### Procedure 4.2: Test the Screening Pipeline
 
 Submit 15 test applications through your ATS with varying quality levels:
 
@@ -519,7 +519,7 @@ If routing accuracy is below 80%, refine the scoring criteria in the system prom
 **HACK:** Build a "candidate scorecard" that the AI fills out for every applicant. The scorecard includes: Skills Match (0-100), Experience Relevance (0-100), Career Trajectory (0-100), Culture Alignment (0-100), and an Overall Score (0-100). Share this scorecard with your client alongside the resume. When clients see a quantitative evaluation alongside the qualitative reasoning, they trust your recommendations 3x more than when you just say "this candidate looks good."
 {{% /accent-box %}}
 
-## Procedure 4.3: Build the Weekly Pipeline Summary Zap
+### Procedure 4.3: Build the Weekly Pipeline Summary Zap
 
 Create a second Zap that runs every Friday at 4 PM WAT:
 
@@ -556,7 +556,7 @@ Action items:
 [Your Practice Name]
 ```
 
-## Check-In: Module 4 Complete
+### Check-In: Module 4 Complete
 
 - [ ] Resume Screening Zap built with trigger, AI evaluation, parser, and 4 routing paths
 - [ ] 15 test applications run through the pipeline
@@ -571,16 +571,16 @@ Action items:
 
 ---
 
-# MODULE 5: INTERVIEW AUTOMATION — FROM CHAOS TO CALENDAR
+## MODULE 5: INTERVIEW AUTOMATION — FROM CHAOS TO CALENDAR
 
-## Overview
+### Overview
 
 Scheduling interviews is the most tedious part of recruitment. Coordinating between candidates, hiring managers, and interviewers across time zones and availability windows consumes 5-10 hours per week per client. This module automates the entire scheduling process and provides AI-generated interview guides customized for each candidate.
 
 **Time to complete:** 3-4 hours
 **Tools needed:** Zapier, Cal.com, OpenAI API, Greenhouse/Lever, Gmail
 
-## Procedure 5.1: Build the Interview Scheduling Automation
+### Procedure 5.1: Build the Interview Scheduling Automation
 
 Create a Zap: "Interview Scheduling Pipeline."
 
@@ -610,7 +610,7 @@ Looking forward to connecting!
 
 This eliminates the back-and-forth email tennis that wastes hours every week.
 
-## Procedure 5.2: Build the AI Interview Guide Generator
+### Procedure 5.2: Build the AI Interview Guide Generator
 
 For every scheduled interview, generate a customized interview guide that helps the interviewer ask targeted questions based on the candidate's specific background.
 
@@ -642,7 +642,7 @@ Keep the guide to one page. The interviewer should be able to scan it in 60 seco
 **HACK:** Add a "deal-breaker question" to every interview guide — one question that, if answered poorly, disqualifies the candidate regardless of their other qualifications. For a sales role: "Tell me about a time you lost a deal you expected to win. What happened, and what did you do next?" For an engineering role: "Describe a production incident you caused. How did you handle it?" These questions cut through rehearsed answers and reveal how candidates handle failure and accountability.
 {{% /accent-box %}}
 
-## Procedure 5.3: Build the Post-Interview Feedback Collector
+### Procedure 5.3: Build the Post-Interview Feedback Collector
 
 After each interview, automatically collect structured feedback from the interviewer.
 
@@ -673,7 +673,7 @@ Thanks!
 **Step 3:** ATS → Update the candidate's profile with feedback scores
 **Step 4:** Google Sheets → Add to the "Interview Feedback" sheet
 
-## Check-In: Module 5 Complete
+### Check-In: Module 5 Complete
 
 - [ ] Interview Scheduling Zap built with Cal.com integration
 - [ ] Candidates receive automated scheduling emails within 5 minutes of advancement
@@ -687,16 +687,16 @@ Thanks!
 
 ---
 
-# MODULE 6: CANDIDATE MATCHING — AI-POWERED PLACEMENT
+## MODULE 6: CANDIDATE MATCHING — AI-POWERED PLACEMENT
 
-## Overview
+### Overview
 
 This module builds the AI candidate matching system that goes beyond keyword matching. Traditional ATS systems match resumes to job descriptions based on keyword overlap. Your AI matching system understands context, career trajectories, skill adjacencies, and cultural fit signals. This is what separates your practice from every recruiter who just searches LinkedIn for keywords.
 
 **Time to complete:** 3-4 hours
 **Tools needed:** OpenAI API, Google Sheets, Zapier
 
-## Procedure 6.1: Build the Candidate-Job Matching Algorithm
+### Procedure 6.1: Build the Candidate-Job Matching Algorithm
 
 Create a Google Sheet called "Matching Database" with these columns:
 
@@ -716,7 +716,7 @@ Create a Google Sheet called "Matching Database" with these columns:
 
 Populate this database with all candidates who have been screened (passing the initial AI evaluation, even if they were not selected for the current role).
 
-## Procedure 6.2: Build the Smart Matching Zap
+### Procedure 6.2: Build the Smart Matching Zap
 
 Create a Zap: "Smart Candidate Matching."
 
@@ -752,7 +752,7 @@ This turns your candidate database into a recurring revenue asset. Every candida
 **HACK:** Implement a "silver medalist" strategy. For every role you fill, tag the second and third-choice candidates as "silver medalists" for that role type. When a similar role opens — for the same client or a different one — these silver medalists are your first calls. They have already been vetted, they already know your process, and they are often flattered to be remembered. This reduces time-to-fill by 50% for similar roles.
 {{% /accent-box %}}
 
-## Procedure 6.3: Build the Passive Candidate Outreach System
+### Procedure 6.3: Build the Passive Candidate Outreach System
 
 Active job seekers represent only 30% of the talent market. The other 70% are passive candidates — people who are not looking but would move for the right opportunity.
 
@@ -777,7 +777,7 @@ Never use: "I came across your profile," "I was impressed by," or "opportunity o
 **Step 3:** Gmail → Send the outreach emails (staggered: 10 per day to avoid spam filters)
 **Step 4:** Google Sheets → Track open rates, reply rates, and interest levels
 
-## Check-In: Module 6 Complete
+### Check-In: Module 6 Complete
 
 - [ ] Matching Database populated with screened candidates
 - [ ] Smart Candidate Matching Zap generates top-5 recommendations for new roles
@@ -791,16 +791,16 @@ Never use: "I came across your profile," "I was impressed by," or "opportunity o
 
 ---
 
-# MODULE 7: OFFER MANAGEMENT — CLOSING WITHOUT CHAOS
+## MODULE 7: OFFER MANAGEMENT — CLOSING WITHOUT CHAOS
 
-## Overview
+### Overview
 
 The offer stage is where most recruitment processes break down. Miscommunication between hiring managers, HR, and candidates leads to delayed offers, mismatched expectations, and lost candidates. This module automates the offer generation, approval, and delivery process so you close candidates faster and with fewer mishaps.
 
 **Time to complete:** 2-3 hours
 **Tools needed:** Zapier, Google Docs, OpenAI API, Gmail
 
-## Procedure 7.1: Build the Offer Letter Generator
+### Procedure 7.1: Build the Offer Letter Generator
 
 Create a Zap: "Offer Letter Pipeline."
 
@@ -820,7 +820,7 @@ Include these elements in every offer letter:
 - Contingencies (background check, reference check, work authorization)
 - Response deadline (5 business days maximum)
 
-## Procedure 7.2: Build the Offer Tracking Dashboard
+### Procedure 7.2: Build the Offer Tracking Dashboard
 
 Create a Notion page called "Offer Tracker" with these columns:
 
@@ -842,7 +842,7 @@ Set up a Zap that sends an alert when an offer is within 24 hours of expiring wi
 **HACK:** When a candidate counters, do not go back to the client with just the number. Go back with a "counter analysis" generated by AI: "The candidate is requesting ₦X, which is ₦Y above our offer. Here is what this means: (1) it represents a Z% increase over our offer, (2) it is in the A percentile for this role in this market, (3) the candidate's justification is [strong/weak] because [reasoning]. Recommendation: [accept/counter/meet in the middle/hold firm]." This positions you as a strategic advisor, not a message-passing middleman.
 {{% /accent-box %}}
 
-## Check-In: Module 7 Complete
+### Check-In: Module 7 Complete
 
 - [ ] Offer Letter Generator Zap creates professional offer letters
 - [ ] Offer letters are automatically sent to candidates and logged in the ATS
@@ -854,16 +854,16 @@ Set up a Zap that sends an alert when an offer is within 24 hours of expiring wi
 
 ---
 
-# MODULE 8: ONBOARDING AUTOMATION — FIRST 90 DAYS ON AUTOPILOT
+## MODULE 8: ONBOARDING AUTOMATION — FIRST 90 DAYS ON AUTOPILOT
 
-## Overview
+### Overview
 
 Your job does not end when the candidate signs the offer letter. The first 90 days determine whether a new hire succeeds or fails — and 20% of new hires leave within the first 45 days. This module automates the onboarding process so every new employee has a consistent, professional experience from day one.
 
 **Time to complete:** 2-3 hours
 **Tools needed:** Zapier, Notion, Gmail, Google Sheets
 
-## Procedure 8.1: Build the 90-Day Onboarding Sequence
+### Procedure 8.1: Build the 90-Day Onboarding Sequence
 
 Create a Zap: "Onboarding Automation."
 
@@ -885,7 +885,7 @@ Create a Zap: "Onboarding Automation."
 **Step 4:** Google Sheets → Create "Onboarding Tracker" row for the new hire
 **Step 5:** Gmail → Notify the client's HR team about the new hire's start date and required setup
 
-## Procedure 8.2: Build the Onboarding Satisfaction Tracker
+### Procedure 8.2: Build the Onboarding Satisfaction Tracker
 
 Create a Google Sheet called "Onboarding Satisfaction" with these columns:
 
@@ -902,7 +902,7 @@ Create a Google Sheet called "Onboarding Satisfaction" with these columns:
 
 If a new hire's Day 7 score is below 6, automatically alert the client: "Early onboarding concern detected for [Name]. Score: [X]/10. Recommended action: Schedule a 15-minute check-in this week."
 
-## Check-In: Module 8 Complete
+### Check-In: Module 8 Complete
 
 - [ ] 90-day onboarding email sequence configured and tested
 - [ ] Onboarding Satisfaction Tracker created and monitoring new hires
@@ -914,16 +914,16 @@ If a new hire's Day 7 score is below 6, automatically alert the client: "Early o
 
 ---
 
-# MODULE 9: CLIENT REPORTING AND ANALYTICS — PROVING YOUR VALUE
+## MODULE 9: CLIENT REPORTING AND ANALYTICS — PROVING YOUR VALUE
 
-## Overview
+### Overview
 
 Clients cancel recruitment services when they cannot see the value. This module builds automated reporting that proves your impact every single week. When a client can see exactly how many candidates you screened, how many you advanced, how quickly you filled roles, and how much money you saved them versus a traditional recruiter — they never cancel.
 
 **Time to complete:** 2-3 hours
 **Tools needed:** Zapier, Google Sheets, OpenAI API, Gmail
 
-## Procedure 9.1: Build the Weekly Client Report
+### Procedure 9.1: Build the Weekly Client Report
 
 Create a Zap: "Weekly Client Report."
 
@@ -953,7 +953,7 @@ Use specific numbers. Be direct. No hedging.
 **Step 4:** Gmail → Send the report to the client
 **Step 5:** Notion → Update the client's dashboard with the latest metrics
 
-## Procedure 9.2: Build the Monthly Business Review Report
+### Procedure 9.2: Build the Monthly Business Review Report
 
 Create a second Zap: "Monthly Recruitment Review."
 
@@ -972,7 +972,7 @@ Create a second Zap: "Monthly Recruitment Review."
 **HACK:** Include a "Cost Savings Calculator" in every monthly report. Show the client exactly what they would have spent with a traditional contingency recruiter (typically 20-25% of first-year salary) versus what they spent with your flat monthly retainer. For a role with a ₦10M salary, a traditional recruiter charges ₦2-2.5M. Your ₦400K/month retainer over 2 months costs ₦800K — saving the client ₦1.2-1.7M per hire. When clients see the math in black and white, retention becomes automatic.
 {{% /accent-box %}}
 
-## Check-In: Module 9 Complete
+### Check-In: Module 9 Complete
 
 - [ ] Weekly Client Report Zap generates and delivers reports every Friday
 - [ ] KPI calculations are accurate and automated
@@ -985,16 +985,16 @@ Create a second Zap: "Monthly Recruitment Review."
 
 ---
 
-# MODULE 10: SCALING — FROM SOLO OPERATOR TO RECRUITMENT FIRM
+## MODULE 10: SCALING — FROM SOLO OPERATOR TO RECRUITMENT FIRM
 
-## Overview
+### Overview
 
 You have a working practice with 3-5 clients, automated screening, and positive cash flow. This module takes you from solo operator to a scalable recruitment firm. You will hire your first team members, build delegation frameworks, and create the operational infrastructure that lets you grow from 5 clients to 50 without working 100-hour weeks.
 
 **Time to complete:** 4-6 hours (ongoing process)
 **Tools needed:** Everything from previous modules, plus hiring tools
 
-## Procedure 10.1: Hire Your First Recruitment Coordinator
+### Procedure 10.1: Hire Your First Recruitment Coordinator
 
 When you reach 5+ active clients, you need help. The first hire should be a Recruitment Coordinator — someone who handles the manual tasks that automation cannot do: following up with candidates who have not responded, scheduling complex multi-round interviews, chasing interviewers for feedback, and managing client communication.
 
@@ -1002,7 +1002,7 @@ Create a job posting for this role using your own AI Job Description Generator (
 
 Pay range: ₦150,000-250,000/month (Nigeria) or $2,500-4,000/month (US remote). This hire pays for themselves when they free up 20 hours of your week to focus on sales and strategy.
 
-## Procedure 10.2: Build the Delegation Framework
+### Procedure 10.2: Build the Delegation Framework
 
 Create a Notion page called "Delegation Matrix" with these columns:
 
@@ -1020,7 +1020,7 @@ Create a Notion page called "Delegation Matrix" with these columns:
 
 Tasks marked "Delegation Ready: Yes" can be handed to the Coordinator immediately. Tasks marked "No" must remain with you until you have a senior recruiter on the team.
 
-## Procedure 10.3: Set Up Multi-Client Automation Architecture
+### Procedure 10.3: Set Up Multi-Client Automation Architecture
 
 As you scale, you cannot maintain separate Zapier workflows for every client. Build a unified automation architecture:
 
@@ -1031,7 +1031,7 @@ As you scale, you cannot maintain separate Zapier workflows for every client. Bu
 
 This architecture scales to 50+ clients without adding new Zapier workflows for each one.
 
-## Procedure 10.4: Revenue Scaling Projections
+### Procedure 10.4: Revenue Scaling Projections
 
 | Month | Revenue | Clients | Team Size | Notes |
 |---|---|---|---|---|
@@ -1047,7 +1047,7 @@ This architecture scales to 50+ clients without adding new Zapier workflows for 
 **HACK:** Create a "recruitment-as-a-service" subscription model where clients pay a flat monthly fee for unlimited hiring support. Price it at 2-3x what a single hire would cost with a traditional recruiter. When a client needs 3 hires in one month, they save 40-60%. When they need zero hires, you keep the retainer for maintaining the pipeline and candidate database. This model produces predictable, recurring revenue and eliminates the feast-or-famine cycle of contingency recruiting.
 {{% /accent-box %}}
 
-## Check-In: Module 10 Complete
+### Check-In: Module 10 Complete
 
 - [ ] Recruitment Coordinator job posting created using your own tools
 - [ ] Delegation Matrix identifies which tasks can be handed off immediately
@@ -1059,7 +1059,7 @@ This architecture scales to 50+ clients without adding new Zapier workflows for 
 
 ---
 
-# FINAL VERIFICATION: THE COMPLETE PRACTICE CHECKLIST
+## FINAL VERIFICATION: THE COMPLETE PRACTICE CHECKLIST
 
 Before declaring your practice operational, verify every item across all 10 modules:
 

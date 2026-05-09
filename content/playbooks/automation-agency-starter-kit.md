@@ -15,16 +15,16 @@ This is not a blog post condensed into a PDF. This is a launch system for buildi
 
 ---
 
-# MODULE 1: FOUNDATION — YOUR AGENCY OPERATING SYSTEM
+## MODULE 1: FOUNDATION — YOUR AGENCY OPERATING SYSTEM
 
-## Overview
+### Overview
 
 Before you build a single automation, you need the infrastructure that runs your agency. This module sets up your project management, payments, email, and scheduling systems. These are not optional. Every successful agency operator has these systems in place before their first client call. Every failed operator skipped them.
 
 **Time to complete:** 2-3 hours
 **Tools needed:** Notion (free), Stripe (free), Google Workspace ($6/mo), Cal.com (free)
 
-## Procedure 1.1: Create Your Agency Command Center in Notion
+### Procedure 1.1: Create Your Agency Command Center in Notion
 
 Open your browser and go to notion.so. Sign in or create a free account. You should see the Notion dashboard — a clean sidebar on the left and a main area with a "New page" button.
 
@@ -42,7 +42,7 @@ Inside this page, create five sub-pages by typing `/page` and naming each one:
 
 Do you see all five sub-pages listed inside your Command Center? If any are missing, add them now. You should have exactly five. Count them.
 
-### The Clients Database
+#### The Clients Database
 
 Open the **Clients** sub-page. Type `/table` and select **Table — Full page**. This creates a database. Name it `Client Roster`.
 
@@ -67,15 +67,15 @@ Do you see the test row in your table with all columns populated? If any columns
 **HACK:** Use Notion's "Template" button inside your Client Roster database to create a pre-filled template for new clients. Include default values for Status ("Onboarding"), Health Score ("Green"), and a checklist of onboarding tasks. This saves 10 minutes every time you sign a new client.
 {{% /accent-box %}}
 
-## Procedure 1.2: Set Up Your Financial Infrastructure
+### Procedure 1.2: Set Up Your Financial Infrastructure
 
-### Create Your Stripe Account
+#### Create Your Stripe Account
 
 Go to stripe.com and create an account. Complete the business verification process (you will need a bank account and personal identification). This typically takes 1-2 business days for approval.
 
 Once approved, you should see the Stripe dashboard with a "Test mode" toggle in the top-right corner. Do you see it? If your account is still pending verification, continue with the rest of this module and return to this step when approved.
 
-### Create Your Payment Products
+#### Create Your Payment Products
 
 In Stripe, go to **Products** in the left sidebar. Click **Add product**. Create six products — three setup fees and three monthly retainers:
 
@@ -92,7 +92,7 @@ Create payment links for each product (click the product → **Create payment li
 
 Do you see all six products listed in your Stripe dashboard? Do all six have payment links? If any are missing, create them now. A missing payment link means a delayed payment, which means a delayed start, which means a frustrated client.
 
-### Set Up Revenue Tracking
+#### Set Up Revenue Tracking
 
 In your Notion **Finance** page, create a table called `Revenue Tracker` with these columns:
 
@@ -109,15 +109,15 @@ In your Notion **Finance** page, create a table called `Revenue Tracker` with th
 
 Add a row for the current month with zero values. This is your starting line.
 
-## Procedure 1.3: Configure Your Communication Stack
+### Procedure 1.3: Configure Your Communication Stack
 
-### Create Your Business Email
+#### Create Your Business Email
 
 If you do not have a professional email address on a custom domain, set one up now. Go to Google Workspace (workspace.google.com) and sign up for the Business Starter plan ($6/mo). Register a domain that matches your agency name (e.g., youragency.com) and create your email (e.g., hello@youragency.com or yourname@youragency.com).
 
 Do not use a personal Gmail address for client communication. It signals amateur status. A custom domain email costs $6/month and instantly elevates your perceived professionalism.
 
-### Create Your Client-Facing Calendar
+#### Create Your Client-Facing Calendar
 
 Go to cal.com and create a free account. Set up a booking page with two meeting types:
 
@@ -126,7 +126,7 @@ Go to cal.com and create a free account. Set up a booking page with two meeting 
 
 Connect your Google Calendar so bookings appear automatically. Copy your booking link and save it in your Notion **Templates** page.
 
-## Module Check-In
+### Module Check-In
 
 - [ ] Notion Command Center created with all 5 sub-pages
 - [ ] Client Roster database with all 8 columns and a test row
@@ -139,24 +139,24 @@ Count your checkmarks. Do you have all 6? If not, go back and complete the missi
 
 ---
 
-# MODULE 2: TECH STACK — YOUR AUTOMATION ARSENAL
+## MODULE 2: TECH STACK — YOUR AUTOMATION ARSENAL
 
-## Overview
+### Overview
 
 Your agency runs on tools. This module sets up every tool you need, connects them, and verifies each connection. The total cost is under $100/month to start — and most of it is free until you have paying clients.
 
 **Time to complete:** 2 hours
 **Total monthly cost (startup):** $26–$86 depending on your choices
 
-## Procedure 2.1: Set Up Your Core Automation Platform
+### Procedure 2.1: Set Up Your Core Automation Platform
 
-### Create Your Make.com Account
+#### Create Your Make.com Account
 
 Go to make.com and sign up for the Free plan. You get 1,000 operations per month — enough to build and test your first 3-5 workflows.
 
 After signing in, you should see the Make.com dashboard with a "Create a new scenario" button in the center. Do you see it? If you see a different interface, click "Scenarios" in the left sidebar.
 
-### Connect Your Core Services
+#### Connect Your Core Services
 
 In Make.com, click your profile icon (top-right) → **Connections** → **Add connection**. Connect the following services:
 
@@ -170,9 +170,9 @@ After connecting each service, you should see a green "Connected" status next to
 - Google/Gmail/Slack/Notion: Re-authorize and make sure you approve all permissions
 - OpenAI: Verify your API key starts with `sk-` and your account has at least $5 credit
 
-## Procedure 2.2: Set Up Your AI Model Access
+### Procedure 2.2: Set Up Your AI Model Access
 
-### OpenAI API Configuration
+#### OpenAI API Configuration
 
 Go to platform.openai.com. Navigate to **API Keys** and create a new key. Copy it immediately — you cannot view it again. Store it in a password manager (1Password, Bitwarden, or the Mac Keychain). Do not store API keys in Notion pages that you share with anyone.
 
@@ -184,9 +184,9 @@ Navigate to **Usage limits** and set a monthly limit of $50. This prevents a bug
 **HACK:** Set up two separate OpenAI API keys — one for production automations and one for testing. When a test workflow goes haywire, it burns through the testing key's credit, not your production budget. Create the keys at platform.openai.com/api-keys and label them "prod" and "dev."
 {{% /accent-box %}}
 
-## Procedure 2.3: Set Up Your Client Delivery Tools
+### Procedure 2.3: Set Up Your Client Delivery Tools
 
-### Slack Workspace Configuration
+#### Slack Workspace Configuration
 
 Go to slack.com and create a workspace if you have not already. Create these channels:
 
@@ -196,19 +196,19 @@ Go to slack.com and create a workspace if you have not already. Create these cha
 
 Do you see all the channels in your Slack sidebar? The `#automation-errors` channel is the most important — it is your early warning system for broken automations.
 
-### Loom for Client Communication
+#### Loom for Client Communication
 
 Go to loom.com and create a free account. Install the Loom browser extension (Chrome or Firefox). You will use Loom to record walkthrough videos for clients — showing them how to use their automations, explaining reports, and answering questions. A 3-minute Loom video replaces a 30-minute call and can be rewatched indefinitely.
 
 Record a test video: open Loom, click record, say "This is a test video for my agency setup," and stop. Watch the playback. Does the audio sound clear? If it sounds echoey or quiet, adjust your microphone settings. Clear audio is non-negotiable — clients will not watch videos they cannot hear.
 
-### Tally for Lead Capture Forms
+#### Tally for Lead Capture Forms
 
 Go to tally.so and create a free account. Create a simple test form with fields: Name, Email, Phone, Message. You will use this form in Module 4. Publish the form and copy the URL.
 
 Do you see the published form URL? Save it in your Notion Templates page under "Demo Forms."
 
-## Procedure 2.4: Complete Tool Cost Summary
+### Procedure 2.4: Complete Tool Cost Summary
 
 | Tool | Purpose | Free Tier | Paid Tier | When to Upgrade |
 |---|---|---|---|---|
@@ -224,7 +224,7 @@ Do you see the published form URL? Save it in your Notion Templates page under "
 
 **Startup cost: $6/mo (Google Workspace only). Everything else is free until you have revenue.**
 
-## Module Check-In
+### Module Check-In
 
 - [ ] Make.com account with 5 connected services (all green)
 - [ ] OpenAI API key with $20+ credit and $50 monthly limit
@@ -237,19 +237,19 @@ Do you see the published form URL? Save it in your Notion Templates page under "
 
 ---
 
-# MODULE 3: THE BUILD FRAMEWORK — HOW TO BUILD ANY AUTOMATION
+## MODULE 3: THE BUILD FRAMEWORK — HOW TO BUILD ANY AUTOMATION
 
-## Overview
+### Overview
 
 This module teaches you the universal framework for building automations. Every automation you ever build — for yourself or for clients — follows this exact five-phase process. Memorize it. Internalize it. When you can execute this framework without referring to this playbook, you are ready to build for clients.
 
 **Time to complete:** 1-2 hours (study) + 2-8 hours (practice in Module 4)
 
-## Procedure 3.1: The Five-Phase Build Process
+### Procedure 3.1: The Five-Phase Build Process
 
 Every automation has five phases: Discovery, Design, Build, Test, Deploy. You will learn each one now and practice on a real build in Module 4.
 
-### Phase 1: Discovery (1-2 hours)
+#### Phase 1: Discovery (1-2 hours)
 
 Before you touch any software, you must understand the problem. Schedule a 30-minute call with the stakeholder (your client, or yourself for internal projects). Ask these questions in this exact order:
 
@@ -264,7 +264,7 @@ Before you touch any software, you must understand the problem. Schedule a 30-mi
 
 Write the answers in a Google Doc. This document becomes the specification for your build.
 
-### Phase 2: Design (1-2 hours)
+#### Phase 2: Design (1-2 hours)
 
 Open a blank page in Notion (or draw on paper). Map the automation as a flowchart:
 
@@ -285,7 +285,7 @@ For each step, write:
 
 This design document becomes your build plan. Do not start building without one. A build without a design is a build that takes 3x longer and breaks in production.
 
-### Phase 3: Build (2-8 hours)
+#### Phase 3: Build (2-8 hours)
 
 Open Make.com. Create a new scenario. Build the automation following your design document, step by step. For each module:
 
@@ -304,7 +304,7 @@ If a module shows an error (red bubble), read the error message. 90% of errors a
 - **Expired connection** — re-authorize the service connection
 - **API rate limit** — wait 60 seconds and retry
 
-### Phase 4: Test (2-4 hours)
+#### Phase 4: Test (2-4 hours)
 
 Testing is not optional. Testing is not "run it once and hope." Testing is a systematic process.
 
@@ -324,7 +324,7 @@ Document every test result in a Google Sheet called "[Automation Name] Test Resu
 
 Do all 10 tests pass? If any fail, fix the automation and re-run the failed tests. Do not proceed to Phase 5 until all 10 tests pass.
 
-### Phase 5: Deploy (1-2 hours)
+#### Phase 5: Deploy (1-2 hours)
 
 Activate the scenario (toggle the ON/OFF switch in Make.com). Set the schedule. Configure monitoring:
 
@@ -335,7 +335,7 @@ Activate the scenario (toggle the ON/OFF switch in Make.com). Set the schedule. 
 
 Do you see successful executions in the History tab? If you see any errors, investigate and fix before telling the client the automation is live.
 
-## Procedure 3.2: Document Your Build
+### Procedure 3.2: Document Your Build
 
 After deploying, create an SOP in your Notion SOPs page for this specific automation. The SOP must include:
 
@@ -353,7 +353,7 @@ This SOP serves three purposes: (1) you can rebuild the automation if Make.com l
 **HACK:** After writing the SOP, paste it into ChatGPT with the prompt: "Review this SOP for an automation agency. Identify any steps that are unclear, any missing error-handling scenarios, and any variables that might break if the input data changes format." This 60-second review catches 80% of documentation gaps before they become production problems.
 {{% /accent-box %}}
 
-## Module Check-In
+### Module Check-In
 
 - [ ] You can recite the Five-Phase Build Process from memory
 - [ ] You have a blank SOP template in Notion ready for your first build
@@ -365,9 +365,9 @@ This SOP serves three purposes: (1) you can rebuild the automation if Make.com l
 
 ---
 
-# MODULE 4: FIRST BUILD — LEAD CAPTURE PIPELINE
+## MODULE 4: FIRST BUILD — LEAD CAPTURE PIPELINE
 
-## Overview
+### Overview
 
 This module walks you through building a complete, production-ready lead capture automation. After completing it, you will have a portfolio piece and a repeatable service you can sell immediately.
 
@@ -375,7 +375,7 @@ This module walks you through building a complete, production-ready lead capture
 
 **Deliverable:** Web form → AI enrichment → Lead scoring → Routing → Notification → Logging
 
-## Procedure 4.1: Complete the Discovery Phase
+### Procedure 4.1: Complete the Discovery Phase
 
 Open a new Google Doc. Title it "Lead Capture Pipeline — Discovery Notes." Write this specification (this is what you would extract from a real client call):
 
@@ -388,7 +388,7 @@ Open a new Google Doc. Title it "Lead Capture Pipeline — Discovery Notes." Wri
 
 Read through this specification twice. Do you understand every requirement? If anything is unclear, re-read it.
 
-## Procedure 4.2: Design the Automation
+### Procedure 4.2: Design the Automation
 
 Create a flowchart in Notion:
 
@@ -407,9 +407,9 @@ Create a flowchart in Notion:
 
 Does your design match this flow? The design above covers every requirement: spam filtering, AI enrichment, scoring, and three-tier routing.
 
-## Procedure 4.3: Build the Automation in Make.com
+### Procedure 4.3: Build the Automation in Make.com
 
-### Step A: Create the Trigger
+#### Step A: Create the Trigger
 
 Create a new scenario in Make.com. Name it "Lead Capture Pipeline."
 
@@ -421,7 +421,7 @@ In Tally, go to **Integrations** → **Webhooks** → paste your Make.com webhoo
 
 Do you see the test data in Make.com? You should see fields like `name`, `email`, `phone`, `service_interest`, and `message`. If you see empty data, go back to Tally and verify the webhook URL is correct.
 
-### Step B: Add Spam Filtering
+#### Step B: Add Spam Filtering
 
 Add a **Router** module after the Webhook. On Path 1 (the clean path), add a filter:
 - Condition: `email` does NOT contain "test" AND `email` does NOT contain ".xyz"
@@ -432,7 +432,7 @@ Test: Submit a form with email "test@test.com." Verify it goes to the spam path.
 
 Do both tests pass? If the real submission goes to the spam path, your filter conditions are too aggressive.
 
-### Step C: Add AI Enrichment and Scoring
+#### Step C: Add AI Enrichment and Scoring
 
 After the Router's clean path, add an **OpenAI — Create a Chat Completion** module:
 
@@ -444,7 +444,7 @@ Add a **Parse JSON** module after OpenAI to convert the text response into struc
 
 Test: Submit a real-looking form. Check the Parse JSON output. Do you see `score`, `primary_need`, `is_new_customer`, `urgency`, and `suggested_action` as separate variables? If the Parse JSON module shows an error, add "Respond ONLY in valid JSON, no markdown formatting" to the system prompt and test again.
 
-### Step D: Add Routing and Notifications
+#### Step D: Add Routing and Notifications
 
 Add another **Router** after Parse JSON.
 
@@ -475,7 +475,7 @@ Module: **Google Sheets — Add a Row** logging to a "Warm Leads" sheet
 Filter: `score` ≤ 3
 Module: **Google Sheets — Add a Row** logging to a "Cold Leads" sheet
 
-### Step E: Add Error Handling
+#### Step E: Add Error Handling
 
 Add a **Break** error handler to the OpenAI module. After the Break, add a **Slack — Create a Message** to `#automation-errors`:
 
@@ -487,11 +487,11 @@ Manual action required: Enrich this lead and add to the appropriate sheet.
 
 Enable **Automatic retry** (3 retries, 10-second interval) on the OpenAI module.
 
-## Procedure 4.4: Run the 10-Test Protocol
+### Procedure 4.4: Run the 10-Test Protocol
 
 Create a Google Sheet called "Lead Capture Test Results." Run all 10 tests from Procedure 3.1. Document each result. Do all tests pass? If any fail, fix and re-test until all pass.
 
-## Procedure 4.5: Deploy and Document
+### Procedure 4.5: Deploy and Document
 
 Activate the scenario. Set the schedule to "Immediately" (webhook-triggered scenarios run in real time). Create the SOP in your Notion SOPs page. Include all 7 sections from Procedure 3.2.
 
@@ -499,7 +499,7 @@ Activate the scenario. Set the schedule to "Immediately" (webhook-triggered scen
 **HACK:** Record a 3-minute Loom video walking through the working automation. Show the form submission, the data flowing through Make.com, and the Slack notification arriving. This video becomes your most powerful sales asset — prospects see a real system working in real time, not a mockup or a slide deck.
 {{% /accent-box %}}
 
-## Module Check-In
+### Module Check-In
 
 - [ ] Lead capture automation built and tested in Make.com
 - [ ] Spam filtering works (tested with spam and non-spam submissions)
@@ -514,15 +514,15 @@ Activate the scenario. Set the schedule to "Immediately" (webhook-triggered scen
 
 ---
 
-# MODULE 5: CLIENT ACQUISITION — THE MACHINE THAT FEEDS THE MACHINE
+## MODULE 5: CLIENT ACQUISITION — THE MACHINE THAT FEEDS THE MACHINE
 
-## Overview
+### Overview
 
 You can build automations. Now you need clients who will pay you to build them. This module gives you the exact scripts, templates, and processes for acquiring clients consistently. No guessing. No hoping. Follow the procedures and clients will appear.
 
 **Time to complete:** 6-8 hours (mostly prospect research and email sending)
 
-## Procedure 5.1: Define Your Target Market
+### Procedure 5.1: Define Your Target Market
 
 Pick one business category. Not five. Not three. One. The best categories for starting automation agencies:
 
@@ -541,7 +541,7 @@ Write your chosen category on a sticky note. Put it on your monitor. Do not chan
 **HACK:** The fastest path to your first client is the category where you already have domain knowledge. Former dental assistant? Target dental practices. Ran an Etsy shop? Target e-commerce. Personal experience gives you instant credibility that no script can replicate.
 {{% /accent-box %}}
 
-## Procedure 5.2: Build Your 50-Prospect List
+### Procedure 5.2: Build Your 50-Prospect List
 
 Open Google Maps. Search for "[your category] in [your city/region]." You should see a list of businesses with names, addresses, phone numbers, and websites.
 
@@ -557,7 +557,7 @@ Find 50 businesses. Yes, 50. This takes 3-4 hours. Do it in one sitting. Do not 
 
 Do you have 50 rows in your Prospect List? If you have fewer, go back to Google Maps and find more. 50 is the minimum for statistical significance in outreach.
 
-## Procedure 5.3: Cold Outreach Script
+### Procedure 5.3: Cold Outreach Script
 
 Here is the script. Do not modify it until you have sent 50 emails and tracked the results:
 
@@ -586,7 +586,7 @@ If your reply rate is below 10% after 50 emails, the problem is one of three thi
 2. Your observation is not specific enough (generic observations = generic replies)
 3. Your target market does not see the value (try a different category)
 
-## Procedure 5.4: The Demo Call Script
+### Procedure 5.4: The Demo Call Script
 
 When a prospect books a discovery call, follow this script:
 
@@ -600,7 +600,7 @@ When a prospect books a discovery call, follow this script:
 
 If they say yes, send the Stripe payment link immediately (from your Notion Templates page). If they say "let me think about it," say: "Totally understand. I'll send you a summary email with the demo link so you can share it with your team. What's the best way to follow up with you next week?"
 
-## Module Check-In
+### Module Check-In
 
 - [ ] Target market chosen (one category, written on a sticky note)
 - [ ] 50 prospects in your Prospect List spreadsheet
@@ -612,15 +612,15 @@ If they say yes, send the Stripe payment link immediately (from your Notion Temp
 
 ---
 
-# MODULE 6: CLIENT DELIVERY — THE SYSTEM THAT KEEPS THEM PAYING
+## MODULE 6: CLIENT DELIVERY — THE SYSTEM THAT KEEPS THEM PAYING
 
-## Overview
+### Overview
 
 Landing a client is 20% of the work. Delivering value month after month is 80%. This module gives you the exact delivery framework that keeps clients for 12+ months (instead of the industry average of 3-4 months).
 
 **Time to complete:** Ongoing (4-5 hours per client per month after initial setup)
 
-## Procedure 6.1: The First-Week Onboarding Protocol
+### Procedure 6.1: The First-Week Onboarding Protocol
 
 **Day 1:** Send the welcome email. Schedule the kickoff call via your Cal.com link. Create a Google Drive folder for the client using this structure:
 
@@ -646,7 +646,7 @@ Landing a client is 20% of the work. Delivering value month after month is 80%. 
 
 Do you have a completed Loom walkthrough? This video is your safety net — it answers the client's questions before they ask them, reduces "how does this work?" emails by 80%, and proves you delivered even if the client claims otherwise.
 
-## Procedure 6.2: The Monthly Delivery Calendar
+### Procedure 6.2: The Monthly Delivery Calendar
 
 Every client receives these touchpoints every month:
 
@@ -663,7 +663,7 @@ Total monthly time per Starter client: ~4 hours. At $1,500/month, that is $375/h
 **HACK:** Automate your own delivery calendar. Build a Make.com scenario that runs every Monday at 8 AM and sends you a Slack message listing: which clients need optimization reviews this week, which clients have upcoming check-in calls, and which clients have not been contacted in 14+ days. This prevents the "I forgot about Client X" problem that causes churn.
 {{% /accent-box %}}
 
-## Procedure 6.3: The Churn Prevention System
+### Procedure 6.3: The Churn Prevention System
 
 Client churn follows predictable patterns. Here are the four warning signs and how to address each one:
 
@@ -681,7 +681,7 @@ Action: Offer to build one additional automation at no extra cost for one month.
 
 Log all churn warning signs in the Client Roster. Set the Health Score to Yellow or Red. Review weekly.
 
-## Module Check-In
+### Module Check-In
 
 - [ ] First-week onboarding protocol documented as an SOP
 - [ ] Monthly delivery calendar created for your first client
@@ -692,15 +692,15 @@ Log all churn warning signs in the Client Roster. Set the Health Score to Yellow
 
 ---
 
-# MODULE 7: PRICING & PROPOSALS — CHARGE WHAT YOU ARE WORTH
+## MODULE 7: PRICING & PROPOSALS — CHARGE WHAT YOU ARE WORTH
 
-## Overview
+### Overview
 
 Most new agency operators undercharge. This module gives you the exact pricing tiers, proposal template, and contract essentials so you never again wonder "how much should I charge for this?" The prices in this module are floor prices — increase them by 20% after every 5th client.
 
 **Time to complete:** 1-2 hours (initial setup)
 
-## Procedure 7.1: The Three Pricing Tiers
+### Procedure 7.1: The Three Pricing Tiers
 
 Present three tiers to every prospect. The middle tier should feel like the obvious choice — this is called the anchoring effect. Price the lowest tier so it barely covers your costs, and the highest tier so it feels like a premium upgrade.
 
@@ -718,11 +718,11 @@ These rates are achievable because automation delivers measurable ROI. A $1,500/
 **HACK:** Always present the Growth tier first. Say: "Most of our clients start with the Growth tier at $3,000/month — it gives you two automations, which is usually enough to cover your biggest pain points." If they flinch at the number, the Starter tier feels like a relief. If they do not flinch, the Enterprise tier is the natural upsell. Never present the cheapest option first.
 {{% /accent-box %}}
 
-## Procedure 7.2: The Proposal Template
+### Procedure 7.2: The Proposal Template
 
 Create this proposal in your Notion **Templates** page. Copy and customize it for each prospect.
 
-### Proposal Structure
+#### Proposal Structure
 
 **Section 1: Executive Summary** (3-4 sentences)
 "[Agency Name] will design, build, and maintain custom automations for [Client Name]. Our approach eliminates manual workflows in [specific area identified on demo call], saving your team an estimated [X] hours per week. We propose a [Tier Name] engagement starting on [date]."
@@ -760,7 +760,7 @@ List each automation you will build. For each one, include:
 
 Save this template. Use it for every proposal. Do not customize the structure — only the specific details. Consistency speeds up your sales cycle.
 
-## Procedure 7.3: The Pricing Increase Schedule
+### Procedure 7.3: The Pricing Increase Schedule
 
 After every 5th client, increase all prices by 20%. Here is the schedule:
 
@@ -773,7 +773,7 @@ After every 5th client, increase all prices by 20%. Here is the schedule:
 
 Your early clients get the best price. They also get your most attentive service because you have fewer clients. This is a feature, not a bug — it keeps your first clients loyal and generates referrals. When you raise prices, your existing clients stay at their original rate (grandfathered). New clients pay the new rate.
 
-## Module Check-In
+### Module Check-In
 
 - [ ] Three pricing tiers documented in Notion and Stripe
 - [ ] Proposal template saved in Notion Templates page
@@ -784,13 +784,13 @@ Your early clients get the best price. They also get your most attentive service
 
 ---
 
-# MODULE 8: SCALING — FROM SOLO TO AGENCY
+## MODULE 8: SCALING — FROM SOLO TO AGENCY
 
-## Overview
+### Overview
 
 Solo operators hit a ceiling at ~6-8 clients (~$10-15K/month). Breaking through requires systems and people. This module shows you exactly how and when to hire, what to delegate, and how to maintain margins as you grow.
 
-## Procedure 8.1: The Hiring Roadmap
+### Procedure 8.1: The Hiring Roadmap
 
 **When you have 5 clients:** Hire a Virtual Assistant (VA) on Upwork. Budget: $5-8/hour, 10-15 hours/week. The VA handles:
 - Client communication (responding to emails, scheduling calls)
@@ -816,7 +816,7 @@ Solo operators hit a ceiling at ~6-8 clients (~$10-15K/month). Breaking through 
 **HACK:** Before hiring anyone, write the SOP for their role first. If you cannot document the process, you cannot delegate it. The act of writing the SOP reveals whether you actually have a repeatable system or just a habit. If it is a habit, systematize it before hiring — otherwise you will spend all your time training and none of your time selling.
 {{% /accent-box %}}
 
-## Procedure 8.2: Margin Analysis at Scale
+### Procedure 8.2: Margin Analysis at Scale
 
 | Clients | Revenue/mo | Team Cost/mo | Tool Cost/mo | Net Profit/mo | Margin |
 |---|---|---|---|---|---|
@@ -834,7 +834,7 @@ The key insight: do not optimize for margin percentage. Optimize for profit doll
 **HACK:** Track your effective hourly rate weekly. Divide your monthly profit by the total hours you worked that month. If your effective rate drops below $200/hour, you are doing tasks that should be delegated. Every hour you spend on a $20/hour task is an hour you are not spending on a $500/hour task (selling, building, or strategizing).
 {{% /accent-box %}}
 
-## Module Check-In
+### Module Check-In
 
 - [ ] Hiring roadmap is saved in Notion with trigger points for each hire
 - [ ] You understand margin compression and why it is acceptable
@@ -845,7 +845,7 @@ The key insight: do not optimize for margin percentage. Optimize for profit doll
 
 ---
 
-# APPENDIX A: TOOL REFERENCE
+## APPENDIX A: TOOL REFERENCE
 
 Every tool mentioned in this playbook, with direct links and current pricing as of April 2026.
 
@@ -867,7 +867,7 @@ Every tool mentioned in this playbook, with direct links and current pricing as 
 
 ---
 
-# APPENDIX B: SOP INDEX
+## APPENDIX B: SOP INDEX
 
 A complete list of every Standard Operating Procedure you should have in your Notion SOPs database by the time you complete this playbook.
 
@@ -893,11 +893,11 @@ Each SOP should follow the 7-section format from Procedure 3.2. If an SOP has fe
 
 ---
 
-# APPENDIX C: REVENUE CALCULATOR
+## APPENDIX C: REVENUE CALCULATOR
 
 Use this table to project your agency revenue based on the number and mix of clients you acquire. These calculations assume the base pricing tiers (before price increases).
 
-## Single-Tier Revenue Projections
+### Single-Tier Revenue Projections
 
 | Clients | Starter Only | Growth Only | Enterprise Only |
 |---|---|---|---|
@@ -907,7 +907,7 @@ Use this table to project your agency revenue based on the number and mix of cli
 | 8 | $12,000/mo | $24,000/mo | $40,000/mo |
 | 10 | $15,000/mo | $30,000/mo | $50,000/mo |
 
-## Realistic Mixed-Tier Scenario
+### Realistic Mixed-Tier Scenario
 
 Most agencies have a mix of tiers. Here is a realistic progression:
 
@@ -919,7 +919,7 @@ Most agencies have a mix of tiers. Here is a realistic progression:
 | Month 12 | 3 Starter + 4 Growth + 2 Enterprise | $25,500 | $34,000 | $340,000 |
 | Month 18 | 4 Starter + 6 Growth + 3 Enterprise | $37,000 | $48,000 | $492,000 |
 
-## Setup Fee Revenue Alone
+### Setup Fee Revenue Alone
 
 Setup fees are the most overlooked revenue source in new agencies. Here is what setup fees look like at each milestone:
 

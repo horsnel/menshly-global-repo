@@ -15,16 +15,16 @@ This is not a blog post condensed into a PDF. This is an operating system for bu
 
 ---
 
-# MODULE 1: FOUNDATION — YOUR BOOKKEEPING COMMAND CENTER
+## MODULE 1: FOUNDATION — YOUR BOOKKEEPING COMMAND CENTER
 
-## Overview
+### Overview
 
 Before you automate a single transaction, you need the infrastructure that runs your bookkeeping practice. This module sets up your project management, client portal, financial tracking, and communication systems. These are not optional. Every successful bookkeeping operator has these systems in place before their first client call. Every failed operator skipped them.
 
 **Time to complete:** 3-4 hours
 **Tools needed:** Notion (free), QuickBooks Online Accountant (free for accountants), Zapier (free tier), Paystack (free)
 
-## Procedure 1.1: Create Your Bookkeeping Command Center in Notion
+### Procedure 1.1: Create Your Bookkeeping Command Center in Notion
 
 Open your browser and go to notion.so. Sign in or create a free account. You should see the Notion dashboard — a clean sidebar on the left and a main area with a "New page" button.
 
@@ -44,7 +44,7 @@ Inside this page, create seven sub-pages by typing `/page` and naming each one:
 
 Do you see all seven sub-pages listed inside your Command Center? If any are missing, add them now. You should have exactly seven. Count them.
 
-### The Clients Database
+#### The Clients Database
 
 Open the **Clients** sub-page. Type `/table` and select **Table — Full page**. This creates a database. Name it `Client Roster`.
 
@@ -66,7 +66,7 @@ Add one row for yourself as a test: Client Name = "Test Client," Status = "Activ
 
 Do you see the test row in your table with all columns populated? If any columns are missing, add them. Incomplete data tracking is the number one cause of bookkeeping practice cash flow problems.
 
-### The Automation Logs Database
+#### The Automation Logs Database
 
 Open the **Automation Logs** sub-page. Create another full-page table called `Zapier Workflow Registry`.
 
@@ -84,15 +84,15 @@ Add these columns:
 
 You will populate this database throughout this playbook. By the end, you will have entries for every Zapier workflow across every client.
 
-## Procedure 1.2: Set Up Your Financial Infrastructure
+### Procedure 1.2: Set Up Your Financial Infrastructure
 
-### Create Your Paystack Account
+#### Create Your Paystack Account
 
 Go to paystack.com and create a business account. Complete the business verification process (you will need a Nigerian bank account, BVN, and business registration documents). This typically takes 2-5 business days for approval.
 
 Once approved, you should see the Paystack dashboard with a "Test mode" toggle in the top-right corner. Do you see it? If your account is still pending verification, continue with the rest of this module and return to this step when approved.
 
-### Create Your Payment Products
+#### Create Your Payment Products
 
 In Paystack, go to **Products** in the left sidebar. Click **Add product**. Create six products — three setup fees and three monthly retainers:
 
@@ -109,7 +109,7 @@ Create payment links for each product (click the product → **Create payment li
 
 Do you see all six products listed in your Paystack dashboard? Do all six have payment links? If any are missing, create them now. A missing payment link means a delayed payment, which means a delayed start, which means a frustrated client.
 
-### Set Up Revenue Tracking
+#### Set Up Revenue Tracking
 
 In your Notion **Finance** page, create a table called `Revenue Tracker` with these columns:
 
@@ -126,15 +126,15 @@ In your Notion **Finance** page, create a table called `Revenue Tracker` with th
 
 Add a row for the current month with zero values. This is your starting line.
 
-## Procedure 1.3: Configure Your Communication Stack
+### Procedure 1.3: Configure Your Communication Stack
 
-### Create Your Business Email
+#### Create Your Business Email
 
 If you do not have a professional email address on a custom domain, set one up now. Go to Google Workspace (workspace.google.com) and sign up for the Business Starter plan ($6/mo). Register a domain that matches your practice name (e.g., yourpractice.com) and create your email (e.g., hello@yourpractice.com or yourname@yourpractice.com).
 
 Do not use a personal Gmail address for client communication. It signals amateur status. A custom domain email costs $6/month and instantly elevates your perceived professionalism.
 
-### Create Your Client-Facing Calendar
+#### Create Your Client-Facing Calendar
 
 Go to cal.com and create a free account. Set up a booking page with two meeting types:
 
@@ -147,7 +147,7 @@ Connect your Google Calendar so bookings appear automatically. Copy your booking
 **HACK:** Use Notion's "Template" button inside your Client Roster database to create a pre-filled template for new clients. Include default values for Status ("Onboarding"), Health Score ("Green"), and a checklist of onboarding tasks: "Collect QBO access," "Obtain bank statements," "Review chart of accounts," "Set up Zapier triggers." This saves 15 minutes every time you sign a new client.
 {{% /accent-box %}}
 
-## Check-In: Module 1 Complete
+### Check-In: Module 1 Complete
 
 Before moving to Module 2, verify every item:
 
@@ -163,22 +163,22 @@ Count your checkmarks. Do you have all 7? If not, go back and complete the missi
 
 ---
 
-# MODULE 2: TECH STACK — YOUR BOOKKEEPING AUTOMATION ARSENAL
+## MODULE 2: TECH STACK — YOUR BOOKKEEPING AUTOMATION ARSENAL
 
-## Overview
+### Overview
 
 Your bookkeeping practice runs on tools. This module sets up every tool you need, connects them, and verifies each connection. The total cost is under ₦50,000/month — and most of it is free until you have paying clients.
 
 **Time to complete:** 3-4 hours
 **Total monthly cost (startup):** ₦0–₦15,000 depending on your choices
 
-## Procedure 2.1: Set Up QuickBooks Online Accountant
+### Procedure 2.1: Set Up QuickBooks Online Accountant
 
 Go to quickbooks.intuit.com/accountants/ and sign up for QuickBooks Online Accountant. This is free for accounting professionals and gives you access to the Accountant Toolbox, wholesale pricing on QBO subscriptions, and the ability to manage multiple client books from a single dashboard.
 
 After signing in, you should see the QBO Accountant dashboard with a "Add client" button. Do you see it? If you see a different interface, click "Clients" in the left sidebar.
 
-### Configure Your Firm Settings
+#### Configure Your Firm Settings
 
 Click the gear icon (top-right) → **Firm Settings**. Fill in:
 
@@ -190,17 +190,17 @@ Click the gear icon (top-right) → **Firm Settings**. Fill in:
 
 Click **Save**.
 
-### Enable ProConnect Tax (Optional for Nigerian Market)
+#### Enable ProConnect Tax (Optional for Nigerian Market)
 
 If you plan to offer tax filing services, navigate to the **Tax** tab in QBO Accountant. For Nigerian clients, you will handle VAT, WHT, and CIT manually or through dedicated Nigerian tax software. QBO does not natively support Nigerian tax forms. This is an opportunity — you will build custom tax computation workflows in Module 7.
 
-## Procedure 2.2: Set Up Zapier and Connect Core Services
+### Procedure 2.2: Set Up Zapier and Connect Core Services
 
 Go to zapier.com and sign up for the Free plan. You get 100 tasks per month — enough to build and test your first 3-5 workflows.
 
 After signing in, you should see the Zapier dashboard with a "Create a Zap" button. Do you see it?
 
-### Connect Your Core Services
+#### Connect Your Core Services
 
 In Zapier, click **My Apps** in the left sidebar → **Add connection**. Connect the following services:
 
@@ -215,9 +215,9 @@ After connecting each service, you should see a green "Connected" status next to
 - Google/Gmail/Slack/Notion: Re-authorize and make sure you approve all permissions
 - QuickBooks Online: Ensure you are using QBO Accountant (not a regular QBO subscription)
 
-## Procedure 2.3: Set Up AI Model Access
+### Procedure 2.3: Set Up AI Model Access
 
-### OpenAI API Configuration
+#### OpenAI API Configuration
 
 Go to platform.openai.com. Navigate to **API Keys** and create a new key. Copy it immediately — you cannot view it again. Store it in a password manager (1Password, Bitwarden, or the Mac Keychain). Do not store API keys in Notion pages that you share with anyone.
 
@@ -225,7 +225,7 @@ Navigate to **Billing** and add $20 in credit. This funds your API usage for app
 
 Navigate to **Usage limits** and set a monthly limit of $100. This prevents a buggy Zap from draining your credit overnight.
 
-### Anthropic Claude API (Recommended for Bookkeeping)
+#### Anthropic Claude API (Recommended for Bookkeeping)
 
 Go to console.anthropic.com and create an account. Navigate to **API Keys** and create a key. Add $10 in credit. Claude is superior to GPT-4o for financial document analysis, nuanced transaction categorization, and complex reasoning tasks involving multi-step accounting logic. Use GPT-4o for structured outputs (JSON) and Claude for document analysis and reconciliation tasks.
 
@@ -233,9 +233,9 @@ Go to console.anthropic.com and create an account. Navigate to **API Keys** and 
 **HACK:** Set up two separate OpenAI API keys — one for production automations and one for testing. When a test workflow goes haywire, it burns through the testing key's credit, not your production budget. Create the keys at platform.openai.com/api-keys and label them "prod-bookkeeping" and "dev-bookkeeping."
 {{% /accent-box %}}
 
-## Procedure 2.4: Set Up Your Client Delivery Tools
+### Procedure 2.4: Set Up Your Client Delivery Tools
 
-### Slack Workspace Configuration
+#### Slack Workspace Configuration
 
 Go to slack.com and create a workspace if you have not already. Create these channels:
 
@@ -245,13 +245,13 @@ Go to slack.com and create a workspace if you have not already. Create these cha
 
 Do you see all the channels in your Slack sidebar? The `#automation-errors` channel is the most important — it is your early warning system for broken automations.
 
-### Loom for Client Communication
+#### Loom for Client Communication
 
 Go to loom.com and create a free account. Install the Loom browser extension. You will use Loom to record walkthrough videos for clients — showing them their financial dashboards, explaining reconciliation results, and answering questions. A 3-minute Loom video replaces a 30-minute call and can be rewatched indefinitely.
 
 Record a test video: open Loom, click record, say "This is a test video for my bookkeeping practice setup," and stop. Watch the playback. Does the audio sound clear? If it sounds echoey or quiet, adjust your microphone settings. Clear audio is non-negotiable.
 
-### Google Drive Client Folder Structure
+#### Google Drive Client Folder Structure
 
 Create a folder structure in Google Drive:
 
@@ -273,7 +273,7 @@ Practice Drive/
 
 Create this structure now. Do you see all the folders? This organization prevents the chaos that kills bookkeeping practices — the "where did I put that client's bank statement?" problem that wastes hours every week.
 
-## Procedure 2.5: Complete Tool Cost Summary
+### Procedure 2.5: Complete Tool Cost Summary
 
 | Tool | Purpose | Free Tier | Paid Tier | When to Upgrade |
 |---|---|---|---|---|
@@ -289,7 +289,7 @@ Create this structure now. Do you see all the folders? This organization prevent
 
 **Startup cost: $6/mo (Google Workspace only). Everything else is free until you have revenue.**
 
-## Check-In: Module 2 Complete
+### Check-In: Module 2 Complete
 
 - [ ] QuickBooks Online Accountant account with firm settings configured
 - [ ] Zapier account with 5 connected services (all green)
@@ -304,22 +304,22 @@ Create this structure now. Do you see all the folders? This organization prevent
 
 ---
 
-# MODULE 3: CHART OF ACCOUNTS SETUP — THE SPINE OF EVERY CLIENT
+## MODULE 3: CHART OF ACCOUNTS SETUP — THE SPINE OF EVERY CLIENT
 
-## Overview
+### Overview
 
 Every bookkeeping engagement starts with a properly structured chart of accounts (CoA). A bad CoA produces bad financial statements, which produces bad business decisions, which produces churned clients. This module gives you the exact CoA templates, the exact QuickBooks setup steps, and the exact AI-powered categorization rules that make your practice deliver accurate books on day one.
 
 **Time to complete:** 2-3 hours per client
 **Tools needed:** QuickBooks Online, Notion, OpenAI API
 
-## Procedure 3.1: Create Your Master Chart of Accounts Template
+### Procedure 3.1: Create Your Master Chart of Accounts Template
 
 Open your Notion **Templates** page. Create a new sub-page called `Master Chart of Accounts`. This template will be cloned and customized for every new client.
 
 Build the following CoA structure. These are the standard accounts required for Nigerian SMEs. Every account listed below must exist in your template.
 
-### Asset Accounts (1000–1999)
+#### Asset Accounts (1000–1999)
 
 | Account Number | Account Name | Type | Detail Type |
 |---|---|---|---|
@@ -335,7 +335,7 @@ Build the following CoA structure. These are the standard accounts required for 
 | 1510 | Fixed Assets — Vehicles | Fixed Asset | Vehicles |
 | 1520 | Accumulated Depreciation | Fixed Asset | Accumulated Depreciation |
 
-### Liability Accounts (2000–2999)
+#### Liability Accounts (2000–2999)
 
 | Account Number | Account Name | Type | Detail Type |
 |---|---|---|---|
@@ -348,7 +348,7 @@ Build the following CoA structure. These are the standard accounts required for 
 | 2500 | Customer Deposits | Other Current Liability | Customer Deposits |
 | 2600 | Bank Loan — GTBank | Long Term Liability | Notes Payable |
 
-### Equity Accounts (3000–3999)
+#### Equity Accounts (3000–3999)
 
 | Account Number | Account Name | Type | Detail Type |
 |---|---|---|---|
@@ -356,7 +356,7 @@ Build the following CoA structure. These are the standard accounts required for 
 | 3100 | Retained Earnings | Equity | Retained Earnings |
 | 3200 | Owner's Drawings | Equity | Owner's Drawings |
 
-### Revenue Accounts (4000–4999)
+#### Revenue Accounts (4000–4999)
 
 | Account Number | Account Name | Type | Detail Type |
 |---|---|---|---|
@@ -365,14 +365,14 @@ Build the following CoA structure. These are the standard accounts required for 
 | 4200 | Interest Income | Income | Interest Earned |
 | 4300 | Other Income | Income | Other Miscellaneous Income |
 
-### Cost of Goods Sold (5000–5999)
+#### Cost of Goods Sold (5000–5999)
 
 | Account Number | Account Name | Type | Detail Type |
 |---|---|---|---|
 | 5000 | Cost of Goods Sold | Cost of Goods Sold | Cost of Goods Sold |
 | 5100 | Freight and Delivery | Cost of Goods Sold | Shipping and Delivery |
 
-### Expense Accounts (6000–6999)
+#### Expense Accounts (6000–6999)
 
 | Account Number | Account Name | Type | Detail Type |
 |---|---|---|---|
@@ -391,7 +391,7 @@ Build the following CoA structure. These are the standard accounts required for 
 
 Do you see all accounts listed in your Notion template? Count them. You should have 35+ accounts. This is your starting template — every client will have additions, but no client should have fewer accounts than this.
 
-## Procedure 3.2: Set Up the Chart of Accounts in QuickBooks Online
+### Procedure 3.2: Set Up the Chart of Accounts in QuickBooks Online
 
 For each new client, follow this exact procedure:
 
@@ -401,7 +401,7 @@ For each new client, follow this exact procedure:
 4. For each account in your Master CoA template, enter the Account Number, Name, Type, and Detail Type exactly as listed.
 5. After all accounts are entered, click **Run Report** → **Balance Sheet** to verify the accounts appear correctly.
 
-### AI-Powered CoA Customization
+#### AI-Powered CoA Customization
 
 After entering the standard accounts, use OpenAI to generate client-specific additions. Create a Zapier workflow (you will build this in Module 4) that:
 
@@ -416,7 +416,7 @@ Do NOT add AI-suggested accounts without human review. AI generates plausible-so
 **HACK:** Create a Notion database called "Industry CoA Add-ons" with columns: Industry, Account Number, Account Name, Type, Detail Type, and Notes. Every time you customize a CoA for a new industry, save the additions here. After 5 clients in the same industry, you will have a complete industry-specific CoA that requires zero AI generation — you just clone it from Notion.
 {{% /accent-box %}}
 
-## Procedure 3.3: Configure QBO Bank Rules for Auto-Categorization
+### Procedure 3.3: Configure QBO Bank Rules for Auto-Categorization
 
 After the CoA is set up, configure bank rules in QBO to auto-categorize recurring transactions. This is the first layer of automation — before Zapier, before AI.
 
@@ -437,7 +437,7 @@ After creating each rule, go to **Banking** → **For Review** tab. Find a trans
 
 Create at least 6 bank rules before proceeding. These rules will auto-categorize 40-60% of all transactions, reducing the manual work your AI workflows need to handle.
 
-## Check-In: Module 3 Complete
+### Check-In: Module 3 Complete
 
 - [ ] Master Chart of Accounts template created in Notion with 35+ accounts
 - [ ] Test client QBO company created with full CoA entered
@@ -449,18 +449,18 @@ Create at least 6 bank rules before proceeding. These rules will auto-categorize
 
 ---
 
-# MODULE 4: TRANSACTION AUTOMATION — THE CORE ENGINE
+## MODULE 4: TRANSACTION AUTOMATION — THE CORE ENGINE
 
-## Overview
+### Overview
 
 This module builds the core automation engine: bank transactions flow from QBO into your categorization pipeline, AI categorizes what the bank rules miss, and everything is logged and verified. This is the single most valuable automation in your entire practice. It replaces 15-20 hours of manual transaction categorization per client per month.
 
 **Time to complete:** 4-6 hours
 **Tools needed:** Zapier, QuickBooks Online, OpenAI API, Google Sheets, Slack
 
-## Procedure 4.1: Build the Transaction Categorization Zap
+### Procedure 4.1: Build the Transaction Categorization Zap
 
-### Step A: Create the Trigger
+#### Step A: Create the Trigger
 
 In Zapier, click **Create a Zap**. Name it "Transaction Categorization Pipeline."
 
@@ -468,7 +468,7 @@ For the trigger, select **QuickBooks Online** → **New Transaction**. Connect y
 
 Test the trigger. Do you see sample transaction data? You should see fields like: `Id`, `TxnType`, `Amount`, `Description`, `AccountRef`, `Date`. If the trigger returns empty data, go to QBO and manually add a test transaction, then re-test the trigger.
 
-### Step B: Filter Out Already-Categorized Transactions
+#### Step B: Filter Out Already-Categorized Transactions
 
 Add a **Filter** step (Zapier built-in):
 
@@ -476,7 +476,7 @@ Condition: `Category` does NOT exist (is empty) OR `Category` equals "Uncategori
 
 This ensures the Zap only processes transactions that QBO's bank rules did NOT already categorize. Do not re-process categorized transactions — that wastes API credits and can overwrite correct categories.
 
-### Step C: AI Categorization
+#### Step C: AI Categorization
 
 Add a **ChatGPT** step (OpenAI in Zapier):
 
@@ -513,7 +513,7 @@ Date: {{Date}}
 Account: {{AccountRef__name}}
 ```
 
-### Step D: Parse the AI Response
+#### Step D: Parse the AI Response
 
 Add a **Code by Zapier** step (JavaScript):
 
@@ -541,7 +541,7 @@ try {
 }
 ```
 
-### Step E: Route Based on Confidence
+#### Step E: Route Based on Confidence
 
 Add a **Paths** step (Zapier built-in):
 
@@ -568,7 +568,7 @@ Link: [QBO Transaction URL]
 
 Also add a **Google Sheets** step → **Add Row** to the same "Transaction Log" spreadsheet with Action Taken = "FLAGGED FOR REVIEW".
 
-## Procedure 4.2: Test the Transaction Pipeline
+### Procedure 4.2: Test the Transaction Pipeline
 
 Create 10 test transactions in QBO that simulate real Nigerian business activity:
 
@@ -587,7 +587,7 @@ Create 10 test transactions in QBO that simulate real Nigerian business activity
 
 Run the Zap for each test transaction. Does the AI categorize at least 8 out of 10 correctly? If accuracy is below 80%, refine the system prompt with additional Nigerian banking abbreviations and common transaction patterns. Re-test until you achieve 80%+ accuracy.
 
-## Procedure 4.3: Build the Weekly Transaction Summary Zap
+### Procedure 4.3: Build the Weekly Transaction Summary Zap
 
 Create a second Zap that runs every Friday at 5 PM WAT:
 
@@ -618,7 +618,7 @@ Please reply with corrections or approvals by Monday 12 PM.
 [Your Practice Name]
 ```
 
-## Check-In: Module 4 Complete
+### Check-In: Module 4 Complete
 
 - [ ] Transaction Categorization Zap built with trigger, filter, AI, parser, and paths
 - [ ] 10 test transactions run through the pipeline
@@ -633,18 +633,18 @@ Please reply with corrections or approvals by Monday 12 PM.
 
 ---
 
-# MODULE 5: INVOICE PROCESSING — FROM CHAOS TO CLEAN
+## MODULE 5: INVOICE PROCESSING — FROM CHAOS TO CLEAN
 
-## Overview
+### Overview
 
 Client invoices arrive in every format imaginable — WhatsApp photos, email attachments, crumpled paper, PDFs, and Excel sheets. This module builds the automation pipeline that captures, extracts, and processes invoices into QuickBooks with minimal human intervention.
 
 **Time to complete:** 3-4 hours
 **Tools needed:** Zapier, Gmail, Google Drive, OpenAI API (GPT-4o with Vision), QuickBooks Online
 
-## Procedure 5.1: Set Up the Invoice Capture Pipeline
+### Procedure 5.1: Set Up the Invoice Capture Pipeline
 
-### Configure Gmail Inbox for Invoice Intake
+#### Configure Gmail Inbox for Invoice Intake
 
 Create a dedicated email address or label for invoice intake: `invoices@yourpractice.com` or set up a Gmail filter that labels emails containing "invoice," "receipt," or "bill" as "Invoice Intake."
 
@@ -652,7 +652,7 @@ In Gmail, click the search bar → **Show search options** → enter the followi
 - **Has the words:** invoice OR receipt OR bill OR remita OR payment voucher
 - Click **Create filter** → check **Apply the label** → create new label "Invoice Intake" → check **Also apply filter to matching conversations** → **Create filter**
 
-### Build the Invoice Capture Zap
+#### Build the Invoice Capture Zap
 
 Create a new Zap: "Invoice Processing Pipeline."
 
@@ -763,15 +763,15 @@ Action: Manual review required
 
 2. Google Sheets → **Add Row** to "Invoice Processing Log" with status "ERROR"
 
-## Procedure 5.2: Set Up WhatsApp Invoice Forwarding
+### Procedure 5.2: Set Up WhatsApp Invoice Forwarding
 
 Nigerian SMEs send invoices via WhatsApp. You need a way to capture these.
 
-### Option A: WhatsApp Business API + Zapier
+#### Option A: WhatsApp Business API + Zapier
 
 If you have WhatsApp Business API access, connect it to Zapier using the WhatsApp Business module. Set up a trigger for incoming messages with images. Route images through the same AI extraction pipeline.
 
-### Option B: Manual Forwarding Rule (Simpler, Works Immediately)
+#### Option B: Manual Forwarding Rule (Simpler, Works Immediately)
 
 Create a standard operating procedure for clients:
 
@@ -802,7 +802,7 @@ The clearer the image, the faster we process it.
 **HACK:** Create a WhatsApp group for each client called "[Client Name] — Bookkeeping." Add the business owner and their admin. Tell them to drop invoice photos directly in the group. You (or your VA) monitor the group daily and forward images to the invoices@ email address. This creates a paper trail and makes the client feel supported in real time.
 {{% /accent-box %}}
 
-## Procedure 5.3: Build the Accounts Payable Aging Zap
+### Procedure 5.3: Build the Accounts Payable Aging Zap
 
 Create a Zap that runs every Monday at 9 AM WAT:
 
@@ -830,7 +830,7 @@ Reply to approve payment or flag any discrepancies.
 
 This Zap alone is worth the monthly retainer. Clients love it because it prevents late payment penalties and damaged vendor relationships.
 
-## Check-In: Module 5 Complete
+### Check-In: Module 5 Complete
 
 - [ ] Gmail invoice filter and label configured
 - [ ] Invoice Processing Pipeline Zap built with AI extraction
@@ -846,16 +846,16 @@ This Zap alone is worth the monthly retainer. Clients love it because it prevent
 
 ---
 
-# MODULE 6: BANK RECONCILIATION — AUTOMATED TRUTH
+## MODULE 6: BANK RECONCILIATION — AUTOMATED TRUTH
 
-## Overview
+### Overview
 
 Bank reconciliation is where bookkeeping becomes valuable. It is the process of confirming that every transaction in QBO matches the bank statement. Manual reconciliation takes 4-8 hours per client per month. This module reduces it to 30-60 minutes.
 
 **Time to complete:** 3-4 hours
 **Tools needed:** QuickBooks Online, Google Sheets, OpenAI API, Zapier
 
-## Procedure 6.1: Configure QBO Bank Feeds
+### Procedure 6.1: Configure QBO Bank Feeds
 
 For each client, connect their bank accounts to QBO:
 
@@ -879,7 +879,7 @@ For each client, connect their bank accounts to QBO:
 
 Do you have at least one bank feed connected or importing for your test client? If not, do not proceed. Reconciliation requires bank data.
 
-## Procedure 6.2: Build the Reconciliation Helper Zap
+### Procedure 6.2: Build the Reconciliation Helper Zap
 
 Create a new Zap: "Reconciliation Assistant."
 
@@ -967,7 +967,7 @@ ACTION ITEMS
 
 **Step 6:** Send the report via Gmail to the client and post a summary in Slack.
 
-## Procedure 6.3: Build the Discrepancy Alert Zap
+### Procedure 6.3: Build the Discrepancy Alert Zap
 
 Create a Zap that monitors for reconciliation discrepancies in real time:
 
@@ -983,7 +983,7 @@ This catches large discrepancies immediately rather than waiting for month-end r
 **HACK:** Set your reconciliation threshold per client based on their transaction volume. A client with 50 transactions/month should have a threshold of ₦100,000. A client with 500 transactions/month should have a threshold of ₦500,000. The formula: threshold = (monthly revenue ÷ transaction count) × 3. Store this in the Client Roster and reference it in your Zaps.
 {{% /accent-box %}}
 
-## Check-In: Module 6 Complete
+### Check-In: Module 6 Complete
 
 - [ ] At least one bank feed connected or importing into QBO test client
 - [ ] Reconciliation Assistant Zap built with transaction matching logic
@@ -996,16 +996,16 @@ This catches large discrepancies immediately rather than waiting for month-end r
 
 ---
 
-# MODULE 7: FINANCIAL REPORTING — THE DELIVERABLE THAT SELLS
+## MODULE 7: FINANCIAL REPORTING — THE DELIVERABLE THAT SELLS
 
-## Overview
+### Overview
 
 Clients do not pay for bookkeeping. They pay for financial clarity. This module builds automated financial reporting — the monthly deliverable that proves your value and prevents churn. Every report you generate is a retention tool and a sales asset.
 
 **Time to complete:** 3-4 hours
 **Tools needed:** QuickBooks Online, Google Sheets, OpenAI API, Zapier, Notion
 
-## Procedure 7.1: Build the Monthly Financial Report Generator
+### Procedure 7.1: Build the Monthly Financial Report Generator
 
 Create a new Zap: "Monthly Financial Report."
 
@@ -1096,16 +1096,16 @@ Questions? Reply to this email or book a call: [Cal.com link]
 
 **Step 5:** Gmail → Send the report as a PDF attachment to the client.
 
-## Procedure 7.2: Build the Client Dashboard in Notion
+### Procedure 7.2: Build the Client Dashboard in Notion
 
 For each client, create a Notion dashboard that provides real-time visibility into their financial health.
 
 Open the **Clients** sub-page. Create a template for new client dashboards with these sections:
 
-### Section 1: Financial Snapshot (Linked Database)
+#### Section 1: Financial Snapshot (Linked Database)
 Create a linked view of your Revenue Tracker filtered to this client only.
 
-### Section 2: Key Metrics Board
+#### Section 2: Key Metrics Board
 Add a callout block with these metrics (updated manually or via Zapier Notion integration):
 
 | Metric | This Month | Last Month | Trend |
@@ -1115,22 +1115,22 @@ Add a callout block with these metrics (updated manually or via Zapier Notion in
 | Cash Balance | ₦[Auto] | ₦[Auto] | ↑↓→ |
 | A/R Outstanding | ₦[Auto] | ₦[Auto] | ↑↓→ |
 
-### Section 3: Action Items Tracker
+#### Section 3: Action Items Tracker
 A to-do list with columns: Item, Priority, Due Date, Status, Notes
 
-### Section 4: Document Repository
+#### Section 4: Document Repository
 Links to: Latest monthly report, Current chart of accounts, Engagement letter, Tax filings
 
-### Section 5: Communication Log
+#### Section 5: Communication Log
 A table with columns: Date, Type (Email/Call/WhatsApp), Summary, Follow-Up Required
 
 Share this dashboard with the client by clicking **Share** → **Share to web** or inviting their email. The client sees their financial health at a glance without logging into QBO. This alone justifies your monthly retainer.
 
-## Procedure 7.3: Build the Tax Computation Helper
+### Procedure 7.3: Build the Tax Computation Helper
 
 Nigerian SMEs must compute and remit VAT (7.5%), WHT (5-10%), PAYE (progressive), and Pension (8% employer + 10% employee). QBO does not do this natively. Build a Google Sheet that automates the computation.
 
-### Create the Tax Computation Template
+#### Create the Tax Computation Template
 
 In Google Sheets, create a workbook with these tabs:
 
@@ -1174,7 +1174,7 @@ Build a Zap that pulls transaction data from QBO monthly and populates this spre
 **HACK:** Offer tax computation as a premium add-on for ₦50,000/month on top of the standard retainer. Most Nigerian SMEs pay an external tax consultant ₦100,000-200,000/year just for VAT returns. Your automated spreadsheet does it in 5 minutes per month. This is the highest-margin service in your entire practice.
 {{% /accent-box %}}
 
-## Check-In: Module 7 Complete
+### Check-In: Module 7 Complete
 
 - [ ] Monthly Financial Report Generator Zap built and tested
 - [ ] AI narrative producing clear, jargon-free financial summaries
@@ -1188,16 +1188,16 @@ Build a Zap that pulls transaction data from QBO monthly and populates this spre
 
 ---
 
-# MODULE 8: CLIENT ACQUISITION — THE MACHINE THAT FEEDS THE MACHINE
+## MODULE 8: CLIENT ACQUISITION — THE MACHINE THAT FEEDS THE MACHINE
 
-## Overview
+### Overview
 
 You can automate bookkeeping. Now you need clients who will pay you to automate theirs. This module gives you the exact scripts, templates, and processes for acquiring bookkeeping clients consistently. No guessing. No hoping. Follow the procedures and clients will appear.
 
 **Time to complete:** 6-8 hours (mostly prospect research and outreach)
 **Tools needed:** Google Sheets, Gmail, Cal.com, Notion, Loom
 
-## Procedure 8.1: Define Your Target Market
+### Procedure 8.1: Define Your Target Market
 
 Pick one business category. Not five. Not three. One. The best categories for AI bookkeeping practices in Nigeria:
 
@@ -1212,7 +1212,7 @@ Pick one business category. Not five. Not three. One. The best categories for AI
 
 Write your chosen category on a sticky note. Put it on your monitor. Do not change it for 90 days. Niche focus is the single biggest advantage a new practice has — you learn the specific pain points, build reusable templates, and can speak their language from day one.
 
-## Procedure 8.2: Build Your 50-Prospect List
+### Procedure 8.2: Build Your 50-Prospect List
 
 Open Google Maps. Search for "[your category] in Lagos" (or your target city). You should see a list of businesses with names, addresses, phone numbers, and websites.
 
@@ -1228,7 +1228,7 @@ Find 50 businesses. Yes, 50. This takes 3-4 hours. Do it in one sitting. Do not 
 
 Do you have 50 rows in your Prospect List? If you have fewer, go back to Google Maps and find more. 50 is the minimum for statistical significance.
 
-## Procedure 8.3: Cold Outreach Script
+### Procedure 8.3: Cold Outreach Script
 
 Here is the script. Do not modify it until you have sent 50 emails and tracked the results:
 
@@ -1258,7 +1258,7 @@ If your reply rate is below 10% after 50 emails, the problem is one of three thi
 2. Your observation is not specific enough (generic observations = generic replies)
 3. Your target market does not see the value (try a different category)
 
-## Procedure 8.4: The Demo Call That Closes
+### Procedure 8.4: The Demo Call That Closes
 
 When a prospect books a discovery call, follow this script:
 
@@ -1274,7 +1274,7 @@ When a prospect books a discovery call, follow this script:
 
 If they say yes, send the Paystack payment link immediately. If they say "let me think about it," say: "Totally understand. I'll send you a summary email with a link to the demo video so you can share it with your team. What is the best way to follow up with you next week?"
 
-## Procedure 8.5: The Three Pricing Tiers
+### Procedure 8.5: The Three Pricing Tiers
 
 Present three tiers to every prospect. The middle tier should feel like the obvious choice — this is the anchoring effect.
 
@@ -1292,7 +1292,7 @@ These rates are achievable because automated bookkeeping delivers measurable ROI
 **HACK:** Always present the Growth tier first. Say: "Most of our clients start with the Growth tier at ₦200,000/month — it covers everything from transaction automation to monthly financial reporting." If they flinch, the Starter tier feels like a relief at ₦75,000. If they do not flinch, the Enterprise tier is the natural upsell. Never present the cheapest option first.
 {{% /accent-box %}}
 
-## Check-In: Module 8 Complete
+### Check-In: Module 8 Complete
 
 - [ ] Target market chosen (one category, written on a sticky note)
 - [ ] 50 prospects in your Prospect List spreadsheet
@@ -1306,15 +1306,15 @@ These rates are achievable because automated bookkeeping delivers measurable ROI
 
 ---
 
-# MODULE 9: DELIVERY & RETENTION — THE SYSTEM THAT KEEPS THEM PAYING
+## MODULE 9: DELIVERY & RETENTION — THE SYSTEM THAT KEEPS THEM PAYING
 
-## Overview
+### Overview
 
 Landing a client is 20% of the work. Delivering value month after month is 80%. This module gives you the exact delivery framework that keeps bookkeeping clients for 18+ months (instead of the industry average of 6-8 months).
 
 **Time to complete:** Ongoing (4-10 hours per client per month after initial setup)
 
-## Procedure 9.1: The First-Week Onboarding Protocol
+### Procedure 9.1: The First-Week Onboarding Protocol
 
 **Day 1:** Send the welcome email with onboarding document. Schedule the kickoff call via Cal.com. Create a Google Drive folder for the client using this structure:
 
@@ -1357,7 +1357,7 @@ Also create the client's Notion dashboard (from the Module 7 template).
 
 Send the video and the engagement letter (from Notion Templates) to the client.
 
-## Procedure 9.2: The Monthly Delivery Calendar
+### Procedure 9.2: The Monthly Delivery Calendar
 
 Every client receives these touchpoints every month:
 
@@ -1370,7 +1370,7 @@ Every client receives these touchpoints every month:
 
 Total monthly time per Growth client: ~4 hours. At ₦200,000/month, that is ₦50,000/hour effective rate.
 
-## Procedure 9.3: The Churn Prevention System
+### Procedure 9.3: The Churn Prevention System
 
 Client churn follows predictable patterns. Here are the warning signs and how to address each one:
 
@@ -1395,7 +1395,7 @@ Log all churn warning signs in the Client Roster. Set the Health Score to Yellow
 **HACK:** Build a Zapier workflow that monitors client engagement. If a client has not opened your monthly report email in 2 consecutive months, automatically flag their Health Score as Yellow in your Notion Client Roster and send yourself a Slack reminder to schedule a check-in call. Silent disengagement is the number one predictor of churn.
 {{% /accent-box %}}
 
-## Check-In: Module 9 Complete
+### Check-In: Module 9 Complete
 
 - [ ] First-week onboarding protocol documented as an SOP in Notion
 - [ ] Monthly delivery calendar created for your first client
@@ -1408,15 +1408,15 @@ Log all churn warning signs in the Client Roster. Set the Health Score to Yellow
 
 ---
 
-# MODULE 10: SCALING OPERATIONS — FROM SOLO PRACTICE TO ₦10M/MONTH
+## MODULE 10: SCALING OPERATIONS — FROM SOLO PRACTICE TO ₦10M/MONTH
 
-## Overview
+### Overview
 
 Solo operators hit a ceiling at ~8-10 clients (~₦1.6-2M/month). Breaking through requires systems and people. This module shows you exactly how and when to hire, what to delegate, and how to maintain margins as you grow to ₦10M/month in recurring revenue.
 
 **Time to complete:** Ongoing (as you grow)
 
-## Procedure 10.1: The Hiring Roadmap
+### Procedure 10.1: The Hiring Roadmap
 
 **When you have 5 clients (₦1M/month MRR):** Hire a Virtual Assistant (VA) on Upwork or through Nigerian freelance platforms. Budget: ₦100,000-150,000/month, part-time. The VA handles:
 - Client communication (responding to emails, scheduling calls)
@@ -1445,7 +1445,7 @@ Solo operators hit a ceiling at ~8-10 clients (~₦1.6-2M/month). Breaking throu
 - Quality assurance across all clients
 - Training and mentoring the Junior Bookkeeper
 
-## Procedure 10.2: Margin Analysis at Scale
+### Procedure 10.2: Margin Analysis at Scale
 
 | Clients | Revenue/mo | Team Cost/mo | Tool Cost/mo | Net Profit/mo | Margin |
 |---|---|---|---|---|---|
@@ -1458,11 +1458,11 @@ Solo operators hit a ceiling at ~8-10 clients (~₦1.6-2M/month). Breaking throu
 
 Margins compress as you hire, but absolute profit increases. A 62% margin on ₦10,000,000 is ₦6,150,000/month — far more than a solo operator earning 80% on ₦1,000,000 (₦800,000/month).
 
-## Procedure 10.3: Build the Internal Dashboard
+### Procedure 10.3: Build the Internal Dashboard
 
 Create a Notion page called `Practice Dashboard` that tracks:
 
-### KPI Board
+#### KPI Board
 
 | Metric | Current | Target | Status |
 |---|---|---|---|
@@ -1473,18 +1473,18 @@ Create a Notion page called `Practice Dashboard` that tracks:
 | Automation Uptime | [Auto]% | 99%+ | ↑↓→ |
 | Zapier Tasks Used | [Auto] | [Limit] | ↑↓→ |
 
-### Client Health Overview
+#### Client Health Overview
 A linked view of the Client Roster filtered by Health Score: Red clients first, Yellow next, Green last.
 
-### Revenue Trend
+#### Revenue Trend
 A linked view of the Revenue Tracker showing the last 6 months of MRR growth.
 
-### Team Workload
+#### Team Workload
 A table showing each team member, their assigned clients, and their current capacity.
 
 Update this dashboard weekly. It is your command center for scaling decisions.
 
-## Procedure 10.4: Zapier Scaling Strategy
+### Procedure 10.4: Zapier Scaling Strategy
 
 As you add clients, you will hit Zapier task limits. Here is the scaling plan:
 
@@ -1503,11 +1503,11 @@ As you add clients, you will hit Zapier task limits. Here is the scaling plan:
 3. **Filter aggressively:** Add Filter steps early in each Zap to skip processing for transactions already handled by QBO bank rules.
 4. **Use QBO bank rules first:** Push as much auto-categorization as possible into QBO's native bank rules (free) before routing to Zapier (paid).
 
-## Procedure 10.5: The Vertical Expansion Playbook
+### Procedure 10.5: The Vertical Expansion Playbook
 
 Once you dominate one industry vertical, expand to adjacent verticals using your existing CoA templates and Zapier workflows as a foundation.
 
-### Expansion Strategy
+#### Expansion Strategy
 
 1. **Clone your Notion Client Dashboard** for the new vertical
 2. **Clone and modify the Chart of Accounts** — add industry-specific accounts (e.g., for construction: Project Costs, Retention Money, Performance Bonds)
@@ -1515,7 +1515,7 @@ Once you dominate one industry vertical, expand to adjacent verticals using your
 4. **Update the bank rules** in QBO with industry-specific patterns
 5. **Test with 2-3 pilot clients** at a discounted rate before full launch
 
-### Vertical Expansion Sequence (Recommended)
+#### Vertical Expansion Sequence (Recommended)
 
 | Phase | Vertical | Why It Works Next |
 |---|---|---|
@@ -1530,11 +1530,11 @@ Each phase should add 5-10 clients before moving to the next. By Phase 4, you wi
 **HACK:** Create a "Client Referral Program" that gives existing clients one free month of service for every referral that signs. At ₦200,000/month, one free month costs you ₦200,000 in revenue but the referral brings in ₦2,400,000 in first-year revenue. That is a 12:1 return. Most clients know other business owners in their industry — your best leads come from your best clients.
 {{% /accent-box %}}
 
-## Procedure 10.6: Build the Quality Assurance System
+### Procedure 10.6: Build the Quality Assurance System
 
 At scale, quality becomes your biggest risk. One reconciliation error across 30 clients is 30 potential churn events. Build a QA system:
 
-### Weekly QA Checklist (Run Every Friday)
+#### Weekly QA Checklist (Run Every Friday)
 
 1. Check Zapier Workflow Registry — are any Zaps showing status "Broken"?
 2. Check Slack `#automation-errors` — how many errors this week? Are any recurring?
@@ -1544,7 +1544,7 @@ At scale, quality becomes your biggest risk. One reconciliation error across 30 
 6. Check bank feeds — are all client bank feeds still connected and importing?
 7. Review client Health Scores — any new Red or Yellow clients?
 
-### Monthly QA Checklist (Run on the 5th)
+#### Monthly QA Checklist (Run on the 5th)
 
 1. Re-verify bank reconciliation for all clients (are the books still matching?)
 2. Review AI categorization accuracy — if it dropped below 85%, add new bank rules or update the AI prompt
@@ -1554,7 +1554,7 @@ At scale, quality becomes your biggest risk. One reconciliation error across 30 
 
 Document all QA findings in your Notion SOPs page under "QA Reports."
 
-## Check-In: Module 10 Complete
+### Check-In: Module 10 Complete
 
 - [ ] Hiring roadmap saved in Notion with trigger points for each hire
 - [ ] Margin analysis table saved in Notion Finance page
@@ -1568,7 +1568,7 @@ Document all QA findings in your Notion SOPs page under "QA Reports."
 
 ---
 
-# THE COMPLETE PLAYBOOK AT A GLANCE
+## THE COMPLETE PLAYBOOK AT A GLANCE
 
 You have now built the complete operating system for an AI bookkeeping automation practice. Here is what you have:
 

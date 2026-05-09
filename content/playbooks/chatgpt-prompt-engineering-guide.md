@@ -15,13 +15,13 @@ Prompt engineering is not about clever tricks or secret formulas. It is about co
 
 ---
 
-# MODULE 1: THE CRISP FRAMEWORK
+## MODULE 1: THE CRISP FRAMEWORK
 
-## Overview
+### Overview
 
 Every effective prompt follows five elements. I call this the CRISP framework: Context, Role, Instructions, Specifications, and Parameters. Miss any one of these and your output quality drops. Include all five and you get consistent, high-quality results every time. This module teaches each element with examples and common mistakes.
 
-## Element 1: Context (Background Information)
+### Element 1: Context (Background Information)
 
 Context tells the AI what world it's operating in. Without context, the AI makes assumptions — and its assumptions are usually wrong for your specific situation. Context includes: who you are, what you're working on, who the audience is, and any relevant background the AI needs to produce useful output.
 
@@ -35,7 +35,7 @@ The difference is specificity. The first prompt could produce anything — a B2B
 
 **Common mistake:** Providing too much context. If your context section exceeds 200 words, the AI loses the thread. Be concise but specific. "Boutique fitness studio in Austin, 200 members, women 28-45, group classes + PT, $150/mo average" is better than a page of background.
 
-## Element 2: Role (Who the AI Should Be)
+### Element 2: Role (Who the AI Should Be)
 
 Role priming tells the AI what expertise to draw on. When you say "You are a [role]," the AI accesses patterns associated with that role — vocabulary, tone, analytical frameworks, and decision-making heuristics. This single addition can transform output quality by 50% or more.
 
@@ -51,7 +51,7 @@ The second role produces output that sounds like it came from a seasoned profess
 - "You are a [role] known for [distinctive approach]."
 - "You are a [role] who always [behavior pattern]."
 
-## Element 3: Instructions (Specific Tasks)
+### Element 3: Instructions (Specific Tasks)
 
 Instructions are the core of your prompt — what you want the AI to do. The key principle: be explicit about the process, not just the outcome. Tell the AI how to think, not just what to produce.
 
@@ -67,7 +67,7 @@ The second prompt structures the AI's thinking. It knows the opening needs a sta
 - "Start with [hook format]. Cover [topics]. End with [closing format]."
 - "Analyze [subject] from [perspective 1], then [perspective 2], then synthesize."
 
-## Element 4: Specifications (Format, Length, Tone)
+### Element 4: Specifications (Format, Length, Tone)
 
 Specifications tell the AI what the output should look like. Without specifications, the AI defaults to its own preferences — which may not match yours. Specify: format (list, table, paragraphs, dialogue), length (word count or number of items), tone (professional, casual, urgent, empathetic), and any structural requirements.
 
@@ -85,7 +85,7 @@ Specifications tell the AI what the output should look like. Without specificati
 - Outline (best for planning, strategy, content briefs)
 - JSON/structured data (best for programmatic use, database entries)
 
-## Element 5: Parameters (Constraints and Preferences)
+### Element 5: Parameters (Constraints and Preferences)
 
 Parameters are the guardrails. They tell the AI what NOT to do, which is often more important than telling it what to do. Parameters include: topics to avoid, words to use or not use, assumptions to not make, and quality standards.
 
@@ -95,7 +95,7 @@ Parameters are the guardrails. They tell the AI what NOT to do, which is often m
 
 Parameters prevent the AI from falling into its worst habits: corporate jargon, hedging language, made-up statistics, and generic advice. The more specific your "don'ts," the more focused the output.
 
-## Putting CRISP Together: A Complete Prompt
+### Putting CRISP Together: A Complete Prompt
 
 Here is a complete prompt using all five CRISP elements:
 
@@ -115,13 +115,13 @@ This prompt will produce dramatically better output than "How do I reduce churn 
 
 ---
 
-# MODULE 2: CONTENT MARKETING PROMPTS
+## MODULE 2: CONTENT MARKETING PROMPTS
 
-## Overview
+### Overview
 
 Content marketing is where most businesses use AI — and where most get mediocre results. The problem isn't the AI; it's the prompts. This module gives you 40+ battle-tested prompts for every content marketing task, from blog posts to social media to email sequences.
 
-## Blog Post Prompts
+### Blog Post Prompts
 
 **Prompt 1: The SEO Article**
 ```
@@ -168,7 +168,7 @@ Content marketing is where most businesses use AI — and where most get mediocr
 [Parameters] Do not exaggerate results. If a result was modest, frame it honestly — authenticity builds trust.
 ```
 
-## Social Media Prompts
+### Social Media Prompts
 
 **Prompt 6: LinkedIn Post**
 ```
@@ -215,7 +215,7 @@ Content marketing is where most businesses use AI — and where most get mediocr
 [Parameters] Do not start with "In this video I will show you..." — start with a hook that makes them NEED to keep watching.
 ```
 
-## Email Marketing Prompts
+### Email Marketing Prompts
 
 **Prompt 11: Welcome Sequence**
 ```
@@ -264,9 +264,9 @@ Content marketing is where most businesses use AI — and where most get mediocr
 
 ---
 
-# MODULE 3: SALES AND OUTREACH PROMPTS
+## MODULE 3: SALES AND OUTREACH PROMPTS
 
-## Overview
+### Overview
 
 AI can transform your sales process from generic spray-and-pray to hyper-personalized outreach at scale. This module gives you prompts for cold emails, proposals, objection handling, and follow-up sequences.
 
@@ -317,9 +317,9 @@ AI can transform your sales process from generic spray-and-pray to hyper-persona
 
 ---
 
-# MODULE 4: OPERATIONS AND AUTOMATION PROMPTS
+## MODULE 4: OPERATIONS AND AUTOMATION PROMPTS
 
-## Overview
+### Overview
 
 AI isn't just for content — it can automate operations, streamline workflows, and handle the administrative overhead that eats your day. This module gives you prompts for SOPs, workflows, customer support, and process optimization.
 
@@ -370,9 +370,9 @@ AI isn't just for content — it can automate operations, streamline workflows, 
 
 ---
 
-# MODULE 5: STRATEGY AND ANALYSIS PROMPTS
+## MODULE 5: STRATEGY AND ANALYSIS PROMPTS
 
-## Overview
+### Overview
 
 AI excels at analysis when you give it structured data and the right analytical framework. This module covers prompts for market research, competitive analysis, financial modeling, and strategic planning.
 
@@ -423,13 +423,13 @@ AI excels at analysis when you give it structured data and the right analytical 
 
 ---
 
-# MODULE 6: ADVANCED TECHNIQUES
+## MODULE 6: ADVANCED TECHNIQUES
 
-## Overview
+### Overview
 
 The prompts in Modules 2-5 use single-turn interactions: you ask, the AI answers. This module covers advanced techniques that use multi-turn conversations, structured reasoning, and prompt chaining to produce dramatically better results. These are the techniques that separate casual AI users from power users.
 
-## Technique 1: Chain-of-Thought Prompting
+### Technique 1: Chain-of-Thought Prompting
 
 Chain-of-thought prompting asks the AI to show its reasoning before giving an answer. This forces the AI to think step by step, which produces more accurate and nuanced outputs — especially for analytical tasks, problem-solving, and complex decisions.
 
@@ -447,7 +447,7 @@ Without chain-of-thought, the AI might give a wrong answer. With it, the AI show
 
 **When to use it:** Financial analysis, strategic decisions, debugging, research synthesis, and any task where the process matters as much as the answer.
 
-## Technique 2: Few-Shot Learning
+### Technique 2: Few-Shot Learning
 
 Few-shot learning gives the AI examples of the output you want before asking it to produce new output. Examples are more powerful than instructions because they demonstrate exactly what "good" looks like.
 
@@ -468,7 +468,7 @@ The AI will match the pattern: [Product name] + [what it does] + [key benefit] �
 
 **When to use it:** Writing tasks with a consistent format, creating templates, generating variations on a theme, and establishing brand voice.
 
-## Technique 3: Prompt Chaining
+### Technique 3: Prompt Chaining
 
 Prompt chaining breaks complex tasks into a sequence of prompts, where each prompt's output feeds into the next. This produces better results than trying to do everything in one giant prompt because each step gets the AI's full attention.
 
@@ -484,7 +484,7 @@ Each prompt builds on the previous one's output. The result is a researched, str
 
 **When to use it:** Any multi-step creative or analytical process: content creation, business planning, research reports, and product development.
 
-## Technique 4: System Prompts
+### Technique 4: System Prompts
 
 System prompts set persistent instructions that apply to an entire conversation. Instead of repeating context and constraints in every message, you set them once and the AI maintains them throughout.
 
@@ -504,7 +504,7 @@ With this system prompt active, every response in the conversation will automati
 
 **When to use it:** Ongoing projects, team-wide AI usage (ensures consistency), and any conversation where you want the AI to maintain a specific persona or set of rules.
 
-## Technique 5: The Critic-Creator Pattern
+### Technique 5: The Critic-Creator Pattern
 
 This pattern uses two AI interactions: one to create, one to critique. The critique catches problems the creator missed, and you iterate until the output meets your standard.
 
@@ -518,13 +518,13 @@ This pattern uses two AI interactions: one to create, one to critique. The criti
 
 ---
 
-# MODULE 7: MODEL-SPECIFIC OPTIMIZATION
+## MODULE 7: MODEL-SPECIFIC OPTIMIZATION
 
-## Overview
+### Overview
 
 Not all AI models are the same. ChatGPT, Claude, Gemini, and Llama each have different strengths, weaknesses, and optimal prompting strategies. This module shows you how to adapt your prompts for each model.
 
-## ChatGPT (GPT-4o / GPT-4o-mini)
+### ChatGPT (GPT-4o / GPT-4o-mini)
 
 **Strengths:** Versatile, follows complex instructions well, great at formatting, strong creative writing, excellent at code generation.
 
@@ -537,7 +537,7 @@ Not all AI models are the same. ChatGPT, Claude, Gemini, and Llama each have dif
 - Reduce verbosity: "Be concise. No filler or preamble."
 - Prevent fabrication: "Do not make up statistics. If you're uncertain, say so."
 
-## Claude (Claude 3.5 Sonnet / Opus)
+### Claude (Claude 3.5 Sonnet / Opus)
 
 **Strengths:** Superior for long-form content, nuanced analysis, following complex multi-step instructions, and maintaining consistent voice over long outputs.
 
@@ -549,7 +549,7 @@ Not all AI models are the same. ChatGPT, Claude, Gemini, and Llama each have dif
 - For long outputs, specify the desired length explicitly
 - When Claude refuses a legitimate request, rephrase: "As a business consultant, provide analysis of..." rather than direct requests
 
-## Google Gemini
+### Google Gemini
 
 **Strengths:** Strong at research-backed content, good at synthesis from multiple sources, integrates with Google ecosystem, handles multimodal inputs well.
 
@@ -561,7 +561,7 @@ Not all AI models are the same. ChatGPT, Claude, Gemini, and Llama each have dif
 - Use for research-heavy tasks where Google Search integration helps
 - Double-check factual claims — Gemini occasionally presents outdated information
 
-## Open-Source Models (Llama 3, Mistral)
+### Open-Source Models (Llama 3, Mistral)
 
 **Strengths:** Free or very low cost, can be run locally for privacy, customizable through fine-tuning.
 
@@ -575,13 +575,13 @@ Not all AI models are the same. ChatGPT, Claude, Gemini, and Llama each have dif
 
 ---
 
-# MODULE 8: BUILDING YOUR PROMPT LIBRARY
+## MODULE 8: BUILDING YOUR PROMPT LIBRARY
 
-## Overview
+### Overview
 
 A personal prompt library is your most valuable AI asset. It's the difference between spending 15 minutes crafting a prompt from scratch every time versus pulling a proven prompt from your library and adapting it in 2 minutes. This module shows you how to build, organize, and maintain your prompt library.
 
-## Structure
+### Structure
 
 Organize your library by business function, not by AI model. Within each function, store prompts with this metadata:
 
@@ -593,7 +593,7 @@ Organize your library by business function, not by AI model. Within each functio
 - **Last tested:** Date you last verified the prompt works well
 - **Notes:** Any quirks or tips
 
-## The Starter Library: 20 Essential Prompts
+### The Starter Library: 20 Essential Prompts
 
 Here are the 20 prompts you should save first, organized by category. Each one is ready to copy, fill in, and use.
 
@@ -627,7 +627,7 @@ Here are the 20 prompts you should save first, organized by category. Each one i
 19. CRISP Prompt Builder: "I need to write a prompt for [TASK]. Using the CRISP framework, help me construct a complete prompt with Context, Role, Instructions, Specifications, and Parameters."
 20. Critic-Reviewer: "Review this [CONTENT TYPE] as a [ROLE] would. Identify 5 specific problems and suggest fixes."
 
-## Maintenance
+### Maintenance
 
 Review your prompt library monthly. Remove prompts that no longer produce good results (AI models update and some prompts degrade). Add new prompts as you discover techniques that work. Update the "Last tested" date each time you use a prompt. A well-maintained library compounds in value over time — each prompt saves you 10-15 minutes of prompt engineering, and a library of 50+ prompts saves you 8-12 hours per month.
 

@@ -14,9 +14,9 @@ This playbook is an **OPERATING SYSTEM**, not a blog post or a loose guide. It d
 
 ---
 
-# MODULE 1: FOUNDATION
+## MODULE 1: FOUNDATION
 
-## Overview
+### Overview
 
 This foundational module arms you with the critical infrastructure that powers every AI‑driven personal finance automation system you will build. You will register your legal business entity, secure a professional domain, and configure a dedicated email address that will serve as the hub for all customer communication. From there, you will onboard the core cloud tools—Make.com for orchestration, Hostinger for hosting, and Notion for documentation—ensuring that every component is correctly linked and ready for deployment. Skipping any of these steps will leave you with fragmented systems, insecure data flows, and a brand that lacks credibility, ultimately derailing user trust and scaling potential.
 
@@ -39,7 +39,7 @@ Estimated time to complete: 3 hours (including account creation, domain procurem
 
 ---
 
-## Procedure 1.1: Register Your Business Domain on Hostinger
+### Procedure 1.1: Register Your Business Domain on Hostinger
 
 1. **Open your web browser** and go to the Hostinger domain‑registration page:  
    `https://www.hostinger.com/domains`.  
@@ -120,7 +120,7 @@ Estimated time to complete: 3 hours (including account creation, domain procurem
 
 ---
 
-## Procedure 1.2: Create a Google Workspace for AI Finance Collaboration  
+### Procedure 1.2: Create a Google Workspace for AI Finance Collaboration  
 
 1. **Open your browser and navigate to the Google Workspace signup page**  
    URL: `https://workspace.google.com/signup`.  
@@ -195,7 +195,7 @@ Estimated time to complete: 3 hours (including account creation, domain procurem
 
 ---
 
-## Procedure 1.3: Set Up a Make.com Scenario to Automate Data Capture
+### Procedure 1.3: Set Up a Make.com Scenario to Automate Data Capture
 
 1. **Open your browser** and navigate to <https://www.make.com>.  
 2. Click the **Sign‑up** button in the top‑right corner.  
@@ -238,7 +238,7 @@ Estimated time to complete: 3 hours (including account creation, domain procurem
 **Expected Output**  
 - After activation
 
-## Check-In: Module 1 Complete
+### Check-In: Module 1 Complete
 
 - [ ] Register Your Business Domain on Hostinger completed and verified
 - [ ] Create a Google Workspace for AI Finance Collaboration completed and verified
@@ -249,9 +249,9 @@ Estimated time to complete: 3 hours (including account creation, domain procurem
 
 ---
 
-# MODULE 2: TECH STACK
+## MODULE 2: TECH STACK
 
-## Overview
+### Overview
 In this module we lay the foundation for your AI‑driven personal finance automation system. You will assemble a precise, auditable tech stack that guarantees data integrity, scalability, and rapid monetization. Each tool is chosen for its API reliability, cost‑efficiency, and seamless integration with ChatGPT and Make.com. Skipping this module means you’ll face broken data pipelines, hidden costs, and an inability to scale revenue from subscription or affiliate flows.  
 
 You will:
@@ -303,7 +303,7 @@ Make sure to include exact button names in bold.
 
 Let's draft:
 
-## Procedure 2.1: Configure Plaid API Credentials in Make.com
+### Procedure 2.1: Configure Plaid API Credentials in Make.com
 
 Then steps.
 
@@ -377,7 +377,7 @@ Now ensure we have 20+ steps. We have 25 steps. Provide interactive check-ins af
 
 ---
 
-## Procedure 2.2: Set Up OAuth for Personal Finance App Integration
+### Procedure 2.2: Set Up OAuth for Personal Finance App Integration
 
 1. **Open the Plaid developer portal**  
    - URL: `https://dashboard.plaid.com/`  
@@ -474,7 +474,7 @@ You are an AI financial assistant. Use the Plaid access token stored in Replit e
 
 ---
 
-## Procedure 2.3: **Validate Transaction Data Flow Between Plaid and ChatGPT**
+### Procedure 2.3: **Validate Transaction Data Flow Between Plaid and ChatGPT**
 
 1. **Create a Plaid Sandbox Account**  
    - Visit <https://plaid.com> and click **Sign up** in the top right.  
@@ -571,7 +571,7 @@ You are an AI financial assistant. Use the Plaid access token stored in Replit e
    - Add a database table with columns: `Timestamp` (date), `Plaid Tx ID` (text), `Amount` (number), `ChatGPT Insight` (text), `Status` (select: Pass/Fail).  
    - In Replit,
 
-## Check-In: Module 2 Complete
+### Check-In: Module 2 Complete
 
 - [ ] Configure Plaid API Credentials in Make.com completed and verified
 - [ ] Set Up OAuth for Personal Finance App Integration completed and verified
@@ -582,9 +582,9 @@ You are an AI financial assistant. Use the Plaid access token stored in Replit e
 
 ---
 
-# MODULE 3: FRAMEWORK
+## MODULE 3: FRAMEWORK
 
-## Overview  
+### Overview  
 This module is the backbone of your AI‑powered personal finance automation business. It takes you from abstract idea to a repeatable, scalable service delivery model. First, you learn how to crystallize the value proposition into a clear framework that maps every client interaction—from the initial outreach to the final performance report. Next, you design the client onboarding flow, ensuring that every touchpoint delivers the promised experience while collecting the data you need to train and refine your ChatGPT and Make.com models. Finally, you establish quality standards and a continuous improvement loop that guarantees consistent ROI for both you and your clients.  
 
 Skipping Module 3 means launching a product that wanders from scope to scope, mismanages data pipelines, and delivers inconsistent results. You’ll spend time fixing ad‑hoc processes, losing clients to competitors who have a polished, repeatable workflow.  
@@ -608,7 +608,7 @@ Skipping Module 3 means launching a product that wanders from scope to scope, 
 
 ---
 
-## Procedure 3.1: Define Your AI Finance Service Delivery Framework
+### Procedure 3.1: Define Your AI Finance Service Delivery Framework
 
 1. **Create a GitHub repository for the project**  
    - Open **https://github.com/new** in Chrome.  
@@ -693,7 +693,7 @@ Skipping Module 3 means launching a product that wanders from scope to scope, 
 
 ---
 
-## Procedure 3.2: Map Out Your Client Onboarding Flow for AI Automation
+### Procedure 3.2: Map Out Your Client Onboarding Flow for AI Automation
 
 1. **Open Notion** in your browser (https://www.notion.so).  
    - Click **+ New Page** in the sidebar.  
@@ -741,7 +741,7 @@ Skipping Module 3 means launching a product that wanders from scope to scope, 
 10. **Add a Gmail action**:  
     - Click **+ Add** → search
 
-## Check-In: Module 3 Complete
+### Check-In: Module 3 Complete
 
 - [ ] Define Your AI Finance Service Delivery Framework completed and verified
 - [ ] Map Out Your Client Onboarding Flow for AI Automation completed and verified
@@ -751,9 +751,9 @@ Skipping Module 3 means launching a product that wanders from scope to scope, 
 
 ---
 
-# MODULE 4: FIRST BUILD
+## MODULE 4: FIRST BUILD
 
-## Overview  
+### Overview  
 In MODULE 4 you will **build, deploy, and monetize** a fully functional AI‑powered personal finance automation system that delivers automated budgeting, expense tracking, and investment insights to real clients. This is the only hands‑on module that turns theory into a tangible product you can ship, license, or sell. Skipping it means you’ll never test the core revenue engine, leaving you with a beautiful idea that never converts into cash flow or a working demo for prospects.
 
 You will start with a clean slate: pull a client’s financial data, feed it into ChatGPT for analysis, orchestrate the workflow with Make.com, and publish the solution on a cost‑effective cloud host. The module also teaches you how to capture leads, push notifications, and push this automation into a subscription model using Klaviyo or ActiveCampaign. By the end you will own a ready‑to‑sell, end‑to‑end delivery that can be replicated across any niche.
@@ -884,7 +884,7 @@ Configure the **Model** to `gpt-4o-mini` (free tier: 1 request per minute). Unde
 
 ---
 
-## Procedure 4.2: Build the ChatGPT Expense Categorization Prompt
+### Procedure 4.2: Build the ChatGPT Expense Categorization Prompt
 
 1. **Create an OpenAI account**  
    - Go to **https://platform.openai.com/signup** and follow the on‑screen prompts.  
@@ -982,7 +982,7 @@ Configure the **Model** to `gpt-4o-mini` (free tier: 1 request per minute). Unde
 
 ---
 
-## Procedure 4.3: DEPLOY THE AUTOMATION SYSTEM ON AWS AND ENABLE SUBSCRIPTION BILLING
+### Procedure 4.3: DEPLOY THE AUTOMATION SYSTEM ON AWS AND ENABLE SUBSCRIPTION BILLING
 
 **Goal:** Move the ChatGPT‐+ Make.com personal finance automation from local dev to a production‑ready, pay‑per‑user environment on AWS, and wire it to Stripe for recurring subscription billing.  
 **Prerequisites:**  
@@ -993,7 +993,7 @@ Configure the **Model** to `gpt-4o-mini` (free tier: 1 request per minute). Unde
 
 ---
 
-### 1‑5 — Create AWS IAM User and Setup CLI
+#### 1‑5 — Create AWS IAM User and Setup CLI
 
 1. Visit **https://aws.amazon.com/** and click **Sign In to the Console**.  
 2. Click **Create a new AWS account** → enter *email, password, account name*, and **Continue**.  
@@ -1018,7 +1018,7 @@ Configure the **Model** to `gpt-4o-mini` (free tier: 1 request per minute). Unde
 
 ---
 
-### 12‑16 — Create S3 Bucket for Code Storage
+#### 12‑16 — Create S3 Bucket for Code Storage
 
 12. In the AWS console, type **S3** in the search bar → **S3** → **Create bucket**.  
 13. **Bucket name:** `financebot-prod-code-2026`  
@@ -1029,7 +1029,7 @@ Configure the **Model** to `gpt-4o-mini` (free tier: 1 request per minute). Unde
 
 ---
 
-### 17‑21 — Create Lambda Function and Wire to Make.com
+#### 17‑21 — Create Lambda Function and Wire to Make.com
 
 18. Search **Lambda** → **Lambda** → **Create function**.  
 19. **Choose “Author from scratch”** → **Function name:** `FinanceBotHandler`  
@@ -1043,13 +1043,13 @@ Configure the **Model** to `gpt-4o-mini` (free tier: 1 request per minute). Unde
 
 ---
 
-### 22‑26 — Setup API Gateway to Expose Lambda
+#### 22‑26 — Setup API Gateway to Expose Lambda
 
 25. Search **API Gateway** → **API Gateway** → **Create API**.  
 26. Choose **HTTP API** → **Build** → **Create**.  
 
 
-## Check-In: Module 4 Complete
+### Check-In: Module 4 Complete
 
 - [ ] Create a Make.com Scenario for Real-Time Transaction Processing completed and verified
 - [ ] Build the ChatGPT Expense Categorization Prompt completed and verified
@@ -1060,9 +1060,9 @@ Configure the **Model** to `gpt-4o-mini` (free tier: 1 request per minute). Unde
 
 ---
 
-# MODULE 5: CLIENT ACQUISITION
+## MODULE 5: CLIENT ACQUISITION
 
-## Overview
+### Overview
 
 Module 5 is the launchpad that turns your AI Personal Finance Automation System into a revenue‑generating business. It teaches you how to attract, capture, and convert leads into paying customers by building a seamless outreach ecosystem. From crafting a high‑converting landing page to automating follow‑up sequences, this module delivers a step‑by‑step operating system that ensures you never waste a lead. Skipping this module means you’ll spend months hunting customers manually, jeopardizing your cash flow and growth trajectory. By the end of this module, you’ll own a fully functional lead‑generation pipeline that scales without manual intervention.
 
@@ -1088,7 +1088,7 @@ Estimated time to complete this module: **4–5 hours** of focused work.
 
 ---
 
-## Procedure 5.1: Set Up a Make.com Automation for Prospect Email Outreach
+### Procedure 5.1: Set Up a Make.com Automation for Prospect Email Outreach
 
 1. **Open your browser** and go to the Make.com homepage:  
    `https://www.make.com/`.  
@@ -1162,7 +1162,7 @@ If not, re‑authenticate or verify the audience exists.
 
 ---
 
-## Procedure 5.2: Build an AI‑Powered High‑Converting Landing Page
+### Procedure 5.2: Build an AI‑Powered High‑Converting Landing Page
 
 1. **Open Canva** – go to https://www.canva.com/.  
    Click **SIGN UP** (top‑right) and create a free account with your email.  
@@ -1259,7 +1259,7 @@ If not, re‑authenticate or verify the audience exists.
 
 ---
 
-## Procedure 5.3: Launch a Lead Scoring System Using ChatGPT to Prioritize Follow‑Ups
+### Procedure 5.3: Launch a Lead Scoring System Using ChatGPT to Prioritize Follow‑Ups
 
 1. **Open Apollo.io**  
    - URL: `https://app.apollo.io/`  
@@ -1334,7 +1334,7 @@ If not, re‑authenticate or verify the audience exists.
 
 **Interactive Check‑In
 
-## Check-In: Module 5 Complete
+### Check-In: Module 5 Complete
 
 - [ ] Set Up a Make.com Automation for Prospect Email Outreach completed and verified
 - [ ] Build an AI‑Powered High‑Converting Landing Page completed and verified
@@ -1345,9 +1345,9 @@ If not, re‑authenticate or verify the audience exists.
 
 ---
 
-# MODULE 6: DELIVERY
+## MODULE 6: DELIVERY
 
-## Overview
+### Overview
 
 MODULE 6 is the operational backbone that turns your AI‑powered personal finance system from a prototype into a reliable, revenue‑generating product. It teaches you how to orchestrate a seamless delivery pipeline, embed rigorous quality checkpoints, and maintain transparent, professional communication with every client. Without this module, you risk shipping buggy automation, losing trust, and drowning in support tickets—ultimately eroding your brand and revenue. By mastering delivery, you’ll consistently hit the promised value, scale confidently, and free up bandwidth for new product iterations.
 
@@ -1370,7 +1370,7 @@ The module is split into two detailed procedures: (1) Building the delivery pipe
 
 ---
 
-## Procedure 6.1: Set Up a Structured Delivery Pipeline for AI Personal Finance Systems
+### Procedure 6.1: Set Up a Structured Delivery Pipeline for AI Personal Finance Systems
 
 1. **Open your browser** and navigate to **https://www.make.com/**.  
    - On the homepage, locate the **“Sign up”** button in the top‑right corner and click it.  
@@ -1422,7 +1422,7 @@ The module is split into two detailed procedures: (1) Building the delivery pipe
 
 ---
 
-## Procedure 6.2: Create a Client Feedback Loop Template for Continuous Quality Assurance  
+### Procedure 6.2: Create a Client Feedback Loop Template for Continuous Quality Assurance  
 
 1. **Launch Notion** – Go to <https://www.notion.so>.  
    - If you have no account, click **SIGN UP** (top‑right).  
@@ -1447,7 +1447,7 @@ The module is split into two detailed procedures: (1) Building the delivery pipe
      - **Feedback Text** (text)  
      - **Sentiment
 
-## Check-In: Module 6 Complete
+### Check-In: Module 6 Complete
 
 - [ ] Set Up a Structured Delivery Pipeline for AI Personal Finance Systems completed and verified
 - [ ] Create a Client Feedback Loop Template for Continuous Quality Assurance completed and verified
@@ -1457,9 +1457,9 @@ The module is split into two detailed procedures: (1) Building the delivery pipe
 
 ---
 
-# MODULE 7: SCALING  
+## MODULE 7: SCALING  
 
-## Overview  
+### Overview  
 
 Module 7 is the bridge that turns a solo AI‑powered budgeting system into a scalable, revenue‑generating business. You’ll learn how to shift from a one‑person operation to a small team, hire your first contractor, and write Standard Operating Procedures (SOPs) that let you delegate without losing quality. The module also dives into margin analysis—calculating labor costs, platform fees, and the true profit potential of each subscription tier. If you skip this section, you’ll either keep running a fragile single‑user operation that can’t handle growth, or you’ll burn through your budget hiring a freelancer without clear cost control.  
 
@@ -1487,7 +1487,7 @@ Estimated completion time: **8–10 hours** (including time for spreadsheets, SO
 
 ---
 
-## Procedure 7.1: HIRE AND ONBOARD YOUR FIRST AI AUTOMATION CONTRACTOR
+### Procedure 7.1: HIRE AND ONBOARD YOUR FIRST AI AUTOMATION CONTRACTOR
 
 1. **Open the Upwork hiring portal.**  
    - URL: `https://www.upwork.com/hire?search_query=AI+automation+contractor`  
@@ -1581,13 +1581,13 @@ Estimated completion time: **8–10 hours** (including time for spreadsheets, SO
 
 ---
 
-## Procedure 7.2: Create SOPs for Delegating Finance Automation Tasks
+### Procedure 7.2: Create SOPs for Delegating Finance Automation Tasks
 
 **Objective** – Build a detailed Standard Operating Procedure (SOP) that delegates every finance‑automation task to a team member or a trusted freelance developer. The SOP will be stored in Notion, illustrated with Canva check‑lists, and supplemented with Loom video walkthroughs. Every step is written so that a beginner can follow without guessing.
 
 ---
 
-### Step 1 –  Gather Task Inventory  
+#### Step 1 –  Gather Task Inventory  
 1. Open **Google Sheets** and navigate to `https://docs.google.com/spreadsheets/d/1a2b3c4d5e6f7g8h9i0j/edit` (replace the ID with your sheet).  
 2. In **Sheet1**, create columns: *Task ID*, *Task Name*, *Current Tool*, *Frequency*, *Owner (Proposed)*, *Status*.  
 3. Populate with all existing finance‑automation tasks (budgeting, expense categorization, reporting, investment alerts).  
@@ -1598,7 +1598,7 @@ Estimated completion time: **8–10 hours** (including time for spreadsheets, SO
 
 ---
 
-### Step 2 –  Set Up SOP Template in Notion  
+#### Step 2 –  Set Up SOP Template in Notion  
 1. Go to **Notion** at `https://www.notion.so`.  
 2. Click **+ New Page** (top‑right).  
 3. Name the page **“Finance Automation SOP – Delegation”**.  
@@ -1614,7 +1614,7 @@ Estimated completion time: **8–10 hours** (including time for spreadsheets, SO
 
 ---
 
-### Step 3 –  Draft SOP Content Using ChatGPT  
+#### Step 3 –  Draft SOP Content Using ChatGPT  
 1. Open **ChatGPT** at `https://chat.openai.com`.  
 2. Click **+ New Chat**.  
 3. Type the prompt:  
@@ -1629,7 +1629,7 @@ Estimated completion time: **8–10 hours** (including time for spreadsheets, SO
 
 ---
 
-### Step 4 –  Create Visual Checklist in Canva  
+#### Step 4 –  Create Visual Checklist in Canva  
 1. Visit `https://www.canva.com`.  
 2. Click **Create a design** → **Custom size** → set **Width 1900 px**, **Height 1000 px**.  
 3. On the left panel, click **Elements** → search **“Checklist”** → drag the “Checklist” template to the canvas.  
@@ -1642,7 +1642,7 @@ Estimated completion time: **8–10 hours** (including time for spreadsheets, SO
 
 ---
 
-### Step 5 –  Record a Loom Video Walkthrough  
+#### Step 5 –  Record a Loom Video Walkthrough  
 1. Go to `https://www.loom.com`.  
 2. Click **New Recording** → choose **Screen + Camera**.  
 3. In the recording window, click **Start Recording**.  
@@ -1652,7 +1652,7 @@ Estimated completion time: **8–10 hours** (including time for spreadsheets, SO
 
 ---
 
-## Procedure 7.3: Analyze and Optimize Profit Margins for Your AI Personal Finance Service
+### Procedure 7.3: Analyze and Optimize Profit Margins for Your AI Personal Finance Service
 
 1. **Open Notion**  
    - URL: https://www.notion.so  
@@ -1665,7 +1665,7 @@ Estimated completion time: **8–10 hours** (including time for spreadsheets, SO
    - Add **Number** property → **Subscription Revenue**.  
    - Add **Number** property → **Transaction Fees**
 
-## Check-In: Module 7 Complete
+### Check-In: Module 7 Complete
 
 - [ ] HIRE AND ONBOARD YOUR FIRST AI AUTOMATION CONTRACTOR completed and verified
 - [ ] Create SOPs for Delegating Finance Automation Tasks completed and verified
@@ -1676,9 +1676,9 @@ Estimated completion time: **8–10 hours** (including time for spreadsheets, SO
 
 ---
 
-# MODULE 8: ADVANCED PATTERNS
+## MODULE 8: ADVANCED PATTERNS
 
-## Overview
+### Overview
 
 Module 8 dives into the high‑impact techniques that transform a functioning AI Personal Finance Automation System into a fully monetized, recurring‑revenue engine. You’ll learn how to layer premium upsells, craft productized services, and pack AI‑driven budgeting, expense‑tracking, and investment‑insight modules into a scalable subscription platform. Without this module, your system will remain a one‑off prototype that can’t generate sustainable income or justify a high‑ticket service offering.
 
@@ -1901,13 +1901,13 @@ Add a page: "AI
 
 ---
 
-## Procedure 8.2: Automate Monthly Billing for AI Finance Subscription via Make.com
+### Procedure 8.2: Automate Monthly Billing for AI Finance Subscription via Make.com
 
 **Objective:** Build a fully automated, error‑resilient billing loop that charges AI Finance subscribers every month, records the transaction in a Notion database, and notifies the customer via Klaviyo. All steps are executed inside Make.com (formerly Integromat) with third‑party services that have free tiers.
 
 ---
 
-### 1. Create a Stripe Product & Plan  
+#### 1. Create a Stripe Product & Plan  
 1. Open your browser and navigate to **https://dashboard.stripe.com/login**.  
 2. Log in with your Stripe credentials.  
 3. From the left‑hand menu, click **Products** → **+ Add product**.  
@@ -1922,13 +1922,13 @@ Add a page: "AI
 12. Note the **Price ID** (e.g., `price_1NQxxxxxx`).  
 > **Do you see the new product and price listed?** If not, refresh the page or check that you are in the correct Stripe account.
 
-### 2. Retrieve Stripe API Keys  
+#### 2. Retrieve Stripe API Keys  
 1. In the top right, click your account icon → **Developers** → **API keys**.  
 2. Copy the **Publishable key** (starts with `pk_`).  
 3. Copy the **Secret key** (starts with `sk_`).  
 > **If you see a 401 error when using these keys later, ensure the keys are typed exactly with no trailing spaces.**
 
-### 3. Create a Notion Database for Subscriptions  
+#### 3. Create a Notion Database for Subscriptions  
 1. Go to **https://www.notion.so** and log in.  
 2. Create a new page titled `AI Finance Subscriptions`.  
 3. Click **+ Add a view** → **Table – Full page** → name it `Subscriptions`.  
@@ -1942,7 +1942,7 @@ Add a page: "AI
 5. Click **Share** → **Copy link** → **Turn on public access** → **Copy link**.  
 > **Do you see the new database with the columns listed?** If not, double‑check the column types.
 
-### 4. Set Up Make.com Scenario  
+#### 4. Set Up Make.com Scenario  
 1. Visit **https://www.make.com** and log in.  
 2. Click **Create a new scenario** (top‑right).  
 3. In the library, search for **Stripe** → drag the **Stripe** icon onto the canvas.  
@@ -1952,13 +1952,13 @@ Add a page: "AI
 7. Click **Add** → **Choose an action** → select **Filter**.  
 > **Do you see the four modules (Create a Customer, Create a Subscription, Delay, Filter) lined up?** If not, ensure you dragged them correctly.
 
-### 5. Configure Stripe Modules  
-#### 5.1 Create a Customer  
+#### 5. Configure Stripe Modules  
+##### 5.1 Create a Customer  
 1. Click the **Create a Customer** module.  
 2. In the **Connection** field, click **Create a connection**.  
 3. Paste your **Secret key** (`sk_…`) into **Secret key**
 
-## Check-In: Module 8 Complete
+### Check-In: Module 8 Complete
 
 - [ ] Design a $10,000 AI Investment Advisory Package" completed and verified
 - [ ] Automate Monthly Billing for AI Finance Subscription via Make.com completed and verified
@@ -1968,9 +1968,9 @@ Add a page: "AI
 
 ---
 
-# MODULE 9: FINANCIAL OPERATIONS
+## MODULE 9: FINANCIAL OPERATIONS
 
-## Overview  
+### Overview  
 Module 9 gives you the exact operating system to turn raw cash flow data into a real‑time financial engine that powers pricing strategy, revenue forecasting, and contract management. You will build a custom dashboard that pulls live numbers from your accounting API, automate incremental price hikes through data‑driven triggers, and craft reusable proposal and contract templates that scale with your client base.  
 
 Why this matters: without a disciplined financial ops layer you’ll spend your day chasing unpaid invoices, guessing the right price point, and drafting bespoke agreements that waste time and create legal exposure. A functioning financial dashboard keeps revenue growth visible, enables data‑backed price increases that preserve margins, and gives you ready‑made proposals that close deals faster. Skipping this module means higher churn, missed upsell opportunities, and the risk of regulatory non‑compliance when you can’t prove the integrity of your financial reporting.  
@@ -1989,7 +1989,7 @@ Estimated time to complete: **3 hours** (includes dashboard setup, pricing rule 
 
 ---
 
-## Procedure 9.1: Set Up Automated Revenue Tracking Pipeline in Make.com
+### Procedure 9.1: Set Up Automated Revenue Tracking Pipeline in Make.com
 
 1. **Open your web browser and go to** https://www.make.com.  
    - If you do not have an account, click the **“Sign Up”** button in the top‑right corner.  
@@ -2085,7 +2085,7 @@ Estimated time to complete: **3 hours** (includes dashboard setup, pricing rule 
 
 ---
 
-## Procedure 9.2: Create Dynamic Pricing Proposal Templates Using ChatGPT
+### Procedure 9.2: Create Dynamic Pricing Proposal Templates Using ChatGPT
 
 1. **Open ChatGPT**  
    - Navigate to <https://chat.openai.com/>.  
@@ -2171,7 +2171,7 @@ Estimated time to complete: **3 hours** (includes dashboard setup, pricing rule 
 11. **Add dynamic pricing details to the template**  
     - In the Notion template page, replace the static “Pricing Options” section with the following
 
-## Check-In: Module 9 Complete
+### Check-In: Module 9 Complete
 
 - [ ] Set Up Automated Revenue Tracking Pipeline in Make.com completed and verified
 - [ ] Create Dynamic Pricing Proposal Templates Using ChatGPT completed and verified
@@ -2181,9 +2181,9 @@ Estimated time to complete: **3 hours** (includes dashboard setup, pricing rule 
 
 ---
 
-# MODULE 10: LAUNCH PLAN
+## MODULE 10: LAUNCH PLAN
 
-## Overview  
+### Overview  
 This module delivers a hands‑on, day‑by‑day execution calendar that takes you from zero configuration to acquiring your first paying client in 30 days. We break down each day’s tasks, deliverables, and metrics so you never guess what to do next. Skipping this module means you’ll spend weeks guessing which platform to integrate, which funnel to prioritize, and how to measure traction—leading to wasted time, budget, and missed revenue opportunities. By following the precise steps, you’ll launch a fully automated personal‑finance AI system that collects data, generates insights, and upsells premium services without manual intervention.  
 
 The playbook covers everything from setting up Make.com workflows that pull transaction data, through Replit scripts that train a custom ChatGPT model, to deploying the front‑end on Hostinger and monetizing via Shopify subscriptions. We also cover marketing automation with Klaviyo and ActiveCampaign, social amplification on Buffer, and analytics with Semrush. This 30‑day sprint is designed to be completed in **60–90 hours total**, with daily check‑ins and sprint reviews to keep momentum high.
@@ -2217,7 +2217,7 @@ The playbook covers everything from setting up Make.com workflows that pull tran
 
 ---
 
-## Procedure 10.1: Deploy Your AI Personal Finance MVP on Heroku
+### Procedure 10.1: Deploy Your AI Personal Finance MVP on Heroku
 
 1. **Open your web browser** and navigate to **https://signup.heroku.com**.  
    - Click the **“Get Started free”** button in the center of the page.  
@@ -2297,7 +2297,7 @@ The playbook covers everything from setting up Make.com workflows that pull tran
 
 ---
 
-## Procedure 10.2: CREATE a 30‑Day Content Calendar for Launch Promotion
+### Procedure 10.2: CREATE a 30‑Day Content Calendar for Launch Promotion
 
 1. **Open Notion**  
    • URL: https://www.notion.so  
@@ -2375,7 +2375,7 @@ The playbook covers everything from setting up Make.com workflows that pull tran
 
 ---
 
-## Procedure 10.3: Launch a Paid LinkedIn Ad Campaign to Acquire First Paying Clients
+### Procedure 10.3: Launch a Paid LinkedIn Ad Campaign to Acquire First Paying Clients
 
 1. **Open LinkedIn Campaign Manager**  
    - Visit `https://www.linkedin.com/campaignmanager/` in Chrome.  
@@ -2455,7 +2455,7 @@ The playbook covers everything from setting up Make.com workflows that pull tran
     - Add a checkbox: “I agree to receive marketing emails.”  
     - Click
 
-## Check-In: Module 10 Complete
+### Check-In: Module 10 Complete
 
 - [ ] Deploy Your AI Personal Finance MVP on Heroku completed and verified
 - [ ] CREATE a 30‑Day Content Calendar for Launch Promotion completed and verified
@@ -2466,7 +2466,7 @@ The playbook covers everything from setting up Make.com workflows that pull tran
 
 ---
 
-# APPENDIX A: COMPLETE TOOL REFERENCE
+## APPENDIX A: COMPLETE TOOL REFERENCE
 
 | Tool | Purpose | Free Tier | Paid Tier | When to Upgrade |
 |------|---------|-----------|-----------|-----------------|
@@ -2548,13 +2548,13 @@ Now we need to reach 500 words. Each row with 5 columns, each cell maybe 5-10 wo
 
 We must ensure we mention at least 2 tools per procedure? Wait the instruction: "Affiliate Tool Integration: Always naturally mention at least 2 of these tools per procedure: Make.com, Replit, Vapi, Fliki AI, Canva, ChatGPT, ElevenLabs, Klaviyo, ActiveCampaign, Semrush, Hostinger, Shopify, Zapier, Apollo.io, PhantomBuster, Buffer, Loom, Calendly, Beehiiv, Notion
 
-# APPENDIX C: THE REVENUE CALCULATOR
+## APPENDIX C: THE REVENUE CALCULATOR
 
 Below is the complete operating system for forecasting, tracking, and validating the financial performance of your AI Personal Finance Automation System. Every figure is derived from the tools you will already be using in the playbook (Hostinger, Make.com, Stripe, Notion, etc.). Follow the steps exactly, record the numbers, and you’ll have a living financial model that updates every month.
 
 ---
 
-## 1.  Revenue Projections  
+### 1.  Revenue Projections  
 *(All figures are in USD, rounded to the nearest dollar)*  
 
 | Month | Revenue | Clients | Expenses | Profit |
@@ -2583,7 +2583,7 @@ Below is the complete operating system for forecasting, tracking, and validating
 
 ---
 
-## 2.  Pricing Tiers  
+### 2.  Pricing Tiers  
 *(These tiers reflect the deliverables you will ship via the AWS Lambda + Make.com pipeline. Adjust the numbers if you add or remove services.)*
 
 | Tier | Price | Deliverables | Margin |
@@ -2599,7 +2599,7 @@ E.g., Starter margin = (300 – 120) / 300 = 0.60 → 60%.
 
 ---
 
-## 3.  Break‑Even Analysis  
+### 3.  Break‑Even Analysis  
 
 | Month | Cumulative Revenue | Cumulative Expenses | Cumulative Profit | Break‑Even Point |
 |-------|--------------------|---------------------|-------------------|------------------|
@@ -2623,7 +2623,7 @@ E.g., Starter margin = (300 – 120) / 300 = 0.60 → 60%.
 
 ---
 
-## 4.  Monthly Expense Detail (Baseline)
+### 4.  Monthly Expense Detail (Baseline)
 
 | Expense | Monthly Cost | Tool | Notes |
 |---------|--------------|------|-------|
@@ -2635,7 +2635,7 @@ E.g., Starter margin = (300 – 120) / 300 = 0.60 → 60%.
 For the free step-by-step guide, see our [implementation guide]({< ref "/intelligence/research-automate-and-monetize-an-ai-affiliate-marketing-system-with-semrush-and.md" >}).
 
 
-## Recommended Tools
+### Recommended Tools
 
 These are the tools we recommend for building and scaling AI automation businesses:
 

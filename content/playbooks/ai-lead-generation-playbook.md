@@ -17,15 +17,15 @@ This is not a blog post condensed into a PDF. This is an operating system for bu
 
 ---
 
-# MODULE 1: FOUNDATION & BUSINESS MODEL — ALL CAPS
+## MODULE 1: FOUNDATION & BUSINESS MODEL — ALL CAPS
 
-## Overview
+### Overview
 
 Before you open a single tool, you will define the exact business you are building. An AI lead generation business sells qualified, scored, and enriched prospect data to companies that need pipeline. You do not sell "marketing." You do not sell "consulting." You sell verified contact records that convert to meetings. The AI layer is your competitive moat — it lets you produce 10x the output at 1/10th the labour cost of a traditional SDR team.
 
 Your revenue model is simple: clients pay you a monthly retainer to deliver a guaranteed volume of qualified leads per month. You use Apollo.io for data, Make.com for automation, ChatGPT for scoring and personalization, and Notion as your operating dashboard. Total tooling cost at launch: under ₦150,000/month. First client pays for everything.
 
-## Procedure 1.1: Define Your Service Tier Structure
+### Procedure 1.1: Define Your Service Tier Structure
 
 Open a new Notion page. Title it "LeadGen OS — Pricing Matrix." Create a table with three rows and the following columns:
 
@@ -43,7 +43,7 @@ Open a new Notion page. Title it "LeadGen OS — Pricing Matrix." Create a table
 
 Save this page. You will reference it in every client proposal. Do not negotiate these numbers downward. The market rate for outsourced SDR teams in Lagos and London exceeds ₦2M/month for 200 leads. You are cheaper and better.
 
-## Procedure 1.2: Register Your Business Infrastructure
+### Procedure 1.2: Register Your Business Infrastructure
 
 Execute these steps in this exact order:
 
@@ -55,7 +55,7 @@ Execute these steps in this exact order:
 
 Verify: You can log into all five platforms. Your domain resolves. Your Google Workspace inbox receives mail. Do not proceed until all five are confirmed.
 
-## Procedure 1.3: Create Your Master Notion Workspace
+### Procedure 1.3: Create Your Master Notion Workspace
 
 Open Notion (https://notion.so). Create a new workspace titled "LeadGen OS." Inside this workspace, create the following pages using the "/page" command:
 
@@ -73,7 +73,7 @@ Set the workspace icon to ⚡. Set the cover image to a solid black image (hex #
 
 {{% accent-box %}}HACK: Create a Notion template button on your Dashboard page that generates a full client onboarding folder with one click. Use "/template" and pre-fill it with: Client Brief sub-page, ICP Document sub-page, Apollo Search Config sub-page, and Outreach Sequence sub-page. This saves 20 minutes per new client onboarding.{{% /accent-box %}}
 
-## Check-In: Module 1 Complete
+### Check-In: Module 1 Complete
 
 - [ ] Pricing matrix created in Notion with three tiers
 - [ ] Domain registered and Google Workspace inbox receiving mail
@@ -85,13 +85,13 @@ Set the workspace icon to ⚡. Set the cover image to a solid black image (hex #
 
 ---
 
-# MODULE 2: TECH STACK CONFIGURATION — ALL CAPS
+## MODULE 2: TECH STACK CONFIGURATION — ALL CAPS
 
-## Overview
+### Overview
 
 You will now configure every tool in your stack. Do not skip settings. Do not leave defaults in place. Every misconfigured tool produces bad data. Bad data kills your credibility with clients. You will set up: Apollo.io (data source + email sender), Make.com (automation engine), ChatGPT Plus (scoring + personalization), Notion (dashboard + CRM), and Google Workspace (email infrastructure). Monthly cost at full configuration: ₦148,500.
 
-## Procedure 2.1: Configure Apollo.io Custom Plan
+### Procedure 2.1: Configure Apollo.io Custom Plan
 
 Log into Apollo.io. Navigate to Settings (gear icon, top right). Execute each step:
 
@@ -115,7 +115,7 @@ Log into Apollo.io. Navigate to Settings (gear icon, top right). Execute each st
 
 Do not send a single email until domain verification is complete. Sending from an unverified domain will destroy your sender reputation within 48 hours.
 
-## Procedure 2.2: Configure Make.com Automation Engine
+### Procedure 2.2: Configure Make.com Automation Engine
 
 Log into Make.com (https://make.com). Create a new organization named "LeadGen OS." Inside it, create a new team named "Production." Execute:
 
@@ -128,7 +128,7 @@ Log into Make.com (https://make.com). Create a new organization named "LeadGen O
 
 Save this scenario as "Master Pipeline — DO NOT DELETE." You will build automation chains on top of this in later modules.
 
-## Procedure 2.3: Configure ChatGPT Plus for Lead Scoring
+### Procedure 2.3: Configure ChatGPT Plus for Lead Scoring
 
 Log into ChatGPT (https://chat.openai.com). You need a Plus subscription ($20/month). Execute:
 
@@ -164,7 +164,7 @@ Log into ChatGPT (https://chat.openai.com). You need a Plus subscription ($20/mo
 
 {{% accent-box %}}HACK: Create a second Custom GPT called "Outreach Copywriter" with instructions to generate 7-email cold sequences using the AIDA framework. Give it this constraint: "No email exceeds 90 words. Subject lines must be under 7 words. Never use the word 'excited' or 'opportunity.' Always open with a specific observation about the prospect's company." This produces copy that books 2-3x more meetings than generic ChatGPT output.{{% /accent-box %}}
 
-## Procedure 2.4: Set Up Google Workspace Email Infrastructure
+### Procedure 2.4: Set Up Google Workspace Email Infrastructure
 
 This step is critical for deliverability. A misconfigured email setup means your outreach lands in spam. Execute every step:
 
@@ -184,7 +184,7 @@ This step is critical for deliverability. A misconfigured email setup means your
 
 Verify: Send a test email from `outreach@[domain].co` to your personal Gmail. Check the email headers (click "Show Original" in Gmail). Confirm SPF=PASS, DKIM=PASS, DMARC=PASS. All three must pass.
 
-## Check-In: Module 2 Complete
+### Check-In: Module 2 Complete
 
 - [ ] Apollo.io upgraded to Custom plan with verified domain
 - [ ] Apollo email sending limits configured (75/day, 120s intervals)
@@ -196,13 +196,13 @@ Verify: Send a test email from `outreach@[domain].co` to your personal Gmail. Ch
 
 ---
 
-# MODULE 3: PROSPECT RESEARCH ENGINE — ALL CAPS
+## MODULE 3: PROSPECT RESEARCH ENGINE — ALL CAPS
 
-## Overview
+### Overview
 
 This module builds the machine that finds your leads. You will construct Apollo.io saved searches for each client's Ideal Customer Profile (ICP), configure filter combinations that produce high-intent prospect lists, and automate the export pipeline into your Notion Prospect Database. By the end of this module, you will be able to generate 1,000 targeted prospects in under 15 minutes per client.
 
-## Procedure 3.1: Build the ICP Document Template
+### Procedure 3.1: Build the ICP Document Template
 
 Open Notion → Client Profiles page. Create a new template called "ICP Document." This template must contain these fields:
 
@@ -235,7 +235,7 @@ Open Notion → Client Profiles page. Create a new template called "ICP Document
 
 You will fill this document for every client before you run a single Apollo search. No ICP document = no search. This is non-negotiable.
 
-## Procedure 3.2: Configure Apollo.io Saved Searches
+### Procedure 3.2: Configure Apollo.io Saved Searches
 
 Log into Apollo.io. Click "Search" in the left sidebar. You will build a search that maps directly to your ICP document. Follow this exact configuration:
 
@@ -259,7 +259,7 @@ Log into Apollo.io. Click "Search" in the left sidebar. You will build a search 
 
 {{% accent-box %}}HACK: Always run two parallel searches per client — one narrow (3-4 filters, 200-500 results) and one broad (2 filters, 2,000-5,000 results). Score the narrow list first and send outreach immediately. Meanwhile, the broad list feeds your enrichment pipeline in Module 4. The narrow list books meetings this week; the broad list fills next month's pipeline.{{% /accent-box %}}
 
-## Procedure 3.3: Build the Export-to-Notion Pipeline
+### Procedure 3.3: Build the Export-to-Notion Pipeline
 
 You will automate the flow of prospects from Apollo to Notion using Make.com. Build this scenario:
 
@@ -311,7 +311,7 @@ You will automate the flow of prospects from Apollo to Notion using Make.com. Bu
 
 Activate the scenario. Monitor the first 3 runs. Verify that records appear in both Notion and Google Sheets with scores populated. If any field is empty, check your mapping — the most common error is a mismatched field name between Apollo's output and Notion's property.
 
-## Procedure 3.4: Build the Deduplication Check
+### Procedure 3.4: Build the Deduplication Check
 
 Duplicates kill your credibility. Sending the same prospect two outreach emails from the same company is the fastest way to lose a client. Build this Make.com scenario:
 
@@ -329,7 +329,7 @@ Duplicates kill your credibility. Sending the same prospect two outreach emails 
 
 Run this scenario once. Then import a test batch of 50 prospects. Verify that any duplicates are flagged with "Duplicate" status in Notion.
 
-## Check-In: Module 3 Complete
+### Check-In: Module 3 Complete
 
 - [ ] ICP Document template created in Notion with all required fields
 - [ ] At least one Apollo saved search configured per client ICP
@@ -341,13 +341,13 @@ Run this scenario once. Then import a test batch of 50 prospects. Verify that an
 
 ---
 
-# MODULE 4: DATA ENRICHMENT PIPELINE — ALL CAPS
+## MODULE 4: DATA ENRICHMENT PIPELINE — ALL CAPS
 
-## Overview
+### Overview
 
 Raw Apollo data gets you a name, title, company, and email. That is not enough to write personalized outreach. Enrichment adds the layer that makes your emails feel like they were written by someone who spent 30 minutes researching the prospect — except your AI did it in 3 seconds. This module builds the enrichment pipeline that adds 24-48 data points to every prospect record.
 
-## Procedure 4.1: Configure Apollo Enrichment API
+### Procedure 4.1: Configure Apollo Enrichment API
 
 Apollo.io includes enrichment data natively, but you must unlock it. In Apollo:
 
@@ -369,7 +369,7 @@ Apollo.io includes enrichment data natively, but you must unlock it. In Apollo:
 
 If any of these fields are missing from the response, open Apollo support chat and request enrichment access escalation. This typically takes 24-48 hours.
 
-## Procedure 4.2: Build the Multi-Source Enrichment Workflow
+### Procedure 4.2: Build the Multi-Source Enrichment Workflow
 
 You will enrich each prospect with data from three sources: Apollo (firmographics + contact), LinkedIn (recent activity + role changes), and web scraping (company news + funding). Build this Make.com scenario:
 
@@ -435,7 +435,7 @@ You will enrich each prospect with data from three sources: Apollo (firmographic
 
 Set this scenario to run every **2 hours**. Each run processes up to 50 enriched records. At 50 records per 2 hours, you can enrich 600 prospects per day on auto-pilot.
 
-## Procedure 4.3: Build the Weekly Enrichment Audit
+### Procedure 4.3: Build the Weekly Enrichment Audit
 
 Every Monday at 9:00 AM, you will audit enrichment quality. Build this scenario:
 
@@ -466,7 +466,7 @@ Fix any flagged records by re-running enrichment manually or adjusting your prom
 
 {{% accent-box %}}HACK: Add a "Last LinkedIn Post" field to your enrichment pipeline. Use LinkedIn Sales Navigator to scrape the prospect's most recent post or activity. Feed this into ChatGPT to generate an opening line that references their actual content. Example: "Saw your post about scaling SDR teams from 3 to 15 — we built a system that does exactly that, but with AI instead of headcount." Response rates on these emails are 3x higher than standard personalization.{{% /accent-box %}}
 
-## Check-In: Module 4 Complete
+### Check-In: Module 4 Complete
 
 - [ ] Apollo Enrichment API tested and returning full data
 - [ ] Multi-source enrichment workflow running every 2 hours
@@ -478,13 +478,13 @@ Fix any flagged records by re-running enrichment manually or adjusting your prom
 
 ---
 
-# MODULE 5: AI SCORING & QUALIFICATION — ALL CAPS
+## MODULE 5: AI SCORING & QUALIFICATION — ALL CAPS
 
-## Overview
+### Overview
 
 Not every lead is worth your client's time. A VP of Sales at a 50-person SaaS company that just raised Series A is worth 50x more than a Sales Manager at a 200-person company that hasn't raised in 5 years. Scoring is how you separate the signal from the noise. This module builds a multi-signal scoring model that ranks every prospect from 0-100 and assigns an action category.
 
-## Procedure 5.1: Define Scoring Signals and Weights
+### Procedure 5.1: Define Scoring Signals and Weights
 
 Open your Notion "Scoring Models" page. Create a sub-page for each client. For your first client, define these signals and weights:
 
@@ -502,7 +502,7 @@ Total possible score: 100. Score bands:
 - **40-59 (COOL):** Long-term nurture. Add to monthly drip. Do not assign SDR time.
 - **0-39 (COLD):** Discard. Remove from active pipeline. Archive in Notion.
 
-## Procedure 5.2: Build the Scoring Automation
+### Procedure 5.2: Build the Scoring Automation
 
 You already built a basic scoring step in Procedure 3.3. Now you will upgrade it to a dedicated scoring pipeline with multi-signal evaluation. Build this Make.com scenario:
 
@@ -571,7 +571,7 @@ You already built a basic scoring step in Procedure 3.3. Now you will upgrade it
 
 Run this scenario for your existing enriched prospects. Verify that every record now has a composite score, sub-scores, and an action recommendation.
 
-## Procedure 5.3: Build the Score Calibration Routine
+### Procedure 5.3: Build the Score Calibration Routine
 
 Your AI scoring model is only as good as its calibration. You will check calibration weekly. Build this process:
 
@@ -585,7 +585,7 @@ Your AI scoring model is only as good as its calibration. You will check calibra
 
 Document every calibration change in your Notion "Scoring Models" page with the date, the change, and the rationale.
 
-## Check-In: Module 5 Complete
+### Check-In: Module 5 Complete
 
 - [ ] Scoring signals and weights documented for first client
 - [ ] Lead Scoring Pipeline v2 scenario running with 5-signal evaluation
@@ -597,13 +597,13 @@ Document every calibration change in your Notion "Scoring Models" page with the 
 
 ---
 
-# MODULE 6: OUTREACH SEQUENCES — ALL CAPS
+## MODULE 6: OUTREACH SEQUENCES — ALL CAPS
 
-## Overview
+### Overview
 
 Your outreach is the point where your pipeline produces revenue or dies. This module builds email sequences that convert scored prospects into booked meetings. You will write three sequence types: Hot Lead Blitz (HOT prospects, 4 emails over 10 days), Warm Nurture (WARM prospects, 7 emails over 30 days), and Cool Drip (COOL prospects, 4 emails over 60 days). Every sequence is loaded into Apollo.io and triggered automatically based on the Band field in your Notion database.
 
-## Procedure 6.1: Write the Hot Lead Blitz Sequence
+### Procedure 6.1: Write the Hot Lead Blitz Sequence
 
 Open your Outreach Copywriter Custom GPT. Generate the following 4-email sequence. Replace all bracketed text with client-specific content.
 
@@ -674,7 +674,7 @@ Either way, good luck with the SDR hiring.
 
 {{% accent-box %}}HACK: The subject line in Email 1 uses the prospect's company name, not a generic hook. Open rates on company-name subject lines average 47% vs. 28% for "Quick question" or "Introduction." Never use a subject line that could apply to 100 different people. If you can't make it specific to the recipient, rewrite it.{{% /accent-box %}}
 
-## Procedure 6.2: Write the Warm Nurture Sequence
+### Procedure 6.2: Write the Warm Nurture Sequence
 
 This sequence runs for 30 days with 7 touchpoints. The tone shifts from direct to educational.
 
@@ -790,7 +790,7 @@ Good luck with everything.
 [Your Name]
 ```
 
-## Procedure 6.3: Load Sequences into Apollo.io
+### Procedure 6.3: Load Sequences into Apollo.io
 
 You will now load both sequences into Apollo's email sequencing tool. Execute:
 
@@ -806,7 +806,7 @@ You will now load both sequences into Apollo's email sequencing tool. Execute:
 4. **Create Cool Drip** — Name: `Cool Drip — [ClientName]`. This is a 4-email sequence sent over 60 days (Day 1, Day 20, Day 40, Day 60). Use simplified versions of the Warm Nurture emails, stripped to 60 words maximum. Tone: informational, zero pressure.
 5. **Set Up Unsubscribe Handling** — In each sequence, enable "Auto-handle unsubscribes." Apollo will automatically remove anyone who clicks unsubscribe from all future sequences.
 
-## Procedure 6.4: Build the Auto-Enrollment Workflow
+### Procedure 6.4: Build the Auto-Enrollment Workflow
 
 You will automate the process of adding scored prospects to the correct sequence. Build this Make.com scenario:
 
@@ -837,7 +837,7 @@ You will automate the process of adding scored prospects to the correct sequence
 
 {{% accent-box %}}HACK: Set up A/B testing on every subject line. In Apollo sequences, click "Add Variant" on Email 1. Write two subject lines — one company-name-based and one question-based. Run each to 50 prospects. After 200 total sends, check open rates. The winner becomes your default. Never guess at subject lines again — let data decide.{{% /accent-box %}}
 
-## Check-In: Module 6 Complete
+### Check-In: Module 6 Complete
 
 - [ ] Hot Lead Blitz sequence written and loaded in Apollo (4 emails)
 - [ ] Warm Nurture sequence written and loaded in Apollo (7 emails)
@@ -850,13 +850,13 @@ You will automate the process of adding scored prospects to the correct sequence
 
 ---
 
-# MODULE 7: CRM INTEGRATION & WORKFLOW AUTOMATION — ALL CAPS
+## MODULE 7: CRM INTEGRATION & WORKFLOW AUTOMATION — ALL CAPS
 
-## Overview
+### Overview
 
 Your client's CRM is where leads become revenue. If your leads sit in your Notion database and never reach the client's CRM, you have no proof of value and no retention. This module builds the bridge between your system and the client's CRM. You will integrate with HubSpot, Salesforce, and Pipedrive — the three CRMs you will encounter in 90% of client engagements.
 
-## Procedure 7.1: Build the HubSpot Integration
+### Procedure 7.1: Build the HubSpot Integration
 
 HubSpot is the most common CRM for your target clients (mid-market companies with 50-500 employees). Build this workflow:
 
@@ -899,7 +899,7 @@ HubSpot is the most common CRM for your target clients (mid-market companies wit
 - Update Status to `Synced to CRM`
 - Update CRM ID: `{{2.id}}`
 
-## Procedure 7.2: Build the Salesforce Integration
+### Procedure 7.2: Build the Salesforce Integration
 
 Salesforce clients are typically larger (200-1000 employees). The integration is more complex but follows the same pattern.
 
@@ -935,7 +935,7 @@ Salesforce clients are typically larger (200-1000 employees). The integration is
 - Status: `Synced to CRM`
 - CRM ID: `{{2.id}}`
 
-## Procedure 7.3: Build the Reply Handling Automation
+### Procedure 7.3: Build the Reply Handling Automation
 
 When a prospect replies to your Apollo sequence, you need to: (1) log the reply, (2) notify the client, (3) update the lead status, and (4) stop the sequence. Build this:
 
@@ -964,7 +964,7 @@ When a prospect replies to your Apollo sequence, you need to: (1) log the reply,
   - Notion update: Status = `Replied — Needs Review`
   - Slack notification: `"🟡 {{1.prospect_name}} replied — needs manual review"`
 
-## Procedure 7.4: Build the Meeting Booked Tracker
+### Procedure 7.4: Build the Meeting Booked Tracker
 
 When a meeting is booked (either by the prospect or by your client's team), you need to track it for reporting and billing purposes.
 
@@ -986,7 +986,7 @@ When a meeting is booked (either by the prospect or by your client's team), you 
 
 This spreadsheet is your billing proof. At the end of each month, you will count meetings booked and compare against your SLA. If you promised 15 meetings for a Growth-tier client and delivered 18, you highlight this in your monthly report.
 
-## Check-In: Module 7 Complete
+### Check-In: Module 7 Complete
 
 - [ ] HubSpot integration scenario tested with 10 test contacts
 - [ ] Salesforce integration scenario tested with 5 test contacts (or mock data)
@@ -998,13 +998,13 @@ This spreadsheet is your billing proof. At the end of each month, you will count
 
 ---
 
-# MODULE 8: ANALYTICS & REPORTING — ALL CAPS
+## MODULE 8: ANALYTICS & REPORTING — ALL CAPS
 
-## Overview
+### Overview
 
 Clients cancel when they cannot see value. Your reporting is your retention strategy. This module builds automated dashboards and weekly/monthly reports that prove ROI in numbers the client's CFO can validate. Every metric ties back to revenue.
 
-## Procedure 8.1: Build the Notion Analytics Dashboard
+### Procedure 8.1: Build the Notion Analytics Dashboard
 
 Open Notion → Dashboard page. Add the following sections using the "/database" and "/callout" commands:
 
@@ -1032,7 +1032,7 @@ Open Notion → Dashboard page. Add the following sections using the "/database"
 - Show: Total MRR, Client count, Average revenue per client
 - Add a "/callout" block: "Target: ₦10M MRR by Month 12"
 
-## Procedure 8.2: Build the Weekly Automated Report
+### Procedure 8.2: Build the Weekly Automated Report
 
 Every Friday at 5:00 PM WAT, your system will generate and send a performance report to the client. Build this Make.com scenario:
 
@@ -1076,7 +1076,7 @@ Every Friday at 5:00 PM WAT, your system will generate and send a performance re
 
 This report runs on autopilot. You never miss a Friday. The client always knows what is happening.
 
-## Procedure 8.3: Build the Monthly Business Review (MBR) Report
+### Procedure 8.3: Build the Monthly Business Review (MBR) Report
 
 The MBR is your retention tool. It is a deeper analysis sent on the 1st of every month. Build this scenario:
 
@@ -1127,7 +1127,7 @@ The MBR is your retention tool. It is a deeper analysis sent on the 1st of every
 
 {{% accent-box %}}HACK: Always include Cost Per Lead and Cost Per Meeting in your MBR. These are the two numbers the CFO cares about. When you show that your cost per qualified lead is ₦3,200 vs. their internal cost of ₦45,000, the conversation shifts from "should we keep this vendor?" to "how do we expand this?" Frame everything in cost savings, not activity metrics.{{% /accent-box %}}
 
-## Procedure 8.4: Build the Internal Performance Dashboard
+### Procedure 8.4: Build the Internal Performance Dashboard
 
 You need your own dashboard to run the business. This is separate from client-facing reports. Add to your Notion Dashboard:
 
@@ -1145,7 +1145,7 @@ You need your own dashboard to run the business. This is separate from client-fa
 - Update on the 1st of every month
 - Track against your ₦10M/month target
 
-## Check-In: Module 8 Complete
+### Check-In: Module 8 Complete
 
 - [ ] Notion analytics dashboard built with pipeline volume, outreach performance, lead quality, and revenue sections
 - [ ] Weekly automated report scenario sending every Friday
@@ -1156,13 +1156,13 @@ You need your own dashboard to run the business. This is separate from client-fa
 
 ---
 
-# MODULE 9: CLIENT ACQUISITION — ALL CAPS
+## MODULE 9: CLIENT ACQUISITION — ALL CAPS
 
-## Overview
+### Overview
 
 You now have a fully operational lead generation machine. This module turns that machine on yourself — you will use your own system to find, score, and convert clients. Your target: sign 3 clients in your first 60 days. First client at Starter tier (₦500,000/month), second at Growth tier (₦1,500,000/month), third at Growth tier (₦1,500,000/month). By Month 3, you are at ₦3.5M MRR.
 
-## Procedure 9.1: Define Your Own ICP
+### Procedure 9.1: Define Your Own ICP
 
 Before you run Apollo searches for clients, you need to know who buys AI lead generation services. Your ICP as a business:
 
@@ -1184,7 +1184,7 @@ Before you run Apollo searches for clients, you need to know who buys AI lead ge
 - Government and military (procurement cycle too long)
 - Companies already using ZoomInfo + Outreach + SDR team of 20+ (they built it internally)
 
-## Procedure 9.2: Build Your Own Apollo Search
+### Procedure 9.2: Build Your Own Apollo Search
 
 Log into Apollo.io. Build a People Search with these filters:
 
@@ -1200,7 +1200,7 @@ Save as: `Own_ICP_Client_Prospecting_v1`
 
 Export the first 200 results. Run them through your own enrichment and scoring pipeline. You are now eating your own dog food — the same system you sell to clients, you use to acquire them.
 
-## Procedure 9.3: Write Your Client Acquisition Sequence
+### Procedure 9.3: Write Your Client Acquisition Sequence
 
 This is different from your client-facing sequences. This is you selling your service. Build a 5-email sequence in Apollo:
 
@@ -1292,7 +1292,7 @@ All the best.
 [Your Name]
 ```
 
-## Procedure 9.4: Execute the 50-Lead Free Trial Strategy
+### Procedure 9.4: Execute the 50-Lead Free Trial Strategy
 
 This is your highest-converting acquisition tactic. When a prospect accepts the free trial:
 
@@ -1317,7 +1317,7 @@ This is your highest-converting acquisition tactic. When a prospect accepts the 
 
 Close rate on free trial recipients who rate 7+: **65%**.
 
-## Procedure 9.5: Build the Proposal Template
+### Procedure 9.5: Build the Proposal Template
 
 Create a Notion page template titled "Client Proposal — [ClientName]." Structure:
 
@@ -1363,7 +1363,7 @@ Signed,
 [Your Brand]
 ```
 
-## Check-In: Module 9 Complete
+### Check-In: Module 9 Complete
 
 - [ ] Own ICP defined and documented
 - [ ] Apollo search for client prospects saved and running
@@ -1376,13 +1376,13 @@ Signed,
 
 ---
 
-# MODULE 10: SCALING & TEAM BUILDING — ALL CAPS
+## MODULE 10: SCALING & TEAM BUILDING — ALL CAPS
 
-## Overview
+### Overview
 
 One person can manage 3-5 clients at Growth tier before quality degrades. To reach ₦10M MRR, you need a team. This module defines the hiring roadmap, the delegation framework, and the operational systems that let you scale from solo operator to 10-person agency without breaking the machine you built.
 
-## Procedure 10.1: Define the Scaling Milestones
+### Procedure 10.1: Define the Scaling Milestones
 
 Record these milestones in your Notion Revenue Tracker:
 
@@ -1396,7 +1396,7 @@ Record these milestones in your Notion Revenue Tracker:
 
 You are currently at Level 1. Do not hire until you hit ₦2M MRR. Premature hiring is the #1 killer of service businesses.
 
-## Procedure 10.2: Hire the Lead Research Analyst
+### Procedure 10.2: Hire the Lead Research Analyst
 
 This is your first hire. They will own the research pipeline — Apollo searches, enrichment, and scoring — freeing you to focus on client management and sales.
 
@@ -1429,7 +1429,7 @@ Nice-to-have:
 
 Post this on: LinkedIn, Twitter, and remote job boards (WeWorkRemotely, Remote.co). Interview 10 candidates. Hire the one who can build an Apollo search in under 10 minutes during the skills test.
 
-## Procedure 10.3: Build the SOP Library
+### Procedure 10.3: Build the SOP Library
 
 Every task in your business must be documented as a Standard Operating Procedure (SOP) before you delegate it. Create these SOPs in your Notion SOPs page:
 
@@ -1470,7 +1470,7 @@ Every task in your business must be documented as a Standard Operating Procedure
 
 {{% accent-box %}}HACK: Record a Loom video for every SOP. A 3-minute video showing someone how to build an Apollo search is 10x more effective than a 2-page written document. Store Loom links inside each Notion SOP page. When you hire someone, their first week is watching your SOP videos and replicating each task. This cuts onboarding from 4 weeks to 1 week.{{% /accent-box %}}
 
-## Procedure 10.4: Build the Client Expansion Playbook
+### Procedure 10.4: Build the Client Expansion Playbook
 
 Your fastest revenue growth comes from expanding existing clients, not signing new ones. Build this expansion process:
 
@@ -1492,7 +1492,7 @@ upgrade. Want me to switch you over this month?"
 
 Track expansion rate in your Revenue Tracker. If expansion rate drops below 20%, your service quality is slipping — fix the product before you fix the sales.
 
-## Procedure 10.5: Build the ₦10M/Month Roadmap
+### Procedure 10.5: Build the ₦10M/Month Roadmap
 
 This is your 12-month financial roadmap. Record it in Notion:
 
@@ -1528,7 +1528,7 @@ This is your 12-month financial roadmap. Record it in Notion:
 
 {{% accent-box %}}HACK: Once you hit ₦10M MRR, start building a self-serve SaaS version of your pipeline. Clients pay ₦200,000-₦500,000/month to access your Apollo + ChatGPT + Notion system directly via a web dashboard. This converts your service into a product, adds a revenue stream with near-zero marginal cost, and creates a moat that competitors cannot replicate. Use Next.js for the frontend and Retool for the internal dashboard.{{% /accent-box %}}
 
-## Check-In: Module 10 Complete
+### Check-In: Module 10 Complete
 
 - [ ] Scaling milestones documented in Revenue Tracker
 - [ ] Lead Research Analyst job description posted
@@ -1541,7 +1541,7 @@ This is your 12-month financial roadmap. Record it in Notion:
 
 ---
 
-# FINAL CHECK-IN: PLAYBOOK COMPLETE
+## FINAL CHECK-IN: PLAYBOOK COMPLETE
 
 You have built the complete operating system. Verify every component:
 

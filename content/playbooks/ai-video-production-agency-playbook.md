@@ -17,16 +17,16 @@ This is not a blog post condensed into a PDF. This is an operating system for bu
 
 ---
 
-# MODULE 1: FOUNDATION — YOUR VIDEO PRODUCTION COMMAND CENTER
+## MODULE 1: FOUNDATION — YOUR VIDEO PRODUCTION COMMAND CENTER
 
-## Overview
+### Overview
 
 Before you render a single frame, you need the infrastructure that runs your video production agency. This module sets up your project management, client portal, financial tracking, and communication systems. These are not optional. Every successful video agency operator has these systems in place before their first client call. Every failed operator skipped them.
 
 **Time to complete:** 3-4 hours
 **Tools needed:** Notion (free), Zapier (free tier), Paystack (free), Frame.io (free trial)
 
-## Procedure 1.1: Create Your Video Production Command Center in Notion
+### Procedure 1.1: Create Your Video Production Command Center in Notion
 
 Open your browser and go to notion.so. Sign in or create a free account. You should see the Notion dashboard — a clean sidebar on the left and a main area with a "New page" button.
 
@@ -44,7 +44,7 @@ Inside this page, create seven sub-pages by typing `/page` and naming each one:
 
 Do you see all seven sub-pages listed inside your Command Center? If any are missing, add them now. You should have exactly seven. Count them.
 
-### The Clients Database
+#### The Clients Database
 
 Open the **Clients** sub-page. Type `/table` and select **Table — Full page**. Name it `Client Roster`.
 
@@ -62,7 +62,7 @@ Add these columns:
 | Avg Delivery Time | Number | Average days from brief to delivery |
 | Health Score | Select: Green, Yellow, Red | Subjective assessment of the relationship |
 
-### The Projects Database
+#### The Projects Database
 
 Create another full-page table called `Project Tracker`.
 
@@ -77,13 +77,13 @@ Create another full-page table called `Project Tracker`.
 | AI Tools Used | Multi-select: HeyGen, Runway, Fliki, ElevenLabs, Midjourney, CapCut |
 | Revision Count | Number |
 
-## Procedure 1.2: Set Up Your Financial Infrastructure
+### Procedure 1.2: Set Up Your Financial Infrastructure
 
-### Create Your Paystack Account
+#### Create Your Paystack Account
 
 Go to paystack.com and create a business account. Complete the business verification process. This typically takes 2-5 business days for approval.
 
-### Create Your Payment Products
+#### Create Your Payment Products
 
 | Product Name | Price | Type |
 |---|---|---|
@@ -96,7 +96,7 @@ Go to paystack.com and create a business account. Complete the business verifica
 
 Create payment links for each product. Save these links in your Notion **Templates** page under "Payment Links."
 
-### Set Up Revenue Tracking
+#### Set Up Revenue Tracking
 
 In your Notion **Finance** page, create a table called `Revenue Tracker` with these columns:
 
@@ -111,13 +111,13 @@ In your Notion **Finance** page, create a table called `Revenue Tracker` with th
 | Active Clients | Number |
 | Videos Delivered | Number |
 
-## Procedure 1.3: Configure Your Communication Stack
+### Procedure 1.3: Configure Your Communication Stack
 
-### Create Your Business Email
+#### Create Your Business Email
 
 Set up Google Workspace ($6/mo) with a custom domain. Create your professional email address.
 
-### Create Your Review and Approval System
+#### Create Your Review and Approval System
 
 Go to frame.io and sign up for a free trial. Frame.io is the industry standard for video review and approval. Clients leave timestamped comments directly on the video — no more "at 2:34, can you change the text" emails.
 
@@ -130,7 +130,7 @@ Configure your Frame.io workspace:
 **HACK:** Use Notion's "Template" button inside your Project Tracker database to create a pre-filled template for new projects. Include default values for Status ("Briefing"), Revision Count (0), and a checklist of production steps: "Receive brief," "Write script," "Generate AI visuals," "Record voiceover," "Edit and assemble," "Internal review," "Client review," "Final delivery." This saves 15 minutes every time you start a new project.
 {{% /accent-box %}}
 
-## Check-In: Module 1 Complete
+### Check-In: Module 1 Complete
 
 - [ ] Notion Command Center created with all 7 sub-pages
 - [ ] Client Roster database with all 9 columns
@@ -144,18 +144,18 @@ Configure your Frame.io workspace:
 
 ---
 
-# MODULE 2: TECH STACK — YOUR VIDEO PRODUCTION ARSENAL
+## MODULE 2: TECH STACK — YOUR VIDEO PRODUCTION ARSENAL
 
-## Overview
+### Overview
 
 Your video agency runs on tools. This module sets up every AI video tool you need, connects them, and verifies each one works. The total monthly cost can be as low as ₦0 for free tiers — and most paid tools are free until you have paying clients.
 
 **Time to complete:** 3-4 hours
 **Total monthly cost (startup):** ₦0–₦20,000 depending on your choices
 
-## Procedure 2.1: Set Up AI Video Generation Tools
+### Procedure 2.1: Set Up AI Video Generation Tools
 
-### HeyGen — AI Avatar Videos
+#### HeyGen — AI Avatar Videos
 
 Go to heygen.com and create a free account. HeyGen produces the most realistic AI avatar videos available in 2026. You type a script, select an avatar, and receive a video of a realistic human presenter speaking your words with natural gestures and expressions.
 
@@ -163,39 +163,39 @@ After signing in, test the system: create a 30-second video using a default avat
 
 Wait for the video to render (typically 2-5 minutes). Watch the playback. Does the avatar look natural? Does the lip-sync match? Are the gestures smooth? If the quality meets your standards, HeyGen is your primary tool for presenter-led videos.
 
-### Runway ML — AI Visual Effects and B-Roll
+#### Runway ML — AI Visual Effects and B-Roll
 
 Go to runwayml.com and create a free account. Runway is the leading AI video generation platform. You describe a scene in text, and Runway generates video footage from that description. Use it for: B-roll generation, visual effects, background scenes, and creative transitions.
 
 Test the system: generate a 4-second clip using the prompt "Aerial view of a modern office building at sunrise, cinematic, 4K." Wait for the generation (typically 1-3 minutes). Does the output look professional? Runway's Gen-3 Alpha model produces remarkably realistic footage, though it sometimes generates artifacts in complex scenes.
 
-### Fliki — Text-to-Video for Social Content
+#### Fliki — Text-to-Video for Social Content
 
 Go to fliki.ai and create a free account. Fliki converts text scripts into social media videos with AI voiceovers, stock footage, and captions. It is the fastest way to produce Instagram Reels, TikToks, and YouTube Shorts.
 
 Test the system: paste a 100-word script about "5 AI tools every business needs" and generate a 60-second video. Does the voiceover sound natural? Are the stock clips relevant? Are the captions synced?
 
-### ElevenLabs — AI Voice Generation
+#### ElevenLabs — AI Voice Generation
 
 Go to elevenlabs.io and create a free account. ElevenLabs produces the most natural-sounding AI voices available. You will use it for voiceovers on all video content.
 
 Test the system: paste your script into the text box and generate a voiceover using the "Adam" voice. Listen to the output. Does it sound human? Is the pacing natural? Are difficult words pronounced correctly? If you hear robotic artifacts, try different voice models until you find one that passes the "could this be a real person?" test.
 
-## Procedure 2.2: Set Up Your Editing and Post-Production Tools
+### Procedure 2.2: Set Up Your Editing and Post-Production Tools
 
-### CapCut Pro — Video Editing
+#### CapCut Pro — Video Editing
 
 Go to capcut.com and download CapCut (free). CapCut is the best free video editor available, with built-in AI features: auto-captions, background removal, AI color correction, and template-based editing.
 
-### Canva Pro — Thumbnail and Social Asset Creation
+#### Canva Pro — Thumbnail and Social Asset Creation
 
 Go to canva.com and sign up for Canva Pro ($13/month). You will use Canva to create video thumbnails, social media graphics, and branded templates for clients.
 
-### Midjourney — AI Image Generation for Storyboards
+#### Midjourney — AI Image Generation for Storyboards
 
 Go to midjourney.com and create an account. You will use Midjourney to generate storyboard frames, concept art, and visual references for client projects.
 
-## Procedure 2.3: Connect Everything with Zapier
+### Procedure 2.3: Connect Everything with Zapier
 
 In Zapier, connect these services:
 
@@ -208,7 +208,7 @@ In Zapier, connect these services:
 
 Verify all connections show green status.
 
-## Procedure 2.4: Complete Tool Cost Summary
+### Procedure 2.4: Complete Tool Cost Summary
 
 | Tool | Purpose | Free Tier | Paid Tier | When to Upgrade |
 |---|---|---|---|---|
@@ -226,7 +226,7 @@ Verify all connections show green status.
 
 **Startup cost: $19/mo (Google Workspace + Canva Pro). Everything else is free until you have revenue.**
 
-## Check-In: Module 2 Complete
+### Check-In: Module 2 Complete
 
 - [ ] HeyGen account with test video generated
 - [ ] Runway ML account with test clip generated
@@ -242,16 +242,16 @@ Verify all connections show green status.
 
 ---
 
-# MODULE 3: SCRIPT AND STORYBOARD AUTOMATION — THE NARRATIVE ENGINE
+## MODULE 3: SCRIPT AND STORYBOARD AUTOMATION — THE NARRATIVE ENGINE
 
-## Overview
+### Overview
 
 Every great video starts with a great script. This module builds the AI-powered scriptwriting and storyboarding system that turns a client brief into a production-ready script in minutes instead of days. The script is the foundation of every video — a bad script produces a bad video regardless of how impressive the AI visuals are.
 
 **Time to complete:** 3-4 hours
 **Tools needed:** OpenAI API, Notion, Google Sheets
 
-## Procedure 3.1: Create Your Script Template Library
+### Procedure 3.1: Create Your Script Template Library
 
 Open your Notion **Templates** page. Create a sub-page called `Script Templates`. Build templates for these video types:
 
@@ -272,7 +272,7 @@ Each template must include:
 - **CTA** (clear, specific call to action)
 - **Estimated Duration** (based on word count and pacing)
 
-## Procedure 3.2: Build the AI Script Generator
+### Procedure 3.2: Build the AI Script Generator
 
 Create a Zapier workflow: "Script Generator Pipeline."
 
@@ -331,7 +331,7 @@ Respond in JSON:
 **HACK:** Generate three hook variations for every script and A/B test them. The hook is the most important part of any video — 65% of viewers decide whether to keep watching within the first 3 seconds. Run these three hooks through an AI scoring prompt: "Rate this video hook on a scale of 1-10 for curiosity gap, emotional impact, and scroll-stopping power. Which one would make you keep watching and why?" Use the highest-scoring hook as your primary, and save the others for social media remixes.
 {{% /accent-box %}}
 
-## Procedure 3.3: Build the AI Storyboard Generator
+### Procedure 3.3: Build the AI Storyboard Generator
 
 Once the script is approved, generate a visual storyboard using Midjourney.
 
@@ -357,7 +357,7 @@ Rules:
 **Step 2:** Midjourney → Generate images (via Discord bot or API)
 **Step 3:** Notion → Create storyboard page with images alongside script text
 
-## Check-In: Module 3 Complete
+### Check-In: Module 3 Complete
 
 - [ ] Script Template Library with 7 video types
 - [ ] AI Script Generator Zap built and tested with 5+ briefs
@@ -369,16 +369,16 @@ Rules:
 
 ---
 
-# MODULE 4: VIDEO PRODUCTION AUTOMATION — THE FACTORY FLOOR
+## MODULE 4: VIDEO PRODUCTION AUTOMATION — THE FACTORY FLOOR
 
-## Overview
+### Overview
 
 This module builds the core production engine: scripts flow in, AI generates visuals and voiceovers, you assemble and polish the final video. This is where the magic happens — and where most agencies fail by trying to do everything manually.
 
 **Time to complete:** 4-6 hours
 **Tools needed:** HeyGen, Runway, Fliki, ElevenLabs, CapCut, Zapier
 
-## Procedure 4.1: Build the Explainer Video Production Pipeline
+### Procedure 4.1: Build the Explainer Video Production Pipeline
 
 Create a Zap: "Explainer Video Production."
 
@@ -403,7 +403,7 @@ Assembly checklist:
 **Step 6:** Gmail → Notify the client that their draft is ready for review
 **Step 7:** Notion → Update project status to "Review"
 
-## Procedure 4.2: Build the Social Media Clip Production Pipeline
+### Procedure 4.2: Build the Social Media Clip Production Pipeline
 
 Social media clips are your high-volume, low-price product. You should be able to produce 10-15 social clips per day with AI automation.
 
@@ -423,7 +423,7 @@ Create a Zap: "Social Clip Production."
 **HACK:** Create a "video remix" system that takes every long-form video and automatically generates 3-5 social clips from it. Build a Zap that: (1) takes the approved long-form script, (2) uses AI to identify the 3-5 most clip-worthy moments (highest emotional impact, best soundbites), (3) generates short-form scripts for each moment, (4) routes each to the social clip pipeline. One long-form video becomes a content machine — this is how you deliver 20+ videos per month for a Growth-tier client while only producing 4-5 from scratch.
 {{% /accent-box %}}
 
-## Procedure 4.3: Build the Faceless YouTube Video Pipeline
+### Procedure 4.3: Build the Faceless YouTube Video Pipeline
 
 Faceless YouTube channels are a massive opportunity. The videos are entirely AI-generated: AI voiceover, AI visuals, AI-edited. No human appears on camera.
 
@@ -455,7 +455,7 @@ Rules:
 
 **Step 5:** Upload to Frame.io for review
 
-## Procedure 4.4: Quality Control Checklist
+### Procedure 4.4: Quality Control Checklist
 
 Before sending any video to client review, verify:
 
@@ -470,7 +470,7 @@ Before sending any video to client review, verify:
 
 8 quality checks. Do not skip any. A single artifact or wrong caption can destroy a client's trust in your AI-powered production.
 
-## Check-In: Module 4 Complete
+### Check-In: Module 4 Complete
 
 - [ ] Explainer Video Production Pipeline built and tested
 - [ ] Social Media Clip Production Pipeline producing clips at volume
@@ -483,16 +483,16 @@ Before sending any video to client review, verify:
 
 ---
 
-# MODULE 5: CLIENT REVIEW AND REVISION MANAGEMENT
+## MODULE 5: CLIENT REVIEW AND REVISION MANAGEMENT
 
-## Overview
+### Overview
 
 Revisions are where agencies lose money. Unlimited revisions destroy margins. No revisions destroy relationships. This module builds a structured revision process that protects your margins while keeping clients happy.
 
 **Time to complete:** 2-3 hours
 **Tools needed:** Frame.io, Zapier, Notion
 
-## Procedure 5.1: Set Up the Revision Policy
+### Procedure 5.1: Set Up the Revision Policy
 
 Define your revision tiers:
 
@@ -502,7 +502,7 @@ Define your revision tiers:
 
 A "round" is defined as: all feedback submitted by the client at one time. If the client sends 5 comments on Monday and 3 more on Wednesday, that counts as one round (if submitted within the review window).
 
-## Procedure 5.2: Build the Review and Revision Workflow
+### Procedure 5.2: Build the Review and Revision Workflow
 
 Create a Zap: "Review Tracking."
 
@@ -517,7 +517,7 @@ Create a second Zap: "Revision Deadline Enforcer."
 
 This prevents the "client went silent for two weeks" problem that clogs your production pipeline.
 
-## Procedure 5.3: Build the Revision Implementation Workflow
+### Procedure 5.3: Build the Revision Implementation Workflow
 
 When the client submits revision feedback:
 
@@ -535,7 +535,7 @@ When the client submits revision feedback:
 **HACK:** When a client requests a revision that is actually scope creep, do not say "that will cost extra." Instead, say: "Great idea! That falls outside the current project scope, so I've drafted a quick add-on: [description] for [price]. Want me to add that to this project or save it for the next one?" This frames the upsell positively and gives the client a choice rather than a rejection. You will close 60-70% of these add-on requests.
 {{% /accent-box %}}
 
-## Check-In: Module 5 Complete
+### Check-In: Module 5 Complete
 
 - [ ] Revision policy defined and communicated to all clients
 - [ ] Review Tracking Zap logs all Frame.io comments to Notion
@@ -547,16 +547,16 @@ When the client submits revision feedback:
 
 ---
 
-# MODULE 6: CONTENT CALENDAR AND SCHEDULING
+## MODULE 6: CONTENT CALENDAR AND SCHEDULING
 
-## Overview
+### Overview
 
 Producing videos is only half the job. Delivering them on a consistent schedule is what keeps clients paying month after month. This module builds an automated content calendar that ensures every client receives their videos on time, every time.
 
 **Time to complete:** 2-3 hours
 **Tools needed:** Notion, Zapier, Google Sheets
 
-## Procedure 6.1: Build the Content Calendar System
+### Procedure 6.1: Build the Content Calendar System
 
 Create a Notion database called `Content Calendar` with these columns:
 
@@ -572,7 +572,7 @@ Create a Notion database called `Content Calendar` with these columns:
 | Platform | Multi-select: YouTube, Instagram, TikTok, LinkedIn, Website |
 | Status | Select: Planned, Scripting, Production, Review, Delivered |
 
-## Procedure 6.2: Build the Automated Scheduling Workflow
+### Procedure 6.2: Build the Automated Scheduling Workflow
 
 Create a Zap: "Content Calendar Scheduler."
 
@@ -600,7 +600,7 @@ For a 10-minute faceless video (15-day production):
 **Step 2:** Notion → Add all dates to the Content Calendar
 **Step 3:** Gmail → Send the client a production schedule
 
-## Procedure 6.3: Build the Deadline Alert System
+### Procedure 6.3: Build the Deadline Alert System
 
 Create a Zap: "Deadline Alerts."
 
@@ -618,7 +618,7 @@ This prevents missed deadlines — the number one reason clients cancel video re
 **HACK:** Offer clients a "content batch" option where you produce an entire month's worth of videos in one production sprint. Instead of producing 4 social clips spread across the month, produce all 4 in the first week. This lets you batch AI generation (run multiple HeyGen/Runway jobs simultaneously), batch editing (assemble all clips in one CapCut session), and batch review (client reviews everything in one Frame.io session). Batching reduces production time by 40% and increases your effective hourly rate by 2x.
 {{% /accent-box %}}
 
-## Check-In: Module 6 Complete
+### Check-In: Module 6 Complete
 
 - [ ] Content Calendar database created in Notion
 - [ ] Automated Scheduling Workflow calculates and populates all dates
@@ -629,16 +629,16 @@ This prevents missed deadlines — the number one reason clients cancel video re
 
 ---
 
-# MODULE 7: CLIENT ONBOARDING — SETTING EXPECTATIONS
+## MODULE 7: CLIENT ONBOARDING — SETTING EXPECTATIONS
 
-## Overview
+### Overview
 
 A smooth onboarding process prevents 80% of client problems. When expectations are clear, deliverables are defined, and communication channels are established from day one, the relationship runs smoothly. When onboarding is rushed or skipped, misunderstandings multiply and clients churn.
 
 **Time to complete:** 2-3 hours
 **Tools needed:** Notion, Zapier, Gmail
 
-## Procedure 7.1: Create the Onboarding Package
+### Procedure 7.1: Create the Onboarding Package
 
 Build a Notion template called "Client Onboarding" that includes:
 
@@ -649,7 +649,7 @@ Build a Notion template called "Client Onboarding" that includes:
 5. **Content Calendar** — First month's planned videos with dates
 6. **Communication Protocols** — How and when to reach you, expected response times
 
-## Procedure 7.2: Build the Onboarding Automation
+### Procedure 7.2: Build the Onboarding Automation
 
 Create a Zap: "New Client Onboarding."
 
@@ -660,7 +660,7 @@ Create a Zap: "New Client Onboarding."
 **Step 4:** Notion → Add client to the Content Calendar
 **Step 5:** Slack → Notify `#new-clients` channel
 
-## Procedure 7.3: Build the Brand Asset Storage System
+### Procedure 7.3: Build the Brand Asset Storage System
 
 Create a Google Drive folder structure for each client:
 
@@ -688,7 +688,7 @@ Save the brand guide questionnaire responses here once the client submits them. 
 **HACK:** During onboarding, ask the client to share their top 3 competitor videos and their top 3 favorite videos (not necessarily in their industry). The competitor videos show you what to differentiate from. The favorite videos show you the aesthetic and emotional tone the client aspires to. This single question prevents more revision rounds than any other onboarding step.
 {{% /accent-box %}}
 
-## Check-In: Module 7 Complete
+### Check-In: Module 7 Complete
 
 - [ ] Client Onboarding Package with all 6 components
 - [ ] Onboarding Automation Zap sends welcome email and sets up client infrastructure
@@ -700,18 +700,18 @@ Save the brand guide questionnaire responses here once the client submits them. 
 
 ---
 
-# MODULE 8: PRICING AND PACKAGES — MONETIZING YOUR AGENCY
+## MODULE 8: PRICING AND PACKAGES — MONETIZING YOUR AGENCY
 
-## Overview
+### Overview
 
 Pricing is the difference between a hobby and a business. This module gives you the exact pricing tiers, package structures, and upsell strategies that maximize revenue while delivering clear value to clients.
 
 **Time to complete:** 2-3 hours
 **Tools needed:** Notion, Paystack
 
-## Procedure 8.1: Define Your Service Packages
+### Procedure 8.1: Define Your Service Packages
 
-### Starter Package — ₦100,000/month (₦200K setup)
+#### Starter Package — ₦100,000/month (₦200K setup)
 
 Deliverables per month:
 - 4 social media clips (15-60 seconds each)
@@ -724,7 +724,7 @@ Your margin: 80%+
 
 Best for: Small businesses, startups, solopreneurs
 
-### Growth Package — ₦250,000/month (₦400K setup)
+#### Growth Package — ₦250,000/month (₦400K setup)
 
 Deliverables per month:
 - 8 social media clips
@@ -739,7 +739,7 @@ Your margin: 78%+
 
 Best for: Growing businesses with active social media presence
 
-### Enterprise Package — ₦500,000/month (₦750K setup)
+#### Enterprise Package — ₦500,000/month (₦750K setup)
 
 Deliverables per month:
 - 15 social media clips
@@ -755,7 +755,7 @@ Your margin: 75%+
 
 Best for: Agencies, media companies, large brands
 
-## Procedure 8.2: Define Add-On Services
+### Procedure 8.2: Define Add-On Services
 
 | Add-On | Price | Description |
 |---|---|---|
@@ -767,7 +767,7 @@ Best for: Agencies, media companies, large brands
 | Multi-language version | ₦30,000 per language | Translate and voiceover in additional languages |
 | Raw project files | ₦25,000 | Deliver editable CapCut project files |
 
-## Procedure 8.3: Build the Proposal Generator
+### Procedure 8.3: Build the Proposal Generator
 
 Create a Zap: "Proposal Generator."
 
@@ -790,7 +790,7 @@ You are a video agency sales consultant. Given a discovery call summary, generat
 **HACK:** Always show the traditional production cost alongside your price. A 60-second explainer video from a traditional agency costs ₦500,000-2,000,000 and takes 4-6 weeks. Your AI-powered version costs ₦100,000/month (as part of a package) and takes 5-7 days. Frame it as: "Traditional agency: ₦1.5M per video, 6-week timeline. Menshly AI Video: ₦100K/month for 4+ videos, 5-day timeline." The comparison is so stark that most prospects sign immediately.
 {{% /accent-box %}}
 
-## Check-In: Module 8 Complete
+### Check-In: Module 8 Complete
 
 - [ ] Three service packages defined with clear deliverables and margins
 - [ ] Add-on services priced and documented
@@ -801,16 +801,16 @@ You are a video agency sales consultant. Given a discovery call summary, generat
 
 ---
 
-# MODULE 9: ANALYTICS AND REPORTING — PROVING ROI
+## MODULE 9: ANALYTICS AND REPORTING — PROVING ROI
 
-## Overview
+### Overview
 
 Clients cancel when they cannot see results. This module builds automated reporting that proves the ROI of your video content every month. When a client can see that your videos generated 50,000 views, 2,000 clicks, and 15 new leads — they never cancel.
 
 **Time to complete:** 2-3 hours
 **Tools needed:** Zapier, Google Sheets, OpenAI API
 
-## Procedure 9.1: Build the Monthly Performance Report
+### Procedure 9.1: Build the Monthly Performance Report
 
 Create a Zap: "Monthly Video Performance Report."
 
@@ -830,7 +830,7 @@ You are a video marketing analyst. Given performance data for the month's videos
 **Step 3:** Gmail → Send the report to the client
 **Step 4:** Notion → Update the client dashboard
 
-## Procedure 9.2: Build the ROI Calculator
+### Procedure 9.2: Build the ROI Calculator
 
 Create a Google Sheet that calculates:
 
@@ -846,7 +846,7 @@ When the ROI is positive (and it usually is after month 2-3), highlight it promi
 **HACK:** Track "earned media value" — the equivalent advertising cost of the organic reach your videos generate. If your client's YouTube video gets 10,000 views and YouTube ads in their industry cost $0.10 per view, the earned media value is $1,000. For a client paying ₦100,000/month (≈$65), you are delivering 15x their investment in advertising-equivalent value. This metric alone justifies the retainer.
 {{% /accent-box %}}
 
-## Check-In: Module 9 Complete
+### Check-In: Module 9 Complete
 
 - [ ] Monthly Performance Report Zap generates and delivers reports
 - [ ] AI performance analysis provides specific, actionable recommendations
@@ -857,16 +857,16 @@ When the ROI is positive (and it usually is after month 2-3), highlight it promi
 
 ---
 
-# MODULE 10: SCALING — FROM SOLO EDITOR TO VIDEO AGENCY
+## MODULE 10: SCALING — FROM SOLO EDITOR TO VIDEO AGENCY
 
-## Overview
+### Overview
 
 You have a working practice with 3-5 clients, automated production, and positive cash flow. This module takes you from solo operator to a scalable video agency. You will hire editors, build team workflows, and create the infrastructure to grow from 5 clients to 50.
 
 **Time to complete:** 4-6 hours (ongoing)
 **Tools needed:** Everything from previous modules, plus hiring tools
 
-## Procedure 10.1: Hire Your First Video Editor
+### Procedure 10.1: Hire Your First Video Editor
 
 When you reach 5+ active clients, hire a junior video editor. The ideal candidate knows CapCut, understands social media video formats, and can follow your SOPs for assembly and quality control.
 
@@ -874,7 +874,7 @@ Pay range: ₦120,000-200,000/month (Nigeria) or $2,000-3,500/month (remote glob
 
 The editor handles: CapCut assembly, caption correction, quality control checks, and Frame.io uploads. You continue handling: script writing, AI generation, client communication, and strategy.
 
-## Procedure 10.2: Build the Team Production Workflow
+### Procedure 10.2: Build the Team Production Workflow
 
 Create a Notion page called "Team Workflow" with a Kanban board:
 
@@ -891,7 +891,7 @@ Create a Notion page called "Team Workflow" with a Kanban board:
 
 This workflow lets you produce 3-4x more videos per week by delegating assembly and QC to the editor while you focus on creative direction and AI generation.
 
-## Procedure 10.3: Revenue Scaling Projections
+### Procedure 10.3: Revenue Scaling Projections
 
 | Month | Revenue | Clients | Videos/Month | Team | Notes |
 |---|---|---|---|---|---|
@@ -907,7 +907,7 @@ This workflow lets you produce 3-4x more videos per week by delegating assembly 
 **HACK:** Create a "white-label video agency" model where marketing agencies resell your video services under their own brand. The agency handles the client relationship; you handle the production. Price the white-label service at 60-70% of your retail price. The agency marks it up and pockets the difference. One mid-size marketing agency with 20 clients can generate 15-20 video retainers for you — that is ₦1.5M-3M/month in revenue from a single partnership. The agency wins (higher margins than producing video in-house), the client wins (better videos at lower cost), and you win (steady production volume with zero client acquisition cost).
 {{% /accent-box %}}
 
-## Check-In: Module 10 Complete
+### Check-In: Module 10 Complete
 
 - [ ] Video Editor job posting created
 - [ ] Team Production Workflow defined in Notion
@@ -919,7 +919,7 @@ This workflow lets you produce 3-4x more videos per week by delegating assembly 
 
 ---
 
-# FINAL VERIFICATION: THE COMPLETE AGENCY CHECKLIST
+## FINAL VERIFICATION: THE COMPLETE AGENCY CHECKLIST
 
 Before declaring your agency operational, verify every item across all 10 modules:
 

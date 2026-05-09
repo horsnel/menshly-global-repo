@@ -13,7 +13,7 @@ relatedPlaybook: "/playbooks/ai-side-hustle-blueprint/"
 
 Building an AI image generation agency is not about typing prompts and hoping something pretty comes out. It is about producing consistent, brand-aligned, professionally finished visual assets at a speed and price point that traditional creative agencies cannot match. This guide walks you through every step — from setting up Midjourney and DALL-E 3 to building a batch production system that delivers 50 images to a client in a single afternoon. Follow it in order. Do not skip steps.
 
-## Prerequisites
+### Prerequisites
 
 Before you start, you need the following:
 
@@ -30,11 +30,11 @@ Before you start, you need the following:
 
 Total upfront cost: $58/mo ($10 Midjourney + $20 ChatGPT Plus + $13 Canva Pro + $15 Topaz). One client paying $300-500 for an image pack covers this for months. If you want to start at zero cost, use Bing Image Creator (free DALL-E 3), Leonardo.ai free tier, and Canva free tier. The workflow is the same. The paid tools just produce better output faster.
 
-## Step 1: Set Up Midjourney and Learn Prompt Engineering
+### Step 1: Set Up Midjourney and Learn Prompt Engineering
 
 Midjourney is the highest-quality AI image generator available. It runs through Discord. This step gets you running and teaches you the prompt structure you will use for every client project.
 
-### Create Your Midjourney Account
+#### Create Your Midjourney Account
 
 Open your browser and go to midjourney.com. Click **Join the Beta**. You will be redirected to Discord. If you already have a Discord account, log in. If not, create one. After logging in, you should see the Midjourney server in your Discord sidebar.
 
@@ -42,7 +42,7 @@ Do you see the Midjourney server? If you see only your own username and no serve
 
 Click on the Midjourney server. You should see a list of channels on the left sidebar. Find any channel named "newbies" followed by a number (e.g., #newbies-42). Click it. This is where you will generate your first images.
 
-### Subscribe to a Paid Plan
+#### Subscribe to a Paid Plan
 
 Midjourney no longer offers free generations. You need a paid plan. In the #newbies channel, type `/subscribe` and press Enter. A link will appear. Click it. You will be taken to the Midjourney pricing page.
 
@@ -50,7 +50,7 @@ Select the **Basic Plan** at $10/mo. This gives you approximately 200 fast gener
 
 After subscribing, go back to Discord. Type `/imagine` in the #newbies channel. A prompt box should appear. If you see "You need an active subscription to use this bot," your payment has not processed. Wait 5 minutes and try again. If it still fails, check your billing page at midjourney.com/account.
 
-### Generate Your First Image
+#### Generate Your First Image
 
 Type `/imagine` and then type your prompt:
 
@@ -62,7 +62,7 @@ Press Enter. You should see four image variations appear after 30-60 seconds. If
 
 Do you see four images? If you see an error about content policy, remove any words that might trigger the filter and try again. If you see "No results," your prompt was empty or malformed — make sure the text appears after `/imagine` in the same message.
 
-### Learn the Midjourney Parameter System
+#### Learn the Midjourney Parameter System
 
 Every prompt you write for clients will use parameters. These are the dials that control the output. Memorize these:
 
@@ -77,7 +77,7 @@ Every prompt you write for clients will use parameters. These are the dials that
 - **--v 6.1** — Model version. Always specify the latest model. Currently 6.1.
 - **--no [term]** — Negative prompt. Exclude elements. Example: `--no text, watermark, blurry`.
 
-### Build Your Prompt Template
+#### Build Your Prompt Template
 
 You will use this template structure for every client image. Copy it into a Notion document called "Prompt Templates":
 
@@ -99,7 +99,7 @@ minimalist leather wallet on a concrete surface with dried eucalyptus leaves, so
 
 Generate 5 images using this template structure. Adjust the parameters. Observe how each change affects the output. You need at least 20 practice generations before you are ready for client work.
 
-### Step 1 Check-In
+#### Step 1 Check-In
 
 Verify each of these before moving on:
 
@@ -111,11 +111,11 @@ Verify each of these before moving on:
 
 If any of these fail, go back and practice. Client work requires predictability. If you cannot control the output, you cannot deliver.
 
-## Step 2: Set Up DALL-E 3 for Text-Heavy and Commercial Work
+### Step 2: Set Up DALL-E 3 for Text-Heavy and Commercial Work
 
 DALL-E 3 is your tool for images that contain text, images that need commercial safety, and images that require conversational refinement. It runs inside ChatGPT. This step gets you set up and teaches you the workflow.
 
-### Access DALL-E 3 Through ChatGPT Plus
+#### Access DALL-E 3 Through ChatGPT Plus
 
 Open your browser and go to chat.openai.com. Log in. You should see the ChatGPT interface with a text input at the bottom.
 
@@ -123,7 +123,7 @@ Click the **GPT-4** dropdown at the top. Select **DALL-E 3** from the model opti
 
 Do you see the DALL-E 3 model selected? You should see "DALL-E 3" or an image icon next to the model selector. If you see only GPT-3.5 and GPT-4, DALL-E 3 is not enabled for your account. Try creating a new chat — DALL-E 3 sometimes appears only in fresh conversations.
 
-### Generate an Image with Text
+#### Generate an Image with Text
 
 Type this prompt:
 
@@ -133,7 +133,7 @@ Create a professional social media graphic for a coffee shop. The image should s
 
 DALL-E 3 will generate one image. You should see the latte with the text "MORNING RITUAL" rendered correctly. DALL-E 3 is the best AI tool for text rendering — but it is still not perfect. Check the text carefully. Are all letters correct? Is the spelling right? If the text has errors, regenerate. DALL-E 3 gets text right approximately 70-80% of the time for short phrases.
 
-### Learn DALL-E 3's Strengths and Limits
+#### Learn DALL-E 3's Strengths and Limits
 
 Use DALL-E 3 for these specific tasks:
 
@@ -148,7 +148,7 @@ Do NOT use DALL-E 3 for:
 - **Batch production** — DALL-E 3 generates one image at a time with no parameter control. For producing 50 variations, Midjourney or Stable Diffusion is faster.
 - **Style matching** — DALL-E 3 has no style reference or character reference feature. You cannot lock in a specific visual style across multiple generations.
 
-### Build the DALL-E 3 Prompt Template
+#### Build the DALL-E 3 Prompt Template
 
 Save this to your Notion "Prompt Templates" document:
 
@@ -162,7 +162,7 @@ Example:
 Create a LinkedIn banner for a SaaS startup. The image should show an abstract data visualization in blue and white. Include the text "DATA DRIVES DECISIONS" in bold modern sans-serif typography. Use navy blue, white, and electric blue. Clean and professional corporate style. Landscape format.
 ```
 
-### Step 2 Check-In
+#### Step 2 Check-In
 
 Verify each of these:
 
@@ -174,11 +174,11 @@ Verify each of these:
 
 Move on only when all 5 are confirmed.
 
-## Step 3: Set Up Stable Diffusion for Bulk Production
+### Step 3: Set Up Stable Diffusion for Bulk Production
 
 Midjourney and DALL-E 3 are your quality tools. Stable Diffusion is your quantity tool. When a client needs 100 product images, 50 social media variations, or 30 blog illustrations in the same style, Stable Diffusion produces them faster and cheaper. This step sets up the bulk production pipeline.
 
-### Choose Your Stable Diffusion Platform
+#### Choose Your Stable Diffusion Platform
 
 You have two options. Pick one:
 
@@ -188,7 +188,7 @@ You have two options. Pick one:
 
 For this guide, we use Leonardo.ai because it requires no installation and the interface is straightforward.
 
-### Configure Leonardo.ai for Batch Production
+#### Configure Leonardo.ai for Batch Production
 
 Open your browser and go to leonardo.ai. Log in. You should see the main dashboard with a "Image Generation" button prominently displayed.
 
@@ -202,7 +202,7 @@ Configure these settings:
 4. **Enable Alchemy:** If you have Pro, toggle "Alchemy" on. This significantly improves image quality and coherence.
 5. **Set Guidance Scale:** 7-9 for most work. Higher values follow the prompt more closely but can look rigid. Lower values are more creative but less predictable.
 
-### Build the Bulk Prompt Template
+#### Build the Bulk Prompt Template
 
 Stable Diffusion prompts use a different structure than Midjourney. They benefit from weighted keywords and negative prompts. Save this to Notion:
 
@@ -218,13 +218,13 @@ Positive: (masterpiece), (best quality), (product photography), minimalist leath
 Negative: (worst quality), (low quality), (blurry), (distorted), (text), (watermark), (shadows), (cluttered background), (grain)
 ```
 
-### Generate a Test Batch
+#### Generate a Test Batch
 
 Paste the template into Leonardo.ai with a real subject. Click **Generate**. You should see 4 images appear after 20-40 seconds.
 
 Review each image. Check for: correct subject, clean background, proper lighting, no artifacts (extra fingers, distorted shapes, floating objects). Discard any images with visible errors. In a batch of 4, expect 1-2 usable images on average. This is normal. That is why you generate in bulk.
 
-### Step 3 Check-In
+#### Step 3 Check-In
 
 Verify each of these:
 
@@ -236,11 +236,11 @@ Verify each of these:
 
 If any fail, go back and practice. Bulk production is where money is made. If you cannot generate consistent batches, you cannot deliver on retainer contracts.
 
-## Step 4: Build Your Portfolio
+### Step 4: Build Your Portfolio
 
 You have zero clients. You need a portfolio that proves you can deliver. This step creates one from scratch. Do not skip this. No portfolio means no clients. Ever.
 
-### Choose Three Target Industries
+#### Choose Three Target Industries
 
 Pick three industries you want to serve. Choose based on your interest and the visual demand in that sector. Good options:
 
@@ -250,7 +250,7 @@ Pick three industries you want to serve. Choose based on your interest and the v
 
 Write these three industries down. You will build a mini-portfolio for each.
 
-### Create 10 Images Per Industry
+#### Create 10 Images Per Industry
 
 For each industry, produce 10 images using your full toolkit. Follow this breakdown per industry:
 
@@ -276,7 +276,7 @@ Positive: (masterpiece), (best quality), modern minimalist living room interior 
 Negative: (worst quality), (furniture distortion), (distorted), (cluttered), (dark), (grain)
 ```
 
-### Edit Every Image
+#### Edit Every Image
 
 Raw AI output is not portfolio-ready. Edit every single image before it goes into your portfolio. Follow this editing sequence:
 
@@ -288,7 +288,7 @@ Raw AI output is not portfolio-ready. Edit every single image before it goes int
 
 4. **Add branding** — Add a subtle watermark with your agency name in the bottom-right corner. Use a small, semi-transparent text element. This prevents theft and shows professionalism.
 
-### Build the Portfolio Page
+#### Build the Portfolio Page
 
 Create a portfolio using one of these options:
 
@@ -300,7 +300,7 @@ Create a portfolio using one of these options:
 
 Pick one. Build it today. A finished portfolio today beats a perfect portfolio next month.
 
-### Step 4 Check-In
+#### Step 4 Check-In
 
 Verify each of these:
 
@@ -312,11 +312,11 @@ Verify each of these:
 
 If you have fewer than 30 usable images after editing, generate more. Never pad a portfolio with mediocre work. Ten exceptional images per industry is better than twenty that look like AI experiments.
 
-## Step 5: Build a Client Onboarding System
+### Step 5: Build a Client Onboarding System
 
 When a client says yes, you need a system. Not a feeling, not a vibe — a documented, repeatable system that captures every detail you need to produce images that match their brand. This step builds that system.
 
-### Create the Brand Discovery Questionnaire
+#### Create the Brand Discovery Questionnaire
 
 Open Notion. Create a new page called "Client Onboarding — [Client Name]" (you will duplicate this for each client). Build this questionnaire into it:
 
@@ -352,7 +352,7 @@ Open Notion. Create a new page called "Client Onboarding — [Client Name]" (you
 
 Send this questionnaire to every new client before you start any work. Do not skip a single question. Missing information leads to revisions, and revisions kill your margin.
 
-### Build the Visual Style Guide Template
+#### Build the Visual Style Guide Template
 
 After the client returns the questionnaire, create a Visual Style Guide for them. This document ensures consistency across every image you produce — even months later. Open Notion and create this template:
 
@@ -402,7 +402,7 @@ Create a [format] for [client]. Show [subject]. Include text "[text]". Use [colo
 
 Fill this out for every client. Save it in Notion. Reference it before every generation. This document is the difference between a client who stays for 12 months and a client who churns after the first delivery.
 
-### Step 5 Check-In
+#### Step 5 Check-In
 
 Verify each of these:
 
@@ -412,11 +412,11 @@ Verify each of these:
 4. You can create a complete Visual Style Guide in under 30 minutes from a completed questionnaire
 5. The style guide includes reusable prompt templates for both Midjourney and DALL-E 3
 
-## Step 6: Create a Revision Workflow
+### Step 6: Create a Revision Workflow
 
 Clients will request revisions. This is not a problem — it is a feature. Revisions are where you prove your value and justify your pricing. But uncontrolled revisions will destroy your profitability. This step builds a revision system that keeps clients happy and your margins intact.
 
-### Set the Revision Policy
+#### Set the Revision Policy
 
 Define this policy before your first client. Put it in your proposals and contracts. Here is the industry-standard structure:
 
@@ -428,7 +428,7 @@ Define this policy before your first client. Put it in your proposals and contra
 
 These limits exist because AI image generation is iterative by nature. You can produce 10 variations in 5 minutes. The client will always want "one more tweak." Boundaries prevent scope creep.
 
-### Build the Revision Request Form
+#### Build the Revision Request Form
 
 Create a form in Notion or Google Forms. Every revision request must come through this form. No DMs, no verbal requests, no "can you just quickly change..." messages. The form fields:
 
@@ -439,7 +439,7 @@ Create a form in Notion or Google Forms. Every revision request must come throug
 5. Reference image (optional — attach an image showing the desired change)
 6. Priority: standard (3-day turnaround) / rush (24-hour turnaround, +50% fee)
 
-### Create the Revision Execution Process
+#### Create the Revision Execution Process
 
 When a revision request comes in, follow this exact sequence:
 
@@ -459,7 +459,7 @@ When a revision request comes in, follow this exact sequence:
 
 6. **Log completion** in your project tracker. Note the time spent.
 
-### Step 6 Check-In
+#### Step 6 Check-In
 
 Verify each of these:
 
@@ -471,11 +471,11 @@ Verify each of these:
 
 If your revision times are longer, practice. Speed is profit. Every extra minute on a revision is a minute you are not generating revenue.
 
-## Step 7: Build Pricing Packages
+### Step 7: Build Pricing Packages
 
 Pricing is where most AI image agencies fail. They charge too little because AI generation "feels easy." It is not easy — the skill is in the prompting, the curation, the editing, and the consistency. Price for the value you deliver, not the effort you expend. This step builds your pricing structure.
 
-### Define Your Service Tiers
+#### Define Your Service Tiers
 
 Create this pricing table. Save it in Notion. Use it in every proposal.
 
@@ -488,7 +488,7 @@ Create this pricing table. Save it in Notion. Use it in every proposal.
 | **Brand Visual Identity** | $2,000-5,000 one-time | Complete visual style guide + 50 branded images + templates for ongoing use | 3-4 weeks | Unlimited until style sign-off |
 | **Product Photography** | $500-2,000 per product | 10-25 AI product shots per product (lifestyle, white background, contextual, detail shots) | 7 business days | 3 rounds per product |
 
-### Set Your Minimums
+#### Set Your Minimums
 
 Never work below these minimums:
 
@@ -496,7 +496,7 @@ Never work below these minimums:
 - **Minimum per-image price: $15.** Below this, you are competing with stock photo pricing and losing.
 - **Minimum retainer: $500/mo.** Below this, the client is not committed and will churn within 2 months.
 
-### Create the Proposal Template
+#### Create the Proposal Template
 
 Build a reusable proposal in Notion or Google Docs. Structure:
 
@@ -535,7 +535,7 @@ Here are 3 sample directions: [attach 3 test images]
 3. Receive first batch by [date]
 ```
 
-### Step 7 Check-In
+#### Step 7 Check-In
 
 Verify each of these:
 
@@ -545,11 +545,11 @@ Verify each of these:
 4. You have practiced writing a proposal for a fictional client
 5. You can confidently explain your pricing to a prospect in under 2 minutes
 
-## Step 8: Build a Batch Production System
+### Step 8: Build a Batch Production System
 
 This is where your agency becomes profitable. Producing one image is easy. Producing 50 consistent, brand-aligned images in a single afternoon is a system. This step builds that system.
 
-### Create the Batch Production Workflow
+#### Create the Batch Production Workflow
 
 Open Notion. Create a new page called "Batch Production System." Build this workflow:
 
@@ -608,7 +608,7 @@ For Leonardo.ai (bulk variations):
 4. **Upload** — Place final images in the appropriate subfolders. Upload source files (unwatermarked, full resolution) to the Source Files folder for your records.
 5. **Notify** — Send the client a link to the 01_Final folder with a brief message: "Your [X] images are ready. [Link]. Revisions are welcome via the revision form — details in the folder."
 
-### Build the Batch Tracking Spreadsheet
+#### Build the Batch Tracking Spreadsheet
 
 Create a Google Sheet called "Batch Tracker — [Client Name]":
 
@@ -619,7 +619,7 @@ Create a Google Sheet called "Batch Tracker — [Client Name]":
 
 This spreadsheet is your production record. It lets you reproduce any image, track revision history, and maintain consistency across batches. Fill it out during Phase 2 as you generate each image.
 
-### Step 8 Check-In
+#### Step 8 Check-In
 
 Verify each of these:
 
@@ -631,11 +631,11 @@ Verify each of these:
 
 If your batch took longer than 4 hours, identify the bottleneck. It is almost always the editing phase. Practice faster editing in Canva — learn keyboard shortcuts, create reusable templates, and build a library of brand element presets.
 
-## Step 9: Master Style Consistency Techniques
+### Step 9: Master Style Consistency Techniques
 
 Inconsistent output is the number one reason clients leave AI image agencies. One image looks photorealistic, the next looks like a watercolor painting, the next looks like a stock photo from 2012. This step teaches you the specific techniques that lock in visual consistency across an entire project.
 
-### Technique 1: Style Reference (--sref) in Midjourney
+#### Technique 1: Style Reference (--sref) in Midjourney
 
 Style reference is the single most powerful tool for consistency. Here is how to use it:
 
@@ -652,7 +652,7 @@ modern office workspace with laptop and coffee cup, bright natural lighting, min
 
 Generate 5 images using the same --sref. They should share a cohesive look — similar color treatment, lighting style, and compositional feel. If they look too similar (near-identical), lower the --sw value. If they look too different, raise it.
 
-### Technique 2: Character Reference (--cref) in Midjourney
+#### Technique 2: Character Reference (--cref) in Midjourney
 
 When a brand campaign needs the same person across multiple images (a brand ambassador, a founder portrait, a recurring character):
 
@@ -667,7 +667,7 @@ woman in business casual outfit presenting at a whiteboard in a modern conferenc
 
 Generate 3 images with the same --cref. The person should be recognizable across all of them. If the likeness is weak, try a different anchor image — some reference photos produce better results than others. Front-facing, evenly lit headshots work best.
 
-### Technique 3: Seed Consistency
+#### Technique 3: Seed Consistency
 
 Midjourney assigns a random seed number to every generation. If you use the same seed with the same prompt, you get nearly identical images. If you use the same seed with a modified prompt, you get variations that share a visual "DNA."
 
@@ -677,7 +677,7 @@ Midjourney assigns a random seed number to every generation. If you use the same
 
 This technique is subtle but powerful for batch work. Images with the same seed share a visual texture — similar grain, similar lighting angles, similar color rendering — even when the subject changes.
 
-### Technique 4: The Color Lock Method
+#### Technique 4: The Color Lock Method
 
 AI generators drift on color. To lock colors across a batch:
 
@@ -686,7 +686,7 @@ AI generators drift on color. To lock colors across a batch:
 3. In post-production, apply a color correction preset in Canva or Photoshop that pulls every image toward the target palette.
 4. Use the "HSL" (Hue, Saturation, Luminance) adjustment to shift any off-brand colors toward the nearest brand color.
 
-### Technique 5: The Composite Method for Complex Scenes
+#### Technique 5: The Composite Method for Complex Scenes
 
 AI struggles with complex compositions (multiple people, specific layouts, product-in-context shots). The composite method breaks the scene into elements:
 
@@ -697,7 +697,7 @@ AI struggles with complex compositions (multiple people, specific layouts, produ
 
 This method produces images that look like cohesive professional photographs, not AI generations. It takes 10-15 minutes per composite, but the result is worth it for hero images and key deliverables.
 
-### Step 9 Check-In
+#### Step 9 Check-In
 
 Verify each of these:
 
@@ -709,11 +709,11 @@ Verify each of these:
 
 These techniques separate you from people who just type prompts and hope. Practice until each technique is reliable.
 
-## Step 10: Create and Deliver Brand Guidelines
+### Step 10: Create and Deliver Brand Guidelines
 
 Brand guideline creation is your highest-ticket service ($2,000-5,000). It is also your strongest retention tool — clients who receive a brand guide from you will come back for execution because you already know their system. This step builds your brand guideline product.
 
-### Build the Brand Guideline Template
+#### Build the Brand Guideline Template
 
 Create this document structure in Canva (for visual presentation) and Notion (for internal use):
 
@@ -763,7 +763,7 @@ Create this document structure in Canva (for visual presentation) and Notion (fo
 - Resolution and file format requirements by platform
 - Brand element placement rules (logo size, position, clear space)
 
-### Deliver the Brand Guideline
+#### Deliver the Brand Guideline
 
 When the client signs off on the brand guide, deliver it in three formats:
 
@@ -777,7 +777,7 @@ When the client signs off on the brand guide, deliver it in three formats:
    - Canva template links for social media templates
    - The raw prompt library in a text file
 
-### Step 10 Check-In
+#### Step 10 Check-In
 
 Verify each of these:
 
@@ -787,7 +787,7 @@ Verify each of these:
 4. The guideline includes sample images that demonstrate the style
 5. You can deliver a complete brand guideline package within 3 weeks of client onboarding
 
-## Cost Breakdown
+### Cost Breakdown
 
 | Item | Free Tier | Paid Tier | When to Upgrade |
 |------|-----------|-----------|-----------------|
@@ -808,7 +808,7 @@ Verify each of these:
 
 A single Image Pack client at $300-500 covers your entire tool stack for 3-5 months. One Monthly Retainer client at $750+ covers everything with room to spare.
 
-## Production Checklist
+### Production Checklist
 
 Before delivering any image batch to a client, verify every item:
 
@@ -827,7 +827,7 @@ Before delivering any image batch to a client, verify every item:
 - [ ] Client has received the delivery link and a message explaining revision policy
 - [ ] Project is logged in your financial tracker with hours spent, revenue, and margin
 
-## What to Do Next
+### What to Do Next
 
 Once you have delivered your first 3-5 client projects and have a repeatable production system, expand:
 

@@ -16,7 +16,7 @@ This is not a blog post, but a detailed execution guide, walking you through eve
 
 Ready to build and deploy your AI personal finance automation system? This guide will take you through the entire process, from setting up your development environment to deploying your system. Do you have experience with AI and automation tools? You should have a basic understanding of ChatGPT and Make.com to get the most out of this guide. If you're new to these tools, don't worry, we'll provide step-by-step instructions to get you up to speed. Ready to understand the full business opportunity? Read our opportunity deep-dive (/opportunities/how-to-launch-an-ai-personal-finance-automation-service-in-2026-2k-10kmonth.md).
 
-## Prerequisites
+### Prerequisites
 
 **Prerequisites**
 
@@ -47,11 +47,11 @@ The total upfront cost for these tools is approximately $212.94/month. Additiona
 
 Do you see the estimated costs and time required? You should see a clear breakdown of the tools and costs if you're in the right place. Go back and review the table if you don't see it.
 
-## Step 1: Setup and Configuration
+### Step 1: Setup and Configuration
 
 In this step, we will set up the foundation for our AI personal finance automation system using ChatGPT. We will create a new directory structure, set up necessary accounts, obtain API keys, and perform initial configurations.
 
-### Directory Structure
+#### Directory Structure
 
 First, create a new directory for your project using the following terminal command:
 ```bash
@@ -76,13 +76,13 @@ ai-personal-finance-automation/
 ```
 Do you see the `data`, `models`, and `scripts` directories? If not, go back and re-run the `mkdir` commands.
 
-### Account Setup
+#### Account Setup
 
 Next, sign up for a Make.com account, which will serve as our automation platform. Choose the "Developer" plan, which costs $9/month. During the signup process, you will be asked to create a new workflow. Name it "Personal Finance Automation" and select the "Blank" template.
 
 Additionally, create a new Replit account, which will be used as our cloud IDE for AI SaaS development. Choose the "Hacker" plan, which costs $7/month. Create a new repl and name it "ai-personal-finance".
 
-### API Keys
+#### API Keys
 
 Obtain an API key from ChatGPT by following these steps:
 
@@ -113,7 +113,7 @@ Paste the Make.com API key into the `config.json` file.
 
 If you see an error message saying "Invalid API key", this means that your API key is not properly formatted. Fix it by re-generating the API key and copying it correctly.
 
-### Initial Configuration
+#### Initial Configuration
 
 Install the required dependencies using pip:
 ```bash
@@ -148,7 +148,7 @@ In the next step, we will integrate our AI personal finance automation system wi
 
 Please proceed to the next step once you have completed the setup and configuration.
 
-## Step 2: Build the Core System
+### Step 2: Build the Core System
 
 In this step, we will build the core system of our AI personal finance automation using ChatGPT, Make.com, and Replit. We will create a workflow that automates budgeting, expense tracking, and investment insights. The core system will consist of three main components: data ingestion, data processing, and data visualization.
 
@@ -217,7 +217,7 @@ If you see a warning message saying "Library version mismatch", this means that 
 
 By following these steps, you should now have a core system that automates budgeting, expense tracking, and investment insights using ChatGPT, Make.com, and Replit. In the next step, we will integrate our core system with other tools, including Klaviyo and ActiveCampaign, to send our insights to our subscribers and track our performance.
 
-## Step 3: Test and Validate
+### Step 3: Test and Validate
 
 Now that you have built the core system, it's time to test and validate its functionality. In this step, we will verify that the AI personal finance automation system works as expected, using tools like ChatGPT, Make.com, and Replit. 
 
@@ -243,7 +243,7 @@ To ensure the system is working as expected, let's go through the 5-point test c
 
 By completing these tests, you can ensure that your AI personal finance automation system is working correctly and providing valuable insights to help you manage your finances effectively, with the help of tools like Loom for video messaging and Calendly for scheduling.
 
-## Step 4: Add Advanced Features
+### Step 4: Add Advanced Features
 
 Now that we have a functional personal finance automation system, it's time to enhance it with advanced features to make it production-worthy. In this step, we'll integrate AI enrichment using ChatGPT, implement robust error handling, and set up routing using Make.com. We'll also leverage the capabilities of Replit, Vapi, and Semrush to further enrich our system.
 
@@ -291,7 +291,7 @@ Do you see the new scenario in your Make.com dashboard? You should see it if you
 
 With these advanced features in place, our personal finance automation system is now production-worthy. In the next step, we'll deploy our system to a cloud hosting platform like Hostinger and integrate it with other tools like Klaviyo and ActiveCampaign for email marketing and CRM capabilities. We'll also explore how to use Calendly for scheduling and Loom for video messaging to further enhance our system. Additionally, we'll discuss how to leverage the power of Midjourney for AI image generation and Grammarly for AI writing assistance to create engaging content for our users.
 
-## Step 5: Deploy to Production
+### Step 5: Deploy to Production
 
 Now that you've built, tested, and validated your AI personal finance automation system with ChatGPT, it's time to deploy it to production. To do this, you'll need to set up a cloud hosting platform, configure your deployment settings, and integrate with various tools to enable seamless automation.
 
@@ -317,7 +317,7 @@ With your AI personal finance automation system deployed to production, you can 
 
 By following these steps, you can successfully deploy your AI personal finance automation system to production and start offering it as a service to clients. Remember to continuously monitor and improve your system to ensure it meets the evolving needs of your clients.
 
-## Step 6: Scale and Grow
+### Step 6: Scale and Grow
 
 Now that your AI personal finance automation system is deployed to production, it's time to focus on scaling and growing your user base. To go from 1 to 10+ clients/users, you'll need to implement a hiring plan, upgrade your automation, and improve your profit margins. 
 
@@ -347,7 +347,7 @@ If you see an error message "Insufficient resources" when scaling your system, t
 
 By following these steps and tracking your progress with the scale milestones table, you'll be able to successfully scale and grow your AI personal finance automation system.
 
-## Cost Breakdown
+### Cost Breakdown
 
 We need to write Cost Breakdown section for article. Provide table with item, free tier, paid tier, when to upgrade. Include 8-10 items. Monthly cost analysis at different scales: solo, 5 clients, 10+ clients. 200-300 words. Must mention at least 2-3 affiliate tools naturally in each section. But we can't add separate recommended tools section. We can mention tools like Make.com, Replit, Vapi, Fliki AI, Canva, ChatGPT, [ElevenLabs](https://elevenlabs.io/), Klaviyo, ActiveCampaign, Semrush, Hostinger, Shopify, Zapier, Apollo.io, PhantomBuster, Buffer, Loom, Calendly, Beehiiv, Notion, Midjourney, Grammarly. We need to mention 2-3 of them naturally. In cost breakdown, we can mention costs of ChatGPT API, Make.com automation, Hostinger hosting, etc.
 
@@ -443,7 +443,7 @@ Vapi: 5*200 calls = 1000 calls => $100
 ActiveCampaign: 5*500 contacts = 2500 contacts => need paid plan $29? Actually ActiveCampaign free up to 500 contacts. 2500 contacts => need paid. At $29/month for 500 contacts, but maybe need higher tier. Let's assume we need $99 monthly for 2000 contacts. We'll approximate $99.
 Semrush: 5
 
-## Production Checklist
+### Production Checklist
 
 Before you switch the “Live” toggle, run through this checklist. Every item is a gate; if any fail, pause the release.
 
@@ -469,7 +469,7 @@ Before you switch the “Live” toggle, run through this checklist. Every item 
 
 Once every box is checked, you’re ready to serve real users with a reliable, compliant AI personal‑finance assistant.
 
-## What to Do Next
+### What to Do Next
 
 **1. Add Voice‑Enabled Expense Tracking with Vapi**  
 Open the Vapi dashboard (https://vapi.ai) and click **Create Agent**. In the **Agent Settings** panel, set *Name* to “FinanceTracker”, *Language* to “English (US)”, and enable *Speech Recognition* and *Text‑to‑Speech* under **Audio**. Under **Actions**, add a **Webhook** pointing to your Replit host URL (e.g., `https://<your‑replit‑app>.repl.co/api/expense`). In the webhook payload, include the JSON schema `{ "user_id": "{{user.id}}", "description": "{{transcript}}", "amount": "{{amount}}" }`. Save the agent and test by speaking “Add $45 to groceries” in the Vapi test console; the webhook should trigger and store the expense in your PostgreSQL database. If the response is “ERROR 401 – Unauthorized”, verify that the **Auth Token** in the Webhook header matches the token generated under *API Keys* in Vapi.
@@ -506,7 +506,7 @@ Use Midjourney (https://midjourney.com) to generate dynamic visualizations of sp
 Ready to understand the full business opportunity? Read our [opportunity deep-dive]({< ref "/opportunities/how-to-launch-an-ai-personal-finance-automation-service-in-2026-2k-10kmonth.md" >}).
 
 
-## Recommended Tools
+### Recommended Tools
 
 These are the tools we recommend for building and scaling AI automation businesses:
 
