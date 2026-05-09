@@ -6,6 +6,7 @@ readTime: "16 MIN"
 excerpt: "Law firms are hemorrhaging $12 billion annually on manual contract review and legal drafting. That's a staggering number, especially when you consider that most of this work can be automated using AI ..."
 image: "/images/articles/opportunities/how-to-start-an-ai-legal-document-automation-agency-in-2026-5k-30kmonth.png"
 heroImage: "/images/heroes/opportunities/how-to-start-an-ai-legal-document-automation-agency-in-2026-5k-30kmonth.png"
+relatedPlaybook: "/playbooks/the-ai-legal-document-automation-playbook-25-steps-to-20kmonth/"
 ---
 
 

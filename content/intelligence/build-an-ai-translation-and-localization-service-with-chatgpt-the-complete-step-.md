@@ -8,6 +8,7 @@ excerpt: "This is the execution guide for the AI translation and localization se
 image: "/images/articles/intelligence/build-automate-and-deploy-ai-translation-and-localization-services-with-chatgpt.png"
 heroImage: "/images/heroes/intelligence/build-automate-and-deploy-ai-translation-and-localization-services-with-chatgpt.png"
 relatedOpportunity: "/opportunities/how-to-build-an-ai-translation-and-localization-service-3k-20kmonth/"
+relatedPlaybook: "/playbooks/the-ai-legal-document-automation-playbook-25-steps-to-20kmonth/"
 ---
 
 This is the execution guide for the AI translation and localization service business we outlined in our opportunity deep-dive. By following this step-by-step guide, you will build, automate, and deploy a scalable AI translation and localization service using {{< platform name="chatgpt" text="ChatGPT" >}}, Make.com, and other industry-leading tools. You will learn how to integrate ChatGPT with Replit for cloud-based AI model training, utilize [Vapi](https://vapi.ai/) for AI voice agents, and leverage [Canva](https://www.canva.com/) for design and branding. Your finished product will be a fully functional AI translation and localization service that can be used to generate significant revenue.
