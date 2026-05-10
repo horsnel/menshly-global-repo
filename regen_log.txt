@@ -1,0 +1,2 @@
+10:26:50: === STARTING REGENERATION (30 images) ===
+10:26:50: ❌ Attempt 1/10: /home/z/my-project/menshly-global-repo/static/images/articles/playbooks/ai-ecommerce-optimization-playbook.png - waiting 90s

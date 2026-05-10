@@ -1,0 +1,896 @@
+{
+  "articles/opportunities/ai-affiliate-marketing-business": {
+    "status": "ok",
+    "size": 118022,
+    "ts": 1778407157.0412033
+  },
+  "articles/opportunities/ai-agent-marketplaces-2026": {
+    "status": "ok",
+    "size": 127990,
+    "ts": 1778407203.0312164
+  },
+  "articles/opportunities/ai-api-wrapper-business": {
+    "status": "ok",
+    "size": 108781,
+    "ts": 1778407235.0944948
+  },
+  "articles/opportunities/ai-appointment-booking-agency-2026": {
+    "status": "ok",
+    "size": 124247,
+    "ts": 1778407266.680163
+  },
+  "articles/opportunities/ai-automation-agency": {
+    "status": "ok",
+    "size": 117107,
+    "ts": 1778407296.6039133
+  },
+  "articles/opportunities/ai-bookkeeping-automation": {
+    "status": "ok",
+    "size": 126992,
+    "ts": 1778407329.0642138
+  },
+  "articles/opportunities/ai-chatbot-ecommerce-agency-2026": {
+    "status": "ok",
+    "size": 127591,
+    "ts": 1778407359.1166034
+  },
+  "articles/opportunities/ai-chatbot-ecommerce-agency": {
+    "status": "ok",
+    "size": 145740,
+    "ts": 1778407389.5692117
+  },
+  "articles/opportunities/ai-cold-email-agency": {
+    "status": "ok",
+    "size": 142658,
+    "ts": 1778407422.2324097
+  },
+  "articles/opportunities/ai-content-repurposing-agency-2026": {
+    "status": "ok",
+    "size": 104445,
+    "ts": 1778407454.082522
+  },
+  "articles/opportunities/ai-copywriting-agency": {
+    "status": "ok",
+    "size": 129784,
+    "ts": 1778407485.3362932
+  },
+  "articles/opportunities/ai-course-creation-business-2026": {
+    "status": "ok",
+    "size": 141081,
+    "ts": 1778407517.2801664
+  },
+  "articles/opportunities/ai-course-creation": {
+    "status": "ok",
+    "size": 106921,
+    "ts": 1778407552.2846508
+  },
+  "articles/opportunities/ai-customer-support-automation-agency": {
+    "status": "ok",
+    "size": 101348,
+    "ts": 1778407585.971241
+  },
+  "articles/opportunities/ai-data-analysis-service-2026": {
+    "status": "fail",
+    "error": "Failed to make image generation request: 257 |                 headers: headers,\n258 |              "
+  },
+  "articles/opportunities/ai-data-analysis-service": {
+    "status": "fail",
+    "error": "Failed to make image generation request: 257 |                 headers: headers,\n258 |              "
+  },
+  "articles/opportunities/ai-data-annotation-and-training-service": {
+    "status": "fail",
+    "error": "Failed to make image generation request: 257 |                 headers: headers,\n258 |              "
+  },
+  "articles/opportunities/ai-ecommerce-optimization-agency": {
+    "status": "fail",
+    "error": "Failed to make image generation request: 257 |                 headers: headers,\n258 |              "
+  },
+  "articles/opportunities/ai-faceless-video-factory": {
+    "status": "fail",
+    "error": "Failed to make image generation request: 257 |                 headers: headers,\n258 |              "
+  },
+  "articles/opportunities/ai-freelance-marketplace-2026": {
+    "status": "fail",
+    "error": "Failed to make image generation request: 257 |                 headers: headers,\n258 |              "
+  },
+  "articles/opportunities/ai-grant-writing-service": {
+    "status": "fail",
+    "error": "Failed to make image generation request: 257 |                 headers: headers,\n258 |              "
+  },
+  "articles/opportunities/ai-hr-recruitment-automation-agency": {
+    "status": "fail",
+    "error": "Failed to make image generation request: 257 |                 headers: headers,\n258 |              "
+  },
+  "articles/opportunities/ai-image-generation-agency": {
+    "status": "fail",
+    "error": "Failed to make image generation request: 257 |                 headers: headers,\n258 |              "
+  },
+  "articles/opportunities/ai-lead-generation-agency-2026": {
+    "status": "fail",
+    "error": "Failed to make image generation request: 257 |                 headers: headers,\n258 |              "
+  },
+  "articles/opportunities/ai-lead-generation-machine": {
+    "status": "fail",
+    "error": "Failed to make image generation request: 257 |                 headers: headers,\n258 |              "
+  },
+  "articles/opportunities/ai-newsletter-business": {
+    "status": "fail",
+    "error": "Failed to make image generation request: 257 |                 headers: headers,\n258 |              "
+  },
+  "articles/opportunities/ai-podcast-production-agency": {
+    "status": "fail",
+    "error": "Failed to make image generation request: 257 |                 headers: headers,\n258 |              "
+  },
+  "articles/opportunities/ai-real-estate-marketing-agency": {
+    "status": "fail",
+    "error": "Failed to make image generation request: 257 |                 headers: headers,\n258 |              "
+  },
+  "articles/opportunities/ai-resume-career-service-2026": {
+    "status": "fail",
+    "error": "Failed to make image generation request: 257 |                 headers: headers,\n258 |              "
+  },
+  "articles/opportunities/ai-resume-career-service": {
+    "status": "fail",
+    "error": "Failed to make image generation request: 257 |                 headers: headers,\n258 |              "
+  },
+  "articles/opportunities/ai-saas-micro-products-replit-2026": {
+    "status": "fail",
+    "error": "Failed to make image generation request: 257 |                 headers: headers,\n258 |              "
+  },
+  "articles/opportunities/ai-saas-micro-products": {
+    "status": "fail",
+    "error": "Failed to make image generation request: 257 |                 headers: headers,\n258 |              "
+  },
+  "articles/opportunities/ai-seo-agency-2026": {
+    "status": "fail",
+    "error": "Failed to make image generation request: 257 |                 headers: headers,\n258 |              "
+  },
+  "articles/opportunities/ai-seo-agency": {
+    "status": "fail",
+    "error": "Failed to make image generation request: 257 |                 headers: headers,\n258 |              "
+  },
+  "articles/opportunities/ai-social-media-agency-2026": {
+    "status": "fail",
+    "error": "Failed to make image generation request: 257 |                 headers: headers,\n258 |              "
+  },
+  "articles/opportunities/ai-social-media-agency": {
+    "status": "fail",
+    "error": "Failed to make image generation request: 257 |                 headers: headers,\n258 |              "
+  },
+  "articles/opportunities/ai-video-production-agency": {
+    "status": "fail",
+    "error": "Failed to make image generation request: 257 |                 headers: headers,\n258 |              "
+  },
+  "articles/opportunities/ai-voice-agent-agency-2026": {
+    "status": "fail",
+    "error": "Failed to make image generation request: 257 |                 headers: headers,\n258 |              "
+  },
+  "articles/opportunities/content-repurposing-agency-deep-dive": {
+    "status": "fail",
+    "error": "Failed to make image generation request: 257 |                 headers: headers,\n258 |              "
+  },
+  "articles/opportunities/fliki-ai-faceless-youtube-channel": {
+    "status": "fail",
+    "error": "Failed to make image generation request: 257 |                 headers: headers,\n258 |              "
+  },
+  "articles/opportunities/gpt5-solo-entrepreneur": {
+    "status": "fail",
+    "error": "Failed to make image generation request: 257 |                 headers: headers,\n258 |              "
+  },
+  "articles/opportunities/how-to-build-ai-powered-email-marketing-automation-in-2026": {
+    "status": "fail",
+    "error": "Failed to make image generation request: 257 |                 headers: headers,\n258 |              "
+  },
+  "articles/opportunities/how-to-build-an-ai-contract-and-proposal-writing-service-in-2026-5k-25kmonth": {
+    "status": "fail",
+    "error": "Failed to make image generation request: 257 |                 headers: headers,\n258 |              "
+  },
+  "articles/opportunities/how-to-build-an-ai-translation-and-localization-service-in-2026-3k-20kmonth": {
+    "status": "fail",
+    "error": "Failed to make image generation request: 257 |                 headers: headers,\n258 |              "
+  },
+  "articles/opportunities/how-to-start-an-ai-appointment-booking-automation-business-in-2026-2k-15kmonth": {
+    "status": "fail",
+    "error": "Failed to make image generation request: 257 |                 headers: headers,\n258 |              "
+  },
+  "articles/opportunities/how-to-start-an-ai-cold-email-outreach-agency-in-2026-5k-30kmonth": {
+    "status": "fail",
+    "error": "Failed to make image generation request: 257 |                 headers: headers,\n258 |              "
+  },
+  "articles/opportunities/how-to-start-an-ai-legal-document-automation-agency-in-2026-5k-30kmonth": {
+    "status": "fail",
+    "error": "Failed to make image generation request: 257 |                 headers: headers,\n258 |              "
+  },
+  "articles/opportunities/how-to-start-an-ai-personal-finance-automation-service-in-2026-2k-10kmonth": {
+    "status": "fail",
+    "error": "Failed to make image generation request: 257 |                 headers: headers,\n258 |              "
+  },
+  "articles/opportunities/voice-ai-business-blueprint": {
+    "status": "fail",
+    "error": "Failed to make image generation request: 257 |                 headers: headers,\n258 |              "
+  },
+  "articles/intelligence/ai-api-wrapper-business": {
+    "status": "fail",
+    "error": "Failed to make image generation request: 257 |                 headers: headers,\n258 |              "
+  },
+  "articles/intelligence/ai-content-business-guide": {
+    "status": "fail",
+    "error": "Failed to make image generation request: 257 |                 headers: headers,\n258 |              "
+  },
+  "articles/intelligence/build-ai-api-wrapper-business": {
+    "status": "fail",
+    "error": "Failed to make image generation request: 257 |                 headers: headers,\n258 |              "
+  },
+  "articles/intelligence/build-ai-appointment-booking-agency": {
+    "status": "fail",
+    "error": "Failed to make image generation request: 257 |                 headers: headers,\n258 |              "
+  },
+  "articles/intelligence/build-ai-bookkeeping-automation-system": {
+    "status": "fail",
+    "error": "Failed to make image generation request: 257 |                 headers: headers,\n258 |              "
+  },
+  "articles/intelligence/build-ai-chatbot-agency": {
+    "status": "fail",
+    "error": "Failed to make image generation request: 257 |                 headers: headers,\n258 |              "
+  },
+  "articles/intelligence/build-ai-chatbot-ecommerce-agency": {
+    "status": "fail",
+    "error": "Failed to make image generation request: 257 |                 headers: headers,\n258 |              "
+  },
+  "articles/intelligence/build-ai-cold-email-agency": {
+    "status": "fail",
+    "error": "Failed to make image generation request: 257 |                 headers: headers,\n258 |              "
+  },
+  "articles/intelligence/build-ai-course-creation-business": {
+    "status": "fail",
+    "error": "Failed to make image generation request: 257 |                 headers: headers,\n258 |              "
+  },
+  "articles/intelligence/build-ai-course-creation-system": {
+    "status": "fail",
+    "error": "Failed to make image generation request: 257 |                 headers: headers,\n258 |              "
+  },
+  "articles/intelligence/build-ai-ecommerce-optimization-agency": {
+    "status": "fail",
+    "error": "Failed to make image generation request: 257 |                 headers: headers,\n258 |              "
+  },
+  "articles/intelligence/build-ai-grant-writing-service": {
+    "status": "fail",
+    "error": "Failed to make image generation request: 257 |                 headers: headers,\n258 |              "
+  },
+  "articles/intelligence/build-ai-hr-recruitment-automation-system": {
+    "status": "fail",
+    "error": "Failed to make image generation request: 257 |                 headers: headers,\n258 |              "
+  },
+  "articles/intelligence/build-ai-image-generation-agency": {
+    "status": "fail",
+    "error": "Failed to make image generation request: 257 |                 headers: headers,\n258 |              "
+  },
+  "articles/intelligence/build-ai-lead-generation-system": {
+    "status": "fail",
+    "error": "Failed to make image generation request: 257 |                 headers: headers,\n258 |              "
+  },
+  "articles/intelligence/build-ai-newsletter-business": {
+    "status": "fail",
+    "error": "Failed to make image generation request: 257 |                 headers: headers,\n258 |              "
+  },
+  "articles/intelligence/build-ai-resume-career-service": {
+    "status": "fail",
+    "error": "Failed to make image generation request: 257 |                 headers: headers,\n258 |              "
+  },
+  "articles/intelligence/build-ai-seo-agency-workflows": {
+    "status": "fail",
+    "error": "Failed to make image generation request: 257 |                 headers: headers,\n258 |              "
+  },
+  "articles/intelligence/build-ai-social-media-pipeline": {
+    "status": "fail",
+    "error": "Failed to make image generation request: 257 |                 headers: headers,\n258 |              "
+  },
+  "articles/intelligence/build-ai-video-production-agency": {
+    "status": "fail",
+    "error": "Failed to make image generation request: 257 |                 headers: headers,\n258 |              "
+  },
+  "articles/intelligence/build-ai-voice-agent-system": {
+    "status": "fail",
+    "error": "Failed to make image generation request: 257 |                 headers: headers,\n258 |              "
+  },
+  "articles/intelligence/build-and-deploy-ai-appointment-booking-systems-with-vapi-and-calendly": {
+    "status": "fail",
+    "error": "Failed to make image generation request: 257 |                 headers: headers,\n258 |              "
+  },
+  "articles/intelligence/build-and-deploy-ai-personal-finance-automation-systems-with-chatgpt": {
+    "status": "fail",
+    "error": "Failed to make image generation request: 257 |                 headers: headers,\n258 |              "
+  },
+  "articles/intelligence/build-and-scale-an-ai-affiliate-marketing-system-with-semrush-and-makecom": {
+    "status": "fail",
+    "error": "Failed to make image generation request: 257 |                 headers: headers,\n258 |              "
+  },
+  "articles/intelligence/build-and-scale-an-ai-data-annotation-pipeline-with-label-studio": {
+    "status": "fail",
+    "error": "Failed to make image generation request: 257 |                 headers: headers,\n258 |              "
+  },
+  "articles/intelligence/build-automate-and-deploy-ai-translation-and-localization-services-with-chatgpt": {
+    "status": "fail",
+    "error": "Failed to make image generation request: 257 |                 headers: headers,\n258 |              "
+  },
+  "articles/intelligence/build-automate-and-scale-ai-cold-email-outreach-systems-with-apolloio": {
+    "status": "fail",
+    "error": "Failed to make image generation request: 257 |                 headers: headers,\n258 |              "
+  },
+  "articles/intelligence/build-automate-scale-ai-social-media-pipelines-buffer-makecom": {
+    "status": "fail",
+    "error": "Failed to make image generation request: 257 |                 headers: headers,\n258 |              "
+  },
+  "articles/intelligence/build-content-repurposing-agency": {
+    "status": "fail",
+    "error": "Failed to make image generation request: 257 |                 headers: headers,\n258 |              "
+  },
+  "articles/intelligence/build-deploy-scale-ai-voice-agents-vapi": {
+    "status": "fail",
+    "error": "Failed to make image generation request: 257 |                 headers: headers,\n258 |              "
+  },
+  "articles/intelligence/build-gpt5-solo-entrepreneur-system": {
+    "status": "fail",
+    "error": "Failed to make image generation request: 257 |                 headers: headers,\n258 |              "
+  },
+  "articles/intelligence/build-optimize-scale-ai-seo-workflows-semrush": {
+    "status": "fail",
+    "error": "Failed to make image generation request: 257 |                 headers: headers,\n258 |              "
+  },
+  "articles/intelligence/create-ai-saas-micro-products-replit": {
+    "status": "fail",
+    "error": "Failed to make image generation request: 257 |                 headers: headers,\n258 |              "
+  },
+  "articles/intelligence/create-faceless-youtube-channel-ai": {
+    "status": "fail",
+    "error": "Failed to make image generation request: 257 |                 headers: headers,\n258 |              "
+  },
+  "articles/intelligence/deploy-ai-email-marketing-automations": {
+    "status": "fail",
+    "error": "Failed to make image generation request: 257 |                 headers: headers,\n258 |              "
+  },
+  "articles/intelligence/design-build-automate-ai-content-repurposing-pipeline-makecom": {
+    "status": "fail",
+    "error": "Failed to make image generation request: 257 |                 headers: headers,\n258 |              "
+  },
+  "articles/intelligence/design-build-launch-ai-saas-micro-products-replit": {
+    "status": "fail",
+    "error": "Failed to make image generation request: 257 |                 headers: headers,\n258 |              "
+  },
+  "articles/intelligence/fliki-ai-faceless-youtube-channel-guide": {
+    "status": "fail",
+    "error": "Failed to make image generation request: 257 |                 headers: headers,\n258 |              "
+  },
+  "articles/intelligence/launch-ai-agent-marketplace-business": {
+    "status": "fail",
+    "error": "Failed to make image generation request: 257 |                 headers: headers,\n258 |              "
+  },
+  "articles/intelligence/launch-ai-data-analysis-agency": {
+    "status": "fail",
+    "error": "Failed to make image generation request: 257 |                 headers: headers,\n258 |              "
+  },
+  "articles/intelligence/launch-ai-data-analysis-service": {
+    "status": "fail",
+    "error": "Failed to make image generation request: 257 |                 headers: headers,\n258 |              "
+  },
+  "articles/intelligence/launch-ai-freelance-marketplace": {
+    "status": "fail",
+    "error": "Failed to make image generation request: 257 |                 headers: headers,\n258 |              "
+  },
+  "articles/intelligence/makecom-automation-workflows": {
+    "status": "fail",
+    "error": "Failed to make image generation request: 257 |                 headers: headers,\n258 |              "
+  },
+  "articles/playbooks/24-procedures-12-modules-12-hours-of-reading-and-execution": {
+    "status": "fail",
+    "error": "Failed to make image generation request: 257 |                 headers: headers,\n258 |              "
+  },
+  "articles/playbooks/ai-automation-agency-playbook": {
+    "status": "fail",
+    "error": "Failed to make image generation request: 257 |                 headers: headers,\n258 |              "
+  },
+  "articles/playbooks/ai-bookkeeping-automation-playbook": {
+    "status": "fail",
+    "error": "Failed to make image generation request: 257 |                 headers: headers,\n258 |              "
+  },
+  "articles/playbooks/ai-cold-email-outreach-playbook": {
+    "status": "fail",
+    "error": "Failed to make image generation request: 257 |                 headers: headers,\n258 |              "
+  },
+  "articles/playbooks/ai-copywriting-agency-playbook": {
+    "status": "fail",
+    "error": "Failed to make image generation request: 257 |                 headers: headers,\n258 |              "
+  },
+  "articles/playbooks/ai-customer-onboarding-agency-playbook": {
+    "status": "fail",
+    "error": "Failed to make image generation request: 257 |                 headers: headers,\n258 |              "
+  },
+  "articles/playbooks/ai-ecommerce-optimization-playbook": {
+    "status": "fail",
+    "error": "Failed to make image generation request: 257 |                 headers: headers,\n258 |              "
+  },
+  "articles/playbooks/ai-email-marketing-automation-playbook": {
+    "status": "fail",
+    "error": "Failed to make image generation request: 257 |                 headers: headers,\n258 |              "
+  },
+  "articles/playbooks/ai-hr-recruitment-automation-playbook": {
+    "status": "fail",
+    "error": "Failed to make image generation request: 257 |                 headers: headers,\n258 |              "
+  },
+  "articles/playbooks/ai-lead-generation-playbook": {
+    "status": "fail",
+    "error": "Failed to make image generation request: 257 |                 headers: headers,\n258 |              "
+  },
+  "articles/playbooks/ai-marketplace-launch-playbook": {
+    "status": "fail",
+    "error": "Failed to make image generation request: 257 |                 headers: headers,\n258 |              "
+  },
+  "articles/playbooks/ai-seo-agency-playbook": {
+    "status": "fail",
+    "error": "Failed to make image generation request: 257 |                 headers: headers,\n258 |              "
+  },
+  "articles/playbooks/ai-side-hustle-blueprint": {
+    "status": "fail",
+    "error": "Failed to make image generation request: 257 |                 headers: headers,\n258 |              "
+  },
+  "articles/playbooks/ai-video-production-agency-playbook": {
+    "status": "fail",
+    "error": "Failed to make image generation request: 257 |                 headers: headers,\n258 |              "
+  },
+  "articles/playbooks/automation-agency-starter-kit": {
+    "status": "fail",
+    "error": "Failed to make image generation request: 257 |                 headers: headers,\n258 |              "
+  },
+  "articles/playbooks/build-scale-and-monetize-an-ai-translation-and-localization-service-with-chatgpt-and-makecom": {
+    "status": "fail",
+    "error": "Failed to make image generation request: 257 |                 headers: headers,\n258 |              "
+  },
+  "articles/playbooks/chatgpt-prompt-engineering-guide": {
+    "status": "fail",
+    "error": "Failed to make image generation request: 257 |                 headers: headers,\n258 |              "
+  },
+  "articles/playbooks/fetch-the-transaction-from-plaid-sandbox": {
+    "status": "fail",
+    "error": "Failed to make image generation request: 257 |                 headers: headers,\n258 |              "
+  },
+  "heroes/opportunities/ai-affiliate-marketing-business": {
+    "status": "fail",
+    "error": "Failed to make image generation request: 257 |                 headers: headers,\n258 |              "
+  },
+  "heroes/opportunities/ai-agent-marketplaces-2026": {
+    "status": "fail",
+    "error": "Failed to make image generation request: 257 |                 headers: headers,\n258 |              "
+  },
+  "heroes/opportunities/ai-api-wrapper-business": {
+    "status": "fail",
+    "error": "Failed to make image generation request: 257 |                 headers: headers,\n258 |              "
+  },
+  "heroes/opportunities/ai-appointment-booking-agency-2026": {
+    "status": "fail",
+    "error": "Failed to make image generation request: 257 |                 headers: headers,\n258 |              "
+  },
+  "heroes/opportunities/ai-automation-agency": {
+    "status": "fail",
+    "error": "Failed to make image generation request: 257 |                 headers: headers,\n258 |              "
+  },
+  "heroes/opportunities/ai-bookkeeping-automation": {
+    "status": "fail",
+    "error": "Failed to make image generation request: 257 |                 headers: headers,\n258 |              "
+  },
+  "heroes/opportunities/ai-chatbot-ecommerce-agency-2026": {
+    "status": "fail",
+    "error": "Failed to make image generation request: 257 |                 headers: headers,\n258 |              "
+  },
+  "heroes/opportunities/ai-chatbot-ecommerce-agency": {
+    "status": "fail",
+    "error": "Failed to make image generation request: 257 |                 headers: headers,\n258 |              "
+  },
+  "heroes/opportunities/ai-cold-email-agency": {
+    "status": "fail",
+    "error": "Failed to make image generation request: 257 |                 headers: headers,\n258 |              "
+  },
+  "heroes/opportunities/ai-content-repurposing-agency-2026": {
+    "status": "fail",
+    "error": "Failed to make image generation request: 257 |                 headers: headers,\n258 |              "
+  },
+  "heroes/opportunities/ai-copywriting-agency": {
+    "status": "fail",
+    "error": "Failed to make image generation request: 257 |                 headers: headers,\n258 |              "
+  },
+  "heroes/opportunities/ai-course-creation-business-2026": {
+    "status": "fail",
+    "error": "Failed to make image generation request: 257 |                 headers: headers,\n258 |              "
+  },
+  "heroes/opportunities/ai-course-creation": {
+    "status": "fail",
+    "error": "Failed to make image generation request: 257 |                 headers: headers,\n258 |              "
+  },
+  "heroes/opportunities/ai-customer-support-automation-agency": {
+    "status": "fail",
+    "error": "Failed to make image generation request: 257 |                 headers: headers,\n258 |              "
+  },
+  "heroes/opportunities/ai-data-analysis-service-2026": {
+    "status": "fail",
+    "error": "Failed to make image generation request: 257 |                 headers: headers,\n258 |              "
+  },
+  "heroes/opportunities/ai-data-analysis-service": {
+    "status": "fail",
+    "error": "Failed to make image generation request: 257 |                 headers: headers,\n258 |              "
+  },
+  "heroes/opportunities/ai-data-annotation-and-training-service": {
+    "status": "fail",
+    "error": "Failed to make image generation request: 257 |                 headers: headers,\n258 |              "
+  },
+  "heroes/opportunities/ai-ecommerce-optimization-agency": {
+    "status": "fail",
+    "error": "Failed to make image generation request: 257 |                 headers: headers,\n258 |              "
+  },
+  "heroes/opportunities/ai-faceless-video-factory": {
+    "status": "fail",
+    "error": "Failed to make image generation request: 257 |                 headers: headers,\n258 |              "
+  },
+  "heroes/opportunities/ai-freelance-marketplace-2026": {
+    "status": "fail",
+    "error": "Failed to make image generation request: 257 |                 headers: headers,\n258 |              "
+  },
+  "heroes/opportunities/ai-grant-writing-service": {
+    "status": "fail",
+    "error": "Failed to make image generation request: 257 |                 headers: headers,\n258 |              "
+  },
+  "heroes/opportunities/ai-hr-recruitment-automation-agency": {
+    "status": "fail",
+    "error": "Failed to make image generation request: 257 |                 headers: headers,\n258 |              "
+  },
+  "heroes/opportunities/ai-image-generation-agency": {
+    "status": "fail",
+    "error": "Failed to make image generation request: 257 |                 headers: headers,\n258 |              "
+  },
+  "heroes/opportunities/ai-lead-generation-agency-2026": {
+    "status": "fail",
+    "error": "Failed to make image generation request: 257 |                 headers: headers,\n258 |              "
+  },
+  "heroes/opportunities/ai-lead-generation-machine": {
+    "status": "fail",
+    "error": "Failed to make image generation request: 257 |                 headers: headers,\n258 |              "
+  },
+  "heroes/opportunities/ai-newsletter-business": {
+    "status": "fail",
+    "error": "Failed to make image generation request: 257 |                 headers: headers,\n258 |              "
+  },
+  "heroes/opportunities/ai-podcast-production-agency": {
+    "status": "fail",
+    "error": "Failed to make image generation request: 257 |                 headers: headers,\n258 |              "
+  },
+  "heroes/opportunities/ai-real-estate-marketing-agency": {
+    "status": "fail",
+    "error": "Failed to make image generation request: 257 |                 headers: headers,\n258 |              "
+  },
+  "heroes/opportunities/ai-resume-career-service-2026": {
+    "status": "fail",
+    "error": "Failed to make image generation request: 257 |                 headers: headers,\n258 |              "
+  },
+  "heroes/opportunities/ai-resume-career-service": {
+    "status": "fail",
+    "error": "Failed to make image generation request: 257 |                 headers: headers,\n258 |              "
+  },
+  "heroes/opportunities/ai-saas-micro-products-replit-2026": {
+    "status": "fail",
+    "error": "Failed to make image generation request: 257 |                 headers: headers,\n258 |              "
+  },
+  "heroes/opportunities/ai-saas-micro-products": {
+    "status": "fail",
+    "error": "Failed to make image generation request: 257 |                 headers: headers,\n258 |              "
+  },
+  "heroes/opportunities/ai-seo-agency-2026": {
+    "status": "fail",
+    "error": "Failed to make image generation request: 257 |                 headers: headers,\n258 |              "
+  },
+  "heroes/opportunities/ai-seo-agency": {
+    "status": "fail",
+    "error": "Failed to make image generation request: 257 |                 headers: headers,\n258 |              "
+  },
+  "heroes/opportunities/ai-social-media-agency-2026": {
+    "status": "fail",
+    "error": "Failed to make image generation request: 257 |                 headers: headers,\n258 |              "
+  },
+  "heroes/opportunities/ai-social-media-agency": {
+    "status": "fail",
+    "error": "Failed to make image generation request: 257 |                 headers: headers,\n258 |              "
+  },
+  "heroes/opportunities/ai-video-production-agency": {
+    "status": "fail",
+    "error": "Failed to make image generation request: 257 |                 headers: headers,\n258 |              "
+  },
+  "heroes/opportunities/ai-voice-agent-agency-2026": {
+    "status": "fail",
+    "error": "Failed to make image generation request: 257 |                 headers: headers,\n258 |              "
+  },
+  "heroes/opportunities/content-repurposing-agency-deep-dive": {
+    "status": "fail",
+    "error": "Failed to make image generation request: 257 |                 headers: headers,\n258 |              "
+  },
+  "heroes/opportunities/fliki-ai-faceless-youtube-channel": {
+    "status": "fail",
+    "error": "Failed to make image generation request: 257 |                 headers: headers,\n258 |              "
+  },
+  "heroes/opportunities/gpt5-solo-entrepreneur": {
+    "status": "fail",
+    "error": "Failed to make image generation request: 257 |                 headers: headers,\n258 |              "
+  },
+  "heroes/opportunities/how-to-build-ai-powered-email-marketing-automation-in-2026": {
+    "status": "fail",
+    "error": "Failed to make image generation request: 257 |                 headers: headers,\n258 |              "
+  },
+  "heroes/opportunities/how-to-build-an-ai-contract-and-proposal-writing-service-in-2026-5k-25kmonth": {
+    "status": "fail",
+    "error": "Failed to make image generation request: 257 |                 headers: headers,\n258 |              "
+  },
+  "heroes/opportunities/how-to-build-an-ai-translation-and-localization-service-in-2026-3k-20kmonth": {
+    "status": "fail",
+    "error": "Failed to make image generation request: 257 |                 headers: headers,\n258 |              "
+  },
+  "heroes/opportunities/how-to-start-an-ai-appointment-booking-automation-business-in-2026-2k-15kmonth": {
+    "status": "fail",
+    "error": "Failed to make image generation request: 257 |                 headers: headers,\n258 |              "
+  },
+  "heroes/opportunities/how-to-start-an-ai-cold-email-outreach-agency-in-2026-5k-30kmonth": {
+    "status": "fail",
+    "error": "Failed to make image generation request: 257 |                 headers: headers,\n258 |              "
+  },
+  "heroes/opportunities/how-to-start-an-ai-legal-document-automation-agency-in-2026-5k-30kmonth": {
+    "status": "fail",
+    "error": "Failed to make image generation request: 257 |                 headers: headers,\n258 |              "
+  },
+  "heroes/opportunities/how-to-start-an-ai-personal-finance-automation-service-in-2026-2k-10kmonth": {
+    "status": "fail",
+    "error": "Failed to make image generation request: 257 |                 headers: headers,\n258 |              "
+  },
+  "heroes/opportunities/voice-ai-business-blueprint": {
+    "status": "fail",
+    "error": "Failed to make image generation request: 257 |                 headers: headers,\n258 |              "
+  },
+  "heroes/intelligence/ai-api-wrapper-business": {
+    "status": "fail",
+    "error": "Failed to make image generation request: 257 |                 headers: headers,\n258 |              "
+  },
+  "heroes/intelligence/ai-content-business-guide": {
+    "status": "fail",
+    "error": "Failed to make image generation request: 257 |                 headers: headers,\n258 |              "
+  },
+  "heroes/intelligence/build-ai-api-wrapper-business": {
+    "status": "fail",
+    "error": "Failed to make image generation request: 257 |                 headers: headers,\n258 |              "
+  },
+  "heroes/intelligence/build-ai-appointment-booking-agency": {
+    "status": "fail",
+    "error": "Failed to make image generation request: 257 |                 headers: headers,\n258 |              "
+  },
+  "heroes/intelligence/build-ai-bookkeeping-automation-system": {
+    "status": "fail",
+    "error": "Failed to make image generation request: 257 |                 headers: headers,\n258 |              "
+  },
+  "heroes/intelligence/build-ai-chatbot-agency": {
+    "status": "fail",
+    "error": "Failed to make image generation request: 257 |                 headers: headers,\n258 |              "
+  },
+  "heroes/intelligence/build-ai-chatbot-ecommerce-agency": {
+    "status": "fail",
+    "error": "Failed to make image generation request: 257 |                 headers: headers,\n258 |              "
+  },
+  "heroes/intelligence/build-ai-cold-email-agency": {
+    "status": "fail",
+    "error": "Failed to make image generation request: 257 |                 headers: headers,\n258 |              "
+  },
+  "heroes/intelligence/build-ai-course-creation-business": {
+    "status": "fail",
+    "error": "Failed to make image generation request: 257 |                 headers: headers,\n258 |              "
+  },
+  "heroes/intelligence/build-ai-course-creation-system": {
+    "status": "fail",
+    "error": "Failed to make image generation request: 257 |                 headers: headers,\n258 |              "
+  },
+  "heroes/intelligence/build-ai-ecommerce-optimization-agency": {
+    "status": "fail",
+    "error": "Failed to make image generation request: 257 |                 headers: headers,\n258 |              "
+  },
+  "heroes/intelligence/build-ai-grant-writing-service": {
+    "status": "fail",
+    "error": "Failed to make image generation request: 257 |                 headers: headers,\n258 |              "
+  },
+  "heroes/intelligence/build-ai-hr-recruitment-automation-system": {
+    "status": "fail",
+    "error": "Failed to make image generation request: 257 |                 headers: headers,\n258 |              "
+  },
+  "heroes/intelligence/build-ai-image-generation-agency": {
+    "status": "fail",
+    "error": "Failed to make image generation request: 257 |                 headers: headers,\n258 |              "
+  },
+  "heroes/intelligence/build-ai-lead-generation-system": {
+    "status": "fail",
+    "error": "Failed to make image generation request: 257 |                 headers: headers,\n258 |              "
+  },
+  "heroes/intelligence/build-ai-newsletter-business": {
+    "status": "fail",
+    "error": "Failed to make image generation request: 257 |                 headers: headers,\n258 |              "
+  },
+  "heroes/intelligence/build-ai-resume-career-service": {
+    "status": "fail",
+    "error": "Failed to make image generation request: 257 |                 headers: headers,\n258 |              "
+  },
+  "heroes/intelligence/build-ai-seo-agency-workflows": {
+    "status": "fail",
+    "error": "Failed to make image generation request: 257 |                 headers: headers,\n258 |              "
+  },
+  "heroes/intelligence/build-ai-social-media-pipeline": {
+    "status": "fail",
+    "error": "Failed to make image generation request: 257 |                 headers: headers,\n258 |              "
+  },
+  "heroes/intelligence/build-ai-video-production-agency": {
+    "status": "fail",
+    "error": "Failed to make image generation request: 257 |                 headers: headers,\n258 |              "
+  },
+  "heroes/intelligence/build-ai-voice-agent-system": {
+    "status": "fail",
+    "error": "Failed to make image generation request: 257 |                 headers: headers,\n258 |              "
+  },
+  "heroes/intelligence/build-and-deploy-ai-appointment-booking-systems-with-vapi-and-calendly": {
+    "status": "fail",
+    "error": "Failed to make image generation request: 257 |                 headers: headers,\n258 |              "
+  },
+  "heroes/intelligence/build-and-deploy-ai-personal-finance-automation-systems-with-chatgpt": {
+    "status": "fail",
+    "error": "Failed to make image generation request: 257 |                 headers: headers,\n258 |              "
+  },
+  "heroes/intelligence/build-and-scale-an-ai-affiliate-marketing-system-with-semrush-and-makecom": {
+    "status": "fail",
+    "error": "Failed to make image generation request: 257 |                 headers: headers,\n258 |              "
+  },
+  "heroes/intelligence/build-and-scale-an-ai-data-annotation-pipeline-with-label-studio": {
+    "status": "fail",
+    "error": "Failed to make image generation request: 257 |                 headers: headers,\n258 |              "
+  },
+  "heroes/intelligence/build-automate-and-deploy-ai-translation-and-localization-services-with-chatgpt": {
+    "status": "fail",
+    "error": "Failed to make image generation request: 257 |                 headers: headers,\n258 |              "
+  },
+  "heroes/intelligence/build-automate-and-scale-ai-cold-email-outreach-systems-with-apolloio": {
+    "status": "fail",
+    "error": "Failed to make image generation request: 257 |                 headers: headers,\n258 |              "
+  },
+  "heroes/intelligence/build-automate-scale-ai-social-media-pipelines-buffer-makecom": {
+    "status": "fail",
+    "error": "Failed to make image generation request: 257 |                 headers: headers,\n258 |              "
+  },
+  "heroes/intelligence/build-content-repurposing-agency": {
+    "status": "fail",
+    "error": "Failed to make image generation request: 257 |                 headers: headers,\n258 |              "
+  },
+  "heroes/intelligence/build-deploy-scale-ai-voice-agents-vapi": {
+    "status": "fail",
+    "error": "Failed to make image generation request: 257 |                 headers: headers,\n258 |              "
+  },
+  "heroes/intelligence/build-gpt5-solo-entrepreneur-system": {
+    "status": "fail",
+    "error": "Failed to make image generation request: 257 |                 headers: headers,\n258 |              "
+  },
+  "heroes/intelligence/build-optimize-scale-ai-seo-workflows-semrush": {
+    "status": "fail",
+    "error": "Failed to make image generation request: 257 |                 headers: headers,\n258 |              "
+  },
+  "heroes/intelligence/create-ai-saas-micro-products-replit": {
+    "status": "fail",
+    "error": "Failed to make image generation request: 257 |                 headers: headers,\n258 |              "
+  },
+  "heroes/intelligence/create-faceless-youtube-channel-ai": {
+    "status": "fail",
+    "error": "Failed to make image generation request: 257 |                 headers: headers,\n258 |              "
+  },
+  "heroes/intelligence/deploy-ai-email-marketing-automations": {
+    "status": "fail",
+    "error": "Failed to make image generation request: 257 |                 headers: headers,\n258 |              "
+  },
+  "heroes/intelligence/design-build-automate-ai-content-repurposing-pipeline-makecom": {
+    "status": "fail",
+    "error": "Failed to make image generation request: 257 |                 headers: headers,\n258 |              "
+  },
+  "heroes/intelligence/design-build-launch-ai-saas-micro-products-replit": {
+    "status": "fail",
+    "error": "Failed to make image generation request: 257 |                 headers: headers,\n258 |              "
+  },
+  "heroes/intelligence/fliki-ai-faceless-youtube-channel-guide": {
+    "status": "fail",
+    "error": "Failed to make image generation request: 257 |                 headers: headers,\n258 |              "
+  },
+  "heroes/intelligence/launch-ai-agent-marketplace-business": {
+    "status": "fail",
+    "error": "Failed to make image generation request: 257 |                 headers: headers,\n258 |              "
+  },
+  "heroes/intelligence/launch-ai-data-analysis-agency": {
+    "status": "fail",
+    "error": "Failed to make image generation request: 257 |                 headers: headers,\n258 |              "
+  },
+  "heroes/intelligence/launch-ai-data-analysis-service": {
+    "status": "fail",
+    "error": "Failed to make image generation request: 257 |                 headers: headers,\n258 |              "
+  },
+  "heroes/intelligence/launch-ai-freelance-marketplace": {
+    "status": "fail",
+    "error": "Failed to make image generation request: 257 |                 headers: headers,\n258 |              "
+  },
+  "heroes/intelligence/makecom-automation-workflows": {
+    "status": "fail",
+    "error": "Failed to make image generation request: 257 |                 headers: headers,\n258 |              "
+  },
+  "heroes/playbooks/24-procedures-12-modules-12-hours-of-reading-and-execution": {
+    "status": "fail",
+    "error": "Failed to make image generation request: 257 |                 headers: headers,\n258 |              "
+  },
+  "heroes/playbooks/ai-automation-agency-playbook": {
+    "status": "fail",
+    "error": "Failed to make image generation request: 257 |                 headers: headers,\n258 |              "
+  },
+  "heroes/playbooks/ai-bookkeeping-automation-playbook": {
+    "status": "fail",
+    "error": "Failed to make image generation request: 257 |                 headers: headers,\n258 |              "
+  },
+  "heroes/playbooks/ai-cold-email-outreach-playbook": {
+    "status": "fail",
+    "error": "Failed to make image generation request: 257 |                 headers: headers,\n258 |              "
+  },
+  "heroes/playbooks/ai-copywriting-agency-playbook": {
+    "status": "fail",
+    "error": "Failed to make image generation request: 257 |                 headers: headers,\n258 |              "
+  },
+  "heroes/playbooks/ai-customer-onboarding-agency-playbook": {
+    "status": "fail",
+    "error": "Failed to make image generation request: 257 |                 headers: headers,\n258 |              "
+  },
+  "heroes/playbooks/ai-ecommerce-optimization-playbook": {
+    "status": "fail",
+    "error": "Failed to make image generation request: 257 |                 headers: headers,\n258 |              "
+  },
+  "heroes/playbooks/ai-email-marketing-automation-playbook": {
+    "status": "fail",
+    "error": "Failed to make image generation request: 257 |                 headers: headers,\n258 |              "
+  },
+  "heroes/playbooks/ai-hr-recruitment-automation-playbook": {
+    "status": "fail",
+    "error": "Failed to make image generation request: 257 |                 headers: headers,\n258 |              "
+  },
+  "heroes/playbooks/ai-lead-generation-playbook": {
+    "status": "fail",
+    "error": "Failed to make image generation request: 257 |                 headers: headers,\n258 |              "
+  },
+  "heroes/playbooks/ai-marketplace-launch-playbook": {
+    "status": "fail",
+    "error": "Failed to make image generation request: 257 |                 headers: headers,\n258 |              "
+  },
+  "heroes/playbooks/ai-seo-agency-playbook": {
+    "status": "fail",
+    "error": "Failed to make image generation request: 257 |                 headers: headers,\n258 |              "
+  },
+  "heroes/playbooks/ai-side-hustle-blueprint": {
+    "status": "fail",
+    "error": "Failed to make image generation request: 257 |                 headers: headers,\n258 |              "
+  },
+  "heroes/playbooks/ai-video-production-agency-playbook": {
+    "status": "fail",
+    "error": "Failed to make image generation request: 257 |                 headers: headers,\n258 |              "
+  },
+  "heroes/playbooks/automation-agency-starter-kit": {
+    "status": "fail",
+    "error": "Failed to make image generation request: 257 |                 headers: headers,\n258 |              "
+  },
+  "heroes/playbooks/build-scale-and-monetize-an-ai-translation-and-localization-service-with-chatgpt-and-makecom": {
+    "status": "fail",
+    "error": "Failed to make image generation request: 257 |                 headers: headers,\n258 |              "
+  },
+  "heroes/playbooks/chatgpt-prompt-engineering-guide": {
+    "status": "fail",
+    "error": "Failed to make image generation request: 257 |                 headers: headers,\n258 |              "
+  },
+  "heroes/playbooks/fetch-the-transaction-from-plaid-sandbox": {
+    "status": "fail",
+    "error": "Failed to make image generation request: 257 |                 headers: headers,\n258 |              "
+  }
+}
