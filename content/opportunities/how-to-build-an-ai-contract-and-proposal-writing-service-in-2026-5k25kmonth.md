@@ -4,8 +4,8 @@ date: 2026-05-01
 category: "AI Opportunity"
 readTime: "35 MIN"
 excerpt: "You'd think 2026 would bring headline‑grabbing tech, not a service that lets you write legal contracts in 30 seconds. Yet here it is. A single high‑quality contract takes a lawyer eight hours, but an LLM can spit out a first draft in half a minute..."
-image: "/images/articles/opportunities/how-to-build-an-ai-contract-and-proposal-writing-service-in-2026-5k-25kmonth.png"
-heroImage: "/images/heroes/opportunities/how-to-build-an-ai-contract-and-proposal-writing-service-in-2026-5k-25kmonth.png"
+image: "/images/articles/opportunities/how-to-build-an-ai-contract-and-proposal-writing-service-in-2026-5k25kmonth.png"
+heroImage: "/images/heroes/opportunities/how-to-build-an-ai-contract-and-proposal-writing-service-in-2026-5k25kmonth.png"
 ---
 
 ## Opening Hook

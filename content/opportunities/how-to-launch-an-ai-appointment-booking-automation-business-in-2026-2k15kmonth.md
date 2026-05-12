@@ -4,8 +4,8 @@ date: 2026-04-29
 category: "AI Opportunity"
 readTime: "35 MIN"
 excerpt: "Every day, businesses lose up to $1.2 million to unfilled slots, according to a recent industry survey. The culprit? Manual phone calls, endless back‑and‑forth emails, and scheduling software that still feels like a relic. By 2026, the AI‑powered voice and chatbot booking wave is hitting a tipping point..."
-image: "/images/articles/opportunities/how-to-start-an-ai-appointment-booking-automation-business-in-2026-2k-15kmonth.png"
-heroImage: "/images/heroes/opportunities/how-to-start-an-ai-appointment-booking-automation-business-in-2026-2k-15kmonth.png"
+image: "/images/articles/opportunities/how-to-launch-an-ai-appointment-booking-automation-business-in-2026-2k15kmonth.png"
+heroImage: "/images/heroes/opportunities/how-to-launch-an-ai-appointment-booking-automation-business-in-2026-2k15kmonth.png"
 relatedGuide: "/intelligence/build-configure-and-deploy-an-ai-appointment-booking-system-with-vapi-and-calend/"
 ---
 
