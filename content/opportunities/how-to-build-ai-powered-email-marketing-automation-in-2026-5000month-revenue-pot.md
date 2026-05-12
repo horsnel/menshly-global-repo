@@ -4,8 +4,8 @@ date: 2026-04-24
 category: "AI Opportunity"
 readTime: "22 MIN"
 excerpt: "Every tool, every hack, every ugly truth — the complete deep dive on building an AI-powered email marketing automation service that generates recurring revenue from businesses that desperately need it."
-image: "/images/articles/opportunities/how-to-build-ai-powered-email-marketing-automation-in-2026.png"
-heroImage: "/images/heroes/opportunities/how-to-build-ai-powered-email-marketing-automation-in-2026.png"
+image: "/images/articles/opportunities/how-to-build-ai-powered-email-marketing-automation-in-2026-5000month-revenue-pot.png"
+heroImage: "/images/heroes/opportunities/how-to-build-ai-powered-email-marketing-automation-in-2026-5000month-revenue-pot.png"
 relatedGuide: "/intelligence/deploy-ai-email-marketing-automations/"
 relatedPlaybook: "/playbooks/ai-email-marketing-automation-playbook/"
 ---

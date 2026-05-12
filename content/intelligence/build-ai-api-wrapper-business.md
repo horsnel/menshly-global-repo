@@ -4,8 +4,8 @@ date: 2026-05-01
 category: "Intelligence"
 readTime: "35 MIN"
 excerpt: "The complete technical execution guide for building, deploying, and scaling an AI API wrapper business — architecture, prompt engineering, multi-model routing, and monetization infrastructure."
-image: "/images/articles/intelligence/ai-api-wrapper-business.png"
-heroImage: "/images/heroes/intelligence/ai-api-wrapper-business.png"
+image: "/images/articles/intelligence/build-ai-api-wrapper-business.png"
+heroImage: "/images/heroes/intelligence/build-ai-api-wrapper-business.png"
 relatedOpportunity: "/opportunities/ai-api-wrapper-business/"
 difficulty: "INTERMEDIATE"
 ---

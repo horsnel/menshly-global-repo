@@ -5,8 +5,8 @@ category: "Implementation"
 difficulty: "INTERMEDIATE"
 readTime: "35 MIN"
 excerpt: "This is the execution guide for building the AI Appointment Booking Automation business we outlined in our opportunity deep‑dive. Follow the steps below and you'll have a fully‑functional, voice‑powered scheduling system that can be sold to medical practices, law firms, or any service‑based business..."
-image: "/images/articles/intelligence/build-and-deploy-ai-appointment-booking-systems-with-vapi-and-calendly.png"
-heroImage: "/images/heroes/intelligence/build-and-deploy-ai-appointment-booking-systems-with-vapi-and-calendly.png"
+image: "/images/articles/intelligence/build-configure-and-deploy-an-ai-appointment-booking-system-with-vapi-and-calend.png"
+heroImage: "/images/heroes/intelligence/build-configure-and-deploy-an-ai-appointment-booking-system-with-vapi-and-calend.png"
 relatedOpportunity: "/opportunities/how-to-launch-an-ai-appointment-booking-automation-business-in-2026-2k15kmonth/"
 ---
 
