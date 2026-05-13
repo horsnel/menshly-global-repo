@@ -1,24 +1,6 @@
 {
-  "last_updated": "2026-05-09T08:26:07.519188+00:00",
+  "last_updated": "2026-05-13T10:54:36.228478+00:00",
   "topics": [
-    {
-      "topic": "How to build an AI supply chain optimization consulting business in 2026",
-      "context": "AI is revolutionizing logistics, demand forecasting, and inventory management",
-      "keywords": [
-        "AI supply chain",
-        "logistics AI",
-        "demand forecasting"
-      ],
-      "affiliates": [
-        "ChatGPT",
-        "Make.com",
-        "Notion"
-      ],
-      "opportunity_angle": "How to Build an AI Supply Chain Optimization Consulting Business in 2026 ($5K-40K/Month)",
-      "intelligence_angle": "Build and Deploy AI Supply Chain Optimization Systems with ChatGPT",
-      "playbook_angle": "Build, Scale, and Monetize AI Supply Chain Optimization Consulting with ChatGPT and Make.com",
-      "discovered_at": "2026-04-27T10:52:25.110692+00:00"
-    },
     {
       "topic": "How to start an AI cold email outreach agency in 2026",
       "context": "AI-powered personalization at scale is replacing generic cold emails",
@@ -2220,6 +2202,145 @@
       "intelligence_angle": "Create, refine, and optimize online courses with AI-powered tools",
       "playbook_angle": "Design, implement, and scale AI-powered course creation strategies",
       "discovered_at": "2026-05-09T07:54:20.182635+00:00"
+    },
+    {
+      "topic": "How to start an AI-powered web development agency in 2026",
+      "context": "As more businesses go online, the demand for AI-powered web development services is increasing. With tools like Replit and Make.com, entrepreneurs can start an agency with minimal capital.",
+      "keywords": [
+        "AI web development",
+        "Replit",
+        "Make.com"
+      ],
+      "affiliates": [
+        "Replit",
+        "Make.com",
+        "Vapi"
+      ],
+      "opportunity_angle": "How to build an AI web development agency in 2026 (6-figure potential)",
+      "intelligence_angle": "Design, Develop, and Deploy AI-powered websites with Replit",
+      "playbook_angle": "Plan, Execute, and Optimize AI web development projects with Make.com",
+      "discovered_at": "2026-05-13T10:23:13.550910+00:00"
+    },
+    {
+      "topic": "How to start an AI podcast editing and production business in 2026",
+      "context": "The rise of podcasting has created a demand for AI-powered editing and production services. With tools like Loom and Calendly, entrepreneurs can start a business with minimal capital.",
+      "keywords": [
+        "AI podcast editing",
+        "Loom",
+        "Calendly"
+      ],
+      "affiliates": [
+        "Loom",
+        "Calendly",
+        "Grammarly"
+      ],
+      "opportunity_angle": "How to start an AI podcast editing business in 2026 ($5K/month potential)",
+      "intelligence_angle": "Record, Edit, and Publish AI-powered podcasts with Loom",
+      "playbook_angle": "Schedule, Produce, and Distribute AI podcast content with Calendly",
+      "discovered_at": "2026-05-13T10:23:13.550945+00:00"
+    },
+    {
+      "topic": "How to start an AI lead generation business with Apollo.io and PhantomBuster in 2026",
+      "context": "The demand for AI-powered lead generation services is increasing. With tools like Apollo.io and PhantomBuster, entrepreneurs can start an agency with minimal capital.",
+      "keywords": [
+        "AI lead generation",
+        "Apollo.io",
+        "PhantomBuster"
+      ],
+      "affiliates": [
+        "Apollo.io",
+        "PhantomBuster",
+        "Hostinger"
+      ],
+      "opportunity_angle": "How to start an AI lead generation business in 2026 ($5K/month potential)",
+      "intelligence_angle": "Find, Qualify, and Convert AI-powered leads with Apollo.io",
+      "playbook_angle": "Automate, Analyze, and Optimize lead generation workflows with PhantomBuster",
+      "discovered_at": "2026-05-13T10:23:13.551050+00:00"
+    },
+    {
+      "topic": "How to start an AI translation and localization service with ChatGPT in 2026",
+      "context": "The demand for AI-powered translation and localization services is increasing. With tools like ChatGPT, entrepreneurs can start an agency with minimal capital.",
+      "keywords": [
+        "AI translation",
+        "ChatGPT"
+      ],
+      "affiliates": [
+        "ChatGPT",
+        "Notion",
+        "Klaviyo"
+      ],
+      "opportunity_angle": "How to start an AI translation and localization service in 2026 ($5K/month potential)",
+      "intelligence_angle": "Translate, Localize, and Optimize AI-powered content with ChatGPT",
+      "playbook_angle": "Design, Execute, and Monitor AI translation workflows with Notion",
+      "discovered_at": "2026-05-13T10:23:13.551089+00:00"
+    },
+    {
+      "topic": "How to start an AI copywriting agency with ChatGPT in 2026",
+      "context": "The demand for AI-powered copywriting services is increasing. With tools like ChatGPT, entrepreneurs can start an agency with minimal capital.",
+      "keywords": [
+        "AI copywriting",
+        "ChatGPT"
+      ],
+      "affiliates": [
+        "ChatGPT",
+        "Canva",
+        "Semrush"
+      ],
+      "opportunity_angle": "How to start an AI copywriting agency in 2026 ($5K/month potential)",
+      "intelligence_angle": "Research, Write, and Optimize AI-powered copy with ChatGPT",
+      "playbook_angle": "Design, Produce, and Distribute AI copy content with Canva",
+      "discovered_at": "2026-05-13T10:23:13.551104+00:00"
+    },
+    {
+      "topic": "How to start an AI email marketing automation business with Klaviyo in 2026",
+      "context": "The demand for AI-powered email marketing automation services is increasing. With tools like Klaviyo, entrepreneurs can start an agency with minimal capital.",
+      "keywords": [
+        "AI email marketing",
+        "Klaviyo"
+      ],
+      "affiliates": [
+        "Klaviyo",
+        "ActiveCampaign",
+        "Notion"
+      ],
+      "opportunity_angle": "How to start an AI email marketing automation business in 2026 ($5K/month potential)",
+      "intelligence_angle": "Create, Automate, and Optimize AI-powered email marketing with Klaviyo",
+      "playbook_angle": "Design, Execute, and Monitor AI email marketing workflows with ActiveCampaign",
+      "discovered_at": "2026-05-13T10:23:13.551118+00:00"
+    },
+    {
+      "topic": "How to start an AI social media management business with Buffer in 2026",
+      "context": "The demand for AI-powered social media management services is increasing. With tools like Buffer, entrepreneurs can start an agency with minimal capital.",
+      "keywords": [
+        "AI social media management",
+        "Buffer"
+      ],
+      "affiliates": [
+        "Buffer",
+        "Loom",
+        "Grammarly"
+      ],
+      "opportunity_angle": "How to start an AI social media management business in 2026 ($5K/month potential)",
+      "intelligence_angle": "Create, Schedule, and Publish AI-powered social media content with Buffer",
+      "playbook_angle": "Automate, Analyze, and Optimize social media workflows with Loom",
+      "discovered_at": "2026-05-13T10:23:13.551182+00:00"
+    },
+    {
+      "topic": "How to start an AI customer support automation business with Zapier in 2026",
+      "context": "The demand for AI-powered customer support automation services is increasing. With tools like Zapier, entrepreneurs can start an agency with minimal capital.",
+      "keywords": [
+        "AI customer support",
+        "Zapier"
+      ],
+      "affiliates": [
+        "Zapier",
+        "ChatGPT",
+        "Buffer"
+      ],
+      "opportunity_angle": "How to start an AI customer support automation business in 2026 ($5K/month potential)",
+      "intelligence_angle": "Design, Implement, and Optimize AI-powered customer support with Zapier",
+      "playbook_angle": "Automate, Analyze, and Improve customer support workflows with ChatGPT",
+      "discovered_at": "2026-05-13T10:23:13.551197+00:00"
     }
   ],
   "used_topics": [
@@ -2258,6 +2379,10 @@
     {
       "topic": "How to start an AI legal document automation agency in 2026",
       "used_at": "2026-05-09T08:26:07.519155+00:00"
+    },
+    {
+      "topic": "How to build an AI supply chain optimization consulting business in 2026",
+      "used_at": "2026-05-13T10:54:36.228458+00:00"
     }
   ]
 }
