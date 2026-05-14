@@ -66,7 +66,7 @@ body {
     font-family: 'Oswald', sans-serif;
     font-size: 14pt;
     letter-spacing: 0.3em;
-    color: #F9FF00;
+    color: #FF0004;
     background: #1a1a1a;
     display: inline-block;
     padding: 8px 24px;
@@ -123,7 +123,7 @@ h1 {
     margin-top: 48px;
     margin-bottom: 16px;
     padding-bottom: 8px;
-    border-bottom: 3px solid #F9FF00;
+    border-bottom: 3px solid #FF0004;
     page-break-after: avoid;
 }
 
@@ -152,10 +152,10 @@ p {
 }
 
 blockquote {
-    border-left: 6px solid #F9FF00;
-    border-top: 2px solid #F9FF00;
-    border-bottom: 2px solid #F9FF00;
-    border-right: 2px solid #F9FF00;
+    border-left: 6px solid #FF0004;
+    border-top: 2px solid #FF0004;
+    border-bottom: 2px solid #FF0004;
+    border-right: 2px solid #FF0004;
     padding: 16px 20px;
     margin: 20px 0;
     background: #fffef0;
@@ -249,7 +249,7 @@ li {
 
 hr {
     border: none;
-    border-top: 2px solid #F9FF00;
+    border-top: 2px solid #FF0004;
     margin: 32px 0;
 }
 """

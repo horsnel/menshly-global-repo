@@ -48,26 +48,26 @@ def build_thumbnail_prompt(title: str, section: str, excerpt: str = "") -> str:
 
     section_style = {
         "opportunities": (
-            f"a futuristic command center dashboard for {clean} floating in deep navy space, "
-            "holographic revenue indicators and growth arrows rendered in brilliant gold, "
-            "crystalline data streams connecting business metrics with glowing amber nodes, "
-            "abstract geometric shapes representing market opportunities with gold wireframe edges, "
-            "a subtle radial gold light emanating from the center"
+            f"a futuristic command center dashboard for {clean} floating in deep black space, "
+            "holographic revenue indicators and growth arrows rendered in brilliant red, "
+            "crystalline data streams connecting business metrics with glowing crimson nodes, "
+            "abstract geometric shapes representing market opportunities with red wireframe edges, "
+            "a subtle radial red light emanating from the center"
         ),
         "intelligence": (
             f"an advanced AI automation blueprint for {clean}, "
-            "a luminous gold circuit-board pattern on deep navy background, "
-            "interconnected workflow nodes with glowing amber connections, "
-            "a central AI processor chip radiating golden light pulses, "
-            "flowing data pipelines rendered as golden rivers, "
+            "a luminous red circuit-board pattern on deep black background, "
+            "interconnected workflow nodes with glowing crimson connections, "
+            "a central AI processor chip radiating red light pulses, "
+            "flowing data pipelines rendered as red rivers, "
             "holographic API connection points with precise geometric alignment"
         ),
         "playbooks": (
             f"an elite playbook blueprint for {clean}, "
-            "a grand golden open book floating in deep navy space with luminous pages revealing modular workflow diagrams, "
-            "geometric checklists and procedure flowcharts rendered in amber and gold, "
-            "floating gold-rimmed module cards arranged in a grid pattern, "
-            "crystalline milestone markers with warm golden glow"
+            "a grand dark open book floating in deep black space with luminous pages revealing modular workflow diagrams, "
+            "geometric checklists and procedure flowcharts rendered in crimson and red, "
+            "floating red-rimmed module cards arranged in a grid pattern, "
+            "crystalline milestone markers with warm red glow"
         ),
     }
 
@@ -75,9 +75,9 @@ def build_thumbnail_prompt(title: str, section: str, excerpt: str = "") -> str:
 
     prompt = (
         f"Ultra-premium editorial illustration: {style}, "
-        f"strictly using deep navy blue (#0A1628) background with gold (#F0C040) accent lighting and highlights, "
-        f"Tesla-inspired minimalist luxury aesthetic, "
-        f"bold geometric shapes with luminous gold edges and warm amber glow, "
+        f"strictly using deep black (#0A0A0A) background with red (#FF0004) accent lighting and highlights, "
+        f"premium minimalist dark aesthetic, "
+        f"bold geometric shapes with luminous red edges and warm crimson glow, "
         f"abstract futuristic tech aesthetic with atmospheric depth, "
         f"professional magazine cover quality, "
         f"no text no words no letters no numbers no people no faces, "
@@ -95,25 +95,25 @@ def build_hero_prompt(title: str, section: str, excerpt: str = "") -> str:
     section_style = {
         "opportunities": (
             f"a grand {clean} cathedral scene, "
-            "towering digital columns of revenue data rising from a deep navy abyss, "
-            "brilliant gold light streaming through geometric archways revealing market analytics and growth graphs, "
-            "floating holographic business cards with gold-trimmed edges, "
-            "a dramatic golden sunrise at the far end of a perspective corridor"
+            "towering digital columns of revenue data rising from a deep black abyss, "
+            "brilliant red light streaming through geometric archways revealing market analytics and growth graphs, "
+            "floating holographic business cards with red-trimmed edges, "
+            "a dramatic red sunrise at the far end of a perspective corridor"
         ),
         "intelligence": (
             f"a sophisticated {clean} command center, "
-            "a vast deep navy space with towering holographic screens displaying automation workflow diagrams, "
-            "golden data streams flowing between floating modules like liquid amber, "
+            "a vast deep black space with towering holographic screens displaying automation workflow diagrams, "
+            "red data streams flowing between floating modules like liquid crimson, "
             "a dramatic perspective corridor lined with illuminated workflow nodes, "
-            "epic golden light casting long geometric shadows"
+            "epic red light casting long geometric shadows"
         ),
         "playbooks": (
             f"a grand vaulted chamber for {clean}, "
-            "golden light streaming from a central floating open playbook, "
+            "red light streaming from a central floating open playbook, "
             "illuminating floating holographic procedure icons and modular step markers, "
-            "deep navy atmospheric walls receding into dramatic perspective, "
-            "illuminated golden columns representing playbook modules, "
-            "volumetric gold light rays creating atmospheric depth"
+            "deep black atmospheric walls receding into dramatic perspective, "
+            "illuminated red columns representing playbook modules, "
+            "volumetric red light rays creating atmospheric depth"
         ),
     }
 
@@ -121,12 +121,12 @@ def build_hero_prompt(title: str, section: str, excerpt: str = "") -> str:
 
     prompt = (
         f"Cinematic wide hero banner: {style}, "
-        f"strictly using deep navy blue (#0A1628) atmospheric background with brilliant gold (#F0C040) light streams and accents, "
-        f"epic dramatic composition with volumetric gold light rays, "
-        f"Tesla-inspired minimalist luxury aesthetic, "
+        f"strictly using deep black (#0A0A0A) atmospheric background with brilliant red (#FF0004) light streams and accents, "
+        f"epic dramatic composition with volumetric red light rays, "
+        f"premium minimalist dark aesthetic, "
         f"premium editorial magazine quality, "
         f"no text no words no letters no numbers no people no faces, "
-        f"ultra-clean sharp edges, atmospheric depth with layered navy-to-black gradient, 8K quality"
+        f"ultra-clean sharp edges, atmospheric depth with layered black gradient, 8K quality"
     )
     return prompt
 

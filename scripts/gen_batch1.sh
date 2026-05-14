@@ -62,16 +62,16 @@ gen "ai-data-annotation-and-training-service" "opportunities" \
   "Cinematic 8K macro of data labeling interface on ultra-wide monitor, bounding boxes around objects in images, AI training pipeline visualization, neural network nodes in warm amber, dark workspace, photorealistic"
 
 gen "ai-hr-recruitment-automation-agency" "opportunities" \
-  "Cinematic 8K shot of a modern HR office, multiple screens showing candidate profiles with AI matching scores, video interview window, Greenhouse logo on display, warm coral and navy palette, photorealistic"
+  "Cinematic 8K shot of a modern HR office, multiple screens showing candidate profiles with AI matching scores, video interview window, Greenhouse logo on display, deep black and red (#FF0004) palette, photorealistic"
 
 gen "how-to-launch-an-ai-personal-finance-automation-service-in-2026-2k-10kmonth" "opportunities" \
-  "Cinematic 8K dramatic shot of personal finance dashboard on a tablet and laptop, budget charts, investment portfolio with AI recommendations, bank card, coins, deep green and gold accents, photorealistic home office"
+  "Cinematic 8K dramatic shot of personal finance dashboard on a tablet and laptop, budget charts, investment portfolio with AI recommendations, bank card, coins, deep black (#0A0A0A) and red (#FF0004) accents, photorealistic home office"
 
 gen "ai-customer-support-automation-agency" "opportunities" \
   "Cinematic 8K shot of a modern call center with AI chatbot interface on curved monitors, customer satisfaction metrics, Zendesk-style dashboard, headset on desk, teal and warm white palette, photorealistic"
 
 gen "ai-real-estate-marketing-agency" "opportunities" \
-  "Cinematic 8K aerial view of luxury real estate with AI-generated property listing on a tablet, virtual tour interface, Zillow-style map, warm sunset golden hour, architectural photography style, photorealistic"
+  "Cinematic 8K aerial view of luxury real estate with AI-generated property listing on a tablet, virtual tour interface, Zillow-style map, dramatic red (#FF0004) light streams, architectural photography style, photorealistic"
 
 gen "how-to-launch-an-ai-appointment-booking-automation-business-in-2026-2k15kmonth" "opportunities" \
   "Cinematic 8K shot of a reception desk with AI booking system on a sleek monitor, calendar grid with appointments, Calendly-style interface, modern office lobby, warm wood and white palette, photorealistic"
@@ -83,7 +83,7 @@ gen "ai-content-repurposing-agency-2026" "opportunities" \
   "Cinematic 8K dramatic shot of content repurposing workflow, large monitor showing one blog post being split into social media posts, tweets, and video scripts by AI, vibrant magenta and dark slate palette, photorealistic"
 
 gen "ai-resume-career-service-2026" "opportunities" \
-  "Cinematic 8K overhead of a desk with resume documents, AI resume builder on laptop screen showing optimized CV, professional headshot being analyzed, LinkedIn interface, navy and warm gold, photorealistic"
+  "Cinematic 8K overhead of a desk with resume documents, AI resume builder on laptop screen showing optimized CV, professional headshot being analyzed, LinkedIn interface, black (#0A0A0A) and red (#FF0004), photorealistic"
 
 gen "ai-freelance-marketplace-2026" "opportunities" \
   "Cinematic 8K shot of a freelancer workspace, Replit code editor on screen with AI freelancer matching interface, multiple project cards floating as holograms, purple and warm amber palette, photorealistic"

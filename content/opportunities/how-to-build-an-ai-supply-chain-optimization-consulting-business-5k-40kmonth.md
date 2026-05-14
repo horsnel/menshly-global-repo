@@ -4,8 +4,8 @@ date: 2026-05-13
 category: "AI Opportunity"
 readTime: "16 MIN"
 excerpt: "The supply chain optimization industry is a $25 billion market, and it's no secret that AI is revolutionizing logistics, demand forecasting, and inventory management. But here's the uncomfortable trut..."
-image: "/images/articles/opportunities/how-to-build-an-ai-supply-chain-optimization-consulting-business-in-2026-5k-40km.png"
-heroImage: "/images/heroes/opportunities/how-to-build-an-ai-supply-chain-optimization-consulting-business-in-2026-5k-40km.png"
+image: "/images/articles/opportunities/how-to-build-an-ai-supply-chain-optimization-consulting-business-5k-40kmonth.png"
+heroImage: "/images/heroes/opportunities/how-to-build-an-ai-supply-chain-optimization-consulting-business-5k-40kmonth.png"
 ---
 
 

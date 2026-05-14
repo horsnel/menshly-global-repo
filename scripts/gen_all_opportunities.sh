@@ -67,16 +67,16 @@ gen "ai-data-annotation-and-training-service" "opportunities" \
   "Cinematic 8K macro of data labeling interface on ultra-wide monitor, bounding boxes around objects in images, AI training pipeline visualization, neural network nodes in warm amber, dark workspace, photorealistic" && ((SUCCESS++)) || ((FAILED++))
 
 gen "ai-hr-recruitment-automation-agency" "opportunities" \
-  "Cinematic 8K shot of a modern HR office, multiple screens showing candidate profiles with AI matching scores, video interview window, Greenhouse logo on display, warm coral and navy palette, photorealistic" && ((SUCCESS++)) || ((FAILED++))
+  "Cinematic 8K shot of a modern HR office, multiple screens showing candidate profiles with AI matching scores, video interview window, Greenhouse logo on display, deep black and red (#FF0004) palette, photorealistic" && ((SUCCESS++)) || ((FAILED++))
 
 gen "how-to-launch-an-ai-personal-finance-automation-service-in-2026-2k-10kmonth" "opportunities" \
-  "Cinematic 8K dramatic shot of personal finance dashboard on a tablet and laptop, budget charts, investment portfolio with AI recommendations, bank card, coins, deep green and gold accents, photorealistic home office" && ((SUCCESS++)) || ((FAILED++))
+  "Cinematic 8K dramatic shot of personal finance dashboard on a tablet and laptop, budget charts, investment portfolio with AI recommendations, bank card, coins, deep black (#0A0A0A) and red (#FF0004) accents, photorealistic home office" && ((SUCCESS++)) || ((FAILED++))
 
 gen "ai-customer-support-automation-agency" "opportunities" \
   "Cinematic 8K shot of a modern call center with AI chatbot interface on curved monitors, customer satisfaction metrics, Zendesk-style dashboard, headset on desk, teal and warm white palette, photorealistic" && ((SUCCESS++)) || ((FAILED++))
 
 gen "ai-real-estate-marketing-agency" "opportunities" \
-  "Cinematic 8K aerial view of luxury real estate with AI-generated property listing on a tablet, virtual tour interface, Zillow-style map, warm sunset golden hour, architectural photography style, photorealistic" && ((SUCCESS++)) || ((FAILED++))
+  "Cinematic 8K aerial view of luxury real estate with AI-generated property listing on a tablet, virtual tour interface, Zillow-style map, dramatic red (#FF0004) light streams, architectural photography style, photorealistic" && ((SUCCESS++)) || ((FAILED++))
 
 gen "how-to-launch-an-ai-appointment-booking-automation-business-in-2026-2k15kmonth" "opportunities" \
   "Cinematic 8K shot of a reception desk with AI booking system on a sleek monitor, calendar grid with appointments, Calendly-style interface, modern office lobby, warm wood and white palette, photorealistic" && ((SUCCESS++)) || ((FAILED++))
@@ -88,7 +88,7 @@ gen "ai-content-repurposing-agency-2026" "opportunities" \
   "Cinematic 8K dramatic shot of content repurposing workflow, large monitor showing one blog post being split into social media posts, tweets, and video scripts by AI, vibrant magenta and dark slate palette, photorealistic" && ((SUCCESS++)) || ((FAILED++))
 
 gen "ai-resume-career-service-2026" "opportunities" \
-  "Cinematic 8K overhead of a desk with resume documents, AI resume builder on laptop screen showing optimized CV, professional headshot being analyzed, LinkedIn interface, navy and warm gold, photorealistic" && ((SUCCESS++)) || ((FAILED++))
+  "Cinematic 8K overhead of a desk with resume documents, AI resume builder on laptop screen showing optimized CV, professional headshot being analyzed, LinkedIn interface, black (#0A0A0A) and red (#FF0004), photorealistic" && ((SUCCESS++)) || ((FAILED++))
 
 gen "ai-freelance-marketplace-2026" "opportunities" \
   "Cinematic 8K shot of a freelancer workspace, Replit code editor on screen with AI freelancer matching interface, multiple project cards floating as holograms, purple and warm amber palette, photorealistic" && ((SUCCESS++)) || ((FAILED++))
@@ -121,7 +121,7 @@ gen "ai-lead-generation-agency-2026" "opportunities" \
   "Cinematic 8K shot of lead generation pipeline visualization on curved monitor, CRM dashboard with AI scoring, sales funnel with conversion rates, orange and charcoal palette, photorealistic" && ((SUCCESS++)) || ((FAILED++))
 
 gen "ai-chatbot-ecommerce-agency-2026" "opportunities" \
-  "Cinematic 8K shot of an e-commerce store chatbot interface on tablet, AI product recommendations, shopping cart widget, customer conversation with purchase completion, warm coral and navy, photorealistic" && ((SUCCESS++)) || ((FAILED++))
+  "Cinematic 8K shot of an e-commerce store chatbot interface on tablet, AI product recommendations, shopping cart widget, customer conversation with purchase completion, deep black and red (#FF0004), photorealistic" && ((SUCCESS++)) || ((FAILED++))
 
 gen "ai-podcast-production-agency" "opportunities" \
   "Cinematic 8K dramatic shot of a podcast studio, professional microphone with pop filter, sound mixer, AI transcription on monitor, waveform visualization, rich burgundy and dark wood, photorealistic" && ((SUCCESS++)) || ((FAILED++))
@@ -130,7 +130,7 @@ gen "ai-cold-email-agency" "opportunities" \
   "Cinematic 8K shot of email outreach dashboard, AI-personalized email sequences on monitor, open rate analytics, reply tracking, warm slate grey and electric green accents, photorealistic" && ((SUCCESS++)) || ((FAILED++))
 
 gen "how-to-build-ai-powered-email-marketing-automation-in-2026-5000month-revenue-pot" "opportunities" \
-  "Cinematic 8K dramatic shot of Klaviyo-style email marketing dashboard, automated campaign flows, subscriber segmentation with AI, open rate charts, warm terracotta and deep navy, photorealistic" && ((SUCCESS++)) || ((FAILED++))
+  "Cinematic 8K dramatic shot of Klaviyo-style email marketing dashboard, automated campaign flows, subscriber segmentation with AI, open rate charts, deep black (#0A0A0A) and red (#FF0004), photorealistic" && ((SUCCESS++)) || ((FAILED++))
 
 gen "fliki-ai-faceless-youtube-channel" "opportunities" \
   "Cinematic 8K shot of a faceless YouTube channel creation setup, Fliki AI interface on monitor generating video from script, thumbnail designs, YouTube Studio analytics, vibrant red and dark charcoal, photorealistic" && ((SUCCESS++)) || ((FAILED++))
@@ -157,7 +157,7 @@ gen "gpt5-solo-entrepreneur" "opportunities" \
   "Cinematic 8K dramatic shot of a solo entrepreneur at a minimalist desk, GPT-5 interface on laptop running multiple business tasks simultaneously, calendar, invoices, content, warm amber and dark charcoal, photorealistic" && ((SUCCESS++)) || ((FAILED++))
 
 gen "voice-ai-business-blueprint" "opportunities" \
-  "Cinematic 8K shot of voice AI development workspace, Vapi configuration dashboard, voice waveform editor, telephony integration diagram, deep navy and electric coral, photorealistic" && ((SUCCESS++)) || ((FAILED++))
+  "Cinematic 8K shot of voice AI development workspace, Vapi configuration dashboard, voice waveform editor, telephony integration diagram, deep black (#0A0A0A) and red (#FF0004), photorealistic" && ((SUCCESS++)) || ((FAILED++))
 
 echo ""
 echo "📊 Opportunities: ✅ $SUCCESS | ❌ $FAILED"

@@ -435,7 +435,7 @@ async function main() {
     const oppThumbPath = path.join(PROJECT_ROOT, 'static', 'images', 'articles', 'opportunities', `${opp.slug}.png`);
     console.log(`  📸 Opp thumbnail: ${opp.slug}.png`);
     generateImage(
-      `Flat minimalist icon illustration of ${opp.topic}, strictly using ONLY white black and bright acid yellow #F9FF00 colors, solid white background, geometric brutalist style, no text`,
+      `Flat minimalist icon illustration of ${opp.topic}, strictly using ONLY black (#0A0A0A) and red (#FF0004) colors, dark background, geometric minimalist style, no text`,
       oppThumbPath
     );
 
@@ -443,7 +443,7 @@ async function main() {
     const oppHeroPath = path.join(PROJECT_ROOT, 'static', 'images', 'heroes', 'opportunities', `${opp.slug}.png`);
     console.log(`  🖼️ Opp hero: ${opp.slug}.png`);
     generateImage(
-      `Premium cinematic editorial hero image of ${opp.topic}, strictly using ONLY white black and bright acid yellow #F9FF00 colors, dramatic acid yellow accent lighting, Swiss brutalist editorial design, no text`,
+      `Premium cinematic editorial hero image of ${opp.topic}, strictly using ONLY black (#0A0A0A) and red (#FF0004) colors, dramatic red accent lighting, premium dark minimalist editorial design, no text`,
       oppHeroPath
     );
 
@@ -451,7 +451,7 @@ async function main() {
     const intThumbPath = path.join(PROJECT_ROOT, 'static', 'images', 'articles', 'intelligence', `${ip.slug}.png`);
     console.log(`  📸 Int thumbnail: ${ip.slug}.png`);
     generateImage(
-      `Flat minimalist icon illustration of building ${ip.topic} system, strictly using ONLY white black and bright acid yellow #F9FF00 colors, solid white background, geometric brutalist style, no text`,
+      `Flat minimalist icon illustration of building ${ip.topic} system, strictly using ONLY black (#0A0A0A) and red (#FF0004) colors, dark background, geometric minimalist style, no text`,
       intThumbPath
     );
 
@@ -459,7 +459,7 @@ async function main() {
     const intHeroPath = path.join(PROJECT_ROOT, 'static', 'images', 'heroes', 'intelligence', `${ip.slug}.png`);
     console.log(`  🖼️ Int hero: ${ip.slug}.png`);
     generateImage(
-      `Premium cinematic editorial hero image of building ${ip.topic} implementation, strictly using ONLY white black and bright acid yellow #F9FF00 colors, dramatic acid yellow accent lighting, Swiss brutalist editorial design, no text`,
+      `Premium cinematic editorial hero image of building ${ip.topic} implementation, strictly using ONLY black (#0A0A0A) and red (#FF0004) colors, dramatic red accent lighting, premium dark minimalist editorial design, no text`,
       intHeroPath
     );
   }

@@ -36,16 +36,16 @@ from pathlib import Path
 from PIL import Image
 
 # ── Brand Colours ──────────────────────────────────────────────────────
-NAVY = (10, 22, 40)       # #0A1628
-GOLD = (240, 192, 64)     # #F0C040
+DARK_BG = (10, 10, 10)    # #0A0A0A
+RED = (255, 0, 4)         # #FF0004
 WHITE = (255, 255, 255)
 BLACK = (26, 26, 26)
 
 # Legacy brand colours (for Pollination fallback)
-LEGACY_WHITE = (255, 255, 255)
+LEGACY_DARK = (10, 10, 10)       # #0A0A0A
+LEGACY_RED = (255, 0, 4)          # #FF0004
 LEGACY_BLACK = (26, 26, 26)
-LEGACY_YELLOW = (249, 255, 0)
-LEGACY_BRAND_COLOURS = [LEGACY_WHITE, LEGACY_BLACK, LEGACY_YELLOW]
+LEGACY_BRAND_COLOURS = [LEGACY_DARK, LEGACY_RED, LEGACY_BLACK]
 LEGACY_BRAND_SET = set(LEGACY_BRAND_COLOURS)
 
 # ── Image dimensions ──────────────────────────────────────────────────
@@ -90,9 +90,9 @@ def _build_premium_thumbnail_prompt(topic: str, section: str) -> str:
     prompt = (
         f"Premium editorial illustration of {clean}, "
         f"showing {style}, "
-        f"strictly using deep navy blue (#0A1628) background with gold (#F0C040) accent lighting and highlights, "
-        f"clean minimalist Tesla-inspired design, "
-        f"bold geometric shapes with luminous gold edges, "
+        f"strictly using deep black (#0A0A0A) background with red (#FF0004) accent lighting and highlights, "
+        f"premium minimalist dark aesthetic, "
+        f"bold geometric shapes with luminous red edges, "
         f"abstract futuristic tech aesthetic, "
         f"professional magazine cover quality, "
         f"no text no words no letters no numbers no people, "
@@ -115,9 +115,9 @@ def _build_premium_hero_prompt(topic: str, section: str) -> str:
     prompt = (
         f"Cinematic wide hero banner of {clean}, "
         f"depicting {style}, "
-        f"strictly using deep navy blue (#0A1628) atmospheric background with brilliant gold (#F0C040) light streams and accents, "
-        f"epic dramatic composition with radial gold light, "
-        f"Tesla-inspired minimalist luxury aesthetic, "
+        f"strictly using deep black (#0A0A0A) atmospheric background with brilliant red (#FF0004) light streams and accents, "
+        f"epic dramatic composition with radial red light, "
+        f"premium minimalist dark aesthetic, "
         f"premium editorial magazine quality, "
         f"no text no words no letters no numbers no people, "
         f"ultra-clean sharp edges, atmospheric depth"
@@ -191,10 +191,10 @@ def _build_pollination_prompt(topic: str) -> str:
     clean = _clean_topic(topic)
     prompt = (
         f"Flat minimalist icon illustration of {clean}, "
-        f"strictly using ONLY white black and bright acid yellow #F9FF00 colors, "
-        f"solid white background, geometric brutalist style, "
+        f"strictly using ONLY black (#0A0A0A) and red (#FF0004) colors, "
+        f"dark background, geometric minimalist style, "
         f"clean sharp vector edges, no gradients no shading, "
-        f"bold flat illustration, 3px black borders, no rounded corners, "
+        f"bold flat illustration, crisp red accents on black, "
         f"perfectly clean and smooth edges, no text no words no letters"
     )
     return prompt
@@ -205,14 +205,13 @@ def _build_pollination_hero_prompt(topic: str) -> str:
     clean = _clean_topic(topic)
     prompt = (
         f"Premium cinematic editorial hero image of {clean}, "
-        f"strictly using ONLY white black and bright acid yellow #F9FF00 colors, "
-        f"dramatic composition with acid yellow #F9FF00 accent lighting and shadows, "
+        f"strictly using ONLY black (#0A0A0A) and red (#FF0004) colors, "
+        f"dramatic composition with red (#FF0004) accent lighting and shadows, "
         f"bold geometric shapes and layered depth, "
-        f"Swiss brutalist editorial design, high contrast black and yellow, "
+        f"premium dark minimalist editorial design, high contrast black and red, "
         f"abstract futuristic tech landscape, "
         f"professional magazine cover quality, "
         f"no gradients no shading only flat hard-edge colour blocks, "
-        f"3px black borders on all elements, no rounded corners, "
         f"no text no words no letters no numbers, "
         f"sharp clean vector-quality edges"
     )
