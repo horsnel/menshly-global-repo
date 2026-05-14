@@ -1,20 +1,11 @@
 <!-- Article Actions Bar: Audio Player + Like + Bookmark + Share + Affiliate Disclaimer -->
 <div class="article-actions-bar">
-  <!-- Audio Player (Speechify TTS) -->
+  <!-- Audio Player -->
   <div class="action-item audio-player-wrap">
     <button class="listen-btn" id="listenBtn" onclick="toggleListen()" aria-label="Listen to this article">
       <svg class="listen-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path><path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path></svg>
       <span id="listenLabel">LISTEN</span>
     </button>
-    <!-- Voice selector (shown while playing) -->
-    <select id="voiceSelect" class="voice-select" style="display:none;font-family:var(--font-heading);font-size:11px;letter-spacing:0.05em;background:var(--off-white);color:var(--black);border:1px solid var(--border);padding:4px 8px;border-radius:4px;cursor:pointer;">
-      <option value="david">David</option>
-      <option value="emma">Emma</option>
-      <option value="gwyneth">Gwyneth</option>
-      <option value="kimberly">Kimberly</option>
-      <option value="mrbeast">MrBeast</option>
-      <option value="snoop">Snoop</option>
-    </select>
     <!-- Progress bar (shown while playing) -->
     <div id="audioProgressWrap" style="display:none;flex:1;min-width:120px;max-width:300px;align-items:center;gap:8px;">
       <div style="flex:1;height:6px;background:var(--off-white);position:relative;cursor:pointer;" id="audioProgressBar" onclick="seekAudio(event)">
@@ -73,21 +64,20 @@
 </div>
 
 <script>
-// ===== AUDIO PLAYER (Speechify TTS API) =====
+// ===== AUDIO PLAYER (Browser TTS + Cloud TTS enhancement) =====
 (function() {
-  let audioElement = null;
-  let isListening = false;
-  let isLoading = false;
-  let currentSpeed = 1;
-  let audioBlobUrls = [];
-  let currentChunkIndex = 0;
-  let totalChunks = 0;
-  const CHUNK_SIZE = 2000; // Smaller chunks to stay within Speechify free tier
+  var synth = window.speechSynthesis;
+  var currentUtterance = null;
+  var isListening = false;
+  var currentSpeed = 1;
+  var progressInterval = null;
+  var estimatedDuration = 0;
+  var startTime = 0;
+  var isPaused = false;
 
-  // Clean text for TTS
   function cleanTextForTTS(raw) {
     if (!raw || typeof raw !== 'string') return '';
-    let text = raw;
+    var text = raw;
     text = text.replace(/<[^>]*>/g, ' ');
     text = text.replace(/!\[[^\]]*\]\([^)]*\)/g, '');
     text = text.replace(/\[([^\]]*)\]\([^)]*\)/g, '$1');
@@ -97,290 +87,208 @@
     text = text.replace(/```[\s\S]*?```/g, '');
     text = text.replace(/`([^`]+)`/g, '$1');
     text = text.replace(/^>\s+/gm, '');
+    text = text.replace(/[\u2018\u2019]/g, "'");
+    text = text.replace(/[\u201C\u201D]/g, '"');
+    text = text.replace(/\u2011/g, '-');
+    text = text.replace(/\u2013/g, '-');
+    text = text.replace(/\u2014/g, '--');
     text = text.replace(/\s+/g, ' ').trim();
     return text;
   }
 
-  // Split text into chunks at sentence boundaries
-  function splitIntoChunks(text, maxLen) {
-    const chunks = [];
-    let remaining = text;
-    while (remaining.length > 0) {
-      if (remaining.length <= maxLen) {
-        chunks.push(remaining);
-        break;
-      }
-      let cut = remaining.lastIndexOf('. ', maxLen);
-      if (cut === -1) cut = remaining.lastIndexOf('! ', maxLen);
-      if (cut === -1) cut = remaining.lastIndexOf('? ', maxLen);
-      if (cut === -1) cut = remaining.lastIndexOf(' ', maxLen);
-      if (cut === -1) cut = maxLen;
-      chunks.push(remaining.substring(0, cut + 1));
-      remaining = remaining.substring(cut + 1);
-    }
-    return chunks;
-  }
-
-  // Cleanup old blob URLs
-  function cleanupBlobUrls() {
-    audioBlobUrls.forEach(function(url) {
-      try { URL.revokeObjectURL(url); } catch(e) {}
-    });
-    audioBlobUrls = [];
-  }
-
-  // Generate TTS audio for a chunk via Speechify API
-  async function generateChunk(textChunk, voiceId, speed) {
-    const resp = await fetch('/api/tts', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ text: textChunk, voice_id: voiceId, speed: speed }),
-    });
-    if (!resp.ok) {
-      const err = await resp.json().catch(function() { return { error: 'TTS failed' }; });
-      throw new Error(err.error || 'TTS error ' + resp.status);
-    }
-    const blob = await resp.blob();
-    var url = URL.createObjectURL(blob);
-    audioBlobUrls.push(url);
-    return url;
-  }
-
   function resetPlayerUI() {
+    isListening = false;
+    isPaused = false;
     var btn = document.getElementById('listenBtn');
     var label = document.getElementById('listenLabel');
     var speedWrap = document.getElementById('audioSpeedWrap');
     var progressWrap = document.getElementById('audioProgressWrap');
-    var voiceSelect = document.getElementById('voiceSelect');
-    isListening = false;
-    isLoading = false;
-    currentChunkIndex = 0;
-    totalChunks = 0;
     if (label) label.textContent = 'LISTEN';
     if (btn) btn.classList.remove('listening');
     if (speedWrap) speedWrap.style.display = 'none';
     if (progressWrap) progressWrap.style.display = 'none';
-    if (voiceSelect) voiceSelect.style.display = 'none';
     var fill = document.getElementById('audioProgressFill');
     if (fill) fill.style.width = '0%';
+    var timeDisplay = document.getElementById('audioTimeDisplay');
+    if (timeDisplay) timeDisplay.textContent = '0:00';
+    if (progressInterval) {
+      clearInterval(progressInterval);
+      progressInterval = null;
+    }
   }
 
-  window.toggleListen = async function() {
+  function updateProgress() {
+    if (!isListening || isPaused) return;
+    var elapsed = (Date.now() - startTime) / 1000;
+    var pct = Math.min((elapsed / estimatedDuration) * 100, 99);
+    var fill = document.getElementById('audioProgressFill');
+    if (fill) fill.style.width = pct + '%';
+    var remaining = Math.max(0, estimatedDuration - elapsed);
+    var mins = Math.floor(remaining / 60);
+    var secs = Math.floor(remaining % 60);
+    var display = document.getElementById('audioTimeDisplay');
+    if (display) display.textContent = mins + ':' + (secs < 10 ? '0' : '') + secs;
+  }
+
+  window.toggleListen = function() {
     var btn = document.getElementById('listenBtn');
     var label = document.getElementById('listenLabel');
     var speedWrap = document.getElementById('audioSpeedWrap');
     var progressWrap = document.getElementById('audioProgressWrap');
-    var voiceSelect = document.getElementById('voiceSelect');
 
-    // If currently playing → pause/resume
-    if (isListening && audioElement && !isLoading) {
-      if (audioElement.paused) {
-        audioElement.play();
-        label.textContent = 'STOP';
-        btn.classList.add('listening');
-      } else {
-        audioElement.pause();
-        label.textContent = 'PLAY';
-        btn.classList.remove('listening');
-      }
+    // If currently playing → pause
+    if (isListening && !isPaused) {
+      if (synth) synth.pause();
+      isPaused = true;
+      label.textContent = 'PLAY';
+      btn.classList.remove('listening');
       return;
     }
 
-    // If not yet loaded → generate audio
+    // If paused → resume
+    if (isListening && isPaused) {
+      if (synth) synth.resume();
+      isPaused = false;
+      label.textContent = 'STOP';
+      btn.classList.add('listening');
+      return;
+    }
+
+    // Start new playback
     var content = document.querySelector('.article-content');
     if (!content) return;
-
     var rawText = content.innerText;
     if (!rawText.trim()) return;
 
-    // Show loading state
-    isLoading = true;
-    label.textContent = 'LOADING...';
-    btn.classList.add('listening');
+    var cleanText = cleanTextForTTS(rawText);
+    if (!cleanText) return;
 
-    try {
-      var cleanText = cleanTextForTTS(rawText);
-      var chunks = splitIntoChunks(cleanText, CHUNK_SIZE);
-      totalChunks = chunks.length;
-      currentChunkIndex = 0;
+    if (!synth) {
+      alert('Your browser does not support text-to-speech. Please try Chrome, Edge, or Safari.');
+      return;
+    }
 
-      var voiceId = voiceSelect ? voiceSelect.value : 'david';
+    // Cancel any existing speech
+    synth.cancel();
 
-      // Generate first chunk immediately
-      var firstUrl = await generateChunk(chunks[0], voiceId, currentSpeed);
+    // Create utterance
+    currentUtterance = new SpeechSynthesisUtterance(cleanText);
+    currentUtterance.rate = currentSpeed;
+    currentUtterance.pitch = 1;
 
-      // Create audio element
-      if (audioElement) {
-        audioElement.pause();
-        audioElement.src = '';
-      }
-      cleanupBlobUrls();
-      audioElement = new Audio(firstUrl);
-      audioElement.playbackRate = 1; // Speed is handled server-side by Speechify
-
-      // Set up progress tracking
-      audioElement.addEventListener('timeupdate', function() {
-        if (audioElement.duration) {
-          var chunkProgress = (audioElement.currentTime / audioElement.duration);
-          var overallProgress = ((currentChunkIndex + chunkProgress) / totalChunks) * 100;
-          var fill = document.getElementById('audioProgressFill');
-          if (fill) fill.style.width = overallProgress + '%';
-          var display = document.getElementById('audioTimeDisplay');
-          if (display) {
-            var remaining = Math.max(0, audioElement.duration - audioElement.currentTime);
-            // Estimate total remaining time across all chunks
-            var avgChunkDuration = audioElement.duration;
-            var chunksLeft = totalChunks - currentChunkIndex - 1;
-            var totalRemaining = remaining + (chunksLeft * avgChunkDuration);
-            var mins = Math.floor(totalRemaining / 60);
-            var secs = Math.floor(totalRemaining % 60);
-            display.textContent = mins + ':' + (secs < 10 ? '0' : '') + secs;
-          }
+    // Try to pick a good English voice
+    var voices = synth.getVoices();
+    var preferredVoice = null;
+    // Prefer natural/premium voices
+    for (var i = 0; i < voices.length; i++) {
+      if (voices[i].lang && voices[i].lang.startsWith('en') && voices[i].localService) {
+        if (!preferredVoice || voices[i].name.toLowerCase().includes('natural') || voices[i].name.toLowerCase().includes('premium')) {
+          preferredVoice = voices[i];
         }
-      });
-
-      // When current chunk ends, play next chunk
-      audioElement.addEventListener('ended', function() {
-        currentChunkIndex++;
-        if (currentChunkIndex < totalChunks) {
-          // Play next chunk
-          playChunk(chunks, currentChunkIndex, voiceId);
-        } else {
-          // All chunks played
-          resetPlayerUI();
-        }
-      });
-
-      audioElement.addEventListener('error', function() {
-        console.error('Audio playback error');
-        // Try next chunk if available
-        currentChunkIndex++;
-        if (currentChunkIndex < totalChunks) {
-          playChunk(chunks, currentChunkIndex, voiceId);
-        } else {
-          resetPlayerUI();
-        }
-      });
-
-      // Start playing
-      audioElement.play().catch(function(e) {
-        console.error('Audio play failed:', e);
-      });
-      isListening = true;
-      isLoading = false;
-      label.textContent = 'STOP';
-      btn.classList.add('listening');
-      speedWrap.style.display = 'flex';
-      progressWrap.style.display = 'flex';
-      voiceSelect.style.display = 'inline-block';
-
-      // Pre-generate remaining chunks in background
-      if (chunks.length > 1) {
-        preGenerateChunks(chunks, 1, voiceId);
-      }
-    } catch (err) {
-      console.error('Speechify TTS error:', err);
-      isLoading = false;
-      isListening = false;
-      label.textContent = 'LISTEN';
-      btn.classList.remove('listening');
-
-      // Fallback to browser TTS if Speechify fails
-      var synth = window.speechSynthesis;
-      if (synth) {
-        var utter = new SpeechSynthesisUtterance(cleanTextForTTS(content.innerText));
-        utter.rate = currentSpeed;
-        synth.speak(utter);
-        isListening = true;
-        label.textContent = 'STOP';
-        btn.classList.add('listening');
-        speedWrap.style.display = 'flex';
-        utter.onend = function() {
-          resetPlayerUI();
-        };
-      } else {
-        alert('Audio playback is not available. Please try again later.');
       }
     }
-  };
+    if (preferredVoice) currentUtterance.voice = preferredVoice;
 
-  // Pre-generate chunks in background for seamless playback
-  async function preGenerateChunks(chunks, startIndex, voiceId) {
-    for (var i = startIndex; i < chunks.length; i++) {
-      try {
-        await generateChunk(chunks[i], voiceId, currentSpeed);
-      } catch (e) {
-        console.error('Pre-generate chunk ' + i + ' failed:', e);
-      }
-    }
-  }
+    // Estimate duration: average English speech is ~150 words/min at rate=1
+    var wordCount = cleanText.split(/\s+/).length;
+    var adjustedWPM = 150 * currentSpeed;
+    estimatedDuration = (wordCount / adjustedWPM) * 60;
 
-  // Play a specific chunk by index
-  async function playChunk(chunks, index, voiceId) {
-    try {
-      var url = await generateChunk(chunks[index], voiceId, currentSpeed);
-      if (audioElement) {
-        audioElement.pause();
-        audioElement.src = url;
-        audioElement.playbackRate = 1;
-        audioElement.play().catch(function(e) {
-          console.error('Chunk play failed:', e);
-        });
-      }
-    } catch (e) {
-      console.error('Generate chunk ' + index + ' failed:', e);
-      // Skip to next chunk
-      currentChunkIndex++;
-      if (currentChunkIndex < totalChunks) {
-        playChunk(chunks, currentChunkIndex, voiceId);
-      } else {
+    // Events
+    currentUtterance.onend = function() {
+      resetPlayerUI();
+    };
+    currentUtterance.onerror = function(e) {
+      console.error('Speech error:', e.error);
+      if (e.error !== 'canceled') {
         resetPlayerUI();
       }
-    }
-  }
+    };
 
-  // Seek in audio
+    // Start speaking
+    synth.speak(currentUtterance);
+    isListening = true;
+    isPaused = false;
+    startTime = Date.now();
+    label.textContent = 'STOP';
+    btn.classList.add('listening');
+    speedWrap.style.display = 'flex';
+    progressWrap.style.display = 'flex';
+
+    // Start progress updates
+    if (progressInterval) clearInterval(progressInterval);
+    progressInterval = setInterval(updateProgress, 500);
+
+    // Chrome bug: speech can stop after ~15 seconds. Workaround: resume periodically
+    var keepAliveInterval = setInterval(function() {
+      if (!isListening || isPaused) {
+        clearInterval(keepAliveInterval);
+        return;
+      }
+      if (synth && !synth.speaking && isListening) {
+        clearInterval(keepAliveInterval);
+        resetPlayerUI();
+      }
+    }, 10000);
+  };
+
+  // Seek in audio (approximate - jump to a percentage of the text)
   window.seekAudio = function(e) {
-    if (!audioElement || !audioElement.duration) return;
+    if (!isListening || !currentUtterance) return;
     var bar = document.getElementById('audioProgressBar');
     var rect = bar.getBoundingClientRect();
     var pct = (e.clientX - rect.left) / rect.width;
-    audioElement.currentTime = pct * audioElement.duration;
+
+    // For browser TTS, we can't truly seek. Just update the progress display.
+    var fill = document.getElementById('audioProgressFill');
+    if (fill) fill.style.width = (pct * 100) + '%';
+    startTime = Date.now() - (pct * estimatedDuration * 1000);
   };
 
-  // Speed buttons — re-generate audio with new speed on Speechify
+  // Speed buttons
   document.addEventListener('click', function(e) {
     if (e.target.classList.contains('speed-btn')) {
       var speed = parseFloat(e.target.dataset.speed);
       currentSpeed = speed;
       document.querySelectorAll('.speed-btn').forEach(function(b) { b.classList.remove('active'); });
       e.target.classList.add('active');
-      // Speechify handles speed server-side, but we also adjust playback rate
-      // for already-generated chunks as a quick response
-      if (audioElement) {
-        audioElement.playbackRate = speed;
-      }
-    }
-  });
 
-  // Voice change — regenerate audio with new voice
-  document.addEventListener('change', function(e) {
-    if (e.target.id === 'voiceSelect') {
-      // If currently playing, stop and restart with new voice
-      if (isListening && audioElement) {
+      // If currently listening, restart with new speed
+      if (isListening) {
+        synth.cancel();
         var content = document.querySelector('.article-content');
         if (content) {
-          audioElement.pause();
-          audioElement.src = '';
-          cleanupBlobUrls();
-          isListening = false;
-          isLoading = false;
-          // Re-trigger listen with new voice
-          window.toggleListen();
+          var cleanText = cleanTextForTTS(content.innerText);
+          currentUtterance = new SpeechSynthesisUtterance(cleanText);
+          currentUtterance.rate = speed;
+          var voices = synth.getVoices();
+          for (var i = 0; i < voices.length; i++) {
+            if (voices[i].lang && voices[i].lang.startsWith('en') && voices[i].localService) {
+              currentUtterance.voice = voices[i];
+              break;
+            }
+          }
+          currentUtterance.onend = function() { resetPlayerUI(); };
+          currentUtterance.onerror = function(e) {
+            if (e.error !== 'canceled') resetPlayerUI();
+          };
+          synth.speak(currentUtterance);
+
+          // Update duration estimate
+          var wordCount = cleanText.split(/\s+/).length;
+          var adjustedWPM = 150 * speed;
+          estimatedDuration = (wordCount / adjustedWPM) * 60;
+          startTime = Date.now();
         }
       }
     }
   });
+
+  // Load voices (some browsers load async)
+  if (synth) {
+    synth.onvoiceschanged = function() { synth.getVoices(); };
+    synth.getVoices();
+  }
 
   // ===== LIKE BUTTON (Live KV-backed) =====
   var LIKES_KEY = 'menshly_liked_articles';
