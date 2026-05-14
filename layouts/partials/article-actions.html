@@ -9,7 +9,7 @@
     <!-- Voice selector dropdown -->
     <div class="voice-selector-wrap" id="voiceSelectorWrap" style="display:none;margin-left:6px;">
       <select id="voiceSelector" style="font-family:var(--font-heading);font-size:11px;letter-spacing:0.04em;padding:4px 8px;border:1px solid var(--yellow);background:var(--dark);color:var(--light);border-radius:4px;cursor:pointer;outline:none;max-width:160px;" aria-label="Select voice">
-        <option value="auto">Auto Voice</option>
+        <option value="-1">Auto Voice</option>
       </select>
     </div>
     <!-- Progress bar (shown while playing) -->
@@ -486,7 +486,7 @@
   // Load voices — some browsers load async (Chrome)
   if (synth) {
     // Try immediately
-    var v = loadVoices();
+    loadVoices();
     // Also listen for async loading
     synth.onvoiceschanged = function() {
       loadVoices();
