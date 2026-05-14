@@ -1,12 +1,13 @@
-// CloudFlare Pages Function: ElevenLabs TTS API
+// CloudFlare Pages Function: TTS API with multiple providers
 // POST /api/tts  →  audio/mpeg stream
-// Body: { text, voice_id? }
-// Uses ElevenLabs Flash v2.5 model for low-latency generation
+// Body: { text, voice_id?, speed? }
+// Strategy: Speechify → ElevenLabs → returns error (client uses browser TTS fallback)
 
-const DEFAULT_VOICE_ID = 'JBFqnCBsd6RMkjVDRZzb'; // George — warm British storyteller (premade, free tier)
-// Custom voice for paid plans: zGjIP4SZlMnY9m93k97r
+const SPEECHIFY_DEFAULT_VOICE = 'david';
+const ELEVENLABS_DEFAULT_VOICE = 'JBFqnCBsd6RMkjVDRZzb';
+const ELEVENLABS_MODEL = 'eleven_flash_v2_5';
 const MAX_TEXT_LENGTH = 5000;
-const REQUEST_TIMEOUT = 60000; // 60 seconds
+const REQUEST_TIMEOUT = 60000;
 
 const CORS_HEADERS = {
   'Access-Control-Allow-Origin': '*',
@@ -14,10 +15,12 @@ const CORS_HEADERS = {
   'Access-Control-Allow-Headers': 'Content-Type',
 };
 
-// Rate limiting: simple in-memory counter (resets on deploy)
+const SPEECHIFY_VOICES = ['david', 'mrbeast', 'snoop', 'gwyneth', 'emma', 'kimberly'];
+
+// Rate limiting
 const rateLimiter = new Map();
-const RATE_LIMIT_WINDOW = 60000; // 1 minute
-const RATE_LIMIT_MAX = 10; // 10 TTS requests per minute per IP
+const RATE_LIMIT_WINDOW = 60000;
+const RATE_LIMIT_MAX = 10;
 
 function isRateLimited(ip) {
   const now = Date.now();
@@ -30,7 +33,6 @@ function isRateLimited(ip) {
   return entry.count > RATE_LIMIT_MAX;
 }
 
-// Clean text for TTS: strip HTML, markdown artifacts, and normalize whitespace
 function cleanText(raw) {
   if (!raw || typeof raw !== 'string') return '';
   let text = raw;
@@ -43,6 +45,11 @@ function cleanText(raw) {
   text = text.replace(/```[\s\S]*?```/g, '');
   text = text.replace(/`([^`]+)`/g, '$1');
   text = text.replace(/^>\s+/gm, '');
+  text = text.replace(/[\u2018\u2019]/g, "'");
+  text = text.replace(/[\u201C\u201D]/g, '"');
+  text = text.replace(/\u2011/g, '-');
+  text = text.replace(/\u2013/g, '-');
+  text = text.replace(/\u2014/g, '--');
   text = text.replace(/\s+/g, ' ').trim();
   return text;
 }
@@ -51,10 +58,82 @@ export async function onRequestOptions() {
   return new Response(null, { status: 204, headers: CORS_HEADERS });
 }
 
+async function trySpeechify(text, voiceId, speed, apiKey) {
+  try {
+    const url = 'https://api.speechify.ai/v1/audio/speech';
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), REQUEST_TIMEOUT);
+
+    const response = await fetch(url, {
+      method: 'POST',
+      headers: {
+        'Authorization': `Bearer ${apiKey}`,
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        input: text,
+        voice_id: voiceId,
+        audio_format: 'mp3',
+        speed: Math.max(0.5, Math.min(2.0, Number(speed) || 1.0)),
+      }),
+      signal: controller.signal,
+    });
+
+    clearTimeout(timeoutId);
+
+    if (!response.ok) {
+      return { ok: false, status: response.status };
+    }
+
+    const result = await response.json();
+    if (!result.audio_data) {
+      return { ok: false, status: 502 };
+    }
+
+    const audioBuffer = Uint8Array.from(atob(result.audio_data), c => c.charCodeAt(0));
+    return { ok: true, buffer: audioBuffer, provider: 'speechify' };
+  } catch (err) {
+    return { ok: false, status: 500, error: err.message };
+  }
+}
+
+async function tryElevenLabs(text, voiceId, apiKey) {
+  try {
+    const url = `https://api.elevenlabs.io/v1/text-to-speech/${voiceId}`;
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), REQUEST_TIMEOUT);
+
+    const response = await fetch(url, {
+      method: 'POST',
+      headers: {
+        'xi-api-key': apiKey,
+        'Content-Type': 'application/json',
+        'Accept': 'audio/mpeg',
+      },
+      body: JSON.stringify({
+        text: text,
+        model_id: ELEVENLABS_MODEL,
+        voice_settings: { stability: 0.5, similarity_boost: 0.75 },
+      }),
+      signal: controller.signal,
+    });
+
+    clearTimeout(timeoutId);
+
+    if (!response.ok) {
+      return { ok: false, status: response.status };
+    }
+
+    const audioBuffer = await response.arrayBuffer();
+    return { ok: true, buffer: new Uint8Array(audioBuffer), provider: 'elevenlabs' };
+  } catch (err) {
+    return { ok: false, status: 500, error: err.message };
+  }
+}
+
 export async function onRequestPost(context) {
   const { request, env } = context;
 
-  // Rate limit check
   const ip = request.headers.get('CF-Connecting-IP') || 'unknown';
   if (isRateLimited(ip)) {
     return new Response(JSON.stringify({ error: 'Rate limited. Please wait before requesting more audio.' }), {
@@ -63,7 +142,6 @@ export async function onRequestPost(context) {
     });
   }
 
-  // Parse request body
   let body;
   try {
     body = await request.json();
@@ -75,7 +153,8 @@ export async function onRequestPost(context) {
   }
 
   const rawText = body.text;
-  const voiceId = body.voice_id || DEFAULT_VOICE_ID;
+  const requestedVoice = body.voice_id || SPEECHIFY_DEFAULT_VOICE;
+  const speed = body.speed || 1.0;
 
   if (!rawText || typeof rawText !== 'string') {
     return new Response(JSON.stringify({ error: 'Missing or invalid text field' }), {
@@ -85,7 +164,6 @@ export async function onRequestPost(context) {
   }
 
   const text = cleanText(rawText);
-
   if (!text.trim()) {
     return new Response(JSON.stringify({ error: 'Text is empty after cleaning' }), {
       status: 400,
@@ -95,99 +173,49 @@ export async function onRequestPost(context) {
 
   const truncatedText = text.length > MAX_TEXT_LENGTH ? text.substring(0, MAX_TEXT_LENGTH) : text;
 
-  const apiKey = env.ELEVENLABS_API_KEY || '20a953b59f011e0537c2c79f4928f3ffb4b6df90fb1b31bda18407037bccb1af';
+  const speechifyKey = env.SPEECHIFY_API_KEY || 'ZYnqwIOZbL2FwA0XWaLXqzVmz7nYDW5J6IlPG9SEwWg=';
+  const elevenLabsKey = env.ELEVENLABS_API_KEY || '20a953b59f011e0537c2c79f4928f3ffb4b6df90fb1b31bda18407037bccb1af';
 
-  if (!apiKey) {
-    return new Response(JSON.stringify({ error: 'ElevenLabs API key not configured' }), {
-      status: 500,
-      headers: { ...CORS_HEADERS, 'Content-Type': 'application/json' },
-    });
-  }
-
-  if (!/^[a-zA-Z0-9_-]+$/.test(voiceId)) {
-    return new Response(JSON.stringify({ error: 'Invalid voice_id format' }), {
-      status: 400,
-      headers: { ...CORS_HEADERS, 'Content-Type': 'application/json' },
-    });
-  }
-
-  try {
-    const elevenLabsUrl = `https://api.elevenlabs.io/v1/text-to-speech/${voiceId}`;
-
-    const requestBody = {
-      text: truncatedText,
-      model_id: 'eleven_flash_v2_5',
-      voice_settings: {
-        stability: 0.5,
-        similarity_boost: 0.75,
-      },
-    };
-
-    const controller = new AbortController();
-    const timeoutId = setTimeout(() => controller.abort(), REQUEST_TIMEOUT);
-
-    const response = await fetch(elevenLabsUrl, {
-      method: 'POST',
-      headers: {
-        'xi-api-key': apiKey,
-        'Content-Type': 'application/json',
-        'Accept': 'audio/mpeg',
-      },
-      body: JSON.stringify(requestBody),
-      signal: controller.signal,
-    });
-
-    clearTimeout(timeoutId);
-
-    if (!response.ok) {
-      let errorDetail = `ElevenLabs API returned ${response.status}`;
-      try {
-        const errorBody = await response.json();
-        errorDetail = errorBody.detail?.message || errorBody.detail || errorBody.message || errorDetail;
-      } catch {
-        errorDetail = response.statusText || errorDetail;
-      }
-
-      console.error('ElevenLabs TTS error:', response.status, errorDetail);
-
-      if (response.status === 401) {
-        errorDetail = 'TTS service authentication failed';
-      } else if (response.status === 402 || response.status === 422) {
-        errorDetail = 'TTS voice not available on current plan';
-      } else if (response.status === 429) {
-        errorDetail = 'TTS service rate limit reached, please try again later';
-      }
-
-      return new Response(JSON.stringify({ error: errorDetail }), {
-        status: response.status >= 500 ? 502 : response.status,
-        headers: { ...CORS_HEADERS, 'Content-Type': 'application/json' },
+  // Try Speechify first
+  if (speechifyKey) {
+    const speechifyVoice = SPEECHIFY_VOICES.includes(requestedVoice) ? requestedVoice : SPEECHIFY_DEFAULT_VOICE;
+    const result = await trySpeechify(truncatedText, speechifyVoice, speed, speechifyKey);
+    if (result.ok) {
+      return new Response(result.buffer, {
+        status: 200,
+        headers: {
+          ...CORS_HEADERS,
+          'Content-Type': 'audio/mpeg',
+          'Content-Length': result.buffer.byteLength.toString(),
+          'Cache-Control': 'public, max-age=86400',
+          'X-TTS-Provider': result.provider,
+        },
       });
     }
+    console.log('Speechify failed:', result.status);
+  }
 
-    const audioBuffer = await response.arrayBuffer();
-
-    return new Response(audioBuffer, {
-      status: 200,
-      headers: {
-        ...CORS_HEADERS,
-        'Content-Type': 'audio/mpeg',
-        'Content-Length': audioBuffer.byteLength.toString(),
-        'Cache-Control': 'public, max-age=86400',
-      },
-    });
-  } catch (err) {
-    if (err.name === 'AbortError') {
-      console.error('ElevenLabs TTS request timed out');
-      return new Response(JSON.stringify({ error: 'TTS generation timed out. Try shorter text.' }), {
-        status: 504,
-        headers: { ...CORS_HEADERS, 'Content-Type': 'application/json' },
+  // Fallback to ElevenLabs
+  if (elevenLabsKey) {
+    const result = await tryElevenLabs(truncatedText, ELEVENLABS_DEFAULT_VOICE, elevenLabsKey);
+    if (result.ok) {
+      return new Response(result.buffer, {
+        status: 200,
+        headers: {
+          ...CORS_HEADERS,
+          'Content-Type': 'audio/mpeg',
+          'Content-Length': result.buffer.byteLength.toString(),
+          'Cache-Control': 'public, max-age=86400',
+          'X-TTS-Provider': result.provider,
+        },
       });
     }
-
-    console.error('ElevenLabs TTS error:', err.message || err);
-    return new Response(JSON.stringify({ error: 'TTS generation failed', detail: err.message || String(err) }), {
-      status: 500,
-      headers: { ...CORS_HEADERS, 'Content-Type': 'application/json' },
-    });
+    console.log('ElevenLabs failed:', result.status);
   }
+
+  // Both providers failed — return error so client uses browser TTS fallback
+  return new Response(JSON.stringify({ error: 'Cloud TTS unavailable. Using browser speech.' }), {
+    status: 503,
+    headers: { ...CORS_HEADERS, 'Content-Type': 'application/json' },
+  });
 }
