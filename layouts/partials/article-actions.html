@@ -1,14 +1,20 @@
 <!-- Article Actions Bar: Audio Player + Like + Bookmark + Share + Affiliate Disclaimer -->
 <div class="article-actions-bar">
-  <!-- Audio Player (ElevenLabs TTS) -->
+  <!-- Audio Player -->
   <div class="action-item audio-player-wrap">
     <button class="listen-btn" id="listenBtn" onclick="toggleListen()" aria-label="Listen to this article">
       <svg class="listen-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path><path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path></svg>
       <span id="listenLabel">LISTEN</span>
     </button>
+    <!-- Voice selector dropdown -->
+    <div class="voice-selector-wrap" id="voiceSelectorWrap" style="display:none;margin-left:6px;">
+      <select id="voiceSelector" style="font-family:var(--font-heading);font-size:11px;letter-spacing:0.04em;padding:4px 8px;border:1px solid var(--yellow);background:var(--dark);color:var(--light);border-radius:4px;cursor:pointer;outline:none;max-width:160px;" aria-label="Select voice">
+        <option value="auto">Auto Voice</option>
+      </select>
+    </div>
     <!-- Progress bar (shown while playing) -->
     <div id="audioProgressWrap" style="display:none;flex:1;min-width:120px;max-width:300px;align-items:center;gap:8px;">
-      <div style="flex:1;height:6px;;background:var(--off-white);position:relative;cursor:pointer;" id="audioProgressBar" onclick="seekAudio(event)">
+      <div style="flex:1;height:6px;background:var(--off-white);position:relative;cursor:pointer;" id="audioProgressBar" onclick="seekAudio(event)">
         <div id="audioProgressFill" style="height:100%;background:var(--yellow);width:0%;transition:width 0.3s ease;"></div>
       </div>
       <span id="audioTimeDisplay" style="font-family:var(--font-heading);font-size:10px;letter-spacing:0.05em;white-space:nowrap;">0:00</span>
@@ -64,19 +70,33 @@
 </div>
 
 <script>
-// ===== AUDIO PLAYER (ElevenLabs TTS API) =====
+// ===== AUDIO PLAYER — Microsoft TTS (Browser speechSynthesis) =====
+// Uses the Web Speech API which provides Microsoft voices on Edge/Windows
+// and high-quality system voices on other browsers.
+// Handles Chrome's 15-second bug by chunking text into smaller pieces.
 (function() {
-  let audioElement = null;
-  let isListening = false;
-  let isLoading = false;
-  let currentSpeed = 1;
-  let audioBlobUrl = null;
-  const CHUNK_SIZE = 4500; // ElevenLabs max per request
+  var synth = window.speechSynthesis;
+  var isListening = false;
+  var isPaused = false;
+  var currentSpeed = 1;
+  var progressInterval = null;
+  var estimatedDuration = 0;
+  var startTime = 0;
 
-  // Clean text for TTS
+  // Chunk-based playback state
+  var textChunks = [];
+  var currentChunkIndex = 0;
+  var totalChunks = 0;
+  var selectedVoiceIndex = -1; // -1 = auto
+  var availableVoices = [];
+  var voicesLoaded = false;
+
+  // Maximum chars per chunk to avoid Chrome 15-second bug
+  var CHUNK_SIZE = 180;
+
   function cleanTextForTTS(raw) {
     if (!raw || typeof raw !== 'string') return '';
-    let text = raw;
+    var text = raw;
     text = text.replace(/<[^>]*>/g, ' ');
     text = text.replace(/!\[[^\]]*\]\([^)]*\)/g, '');
     text = text.replace(/\[([^\]]*)\]\([^)]*\)/g, '$1');
@@ -86,186 +106,398 @@
     text = text.replace(/```[\s\S]*?```/g, '');
     text = text.replace(/`([^`]+)`/g, '$1');
     text = text.replace(/^>\s+/gm, '');
+    text = text.replace(/[\u2018\u2019]/g, "'");
+    text = text.replace(/[\u201C\u201D]/g, '"');
+    text = text.replace(/\u2011/g, '-');
+    text = text.replace(/\u2013/g, '-');
+    text = text.replace(/\u2014/g, '--');
     text = text.replace(/\s+/g, ' ').trim();
     return text;
   }
 
-  // Split text into chunks at sentence boundaries
+  // Split text into sentence-based chunks for reliable playback
   function splitIntoChunks(text, maxLen) {
-    const chunks = [];
-    let remaining = text;
-    while (remaining.length > 0) {
-      if (remaining.length <= maxLen) {
-        chunks.push(remaining);
-        break;
-      }
-      let cut = remaining.lastIndexOf('. ', maxLen);
-      if (cut === -1) cut = remaining.lastIndexOf('! ', maxLen);
-      if (cut === -1) cut = remaining.lastIndexOf('? ', maxLen);
-      if (cut === -1) cut = remaining.lastIndexOf(' ', maxLen);
-      if (cut === -1) cut = maxLen;
-      chunks.push(remaining.substring(0, cut + 1));
-      remaining = remaining.substring(cut + 1);
-    }
-    return chunks;
-  }
-
-  // Generate TTS audio for a chunk via ElevenLabs API
-  async function generateChunk(textChunk, voiceId) {
-    const resp = await fetch('/api/tts', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ text: textChunk, voice_id: voiceId }),
-    });
-    if (!resp.ok) {
-      const err = await resp.json().catch(() => ({ error: 'TTS failed' }));
-      throw new Error(err.error || `TTS error ${resp.status}`);
-    }
-    const blob = await resp.blob();
-    return URL.createObjectURL(blob);
-  }
-
-  window.toggleListen = async function() {
-    const btn = document.getElementById('listenBtn');
-    const label = document.getElementById('listenLabel');
-    const speedWrap = document.getElementById('audioSpeedWrap');
-    const progressWrap = document.getElementById('audioProgressWrap');
-
-    // If currently playing → pause/resume
-    if (isListening && audioElement && !isLoading) {
-      if (audioElement.paused) {
-        audioElement.play();
-        label.textContent = 'STOP';
-        btn.classList.add('listening');
+    var chunks = [];
+    // First, split by sentence-ending punctuation
+    var sentences = text.match(/[^.!?]+[.!?]+\s*/g) || [text];
+    var current = '';
+    for (var i = 0; i < sentences.length; i++) {
+      if ((current + sentences[i]).length > maxLen && current.length > 0) {
+        chunks.push(current.trim());
+        current = sentences[i];
       } else {
-        audioElement.pause();
-        label.textContent = 'PLAY';
-        btn.classList.remove('listening');
+        current += sentences[i];
       }
+    }
+    if (current.trim()) chunks.push(current.trim());
+
+    // If any chunk is still too long (no sentence breaks), split by comma or space
+    var finalChunks = [];
+    for (var j = 0; j < chunks.length; j++) {
+      if (chunks[j].length <= maxLen) {
+        finalChunks.push(chunks[j]);
+      } else {
+        // Split by commas
+        var parts = chunks[j].split(/,\s*/);
+        var sub = '';
+        for (var k = 0; k < parts.length; k++) {
+          if ((sub + (sub ? ', ' : '') + parts[k]).length > maxLen && sub.length > 0) {
+            finalChunks.push(sub.trim());
+            sub = parts[k];
+          } else {
+            sub += (sub ? ', ' : '') + parts[k];
+          }
+        }
+        if (sub.trim()) finalChunks.push(sub.trim());
+      }
+    }
+    return finalChunks.length > 0 ? finalChunks : [text.substring(0, maxLen)];
+  }
+
+  // Load and prioritize Microsoft voices
+  function loadVoices() {
+    if (!synth) return [];
+    var voices = synth.getVoices();
+    if (!voices || voices.length === 0) return [];
+
+    // Sort: Microsoft Natural/Online voices first, then other en voices, then rest
+    var msVoices = [];
+    var enLocalVoices = [];
+    var enNetworkVoices = [];
+    var otherVoices = [];
+
+    for (var i = 0; i < voices.length; i++) {
+      var v = voices[i];
+      var name = v.name.toLowerCase();
+      if (v.lang && v.lang.startsWith('en')) {
+        if (name.indexOf('microsoft') !== -1 && (name.indexOf('natural') !== -1 || name.indexOf('online') !== -1)) {
+          msVoices.push(v);
+        } else if (v.localService) {
+          enLocalVoices.push(v);
+        } else {
+          enNetworkVoices.push(v);
+        }
+      } else {
+        otherVoices.push(v);
+      }
+    }
+
+    availableVoices = msVoices.concat(enNetworkVoices).concat(enLocalVoices).concat(otherVoices);
+    populateVoiceSelector();
+    voicesLoaded = true;
+    return availableVoices;
+  }
+
+  function populateVoiceSelector() {
+    var sel = document.getElementById('voiceSelector');
+    if (!sel) return;
+
+    // Keep "Auto Voice" option
+    sel.innerHTML = '<option value="-1">Auto Voice</option>';
+
+    for (var i = 0; i < availableVoices.length; i++) {
+      var v = availableVoices[i];
+      var opt = document.createElement('option');
+      opt.value = i;
+      // Clean up voice name for display
+      var displayName = v.name;
+      if (displayName.indexOf('Microsoft') !== -1) {
+        // e.g. "Microsoft David Online (Natural) - English (United States)"
+        displayName = displayName.replace(' - English (United States)', '').replace(' - English (United Kingdom)', '');
+      }
+      opt.textContent = displayName;
+      sel.appendChild(opt);
+    }
+  }
+
+  function getBestVoice() {
+    if (selectedVoiceIndex >= 0 && selectedVoiceIndex < availableVoices.length) {
+      return availableVoices[selectedVoiceIndex];
+    }
+    // Auto: prefer Microsoft Natural voices
+    for (var i = 0; i < availableVoices.length; i++) {
+      var n = availableVoices[i].name.toLowerCase();
+      if (n.indexOf('microsoft') !== -1 && (n.indexOf('natural') !== -1 || n.indexOf('online') !== -1)) {
+        return availableVoices[i];
+      }
+    }
+    // Then any English network voice
+    for (var j = 0; j < availableVoices.length; j++) {
+      if (availableVoices[j].lang && availableVoices[j].lang.startsWith('en') && !availableVoices[j].localService) {
+        return availableVoices[j];
+      }
+    }
+    // Then any English local voice
+    for (var k = 0; k < availableVoices.length; k++) {
+      if (availableVoices[k].lang && availableVoices[k].lang.startsWith('en')) {
+        return availableVoices[k];
+      }
+    }
+    // Then any voice at all
+    if (availableVoices.length > 0) return availableVoices[0];
+    return null;
+  }
+
+  function resetPlayerUI() {
+    isListening = false;
+    isPaused = false;
+    textChunks = [];
+    currentChunkIndex = 0;
+    totalChunks = 0;
+    var btn = document.getElementById('listenBtn');
+    var label = document.getElementById('listenLabel');
+    var speedWrap = document.getElementById('audioSpeedWrap');
+    var progressWrap = document.getElementById('audioProgressWrap');
+    var voiceWrap = document.getElementById('voiceSelectorWrap');
+    if (label) label.textContent = 'LISTEN';
+    if (btn) btn.classList.remove('listening');
+    if (speedWrap) speedWrap.style.display = 'none';
+    if (progressWrap) progressWrap.style.display = 'none';
+    if (voiceWrap) voiceWrap.style.display = 'none';
+    var fill = document.getElementById('audioProgressFill');
+    if (fill) fill.style.width = '0%';
+    var timeDisplay = document.getElementById('audioTimeDisplay');
+    if (timeDisplay) timeDisplay.textContent = '0:00';
+    if (progressInterval) {
+      clearInterval(progressInterval);
+      progressInterval = null;
+    }
+  }
+
+  function updateProgress() {
+    if (!isListening || isPaused) return;
+    var elapsed = (Date.now() - startTime) / 1000;
+    var pct = Math.min((elapsed / estimatedDuration) * 100, 99);
+    var fill = document.getElementById('audioProgressFill');
+    if (fill) fill.style.width = pct + '%';
+    var remaining = Math.max(0, estimatedDuration - elapsed);
+    var mins = Math.floor(remaining / 60);
+    var secs = Math.floor(remaining % 60);
+    var display = document.getElementById('audioTimeDisplay');
+    if (display) display.textContent = mins + ':' + (secs < 10 ? '0' : '') + secs;
+  }
+
+  function speakChunk() {
+    if (!isListening || currentChunkIndex >= textChunks.length) {
+      // All chunks done
+      resetPlayerUI();
       return;
     }
 
-    // If not yet loaded → generate audio
-    const content = document.querySelector('.article-content');
-    if (!content) return;
+    var chunk = textChunks[currentChunkIndex];
+    var utterance = new SpeechSynthesisUtterance(chunk);
+    utterance.rate = currentSpeed;
+    utterance.pitch = 1;
 
-    const rawText = content.innerText;
-    if (!rawText.trim()) return;
+    var voice = getBestVoice();
+    if (voice) utterance.voice = voice;
 
-    // Show loading state
-    isLoading = true;
-    label.textContent = 'LOADING...';
-    btn.classList.add('listening');
-
-    try {
-      const cleanText = cleanTextForTTS(rawText);
-      const chunks = splitIntoChunks(cleanText, CHUNK_SIZE);
-      const voiceId = 'JBFqnCBsd6RMkjVDRZzb';
-
-      // Generate first chunk immediately, queue the rest
-      const firstUrl = await generateChunk(chunks[0], voiceId);
-
-      // Create audio element
-      if (audioElement) {
-        audioElement.pause();
-        audioElement.src = '';
+    utterance.onend = function() {
+      currentChunkIndex++;
+      if (isListening) {
+        // Small delay between chunks for natural pacing
+        setTimeout(function() {
+          speakChunk();
+        }, 80);
       }
-      audioElement = new Audio(firstUrl);
-      audioElement.playbackRate = currentSpeed;
+    };
 
-      // Set up progress tracking
-      audioElement.addEventListener('timeupdate', function() {
-        if (audioElement.duration) {
-          const pct = (audioElement.currentTime / audioElement.duration) * 100;
-          const fill = document.getElementById('audioProgressFill');
-          if (fill) fill.style.width = pct + '%';
-          const display = document.getElementById('audioTimeDisplay');
-          if (display) {
-            const remaining = Math.max(0, audioElement.duration - audioElement.currentTime);
-            const mins = Math.floor(remaining / 60);
-            const secs = Math.floor(remaining % 60);
-            display.textContent = mins + ':' + (secs < 10 ? '0' : '') + secs;
-          }
+    utterance.onerror = function(e) {
+      console.error('Speech error on chunk', currentChunkIndex, ':', e.error);
+      if (e.error !== 'canceled' && e.error !== 'interrupted') {
+        // Try next chunk on error
+        currentChunkIndex++;
+        if (isListening) {
+          setTimeout(function() { speakChunk(); }, 100);
         }
-      });
+      }
+    };
 
-      audioElement.addEventListener('ended', function() {
-        isListening = false;
-        isLoading = false;
-        label.textContent = 'LISTEN';
-        btn.classList.remove('listening');
-        speedWrap.style.display = 'none';
-        progressWrap.style.display = 'none';
-        document.getElementById('audioProgressFill').style.width = '0%';
-      });
+    synth.speak(utterance);
+  }
 
-      // Start playing
-      audioElement.play();
-      isListening = true;
-      isLoading = false;
+  window.toggleListen = function() {
+    var btn = document.getElementById('listenBtn');
+    var label = document.getElementById('listenLabel');
+    var speedWrap = document.getElementById('audioSpeedWrap');
+    var progressWrap = document.getElementById('audioProgressWrap');
+    var voiceWrap = document.getElementById('voiceSelectorWrap');
+
+    // If currently playing → pause
+    if (isListening && !isPaused) {
+      if (synth) synth.pause();
+      isPaused = true;
+      label.textContent = 'PLAY';
+      btn.classList.remove('listening');
+      return;
+    }
+
+    // If paused → resume
+    if (isListening && isPaused) {
+      if (synth) synth.resume();
+      isPaused = false;
       label.textContent = 'STOP';
       btn.classList.add('listening');
-      speedWrap.style.display = 'flex';
-      progressWrap.style.display = 'flex';
-
-      // Pre-generate remaining chunks in background for seamless playback
-      // (For now, single chunk covers most articles under 5000 chars)
-    } catch (err) {
-      console.error('TTS error:', err);
-      isLoading = false;
-      isListening = false;
-      label.textContent = 'LISTEN';
-      btn.classList.remove('listening');
-
-      // Fallback to browser TTS if ElevenLabs fails
-      const synth = window.speechSynthesis;
-      if (synth) {
-        const utter = new SpeechSynthesisUtterance(cleanTextForTTS(content.innerText));
-        utter.rate = currentSpeed;
-        synth.speak(utter);
-        isListening = true;
-        label.textContent = 'STOP';
-        btn.classList.add('listening');
-        speedWrap.style.display = 'flex';
-        utter.onend = function() {
-          isListening = false;
-          label.textContent = 'LISTEN';
-          btn.classList.remove('listening');
-          speedWrap.style.display = 'none';
-        };
-      } else {
-        alert('Audio playback is not available. Please try again later.');
-      }
+      return;
     }
+
+    // Start new playback
+    var content = document.querySelector('.article-content');
+    if (!content) {
+      console.warn('No .article-content element found');
+      return;
+    }
+    var rawText = content.innerText;
+    if (!rawText.trim()) {
+      console.warn('Article content is empty');
+      return;
+    }
+
+    var cleanText = cleanTextForTTS(rawText);
+    if (!cleanText) {
+      console.warn('Text empty after cleaning');
+      return;
+    }
+
+    if (!synth) {
+      alert('Your browser does not support text-to-speech. Please try Chrome, Edge, or Safari.');
+      return;
+    }
+
+    // Make sure voices are loaded
+    if (!voicesLoaded) {
+      loadVoices();
+    }
+
+    // Cancel any existing speech
+    synth.cancel();
+
+    // Split text into chunks to avoid Chrome's 15-second cutoff bug
+    textChunks = splitIntoChunks(cleanText, CHUNK_SIZE);
+    currentChunkIndex = 0;
+    totalChunks = textChunks.length;
+
+    // Estimate duration: average English speech is ~150 words/min at rate=1
+    var wordCount = cleanText.split(/\s+/).length;
+    var adjustedWPM = 150 * currentSpeed;
+    estimatedDuration = (wordCount / adjustedWPM) * 60;
+
+    // Update UI
+    isListening = true;
+    isPaused = false;
+    startTime = Date.now();
+    label.textContent = 'STOP';
+    btn.classList.add('listening');
+    speedWrap.style.display = 'flex';
+    progressWrap.style.display = 'flex';
+    voiceWrap.style.display = 'block';
+
+    // Start progress updates
+    if (progressInterval) clearInterval(progressInterval);
+    progressInterval = setInterval(updateProgress, 500);
+
+    // Start speaking first chunk
+    speakChunk();
+
+    // Chrome bug watchdog: if synth stops speaking unexpectedly, resume
+    var watchdogInterval = setInterval(function() {
+      if (!isListening) {
+        clearInterval(watchdogInterval);
+        return;
+      }
+      if (!synth.speaking && isListening && !isPaused) {
+        // Chrome sometimes stops — try to resume
+        console.log('Watchdog: synth not speaking, resuming...');
+        synth.resume();
+      }
+    }, 5000);
   };
 
-  // Seek in audio
+  // Seek in audio (approximate — jump to a percentage of the text)
   window.seekAudio = function(e) {
-    if (!audioElement || !audioElement.duration) return;
-    const bar = document.getElementById('audioProgressBar');
-    const rect = bar.getBoundingClientRect();
-    const pct = (e.clientX - rect.left) / rect.width;
-    audioElement.currentTime = pct * audioElement.duration;
+    if (!isListening) return;
+    var bar = document.getElementById('audioProgressBar');
+    var rect = bar.getBoundingClientRect();
+    var pct = (e.clientX - rect.left) / rect.width;
+
+    // Jump to the corresponding chunk
+    var targetChunk = Math.floor(pct * totalChunks);
+    if (targetChunk >= totalChunks) targetChunk = totalChunks - 1;
+    if (targetChunk < 0) targetChunk = 0;
+
+    synth.cancel();
+    currentChunkIndex = targetChunk;
+    startTime = Date.now() - (pct * estimatedDuration * 1000);
+
+    var fill = document.getElementById('audioProgressFill');
+    if (fill) fill.style.width = (pct * 100) + '%';
+
+    // Resume from new chunk
+    setTimeout(function() {
+      if (isListening) speakChunk();
+    }, 100);
   };
 
   // Speed buttons
   document.addEventListener('click', function(e) {
     if (e.target.classList.contains('speed-btn')) {
-      const speed = parseFloat(e.target.dataset.speed);
+      var speed = parseFloat(e.target.dataset.speed);
       currentSpeed = speed;
-      document.querySelectorAll('.speed-btn').forEach(b => b.classList.remove('active'));
+      document.querySelectorAll('.speed-btn').forEach(function(b) { b.classList.remove('active'); });
       e.target.classList.add('active');
-      if (audioElement) {
-        audioElement.playbackRate = speed;
+
+      // If currently listening, restart with new speed from same chunk
+      if (isListening) {
+        synth.cancel();
+        var wordCount = 0;
+        for (var i = 0; i < currentChunkIndex; i++) {
+          wordCount += textChunks[i].split(/\s+/).length;
+        }
+        var totalWords = 0;
+        for (var j = 0; j < textChunks.length; j++) {
+          totalWords += textChunks[j].split(/\s+/).length;
+        }
+        var adjustedWPM = 150 * speed;
+        estimatedDuration = (totalWords / adjustedWPM) * 60;
+        var pctDone = wordCount / totalWords;
+        startTime = Date.now() - (pctDone * estimatedDuration * 1000);
+
+        setTimeout(function() {
+          if (isListening) speakChunk();
+        }, 100);
       }
     }
   });
 
+  // Voice selector change
+  document.addEventListener('change', function(e) {
+    if (e.target.id === 'voiceSelector') {
+      selectedVoiceIndex = parseInt(e.target.value, 10);
+      // If currently listening, restart with new voice from same chunk
+      if (isListening) {
+        synth.cancel();
+        setTimeout(function() {
+          if (isListening) speakChunk();
+        }, 100);
+      }
+    }
+  });
+
+  // Load voices — some browsers load async (Chrome)
+  if (synth) {
+    // Try immediately
+    var v = loadVoices();
+    // Also listen for async loading
+    synth.onvoiceschanged = function() {
+      loadVoices();
+    };
+  }
+
   // ===== LIKE BUTTON (Live KV-backed) =====
-  const LIKES_KEY = 'menshly_liked_articles';
-  const PAGE_SLUG = window.location.pathname.replace(/^\/|\/$/g, '');
-  let liveLikeCount = 0;
-  let isLikedByUser = false;
+  var LIKES_KEY = 'menshly_liked_articles';
+  var PAGE_SLUG = window.location.pathname.replace(/^\/|\/$/g, '');
+  var liveLikeCount = 0;
+  var isLikedByUser = false;
 
   function getUserLikedArticles() {
     try { return JSON.parse(localStorage.getItem(LIKES_KEY) || '[]'); }
@@ -288,15 +520,15 @@
 
   async function fetchLiveCount() {
     try {
-      const res = await fetch('/api/likes?slug=' + encodeURIComponent(PAGE_SLUG));
+      var res = await fetch('/api/likes?slug=' + encodeURIComponent(PAGE_SLUG));
       if (res.ok) {
-        const data = await res.json();
+        var data = await res.json();
         liveLikeCount = data.likes || 0;
         updateLikeUI();
       }
     } catch (e) {
-      let hash = 0;
-      for (let i = 0; i < PAGE_SLUG.length; i++) {
+      var hash = 0;
+      for (var i = 0; i < PAGE_SLUG.length; i++) {
         hash = ((hash << 5) - hash) + PAGE_SLUG.charCodeAt(i);
         hash |= 0;
       }
@@ -306,9 +538,9 @@
   }
 
   function updateLikeUI() {
-    const btn = document.getElementById('likeBtn');
-    const icon = document.getElementById('likeIcon');
-    const countEl = document.getElementById('likeCount');
+    var btn = document.getElementById('likeBtn');
+    var icon = document.getElementById('likeIcon');
+    var countEl = document.getElementById('likeCount');
     if (!btn || !countEl) return;
 
     isLikedByUser = isUserLiked();
@@ -325,9 +557,9 @@
   }
 
   window.toggleLike = async function() {
-    const btn = document.getElementById('likeBtn');
-    const icon = document.getElementById('likeIcon');
-    const countEl = document.getElementById('likeCount');
+    var btn = document.getElementById('likeBtn');
+    var icon = document.getElementById('likeIcon');
+    var countEl = document.getElementById('likeCount');
 
     if (isLikedByUser) {
       isLikedByUser = false;
@@ -343,20 +575,20 @@
       countEl.textContent = liveLikeCount + 1;
 
       btn.classList.add('like-pop');
-      setTimeout(() => btn.classList.remove('like-pop'), 400);
+      setTimeout(function() { btn.classList.remove('like-pop'); }, 400);
 
       if (typeof createHeartBurst === 'function') {
         createHeartBurst(btn);
       }
 
       try {
-        const res = await fetch('/api/likes', {
+        var res = await fetch('/api/likes', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ slug: PAGE_SLUG })
         });
         if (res.ok) {
-          const data = await res.json();
+          var data = await res.json();
           liveLikeCount = data.likes || 0;
           countEl.textContent = liveLikeCount;
         }
