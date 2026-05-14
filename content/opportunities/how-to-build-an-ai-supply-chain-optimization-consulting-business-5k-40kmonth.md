@@ -6,6 +6,7 @@ readTime: "16 MIN"
 excerpt: "The supply chain optimization industry is a $25 billion market, and it's no secret that AI is revolutionizing logistics, demand forecasting, and inventory management. But here's the uncomfortable trut..."
 image: "/images/articles/opportunities/how-to-build-an-ai-supply-chain-optimization-consulting-business-5k-40kmonth.png"
 heroImage: "/images/heroes/opportunities/how-to-build-an-ai-supply-chain-optimization-consulting-business-5k-40kmonth.png"
+relatedGuide: "/intelligence/build-an-ai-supply-chain-optimization-system-with-chatgpt-the-complete-step-by-s/"
 ---
 
 
