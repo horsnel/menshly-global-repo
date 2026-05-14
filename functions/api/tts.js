@@ -1,9 +1,11 @@
-// CloudFlare Pages Function: Speechify TTS API
+// CloudFlare Pages Function: Dual TTS API (Speechify → ElevenLabs fallback)
 // POST /api/tts  →  audio/mpeg stream
 // Body: { text, voice_id?, speed? }
-// Uses Speechify AI for high-quality voice generation
+// Strategy: Try Speechify first; on 402/quota error, fall back to ElevenLabs
 
-const DEFAULT_VOICE_ID = 'david'; // Clear professional narrator
+const SPEECHIFY_DEFAULT_VOICE = 'david';
+const ELEVENLABS_DEFAULT_VOICE = 'JBFqnCBsd6RMkjVDRZzb'; // George — warm British storyteller
+const ELEVENLABS_MODEL = 'eleven_flash_v2_5';
 const MAX_TEXT_LENGTH = 5000;
 const REQUEST_TIMEOUT = 60000; // 60 seconds
 
@@ -14,7 +16,7 @@ const CORS_HEADERS = {
 };
 
 // Valid Speechify voice IDs
-const VALID_VOICES = ['david', 'mrbeast', 'snoop', 'gwyneth', 'emma', 'kimberly'];
+const SPEECHIFY_VOICES = ['david', 'mrbeast', 'snoop', 'gwyneth', 'emma', 'kimberly'];
 
 // Rate limiting: simple in-memory counter (resets on deploy)
 const rateLimiter = new Map();
@@ -45,6 +47,12 @@ function cleanText(raw) {
   text = text.replace(/```[\s\S]*?```/g, '');
   text = text.replace(/`([^`]+)`/g, '$1');
   text = text.replace(/^>\s+/gm, '');
+  // Replace smart quotes and non-breaking hyphens with ASCII equivalents
+  text = text.replace(/[\u2018\u2019]/g, "'");
+  text = text.replace(/[\u201C\u201D]/g, '"');
+  text = text.replace(/\u2011/g, '-');
+  text = text.replace(/\u2013/g, '-');
+  text = text.replace(/\u2014/g, '--');
   text = text.replace(/\s+/g, ' ').trim();
   return text;
 }
@@ -53,6 +61,85 @@ export async function onRequestOptions() {
   return new Response(null, { status: 204, headers: CORS_HEADERS });
 }
 
+// ---- Speechify TTS ----
+async function speechifyTTS(text, voiceId, speed, apiKey) {
+  const url = 'https://api.speechify.ai/v1/audio/speech';
+  const body = {
+    input: text,
+    voice_id: voiceId,
+    audio_format: 'mp3',
+    speed: Math.max(0.5, Math.min(2.0, Number(speed) || 1.0)),
+  };
+
+  const controller = new AbortController();
+  const timeoutId = setTimeout(() => controller.abort(), REQUEST_TIMEOUT);
+
+  const response = await fetch(url, {
+    method: 'POST',
+    headers: {
+      'Authorization': `Bearer ${apiKey}`,
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(body),
+    signal: controller.signal,
+  });
+
+  clearTimeout(timeoutId);
+
+  if (!response.ok) {
+    const errorText = await response.text();
+    let errorDetail = `Speechify API returned ${response.status}`;
+    try { errorDetail = JSON.parse(errorText).error || errorDetail; } catch {}
+    const retriable = response.status === 402 || response.status === 429;
+    return { ok: false, status: response.status, error: errorDetail, retriable };
+  }
+
+  const result = await response.json();
+  const audioDataBase64 = result.audio_data;
+  if (!audioDataBase64) {
+    return { ok: false, status: 502, error: 'No audio_data in Speechify response', retriable: true };
+  }
+
+  const audioBuffer = Uint8Array.from(atob(audioDataBase64), c => c.charCodeAt(0));
+  return { ok: true, buffer: audioBuffer };
+}
+
+// ---- ElevenLabs TTS (fallback) ----
+async function elevenLabsTTS(text, voiceId, apiKey) {
+  const url = `https://api.elevenlabs.io/v1/text-to-speech/${voiceId}`;
+  const body = {
+    text: text,
+    model_id: ELEVENLABS_MODEL,
+    voice_settings: { stability: 0.5, similarity_boost: 0.75 },
+  };
+
+  const controller = new AbortController();
+  const timeoutId = setTimeout(() => controller.abort(), REQUEST_TIMEOUT);
+
+  const response = await fetch(url, {
+    method: 'POST',
+    headers: {
+      'xi-api-key': apiKey,
+      'Content-Type': 'application/json',
+      'Accept': 'audio/mpeg',
+    },
+    body: JSON.stringify(body),
+    signal: controller.signal,
+  });
+
+  clearTimeout(timeoutId);
+
+  if (!response.ok) {
+    let errorDetail = `ElevenLabs API returned ${response.status}`;
+    try { const err = await response.json(); errorDetail = err.detail?.message || err.detail || errorDetail; } catch {}
+    return { ok: false, status: response.status, error: errorDetail };
+  }
+
+  const audioBuffer = await response.arrayBuffer();
+  return { ok: true, buffer: new Uint8Array(audioBuffer) };
+}
+
+// ---- Main handler ----
 export async function onRequestPost(context) {
   const { request, env } = context;
 
@@ -77,19 +164,11 @@ export async function onRequestPost(context) {
   }
 
   const rawText = body.text;
-  const voiceId = body.voice_id || DEFAULT_VOICE_ID;
+  const requestedVoice = body.voice_id || SPEECHIFY_DEFAULT_VOICE;
   const speed = body.speed || 1.0;
 
   if (!rawText || typeof rawText !== 'string') {
     return new Response(JSON.stringify({ error: 'Missing or invalid text field' }), {
-      status: 400,
-      headers: { ...CORS_HEADERS, 'Content-Type': 'application/json' },
-    });
-  }
-
-  // Validate voice ID
-  if (!VALID_VOICES.includes(voiceId)) {
-    return new Response(JSON.stringify({ error: `Invalid voice_id. Valid options: ${VALID_VOICES.join(', ')}` }), {
       status: 400,
       headers: { ...CORS_HEADERS, 'Content-Type': 'application/json' },
     });
@@ -106,103 +185,92 @@ export async function onRequestPost(context) {
 
   const truncatedText = text.length > MAX_TEXT_LENGTH ? text.substring(0, MAX_TEXT_LENGTH) : text;
 
-  // Speechify API key: try CloudFlare env first, then fallback
-  const apiKey = env.SPEECHIFY_API_KEY || 'ZYnqwIOZbL2FwA0XWaLXqzVmz7nYDW5J6IlPG9SEwWg=';
+  // API keys
+  const speechifyKey = env.SPEECHIFY_API_KEY || 'ZYnqwIOZbL2FwA0XWaLXqzVmz7nYDW5J6IlPG9SEwWg=';
+  const elevenLabsKey = env.ELEVENLABS_API_KEY || '20a953b59f011e0537c2c79f4928f3ffb4b6df90fb1b31bda18407037bccb1af';
 
-  if (!apiKey) {
-    return new Response(JSON.stringify({ error: 'Speechify API key not configured' }), {
-      status: 500,
-      headers: { ...CORS_HEADERS, 'Content-Type': 'application/json' },
-    });
+  // --- Try Speechify first ---
+  if (speechifyKey) {
+    const speechifyVoice = SPEECHIFY_VOICES.includes(requestedVoice) ? requestedVoice : SPEECHIFY_DEFAULT_VOICE;
+    try {
+      const result = await speechifyTTS(truncatedText, speechifyVoice, speed, speechifyKey);
+      if (result.ok) {
+        return new Response(result.buffer, {
+          status: 200,
+          headers: {
+            ...CORS_HEADERS,
+            'Content-Type': 'audio/mpeg',
+            'Content-Length': result.buffer.byteLength.toString(),
+            'Cache-Control': 'public, max-age=86400',
+            'X-TTS-Provider': 'speechify',
+          },
+        });
+      }
+      // If Speechify failed with retriable error (402/quota), fall back
+      if (result.retriable) {
+        console.log('Speechify failed (' + result.status + '), falling back to ElevenLabs');
+      } else {
+        // Non-retriable error — return the error
+        return new Response(JSON.stringify({ error: result.error }), {
+          status: result.status >= 500 ? 502 : result.status,
+          headers: { ...CORS_HEADERS, 'Content-Type': 'application/json' },
+        });
+      }
+    } catch (err) {
+      console.error('Speechify TTS error:', err.message || err);
+      // Fall through to ElevenLabs
+    }
   }
 
-  try {
-    const speechifyUrl = 'https://api.speechify.ai/v1/audio/speech';
+  // --- Fallback: ElevenLabs ---
+  if (elevenLabsKey) {
+    try {
+      // Map Speechify voice names to ElevenLabs voice IDs
+      const voiceMap = {
+        'david': 'JBFqnCBsd6RMkjVDRZzb',
+        'emma': 'JBFqnCBsd6RMkjVDRZzb',
+        'gwyneth': 'JBFqnCBsd6RMkjVDRZzb',
+        'kimberly': 'JBFqnCBsd6RMkjVDRZzb',
+        'mrbeast': 'JBFqnCBsd6RMkjVDRZzb',
+        'snoop': 'JBFqnCBsd6RMkjVDRZzb',
+      };
+      const elevenVoiceId = voiceMap[requestedVoice] || ELEVENLABS_DEFAULT_VOICE;
+      const result = await elevenLabsTTS(truncatedText, elevenVoiceId, elevenLabsKey);
 
-    const requestBody = {
-      input: truncatedText,
-      voice_id: voiceId,
-      audio_format: 'mp3',
-      speed: Math.max(0.5, Math.min(2.0, Number(speed) || 1.0)),
-    };
-
-    const controller = new AbortController();
-    const timeoutId = setTimeout(() => controller.abort(), REQUEST_TIMEOUT);
-
-    const response = await fetch(speechifyUrl, {
-      method: 'POST',
-      headers: {
-        'Authorization': `Bearer ${apiKey}`,
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(requestBody),
-      signal: controller.signal,
-    });
-
-    clearTimeout(timeoutId);
-
-    if (!response.ok) {
-      let errorDetail = `Speechify API returned ${response.status}`;
-      try {
-        const errorBody = await response.json();
-        errorDetail = errorBody.error || errorBody.message || errorDetail;
-      } catch {
-        errorDetail = response.statusText || errorDetail;
+      if (result.ok) {
+        return new Response(result.buffer, {
+          status: 200,
+          headers: {
+            ...CORS_HEADERS,
+            'Content-Type': 'audio/mpeg',
+            'Content-Length': result.buffer.byteLength.toString(),
+            'Cache-Control': 'public, max-age=86400',
+            'X-TTS-Provider': 'elevenlabs',
+          },
+        });
       }
 
-      console.error('Speechify TTS error:', response.status, errorDetail);
-
-      if (response.status === 401) {
-        errorDetail = 'TTS service authentication failed';
-      } else if (response.status === 402) {
-        errorDetail = 'TTS service quota exceeded';
-      } else if (response.status === 429) {
-        errorDetail = 'TTS service rate limit reached, please try again later';
+      return new Response(JSON.stringify({ error: result.error }), {
+        status: result.status >= 500 ? 502 : result.status,
+        headers: { ...CORS_HEADERS, 'Content-Type': 'application/json' },
+      });
+    } catch (err) {
+      if (err.name === 'AbortError') {
+        return new Response(JSON.stringify({ error: 'TTS generation timed out. Try shorter text.' }), {
+          status: 504,
+          headers: { ...CORS_HEADERS, 'Content-Type': 'application/json' },
+        });
       }
-
-      return new Response(JSON.stringify({ error: errorDetail }), {
-        status: response.status >= 500 ? 502 : response.status,
+      console.error('ElevenLabs TTS error:', err.message || err);
+      return new Response(JSON.stringify({ error: 'TTS generation failed', detail: err.message || String(err) }), {
+        status: 500,
         headers: { ...CORS_HEADERS, 'Content-Type': 'application/json' },
       });
     }
-
-    // Speechify returns JSON with base64-encoded audio_data
-    const result = await response.json();
-    const audioDataBase64 = result.audio_data;
-
-    if (!audioDataBase64) {
-      console.error('Speechify TTS: no audio_data in response');
-      return new Response(JSON.stringify({ error: 'TTS generation returned no audio' }), {
-        status: 502,
-        headers: { ...CORS_HEADERS, 'Content-Type': 'application/json' },
-      });
-    }
-
-    // Decode base64 to binary
-    const audioBuffer = Uint8Array.from(atob(audioDataBase64), c => c.charCodeAt(0));
-
-    return new Response(audioBuffer, {
-      status: 200,
-      headers: {
-        ...CORS_HEADERS,
-        'Content-Type': 'audio/mpeg',
-        'Content-Length': audioBuffer.byteLength.toString(),
-        'Cache-Control': 'public, max-age=86400',
-      },
-    });
-  } catch (err) {
-    if (err.name === 'AbortError') {
-      console.error('Speechify TTS request timed out');
-      return new Response(JSON.stringify({ error: 'TTS generation timed out. Try shorter text.' }), {
-        status: 504,
-        headers: { ...CORS_HEADERS, 'Content-Type': 'application/json' },
-      });
-    }
-
-    console.error('Speechify TTS error:', err.message || err);
-    return new Response(JSON.stringify({ error: 'TTS generation failed', detail: err.message || String(err) }), {
-      status: 500,
-      headers: { ...CORS_HEADERS, 'Content-Type': 'application/json' },
-    });
   }
+
+  return new Response(JSON.stringify({ error: 'No TTS API key configured' }), {
+    status: 500,
+    headers: { ...CORS_HEADERS, 'Content-Type': 'application/json' },
+  });
 }

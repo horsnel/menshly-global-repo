@@ -82,7 +82,7 @@
   let audioBlobUrls = [];
   let currentChunkIndex = 0;
   let totalChunks = 0;
-  const CHUNK_SIZE = 4500; // Speechify max per request
+  const CHUNK_SIZE = 2000; // Smaller chunks to stay within Speechify free tier
 
   // Clean text for TTS
   function cleanTextForTTS(raw) {
