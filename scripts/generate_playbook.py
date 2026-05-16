@@ -304,6 +304,7 @@ Do NOT write any other procedures or module headings. Just this one procedure.""
         {"role": "user", "content": prompt},
     ]
 
+    result = None
     for attempt in range(3):
         try:
             result = _call_api(messages, max_tokens=4000, temperature=0.7)
@@ -320,7 +321,10 @@ Do NOT write any other procedures or module headings. Just this one procedure.""
             print(f"    Proc {module_num}.{proc_num} attempt {attempt+1} failed: {str(e)[:80]}")
             time.sleep(5)
 
-    # Fallback: return what we got
+    # Fallback: return what we got, or a placeholder if all retries failed
+    if result is None:
+        print(f"    Proc {module_num}.{proc_num}: all retries failed, using placeholder")
+        return f"**Procedure {module_num}.{proc_num}** — Generation failed due to AI backend unavailability. Please retry later."
     print(f"    Proc {module_num}.{proc_num}: using best available after retries")
     return result
 

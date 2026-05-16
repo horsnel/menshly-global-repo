@@ -1,14 +1,23 @@
 <!-- Article Actions Bar: Audio Player + Like + Bookmark + Share + Affiliate Disclaimer -->
 <div class="article-actions-bar">
-  <!-- Audio Player (ElevenLabs TTS) -->
+  <!-- Audio Player (Speechify TTS) -->
   <div class="action-item audio-player-wrap">
     <button class="listen-btn" id="listenBtn" onclick="toggleListen()" aria-label="Listen to this article">
       <svg class="listen-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path><path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path></svg>
       <span id="listenLabel">LISTEN</span>
     </button>
+    <!-- Voice selector (shown while playing) -->
+    <select id="voiceSelect" class="voice-select" style="display:none;font-family:var(--font-heading);font-size:11px;letter-spacing:0.05em;background:var(--off-white);color:var(--black);border:1px solid var(--border);padding:4px 8px;border-radius:4px;cursor:pointer;">
+      <option value="david">David</option>
+      <option value="emma">Emma</option>
+      <option value="gwyneth">Gwyneth</option>
+      <option value="kimberly">Kimberly</option>
+      <option value="mrbeast">MrBeast</option>
+      <option value="snoop">Snoop</option>
+    </select>
     <!-- Progress bar (shown while playing) -->
     <div id="audioProgressWrap" style="display:none;flex:1;min-width:120px;max-width:300px;align-items:center;gap:8px;">
-      <div style="flex:1;height:6px;;background:var(--off-white);position:relative;cursor:pointer;" id="audioProgressBar" onclick="seekAudio(event)">
+      <div style="flex:1;height:6px;background:var(--off-white);position:relative;cursor:pointer;" id="audioProgressBar" onclick="seekAudio(event)">
         <div id="audioProgressFill" style="height:100%;background:var(--yellow);width:0%;transition:width 0.3s ease;"></div>
       </div>
       <span id="audioTimeDisplay" style="font-family:var(--font-heading);font-size:10px;letter-spacing:0.05em;white-space:nowrap;">0:00</span>
@@ -64,14 +73,16 @@
 </div>
 
 <script>
-// ===== AUDIO PLAYER (ElevenLabs TTS API) =====
+// ===== AUDIO PLAYER (Speechify TTS API) =====
 (function() {
   let audioElement = null;
   let isListening = false;
   let isLoading = false;
   let currentSpeed = 1;
-  let audioBlobUrl = null;
-  const CHUNK_SIZE = 4500; // ElevenLabs max per request
+  let audioBlobUrls = [];
+  let currentChunkIndex = 0;
+  let totalChunks = 0;
+  const CHUNK_SIZE = 4500; // Speechify max per request
 
   // Clean text for TTS
   function cleanTextForTTS(raw) {
@@ -110,26 +121,56 @@
     return chunks;
   }
 
-  // Generate TTS audio for a chunk via ElevenLabs API
-  async function generateChunk(textChunk, voiceId) {
+  // Cleanup old blob URLs
+  function cleanupBlobUrls() {
+    audioBlobUrls.forEach(function(url) {
+      try { URL.revokeObjectURL(url); } catch(e) {}
+    });
+    audioBlobUrls = [];
+  }
+
+  // Generate TTS audio for a chunk via Speechify API
+  async function generateChunk(textChunk, voiceId, speed) {
     const resp = await fetch('/api/tts', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ text: textChunk, voice_id: voiceId }),
+      body: JSON.stringify({ text: textChunk, voice_id: voiceId, speed: speed }),
     });
     if (!resp.ok) {
-      const err = await resp.json().catch(() => ({ error: 'TTS failed' }));
-      throw new Error(err.error || `TTS error ${resp.status}`);
+      const err = await resp.json().catch(function() { return { error: 'TTS failed' }; });
+      throw new Error(err.error || 'TTS error ' + resp.status);
     }
     const blob = await resp.blob();
-    return URL.createObjectURL(blob);
+    var url = URL.createObjectURL(blob);
+    audioBlobUrls.push(url);
+    return url;
+  }
+
+  function resetPlayerUI() {
+    var btn = document.getElementById('listenBtn');
+    var label = document.getElementById('listenLabel');
+    var speedWrap = document.getElementById('audioSpeedWrap');
+    var progressWrap = document.getElementById('audioProgressWrap');
+    var voiceSelect = document.getElementById('voiceSelect');
+    isListening = false;
+    isLoading = false;
+    currentChunkIndex = 0;
+    totalChunks = 0;
+    if (label) label.textContent = 'LISTEN';
+    if (btn) btn.classList.remove('listening');
+    if (speedWrap) speedWrap.style.display = 'none';
+    if (progressWrap) progressWrap.style.display = 'none';
+    if (voiceSelect) voiceSelect.style.display = 'none';
+    var fill = document.getElementById('audioProgressFill');
+    if (fill) fill.style.width = '0%';
   }
 
   window.toggleListen = async function() {
-    const btn = document.getElementById('listenBtn');
-    const label = document.getElementById('listenLabel');
-    const speedWrap = document.getElementById('audioSpeedWrap');
-    const progressWrap = document.getElementById('audioProgressWrap');
+    var btn = document.getElementById('listenBtn');
+    var label = document.getElementById('listenLabel');
+    var speedWrap = document.getElementById('audioSpeedWrap');
+    var progressWrap = document.getElementById('audioProgressWrap');
+    var voiceSelect = document.getElementById('voiceSelect');
 
     // If currently playing → pause/resume
     if (isListening && audioElement && !isLoading) {
@@ -146,10 +187,10 @@
     }
 
     // If not yet loaded → generate audio
-    const content = document.querySelector('.article-content');
+    var content = document.querySelector('.article-content');
     if (!content) return;
 
-    const rawText = content.innerText;
+    var rawText = content.innerText;
     if (!rawText.trim()) return;
 
     // Show loading state
@@ -158,69 +199,96 @@
     btn.classList.add('listening');
 
     try {
-      const cleanText = cleanTextForTTS(rawText);
-      const chunks = splitIntoChunks(cleanText, CHUNK_SIZE);
-      const voiceId = 'JBFqnCBsd6RMkjVDRZzb';
+      var cleanText = cleanTextForTTS(rawText);
+      var chunks = splitIntoChunks(cleanText, CHUNK_SIZE);
+      totalChunks = chunks.length;
+      currentChunkIndex = 0;
 
-      // Generate first chunk immediately, queue the rest
-      const firstUrl = await generateChunk(chunks[0], voiceId);
+      var voiceId = voiceSelect ? voiceSelect.value : 'david';
+
+      // Generate first chunk immediately
+      var firstUrl = await generateChunk(chunks[0], voiceId, currentSpeed);
 
       // Create audio element
       if (audioElement) {
         audioElement.pause();
         audioElement.src = '';
       }
+      cleanupBlobUrls();
       audioElement = new Audio(firstUrl);
-      audioElement.playbackRate = currentSpeed;
+      audioElement.playbackRate = 1; // Speed is handled server-side by Speechify
 
       // Set up progress tracking
       audioElement.addEventListener('timeupdate', function() {
         if (audioElement.duration) {
-          const pct = (audioElement.currentTime / audioElement.duration) * 100;
-          const fill = document.getElementById('audioProgressFill');
-          if (fill) fill.style.width = pct + '%';
-          const display = document.getElementById('audioTimeDisplay');
+          var chunkProgress = (audioElement.currentTime / audioElement.duration);
+          var overallProgress = ((currentChunkIndex + chunkProgress) / totalChunks) * 100;
+          var fill = document.getElementById('audioProgressFill');
+          if (fill) fill.style.width = overallProgress + '%';
+          var display = document.getElementById('audioTimeDisplay');
           if (display) {
-            const remaining = Math.max(0, audioElement.duration - audioElement.currentTime);
-            const mins = Math.floor(remaining / 60);
-            const secs = Math.floor(remaining % 60);
+            var remaining = Math.max(0, audioElement.duration - audioElement.currentTime);
+            // Estimate total remaining time across all chunks
+            var avgChunkDuration = audioElement.duration;
+            var chunksLeft = totalChunks - currentChunkIndex - 1;
+            var totalRemaining = remaining + (chunksLeft * avgChunkDuration);
+            var mins = Math.floor(totalRemaining / 60);
+            var secs = Math.floor(totalRemaining % 60);
             display.textContent = mins + ':' + (secs < 10 ? '0' : '') + secs;
           }
         }
       });
 
+      // When current chunk ends, play next chunk
       audioElement.addEventListener('ended', function() {
-        isListening = false;
-        isLoading = false;
-        label.textContent = 'LISTEN';
-        btn.classList.remove('listening');
-        speedWrap.style.display = 'none';
-        progressWrap.style.display = 'none';
-        document.getElementById('audioProgressFill').style.width = '0%';
+        currentChunkIndex++;
+        if (currentChunkIndex < totalChunks) {
+          // Play next chunk
+          playChunk(chunks, currentChunkIndex, voiceId);
+        } else {
+          // All chunks played
+          resetPlayerUI();
+        }
+      });
+
+      audioElement.addEventListener('error', function() {
+        console.error('Audio playback error');
+        // Try next chunk if available
+        currentChunkIndex++;
+        if (currentChunkIndex < totalChunks) {
+          playChunk(chunks, currentChunkIndex, voiceId);
+        } else {
+          resetPlayerUI();
+        }
       });
 
       // Start playing
-      audioElement.play();
+      audioElement.play().catch(function(e) {
+        console.error('Audio play failed:', e);
+      });
       isListening = true;
       isLoading = false;
       label.textContent = 'STOP';
       btn.classList.add('listening');
       speedWrap.style.display = 'flex';
       progressWrap.style.display = 'flex';
+      voiceSelect.style.display = 'inline-block';
 
-      // Pre-generate remaining chunks in background for seamless playback
-      // (For now, single chunk covers most articles under 5000 chars)
+      // Pre-generate remaining chunks in background
+      if (chunks.length > 1) {
+        preGenerateChunks(chunks, 1, voiceId);
+      }
     } catch (err) {
-      console.error('TTS error:', err);
+      console.error('Speechify TTS error:', err);
       isLoading = false;
       isListening = false;
       label.textContent = 'LISTEN';
       btn.classList.remove('listening');
 
-      // Fallback to browser TTS if ElevenLabs fails
-      const synth = window.speechSynthesis;
+      // Fallback to browser TTS if Speechify fails
+      var synth = window.speechSynthesis;
       if (synth) {
-        const utter = new SpeechSynthesisUtterance(cleanTextForTTS(content.innerText));
+        var utter = new SpeechSynthesisUtterance(cleanTextForTTS(content.innerText));
         utter.rate = currentSpeed;
         synth.speak(utter);
         isListening = true;
@@ -228,10 +296,7 @@
         btn.classList.add('listening');
         speedWrap.style.display = 'flex';
         utter.onend = function() {
-          isListening = false;
-          label.textContent = 'LISTEN';
-          btn.classList.remove('listening');
-          speedWrap.style.display = 'none';
+          resetPlayerUI();
         };
       } else {
         alert('Audio playback is not available. Please try again later.');
@@ -239,33 +304,89 @@
     }
   };
 
+  // Pre-generate chunks in background for seamless playback
+  async function preGenerateChunks(chunks, startIndex, voiceId) {
+    for (var i = startIndex; i < chunks.length; i++) {
+      try {
+        await generateChunk(chunks[i], voiceId, currentSpeed);
+      } catch (e) {
+        console.error('Pre-generate chunk ' + i + ' failed:', e);
+      }
+    }
+  }
+
+  // Play a specific chunk by index
+  async function playChunk(chunks, index, voiceId) {
+    try {
+      var url = await generateChunk(chunks[index], voiceId, currentSpeed);
+      if (audioElement) {
+        audioElement.pause();
+        audioElement.src = url;
+        audioElement.playbackRate = 1;
+        audioElement.play().catch(function(e) {
+          console.error('Chunk play failed:', e);
+        });
+      }
+    } catch (e) {
+      console.error('Generate chunk ' + index + ' failed:', e);
+      // Skip to next chunk
+      currentChunkIndex++;
+      if (currentChunkIndex < totalChunks) {
+        playChunk(chunks, currentChunkIndex, voiceId);
+      } else {
+        resetPlayerUI();
+      }
+    }
+  }
+
   // Seek in audio
   window.seekAudio = function(e) {
     if (!audioElement || !audioElement.duration) return;
-    const bar = document.getElementById('audioProgressBar');
-    const rect = bar.getBoundingClientRect();
-    const pct = (e.clientX - rect.left) / rect.width;
+    var bar = document.getElementById('audioProgressBar');
+    var rect = bar.getBoundingClientRect();
+    var pct = (e.clientX - rect.left) / rect.width;
     audioElement.currentTime = pct * audioElement.duration;
   };
 
-  // Speed buttons
+  // Speed buttons — re-generate audio with new speed on Speechify
   document.addEventListener('click', function(e) {
     if (e.target.classList.contains('speed-btn')) {
-      const speed = parseFloat(e.target.dataset.speed);
+      var speed = parseFloat(e.target.dataset.speed);
       currentSpeed = speed;
-      document.querySelectorAll('.speed-btn').forEach(b => b.classList.remove('active'));
+      document.querySelectorAll('.speed-btn').forEach(function(b) { b.classList.remove('active'); });
       e.target.classList.add('active');
+      // Speechify handles speed server-side, but we also adjust playback rate
+      // for already-generated chunks as a quick response
       if (audioElement) {
         audioElement.playbackRate = speed;
       }
     }
   });
 
+  // Voice change — regenerate audio with new voice
+  document.addEventListener('change', function(e) {
+    if (e.target.id === 'voiceSelect') {
+      // If currently playing, stop and restart with new voice
+      if (isListening && audioElement) {
+        var content = document.querySelector('.article-content');
+        if (content) {
+          audioElement.pause();
+          audioElement.src = '';
+          cleanupBlobUrls();
+          isListening = false;
+          isLoading = false;
+          // Re-trigger listen with new voice
+          window.toggleListen();
+        }
+      }
+    }
+  });
+
   // ===== LIKE BUTTON (Live KV-backed) =====
-  const LIKES_KEY = 'menshly_liked_articles';
-  const PAGE_SLUG = window.location.pathname.replace(/^\/|\/$/g, '');
-  let liveLikeCount = 0;
-  let isLikedByUser = false;
+  var LIKES_KEY = 'menshly_liked_articles';
+  var PAGE_SLUG = window.location.pathname.replace(/^\/|\/$/g, '');
+  var liveLikeCount = 0;
+  var isLikedByUser = false;
 
   function getUserLikedArticles() {
     try { return JSON.parse(localStorage.getItem(LIKES_KEY) || '[]'); }
@@ -288,15 +409,15 @@
 
   async function fetchLiveCount() {
     try {
-      const res = await fetch('/api/likes?slug=' + encodeURIComponent(PAGE_SLUG));
+      var res = await fetch('/api/likes?slug=' + encodeURIComponent(PAGE_SLUG));
       if (res.ok) {
-        const data = await res.json();
+        var data = await res.json();
         liveLikeCount = data.likes || 0;
         updateLikeUI();
       }
     } catch (e) {
-      let hash = 0;
-      for (let i = 0; i < PAGE_SLUG.length; i++) {
+      var hash = 0;
+      for (var i = 0; i < PAGE_SLUG.length; i++) {
         hash = ((hash << 5) - hash) + PAGE_SLUG.charCodeAt(i);
         hash |= 0;
       }
@@ -306,9 +427,9 @@
   }
 
   function updateLikeUI() {
-    const btn = document.getElementById('likeBtn');
-    const icon = document.getElementById('likeIcon');
-    const countEl = document.getElementById('likeCount');
+    var btn = document.getElementById('likeBtn');
+    var icon = document.getElementById('likeIcon');
+    var countEl = document.getElementById('likeCount');
     if (!btn || !countEl) return;
 
     isLikedByUser = isUserLiked();
@@ -325,9 +446,9 @@
   }
 
   window.toggleLike = async function() {
-    const btn = document.getElementById('likeBtn');
-    const icon = document.getElementById('likeIcon');
-    const countEl = document.getElementById('likeCount');
+    var btn = document.getElementById('likeBtn');
+    var icon = document.getElementById('likeIcon');
+    var countEl = document.getElementById('likeCount');
 
     if (isLikedByUser) {
       isLikedByUser = false;
@@ -343,20 +464,20 @@
       countEl.textContent = liveLikeCount + 1;
 
       btn.classList.add('like-pop');
-      setTimeout(() => btn.classList.remove('like-pop'), 400);
+      setTimeout(function() { btn.classList.remove('like-pop'); }, 400);
 
       if (typeof createHeartBurst === 'function') {
         createHeartBurst(btn);
       }
 
       try {
-        const res = await fetch('/api/likes', {
+        var res = await fetch('/api/likes', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ slug: PAGE_SLUG })
         });
         if (res.ok) {
-          const data = await res.json();
+          var data = await res.json();
           liveLikeCount = data.likes || 0;
           countEl.textContent = liveLikeCount;
         }
