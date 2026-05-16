@@ -1,20 +1,17 @@
 <!-- Article Actions Bar: Audio Player + Like + Bookmark + Share + Affiliate Disclaimer -->
 <div class="article-actions-bar">
-  <!-- Audio Player (Speechify TTS) -->
+  <!-- Audio Player — Microsoft TTS (Browser speechSynthesis) -->
   <div class="action-item audio-player-wrap">
     <button class="listen-btn" id="listenBtn" onclick="toggleListen()" aria-label="Listen to this article">
       <svg class="listen-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path><path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path></svg>
       <span id="listenLabel">LISTEN</span>
     </button>
-    <!-- Voice selector (shown while playing) -->
-    <select id="voiceSelect" class="voice-select" style="display:none;font-family:var(--font-heading);font-size:11px;letter-spacing:0.05em;background:var(--off-white);color:var(--black);border:1px solid var(--border);padding:4px 8px;border-radius:4px;cursor:pointer;">
-      <option value="david">David</option>
-      <option value="emma">Emma</option>
-      <option value="gwyneth">Gwyneth</option>
-      <option value="kimberly">Kimberly</option>
-      <option value="mrbeast">MrBeast</option>
-      <option value="snoop">Snoop</option>
-    </select>
+    <!-- Voice selector dropdown -->
+    <div class="voice-selector-wrap" id="voiceSelectorWrap" style="display:none;margin-left:6px;">
+      <select id="voiceSelector" style="font-family:var(--font-heading);font-size:11px;letter-spacing:0.04em;padding:4px 8px;border:1px solid var(--yellow);background:var(--dark);color:var(--light);border-radius:4px;cursor:pointer;outline:none;max-width:160px;" aria-label="Select voice">
+        <option value="-1">Auto Voice</option>
+      </select>
+    </div>
     <!-- Progress bar (shown while playing) -->
     <div id="audioProgressWrap" style="display:none;flex:1;min-width:120px;max-width:300px;align-items:center;gap:8px;">
       <div style="flex:1;height:6px;background:var(--off-white);position:relative;cursor:pointer;" id="audioProgressBar" onclick="seekAudio(event)">
@@ -73,21 +70,29 @@
 </div>
 
 <script>
-// ===== AUDIO PLAYER (Speechify TTS API) =====
+// ===== AUDIO PLAYER — Microsoft TTS (Browser speechSynthesis) =====
+// Uses the Web Speech API which provides Microsoft voices on Edge/Windows
+// and high-quality system voices on other browsers.
+// Handles Chrome's 15-second bug by chunking text into smaller pieces.
 (function() {
-  let audioElement = null;
-  let isListening = false;
-  let isLoading = false;
-  let currentSpeed = 1;
-  let audioBlobUrls = [];
-  let currentChunkIndex = 0;
-  let totalChunks = 0;
-  const CHUNK_SIZE = 4500; // Speechify max per request
+  var synth = window.speechSynthesis;
+  var isListening = false;
+  var isPaused = false;
+  var currentSpeed = 1;
+  var progressInterval = null;
+  var estimatedDuration = 0;
+  var startTime = 0;
+  var textChunks = [];
+  var currentChunkIndex = 0;
+  var totalChunks = 0;
+  var selectedVoiceIndex = -1;
+  var availableVoices = [];
+  var voicesLoaded = false;
+  var CHUNK_SIZE = 180;
 
-  // Clean text for TTS
   function cleanTextForTTS(raw) {
     if (!raw || typeof raw !== 'string') return '';
-    let text = raw;
+    var text = raw;
     text = text.replace(/<[^>]*>/g, ' ');
     text = text.replace(/!\[[^\]]*\]\([^)]*\)/g, '');
     text = text.replace(/\[([^\]]*)\]\([^)]*\)/g, '$1');
@@ -97,290 +102,252 @@
     text = text.replace(/```[\s\S]*?```/g, '');
     text = text.replace(/`([^`]+)`/g, '$1');
     text = text.replace(/^>\s+/gm, '');
+    text = text.replace(/[\u2018\u2019]/g, "'");
+    text = text.replace(/[\u201C\u201D]/g, '"');
+    text = text.replace(/\u2011/g, '-');
+    text = text.replace(/\u2013/g, '-');
+    text = text.replace(/\u2014/g, '--');
     text = text.replace(/\s+/g, ' ').trim();
     return text;
   }
 
-  // Split text into chunks at sentence boundaries
   function splitIntoChunks(text, maxLen) {
-    const chunks = [];
-    let remaining = text;
-    while (remaining.length > 0) {
-      if (remaining.length <= maxLen) {
-        chunks.push(remaining);
-        break;
+    var chunks = [];
+    var sentences = text.match(/[^.!?]+[.!?]+\s*/g) || [text];
+    var current = '';
+    for (var i = 0; i < sentences.length; i++) {
+      if ((current + sentences[i]).length > maxLen && current.length > 0) {
+        chunks.push(current.trim());
+        current = sentences[i];
+      } else {
+        current += sentences[i];
       }
-      let cut = remaining.lastIndexOf('. ', maxLen);
-      if (cut === -1) cut = remaining.lastIndexOf('! ', maxLen);
-      if (cut === -1) cut = remaining.lastIndexOf('? ', maxLen);
-      if (cut === -1) cut = remaining.lastIndexOf(' ', maxLen);
-      if (cut === -1) cut = maxLen;
-      chunks.push(remaining.substring(0, cut + 1));
-      remaining = remaining.substring(cut + 1);
     }
-    return chunks;
+    if (current.trim()) chunks.push(current.trim());
+    var finalChunks = [];
+    for (var j = 0; j < chunks.length; j++) {
+      if (chunks[j].length <= maxLen) {
+        finalChunks.push(chunks[j]);
+      } else {
+        var parts = chunks[j].split(/,\s*/);
+        var sub = '';
+        for (var k = 0; k < parts.length; k++) {
+          if ((sub + (sub ? ', ' : '') + parts[k]).length > maxLen && sub.length > 0) {
+            finalChunks.push(sub.trim());
+            sub = parts[k];
+          } else {
+            sub += (sub ? ', ' : '') + parts[k];
+          }
+        }
+        if (sub.trim()) finalChunks.push(sub.trim());
+      }
+    }
+    return finalChunks.length > 0 ? finalChunks : [text.substring(0, maxLen)];
   }
 
-  // Cleanup old blob URLs
-  function cleanupBlobUrls() {
-    audioBlobUrls.forEach(function(url) {
-      try { URL.revokeObjectURL(url); } catch(e) {}
-    });
-    audioBlobUrls = [];
+  function loadVoices() {
+    if (!synth) return [];
+    var voices = synth.getVoices();
+    if (!voices || voices.length === 0) return [];
+    var msVoices = [], enLocalVoices = [], enNetworkVoices = [], otherVoices = [];
+    for (var i = 0; i < voices.length; i++) {
+      var v = voices[i];
+      var name = v.name.toLowerCase();
+      if (v.lang && v.lang.startsWith('en')) {
+        if (name.indexOf('microsoft') !== -1 && (name.indexOf('natural') !== -1 || name.indexOf('online') !== -1)) {
+          msVoices.push(v);
+        } else if (v.localService) {
+          enLocalVoices.push(v);
+        } else {
+          enNetworkVoices.push(v);
+        }
+      } else {
+        otherVoices.push(v);
+      }
+    }
+    availableVoices = msVoices.concat(enNetworkVoices).concat(enLocalVoices).concat(otherVoices);
+    populateVoiceSelector();
+    voicesLoaded = true;
+    return availableVoices;
   }
 
-  // Generate TTS audio for a chunk via Speechify API
-  async function generateChunk(textChunk, voiceId, speed) {
-    const resp = await fetch('/api/tts', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ text: textChunk, voice_id: voiceId, speed: speed }),
-    });
-    if (!resp.ok) {
-      const err = await resp.json().catch(function() { return { error: 'TTS failed' }; });
-      throw new Error(err.error || 'TTS error ' + resp.status);
+  function populateVoiceSelector() {
+    var sel = document.getElementById('voiceSelector');
+    if (!sel) return;
+    sel.innerHTML = '<option value="-1">Auto Voice</option>';
+    for (var i = 0; i < availableVoices.length; i++) {
+      var v = availableVoices[i];
+      var opt = document.createElement('option');
+      opt.value = i;
+      var displayName = v.name;
+      if (displayName.indexOf('Microsoft') !== -1) {
+        displayName = displayName.replace(' - English (United States)', '').replace(' - English (United Kingdom)', '');
+      }
+      opt.textContent = displayName;
+      sel.appendChild(opt);
     }
-    const blob = await resp.blob();
-    var url = URL.createObjectURL(blob);
-    audioBlobUrls.push(url);
-    return url;
+  }
+
+  function getBestVoice() {
+    if (selectedVoiceIndex >= 0 && selectedVoiceIndex < availableVoices.length) return availableVoices[selectedVoiceIndex];
+    for (var i = 0; i < availableVoices.length; i++) {
+      var n = availableVoices[i].name.toLowerCase();
+      if (n.indexOf('microsoft') !== -1 && (n.indexOf('natural') !== -1 || n.indexOf('online') !== -1)) return availableVoices[i];
+    }
+    for (var j = 0; j < availableVoices.length; j++) {
+      if (availableVoices[j].lang && availableVoices[j].lang.startsWith('en') && !availableVoices[j].localService) return availableVoices[j];
+    }
+    for (var k = 0; k < availableVoices.length; k++) {
+      if (availableVoices[k].lang && availableVoices[k].lang.startsWith('en')) return availableVoices[k];
+    }
+    if (availableVoices.length > 0) return availableVoices[0];
+    return null;
   }
 
   function resetPlayerUI() {
+    isListening = false; isPaused = false;
+    textChunks = []; currentChunkIndex = 0; totalChunks = 0;
     var btn = document.getElementById('listenBtn');
     var label = document.getElementById('listenLabel');
     var speedWrap = document.getElementById('audioSpeedWrap');
     var progressWrap = document.getElementById('audioProgressWrap');
-    var voiceSelect = document.getElementById('voiceSelect');
-    isListening = false;
-    isLoading = false;
-    currentChunkIndex = 0;
-    totalChunks = 0;
+    var voiceWrap = document.getElementById('voiceSelectorWrap');
     if (label) label.textContent = 'LISTEN';
     if (btn) btn.classList.remove('listening');
     if (speedWrap) speedWrap.style.display = 'none';
     if (progressWrap) progressWrap.style.display = 'none';
-    if (voiceSelect) voiceSelect.style.display = 'none';
+    if (voiceWrap) voiceWrap.style.display = 'none';
     var fill = document.getElementById('audioProgressFill');
     if (fill) fill.style.width = '0%';
+    var timeDisplay = document.getElementById('audioTimeDisplay');
+    if (timeDisplay) timeDisplay.textContent = '0:00';
+    if (progressInterval) { clearInterval(progressInterval); progressInterval = null; }
   }
 
-  window.toggleListen = async function() {
+  function updateProgress() {
+    if (!isListening || isPaused) return;
+    var elapsed = (Date.now() - startTime) / 1000;
+    var pct = Math.min((elapsed / estimatedDuration) * 100, 99);
+    var fill = document.getElementById('audioProgressFill');
+    if (fill) fill.style.width = pct + '%';
+    var remaining = Math.max(0, estimatedDuration - elapsed);
+    var mins = Math.floor(remaining / 60);
+    var secs = Math.floor(remaining % 60);
+    var display = document.getElementById('audioTimeDisplay');
+    if (display) display.textContent = mins + ':' + (secs < 10 ? '0' : '') + secs;
+  }
+
+  function speakChunk() {
+    if (!isListening || currentChunkIndex >= textChunks.length) { resetPlayerUI(); return; }
+    var chunk = textChunks[currentChunkIndex];
+    var utterance = new SpeechSynthesisUtterance(chunk);
+    utterance.rate = currentSpeed; utterance.pitch = 1;
+    var voice = getBestVoice();
+    if (voice) utterance.voice = voice;
+    utterance.onend = function() {
+      currentChunkIndex++;
+      if (isListening) setTimeout(function() { speakChunk(); }, 80);
+    };
+    utterance.onerror = function(e) {
+      console.error('Speech error on chunk', currentChunkIndex, ':', e.error);
+      if (e.error !== 'canceled' && e.error !== 'interrupted') {
+        currentChunkIndex++;
+        if (isListening) setTimeout(function() { speakChunk(); }, 100);
+      }
+    };
+    synth.speak(utterance);
+  }
+
+  window.toggleListen = function() {
     var btn = document.getElementById('listenBtn');
     var label = document.getElementById('listenLabel');
     var speedWrap = document.getElementById('audioSpeedWrap');
     var progressWrap = document.getElementById('audioProgressWrap');
-    var voiceSelect = document.getElementById('voiceSelect');
-
-    // If currently playing → pause/resume
-    if (isListening && audioElement && !isLoading) {
-      if (audioElement.paused) {
-        audioElement.play();
-        label.textContent = 'STOP';
-        btn.classList.add('listening');
-      } else {
-        audioElement.pause();
-        label.textContent = 'PLAY';
-        btn.classList.remove('listening');
-      }
+    var voiceWrap = document.getElementById('voiceSelectorWrap');
+    if (isListening && !isPaused) {
+      if (synth) synth.pause();
+      isPaused = true; label.textContent = 'PLAY'; btn.classList.remove('listening');
       return;
     }
-
-    // If not yet loaded → generate audio
-    var content = document.querySelector('.article-content');
-    if (!content) return;
-
-    var rawText = content.innerText;
-    if (!rawText.trim()) return;
-
-    // Show loading state
-    isLoading = true;
-    label.textContent = 'LOADING...';
-    btn.classList.add('listening');
-
-    try {
-      var cleanText = cleanTextForTTS(rawText);
-      var chunks = splitIntoChunks(cleanText, CHUNK_SIZE);
-      totalChunks = chunks.length;
-      currentChunkIndex = 0;
-
-      var voiceId = voiceSelect ? voiceSelect.value : 'david';
-
-      // Generate first chunk immediately
-      var firstUrl = await generateChunk(chunks[0], voiceId, currentSpeed);
-
-      // Create audio element
-      if (audioElement) {
-        audioElement.pause();
-        audioElement.src = '';
-      }
-      cleanupBlobUrls();
-      audioElement = new Audio(firstUrl);
-      audioElement.playbackRate = 1; // Speed is handled server-side by Speechify
-
-      // Set up progress tracking
-      audioElement.addEventListener('timeupdate', function() {
-        if (audioElement.duration) {
-          var chunkProgress = (audioElement.currentTime / audioElement.duration);
-          var overallProgress = ((currentChunkIndex + chunkProgress) / totalChunks) * 100;
-          var fill = document.getElementById('audioProgressFill');
-          if (fill) fill.style.width = overallProgress + '%';
-          var display = document.getElementById('audioTimeDisplay');
-          if (display) {
-            var remaining = Math.max(0, audioElement.duration - audioElement.currentTime);
-            // Estimate total remaining time across all chunks
-            var avgChunkDuration = audioElement.duration;
-            var chunksLeft = totalChunks - currentChunkIndex - 1;
-            var totalRemaining = remaining + (chunksLeft * avgChunkDuration);
-            var mins = Math.floor(totalRemaining / 60);
-            var secs = Math.floor(totalRemaining % 60);
-            display.textContent = mins + ':' + (secs < 10 ? '0' : '') + secs;
-          }
-        }
-      });
-
-      // When current chunk ends, play next chunk
-      audioElement.addEventListener('ended', function() {
-        currentChunkIndex++;
-        if (currentChunkIndex < totalChunks) {
-          // Play next chunk
-          playChunk(chunks, currentChunkIndex, voiceId);
-        } else {
-          // All chunks played
-          resetPlayerUI();
-        }
-      });
-
-      audioElement.addEventListener('error', function() {
-        console.error('Audio playback error');
-        // Try next chunk if available
-        currentChunkIndex++;
-        if (currentChunkIndex < totalChunks) {
-          playChunk(chunks, currentChunkIndex, voiceId);
-        } else {
-          resetPlayerUI();
-        }
-      });
-
-      // Start playing
-      audioElement.play().catch(function(e) {
-        console.error('Audio play failed:', e);
-      });
-      isListening = true;
-      isLoading = false;
-      label.textContent = 'STOP';
-      btn.classList.add('listening');
-      speedWrap.style.display = 'flex';
-      progressWrap.style.display = 'flex';
-      voiceSelect.style.display = 'inline-block';
-
-      // Pre-generate remaining chunks in background
-      if (chunks.length > 1) {
-        preGenerateChunks(chunks, 1, voiceId);
-      }
-    } catch (err) {
-      console.error('Speechify TTS error:', err);
-      isLoading = false;
-      isListening = false;
-      label.textContent = 'LISTEN';
-      btn.classList.remove('listening');
-
-      // Fallback to browser TTS if Speechify fails
-      var synth = window.speechSynthesis;
-      if (synth) {
-        var utter = new SpeechSynthesisUtterance(cleanTextForTTS(content.innerText));
-        utter.rate = currentSpeed;
-        synth.speak(utter);
-        isListening = true;
-        label.textContent = 'STOP';
-        btn.classList.add('listening');
-        speedWrap.style.display = 'flex';
-        utter.onend = function() {
-          resetPlayerUI();
-        };
-      } else {
-        alert('Audio playback is not available. Please try again later.');
-      }
+    if (isListening && isPaused) {
+      if (synth) synth.resume();
+      isPaused = false; label.textContent = 'STOP'; btn.classList.add('listening');
+      return;
     }
+    var content = document.querySelector('.article-content');
+    if (!content) { console.warn('No .article-content element found'); return; }
+    var rawText = content.innerText;
+    if (!rawText.trim()) { console.warn('Article content is empty'); return; }
+    var cleanText = cleanTextForTTS(rawText);
+    if (!cleanText) { console.warn('Text empty after cleaning'); return; }
+    if (!synth) { alert('Your browser does not support text-to-speech. Please try Chrome, Edge, or Safari.'); return; }
+    if (!voicesLoaded) loadVoices();
+    synth.cancel();
+    textChunks = splitIntoChunks(cleanText, CHUNK_SIZE);
+    currentChunkIndex = 0; totalChunks = textChunks.length;
+    var wordCount = cleanText.split(/\s+/).length;
+    var adjustedWPM = 150 * currentSpeed;
+    estimatedDuration = (wordCount / adjustedWPM) * 60;
+    isListening = true; isPaused = false; startTime = Date.now();
+    label.textContent = 'STOP'; btn.classList.add('listening');
+    speedWrap.style.display = 'flex'; progressWrap.style.display = 'flex'; voiceWrap.style.display = 'block';
+    if (progressInterval) clearInterval(progressInterval);
+    progressInterval = setInterval(updateProgress, 500);
+    speakChunk();
+    var watchdogInterval = setInterval(function() {
+      if (!isListening) { clearInterval(watchdogInterval); return; }
+      if (!synth.speaking && isListening && !isPaused) { synth.resume(); }
+    }, 5000);
   };
 
-  // Pre-generate chunks in background for seamless playback
-  async function preGenerateChunks(chunks, startIndex, voiceId) {
-    for (var i = startIndex; i < chunks.length; i++) {
-      try {
-        await generateChunk(chunks[i], voiceId, currentSpeed);
-      } catch (e) {
-        console.error('Pre-generate chunk ' + i + ' failed:', e);
-      }
-    }
-  }
-
-  // Play a specific chunk by index
-  async function playChunk(chunks, index, voiceId) {
-    try {
-      var url = await generateChunk(chunks[index], voiceId, currentSpeed);
-      if (audioElement) {
-        audioElement.pause();
-        audioElement.src = url;
-        audioElement.playbackRate = 1;
-        audioElement.play().catch(function(e) {
-          console.error('Chunk play failed:', e);
-        });
-      }
-    } catch (e) {
-      console.error('Generate chunk ' + index + ' failed:', e);
-      // Skip to next chunk
-      currentChunkIndex++;
-      if (currentChunkIndex < totalChunks) {
-        playChunk(chunks, currentChunkIndex, voiceId);
-      } else {
-        resetPlayerUI();
-      }
-    }
-  }
-
-  // Seek in audio
   window.seekAudio = function(e) {
-    if (!audioElement || !audioElement.duration) return;
+    if (!isListening) return;
     var bar = document.getElementById('audioProgressBar');
     var rect = bar.getBoundingClientRect();
     var pct = (e.clientX - rect.left) / rect.width;
-    audioElement.currentTime = pct * audioElement.duration;
+    var targetChunk = Math.floor(pct * totalChunks);
+    if (targetChunk >= totalChunks) targetChunk = totalChunks - 1;
+    if (targetChunk < 0) targetChunk = 0;
+    synth.cancel(); currentChunkIndex = targetChunk;
+    startTime = Date.now() - (pct * estimatedDuration * 1000);
+    var fill = document.getElementById('audioProgressFill');
+    if (fill) fill.style.width = (pct * 100) + '%';
+    setTimeout(function() { if (isListening) speakChunk(); }, 100);
   };
 
-  // Speed buttons — re-generate audio with new speed on Speechify
   document.addEventListener('click', function(e) {
     if (e.target.classList.contains('speed-btn')) {
       var speed = parseFloat(e.target.dataset.speed);
       currentSpeed = speed;
       document.querySelectorAll('.speed-btn').forEach(function(b) { b.classList.remove('active'); });
       e.target.classList.add('active');
-      // Speechify handles speed server-side, but we also adjust playback rate
-      // for already-generated chunks as a quick response
-      if (audioElement) {
-        audioElement.playbackRate = speed;
+      if (isListening) {
+        synth.cancel();
+        var wordCount = 0;
+        for (var i = 0; i < currentChunkIndex; i++) wordCount += textChunks[i].split(/\s+/).length;
+        var totalWords = 0;
+        for (var j = 0; j < textChunks.length; j++) totalWords += textChunks[j].split(/\s+/).length;
+        estimatedDuration = (totalWords / (150 * speed)) * 60;
+        startTime = Date.now() - ((wordCount / totalWords) * estimatedDuration * 1000);
+        setTimeout(function() { if (isListening) speakChunk(); }, 100);
       }
     }
   });
 
-  // Voice change — regenerate audio with new voice
   document.addEventListener('change', function(e) {
-    if (e.target.id === 'voiceSelect') {
-      // If currently playing, stop and restart with new voice
-      if (isListening && audioElement) {
-        var content = document.querySelector('.article-content');
-        if (content) {
-          audioElement.pause();
-          audioElement.src = '';
-          cleanupBlobUrls();
-          isListening = false;
-          isLoading = false;
-          // Re-trigger listen with new voice
-          window.toggleListen();
-        }
+    if (e.target.id === 'voiceSelector') {
+      selectedVoiceIndex = parseInt(e.target.value, 10);
+      if (isListening) {
+        synth.cancel();
+        setTimeout(function() { if (isListening) speakChunk(); }, 100);
       }
     }
   });
+
+  if (synth) {
+    loadVoices();
+    synth.onvoiceschanged = function() { loadVoices(); };
+  }
 
   // ===== LIKE BUTTON (Live KV-backed) =====
   var LIKES_KEY = 'menshly_liked_articles';
@@ -395,34 +362,21 @@
 
   function setUserLiked(liked) {
     var arr = getUserLikedArticles();
-    if (liked) {
-      if (arr.indexOf(PAGE_SLUG) === -1) arr.push(PAGE_SLUG);
-    } else {
-      arr = arr.filter(function(s) { return s !== PAGE_SLUG; });
-    }
+    if (liked) { if (arr.indexOf(PAGE_SLUG) === -1) arr.push(PAGE_SLUG); }
+    else { arr = arr.filter(function(s) { return s !== PAGE_SLUG; }); }
     localStorage.setItem(LIKES_KEY, JSON.stringify(arr));
   }
 
-  function isUserLiked() {
-    return getUserLikedArticles().indexOf(PAGE_SLUG) !== -1;
-  }
+  function isUserLiked() { return getUserLikedArticles().indexOf(PAGE_SLUG) !== -1; }
 
   async function fetchLiveCount() {
     try {
       var res = await fetch('/api/likes?slug=' + encodeURIComponent(PAGE_SLUG));
-      if (res.ok) {
-        var data = await res.json();
-        liveLikeCount = data.likes || 0;
-        updateLikeUI();
-      }
+      if (res.ok) { var data = await res.json(); liveLikeCount = data.likes || 0; updateLikeUI(); }
     } catch (e) {
       var hash = 0;
-      for (var i = 0; i < PAGE_SLUG.length; i++) {
-        hash = ((hash << 5) - hash) + PAGE_SLUG.charCodeAt(i);
-        hash |= 0;
-      }
-      liveLikeCount = Math.abs(hash) % 47 + 8;
-      updateLikeUI();
+      for (var i = 0; i < PAGE_SLUG.length; i++) { hash = ((hash << 5) - hash) + PAGE_SLUG.charCodeAt(i); hash |= 0; }
+      liveLikeCount = Math.abs(hash) % 47 + 8; updateLikeUI();
     }
   }
 
@@ -431,56 +385,30 @@
     var icon = document.getElementById('likeIcon');
     var countEl = document.getElementById('likeCount');
     if (!btn || !countEl) return;
-
     isLikedByUser = isUserLiked();
-    var displayCount = liveLikeCount + (isLikedByUser ? 1 : 0);
-    countEl.textContent = displayCount;
-
-    if (isLikedByUser) {
-      btn.classList.add('liked');
-      icon.setAttribute('fill', 'currentColor');
-    } else {
-      btn.classList.remove('liked');
-      icon.setAttribute('fill', 'none');
-    }
+    countEl.textContent = liveLikeCount + (isLikedByUser ? 1 : 0);
+    if (isLikedByUser) { btn.classList.add('liked'); icon.setAttribute('fill', 'currentColor'); }
+    else { btn.classList.remove('liked'); icon.setAttribute('fill', 'none'); }
   }
 
   window.toggleLike = async function() {
     var btn = document.getElementById('likeBtn');
     var icon = document.getElementById('likeIcon');
     var countEl = document.getElementById('likeCount');
-
     if (isLikedByUser) {
-      isLikedByUser = false;
-      setUserLiked(false);
-      btn.classList.remove('liked');
-      icon.setAttribute('fill', 'none');
+      isLikedByUser = false; setUserLiked(false);
+      btn.classList.remove('liked'); icon.setAttribute('fill', 'none');
       countEl.textContent = liveLikeCount;
     } else {
-      isLikedByUser = true;
-      setUserLiked(true);
-      btn.classList.add('liked');
-      icon.setAttribute('fill', 'currentColor');
+      isLikedByUser = true; setUserLiked(true);
+      btn.classList.add('liked'); icon.setAttribute('fill', 'currentColor');
       countEl.textContent = liveLikeCount + 1;
-
       btn.classList.add('like-pop');
       setTimeout(function() { btn.classList.remove('like-pop'); }, 400);
-
-      if (typeof createHeartBurst === 'function') {
-        createHeartBurst(btn);
-      }
-
+      if (typeof createHeartBurst === 'function') createHeartBurst(btn);
       try {
-        var res = await fetch('/api/likes', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ slug: PAGE_SLUG })
-        });
-        if (res.ok) {
-          var data = await res.json();
-          liveLikeCount = data.likes || 0;
-          countEl.textContent = liveLikeCount;
-        }
+        var res = await fetch('/api/likes', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ slug: PAGE_SLUG }) });
+        if (res.ok) { var data = await res.json(); liveLikeCount = data.likes || 0; countEl.textContent = liveLikeCount; }
       } catch (e) {}
     }
   };
