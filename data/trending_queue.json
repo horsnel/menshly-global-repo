@@ -1,25 +1,6 @@
 {
-  "last_updated": "2026-05-15T10:38:35.227656+00:00",
+  "last_updated": "2026-05-18T12:03:23.711325+00:00",
   "topics": [
-    {
-      "topic": "How to build AI customer support automation in 2026",
-      "context": "Businesses are replacing first-line support with AI chatbots and routing",
-      "keywords": [
-        "AI support",
-        "chatbot automation",
-        "customer service"
-      ],
-      "affiliates": [
-        "ChatGPT",
-        "Make.com",
-        "Zapier",
-        "Shopify"
-      ],
-      "opportunity_angle": "How to Build an AI Customer Support Automation Business in 2026 ($3K-20K/Month)",
-      "intelligence_angle": "Design, Build, and Deploy AI Customer Support Automation with ChatGPT",
-      "playbook_angle": "Design, Build, and Scale AI Customer Support Automation Systems with ChatGPT and Make.com",
-      "discovered_at": "2026-04-29T10:03:16.542440+00:00"
-    },
     {
       "topic": "How to start an AI contract review business in 2026",
       "context": "With the increasing use of AI in legal documents, contract review is becoming a lucrative business opportunity. AI-powered contract review tools can help solo entrepreneurs review contracts quickly and accurately.",
@@ -3035,6 +3016,329 @@
       "intelligence_angle": "Create, automate, and optimize course creation workflows with AI tools like ChatGPT",
       "playbook_angle": "Create, automate, and distribute courses with AI-powered workflows using Make.com",
       "discovered_at": "2026-05-15T10:20:02.209436+00:00"
+    },
+    {
+      "topic": "How to start an AI social media management pipeline in 2026",
+      "context": "Social media management is a growing need for businesses. AI can help automate and optimize social media management, making it a trending opportunity.",
+      "keywords": [
+        "AI social media management",
+        "social media pipeline",
+        "social media marketing"
+      ],
+      "affiliates": [
+        "Make.com",
+        "Buffer",
+        "Hootsuite",
+        "Grammarly"
+      ],
+      "opportunity_angle": "How to launch an AI social media management pipeline in 2026 (earn $8K/month)",
+      "intelligence_angle": "Automate, schedule, and optimize AI social media management with Buffer",
+      "playbook_angle": "Build, manage, and scale an AI social media management pipeline with Make.com",
+      "discovered_at": "2026-05-18T11:42:13.988559+00:00"
+    },
+    {
+      "topic": "How to build an AI-powered contract review agency in 2026",
+      "context": "Contract review is a time-consuming process that can be automated with AI. Entrepreneurs can offer AI-driven contract review services to businesses.",
+      "keywords": [
+        "AI contract review",
+        "contract automation",
+        "legal document review"
+      ],
+      "affiliates": [
+        "Make.com",
+        "ChatGPT",
+        "Notion",
+        "Loom"
+      ],
+      "opportunity_angle": "How to create an AI-powered contract review agency in 2026 (generate $12K/month)",
+      "intelligence_angle": "Automate, review, and optimize AI contract review with ChatGPT",
+      "playbook_angle": "Build, implement, and scale an AI contract review agency with Notion",
+      "discovered_at": "2026-05-18T11:42:13.988600+00:00"
+    },
+    {
+      "topic": "How to start an AI voiceover agency with Vapi in 2026",
+      "context": "AI voiceover technology is improving rapidly, making it a promising opportunity for entrepreneurs to offer AI-driven voiceover services.",
+      "keywords": [
+        "AI voiceover",
+        "voiceover agency",
+        "Vapi"
+      ],
+      "affiliates": [
+        "Vapi",
+        "Make.com",
+        "Replit",
+        "Loom"
+      ],
+      "opportunity_angle": "How to launch an AI voiceover agency with Vapi in 2026 (earn $6K/month)",
+      "intelligence_angle": "Automate, optimize, and deliver AI voiceover with Vapi",
+      "playbook_angle": "Build, manage, and scale an AI voiceover agency with Replit",
+      "discovered_at": "2026-05-18T11:42:13.988621+00:00"
+    },
+    {
+      "topic": "How to build an AI-powered webinar production agency in 2026",
+      "context": "Webinars are a popular way to educate and engage audiences. AI can help automate and optimize webinar production, making it a lucrative opportunity.",
+      "keywords": [
+        "AI webinar production",
+        "webinar automation",
+        "online events"
+      ],
+      "affiliates": [
+        "Make.com",
+        "Replit",
+        "Vapi",
+        "Loom"
+      ],
+      "opportunity_angle": "How to create an AI-powered webinar production agency in 2026 (generate $15K/month)",
+      "intelligence_angle": "Automate, optimize, and deliver AI webinar production with Make.com",
+      "playbook_angle": "Build, implement, and scale an AI webinar production agency with Replit",
+      "discovered_at": "2026-05-18T11:42:13.988641+00:00"
+    },
+    {
+      "topic": "How to build an AI-powered bookkeeping automation system in 2026",
+      "context": "Bookkeeping is a time-consuming process that can be automated with AI. Entrepreneurs can offer AI-driven bookkeeping services to businesses.",
+      "keywords": [
+        "AI bookkeeping",
+        "bookkeeping automation",
+        "accounting"
+      ],
+      "affiliates": [
+        "Make.com",
+        "QuickBooks",
+        "Notion",
+        "Loom"
+      ],
+      "opportunity_angle": "How to create an AI-powered bookkeeping automation system in 2026 (generate $11K/month)",
+      "intelligence_angle": "Automate, optimize, and deliver AI bookkeeping with QuickBooks",
+      "playbook_angle": "Build, implement, and scale an AI bookkeeping automation system with Notion",
+      "discovered_at": "2026-05-18T11:42:13.988680+00:00"
+    },
+    {
+      "topic": "How to start an AI customer support automation agency in 2026",
+      "context": "Customer support is a crucial aspect of business operations. AI can help automate and optimize customer support, making it a lucrative opportunity.",
+      "keywords": [
+        "AI customer support",
+        "customer support automation",
+        "chatbots"
+      ],
+      "affiliates": [
+        "Make.com",
+        "ChatGPT",
+        "Notion",
+        "Klaviyo"
+      ],
+      "opportunity_angle": "How to launch an AI customer support automation agency in 2026 (earn $14K/month)",
+      "intelligence_angle": "Automate, optimize, and deliver AI customer support with ChatGPT",
+      "playbook_angle": "Build, manage, and scale an AI customer support automation agency with Notion",
+      "discovered_at": "2026-05-18T11:42:13.988701+00:00"
+    },
+    {
+      "topic": "How to build an AI-powered proposal writing agency in 2026",
+      "context": "Proposal writing is a time-consuming process that can be automated with AI. Entrepreneurs can offer AI-driven proposal writing services to businesses.",
+      "keywords": [
+        "AI proposal writing",
+        "proposal automation",
+        "grant writing"
+      ],
+      "affiliates": [
+        "Make.com",
+        "ChatGPT",
+        "Notion",
+        "Loom"
+      ],
+      "opportunity_angle": "How to create an AI-powered proposal writing agency in 2026 (generate $13K/month)",
+      "intelligence_angle": "Automate, optimize, and deliver AI proposal writing with ChatGPT",
+      "playbook_angle": "Build, implement, and scale an AI proposal writing agency with Notion",
+      "discovered_at": "2026-05-18T11:42:13.988720+00:00"
+    },
+    {
+      "topic": "How to build an AI-powered lead generation system with Apollo in 2026",
+      "context": "Lead generation is a crucial aspect of business operations. AI can help automate and optimize lead generation, making it a lucrative opportunity.",
+      "keywords": [
+        "AI lead generation",
+        "lead generation system",
+        "Apollo"
+      ],
+      "affiliates": [
+        "Apollo",
+        "Make.com",
+        "Notion",
+        "Klaviyo"
+      ],
+      "opportunity_angle": "How to create an AI-powered lead generation system with Apollo in 2026 (generate $16K/month)",
+      "intelligence_angle": "Automate, optimize, and deliver AI lead generation with Apollo",
+      "playbook_angle": "Build, implement, and scale an AI lead generation system with Notion",
+      "discovered_at": "2026-05-18T11:42:13.988758+00:00"
+    },
+    {
+      "topic": "How to build an AI-powered SEO agency with Semrush in 2026",
+      "context": "SEO is a crucial aspect of online marketing. AI can help automate and optimize SEO, making it a lucrative opportunity.",
+      "keywords": [
+        "AI SEO",
+        "SEO agency",
+        "Semrush"
+      ],
+      "affiliates": [
+        "Semrush",
+        "Make.com",
+        "Notion",
+        "Klaviyo"
+      ],
+      "opportunity_angle": "How to create an AI-powered SEO agency with Semrush in 2026 (generate $18K/month)",
+      "intelligence_angle": "Automate, optimize, and deliver AI SEO with Semrush",
+      "playbook_angle": "Build, implement, and scale an AI SEO agency with Notion",
+      "discovered_at": "2026-05-18T11:42:13.988795+00:00"
+    },
+    {
+      "topic": "How to start an AI real estate automation agency in 2026",
+      "context": "Real estate automation is a growing need for businesses. AI can help automate and optimize real estate operations, making it a trending opportunity.",
+      "keywords": [
+        "AI real estate",
+        "real estate automation",
+        "property management"
+      ],
+      "affiliates": [
+        "Make.com",
+        "Replit",
+        "Vapi",
+        "Loom"
+      ],
+      "opportunity_angle": "How to launch an AI real estate automation agency in 2026 (earn $10K/month)",
+      "intelligence_angle": "Automate, optimize, and deliver AI real estate automation with Make.com",
+      "playbook_angle": "Build, manage, and scale an AI real estate automation agency with Replit",
+      "discovered_at": "2026-05-18T11:42:13.988815+00:00"
+    },
+    {
+      "topic": "How to build an AI-powered translation and localization service in 2026",
+      "context": "Translation and localization are crucial aspects of global business operations. AI can help automate and optimize translation and localization, making it a lucrative opportunity.",
+      "keywords": [
+        "AI translation",
+        "translation and localization",
+        "language services"
+      ],
+      "affiliates": [
+        "Make.com",
+        "ChatGPT",
+        "Notion",
+        "Loom"
+      ],
+      "opportunity_angle": "How to create an AI-powered translation and localization service in 2026 (generate $12K/month)",
+      "intelligence_angle": "Automate, optimize, and deliver AI translation with ChatGPT",
+      "playbook_angle": "Build, implement, and scale an AI translation and localization service with Notion",
+      "discovered_at": "2026-05-18T11:42:13.988834+00:00"
+    },
+    {
+      "topic": "How to start an AI data analysis service with ChatGPT in 2026",
+      "context": "Data analysis is a growing need for businesses. AI can help automate and optimize data analysis, making it a trending opportunity.",
+      "keywords": [
+        "AI data analysis",
+        "data analysis service",
+        "ChatGPT"
+      ],
+      "affiliates": [
+        "ChatGPT",
+        "Make.com",
+        "Replit",
+        "Loom"
+      ],
+      "opportunity_angle": "How to launch an AI data analysis service with ChatGPT in 2026 (earn $9K/month)",
+      "intelligence_angle": "Automate, optimize, and deliver AI data analysis with ChatGPT",
+      "playbook_angle": "Build, manage, and scale an AI data analysis service with Replit",
+      "discovered_at": "2026-05-18T11:42:13.988854+00:00"
+    },
+    {
+      "topic": "How to build an AI-powered customer onboarding pipeline with Notion in 2026",
+      "context": "Customer onboarding is a crucial aspect of business operations. AI can help automate and optimize customer onboarding, making it a lucrative opportunity.",
+      "keywords": [
+        "AI customer onboarding",
+        "onboarding pipeline",
+        "Notion"
+      ],
+      "affiliates": [
+        "Notion",
+        "Make.com",
+        "Klaviyo",
+        "Calendly"
+      ],
+      "opportunity_angle": "How to create an AI-powered customer onboarding pipeline with Notion in 2026 (generate $11K/month)",
+      "intelligence_angle": "Automate, optimize, and deliver AI customer onboarding with Notion",
+      "playbook_angle": "Build, implement, and scale an AI customer onboarding pipeline with Notion",
+      "discovered_at": "2026-05-18T11:42:13.988874+00:00"
+    },
+    {
+      "topic": "How to start an AI video editing service with Loom in 2026",
+      "context": "Video editing is a growing need for businesses. AI can help automate and optimize video editing, making it a trending opportunity.",
+      "keywords": [
+        "AI video editing",
+        "video editing service",
+        "Loom"
+      ],
+      "affiliates": [
+        "Loom",
+        "Make.com",
+        "Replit",
+        "Vapi"
+      ],
+      "opportunity_angle": "How to launch an AI video editing service with Loom in 2026 (earn $8K/month)",
+      "intelligence_angle": "Automate, optimize, and deliver AI video editing with Loom",
+      "playbook_angle": "Build, manage, and scale an AI video editing service with Replit",
+      "discovered_at": "2026-05-18T11:42:13.988895+00:00"
+    },
+    {
+      "topic": "How to build an AI-powered chatbot agency with ChatGPT in 2026",
+      "context": "Chatbots are a popular way to engage with customers. AI can help automate and optimize chatbot development, making it a lucrative opportunity.",
+      "keywords": [
+        "AI chatbot",
+        "chatbot agency",
+        "ChatGPT"
+      ],
+      "affiliates": [
+        "ChatGPT",
+        "Make.com",
+        "Notion",
+        "Klaviyo"
+      ],
+      "opportunity_angle": "How to create an AI-powered chatbot agency with ChatGPT in 2026 (generate $14K/month)",
+      "intelligence_angle": "Automate, optimize, and deliver AI chatbot development with ChatGPT",
+      "playbook_angle": "Build, implement, and scale an AI chatbot agency with Notion",
+      "discovered_at": "2026-05-18T11:42:13.988915+00:00"
+    },
+    {
+      "topic": "How to start an AI course creation business with Replit in 2026",
+      "context": "Course creation is a growing need for businesses. AI can help automate and optimize course development, making it a trending opportunity.",
+      "keywords": [
+        "AI course creation",
+        "course creation business",
+        "Replit"
+      ],
+      "affiliates": [
+        "Replit",
+        "Make.com",
+        "Notion",
+        "Loom"
+      ],
+      "opportunity_angle": "How to launch an AI course creation business with Replit in 2026 (earn $10K/month)",
+      "intelligence_angle": "Automate, optimize, and deliver AI course creation with Replit",
+      "playbook_angle": "Build, manage, and scale an AI course creation business with Notion",
+      "discovered_at": "2026-05-18T11:42:13.988935+00:00"
+    },
+    {
+      "topic": "How to build an AI-powered supply chain optimization system in 2026",
+      "context": "Supply chain optimization is a crucial aspect of business operations. AI can help automate and optimize supply chain management, making it a lucrative opportunity.",
+      "keywords": [
+        "AI supply chain optimization",
+        "supply chain system",
+        "logistics"
+      ],
+      "affiliates": [
+        "Make.com",
+        "ChatGPT",
+        "Notion",
+        "Loom"
+      ],
+      "opportunity_angle": "How to create an AI-powered supply chain optimization system in 2026 (generate $15K/month)",
+      "intelligence_angle": "Automate, optimize, and deliver AI supply chain optimization with ChatGPT",
+      "playbook_angle": "Build, implement, and scale an AI supply chain optimization system with Notion",
+      "discovered_at": "2026-05-18T11:42:13.988954+00:00"
     }
   ],
   "used_topics": [
@@ -3081,6 +3385,10 @@
     {
       "topic": "How to start an AI cold email outreach agency in 2026",
       "used_at": "2026-05-15T10:38:35.227629+00:00"
+    },
+    {
+      "topic": "How to build AI customer support automation in 2026",
+      "used_at": "2026-05-18T12:03:23.711296+00:00"
     }
   ]
 }
