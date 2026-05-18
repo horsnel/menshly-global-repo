@@ -1,10 +1,10 @@
 {
-  "timestamp": "2026-05-17T11:57:37.346754",
+  "timestamp": "2026-05-18T14:27:14.510790",
   "force_mode": false,
-  "total_articles": 104,
-  "articles_processed": 2,
+  "total_articles": 105,
+  "articles_processed": 3,
   "thumbnails_generated": 0,
   "heroes_generated": 0,
   "skipped": 0,
-  "failed": 4
+  "failed": 6
 }
