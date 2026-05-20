@@ -1,24 +1,6 @@
 {
-  "last_updated": "2026-05-19T12:43:08.789646+00:00",
+  "last_updated": "2026-05-20T11:18:51.103848+00:00",
   "topics": [
-    {
-      "topic": "How to start an AI contract review business in 2026",
-      "context": "With the increasing use of AI in legal documents, contract review is becoming a lucrative business opportunity. AI-powered contract review tools can help solo entrepreneurs review contracts quickly and accurately.",
-      "keywords": [
-        "AI contract review",
-        "legal document automation",
-        "contract analysis"
-      ],
-      "affiliates": [
-        "ElevenLabs",
-        "Notion",
-        "Grammarly"
-      ],
-      "opportunity_angle": "How to start an AI contract review business in 2026 (earn $5,000/month)",
-      "intelligence_angle": "Analyze, automate, and optimize contract reviews with AI tools",
-      "playbook_angle": "Launch, manage, and scale an AI contract review business with Notion and Grammarly",
-      "discovered_at": "2026-05-01T05:27:27.022818+00:00"
-    },
     {
       "topic": "How to build an AI-powered supply chain optimization consulting business in 2026",
       "context": "As businesses look to optimize their supply chains, AI-powered consulting services are in high demand. Solo entrepreneurs can use AI tools to analyze supply chain data and provide actionable insights.",
@@ -3339,6 +3321,276 @@
       "intelligence_angle": "Automate, optimize, and deliver AI supply chain optimization with ChatGPT",
       "playbook_angle": "Build, implement, and scale an AI supply chain optimization system with Notion",
       "discovered_at": "2026-05-18T11:42:13.988954+00:00"
+    },
+    {
+      "topic": "How to build an AI contract review business in 2026",
+      "context": "AI-powered contract review is a growing need in various industries. Solo entrepreneurs can offer this service with the help of AI tools.",
+      "keywords": [
+        "AI contract review",
+        "contract review business",
+        "AI legal services"
+      ],
+      "affiliates": [
+        "ChatGPT",
+        "Make.com",
+        "Notion"
+      ],
+      "opportunity_angle": "How to build an AI contract review business in 2026 (Earn $5K/month)",
+      "intelligence_angle": "Analyze, review, and optimize contracts with AI using ChatGPT",
+      "playbook_angle": "Create, execute, and deliver AI contract review services with Make.com",
+      "discovered_at": "2026-05-20T10:47:55.814787+00:00"
+    },
+    {
+      "topic": "How to start an AI translation and localization agency in 2026",
+      "context": "With the rise of global business, AI-powered translation and localization are becoming increasingly important. Solo entrepreneurs can capitalize on this trend.",
+      "keywords": [
+        "AI translation",
+        "AI localization",
+        "translation agency"
+      ],
+      "affiliates": [
+        "ChatGPT",
+        "Make.com",
+        "Google Translate"
+      ],
+      "opportunity_angle": "How to launch an AI translation and localization agency in 2026 (Earn $12K/month)",
+      "intelligence_angle": "Research, create, and optimize AI translation workflows with ChatGPT",
+      "playbook_angle": "Plan, execute, and scale AI translation services with Make.com",
+      "discovered_at": "2026-05-20T10:47:55.814889+00:00"
+    },
+    {
+      "topic": "How to start an AI bookkeeping automation agency in 2026",
+      "context": "AI-powered bookkeeping automation is a growing need in various industries. Solo entrepreneurs can offer this service with the help of AI tools.",
+      "keywords": [
+        "AI bookkeeping automation",
+        "bookkeeping automation agency",
+        "AI accounting services"
+      ],
+      "affiliates": [
+        "ChatGPT",
+        "Make.com",
+        "QuickBooks"
+      ],
+      "opportunity_angle": "How to launch an AI bookkeeping automation agency in 2026 (Earn $7K/month)",
+      "intelligence_angle": "Research, create, and optimize AI bookkeeping workflows with ChatGPT",
+      "playbook_angle": "Plan, execute, and scale AI bookkeeping automation services with Make.com",
+      "discovered_at": "2026-05-20T10:47:55.814960+00:00"
+    },
+    {
+      "topic": "How to start an AI lead generation agency in 2026",
+      "context": "AI-powered lead generation is a growing need in various industries. Solo entrepreneurs can offer this service with the help of AI tools.",
+      "keywords": [
+        "AI lead generation",
+        "lead generation agency",
+        "AI sales services"
+      ],
+      "affiliates": [
+        "Apollo.io",
+        "PhantomBuster",
+        "ChatGPT"
+      ],
+      "opportunity_angle": "How to launch an AI lead generation agency in 2026 (Earn $12K/month)",
+      "intelligence_angle": "Research, create, and optimize AI lead generation workflows with Apollo.io",
+      "playbook_angle": "Plan, execute, and scale AI lead generation services with PhantomBuster",
+      "discovered_at": "2026-05-20T10:47:55.815036+00:00"
+    },
+    {
+      "topic": "How to build an AI proposal writing system in 2026",
+      "context": "AI-powered proposal writing is a growing need in various industries. Solo entrepreneurs can offer this service with the help of AI tools.",
+      "keywords": [
+        "AI proposal writing",
+        "proposal writing system",
+        "AI business writing"
+      ],
+      "affiliates": [
+        "ChatGPT",
+        "Make.com",
+        "Notion"
+      ],
+      "opportunity_angle": "How to build an AI proposal writing system in 2026 (Earn $9K/month)",
+      "intelligence_angle": "Design, create, and optimize AI proposal writing workflows with ChatGPT",
+      "playbook_angle": "Develop, execute, and deliver AI proposal writing services with Make.com",
+      "discovered_at": "2026-05-20T10:47:55.815057+00:00"
+    },
+    {
+      "topic": "How to build an AI data analysis and visualization system in 2026",
+      "context": "AI-powered data analysis and visualization is a growing need in various industries. Solo entrepreneurs can offer this service with the help of AI tools.",
+      "keywords": [
+        "AI data analysis",
+        "data visualization system",
+        "AI business intelligence"
+      ],
+      "affiliates": [
+        "ChatGPT",
+        "Make.com",
+        "Tableau"
+      ],
+      "opportunity_angle": "How to build an AI data analysis and visualization system in 2026 (Earn $12K/month)",
+      "intelligence_angle": "Design, create, and optimize AI data analysis workflows with ChatGPT",
+      "playbook_angle": "Develop, execute, and deliver AI data analysis services with Make.com",
+      "discovered_at": "2026-05-20T10:47:55.815094+00:00"
+    },
+    {
+      "topic": "How to start an AI content creation agency in 2026",
+      "context": "AI-powered content creation is a growing need in various industries. Solo entrepreneurs can offer this service with the help of AI tools.",
+      "keywords": [
+        "AI content creation",
+        "content creation agency",
+        "AI writing services"
+      ],
+      "affiliates": [
+        "ChatGPT",
+        "Make.com",
+        "Canva"
+      ],
+      "opportunity_angle": "How to launch an AI content creation agency in 2026 (Earn $15K/month)",
+      "intelligence_angle": "Research, create, and optimize AI content creation workflows with ChatGPT",
+      "playbook_angle": "Plan, execute, and scale AI content creation services with Make.com",
+      "discovered_at": "2026-05-20T10:47:55.815115+00:00"
+    },
+    {
+      "topic": "How to build an AI social media advertising agency in 2026",
+      "context": "AI-powered social media advertising is a growing need in various industries. Solo entrepreneurs can offer this service with the help of AI tools.",
+      "keywords": [
+        "AI social media advertising",
+        "social media advertising agency",
+        "AI marketing services"
+      ],
+      "affiliates": [
+        "Facebook Ads",
+        "Google Ads",
+        "ChatGPT"
+      ],
+      "opportunity_angle": "How to build an AI social media advertising agency in 2026 (Earn $18K/month)",
+      "intelligence_angle": "Design, create, and optimize AI social media advertising workflows with Facebook Ads",
+      "playbook_angle": "Develop, execute, and deliver AI social media advertising services with Google Ads",
+      "discovered_at": "2026-05-20T10:47:55.815135+00:00"
+    },
+    {
+      "topic": "How to start an AI web development agency in 2026",
+      "context": "AI-powered web development is a growing need in various industries. Solo entrepreneurs can offer this service with the help of AI tools.",
+      "keywords": [
+        "AI web development",
+        "web development agency",
+        "AI coding services"
+      ],
+      "affiliates": [
+        "Replit",
+        "Make.com",
+        "ChatGPT"
+      ],
+      "opportunity_angle": "How to launch an AI web development agency in 2026 (Earn $20K/month)",
+      "intelligence_angle": "Research, create, and optimize AI web development workflows with Replit",
+      "playbook_angle": "Plan, execute, and scale AI web development services with Make.com",
+      "discovered_at": "2026-05-20T10:47:55.815155+00:00"
+    },
+    {
+      "topic": "How to build an AI e-commerce optimization system in 2026",
+      "context": "AI-powered e-commerce optimization is a growing need in various industries. Solo entrepreneurs can offer this service with the help of AI tools.",
+      "keywords": [
+        "AI e-commerce optimization",
+        "e-commerce optimization system",
+        "AI sales services"
+      ],
+      "affiliates": [
+        "Shopify",
+        "Make.com",
+        "ChatGPT"
+      ],
+      "opportunity_angle": "How to build an AI e-commerce optimization system in 2026 (Earn $15K/month)",
+      "intelligence_angle": "Design, create, and optimize AI e-commerce workflows with Shopify",
+      "playbook_angle": "Develop, execute, and deliver AI e-commerce optimization services with Make.com",
+      "discovered_at": "2026-05-20T10:47:55.815185+00:00"
+    },
+    {
+      "topic": "How to start an AI digital marketing agency in 2026",
+      "context": "AI-powered digital marketing is a growing need in various industries. Solo entrepreneurs can offer this service with the help of AI tools.",
+      "keywords": [
+        "AI digital marketing",
+        "digital marketing agency",
+        "AI marketing services"
+      ],
+      "affiliates": [
+        "Semrush",
+        "Make.com",
+        "ChatGPT"
+      ],
+      "opportunity_angle": "How to launch an AI digital marketing agency in 2026 (Earn $20K/month)",
+      "intelligence_angle": "Research, create, and optimize AI digital marketing workflows with Semrush",
+      "playbook_angle": "Plan, execute, and scale AI digital marketing services with Make.com",
+      "discovered_at": "2026-05-20T10:47:55.815205+00:00"
+    },
+    {
+      "topic": "How to build an AI business intelligence system in 2026",
+      "context": "AI-powered business intelligence is a growing need in various industries. Solo entrepreneurs can offer this service with the help of AI tools.",
+      "keywords": [
+        "AI business intelligence",
+        "business intelligence system",
+        "AI data analysis"
+      ],
+      "affiliates": [
+        "ChatGPT",
+        "Make.com",
+        "Tableau"
+      ],
+      "opportunity_angle": "How to build an AI business intelligence system in 2026 (Earn $18K/month)",
+      "intelligence_angle": "Design, create, and optimize AI business intelligence workflows with ChatGPT",
+      "playbook_angle": "Develop, execute, and deliver AI business intelligence services with Make.com",
+      "discovered_at": "2026-05-20T10:47:55.815226+00:00"
+    },
+    {
+      "topic": "How to start an AI cybersecurity agency in 2026",
+      "context": "AI-powered cybersecurity is a growing need in various industries. Solo entrepreneurs can offer this service with the help of AI tools.",
+      "keywords": [
+        "AI cybersecurity",
+        "cybersecurity agency",
+        "AI security services"
+      ],
+      "affiliates": [
+        "Make.com",
+        "ChatGPT",
+        "Norton"
+      ],
+      "opportunity_angle": "How to launch an AI cybersecurity agency in 2026 (Earn $25K/month)",
+      "intelligence_angle": "Research, create, and optimize AI cybersecurity workflows with Make.com",
+      "playbook_angle": "Plan, execute, and scale AI cybersecurity services with ChatGPT",
+      "discovered_at": "2026-05-20T10:47:55.815246+00:00"
+    },
+    {
+      "topic": "How to build an AI IT management system in 2026",
+      "context": "AI-powered IT management is a growing need in various industries. Solo entrepreneurs can offer this service with the help of AI tools.",
+      "keywords": [
+        "AI IT management",
+        "IT management system",
+        "AI tech services"
+      ],
+      "affiliates": [
+        "ChatGPT",
+        "Make.com",
+        "Microsoft"
+      ],
+      "opportunity_angle": "How to build an AI IT management system in 2026 (Earn $20K/month)",
+      "intelligence_angle": "Design, create, and optimize AI IT management workflows with ChatGPT",
+      "playbook_angle": "Develop, execute, and deliver AI IT management services with Make.com",
+      "discovered_at": "2026-05-20T10:47:55.815267+00:00"
+    },
+    {
+      "topic": "How to start an AI cloud computing agency in 2026",
+      "context": "AI-powered cloud computing is a growing need in various industries. Solo entrepreneurs can offer this service with the help of AI tools.",
+      "keywords": [
+        "AI cloud computing",
+        "cloud computing agency",
+        "AI cloud services"
+      ],
+      "affiliates": [
+        "AWS",
+        "Google Cloud",
+        "ChatGPT"
+      ],
+      "opportunity_angle": "How to launch an AI cloud computing agency in 2026 (Earn $25K/month)",
+      "intelligence_angle": "Research, create, and optimize AI cloud computing workflows with AWS",
+      "playbook_angle": "Plan, execute, and scale AI cloud computing services with Google Cloud",
+      "discovered_at": "2026-05-20T10:47:55.815287+00:00"
     }
   ],
   "used_topics": [
@@ -3389,6 +3641,10 @@
     {
       "topic": "How to build AI customer support automation in 2026",
       "used_at": "2026-05-18T12:03:23.711296+00:00"
+    },
+    {
+      "topic": "How to start an AI contract review business in 2026",
+      "used_at": "2026-05-20T11:18:51.103827+00:00"
     }
   ]
 }
