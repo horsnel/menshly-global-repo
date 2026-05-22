@@ -41,33 +41,33 @@ LOW_QUALITY_THRESHOLD = 20 * 1024  # 20KB
 # ── Prompt builders ────────────────────────────────────────────────────
 
 def build_thumbnail_prompt(title: str, section: str, excerpt: str = "") -> str:
-    """Build a premium AI image prompt for article thumbnails."""
+    """Build a premium AI image prompt for article thumbnails (Menshly neon tech aesthetic)."""
     clean = re.sub(r"[^a-zA-Z0-9\s]", "", title.lower())
     clean = re.sub(r"\bhow to\b|\bin 2026\b|\bcomplete guide\b|\bblueprint\b|\bstep by step\b", "", clean)
     clean = re.sub(r"\s+", " ", clean).strip()
 
     section_style = {
         "opportunities": (
-            f"a futuristic command center dashboard for {clean} floating in deep black space, "
-            "holographic revenue indicators and growth arrows rendered in brilliant red, "
-            "crystalline data streams connecting business metrics with glowing crimson nodes, "
-            "abstract geometric shapes representing market opportunities with red wireframe edges, "
-            "a subtle radial red light emanating from the center"
+            f"a futuristic command center dashboard for {clean} with holographic displays, "
+            "neon green (#00FF80) revenue indicators and purple (#8C50FF) growth arrows, "
+            "teal (#00D2D2) data streams connecting business metrics with glowing nodes, "
+            "abstract geometric shapes representing market opportunities with neon wireframe edges, "
+            "3D isometric view with holographic floating screens"
         ),
         "intelligence": (
             f"an advanced AI automation blueprint for {clean}, "
-            "a luminous red circuit-board pattern on deep black background, "
-            "interconnected workflow nodes with glowing crimson connections, "
-            "a central AI processor chip radiating red light pulses, "
-            "flowing data pipelines rendered as red rivers, "
+            "a luminous neon green (#00FF80) circuit-board pattern on dark blue-black (#080818) background, "
+            "interconnected workflow nodes with glowing purple (#8C50FF) connections, "
+            "a central AI processor chip radiating teal (#00D2D2) light pulses, "
+            "flowing data pipelines rendered as neon green streams, "
             "holographic API connection points with precise geometric alignment"
         ),
         "playbooks": (
             f"an elite playbook blueprint for {clean}, "
-            "a grand dark open book floating in deep black space with luminous pages revealing modular workflow diagrams, "
-            "geometric checklists and procedure flowcharts rendered in crimson and red, "
-            "floating red-rimmed module cards arranged in a grid pattern, "
-            "crystalline milestone markers with warm red glow"
+            "a grand dark floating digital tablet revealing modular workflow diagrams with neon edges, "
+            "geometric checklists and procedure flowcharts rendered in neon green and purple, "
+            "floating teal-rimmed module cards arranged in a grid pattern, "
+            "crystalline milestone markers with neon purple glow"
         ),
     }
 
@@ -75,45 +75,45 @@ def build_thumbnail_prompt(title: str, section: str, excerpt: str = "") -> str:
 
     prompt = (
         f"Ultra-premium editorial illustration: {style}, "
-        f"strictly using deep black (#0A0A0A) background with red (#FF0004) accent lighting and highlights, "
-        f"premium minimalist dark aesthetic, "
-        f"bold geometric shapes with luminous red edges and warm crimson glow, "
-        f"abstract futuristic tech aesthetic with atmospheric depth, "
-        f"professional magazine cover quality, "
-        f"no text no words no letters no numbers no people no faces, "
-        f"sharp clean vector-quality edges, 8K quality"
+        f"dark deep blue-black (#080818) background with neon green (#00FF80) and purple (#8C50FF) glowing accents, "
+        f"futuristic tech aesthetic with holographic elements and neon circuit patterns, "
+        f"teal (#00D2D2) accent highlights on floating data screens, "
+        f"professional AI technology magazine cover quality, "
+        f"no text no words no letters no numbers no people no faces no Chinese characters, "
+        f"sharp clean vector-quality edges, 8K quality, "
+        f"NO blue-and-gold color scheme, NO brutalist style, NO red color"
     )
     return prompt
 
 
 def build_hero_prompt(title: str, section: str, excerpt: str = "") -> str:
-    """Build a cinematic hero/OG image prompt."""
+    """Build a cinematic hero/OG image prompt (Menshly neon tech aesthetic)."""
     clean = re.sub(r"[^a-zA-Z0-9\s]", "", title.lower())
     clean = re.sub(r"\bhow to\b|\bin 2026\b|\bcomplete guide\b|\bblueprint\b|\bstep by step\b", "", clean)
     clean = re.sub(r"\s+", " ", clean).strip()
 
     section_style = {
         "opportunities": (
-            f"a grand {clean} cathedral scene, "
-            "towering digital columns of revenue data rising from a deep black abyss, "
-            "brilliant red light streaming through geometric archways revealing market analytics and growth graphs, "
-            "floating holographic business cards with red-trimmed edges, "
-            "a dramatic red sunrise at the far end of a perspective corridor"
+            f"a grand {clean} holographic command center, "
+            "towering digital columns of revenue data rising from a dark blue-black (#080818) space, "
+            "neon green (#00FF80) light streaming through geometric archways revealing market analytics and growth graphs, "
+            "floating holographic business cards with purple (#8C50FF)-trimmed edges, "
+            "a dramatic teal (#00D2D2) glow at the far end of a perspective corridor"
         ),
         "intelligence": (
             f"a sophisticated {clean} command center, "
-            "a vast deep black space with towering holographic screens displaying automation workflow diagrams, "
-            "red data streams flowing between floating modules like liquid crimson, "
-            "a dramatic perspective corridor lined with illuminated workflow nodes, "
-            "epic red light casting long geometric shadows"
+            "a vast dark blue-black space with towering holographic screens displaying automation workflow diagrams, "
+            "neon green (#00FF80) data streams flowing between floating modules, "
+            "a dramatic perspective corridor lined with purple (#8C50FF)-lit workflow nodes, "
+            "epic teal (#00D2D2) light casting long geometric shadows"
         ),
         "playbooks": (
-            f"a grand vaulted chamber for {clean}, "
-            "red light streaming from a central floating open playbook, "
+            f"a grand digital vault for {clean}, "
+            "neon green (#00FF80) light streaming from a central floating open playbook, "
             "illuminating floating holographic procedure icons and modular step markers, "
-            "deep black atmospheric walls receding into dramatic perspective, "
-            "illuminated red columns representing playbook modules, "
-            "volumetric red light rays creating atmospheric depth"
+            "dark blue-black atmospheric walls receding into dramatic perspective, "
+            "illuminated purple (#8C50FF) columns representing playbook modules, "
+            "volumetric teal (#00D2D2) light rays creating atmospheric depth"
         ),
     }
 
@@ -121,12 +121,13 @@ def build_hero_prompt(title: str, section: str, excerpt: str = "") -> str:
 
     prompt = (
         f"Cinematic wide hero banner: {style}, "
-        f"strictly using deep black (#0A0A0A) atmospheric background with brilliant red (#FF0004) light streams and accents, "
-        f"epic dramatic composition with volumetric red light rays, "
-        f"premium minimalist dark aesthetic, "
+        f"dark deep blue-black (#080818) atmospheric background with neon green (#00FF80) and purple (#8C50FF) light streams, "
+        f"epic dramatic composition with teal (#00D2D2) accent highlights, "
+        f"futuristic tech aesthetic with holographic elements and neon glowing edges, "
         f"premium editorial magazine quality, "
-        f"no text no words no letters no numbers no people no faces, "
-        f"ultra-clean sharp edges, atmospheric depth with layered black gradient, 8K quality"
+        f"no text no words no letters no numbers no people no faces no Chinese characters, "
+        f"ultra-clean sharp edges, atmospheric depth, 8K quality, "
+        f"NO blue-and-gold color scheme, NO brutalist style, NO red color"
     )
     return prompt
 

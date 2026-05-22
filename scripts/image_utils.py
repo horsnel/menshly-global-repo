@@ -36,17 +36,20 @@ from pathlib import Path
 from PIL import Image
 
 # ── Brand Colours ──────────────────────────────────────────────────────
-DARK_BG = (10, 10, 10)    # #0A0A0A
-RED = (255, 0, 4)         # #FF0004
+# Menshly brand: dark background with neon green/purple/teal tech aesthetic
+DARK_BG = (8, 8, 24)       # #080818 deep dark blue-black
+NEON_GREEN = (0, 255, 128)  # #00FF80 neon green
+NEON_PURPLE = (140, 80, 255) # #8C50FF neon purple
+NEON_TEAL = (0, 210, 210)   # #00D2D2 neon teal
 WHITE = (255, 255, 255)
-BLACK = (26, 26, 26)
 
-# Legacy brand colours (for Pollination fallback)
-LEGACY_DARK = (10, 10, 10)       # #0A0A0A
-LEGACY_RED = (255, 0, 4)          # #FF0004
-LEGACY_BLACK = (26, 26, 26)
-LEGACY_BRAND_COLOURS = [LEGACY_DARK, LEGACY_RED, LEGACY_BLACK]
-LEGACY_BRAND_SET = set(LEGACY_BRAND_COLOURS)
+# Brand colours for Pollination fallback remapping
+BRAND_DARK = (8, 8, 24)           # #080818
+BRAND_GREEN = (0, 255, 128)        # #00FF80
+BRAND_PURPLE = (140, 80, 255)      # #8C50FF
+BRAND_TEAL = (0, 210, 210)         # #00D2D2
+BRAND_COLOURS = [BRAND_DARK, BRAND_GREEN, BRAND_PURPLE, BRAND_TEAL]
+BRAND_SET = set(BRAND_COLOURS)
 
 # ── Image dimensions ──────────────────────────────────────────────────
 THUMB_SIZE = "1344x768"    # z-ai-generate size for thumbnails
@@ -77,50 +80,50 @@ def _clean_topic(topic: str) -> str:
 
 
 def _build_premium_thumbnail_prompt(topic: str, section: str) -> str:
-    """Build a premium AI image prompt for article thumbnails (Tesla/Braun aesthetic)."""
+    """Build a premium AI image prompt for article thumbnails (Menshly neon tech aesthetic)."""
     clean = _clean_topic(topic)
 
     section_style = {
-        "opportunities": "business opportunity visualization with revenue indicators and growth arrows",
-        "intelligence": "technical implementation diagram with workflow nodes and data pipelines",
-        "playbooks": "comprehensive system blueprint with modular procedures and checklists",
+        "opportunities": "futuristic business dashboard with holographic revenue charts, growth metrics, and neon data visualizations",
+        "intelligence": "advanced AI system blueprint with interconnected workflow nodes, glowing circuit patterns, and data pipelines",
+        "playbooks": "digital playbook interface with modular procedure cards, neon progress indicators, and step-by-step workflows",
     }
     style = section_style.get(section, section_style["opportunities"])
 
     prompt = (
         f"Premium editorial illustration of {clean}, "
         f"showing {style}, "
-        f"strictly using deep black (#0A0A0A) background with red (#FF0004) accent lighting and highlights, "
-        f"premium minimalist dark aesthetic, "
-        f"bold geometric shapes with luminous red edges, "
-        f"abstract futuristic tech aesthetic, "
-        f"professional magazine cover quality, "
-        f"no text no words no letters no numbers no people, "
-        f"sharp clean vector-quality edges"
+        f"dark deep blue-black background with neon green (#00FF80) and purple (#8C50FF) glowing accents, "
+        f"futuristic tech aesthetic with holographic elements and neon circuit patterns, "
+        f"3D isometric view with clean geometric shapes and luminous edges, "
+        f"teal (#00D2D2) accent highlights on floating data screens, "
+        f"professional AI technology magazine cover quality, "
+        f"no text no words no letters no numbers no people no Chinese characters, "
+        f"sharp clean vector-quality edges, NO blue-and-gold color scheme, NO brutalist style, NO red color"
     )
     return prompt
 
 
 def _build_premium_hero_prompt(topic: str, section: str) -> str:
-    """Build a cinematic hero/OG image prompt (Tesla/Braun aesthetic)."""
+    """Build a cinematic hero/OG image prompt (Menshly neon tech aesthetic)."""
     clean = _clean_topic(topic)
 
     section_style = {
-        "opportunities": "transformative before-and-after business metamorphosis with golden light illuminating the future state",
-        "intelligence": "sophisticated automation blueprint unfolding with connected nodes and flowing golden data pipelines",
-        "playbooks": "grand vaulted space with golden light streaming from a central open playbook, illuminating floating icons",
+        "opportunities": "holographic command center with neon green growth charts and purple data streams flowing between business modules",
+        "intelligence": "vast AI automation chamber with floating holographic screens, neon green circuit paths, and purple-lit workflow nodes",
+        "playbooks": "grand digital vault with floating neon playbook pages, teal progress markers, and purple modular step indicators",
     }
     style = section_style.get(section, section_style["opportunities"])
 
     prompt = (
         f"Cinematic wide hero banner of {clean}, "
         f"depicting {style}, "
-        f"strictly using deep black (#0A0A0A) atmospheric background with brilliant red (#FF0004) light streams and accents, "
-        f"epic dramatic composition with radial red light, "
-        f"premium minimalist dark aesthetic, "
+        f"dark deep blue-black (#080818) atmospheric background with neon green (#00FF80) and purple (#8C50FF) light streams, "
+        f"epic dramatic composition with teal (#00D2D2) accent highlights, "
+        f"futuristic tech aesthetic with holographic elements and neon glowing edges, "
         f"premium editorial magazine quality, "
-        f"no text no words no letters no numbers no people, "
-        f"ultra-clean sharp edges, atmospheric depth"
+        f"no text no words no letters no numbers no people no Chinese characters, "
+        f"ultra-clean sharp edges, atmospheric depth, NO blue-and-gold color scheme, NO brutalist style, NO red color"
     )
     return prompt
 
@@ -187,33 +190,33 @@ def _cli_available() -> bool:
 # ── Pollination AI fallback ────────────────────────────────────────────
 
 def _build_pollination_prompt(topic: str) -> str:
-    """Build a Pollination AI prompt for the thumbnail (flat icon style)."""
+    """Build a Pollination AI prompt for the thumbnail (Menshly neon tech style)."""
     clean = _clean_topic(topic)
     prompt = (
         f"Flat minimalist icon illustration of {clean}, "
-        f"strictly using ONLY black (#0A0A0A) and red (#FF0004) colors, "
-        f"dark background, geometric minimalist style, "
-        f"clean sharp vector edges, no gradients no shading, "
-        f"bold flat illustration, crisp red accents on black, "
-        f"perfectly clean and smooth edges, no text no words no letters"
+        f"dark deep blue-black background with neon green (#00FF80) and purple (#8C50FF) glowing accents, "
+        f"futuristic tech style with holographic elements, "
+        f"clean sharp vector edges with neon-lit geometric shapes, "
+        f"teal (#00D2D2) highlight accents, "
+        f"no text no words no letters no Chinese characters, "
+        f"NO blue-and-gold colors, NO brutalist style, NO red color"
     )
     return prompt
 
 
 def _build_pollination_hero_prompt(topic: str) -> str:
-    """Build a Pollination AI prompt for the hero/OG image."""
+    """Build a Pollination AI prompt for the hero/OG image (Menshly neon tech style)."""
     clean = _clean_topic(topic)
     prompt = (
         f"Premium cinematic editorial hero image of {clean}, "
-        f"strictly using ONLY black (#0A0A0A) and red (#FF0004) colors, "
-        f"dramatic composition with red (#FF0004) accent lighting and shadows, "
-        f"bold geometric shapes and layered depth, "
-        f"premium dark minimalist editorial design, high contrast black and red, "
-        f"abstract futuristic tech landscape, "
+        f"dark deep blue-black (#080818) background with neon green (#00FF80) and purple (#8C50FF) glowing light streams, "
+        f"dramatic composition with teal (#00D2D2) accent highlights, "
+        f"futuristic tech landscape with holographic elements, "
+        f"premium neon-lit editorial design, high contrast dark and neon, "
+        f"abstract futuristic tech aesthetic, "
         f"professional magazine cover quality, "
-        f"no gradients no shading only flat hard-edge colour blocks, "
-        f"no text no words no letters no numbers, "
-        f"sharp clean vector-quality edges"
+        f"no text no words no letters no numbers no Chinese characters, "
+        f"sharp clean vector-quality edges, NO blue-and-gold colors, NO brutalist style, NO red color"
     )
     return prompt
 
@@ -244,8 +247,8 @@ def _download_pollination_image(prompt: str, seed: int, width: int, height: int,
     raise RuntimeError("Failed to download image after 3 attempts")
 
 
-def _remap_legacy_colours(img: Image.Image) -> Image.Image:
-    """Remap every pixel to the nearest legacy brand colour."""
+def _remap_brand_colours(img: Image.Image) -> Image.Image:
+    """Remap every pixel to the nearest brand colour."""
     img = img.convert("RGB")
     pixels = img.load()
     w, h = img.size
@@ -255,7 +258,7 @@ def _remap_legacy_colours(img: Image.Image) -> Image.Image:
             r, g, b = pixels[x, y]
             best = None
             best_dist = float("inf")
-            for bc in LEGACY_BRAND_COLOURS:
+            for bc in BRAND_COLOURS:
                 dist = (r - bc[0]) ** 2 + (g - bc[1]) ** 2 + (b - bc[2]) ** 2
                 if dist < best_dist:
                     best_dist = dist
@@ -275,7 +278,7 @@ def _downscale_and_remap(img: Image.Image, target_w: int, target_h: int) -> Imag
             r, g, b = pixels[x, y]
             best = None
             best_dist = float("inf")
-            for bc in LEGACY_BRAND_COLOURS:
+            for bc in BRAND_COLOURS:
                 dist = (r - bc[0]) ** 2 + (g - bc[1]) ** 2 + (b - bc[2]) ** 2
                 if dist < best_dist:
                     best_dist = dist
@@ -332,7 +335,7 @@ def generate_article_image(
     pollination_prompt = _build_pollination_prompt(topic)
     image_data = _download_pollination_image(pollination_prompt, seed, *POLLINATION_THUMB_GEN)
     img = Image.open(io.BytesIO(image_data))
-    img = _remap_legacy_colours(img)
+    img = _remap_brand_colours(img)
     img_final = _downscale_and_remap(img, *POLLINATION_THUMB_FINAL)
     img_final.save(out_path, "PNG")
 
@@ -388,7 +391,7 @@ def generate_hero_image(
     pollination_prompt = _build_pollination_hero_prompt(topic)
     image_data = _download_pollination_image(pollination_prompt, seed, *POLLINATION_HERO_GEN, timeout=180)
     img = Image.open(io.BytesIO(image_data))
-    img = _remap_legacy_colours(img)
+    img = _remap_brand_colours(img)
     img_final = _downscale_and_remap(img, *POLLINATION_HERO_FINAL)
     img_final.save(out_path, "PNG")
 
