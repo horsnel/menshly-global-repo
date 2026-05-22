@@ -1,24 +1,6 @@
 {
-  "last_updated": "2026-05-21T12:47:34.640564+00:00",
+  "last_updated": "2026-05-22T11:03:57.660061+00:00",
   "topics": [
-    {
-      "topic": "How to build an AI-powered supply chain optimization consulting business in 2026",
-      "context": "As businesses look to optimize their supply chains, AI-powered consulting services are in high demand. Solo entrepreneurs can use AI tools to analyze supply chain data and provide actionable insights.",
-      "keywords": [
-        "AI supply chain optimization",
-        "consulting business",
-        "logistics optimization"
-      ],
-      "affiliates": [
-        "Semrush",
-        "Zapier",
-        "Apollo.io"
-      ],
-      "opportunity_angle": "How to build an AI-powered supply chain optimization consulting business in 2026 (earn $10,000/month)",
-      "intelligence_angle": "Analyze, optimize, and automate supply chain operations with AI tools",
-      "playbook_angle": "Launch, manage, and scale an AI-powered supply chain optimization consulting business with Semrush and Zapier",
-      "discovered_at": "2026-05-01T05:27:27.022839+00:00"
-    },
     {
       "topic": "How to start an AI translation and localization business in 2026",
       "context": "With the increasing demand for global content, AI-powered translation and localization services are becoming essential. Solo entrepreneurs can use AI tools to translate and localize content quickly and accurately.",
@@ -3591,6 +3573,456 @@
       "intelligence_angle": "Research, create, and optimize AI cloud computing workflows with AWS",
       "playbook_angle": "Plan, execute, and scale AI cloud computing services with Google Cloud",
       "discovered_at": "2026-05-20T10:47:55.815287+00:00"
+    },
+    {
+      "topic": "How to start an AI-powered real estate automation agency in 2026",
+      "context": "The real estate industry is embracing AI to streamline processes, and entrepreneurs can capitalize on this trend. With the rise of AI-powered tools, real estate automation is becoming increasingly efficient.",
+      "keywords": [
+        "AI real estate",
+        " automation agency",
+        "real estate technology"
+      ],
+      "affiliates": [
+        "Make.com",
+        "Vapi",
+        "ChatGPT"
+      ],
+      "opportunity_angle": "How to automate real estate in 2026 (Earn $10K/month)",
+      "intelligence_angle": "Research, develop, and implement AI real estate automation with Make.com",
+      "playbook_angle": "Launch, manage, and scale AI real estate automation with Vapi and ChatGPT",
+      "discovered_at": "2026-05-22T10:47:17.846889+00:00"
+    },
+    {
+      "topic": "How to start an AI SaaS micro-product business for e-commerce optimization",
+      "context": "E-commerce businesses are looking for AI-powered solutions to optimize their operations, and SaaS micro-products can fill this gap. With the growth of e-commerce, the demand for AI-powered optimization tools is increasing.",
+      "keywords": [
+        "AI SaaS",
+        "e-commerce optimization",
+        "micro-products"
+      ],
+      "affiliates": [
+        "Replit",
+        "Shopify",
+        "Semrush"
+      ],
+      "opportunity_angle": "How to create AI SaaS micro-products for e-commerce in 2026 (Generate $5K/month)",
+      "intelligence_angle": "Design, develop, and deploy AI SaaS micro-products with Replit and Shopify",
+      "playbook_angle": "Market, sell, and deliver AI SaaS micro-products with Semrush and Replit",
+      "discovered_at": "2026-05-22T10:47:17.846937+00:00"
+    },
+    {
+      "topic": "How to start an AI-powered customer onboarding system business",
+      "context": "Companies are looking for efficient ways to onboard new customers, and AI-powered systems can provide personalized experiences. With the rise of AI, customer onboarding is becoming more automated and efficient.",
+      "keywords": [
+        "AI customer onboarding",
+        "system business",
+        "personalized experiences"
+      ],
+      "affiliates": [
+        "Make.com",
+        "ChatGPT",
+        "Notion"
+      ],
+      "opportunity_angle": "How to automate customer onboarding in 2026 (Earn $8K/month)",
+      "intelligence_angle": "Research, design, and implement AI customer onboarding with Make.com and ChatGPT",
+      "playbook_angle": "Launch, manage, and optimize AI customer onboarding with Notion and Make.com",
+      "discovered_at": "2026-05-22T10:47:17.846963+00:00"
+    },
+    {
+      "topic": "How to start an AI-powered proposal and grant writing agency",
+      "context": "Businesses and organizations need help with proposal and grant writing, and AI-powered agencies can provide high-quality services. With the growth of AI, proposal and grant writing are becoming more automated and efficient.",
+      "keywords": [
+        "AI proposal writing",
+        "grant writing agency",
+        "funding opportunities"
+      ],
+      "affiliates": [
+        "ChatGPT",
+        "Make.com",
+        "Grammarly"
+      ],
+      "opportunity_angle": "How to start an AI proposal and grant writing agency in 2026 (Earn $15K/month)",
+      "intelligence_angle": "Research, write, and edit AI-powered proposals with ChatGPT and Make.com",
+      "playbook_angle": "Launch, manage, and grow an AI proposal and grant writing agency with Grammarly and ChatGPT",
+      "discovered_at": "2026-05-22T10:47:17.846986+00:00"
+    },
+    {
+      "topic": "How to start an AI-powered podcast production agency",
+      "context": "Podcasting is becoming increasingly popular, and AI-powered agencies can help with production, editing, and distribution. With the rise of podcasting, the demand for AI-powered production tools is increasing.",
+      "keywords": [
+        "AI podcast production",
+        "agency",
+        "audio editing"
+      ],
+      "affiliates": [
+        "Make.com",
+        "Loom",
+        "Canva"
+      ],
+      "opportunity_angle": "How to start an AI podcast production agency in 2026 (Earn $12K/month)",
+      "intelligence_angle": "Plan, record, and edit AI-powered podcasts with Make.com and Loom",
+      "playbook_angle": "Launch, manage, and grow an AI podcast production agency with Canva and Make.com",
+      "discovered_at": "2026-05-22T10:47:17.847008+00:00"
+    },
+    {
+      "topic": "How to start an AI-powered HR and recruitment automation business",
+      "context": "Companies are looking for ways to automate HR and recruitment processes, and AI-powered solutions can provide efficient and personalized experiences. With the growth of AI, HR and recruitment automation is becoming more efficient.",
+      "keywords": [
+        "AI HR automation",
+        "recruitment business",
+        "talent acquisition"
+      ],
+      "affiliates": [
+        "Make.com",
+        "ChatGPT",
+        "Greenhouse"
+      ],
+      "opportunity_angle": "How to automate HR and recruitment in 2026 (Earn $10K/month)",
+      "intelligence_angle": "Research, design, and implement AI HR and recruitment automation with Make.com and ChatGPT",
+      "playbook_angle": "Launch, manage, and optimize AI HR and recruitment automation with Greenhouse and Make.com",
+      "discovered_at": "2026-05-22T10:47:17.847034+00:00"
+    },
+    {
+      "topic": "How to start an AI-powered bookkeeping automation business",
+      "context": "Small businesses and entrepreneurs need help with bookkeeping, and AI-powered automation can provide efficient and accurate services. With the rise of AI, bookkeeping automation is becoming more efficient.",
+      "keywords": [
+        "AI bookkeeping automation",
+        "business",
+        "accounting services"
+      ],
+      "affiliates": [
+        "Make.com",
+        "QuickBooks",
+        "ChatGPT"
+      ],
+      "opportunity_angle": "How to automate bookkeeping in 2026 (Earn $8K/month)",
+      "intelligence_angle": "Research, design, and implement AI bookkeeping automation with Make.com and QuickBooks",
+      "playbook_angle": "Launch, manage, and optimize AI bookkeeping automation with ChatGPT and Make.com",
+      "discovered_at": "2026-05-22T10:47:17.847057+00:00"
+    },
+    {
+      "topic": "How to start an AI-powered customer support automation business",
+      "context": "Companies are looking for ways to automate customer support, and AI-powered solutions can provide efficient and personalized experiences. With the growth of AI, customer support automation is becoming more efficient.",
+      "keywords": [
+        "AI customer support automation",
+        "business",
+        "chatbots"
+      ],
+      "affiliates": [
+        "Make.com",
+        "ChatGPT",
+        "ManyChat"
+      ],
+      "opportunity_angle": "How to automate customer support in 2026 (Earn $12K/month)",
+      "intelligence_angle": "Research, design, and implement AI customer support automation with Make.com and ChatGPT",
+      "playbook_angle": "Launch, manage, and optimize AI customer support automation with ManyChat and Make.com",
+      "discovered_at": "2026-05-22T10:47:17.847083+00:00"
+    },
+    {
+      "topic": "How to start an AI-powered content repurposing business with multi-platform distribution",
+      "context": "Content creators need help repurposing and distributing their content across multiple platforms, and AI-powered solutions can provide efficient and automated services. With the rise of AI, content repurposing is becoming more efficient.",
+      "keywords": [
+        "AI content repurposing",
+        "business",
+        "multi-platform distribution"
+      ],
+      "affiliates": [
+        "Make.com",
+        "Canva",
+        "Buffer"
+      ],
+      "opportunity_angle": "How to repurpose content in 2026 (Earn $10K/month)",
+      "intelligence_angle": "Research, design, and implement AI content repurposing with Make.com and Canva",
+      "playbook_angle": "Launch, manage, and optimize AI content repurposing with Buffer and Make.com",
+      "discovered_at": "2026-05-22T10:47:17.847107+00:00"
+    },
+    {
+      "topic": "How to start an AI-powered email marketing automation business with Klaviyo and ActiveCampaign",
+      "context": "Companies are looking for ways to automate email marketing, and AI-powered solutions can provide efficient and personalized experiences. With the growth of AI, email marketing automation is becoming more efficient.",
+      "keywords": [
+        "AI email marketing automation",
+        "business",
+        "Klaviyo"
+      ],
+      "affiliates": [
+        "Klaviyo",
+        "ActiveCampaign",
+        "Make.com"
+      ],
+      "opportunity_angle": "How to automate email marketing in 2026 (Earn $15K/month)",
+      "intelligence_angle": "Research, design, and implement AI email marketing automation with Klaviyo and ActiveCampaign",
+      "playbook_angle": "Launch, manage, and optimize AI email marketing automation with Make.com and Klaviyo",
+      "discovered_at": "2026-05-22T10:47:17.847130+00:00"
+    },
+    {
+      "topic": "How to start an AI-powered data analysis services business",
+      "context": "Companies are looking for ways to analyze and interpret their data, and AI-powered solutions can provide efficient and accurate services. With the growth of AI, data analysis is becoming more efficient.",
+      "keywords": [
+        "AI data analysis services",
+        "business",
+        "data science"
+      ],
+      "affiliates": [
+        "Make.com",
+        "ChatGPT",
+        "Semrush"
+      ],
+      "opportunity_angle": "How to start an AI data analysis services business in 2026 (Earn $20K/month)",
+      "intelligence_angle": "Research, design, and implement AI data analysis with Make.com and ChatGPT",
+      "playbook_angle": "Launch, manage, and grow an AI data analysis services business with Semrush and Make.com",
+      "discovered_at": "2026-05-22T10:47:17.847153+00:00"
+    },
+    {
+      "topic": "How to start an AI-powered course creation business",
+      "context": "Educators and entrepreneurs need help creating online courses, and AI-powered solutions can provide efficient and automated services. With the rise of AI, course creation is becoming more efficient.",
+      "keywords": [
+        "AI course creation",
+        "business",
+        "online education"
+      ],
+      "affiliates": [
+        "Make.com",
+        "ChatGPT",
+        "Canva"
+      ],
+      "opportunity_angle": "How to start an AI course creation business in 2026 (Earn $18K/month)",
+      "intelligence_angle": "Research, design, and implement AI course creation with Make.com and ChatGPT",
+      "playbook_angle": "Launch, manage, and grow an AI course creation business with Canva and Make.com",
+      "discovered_at": "2026-05-22T10:47:17.847176+00:00"
+    },
+    {
+      "topic": "How to start an AI-powered social media management pipeline business",
+      "context": "Companies are looking for ways to automate social media management, and AI-powered solutions can provide efficient and personalized experiences. With the growth of AI, social media management is becoming more efficient.",
+      "keywords": [
+        "AI social media management",
+        "pipeline business",
+        "social media marketing"
+      ],
+      "affiliates": [
+        "Make.com",
+        "Buffer",
+        "ChatGPT"
+      ],
+      "opportunity_angle": "How to automate social media management in 2026 (Earn $12K/month)",
+      "intelligence_angle": "Research, design, and implement AI social media management with Make.com and Buffer",
+      "playbook_angle": "Launch, manage, and optimize AI social media management with ChatGPT and Make.com",
+      "discovered_at": "2026-05-22T10:47:17.847200+00:00"
+    },
+    {
+      "topic": "How to start an AI-powered lead generation business with Apollo and PhantomBuster",
+      "context": "Companies are looking for ways to automate lead generation, and AI-powered solutions can provide efficient and accurate services. With the growth of AI, lead generation is becoming more efficient.",
+      "keywords": [
+        "AI lead generation",
+        "business",
+        "Apollo"
+      ],
+      "affiliates": [
+        "Apollo.io",
+        "PhantomBuster",
+        "Make.com"
+      ],
+      "opportunity_angle": "How to automate lead generation in 2026 (Earn $15K/month)",
+      "intelligence_angle": "Research, design, and implement AI lead generation with Apollo and PhantomBuster",
+      "playbook_angle": "Launch, manage, and optimize AI lead generation with Make.com and Apollo",
+      "discovered_at": "2026-05-22T10:47:17.847223+00:00"
+    },
+    {
+      "topic": "How to start an AI-powered copywriting agency",
+      "context": "Companies are looking for ways to automate copywriting, and AI-powered solutions can provide efficient and personalized experiences. With the growth of AI, copywriting is becoming more efficient.",
+      "keywords": [
+        "AI copywriting agency",
+        "business",
+        "content creation"
+      ],
+      "affiliates": [
+        "Make.com",
+        "ChatGPT",
+        "Grammarly"
+      ],
+      "opportunity_angle": "How to start an AI copywriting agency in 2026 (Earn $18K/month)",
+      "intelligence_angle": "Research, design, and implement AI copywriting with Make.com and ChatGPT",
+      "playbook_angle": "Launch, manage, and grow an AI copywriting agency with Grammarly and Make.com",
+      "discovered_at": "2026-05-22T10:47:17.847246+00:00"
+    },
+    {
+      "topic": "How to start an AI-powered image generation agency",
+      "context": "Companies are looking for ways to automate image generation, and AI-powered solutions can provide efficient and accurate services. With the growth of AI, image generation is becoming more efficient.",
+      "keywords": [
+        "AI image generation agency",
+        "business",
+        "graphic design"
+      ],
+      "affiliates": [
+        "Midjourney",
+        "Make.com",
+        "Canva"
+      ],
+      "opportunity_angle": "How to start an AI image generation agency in 2026 (Earn $15K/month)",
+      "intelligence_angle": "Research, design, and implement AI image generation with Midjourney and Make.com",
+      "playbook_angle": "Launch, manage, and grow an AI image generation agency with Canva and Midjourney",
+      "discovered_at": "2026-05-22T10:47:17.847270+00:00"
+    },
+    {
+      "topic": "How to start an AI-powered SEO agency with Semrush",
+      "context": "Companies are looking for ways to automate SEO, and AI-powered solutions can provide efficient and accurate services. With the growth of AI, SEO is becoming more efficient.",
+      "keywords": [
+        "AI SEO agency",
+        "business",
+        "Semrush"
+      ],
+      "affiliates": [
+        "Semrush",
+        "Make.com",
+        "ChatGPT"
+      ],
+      "opportunity_angle": "How to start an AI SEO agency in 2026 (Earn $20K/month)",
+      "intelligence_angle": "Research, design, and implement AI SEO with Semrush and Make.com",
+      "playbook_angle": "Launch, manage, and grow an AI SEO agency with ChatGPT and Semrush",
+      "discovered_at": "2026-05-22T10:47:17.847296+00:00"
+    },
+    {
+      "topic": "How to start a one-person AI business powered by GPT-5/Claude",
+      "context": "Solo entrepreneurs can leverage AI to start and grow a business, and GPT-5/Claude can provide the necessary tools and support. With the growth of AI, solo entrepreneurship is becoming more accessible.",
+      "keywords": [
+        "one-person AI business",
+        "GPT-5",
+        "Claude"
+      ],
+      "affiliates": [
+        "ChatGPT",
+        "Make.com",
+        "Notion"
+      ],
+      "opportunity_angle": "How to start a one-person AI business in 2026 (Earn $10K/month)",
+      "intelligence_angle": "Research, design, and implement a one-person AI business with GPT-5/Claude and Make.com",
+      "playbook_angle": "Launch, manage, and grow a one-person AI business with Notion and ChatGPT",
+      "discovered_at": "2026-05-22T10:47:17.847320+00:00"
+    },
+    {
+      "topic": "How to start an AI-powered freelance arbitrage business",
+      "context": "Freelancers can leverage AI to automate and scale their businesses, and AI-powered arbitrage can provide efficient and accurate services. With the growth of AI, freelance arbitrage is becoming more efficient.",
+      "keywords": [
+        "AI freelance arbitrage",
+        "business",
+        "upwork"
+      ],
+      "affiliates": [
+        "Make.com",
+        "ChatGPT",
+        "Upwork"
+      ],
+      "opportunity_angle": "How to start an AI freelance arbitrage business in 2026 (Earn $15K/month)",
+      "intelligence_angle": "Research, design, and implement AI freelance arbitrage with Make.com and ChatGPT",
+      "playbook_angle": "Launch, manage, and grow an AI freelance arbitrage business with Upwork and Make.com",
+      "discovered_at": "2026-05-22T10:47:17.847344+00:00"
+    },
+    {
+      "topic": "How to start an AI-powered video editing services business",
+      "context": "Companies are looking for ways to automate video editing, and AI-powered solutions can provide efficient and accurate services. With the growth of AI, video editing is becoming more efficient.",
+      "keywords": [
+        "AI video editing services",
+        "business",
+        "video production"
+      ],
+      "affiliates": [
+        "Make.com",
+        "Loom",
+        "Canva"
+      ],
+      "opportunity_angle": "How to start an AI video editing services business in 2026 (Earn $12K/month)",
+      "intelligence_angle": "Research, design, and implement AI video editing with Make.com and Loom",
+      "playbook_angle": "Launch, manage, and grow an AI video editing services business with Canva and Make.com",
+      "discovered_at": "2026-05-22T10:47:17.847368+00:00"
+    },
+    {
+      "topic": "How to start an AI-powered chatbot agency for e-commerce with Shopify",
+      "context": "E-commerce businesses are looking for ways to automate customer support, and AI-powered chatbots can provide efficient and personalized experiences. With the growth of AI, chatbots are becoming more efficient.",
+      "keywords": [
+        "AI chatbot agency",
+        "e-commerce",
+        "Shopify"
+      ],
+      "affiliates": [
+        "Shopify",
+        "Make.com",
+        "ChatGPT"
+      ],
+      "opportunity_angle": "How to start an AI chatbot agency for e-commerce in 2026 (Earn $15K/month)",
+      "intelligence_angle": "Research, design, and implement AI chatbots for e-commerce with Shopify and Make.com",
+      "playbook_angle": "Launch, manage, and grow an AI chatbot agency for e-commerce with ChatGPT and Shopify",
+      "discovered_at": "2026-05-22T10:47:17.847391+00:00"
+    },
+    {
+      "topic": "How to start an AI-powered cold email outreach system business",
+      "context": "Companies are looking for ways to automate cold email outreach, and AI-powered solutions can provide efficient and accurate services. With the growth of AI, cold email outreach is becoming more efficient.",
+      "keywords": [
+        "AI cold email outreach",
+        "system business",
+        "sales outreach"
+      ],
+      "affiliates": [
+        "Make.com",
+        "ChatGPT",
+        "Mailchimp"
+      ],
+      "opportunity_angle": "How to automate cold email outreach in 2026 (Earn $10K/month)",
+      "intelligence_angle": "Research, design, and implement AI cold email outreach with Make.com and ChatGPT",
+      "playbook_angle": "Launch, manage, and optimize AI cold email outreach with Mailchimp and Make.com",
+      "discovered_at": "2026-05-22T10:47:17.847415+00:00"
+    },
+    {
+      "topic": "How to start an AI-powered contract and proposal writing business with LLMs",
+      "context": "Companies are looking for ways to automate contract and proposal writing, and AI-powered solutions can provide efficient and accurate services. With the growth of AI, contract and proposal writing is becoming more efficient.",
+      "keywords": [
+        "AI contract writing",
+        "proposal writing business",
+        "LLMs"
+      ],
+      "affiliates": [
+        "Make.com",
+        "ChatGPT",
+        "Grammarly"
+      ],
+      "opportunity_angle": "How to start an AI contract and proposal writing business in 2026 (Earn $15K/month)",
+      "intelligence_angle": "Research, design, and implement AI contract and proposal writing with Make.com and ChatGPT",
+      "playbook_angle": "Launch, manage, and grow an AI contract and proposal writing business with Grammarly and Make.com",
+      "discovered_at": "2026-05-22T10:47:17.847439+00:00"
+    },
+    {
+      "topic": "How to start an AI-powered translation and localization services business",
+      "context": "Companies are looking for ways to automate translation and localization, and AI-powered solutions can provide efficient and accurate services. With the growth of AI, translation and localization are becoming more efficient.",
+      "keywords": [
+        "AI translation services",
+        "localization business",
+        "translation software"
+      ],
+      "affiliates": [
+        "Make.com",
+        "ChatGPT",
+        "Google Translate"
+      ],
+      "opportunity_angle": "How to start an AI translation and localization services business in 2026 (Earn $12K/month)",
+      "intelligence_angle": "Research, design, and implement AI translation and localization with Make.com and ChatGPT",
+      "playbook_angle": "Launch, manage, and grow an AI translation and localization services business with Google Translate and Make.com",
+      "discovered_at": "2026-05-22T10:47:17.847464+00:00"
+    },
+    {
+      "topic": "How to start an AI-powered supply chain optimization consulting business",
+      "context": "Companies are looking for ways to automate supply chain optimization, and AI-powered solutions can provide efficient and accurate services. With the growth of AI, supply chain optimization is becoming more efficient.",
+      "keywords": [
+        "AI supply chain optimization",
+        "consulting business",
+        "logistics"
+      ],
+      "affiliates": [
+        "Make.com",
+        "ChatGPT",
+        "SAP"
+      ],
+      "opportunity_angle": "How to start an AI supply chain optimization consulting business in 2026 (Earn $20K/month)",
+      "intelligence_angle": "Research, design, and implement AI supply chain optimization with Make.com and ChatGPT",
+      "playbook_angle": "Launch, manage, and grow an AI supply chain optimization consulting business with SAP and Make.com",
+      "discovered_at": "2026-05-22T10:47:17.847490+00:00"
     }
   ],
   "used_topics": [
@@ -3645,6 +4077,10 @@
     {
       "topic": "How to start an AI contract review business in 2026",
       "used_at": "2026-05-20T11:18:51.103827+00:00"
+    },
+    {
+      "topic": "How to build an AI-powered supply chain optimization consulting business in 2026",
+      "used_at": "2026-05-22T11:03:57.660035+00:00"
     }
   ]
 }
