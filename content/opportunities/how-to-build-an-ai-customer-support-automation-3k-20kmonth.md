@@ -32,24 +32,24 @@ The Realistic Picture (Before You Get Excited)
 
 Building an AI customer support automation business can be lucrative, with potential earnings ranging from $3,000 to $20,000 per month. However, it's essential to understand the challenges involved. You'll need to invest time and money in tools like Make.com, which costs $29/month, and Replit, a cloud IDE for AI SaaS, priced at $7/month. You'll also need to integrate AI voice agents like Vapi, which starts at $99/month, and Fliki AI, a text-to-video platform, priced at $29/month.
 
-{{% accent-box %}}
+>
 **Truth #1:** You'll likely spend around $1,500 on initial setup and training, including costs for tools like Semrush, a comprehensive SEO toolkit priced at $119.95/month, and ActiveCampaign, a CRM and email marketing platform, which starts at $9/month.
-{{% /accent-box %}}
+
 This initial investment can be daunting, but it's necessary to create a solid foundation for your business. You'll also need to consider the cost of designing a professional website using Canva, which costs $14.99/month, and hosting it on Hostinger, priced at $2.99/month.
 
-{{% accent-box %}}
+>
 **Truth #2:** Around 30% of your clients will require custom integrations with their existing systems, such as Shopify or Klaviyo, which can add an extra $500-$1,000 to your setup costs and require additional tools like Zapier, priced at $19.99/month.
-{{% /accent-box %}}
+
 This means you'll need to budget for potential custom work and be prepared to adapt to different client needs. You may also need to use tools like PhantomBuster for LinkedIn automation, priced at $49/month, to help you find and acquire new clients.
 
-{{% accent-box %}}
+>
 **Truth #3:** You'll need to dedicate at least 10 hours/week to maintaining and updating your AI models, using tools like ChatGPT, which is free, and ElevenLabs, a voice synthesis platform, priced at $22/month, to ensure they remain accurate and effective.
-{{% /accent-box %}}
+
 This ongoing maintenance is crucial to delivering high-quality support to your clients and requires a significant time commitment. You'll also need to use project management tools like Notion, priced at $8/month, to stay organized and focused.
 
-{{% accent-box %}}
+>
 **Truth #4:** Around 20% of your clients will experience a significant drop in support queries within the first 3 months, which can lead to a reduction in revenue, so you'll need to be prepared to adapt your pricing strategy and use tools like Apollo.io, a B2B sales intelligence platform, priced at $49/month, to find new clients and upsell existing ones.
-{{% /accent-box %}}
+
 This means you'll need to be proactive in monitoring client results and adjusting your strategy to ensure long-term success. You may also need to use tools like Buffer, priced at $15/month, to schedule social media posts and maintain a strong online presence.
 
 ## The Free Stack: Starting With Zero Dollars
@@ -72,7 +72,7 @@ The free plans bite when traffic grows. Zapier caps at 100 tasks per month, Make
 
 Upgrades become unavoidable around the 5–10 k/month revenue mark. A paid Zapier plan at $20/month lifts you to 1,000 tasks and 20 k tasks, while Make.com’s $49/month plan gives 15,000 operations and a 2‑hour run limit. Replit Pro at $7/month unlocks 2 cores and 4 GB RAM, which is enough for a small production bot. ChatGPT API usage at $0.0004 per token stays cheap until you hit 10 million tokens a month, when you’ll need a paid plan to keep latency low.
 
-### [accent-box] HACK: Merge Zapier and Make.com to stretch limits [/accent-box]
+### >  HACK: Merge Zapier and Make.com to stretch limits 
 
 If you bind a Zapier trigger to a Make.com scenario, you can push 100 Zapier tasks into a single Make.com run, effectively multiplying your free tier capacity. It’s a neat trick that keeps you under the $20/month Zapier budget while still processing more traffic.
 
@@ -107,7 +107,7 @@ Generate custom images for your help center or chatbot UI.
 **Canva — $12.95/mo**  
 Polish your brand assets in seconds. Create mockups, videos with Fliki AI, and help docs.
 
-**[accent-box]HACK: Run Apollo.io + PhantomBuster together – the first 50,000 LinkedIn requests hit free tier on PhantomBuster, then upgrade only to $99 for Apollo.io. That saves $50/month and doubles outreach speed.[/accent-box]**
+**> HACK: Run Apollo.io + PhantomBuster together – the first 50,000 LinkedIn requests hit free tier on PhantomBuster, then upgrade only to $99 for Apollo.io. That saves $50/month and doubles outreach speed.**
 
 **Total monthly cost: $452.95**  
 If you’re pulling in $10,000/month in revenue, that’s a 4.5% expense. If you hit $20,000, the margin is 2.3%. The trick is to keep the volume high enough that the $453 becomes a tiny fraction of your top line. Each tool eliminates a human hour. For example, every ticket that Vapi or ElevenLabs can answer saves you $30 in labor. A 50‑ticket day means $1,500 saved, wiping out the stack cost in record time.  
@@ -178,7 +178,7 @@ Enterprise – $15,000/mo
 **Defending the price**  
 Show the math. One chatbot saves a support rep 30 hrs/month at $25/hr – $750 a month. Multiply by 3‑5 bots and you’re up to $2,250/month per client. Add the marketing lift from Klaviyo/ActiveCampaign, you’re slashing churn by 20% and lifting sales by 15%. Clients will see the ROI in 90 days.  
 
-[accent-box]**Hack:** Bundle the CRM and email tools together to push the price up by 30% – clients love the all‑in‑one feel and can’t say no.[/accent-box]
+> **Hack:** Bundle the CRM and email tools together to push the price up by 30% – clients love the all‑in‑one feel and can’t say no.
 
 ## Getting Clients: The Real Playbook
 
@@ -209,38 +209,38 @@ This is how you turn a $3k‑$20k/month AI support business into a predictable p
 
 ## Tricks and Hacks They Don't Share in Courses
 
-{{% accent-box %}}
+>
 **HACK 1: Turn a Notion FAQ into a 24/7 Bot for $10/month**  
 Pull every FAQ from your Notion database and feed it straight into Make.com. Set up a Make.com scenario that runs every 5 minutes, grabs the latest entries, and pushes them into ChatGPT for a conversational twist. The bot lives on your website via a simple webhook.  
 Cost: Make.com Pro starts at $10/month. Notion is free for basic use. No hidden fees.  
 Result: Your support team stops answering the same 75% of questions. The bot is live 24/7 for a fraction of a support rep’s salary.  
-{{% /accent-box %}}
 
-{{% accent-box %}}
+
+>
 **HACK 2: Host a Voice‑first AI Agent on Hostinger for $4/month**  
 Spin up a Flask app on Replit that calls the OpenAI API and uses Vapi to read and listen. Deploy that to Hostinger’s $3.99/month shared plan. Add ElevenLabs for realistic voice synthesis; the API costs $0.10 per minute of audio.  
 Your bot can answer calls, record voicemails, and close the loop back to your CRM.  
 Total: $4/month for hosting + $0.10/min for voice‑synthesis while you’re live.  
 The trick? Use Replit’s free tier to prototype, then push to Hostinger once you’re sure the bot doesn’t trip the 1‑GB RAM limit.  
-{{% /accent-box %}}
 
-{{% accent-box %}}
+
+>
 **HACK 3: Convert FAQ text into viral video answers for $37/month**  
 Feed your most common questions into Fliki AI ($25/month) to generate AI‑voice videos. Use Canva ($12/month) to sketch thumbnails and branded intro frames. Upload to YouTube and embed the link in the chatbot’s “view video” option.  
 Cost: $37/month.  
 Result: An on‑demand video library that keeps customers engaged and frees up your humans to handle edge cases.  
 The catch: You need to keep the scripts fresh or the AI will generate stale content. Update weekly, no extra cost.  
-{{% /accent-box %}}
 
-{{% accent-box %}}
+
+>
 **HACK 4: Nurture leads the same way you nurture customers**  
 Use Apollo.io Basic ($39/month) to pull a list of prospects who’ve shown interest in AI support. Run PhantomBuster (free tier) to scrape LinkedIn profiles and extract email addresses. Push those leads straight into ActiveCampaign ($29/month) via Zapier Starter ($19/month).  
 Trigger a Klaviyo onboarding flow (free for 500 contacts) that sends a 3‑step welcome series.  
 Cost: $87/month, but you’re getting a full funnel that turns inquiries into paid contracts.  
 Truth: You’ll need to scrub the data daily; otherwise, you’ll end up on spam lists and your deliverability will drop.  
-{{% /accent-box %}}
 
-{{% accent-box %}}
+
+>
 **HACK 5: Automate your marketing calendar for $52/month**  
 Build a content calendar in Notion (free) and schedule posts with Buffer ($15/month). Use Midjourney (free trial, then $10/month) to generate custom images for each post. Proofread
 

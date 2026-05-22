@@ -29,21 +29,21 @@ Third, the barriers to entry for starting an AI-powered consulting business are 
 
 **The Realistic Picture (Before You Get Excited)**  
 
-{{% accent-box %}}
+>
 **Truth #1:** Your first client will eat up around **$4,500** of your time and tools before you even get a single dollar. You’ll need to spin up a data pipeline in Make.com, scrub warehouse logs in Replit, and run a baseline model in ChatGPT. That’s roughly 40 hours of work plus $200 for API calls—no free lunch.
-{{% /accent-box %}}
 
-{{% accent-box %}}
+
+>
 **Truth #2:** The market is full of “AI supply‑chain gurus.” You’ll spend at least **$2,000 a month** on LinkedIn ads, Apollo.io lead hunting, and LinkedIn outreach via PhantomBuster just to keep a pipeline of 5–7 prospects. If you’re not investing that money, you’ll sit on a golden opportunity and end up with 0 new deals.
-{{% /accent-box %}}
 
-{{% accent-box %}}
+
+>
 **Truth #3:** Delivering real ROI takes **8–12 weeks** per client. Your initial diagnostics, custom dashboard in Canva, and weekly strategy calls run for two months. That means you can’t hit $10 k a month until you have at least 4–5 engaged clients on the board. Speed matters, but you can’t skip due diligence.
-{{% /accent-box %}}
 
-{{% accent-box %}}
+
+>
 **Truth #4:** Only about **30 %** of supply‑chain managers stick around for a second engagement. The rest walk away after a single audit. That means you’ll need to bring in a new client every 2–3 months to keep revenue steady, and each new client costs you another $4,500 in setup. Repeat business is rare; churn is real.
-{{% /accent-box %}}
+
 
 You’ll also have to juggle a dozen tools that feel like a playlist of micro‑services: ChatGPT for insights, Make.com for automating data pulls, ElevenLabs to synthesize executive summaries, Canva to design dashboards, and Klaviyo to nurture leads via email. Each of those has a price tag—$20/month for a basic ChatGPT plan, $25/month for Make.com’s starter, and $15/month for Klaviyo’s entry tier. Add the cost of a Cloud IDE like Replit ($10/month) and you’re looking at **$70 a month** just to keep the tech stack humming.  
 
@@ -69,7 +69,7 @@ These tools let you launch a lean consultancy with no upfront spend. You can mov
 
 Free tiers feel generous until you hit the caps. Zapier’s 100 tasks/month means you can’t run a dozen daily triggers without hitting the limit. ChatGPT’s free model caps at 25 k tokens per month, so a deep dive into 10‑year supply‑chain data will stall. Replit’s 500 MB storage and 1 GB bandwidth make it hard to keep large datasets online. Buffer’s 10‑post schedule per account doesn’t scale when you’re managing 20+ clients. Canva’s free version hides premium icons and templates you’ll need for a professional look. When your pipeline grows, a paid plan unlocks higher quotas, collaborative spaces, and advanced analytics that justify a $50–$200/month investment.
 
-> [accent-box]HACK: Use Zapier’s free “Update Spreadsheet Row” trigger to automatically push any new CSV upload into Notion, then let ChatGPT auto‑summarize the key metrics in the next cell—no manual copy‑paste required.[/accent-box]
+> >HACK: Use Zapier’s free “Update Spreadsheet Row” trigger to automatically push any new CSV upload into Notion, then let ChatGPT auto‑summarize the key metrics in the next cell—no manual copy‑paste required.
 
 ## The Paid Stack: When You're Ready to Scale
 
@@ -91,7 +91,7 @@ You’ve cracked the free stack, landed a few pilots, and it’s time to start p
 Total monthly cost: **$380**.  
 If you land two high‑ticket clients at $10,000 each, your gross revenue is $20,000. Subtract the stack, and you’re left with $19,620 in profit. Scale to five clients and you’re at $50,000/month, still netting $49,620 after stack fees. Even a single $10k client beats the stack cost by a factor of 25.
 
-[accent-box]**Hack:** Hook up Replit scripts to Make.com triggers so every time new data lands in your warehouse, your model auto‑re‑runs and pushes the updated dashboard to Vapi in under 30 minutes. [/accent-box]
+>**Hack:** Hook up Replit scripts to Make.com triggers so every time new data lands in your warehouse, your model auto‑re‑runs and pushes the updated dashboard to Vapi in under 30 minutes. 
 
 Remember, the stack is not a luxury; it’s infrastructure that keeps your service fast, reliable, and scalable. Pay it, optimize it, and let the revenue roll in.
 
@@ -174,7 +174,7 @@ $8k covers the cost of the extra AI compute (about $150/month on Replit) and the
 Full‑blown, 24/7 operation. I set up a Vapi voice agent that sends daily alerts straight to your Slack. Real‑time dashboards live on a Hostinger VPS at $15/month. Zapier connects every tool so you never have to click a button. I dedicate 40 hours a month to strategy and 12 weekly sessions with your executive team. I also produce 12 AI‑generated videos with Fliki AI and a synthetic voice from ElevenLabs.  
 $20k is a line item for the 3‑year contract you’ll see. The customer sees a 30‑40% cut in logistics spend in the first two quarters.
 
-**[accent-box] Pricing Hack**  
+**> Pricing Hack**  
 Bundle the “Enterprise” features and offer a 5‑year discount. Charge $18,000/month for the first year and drop to $16,000/month afterward. The customer locks in the price while you lock in a long‑term contract. It’s a win‑win that turns a one‑off project into a recurring revenue stream.
 
 ## Getting Clients: The Real Playbook
@@ -197,11 +197,11 @@ Run a $300/month Facebook ad campaign targeting “supply‑chain director.” U
 
 **Referral HACK**
 
-[accent-box]Give every first‑time client a $500 credit toward their next project for every referral who signs a 6‑month retainer. That’s a 30‑day “pay‑back” promise that turns satisfied clients into paid referrers.[/accent-box]
+>Give every first‑time client a $500 credit toward their next project for every referral who signs a 6‑month retainer. That’s a 30‑day “pay‑back” promise that turns satisfied clients into paid referrers.
 
 ## Tricks and Hacks They Don't Share in Courses
 
-{{% accent-box %}}
+>
 **HACK 1: Automate Your Data Pulls with Make.com (formerly Integromat).**  
 Every supply‑chain client gives you a spreadsheet, a database, or a custom API. Instead of opening Excel and clicking “Refresh” every day, set up a Make.com scenario that pulls the raw data every 4 hours. The free plan gives you 500 tasks/month; that’s enough for 12 clients if you’re pulling once per client per day. Once you hit the $49/month plan, you get 5,000 tasks and live‑chat support. You’ll be free to focus on analysis, not data wrangling.
 
