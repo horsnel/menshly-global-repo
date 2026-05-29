@@ -1,24 +1,6 @@
 {
-  "last_updated": "2026-05-28T13:54:24.853966+00:00",
+  "last_updated": "2026-05-29T11:39:59.744741+00:00",
   "topics": [
-    {
-      "topic": "How to start an AI video editing business in 2026",
-      "context": "With the increasing demand for video content, AI-powered video editing services are becoming essential. Solo entrepreneurs can use AI tools to edit videos quickly and accurately.",
-      "keywords": [
-        "AI video editing",
-        "video production",
-        "content creation"
-      ],
-      "affiliates": [
-        "Loom",
-        "Canva",
-        "Beehiiv"
-      ],
-      "opportunity_angle": "How to start an AI video editing business in 2026 (earn $5,000/month)",
-      "intelligence_angle": "Edit, optimize, and automate video production with AI tools",
-      "playbook_angle": "Launch, manage, and scale an AI video editing business with Loom and Canva",
-      "discovered_at": "2026-05-01T05:27:27.022851+00:00"
-    },
     {
       "topic": "How to build an AI-powered bookkeeping automation business in 2026",
       "context": "As businesses look to automate their bookkeeping, AI-powered bookkeeping services are in high demand. Solo entrepreneurs can use AI tools to automate bookkeeping tasks and provide accurate financial insights.",
@@ -4414,6 +4396,10 @@
     {
       "topic": "How to build an AI-powered customer onboarding system in 2026",
       "used_at": "2026-05-27T11:55:27.313137+00:00"
+    },
+    {
+      "topic": "How to start an AI video editing business in 2026",
+      "used_at": "2026-05-29T11:39:59.744714+00:00"
     }
   ]
 }
