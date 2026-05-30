@@ -8,6 +8,7 @@ excerpt: "In this guide you will build a fully automated, personalized, and opti
 image: "/images/articles/intelligence/automate-personalize-and-optimize-customer-onboarding-with-ai-tools.png"
 heroImage: "/images/heroes/intelligence/automate-personalize-and-optimize-customer-onboarding-with-ai-tools.png"
 relatedOpportunity: "/opportunities/how-to-build-an-ai-customer-onboarding-system-5k-10kmonth/"
+relatedPlaybook: "/playbooks/the-ai-video-editing-playbook-25-steps-to-25kmonth/"
 ---
 
 In this guide you will build a fully automated, personalized, and optimizable customer onboarding service powered by ChatGPT and a suite of complementary AI tools. By the end of the implementation you will have a production‑ready micro‑service that retrieves new user data, crafts tailored welcome flows, and continuously optimizes the experience using real‑time analytics, all without manual touchpoints.  

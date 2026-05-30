@@ -6,6 +6,7 @@ readTime: "16 MIN"
 excerpt: "The first thing you’ll get when you Google “video editing agency” is a wall of big‑name studios and pricey freelancers. But did you know that a 3‑minute promo can be edited for under $10 with the righ..."
 image: "/images/articles/opportunities/how-to-start-an-ai-video-editing-business-in-2026-earn-5000month.png"
 heroImage: "/images/heroes/opportunities/how-to-start-an-ai-video-editing-business-in-2026-earn-5000month.png"
+relatedPlaybook: "/playbooks/the-ai-video-editing-playbook-25-steps-to-25kmonth/"
 ---
 
 
