@@ -6,6 +6,7 @@ readTime: "16 MIN"
 excerpt: "Picture a hiring manager who spends 20 hours a month just scrolling through resumes. That’s a $1,200‑per‑month drain on a small business that could be funneling that money straight into growth. In 202..."
 image: "/images/articles/opportunities/how-to-start-an-ai-powered-hr-and-recruitment-automation-business-in-2026-earn-1.png"
 heroImage: "/images/heroes/opportunities/how-to-start-an-ai-powered-hr-and-recruitment-automation-business-in-2026-earn-1.png"
+relatedGuide: "/intelligence/build-an-ai-hr-recruitment-automation-service-with-chatgpt-the-complete-step-by-/"
 ---
 
 
