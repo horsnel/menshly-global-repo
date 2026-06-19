@@ -1,24 +1,6 @@
 {
-  "last_updated": "2026-06-18T12:56:05.533760+00:00",
+  "last_updated": "2026-06-19T12:27:12.950299+00:00",
   "topics": [
-    {
-      "topic": "How to build an AI-powered customer support automation business in 2026",
-      "context": "As businesses look to improve customer experience, AI-powered customer support services are in high demand. Solo entrepreneurs can use AI tools to automate customer support tasks and provide personalized support.",
-      "keywords": [
-        "AI customer support",
-        "automation",
-        "customer experience"
-      ],
-      "affiliates": [
-        "ChatGPT",
-        "Klaviyo",
-        "Calendly"
-      ],
-      "opportunity_angle": "How to build an AI-powered customer support automation business in 2026 (earn $10,000/month)",
-      "intelligence_angle": "Automate, personalize, and optimize customer support with AI tools",
-      "playbook_angle": "Launch, manage, and scale an AI-powered customer support automation business with ChatGPT and Klaviyo",
-      "discovered_at": "2026-05-01T05:27:27.022866+00:00"
-    },
     {
       "topic": "How to start an AI podcast production agency in 2026",
       "context": "With the increasing demand for podcast content, AI-powered podcast production services are becoming essential. Solo entrepreneurs can use AI tools to produce high-quality podcasts quickly and accurately.",
@@ -4376,6 +4358,10 @@
     {
       "topic": "How to start an AI-powered HR and recruitment automation business in 2026",
       "used_at": "2026-06-17T12:43:07.752498+00:00"
+    },
+    {
+      "topic": "How to build an AI-powered customer support automation business in 2026",
+      "used_at": "2026-06-19T12:27:12.950271+00:00"
     }
   ]
 }
