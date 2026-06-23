@@ -6,6 +6,7 @@ readTime: "16 MIN"
 excerpt: "The first thing you hear when you ask a podcaster how much it costs to run a season is **“$3,000–$5,000 per episode.”** That’s the price of a studio, a host, a producer, and a sound engineer. In 2026,..."
 image: "/images/articles/opportunities/how-to-start-an-ai-podcast-production-agency-in-2026-earn-5000month.png"
 heroImage: "/images/heroes/opportunities/how-to-start-an-ai-podcast-production-agency-in-2026-earn-5000month.png"
+relatedGuide: "/intelligence/build-an-ai-podcast-production-and-automation-with-chatgpt-the-complete-step-by-/"
 ---
 
 
