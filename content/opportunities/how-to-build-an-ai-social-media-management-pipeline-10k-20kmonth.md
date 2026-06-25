@@ -6,6 +6,7 @@ readTime: "16 MIN"
 excerpt: "Every 30‑year‑old solo founder who can spin a single Instagram carousel into a lead magnet can pull in $10,000 a month. That’s not a fantasy. It’s a data point from a survey of 300 micro‑agencies in 2..."
 image: "/images/articles/opportunities/how-to-build-an-ai-powered-social-media-management-pipeline-in-2026-earn-10000mo.png"
 heroImage: "/images/heroes/opportunities/how-to-build-an-ai-powered-social-media-management-pipeline-in-2026-earn-10000mo.png"
+relatedGuide: "/intelligence/build-an-ai-social-media-management-tool-with-chatgpt-the-complete-step-by-step-/"
 ---
 
 
