@@ -6,6 +6,7 @@ readTime: "16 MIN"
 excerpt: "Every business that knows the value of a qualified lead can see the numbers: a $75,000 deal that closes because you had the right contact in the right inbox. The industry’s sweet spot is $10‑$20 K per..."
 image: "/images/articles/opportunities/how-to-start-an-ai-powered-lead-generation-business-with-apolloio-in-2026-earn-1.png"
 heroImage: "/images/heroes/opportunities/how-to-start-an-ai-powered-lead-generation-business-with-apolloio-in-2026-earn-1.png"
+relatedPlaybook: "/playbooks/proposal-pricing-increase-service/"
 ---
 
 

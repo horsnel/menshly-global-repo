@@ -8,6 +8,7 @@ excerpt: "In this guide you will build a fully automated social media management
 image: "/images/articles/intelligence/automate-optimize-and-analyze-social-media-management-with-ai-tools.png"
 heroImage: "/images/heroes/intelligence/automate-optimize-and-analyze-social-media-management-with-ai-tools.png"
 relatedOpportunity: "/opportunities/how-to-build-an-ai-social-media-management-pipeline-10k-20kmonth/"
+relatedPlaybook: "/playbooks/proposal-pricing-increase-service/"
 ---
 
 In this guide you will build a fully automated social media management platform that leverages ChatGPT, ElevenLabs, and Make.com to generate, schedule, and analyze content across Instagram, LinkedIn, and TikTok. By the end of the implementation you will have a repeatable workflow that creates AI‑generated captions, voice‑over videos, and performance dashboards—all deployable in under a week. This is a hands‑on execution guide, not a high‑level overview; every step is laid out with precise tool settings, API keys, and terminal commands so you can copy‑paste and run immediately.  
