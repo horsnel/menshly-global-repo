@@ -1,24 +1,6 @@
 {
-  "last_updated": "2026-06-27T09:05:59.132280+00:00",
+  "last_updated": "2026-06-29T12:37:01.983383+00:00",
   "topics": [
-    {
-      "topic": "How to build an AI-powered copywriting agency in 2026",
-      "context": "With the increasing demand for high-quality content, AI-powered copywriting services are becoming essential. Solo entrepreneurs can use AI tools to produce high-quality copy quickly and accurately.",
-      "keywords": [
-        "AI copywriting",
-        "content creation",
-        "marketing automation"
-      ],
-      "affiliates": [
-        "ChatGPT",
-        "Grammarly",
-        "Canva"
-      ],
-      "opportunity_angle": "How to build an AI-powered copywriting agency in 2026 (earn $5,000/month)",
-      "intelligence_angle": "Write, optimize, and automate copy with AI tools",
-      "playbook_angle": "Launch, manage, and scale an AI-powered copywriting agency with ChatGPT and Grammarly",
-      "discovered_at": "2026-05-01T05:27:27.022887+00:00"
-    },
     {
       "topic": "How to start an AI-powered SEO agency with Semrush in 2026",
       "context": "As businesses look to improve their online presence, AI-powered SEO services are in high demand. Solo entrepreneurs can use AI tools to automate SEO tasks and provide accurate insights.",
@@ -4324,6 +4306,10 @@
     {
       "topic": "How to start an AI-powered lead generation business with Apollo.io in 2026",
       "used_at": "2026-06-27T09:05:59.132248+00:00"
+    },
+    {
+      "topic": "How to build an AI-powered copywriting agency in 2026",
+      "used_at": "2026-06-29T12:37:01.983356+00:00"
     }
   ]
 }
