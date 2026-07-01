@@ -1,24 +1,6 @@
 {
-  "last_updated": "2026-06-30T12:11:13.199866+00:00",
+  "last_updated": "2026-07-01T11:45:09.911953+00:00",
   "topics": [
-    {
-      "topic": "How to start an AI-powered SEO agency with Semrush in 2026",
-      "context": "As businesses look to improve their online presence, AI-powered SEO services are in high demand. Solo entrepreneurs can use AI tools to automate SEO tasks and provide accurate insights.",
-      "keywords": [
-        "AI SEO",
-        "Semrush",
-        "digital marketing"
-      ],
-      "affiliates": [
-        "Semrush",
-        "Ahrefs",
-        "Moz"
-      ],
-      "opportunity_angle": "How to start an AI-powered SEO agency with Semrush in 2026 (earn $10,000/month)",
-      "intelligence_angle": "Optimize, automate, and analyze SEO with AI tools",
-      "playbook_angle": "Launch, manage, and scale an AI-powered SEO agency with Semrush and Ahrefs",
-      "discovered_at": "2026-05-01T05:27:27.022891+00:00"
-    },
     {
       "topic": "How to build an AI-powered email marketing automation business in 2026",
       "context": "As businesses look to improve their email marketing efforts, AI-powered email marketing automation services are in high demand. Solo entrepreneurs can use AI tools to automate email marketing tasks and provide personalized content.",
@@ -4310,6 +4292,10 @@
     {
       "topic": "How to build an AI-powered copywriting agency in 2026",
       "used_at": "2026-06-29T12:37:01.983356+00:00"
+    },
+    {
+      "topic": "How to start an AI-powered SEO agency with Semrush in 2026",
+      "used_at": "2026-07-01T11:45:09.911923+00:00"
     }
   ]
 }
