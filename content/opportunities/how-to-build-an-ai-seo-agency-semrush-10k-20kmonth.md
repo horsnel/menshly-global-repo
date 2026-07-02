@@ -6,6 +6,7 @@ readTime: "16 MIN"
 excerpt: "**Hook**"
 image: "/images/articles/opportunities/how-to-start-an-ai-powered-seo-agency-with-semrush-in-2026-earn-10000month.png"
 heroImage: "/images/heroes/opportunities/how-to-start-an-ai-powered-seo-agency-with-semrush-in-2026-earn-10000month.png"
+relatedGuide: "/intelligence/build-an-ai-seo-automation-service-with-chatgpt-the-complete-step-by-step-guide/"
 ---
 
 
