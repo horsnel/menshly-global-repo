@@ -8,6 +8,7 @@ excerpt: "In this guide you will build a fully automated AI‑driven SEO service
 image: "/images/articles/intelligence/optimize-automate-and-analyze-seo-with-ai-tools.png"
 heroImage: "/images/heroes/intelligence/optimize-automate-and-analyze-seo-with-ai-tools.png"
 relatedOpportunity: "/opportunities/how-to-build-an-ai-seo-agency-semrush-10k-20kmonth/"
+relatedPlaybook: "/playbooks/the-ai-email-marketing-automation-playbook-25-steps-to-12kmonth/"
 ---
 
 In this guide you will build a fully automated AI‑driven SEO service that leverages ChatGPT, Make.com, and Semrush to perform keyword research, content generation, technical audits, and performance tracking—all at scale. By the end of the build, you will have a repeatable pipeline that can launch new client sites in under 48 hours, deliver monthly SEO reports in a single dashboard, and auto‑optimize content for target keywords with zero manual intervention.  

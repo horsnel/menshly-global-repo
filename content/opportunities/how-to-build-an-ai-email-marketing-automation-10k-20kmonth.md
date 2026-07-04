@@ -6,6 +6,7 @@ readTime: "16 MIN"
 excerpt: "Think about this: a single email that lands in a prospect’s inbox can cost a business $1,400 in lost revenue if it never gets opened. Now flip that. If you can automate a funnel that sends that same e..."
 image: "/images/articles/opportunities/how-to-build-an-ai-powered-email-marketing-automation-business-in-2026-earn-1000.png"
 heroImage: "/images/heroes/opportunities/how-to-build-an-ai-powered-email-marketing-automation-business-in-2026-earn-1000.png"
+relatedPlaybook: "/playbooks/the-ai-email-marketing-automation-playbook-25-steps-to-12kmonth/"
 ---
 
 
