@@ -1,24 +1,6 @@
 {
-  "last_updated": "2026-07-04T09:02:15.283679+00:00",
+  "last_updated": "2026-07-06T12:09:20.122047+00:00",
   "topics": [
-    {
-      "topic": "How to start an AI-powered data analysis service in 2026",
-      "context": "As businesses look to make data-driven decisions, AI-powered data analysis services are in high demand. Solo entrepreneurs can use AI tools to analyze data and provide accurate insights.",
-      "keywords": [
-        "AI data analysis",
-        "data science",
-        "business intelligence"
-      ],
-      "affiliates": [
-        "Google Data Studio",
-        "Tableau",
-        "Power BI"
-      ],
-      "opportunity_angle": "How to start an AI-powered data analysis service in 2026 (earn $10,000/month)",
-      "intelligence_angle": "Analyze, optimize, and automate data analysis with AI tools",
-      "playbook_angle": "Launch, manage, and scale an AI-powered data analysis service with Google Data Studio and Tableau",
-      "discovered_at": "2026-05-01T05:27:27.022900+00:00"
-    },
     {
       "topic": "How to build an AI-powered chatbot agency for e-commerce in 2026",
       "context": "As e-commerce businesses look to improve customer experience, AI-powered chatbot services are in high demand. Solo entrepreneurs can use AI tools to automate chatbot tasks and provide personalized support.",
@@ -4286,6 +4268,10 @@
     {
       "topic": "How to build an AI-powered email marketing automation business in 2026",
       "used_at": "2026-07-04T09:02:15.283644+00:00"
+    },
+    {
+      "topic": "How to start an AI-powered data analysis service in 2026",
+      "used_at": "2026-07-06T12:09:20.122017+00:00"
     }
   ]
 }
