@@ -1,24 +1,6 @@
 {
-  "last_updated": "2026-07-07T12:28:35.467602+00:00",
+  "last_updated": "2026-07-08T10:20:03.711831+00:00",
   "topics": [
-    {
-      "topic": "How to build an AI-powered chatbot agency for e-commerce in 2026",
-      "context": "As e-commerce businesses look to improve customer experience, AI-powered chatbot services are in high demand. Solo entrepreneurs can use AI tools to automate chatbot tasks and provide personalized support.",
-      "keywords": [
-        "AI chatbot",
-        "e-commerce",
-        "customer support"
-      ],
-      "affiliates": [
-        "Shopify",
-        "WooCommerce",
-        "ChatGPT"
-      ],
-      "opportunity_angle": "How to build an AI-powered chatbot agency for e-commerce in 2026 (earn $10,000/month)",
-      "intelligence_angle": "Automate, optimize, and analyze chatbot interactions with AI tools",
-      "playbook_angle": "Launch, manage, and scale an AI-powered chatbot agency for e-commerce with Shopify and ChatGPT",
-      "discovered_at": "2026-05-01T05:27:27.022904+00:00"
-    },
     {
       "topic": "How to start an AI-powered cold email outreach system in 2026",
       "context": "As businesses look to generate high-quality leads, AI-powered cold email outreach services are in high demand. Solo entrepreneurs can use AI tools to automate cold email outreach tasks and provide accurate leads.",
@@ -4272,6 +4254,10 @@
     {
       "topic": "How to start an AI-powered data analysis service in 2026",
       "used_at": "2026-07-06T12:09:20.122017+00:00"
+    },
+    {
+      "topic": "How to build an AI-powered chatbot agency for e-commerce in 2026",
+      "used_at": "2026-07-08T10:20:03.711811+00:00"
     }
   ]
 }
