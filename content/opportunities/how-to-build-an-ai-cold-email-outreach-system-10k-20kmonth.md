@@ -6,6 +6,7 @@ readTime: "16 MIN"
 excerpt: "You’re staring at a spreadsheet that shows $10,000 per month, but the reality is that most people only hit $200 a month before they quit. The reason? They keep treating cold‑email as a manual, one‑off..."
 image: "/images/articles/opportunities/how-to-start-an-ai-powered-cold-email-outreach-system-in-2026-earn-10000month.png"
 heroImage: "/images/heroes/opportunities/how-to-start-an-ai-powered-cold-email-outreach-system-in-2026-earn-10000month.png"
+relatedPlaybook: "/playbooks/the-ai-cold-email-outreach-playbook-25-steps-to-15kmonth/"
 ---
 
 
