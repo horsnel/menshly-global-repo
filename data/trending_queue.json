@@ -1,24 +1,6 @@
 {
-  "last_updated": "2026-07-14T11:26:18.475940+00:00",
+  "last_updated": "2026-07-15T10:06:01.926199+00:00",
   "topics": [
-    {
-      "topic": "How to start an AI-powered proposal and grant writing business in 2026",
-      "context": "As businesses and non-profits look to secure funding, AI-powered proposal and grant writing services are in high demand. Solo entrepreneurs can use AI tools to automate proposal and grant writing tasks and provide high-quality content.",
-      "keywords": [
-        "AI proposal writing",
-        "grant writing",
-        "funding"
-      ],
-      "affiliates": [
-        "Notion",
-        "Grammarly",
-        "Canva"
-      ],
-      "opportunity_angle": "How to start an AI-powered proposal and grant writing business in 2026 (earn $10,000/month)",
-      "intelligence_angle": "Write, optimize, and automate proposals and grants with AI tools",
-      "playbook_angle": "Launch, manage, and scale an AI-powered proposal and grant writing business with Notion and Grammarly",
-      "discovered_at": "2026-05-01T05:27:27.022918+00:00"
-    },
     {
       "topic": "How to build an AI-powered content repurposing agency with multi-platform distribution in 2026",
       "context": "As businesses look to maximize their content's reach, AI-powered content repurposing services are in high demand. Solo entrepreneurs can use AI tools to automate content repurposing tasks and provide high-quality content across multiple platforms.",
@@ -4234,6 +4216,10 @@
     {
       "topic": "How to build an AI-powered real estate automation business in 2026",
       "used_at": "2026-07-13T11:05:12.268613+00:00"
+    },
+    {
+      "topic": "How to start an AI-powered proposal and grant writing business in 2026",
+      "used_at": "2026-07-15T10:06:01.926179+00:00"
     }
   ]
 }
