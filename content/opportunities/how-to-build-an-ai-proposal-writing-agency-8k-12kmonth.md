@@ -6,6 +6,7 @@ readTime: "16 MIN"
 excerpt: "The first thing you’ll see on a grant‑writing dashboard is a **$500,000 proposal**. That’s not an average. Most nonprofits chase that number, and the reality is a single grant can make or break a year..."
 image: "/images/articles/opportunities/how-to-start-an-ai-powered-proposal-and-grant-writing-business-in-2026-earn-1000.png"
 heroImage: "/images/heroes/opportunities/how-to-start-an-ai-powered-proposal-and-grant-writing-business-in-2026-earn-1000.png"
+relatedGuide: "/intelligence/build-an-ai-proposal-writing-service-with-chatgpt-the-complete-step-by-step-guid/"
 ---
 
 
