@@ -1,24 +1,6 @@
 {
-  "last_updated": "2026-07-16T11:41:53.957502+00:00",
+  "last_updated": "2026-07-17T10:00:48.917575+00:00",
   "topics": [
-    {
-      "topic": "How to build an AI-powered content repurposing agency with multi-platform distribution in 2026",
-      "context": "As businesses look to maximize their content's reach, AI-powered content repurposing services are in high demand. Solo entrepreneurs can use AI tools to automate content repurposing tasks and provide high-quality content across multiple platforms.",
-      "keywords": [
-        "AI content repurposing",
-        "multi-platform distribution",
-        "content marketing"
-      ],
-      "affiliates": [
-        "Beehiiv",
-        "Loom",
-        "Canva"
-      ],
-      "opportunity_angle": "How to build an AI-powered content repurposing agency with multi-platform distribution in 2026 (earn $10,000/month)",
-      "intelligence_angle": "Repurpose, optimize, and automate content with AI tools",
-      "playbook_angle": "Launch, manage, and scale an AI-powered content repurposing agency with Beehiiv and Loom",
-      "discovered_at": "2026-05-01T05:27:27.022923+00:00"
-    },
     {
       "topic": "How to start an AI-powered newsletter business with Beehiiv in 2026",
       "context": "As businesses look to improve their email marketing efforts, AI-powered newsletter services are in high demand. Solo entrepreneurs can use AI tools to automate newsletter tasks and provide high-quality content.",
@@ -4220,6 +4202,10 @@
     {
       "topic": "How to start an AI-powered proposal and grant writing business in 2026",
       "used_at": "2026-07-15T10:06:01.926179+00:00"
+    },
+    {
+      "topic": "How to build an AI-powered content repurposing agency with multi-platform distribution in 2026",
+      "used_at": "2026-07-17T10:00:48.917549+00:00"
     }
   ]
 }
