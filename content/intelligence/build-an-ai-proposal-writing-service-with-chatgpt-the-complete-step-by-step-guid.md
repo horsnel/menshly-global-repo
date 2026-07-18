@@ -8,6 +8,7 @@ excerpt: "In this article you will build a fully operational AI‑powered propos
 image: "/images/articles/intelligence/write-optimize-and-automate-proposals-and-grants-with-ai-tools.png"
 heroImage: "/images/heroes/intelligence/write-optimize-and-automate-proposals-and-grants-with-ai-tools.png"
 relatedOpportunity: "/opportunities/how-to-build-an-ai-proposal-writing-agency-8k-12kmonth/"
+relatedPlaybook: "/playbooks/appendix-a-complete-tool-reference/"
 ---
 
 In this article you will build a fully operational AI‑powered proposal and grant writing service that can churn out high‑quality documents in minutes, then automatically deliver, track, and optimize them for your clients. You’ll learn how to harness ChatGPT for drafting, use Make.com to orchestrate data flows, and integrate ElevenLabs for polished voice‑over summaries—all while keeping the entire stack under a $200 monthly budget. This is not a conceptual overview; it’s a hands‑on, step‑by‑step execution guide that will walk you through every click, configuration, and code snippet required to launch a repeatable, scalable service.

@@ -6,6 +6,7 @@ readTime: "16 MIN"
 excerpt: "Every article you hand a client to repurpose into 10 formats is worth about $1,200 in pure labor if you do it the old way. A single 10‑minute video turns into a TikTok clip, an Instagram carousel, a L..."
 image: "/images/articles/opportunities/how-to-build-an-ai-powered-content-repurposing-agency-with-multi-platform-distri.png"
 heroImage: "/images/heroes/opportunities/how-to-build-an-ai-powered-content-repurposing-agency-with-multi-platform-distri.png"
+relatedPlaybook: "/playbooks/appendix-a-complete-tool-reference/"
 ---
 
 
