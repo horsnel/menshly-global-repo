@@ -6,6 +6,7 @@ readTime: "16 MIN"
 excerpt: "Details coming soon. Check back for updates on this section."
 image: "/images/articles/opportunities/how-to-build-an-ai-powered-saas-micro-product-business-on-replit-in-2026-earn-10.png"
 heroImage: "/images/heroes/opportunities/how-to-build-an-ai-powered-saas-micro-product-business-on-replit-in-2026-earn-10.png"
+relatedGuide: "/intelligence/build-an-develop-optimize-and-automate-saas-micro-products-with-ai-tools-with-ch/"
 ---
 
 
