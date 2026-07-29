@@ -1,24 +1,6 @@
 {
-  "last_updated": "2026-07-28T11:58:39.992667+00:00",
+  "last_updated": "2026-07-29T10:48:25.277290+00:00",
   "topics": [
-    {
-      "topic": "How to sell automation workflows on Gumroad while you sleep in 2026",
-      "context": "Digital product marketplaces like Gumroad are booming with no-code automation templates that generate passive income for creators",
-      "keywords": [
-        "automation workflows",
-        "Gumroad",
-        "passive income"
-      ],
-      "affiliates": [
-        "Make.com",
-        "Zapier",
-        "Notion"
-      ],
-      "opportunity_angle": "How to Sell Automation Workflows on Gumroad While You Sleep in 2026 ($2K-15K/Month)",
-      "intelligence_angle": "Build, Package, and Sell Automation Workflows with Make.com",
-      "playbook_angle": "Build, Package, and Sell Automation Workflows with Make.com and Notion",
-      "discovered_at": "2026-05-01T12:00:00.000000+00:00"
-    },
     {
       "topic": "How to build a silent workforce with autonomous agents and CrewAI in 2026",
       "context": "Autonomous AI agents are replacing entire teams \u2014 solo entrepreneurs can now orchestrate multi-agent crews that handle research, writing, and analysis autonomously",
@@ -4154,6 +4136,10 @@
     {
       "topic": "How to build an AI-powered voice agent business with Vapi in 2026",
       "used_at": "2026-07-27T11:30:03.849617+00:00"
+    },
+    {
+      "topic": "How to sell automation workflows on Gumroad while you sleep in 2026",
+      "used_at": "2026-07-29T10:48:25.277260+00:00"
     }
   ]
 }
