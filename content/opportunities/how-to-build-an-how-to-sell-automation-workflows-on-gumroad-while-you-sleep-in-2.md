@@ -6,6 +6,7 @@ readTime: "16 MIN"
 excerpt: "Details coming soon. Check back for updates on this section."
 image: "/images/articles/opportunities/how-to-sell-automation-workflows-on-gumroad-while-you-sleep-in-2026-2k-15kmonth.png"
 heroImage: "/images/heroes/opportunities/how-to-sell-automation-workflows-on-gumroad-while-you-sleep-in-2026-2k-15kmonth.png"
+relatedGuide: "/intelligence/build-an-build-package-and-sell-automation-workflows-with-makecom-with-chatgpt-t/"
 ---
 
 
