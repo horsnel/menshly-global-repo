@@ -1,24 +1,6 @@
 {
-  "last_updated": "2026-07-30T11:53:10.725510+00:00",
+  "last_updated": "2026-07-31T10:49:35.799343+00:00",
   "topics": [
-    {
-      "topic": "How to build a silent workforce with autonomous agents and CrewAI in 2026",
-      "context": "Autonomous AI agents are replacing entire teams \u2014 solo entrepreneurs can now orchestrate multi-agent crews that handle research, writing, and analysis autonomously",
-      "keywords": [
-        "autonomous agents",
-        "CrewAI",
-        "AI workforce"
-      ],
-      "affiliates": [
-        "Make.com",
-        "ChatGPT",
-        "Replit"
-      ],
-      "opportunity_angle": "How to Build a Silent Workforce with Autonomous Agents in 2026 ($5K-30K/Month)",
-      "intelligence_angle": "Build, Orchestrate, and Deploy Autonomous Agent Crews with Make.com",
-      "playbook_angle": "Build, Orchestrate, and Deploy Autonomous Agent Crews with Make.com and Replit",
-      "discovered_at": "2026-05-01T12:00:00.000000+00:00"
-    },
     {
       "topic": "How to sell prompt engineering as a premium consulting service in 2026",
       "context": "Companies are desperate for prompt engineers who can optimize AI outputs \u2014 it's the new high-ticket consulting skill",
@@ -4140,6 +4122,10 @@
     {
       "topic": "How to sell automation workflows on Gumroad while you sleep in 2026",
       "used_at": "2026-07-29T10:48:25.277260+00:00"
+    },
+    {
+      "topic": "How to build a silent workforce with autonomous agents and CrewAI in 2026",
+      "used_at": "2026-07-31T10:49:35.799314+00:00"
     }
   ]
 }
