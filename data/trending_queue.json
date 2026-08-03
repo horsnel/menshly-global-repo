@@ -1,24 +1,6 @@
 {
-  "last_updated": "2026-07-31T10:49:35.799343+00:00",
+  "last_updated": "2026-08-03T11:32:01.678823+00:00",
   "topics": [
-    {
-      "topic": "How to sell prompt engineering as a premium consulting service in 2026",
-      "context": "Companies are desperate for prompt engineers who can optimize AI outputs \u2014 it's the new high-ticket consulting skill",
-      "keywords": [
-        "prompt engineering",
-        "AI consulting",
-        "premium service"
-      ],
-      "affiliates": [
-        "ChatGPT",
-        "Make.com",
-        "Notion"
-      ],
-      "opportunity_angle": "How to Sell Prompt Engineering as a Premium Consulting Service in 2026 ($5K-25K/Month)",
-      "intelligence_angle": "Design, Test, and Deliver Prompt Engineering Solutions with ChatGPT",
-      "playbook_angle": "Design, Test, and Deliver Prompt Engineering Solutions with ChatGPT and Make.com",
-      "discovered_at": "2026-05-01T12:00:00.000000+00:00"
-    },
     {
       "topic": "How to build a blog empire without writing a single word yourself in 2026",
       "context": "AI writing tools can generate SEO-optimized blog content at scale, making it possible to run profitable niche sites without writing",
@@ -4126,6 +4108,10 @@
     {
       "topic": "How to build a silent workforce with autonomous agents and CrewAI in 2026",
       "used_at": "2026-07-31T10:49:35.799314+00:00"
+    },
+    {
+      "topic": "How to sell prompt engineering as a premium consulting service in 2026",
+      "used_at": "2026-08-03T11:32:01.678795+00:00"
     }
   ]
 }
