@@ -6,6 +6,7 @@ readTime: "16 MIN"
 excerpt: "Details coming soon. Check back for updates on this section."
 image: "/images/articles/opportunities/how-to-sell-prompt-engineering-as-a-premium-consulting-service-in-2026-5k-25kmon.png"
 heroImage: "/images/heroes/opportunities/how-to-sell-prompt-engineering-as-a-premium-consulting-service-in-2026-5k-25kmon.png"
+relatedGuide: "/intelligence/build-an-design-test-and-deliver-prompt-engineering-solutions-with-chatgpt-with-/"
 ---
 
 
