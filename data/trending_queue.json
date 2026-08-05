@@ -1,24 +1,6 @@
 {
-  "last_updated": "2026-08-04T12:02:47.757823+00:00",
+  "last_updated": "2026-08-05T10:47:29.142963+00:00",
   "topics": [
-    {
-      "topic": "How to build a blog empire without writing a single word yourself in 2026",
-      "context": "AI writing tools can generate SEO-optimized blog content at scale, making it possible to run profitable niche sites without writing",
-      "keywords": [
-        "AI blog",
-        "content empire",
-        "automated publishing"
-      ],
-      "affiliates": [
-        "ChatGPT",
-        "Semrush",
-        "Hostinger"
-      ],
-      "opportunity_angle": "How to Build a Blog Empire Without Writing a Single Word Yourself in 2026 ($3K-20K/Month)",
-      "intelligence_angle": "Generate, Publish, and Monetize Blog Content with ChatGPT",
-      "playbook_angle": "Generate, Publish, and Monetize Blog Content with ChatGPT and Semrush",
-      "discovered_at": "2026-05-01T12:00:00.000000+00:00"
-    },
     {
       "topic": "How to publish 10 digital products this month with the eBook factory model in 2026",
       "context": "AI makes it possible to research, write, format, and publish eBooks at unprecedented speed \u2014 turning knowledge into scalable digital assets",
@@ -4112,6 +4094,10 @@
     {
       "topic": "How to sell prompt engineering as a premium consulting service in 2026",
       "used_at": "2026-08-03T11:32:01.678795+00:00"
+    },
+    {
+      "topic": "How to build a blog empire without writing a single word yourself in 2026",
+      "used_at": "2026-08-05T10:47:29.142936+00:00"
     }
   ]
 }
