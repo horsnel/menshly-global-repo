@@ -1,24 +1,6 @@
 {
-  "last_updated": "2026-08-07T09:08:45.683304+00:00",
+  "last_updated": "2026-08-10T09:29:25.138442+00:00",
   "topics": [
-    {
-      "topic": "How to launch a paid Substack that writes itself in 2026",
-      "context": "AI can research and draft newsletter content automatically, making paid subscriptions a hands-off revenue stream",
-      "keywords": [
-        "paid Substack",
-        "AI newsletter",
-        "automated publishing"
-      ],
-      "affiliates": [
-        "Beehiiv",
-        "ChatGPT",
-        "Make.com"
-      ],
-      "opportunity_angle": "How to Launch a Paid Substack That Writes Itself in 2026 ($2K-15K/Month)",
-      "intelligence_angle": "Generate, Edit, and Publish Paid Newsletter Content with Beehiiv",
-      "playbook_angle": "Generate, Edit, and Publish Paid Newsletter Content with Beehiiv and ChatGPT",
-      "discovered_at": "2026-05-01T12:00:00.000000+00:00"
-    },
     {
       "topic": "How to monetize money advice without showing your face with the finance channel playbook in 2026",
       "context": "Faceless finance YouTube channels are generating massive ad revenue by combining AI narration with stock footage and data-driven scripts",
@@ -4084,6 +4066,10 @@
     {
       "topic": "How to publish 10 digital products this month with the eBook factory model in 2026",
       "used_at": "2026-08-07T09:08:45.683276+00:00"
+    },
+    {
+      "topic": "How to launch a paid Substack that writes itself in 2026",
+      "used_at": "2026-08-10T09:29:25.138422+00:00"
     }
   ]
 }
