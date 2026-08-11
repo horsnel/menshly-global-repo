@@ -6,6 +6,7 @@ readTime: "16 MIN"
 excerpt: "Details coming soon. Check back for updates on this section."
 image: "/images/articles/opportunities/how-to-launch-a-paid-substack-that-writes-itself-in-2026-2k-15kmonth.png"
 heroImage: "/images/heroes/opportunities/how-to-launch-a-paid-substack-that-writes-itself-in-2026-2k-15kmonth.png"
+relatedGuide: "/intelligence/build-an-generate-edit-and-publish-paid-newsletter-content-with-beehiiv-with-cha/"
 ---
 
 
