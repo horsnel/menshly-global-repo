@@ -6,6 +6,7 @@ readTime: "16 MIN"
 excerpt: "Details coming soon. Check back for updates on this section."
 image: "/images/articles/opportunities/how-to-monetize-money-advice-without-showing-your-face-in-2026-3k-25kmonth.png"
 heroImage: "/images/heroes/opportunities/how-to-monetize-money-advice-without-showing-your-face-in-2026-3k-25kmonth.png"
+relatedGuide: "/intelligence/build-an-script-produce-and-publish-faceless-finance-videos-with-fliki-ai-with-c/"
 ---
 
 
