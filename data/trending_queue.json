@@ -1,24 +1,6 @@
 {
-  "last_updated": "2026-08-14T09:17:49.725137+00:00",
+  "last_updated": "2026-08-17T08:51:46.769765+00:00",
   "topics": [
-    {
-      "topic": "How to build a YouTube automation agency that sells the system not the videos in 2026",
-      "context": "Entrepreneurs are paying premium prices for done-for-you YouTube automation systems \u2014 sell the playbook, not the production",
-      "keywords": [
-        "YouTube automation agency",
-        "faceless YouTube",
-        "systems business"
-      ],
-      "affiliates": [
-        "Fliki AI",
-        "Make.com",
-        "Canva"
-      ],
-      "opportunity_angle": "How to Build a YouTube Automation Agency That Sells the System in 2026 ($5K-30K/Month)",
-      "intelligence_angle": "Build, Systematize, and Sell YouTube Automation with Fliki AI",
-      "playbook_angle": "Build, Systematize, and Sell YouTube Automation with Fliki AI and Make.com",
-      "discovered_at": "2026-05-01T12:00:00.000000+00:00"
-    },
     {
       "topic": "How to send 100k visitors to any website with the Pinterest traffic machine in 2026",
       "context": "Pinterest is an underutilized search engine where AI-generated pins can drive massive organic traffic on autopilot",
@@ -4042,6 +4024,10 @@
     {
       "topic": "How to run a fully automated and monetized news summary channel in 2026",
       "used_at": "2026-08-14T09:17:49.725125+00:00"
+    },
+    {
+      "topic": "How to build a YouTube automation agency that sells the system not the videos in 2026",
+      "used_at": "2026-08-17T08:51:46.769738+00:00"
     }
   ]
 }
