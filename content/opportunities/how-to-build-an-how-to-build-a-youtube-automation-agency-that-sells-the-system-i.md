@@ -6,6 +6,7 @@ readTime: "16 MIN"
 excerpt: "Details coming soon. Check back for updates on this section."
 image: "/images/articles/opportunities/how-to-build-a-youtube-automation-agency-that-sells-the-system-in-2026-5k-30kmon.png"
 heroImage: "/images/heroes/opportunities/how-to-build-a-youtube-automation-agency-that-sells-the-system-in-2026-5k-30kmon.png"
+relatedGuide: "/intelligence/build-an-build-systematize-and-sell-youtube-automation-with-fliki-ai-with-chatgp/"
 ---
 
 
