@@ -1,24 +1,6 @@
 {
-  "last_updated": "2026-08-18T10:30:06.947392+00:00",
+  "last_updated": "2026-08-19T08:46:10.921383+00:00",
   "topics": [
-    {
-      "topic": "How to send 100k visitors to any website with the Pinterest traffic machine in 2026",
-      "context": "Pinterest is an underutilized search engine where AI-generated pins can drive massive organic traffic on autopilot",
-      "keywords": [
-        "Pinterest traffic",
-        "AI pins",
-        "organic visitors"
-      ],
-      "affiliates": [
-        "Canva",
-        "Make.com",
-        "ChatGPT"
-      ],
-      "opportunity_angle": "How to Send 100K Visitors to Any Website with the Pinterest Traffic Machine in 2026 ($3K-20K/Month)",
-      "intelligence_angle": "Design, Pin, and Drive Traffic with Canva",
-      "playbook_angle": "Design, Pin, and Drive Traffic with Canva and Make.com",
-      "discovered_at": "2026-05-01T12:00:00.000000+00:00"
-    },
     {
       "topic": "How to build a dropshipping store that manages itself with Make.com in 2026",
       "context": "No-code automation can handle order processing, inventory sync, customer emails, and ad management \u2014 making dropshipping truly hands-off",
@@ -4028,6 +4010,10 @@
     {
       "topic": "How to build a YouTube automation agency that sells the system not the videos in 2026",
       "used_at": "2026-08-17T08:51:46.769738+00:00"
+    },
+    {
+      "topic": "How to send 100k visitors to any website with the Pinterest traffic machine in 2026",
+      "used_at": "2026-08-19T08:46:10.921355+00:00"
     }
   ]
 }
