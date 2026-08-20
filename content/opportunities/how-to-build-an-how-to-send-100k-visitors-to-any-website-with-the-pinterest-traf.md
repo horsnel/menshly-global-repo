@@ -6,6 +6,7 @@ readTime: "16 MIN"
 excerpt: "Details coming soon. Check back for updates on this section."
 image: "/images/articles/opportunities/how-to-send-100k-visitors-to-any-website-with-the-pinterest-traffic-machine-in-2.png"
 heroImage: "/images/heroes/opportunities/how-to-send-100k-visitors-to-any-website-with-the-pinterest-traffic-machine-in-2.png"
+relatedGuide: "/intelligence/build-an-design-pin-and-drive-traffic-with-canva-with-chatgpt-the-complete-step-/"
 ---
 
 
