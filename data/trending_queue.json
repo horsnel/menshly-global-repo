@@ -1,24 +1,6 @@
 {
-  "last_updated": "2026-08-20T10:32:28.805530+00:00",
+  "last_updated": "2026-08-21T08:48:47.114788+00:00",
   "topics": [
-    {
-      "topic": "How to build a dropshipping store that manages itself with Make.com in 2026",
-      "context": "No-code automation can handle order processing, inventory sync, customer emails, and ad management \u2014 making dropshipping truly hands-off",
-      "keywords": [
-        "automated dropshipping",
-        "Make.com",
-        "e-commerce automation"
-      ],
-      "affiliates": [
-        "Shopify",
-        "Make.com",
-        "Zapier"
-      ],
-      "opportunity_angle": "How to Build a Dropshipping Store That Manages Itself with Make.com in 2026 ($3K-25K/Month)",
-      "intelligence_angle": "Automate, Sync, and Manage Dropshipping Operations with Shopify",
-      "playbook_angle": "Automate, Sync, and Manage Dropshipping Operations with Shopify and Make.com",
-      "discovered_at": "2026-05-01T12:00:00.000000+00:00"
-    },
     {
       "topic": "How to build a print-on-demand business that designs once and sells forever in 2026",
       "context": "AI-generated designs combined with print-on-demand platforms create a zero-inventory business that earns while you sleep",
@@ -4014,6 +3996,10 @@
     {
       "topic": "How to send 100k visitors to any website with the Pinterest traffic machine in 2026",
       "used_at": "2026-08-19T08:46:10.921355+00:00"
+    },
+    {
+      "topic": "How to build a dropshipping store that manages itself with Make.com in 2026",
+      "used_at": "2026-08-21T08:48:47.114758+00:00"
     }
   ]
 }
