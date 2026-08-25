@@ -6,6 +6,7 @@ readTime: "16 MIN"
 excerpt: "Details coming soon. Check back for updates on this section."
 image: "/images/articles/opportunities/how-to-build-a-print-on-demand-business-that-sells-forever-in-2026-2k-15kmonth.png"
 heroImage: "/images/heroes/opportunities/how-to-build-a-print-on-demand-business-that-sells-forever-in-2026-2k-15kmonth.png"
+relatedGuide: "/intelligence/build-an-design-upload-and-sell-print-on-demand-products-with-canva-with-chatgpt/"
 ---
 
 
