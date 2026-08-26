@@ -1,24 +1,6 @@
 {
-  "last_updated": "2026-08-25T10:34:56.460649+00:00",
+  "last_updated": "2026-08-26T08:51:48.895411+00:00",
   "topics": [
-    {
-      "topic": "How to build the coupon site blueprint for serious money in 2026",
-      "context": "Coupon and deal sites generate affiliate revenue on autopilot \u2014 AI can scrape, organize, and publish deals at scale",
-      "keywords": [
-        "coupon site",
-        "affiliate deals",
-        "automated publishing"
-      ],
-      "affiliates": [
-        "Hostinger",
-        "Make.com",
-        "ChatGPT"
-      ],
-      "opportunity_angle": "How to Build the Coupon Site Blueprint for Serious Money in 2026 ($3K-20K/Month)",
-      "intelligence_angle": "Scrape, Organize, and Publish Coupon Deals with Hostinger",
-      "playbook_angle": "Scrape, Organize, and Publish Coupon Deals with Hostinger and Make.com",
-      "discovered_at": "2026-05-01T12:00:00.000000+00:00"
-    },
     {
       "topic": "How to build a design business using Midjourney and Canva as your studio in 2026",
       "context": "AI image generation has democratized design \u2014 solo entrepreneurs can now offer professional branding and creative services without traditional design skills",
@@ -3986,6 +3968,10 @@
     {
       "topic": "How to build a print-on-demand business that designs once and sells forever in 2026",
       "used_at": "2026-08-24T08:56:35.847121+00:00"
+    },
+    {
+      "topic": "How to build the coupon site blueprint for serious money in 2026",
+      "used_at": "2026-08-26T08:51:48.895381+00:00"
     }
   ]
 }
