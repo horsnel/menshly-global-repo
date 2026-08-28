@@ -1,24 +1,6 @@
 {
-  "last_updated": "2026-08-27T20:11:37.807954+00:00",
+  "last_updated": "2026-08-28T20:05:19.602026+00:00",
   "topics": [
-    {
-      "topic": "How to build a design business using Midjourney and Canva as your studio in 2026",
-      "context": "AI image generation has democratized design \u2014 solo entrepreneurs can now offer professional branding and creative services without traditional design skills",
-      "keywords": [
-        "AI design business",
-        "Midjourney",
-        "creative studio"
-      ],
-      "affiliates": [
-        "Midjourney",
-        "Canva",
-        "Notion"
-      ],
-      "opportunity_angle": "How to Build a Design Business Using Midjourney and Canva in 2026 ($3K-20K/Month)",
-      "intelligence_angle": "Generate, Refine, and Deliver Design Assets with Midjourney",
-      "playbook_angle": "Generate, Refine, and Deliver Design Assets with Midjourney and Canva",
-      "discovered_at": "2026-05-01T12:00:00.000000+00:00"
-    },
     {
       "topic": "How to build a voice-over empire with ElevenLabs in 2026",
       "context": "AI voice cloning and generation are replacing traditional voice-over artists \u2014 build a studio business that scales without recording booths",
@@ -3972,6 +3954,10 @@
     {
       "topic": "How to build the coupon site blueprint for serious money in 2026",
       "used_at": "2026-08-26T08:51:48.895381+00:00"
+    },
+    {
+      "topic": "How to build a design business using Midjourney and Canva as your studio in 2026",
+      "used_at": "2026-08-28T20:05:19.601996+00:00"
     }
   ]
 }
