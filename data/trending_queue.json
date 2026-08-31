@@ -1,24 +1,6 @@
 {
-  "last_updated": "2026-08-28T20:05:19.602026+00:00",
+  "last_updated": "2026-08-31T16:01:55.882688+00:00",
   "topics": [
-    {
-      "topic": "How to build a voice-over empire with ElevenLabs in 2026",
-      "context": "AI voice cloning and generation are replacing traditional voice-over artists \u2014 build a studio business that scales without recording booths",
-      "keywords": [
-        "AI voice-over",
-        "ElevenLabs",
-        "audio production"
-      ],
-      "affiliates": [
-        "ElevenLabs",
-        "Make.com",
-        "Canva"
-      ],
-      "opportunity_angle": "How to Build a Voice-Over Empire with ElevenLabs in 2026 ($3K-20K/Month)",
-      "intelligence_angle": "Generate, Edit, and Deliver Voice-Over Projects with ElevenLabs",
-      "playbook_angle": "Generate, Edit, and Deliver Voice-Over Projects with ElevenLabs and Make.com",
-      "discovered_at": "2026-05-01T12:00:00.000000+00:00"
-    },
     {
       "topic": "How to build a translation business serving global clients with local rates in 2026",
       "context": "AI translation tools let you serve international clients at competitive local rates while maintaining quality \u2014 unlocking a global client base",
@@ -3958,6 +3940,10 @@
     {
       "topic": "How to build a design business using Midjourney and Canva as your studio in 2026",
       "used_at": "2026-08-28T20:05:19.601996+00:00"
+    },
+    {
+      "topic": "How to build a voice-over empire with ElevenLabs in 2026",
+      "used_at": "2026-08-31T16:01:55.882657+00:00"
     }
   ]
 }
