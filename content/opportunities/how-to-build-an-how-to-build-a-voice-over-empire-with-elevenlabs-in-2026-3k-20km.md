@@ -6,6 +6,7 @@ readTime: "16 MIN"
 excerpt: "Details coming soon. Check back for updates on this section."
 image: "/images/articles/opportunities/how-to-build-a-voice-over-empire-with-elevenlabs-in-2026-3k-20kmonth.png"
 heroImage: "/images/heroes/opportunities/how-to-build-a-voice-over-empire-with-elevenlabs-in-2026-3k-20kmonth.png"
+relatedGuide: "/intelligence/build-an-generate-edit-and-deliver-voice-over-projects-with-elevenlabs-with-chat/"
 ---
 
 
