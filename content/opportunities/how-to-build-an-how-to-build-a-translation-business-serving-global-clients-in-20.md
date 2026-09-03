@@ -6,6 +6,7 @@ readTime: "16 MIN"
 excerpt: "Details coming soon. Check back for updates on this section."
 image: "/images/articles/opportunities/how-to-build-a-translation-business-serving-global-clients-in-2026-3k-20kmonth.png"
 heroImage: "/images/heroes/opportunities/how-to-build-a-translation-business-serving-global-clients-in-2026-3k-20kmonth.png"
+relatedGuide: "/intelligence/build-an-translate-localize-and-deliver-multilingual-content-with-chatgpt-with-c/"
 ---
 
 
