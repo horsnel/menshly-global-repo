@@ -6,6 +6,7 @@ readTime: "16 MIN"
 excerpt: "Details coming soon. Check back for updates on this section."
 image: "/images/articles/opportunities/how-to-package-and-sell-prompt-packs-on-gumroad-in-2026-2k-12kmonth.png"
 heroImage: "/images/heroes/opportunities/how-to-package-and-sell-prompt-packs-on-gumroad-in-2026-2k-12kmonth.png"
+relatedGuide: "/intelligence/build-an-curate-test-and-package-prompt-collections-with-chatgpt-with-chatgpt-th/"
 ---
 
 
