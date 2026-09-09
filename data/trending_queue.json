@@ -1,24 +1,6 @@
 {
-  "last_updated": "2026-09-08T14:13:33.810499+00:00",
+  "last_updated": "2026-09-09T12:55:33.875572+00:00",
   "topics": [
-    {
-      "topic": "How to sell Notion productivity templates to professionals in 2026",
-      "context": "Notion templates are booming \u2014 professionals pay for pre-built dashboards, trackers, and workflows that save them setup time",
-      "keywords": [
-        "Notion templates",
-        "productivity systems",
-        "digital products"
-      ],
-      "affiliates": [
-        "Notion",
-        "Canva",
-        "Make.com"
-      ],
-      "opportunity_angle": "How to Sell Notion Productivity Templates to Professionals in 2026 ($2K-15K/Month)",
-      "intelligence_angle": "Design, Build, and Sell Notion Productivity Systems with Notion",
-      "playbook_angle": "Design, Build, and Sell Notion Productivity Systems with Notion and Canva",
-      "discovered_at": "2026-05-01T12:00:00.000000+00:00"
-    },
     {
       "topic": "How to build a Chrome extension people pay for in 2026",
       "context": "Browser extensions solve micro-problems that users encounter daily \u2014 AI can accelerate development and solo entrepreneurs can monetize with subscriptions",
@@ -3902,6 +3884,10 @@
     {
       "topic": "How to package your knowledge and sell prompt packs on Gumroad in 2026",
       "used_at": "2026-09-07T14:09:58.416016+00:00"
+    },
+    {
+      "topic": "How to sell Notion productivity templates to professionals in 2026",
+      "used_at": "2026-09-09T12:55:33.875539+00:00"
     }
   ]
 }
