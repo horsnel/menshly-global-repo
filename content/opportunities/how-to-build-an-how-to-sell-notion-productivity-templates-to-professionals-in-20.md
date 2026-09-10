@@ -6,6 +6,7 @@ readTime: "16 MIN"
 excerpt: "Details coming soon. Check back for updates on this section."
 image: "/images/articles/opportunities/how-to-sell-notion-productivity-templates-to-professionals-in-2026-2k-15kmonth.png"
 heroImage: "/images/heroes/opportunities/how-to-sell-notion-productivity-templates-to-professionals-in-2026-2k-15kmonth.png"
+relatedGuide: "/intelligence/build-an-design-build-and-sell-notion-productivity-systems-with-notion-with-chat/"
 ---
 
 
