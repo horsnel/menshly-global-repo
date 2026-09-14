@@ -1,24 +1,6 @@
 {
-  "last_updated": "2026-09-11T12:47:02.147543+00:00",
+  "last_updated": "2026-09-14T14:48:00.505991+00:00",
   "topics": [
-    {
-      "topic": "How to build a directory website and charge for listings in 2026",
-      "context": "Niche directory sites generate recurring revenue from paid listings \u2014 AI can scrape, organize, and maintain directories at scale",
-      "keywords": [
-        "directory website",
-        "paid listings",
-        "niche directories"
-      ],
-      "affiliates": [
-        "Hostinger",
-        "Make.com",
-        "ChatGPT"
-      ],
-      "opportunity_angle": "How to Build a Directory Website and Charge for Listings in 2026 ($3K-20K/Month)",
-      "intelligence_angle": "Build, Populate, and Monetize Directory Websites with Hostinger",
-      "playbook_angle": "Build, Populate, and Monetize Directory Websites with Hostinger and Make.com",
-      "discovered_at": "2026-05-01T12:00:00.000000+00:00"
-    },
     {
       "topic": "How to build a financial literacy platform for the African middle class in 2026",
       "context": "Africa's growing middle class is hungry for accessible financial education \u2014 AI-powered platforms can deliver localized content at scale",
@@ -3874,6 +3856,10 @@
     {
       "topic": "How to build a Chrome extension people pay for in 2026",
       "used_at": "2026-09-11T12:47:02.147516+00:00"
+    },
+    {
+      "topic": "How to build a directory website and charge for listings in 2026",
+      "used_at": "2026-09-14T14:48:00.505969+00:00"
     }
   ]
 }
