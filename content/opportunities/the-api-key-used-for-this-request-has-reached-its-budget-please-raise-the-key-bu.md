@@ -6,6 +6,7 @@ readTime: "16 MIN"
 excerpt: "Topping up the wallet does not raise this limit. If this isn’t your Pollinations account, contact whoever runs the app or service you’re using."
 image: "/images/articles/opportunities/how-to-build-a-directory-website-and-charge-for-listings-in-2026-3k-20kmonth.png"
 heroImage: "/images/heroes/opportunities/how-to-build-a-directory-website-and-charge-for-listings-in-2026-3k-20kmonth.png"
+relatedGuide: "/intelligence/the-api-key-used-for-this-request-has-reached-its-budget-please-raise-the-key-bu/"
 ---
 
 
