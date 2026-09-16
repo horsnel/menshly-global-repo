@@ -1,12 +1,11 @@
 ---
 title: "The API key used for this request has reached its budget. Please raise the key budget, then try again."
-date: 2026-09-14
+date: 2026-09-16
 category: "AI Opportunity"
 readTime: "16 MIN"
 excerpt: "Topping up the wallet does not raise this limit. If this isn’t your Pollinations account, contact whoever runs the app or service you’re using."
-image: "/images/articles/opportunities/how-to-build-a-directory-website-and-charge-for-listings-in-2026-3k-20kmonth.png"
-heroImage: "/images/heroes/opportunities/how-to-build-a-directory-website-and-charge-for-listings-in-2026-3k-20kmonth.png"
-relatedGuide: "/intelligence/the-api-key-used-for-this-request-has-reached-its-budget-please-raise-the-key-bu/"
+image: "/images/articles/opportunities/how-to-build-a-financial-literacy-platform-for-the-african-middle-class-in-2026-.png"
+heroImage: "/images/heroes/opportunities/how-to-build-a-financial-literacy-platform-for-the-african-middle-class-in-2026-.png"
 ---
 
 
@@ -86,4 +85,5 @@ Topping up the wallet does not raise this limit. If this isn’t your Pollinatio
 
 These are the tools we recommend for building and scaling AI automation businesses:
 
+- **[Canva](https://www.canva.com/)** — Design anything — social graphics, presentations, videos with AI
 - **[Make.com](https://www.make.com/en/register?pc=menshly)** — Visual automation platform — connect any app without code

@@ -1,24 +1,6 @@
 {
-  "last_updated": "2026-09-15T14:41:13.829594+00:00",
+  "last_updated": "2026-09-16T13:11:46.491454+00:00",
   "topics": [
-    {
-      "topic": "How to build a financial literacy platform for the African middle class in 2026",
-      "context": "Africa's growing middle class is hungry for accessible financial education \u2014 AI-powered platforms can deliver localized content at scale",
-      "keywords": [
-        "financial literacy",
-        "African market",
-        "edtech platform"
-      ],
-      "affiliates": [
-        "ChatGPT",
-        "Hostinger",
-        "Canva"
-      ],
-      "opportunity_angle": "How to Build a Financial Literacy Platform for the African Middle Class in 2026 ($3K-20K/Month)",
-      "intelligence_angle": "Create, Localize, and Deliver Financial Education with ChatGPT",
-      "playbook_angle": "Create, Localize, and Deliver Financial Education with ChatGPT and Hostinger",
-      "discovered_at": "2026-05-01T12:00:00.000000+00:00"
-    },
     {
       "topic": "How to write property listings that sell faster and charge for it in 2026",
       "context": "Real estate agents need compelling property descriptions \u2014 AI can craft high-converting listings that sell properties faster",
@@ -3860,6 +3842,10 @@
     {
       "topic": "How to build a directory website and charge for listings in 2026",
       "used_at": "2026-09-14T14:48:00.505969+00:00"
+    },
+    {
+      "topic": "How to build a financial literacy platform for the African middle class in 2026",
+      "used_at": "2026-09-16T13:11:46.491425+00:00"
     }
   ]
 }
