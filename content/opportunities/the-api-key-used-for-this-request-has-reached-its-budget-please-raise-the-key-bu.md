@@ -6,6 +6,7 @@ readTime: "16 MIN"
 excerpt: "Topping up the wallet does not raise this limit. If this isn’t your Pollinations account, contact whoever runs the app or service you’re using."
 image: "/images/articles/opportunities/how-to-build-a-financial-literacy-platform-for-the-african-middle-class-in-2026-.png"
 heroImage: "/images/heroes/opportunities/how-to-build-a-financial-literacy-platform-for-the-african-middle-class-in-2026-.png"
+relatedGuide: "/intelligence/build-an-ai-financial-education-platform-with-chatgpt-the-complete-step-by-step-/"
 ---
 
 
