@@ -1,24 +1,6 @@
 {
-  "last_updated": "2026-09-17T14:45:12.868904+00:00",
+  "last_updated": "2026-09-18T12:49:01.949692+00:00",
   "topics": [
-    {
-      "topic": "How to write property listings that sell faster and charge for it in 2026",
-      "context": "Real estate agents need compelling property descriptions \u2014 AI can craft high-converting listings that sell properties faster",
-      "keywords": [
-        "property listings",
-        "real estate copywriting",
-        "AI writing"
-      ],
-      "affiliates": [
-        "ChatGPT",
-        "Canva",
-        "Make.com"
-      ],
-      "opportunity_angle": "How to Write Property Listings That Sell Faster and Charge for It in 2026 ($3K-15K/Month)",
-      "intelligence_angle": "Craft, Optimize, and Deliver Property Listing Copy with ChatGPT",
-      "playbook_angle": "Craft, Optimize, and Deliver Property Listing Copy with ChatGPT and Canva",
-      "discovered_at": "2026-05-01T12:00:00.000000+00:00"
-    },
     {
       "topic": "How to build a policy and SOP writing service for businesses that need structure in 2026",
       "context": "Every growing business needs SOPs and policies \u2014 AI can generate professional documentation that companies pay thousands for",
@@ -3846,6 +3828,10 @@
     {
       "topic": "How to build a financial literacy platform for the African middle class in 2026",
       "used_at": "2026-09-16T13:11:46.491425+00:00"
+    },
+    {
+      "topic": "How to write property listings that sell faster and charge for it in 2026",
+      "used_at": "2026-09-18T12:49:01.949663+00:00"
     }
   ]
 }
