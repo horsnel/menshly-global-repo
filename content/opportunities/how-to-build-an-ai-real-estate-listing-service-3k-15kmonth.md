@@ -6,6 +6,7 @@ readTime: "16 MIN"
 excerpt: "Forty‑seven percent of homes stay on the market a full month longer than the median. That means every listing that drags out costs the agent about $3,000 in lost commission and marketing spend. Why? T..."
 image: "/images/articles/opportunities/how-to-write-property-listings-that-sell-faster-and-charge-for-it-in-2026-3k-15k.png"
 heroImage: "/images/heroes/opportunities/how-to-write-property-listings-that-sell-faster-and-charge-for-it-in-2026-3k-15k.png"
+relatedPlaybook: "/playbooks/the-ai-property-listing-copy-playbook-25-steps-to-10kmonth/"
 ---
 
 

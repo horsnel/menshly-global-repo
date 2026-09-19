@@ -8,6 +8,7 @@ excerpt: "This is the execution guide for the **Create, Localize, and Deliver Fi
 image: "/images/articles/intelligence/create-localize-and-deliver-financial-education-with-chatgpt.png"
 heroImage: "/images/heroes/intelligence/create-localize-and-deliver-financial-education-with-chatgpt.png"
 relatedOpportunity: "/opportunities/the-api-key-used-for-this-request-has-reached-its-budget-please-raise-the-key-bu/"
+relatedPlaybook: "/playbooks/the-ai-property-listing-copy-playbook-25-steps-to-10kmonth/"
 ---
 
 This is the execution guide for the **Create, Localize, and Deliver Financial Education with ChatGPT** business we outlined in our opportunity deep‑dive. In the next few weeks you will build a fully‑functional, multilingual AI financial education platform that can generate lesson plans, quizzes, and interactive voice modules, then deliver them via a web portal and an email drip campaign. By the end of this guide you will have a production‑ready system that you can scale to thousands of students worldwide, with a predictable monthly revenue model.
