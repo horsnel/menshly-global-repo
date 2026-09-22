@@ -6,6 +6,7 @@ readTime: "16 MIN"
 excerpt: "Every company that shipped a product in 2026 had a secret weapon: a library of razor‑sharp SOPs and compliance docs that cost the owner less than a mid‑level content marketer’s salary. Why? Because th..."
 image: "/images/articles/opportunities/how-to-build-a-policy-and-sop-writing-service-in-2026-3k-20kmonth.png"
 heroImage: "/images/heroes/opportunities/how-to-build-a-policy-and-sop-writing-service-in-2026-3k-20kmonth.png"
+relatedGuide: "/intelligence/build-an-ai-policy-drafting-service-with-chatgpt-the-complete-step-by-step-guide/"
 ---
 
 
