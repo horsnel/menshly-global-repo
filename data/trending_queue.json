@@ -1,24 +1,6 @@
 {
-  "last_updated": "2026-09-22T14:27:09.861135+00:00",
+  "last_updated": "2026-09-23T13:27:59.819941+00:00",
   "topics": [
-    {
-      "topic": "How to build a comic book studio where Midjourney does the drawing in 2026",
-      "context": "AI image generation has reached the quality needed for comic art \u2014 build a studio that produces and sells comic books without traditional artists",
-      "keywords": [
-        "AI comics",
-        "Midjourney",
-        "digital publishing"
-      ],
-      "affiliates": [
-        "Midjourney",
-        "Canva",
-        "ChatGPT"
-      ],
-      "opportunity_angle": "How to Build a Comic Book Studio Where Midjourney Does the Drawing in 2026 ($2K-15K/Month)",
-      "intelligence_angle": "Generate, Sequence, and Publish Comic Book Art with Midjourney",
-      "playbook_angle": "Generate, Sequence, and Publish Comic Book Art with Midjourney and Canva",
-      "discovered_at": "2026-05-01T12:00:00.000000+00:00"
-    },
     {
       "topic": "How to automate sales for any African SME with the WhatsApp business bot playbook in 2026",
       "context": "WhatsApp is the primary business communication channel in Africa \u2014 AI bots can automate sales, support, and bookings for SMEs at scale",
@@ -3822,6 +3804,10 @@
     {
       "topic": "How to build a policy and SOP writing service for businesses that need structure in 2026",
       "used_at": "2026-09-21T14:55:42.183374+00:00"
+    },
+    {
+      "topic": "How to build a comic book studio where Midjourney does the drawing in 2026",
+      "used_at": "2026-09-23T13:27:59.819912+00:00"
     }
   ]
 }
