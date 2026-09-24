@@ -6,6 +6,7 @@ readTime: "16 MIN"
 excerpt: "Midjourney just dropped its pro tier at $30/month, giving you 2000 image credits. That’s 20 cents a page. A 32‑page comic costs you 32×$0.20 = $6.40 to produce. Add a few layout tweaks in Canva ($15/m..."
 image: "/images/articles/opportunities/how-to-build-a-comic-book-studio-where-midjourney-does-the-drawing-in-2026-2k-15.png"
 heroImage: "/images/heroes/opportunities/how-to-build-a-comic-book-studio-where-midjourney-does-the-drawing-in-2026-2k-15.png"
+relatedGuide: "/intelligence/build-an-ai-comic-book-creation-system-with-midjourney-the-complete-step-by-step/"
 ---
 
 
