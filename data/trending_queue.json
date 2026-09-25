@@ -1,24 +1,6 @@
 {
-  "last_updated": "2026-09-24T14:41:28.040709+00:00",
+  "last_updated": "2026-09-25T13:21:38.606281+00:00",
   "topics": [
-    {
-      "topic": "How to automate sales for any African SME with the WhatsApp business bot playbook in 2026",
-      "context": "WhatsApp is the primary business communication channel in Africa \u2014 AI bots can automate sales, support, and bookings for SMEs at scale",
-      "keywords": [
-        "WhatsApp bot",
-        "African SME",
-        "sales automation"
-      ],
-      "affiliates": [
-        "Make.com",
-        "ChatGPT",
-        "Vapi"
-      ],
-      "opportunity_angle": "How to Automate Sales for Any African SME with WhatsApp Bots in 2026 ($3K-20K/Month)",
-      "intelligence_angle": "Build, Deploy, and Monetize WhatsApp Sales Bots with Make.com",
-      "playbook_angle": "Build, Deploy, and Monetize WhatsApp Sales Bots with Make.com and ChatGPT",
-      "discovered_at": "2026-05-01T12:00:00.000000+00:00"
-    },
     {
       "topic": "How to build a reputation management business that cleans up Google results in 2026",
       "context": "People and businesses pay premium rates to control what Google shows about them \u2014 AI can monitor, create, and optimize search results",
@@ -3808,6 +3790,10 @@
     {
       "topic": "How to build a comic book studio where Midjourney does the drawing in 2026",
       "used_at": "2026-09-23T13:27:59.819912+00:00"
+    },
+    {
+      "topic": "How to automate sales for any African SME with the WhatsApp business bot playbook in 2026",
+      "used_at": "2026-09-25T13:21:38.606250+00:00"
     }
   ]
 }
