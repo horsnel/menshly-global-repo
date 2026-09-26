@@ -6,6 +6,7 @@ readTime: "16 MIN"
 excerpt: "WhatsApp is the lifeline of African commerce. In 2025, 90 % of SMEs in Kenya, Nigeria, and Ghana were already sending sales messages on the platform. Yet 7 out of 10 of those businesses still reply on..."
 image: "/images/articles/opportunities/how-to-automate-sales-for-any-african-sme-with-whatsapp-bots-in-2026-3k-20kmonth.png"
 heroImage: "/images/heroes/opportunities/how-to-automate-sales-for-any-african-sme-with-whatsapp-bots-in-2026-3k-20kmonth.png"
+relatedPlaybook: "/playbooks/the-ai-whatsapp-sales-bot-playbook-25-steps-to-10kmonth/"
 ---
 
 

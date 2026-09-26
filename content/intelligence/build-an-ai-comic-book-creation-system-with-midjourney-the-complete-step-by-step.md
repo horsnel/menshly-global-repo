@@ -8,6 +8,7 @@ excerpt: "In this guide you will build a fully automated AI comic book creation 
 image: "/images/articles/intelligence/generate-sequence-and-publish-comic-book-art-with-midjourney.png"
 heroImage: "/images/heroes/intelligence/generate-sequence-and-publish-comic-book-art-with-midjourney.png"
 relatedOpportunity: "/opportunities/how-to-build-an-ai-comic-book-studio-2k-15kmonth/"
+relatedPlaybook: "/playbooks/the-ai-whatsapp-sales-bot-playbook-25-steps-to-10kmonth/"
 ---
 
 In this guide you will build a fully automated AI comic book creation pipeline that generates, sequences, and publishes stunning comic panels using Midjourney. By the end, you will have a repeatable workflow that turns a simple idea into a publish‑ready PDF, complete with dialogue bubbles, pacing cues, and a professional layout—all powered by Midjourney and integrated with design tools like Canva and publishing platforms such as Shopify.  
