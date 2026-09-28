@@ -1,24 +1,6 @@
 {
-  "last_updated": "2026-09-26T11:19:10.986032+00:00",
+  "last_updated": "2026-09-28T16:33:10.523392+00:00",
   "topics": [
-    {
-      "topic": "How to build a reputation management business that cleans up Google results in 2026",
-      "context": "People and businesses pay premium rates to control what Google shows about them \u2014 AI can monitor, create, and optimize search results",
-      "keywords": [
-        "reputation management",
-        "Google results",
-        "online branding"
-      ],
-      "affiliates": [
-        "Semrush",
-        "ChatGPT",
-        "Make.com"
-      ],
-      "opportunity_angle": "How to Build a Reputation Management Business in 2026 ($5K-30K/Month)",
-      "intelligence_angle": "Monitor, Create, and Optimize Online Search Results with Semrush",
-      "playbook_angle": "Monitor, Create, and Optimize Online Search Results with Semrush and ChatGPT",
-      "discovered_at": "2026-05-01T12:00:00.000000+00:00"
-    },
     {
       "topic": "How to help nonprofits do more with less with the NGO automation playbook in 2026",
       "context": "NGOs operate on tight budgets but need maximum impact \u2014 AI automation can handle donor management, reporting, and outreach at a fraction of the cost",
@@ -3798,6 +3780,10 @@
     {
       "topic": "How to automate sales for any African SME with the WhatsApp business bot playbook in 2026",
       "used_at": "2026-09-26T11:19:10.985996+00:00"
+    },
+    {
+      "topic": "How to build a reputation management business that cleans up Google results in 2026",
+      "used_at": "2026-09-28T16:33:10.523356+00:00"
     }
   ]
 }
