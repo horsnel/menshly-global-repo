@@ -1,24 +1,6 @@
 {
-  "last_updated": "2026-09-29T16:22:27.944346+00:00",
+  "last_updated": "2026-09-30T14:40:17.023438+00:00",
   "topics": [
-    {
-      "topic": "How to help nonprofits do more with less with the NGO automation playbook in 2026",
-      "context": "NGOs operate on tight budgets but need maximum impact \u2014 AI automation can handle donor management, reporting, and outreach at a fraction of the cost",
-      "keywords": [
-        "NGO automation",
-        "nonprofit tech",
-        "donor management"
-      ],
-      "affiliates": [
-        "Make.com",
-        "ChatGPT",
-        "Notion"
-      ],
-      "opportunity_angle": "How to Help Nonprofits Do More with Less in 2026 ($3K-15K/Month)",
-      "intelligence_angle": "Automate, Streamline, and Scale NGO Operations with Make.com",
-      "playbook_angle": "Automate, Streamline, and Scale NGO Operations with Make.com and ChatGPT",
-      "discovered_at": "2026-05-01T12:00:00.000000+00:00"
-    },
     {
       "topic": "How to start an AI social media management agency in 2026",
       "context": "As more businesses shift their focus to social media, the demand for AI-powered social media management is increasing. With tools like Buffer and Make.com, solo entrepreneurs can offer automated social media services to clients.",
@@ -3784,6 +3766,10 @@
     {
       "topic": "How to build a reputation management business that cleans up Google results in 2026",
       "used_at": "2026-09-28T16:33:10.523356+00:00"
+    },
+    {
+      "topic": "How to help nonprofits do more with less with the NGO automation playbook in 2026",
+      "used_at": "2026-09-30T14:40:17.023418+00:00"
     }
   ]
 }
