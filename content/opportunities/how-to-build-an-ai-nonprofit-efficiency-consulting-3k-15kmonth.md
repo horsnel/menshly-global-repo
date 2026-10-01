@@ -6,6 +6,7 @@ readTime: "16 MIN"
 excerpt: "Details coming soon. Check back for updates on this section."
 image: "/images/articles/opportunities/how-to-help-nonprofits-do-more-with-less-in-2026-3k-15kmonth.png"
 heroImage: "/images/heroes/opportunities/how-to-help-nonprofits-do-more-with-less-in-2026-3k-15kmonth.png"
+relatedGuide: "/intelligence/build-an-automate-streamline-and-scale-ngo-operations-with-makecom-with-chatgpt-/"
 ---
 
 
