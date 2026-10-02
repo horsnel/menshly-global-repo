@@ -1,24 +1,6 @@
 {
-  "last_updated": "2026-10-01T16:55:17.436085+00:00",
+  "last_updated": "2026-10-02T14:28:39.081729+00:00",
   "topics": [
-    {
-      "topic": "How to start an AI social media management agency in 2026",
-      "context": "As more businesses shift their focus to social media, the demand for AI-powered social media management is increasing. With tools like Buffer and Make.com, solo entrepreneurs can offer automated social media services to clients.",
-      "keywords": [
-        "AI social media management",
-        "Buffer",
-        "Make.com"
-      ],
-      "affiliates": [
-        "Buffer",
-        "Make.com",
-        "Semrush"
-      ],
-      "opportunity_angle": "How to launch an AI social media management agency in 2026 ( earn $5,000/month)",
-      "intelligence_angle": "Research, create, and optimize AI social media pipelines with Buffer",
-      "playbook_angle": "Design, build, and automate AI social media workflows with Make.com and Buffer",
-      "discovered_at": "2026-05-01T09:43:23.616041+00:00"
-    },
     {
       "topic": "How to start an AI-powered bookkeeping automation business in 2026",
       "context": "With the rise of AI, bookkeeping automation is becoming increasingly popular. Solo entrepreneurs can use tools like Zapier and QuickBooks to offer automated bookkeeping services to clients.",
@@ -3770,6 +3752,10 @@
     {
       "topic": "How to help nonprofits do more with less with the NGO automation playbook in 2026",
       "used_at": "2026-09-30T14:40:17.023418+00:00"
+    },
+    {
+      "topic": "How to start an AI social media management agency in 2026",
+      "used_at": "2026-10-02T14:28:39.081696+00:00"
     }
   ]
 }
