@@ -8,6 +8,7 @@ excerpt: "*Section content pending review.*"
 image: "/images/articles/intelligence/automate-streamline-and-scale-ngo-operations-with-makecom.png"
 heroImage: "/images/heroes/intelligence/automate-streamline-and-scale-ngo-operations-with-makecom.png"
 relatedOpportunity: "/opportunities/how-to-build-an-ai-nonprofit-efficiency-consulting-3k-15kmonth/"
+relatedPlaybook: "/playbooks/the-ai-social-media-automation-playbook-25-steps-to-20kmonth/"
 ---
 
 

@@ -6,6 +6,7 @@ readTime: "16 MIN"
 excerpt: "You’ve seen the headline: “AI‑driven social media services are the next unicorn.” The reality? The biggest agency on the block is making $5,000 a month off a single client who spends $600 a month on c..."
 image: "/images/articles/opportunities/how-to-launch-an-ai-social-media-management-agency-in-2026-earn-5000month.png"
 heroImage: "/images/heroes/opportunities/how-to-launch-an-ai-social-media-management-agency-in-2026-earn-5000month.png"
+relatedPlaybook: "/playbooks/the-ai-social-media-automation-playbook-25-steps-to-20kmonth/"
 ---
 
 
