@@ -1,24 +1,6 @@
 {
-  "last_updated": "2026-10-03T11:34:14.138260+00:00",
+  "last_updated": "2026-10-05T16:48:35.812719+00:00",
   "topics": [
-    {
-      "topic": "How to start an AI-powered bookkeeping automation business in 2026",
-      "context": "With the rise of AI, bookkeeping automation is becoming increasingly popular. Solo entrepreneurs can use tools like Zapier and QuickBooks to offer automated bookkeeping services to clients.",
-      "keywords": [
-        "AI bookkeeping automation",
-        "Zapier",
-        "QuickBooks"
-      ],
-      "affiliates": [
-        "Zapier",
-        "QuickBooks",
-        "Xero"
-      ],
-      "opportunity_angle": "How to launch an AI bookkeeping automation business in 2026 (earn $3,000/month)",
-      "intelligence_angle": "Automate, reconcile, and optimize bookkeeping tasks with Zapier and QuickBooks",
-      "playbook_angle": "Design, build, and deploy AI bookkeeping automation workflows with Zapier and Xero",
-      "discovered_at": "2026-05-01T09:43:23.616066+00:00"
-    },
     {
       "topic": "How to start an AI customer onboarding system business in 2026",
       "context": "As more businesses focus on customer experience, the demand for AI-powered customer onboarding systems is increasing. With tools like Calendly and Make.com, solo entrepreneurs can offer automated onboarding services to clients.",
@@ -3760,6 +3742,10 @@
     {
       "topic": "How to start an AI social media management agency in 2026",
       "used_at": "2026-10-03T11:34:14.138223+00:00"
+    },
+    {
+      "topic": "How to start an AI-powered bookkeeping automation business in 2026",
+      "used_at": "2026-10-05T16:48:35.812683+00:00"
     }
   ]
 }
