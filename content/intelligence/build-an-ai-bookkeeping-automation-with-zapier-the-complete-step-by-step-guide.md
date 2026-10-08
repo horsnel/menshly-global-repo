@@ -1,6 +1,6 @@
 ---
 title: "Build an AI Bookkeeping Automation with Zapier: The Complete Step-by-Step Guide"
-date: 2026-10-06
+date: 2026-10-08
 category: "Implementation"
 difficulty: "INTERMEDIATE"
 readTime: "25 MIN"
