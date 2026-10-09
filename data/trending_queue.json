@@ -1,24 +1,6 @@
 {
-  "last_updated": "2026-10-08T17:15:21.800215+00:00",
+  "last_updated": "2026-10-09T14:59:40.331246+00:00",
   "topics": [
-    {
-      "topic": "How to start an AI customer onboarding system business in 2026",
-      "context": "As more businesses focus on customer experience, the demand for AI-powered customer onboarding systems is increasing. With tools like Calendly and Make.com, solo entrepreneurs can offer automated onboarding services to clients.",
-      "keywords": [
-        "AI customer onboarding",
-        "Calendly",
-        "Make.com"
-      ],
-      "affiliates": [
-        "Calendly",
-        "Make.com",
-        "Klaviyo"
-      ],
-      "opportunity_angle": "How to launch an AI customer onboarding system business in 2026 (earn $4,000/month)",
-      "intelligence_angle": "Design, build, and automate customer onboarding pipelines with Calendly and Make.com",
-      "playbook_angle": "Create, optimize, and deploy AI customer onboarding workflows with Calendly and Klaviyo",
-      "discovered_at": "2026-05-01T09:43:23.616076+00:00"
-    },
     {
       "topic": "How to start an AI-powered translation and localization service in 2026",
       "context": "With the rise of globalization, the demand for AI-powered translation and localization services is increasing. Solo entrepreneurs can use tools like Google Translate and Memrise to offer automated translation services to clients.",
@@ -3746,6 +3728,10 @@
     {
       "topic": "How to start an AI-powered bookkeeping automation business in 2026",
       "used_at": "2026-10-05T16:48:35.812683+00:00"
+    },
+    {
+      "topic": "How to start an AI customer onboarding system business in 2026",
+      "used_at": "2026-10-09T14:59:40.331216+00:00"
     }
   ]
 }
