@@ -8,6 +8,7 @@ excerpt: "**Prerequisites**"
 image: "/images/articles/intelligence/automate-reconcile-and-optimize-bookkeeping-tasks-with-zapier-and-quickbooks.png"
 heroImage: "/images/heroes/intelligence/automate-reconcile-and-optimize-bookkeeping-tasks-with-zapier-and-quickbooks.png"
 relatedOpportunity: "/opportunities/how-to-build-an-ai-bookkeeping-automation-service-3k-20kmonth/"
+relatedPlaybook: "/playbooks/appendix-a-complete-tool-reference/"
 ---
 
 

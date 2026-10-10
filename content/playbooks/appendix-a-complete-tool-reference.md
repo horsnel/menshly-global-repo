@@ -1,299 +1,332 @@
 ---
 title: "APPENDIX A: COMPLETE TOOL REFERENCE"
-date: 2026-07-18
+date: 2026-10-10
 category: "Playbook"
-price: "₦15,000"
-readTime: "89 MIN"
-excerpt: "This is your complete operating system for Launch, manage, and scale an AI-powered content repurposing agency with Beehiiv and Loom. The AI Playbook: 25 Steps to $25K/Month. 25 procedures. 10 modules. 12+ hours of reading and execution. Follow every ..."
+price: "₦25,000"
+readTime: "88 MIN"
+excerpt: "This is your complete operating system for Create, optimize, and deploy AI customer onboarding workflows with Calendly and Klaviyo. The AI Playbook: 25 Steps to $25K/Month. 25 procedures. 10 modules. 12+ hours of reading and execution. Follow every p..."
 image: "/images/articles/playbooks/appendix-a-complete-tool-reference.png"
-heroImage: "/images/heroes/playbooks/appendix-a-complete-tool-reference.png"
-relatedOpportunity: "/opportunities/how-to-build-an-ai-content-repurposing-agency-10k-20kmonth/"
-relatedGuide: "/intelligence/build-an-ai-proposal-writing-service-with-chatgpt-the-complete-step-by-step-guid/"
+heroImage: "/images/heroes/playbooks/create-optimize-and-deploy-ai-customer-onboarding-workflows-with-calendly-and-kl.png"
+relatedOpportunity: "/opportunities/how-to-build-an-ai-customer-onboarding-service-3k-6kmonth/"
+relatedGuide: "/intelligence/build-an-ai-bookkeeping-automation-with-zapier-the-complete-step-by-step-guide/"
 ---
-This is your complete operating system for Launch, manage, and scale an AI-powered content repurposing agency with Beehiiv and Loom. **The AI Playbook: 25 Steps to $25K/Month.** **25 procedures. 10 modules. 12+ hours of reading and execution.** Follow every procedure in order and you will have a fully operational business generating revenue within 30 days. Skip nothing. Every step exists because someone before you failed by skipping it.
+This is your complete operating system for Create, optimize, and deploy AI customer onboarding workflows with Calendly and Klaviyo. **The AI Playbook: 25 Steps to $25K/Month.** **25 procedures. 10 modules. 12+ hours of reading and execution.** Follow every procedure in order and you will have a fully operational business generating revenue within 30 days. Skip nothing. Every step exists because someone before you failed by skipping it.
 
 ---
 
 # MODULE 1: FOUNDATION
 
-## Overview
+## Overview  
+Module 1 lays the essential groundwork for creating, optimizing, and deploying AI‑driven customer onboarding workflows that marry Calendly’s scheduling intelligence with Klaviyo’s email automation. By establishing a clean, authenticated infrastructure first, you eliminate late‑stage friction that can derail campaign performance, inflate costs, and erode trust with your clients. A solid foundation guarantees that every subsequent workflow triggers correctly, data flows seamlessly between services, and you can audit every step of the onboarding journey.
 
-In this foundational module you will **establish the core infrastructure** that powers every subsequent operation of your AI‑powered content‑repurposing agency. By the end of this section you will have registered your business, secured a professional domain, set up a dedicated email address, and deployed the essential SaaS tools that will automate content creation, distribution, and analytics. Skipping any of these steps will leave you with a fragmented workflow, inconsistent brand identity, and legal exposure – the very things that cause high‑ticket agencies to fail in the first 90 days.
+Skipping this module means you’ll confront “unknown variable” errors in Make.com, broken webhook URLs, or GDPR‑compliant data handling gaps—all of which can trigger bounce rates, duplicate emails, and lost revenue. Moreover, without a properly registered domain and verified email list, Klaviyo will flag your messages as spam, and Calendly invites will fail to render. By dedicating time now to verify every link, API key, and DNS record, you secure a reliable launchpad that scales effortlessly as you add new clients or expand feature sets.
 
-The tools listed below are the minimum stack required to launch, manage, and scale a content‑repurposing service that leverages AI to generate high‑quality videos, newsletters, and social posts. Each tool has been vetted for cost, reliability, and integration depth with Beehiiv and Loom, ensuring a seamless experience for both you and your clients.
+| Tool          | Purpose                                 | Free Tier                                         | Paid Tier                                 |
+|---------------|------------------------------------------|---------------------------------------------------|-------------------------------------------|
+| Calendly      | Appointment scheduling & event hooks    | 1 calendar, 5 events/month, basic integrations   | Pro: $10/mo (per user), Unlimited events |
+| Klaviyo       | Email automation & segmentation         | 500 contacts, 3,000 emails/mo, basic templates   | Growth: $20/mo (500-2,500 contacts)      |
+| Make.com      | Workflow automation & API connectors    | 100 operations/month, 5 active scenarios          | Starter: $9/mo (1,000 ops/month)         |
+| Notion        | Project & docs management                | Unlimited pages, 5 guests                         | Team: $8/mo (per user)                   |
+| Hostinger     | Domain & hosting                         | 1 free domain with 50GB space, 1 email           | Premium: $1.99/mo (unlimited domains)    |
 
-| Tool | Purpose | Free Tier | Paid Tier |
-|------|---------|-----------|-----------|
-| [**Beehiiv**](https://beehiiv.com/) | Newsletter creation & distribution | Unlimited creators, 1,000 subscribers | $18/mo per 1,000 subscribers |
-| **Loom** | Video recording & sharing | Unlimited recordings, 5GB storage | $12/mo per user |
-| [**Replit**](https://replit.com/refer/egwuokwor) | Code sandbox for AI scripts | Unlimited public repls | $7/mo per user |
-| [**Canva**](https://www.canva.com/) | Graphic design & social assets | Unlimited templates, 5GB storage | $12/mo per user |
-| **ActiveCampaign** | Email automation & CRM | 2,000 contacts, 1,000 emails/mo | $39/mo per 2,000 contacts |
-| **Zapier** | Workflow automation | 100 tasks/month | $19.99/mo per 3,000 tasks |
-| [**Semrush**](https://www.semrush.com/) | SEO & keyword research | Limited queries | $119.95/mo |
-| **Hostinger** | Domain & hosting | 1GB storage, 100GB bandwidth | $1.39/mo |
-| [**Notion**](https://notion.so/) | Project & knowledge management | Unlimited pages | $8/mo per user |
-| [**Grammarly**](https://grammarly.com/) | Writing & grammar checks | 10,000 words/month | $12/mo per user |
+**Estimated time to complete:** 1 hour 30 minutes. This includes account creation, domain DNS setup, email verification, and initial tool integrations.
 
-**Estimated time to complete:** 4–6 hours (including account sign‑ups, domain registration, email setup, and initial tool configuration).
+
 
 ---
 
-## Procedure 1.1: **Register Your Business Domain on Hostinger**
+**Support Pollinations.AI:**
 
-1. **Open a Web Browser**  
-   - Launch Chrome, Edge, or Safari.  
-   - Navigate to **https://www.hostinger.com**.  
-   - Expected landing page: Hostinger homepage with navigation bar.
+---
 
-2. **Create a Hostinger Account**  
-   - Click the **“Get Started”** button in the top‑right corner.  
-   - In the modal, click **“Create an account”**.  
-   - Enter:
-     - **Email:** your personal/business email (e.g., `you@youragency.com`).  
-     - **Password:** 12+ characters, include a number & symbol.  
-   - Click **“Create Account”**.  
-   - You should receive a confirmation email; click the link inside to verify.
+🌸 **Ad** 🌸
+Powered by Pollinations.AI free text APIs. [Support our mission](https://pollinations.ai/redirect/kofi) to keep AI accessible for everyone.
 
-3. **Log Into Your Hostinger Dashboard**  
-   - Return to **https://www.hostinger.com**.  
-   - Click **“Login”** → enter your credentials → click **“Login”**.  
-   - You will land on the **Hostinger Control Panel**.
+---
 
-4. **Navigate to Domain Registration**  
-   - In the left sidebar, click **“Domains”** → select **“Domain Registration”**.  
-   - Expected view: Domain search bar with “Search your domain” label.
+## Procedure 1.1: REGISTER YOUR BUSINESS DOMAIN ON HOSTINGER
 
-5. **Search for Your Desired Domain**  
-   - In the search field, type `youragency.com` (replace with your brand name).  
-   - Click the **“Search”** button (bold).  
-   - If the domain is available, you’ll see a green checkmark and “Add to cart” button.  
-   - If not, Hostinger shows similar suggestions.
+1. Open a web browser and go to **https://www.hostinger.com/**.  
+2. Click the **bold button** **“Get Started”** in the upper‑right corner.  
+3. On the signup page, select **“Create an account”** and fill the form:  
+   * **Email**: your business email (e.g., johndoe@yourbiz.com)  
+   * **Password**: a strong password (min 8 chars, mix of letters, numbers, symbols)  
+   * **Confirm password**: re‑type the same password  
+4. Click **“Create account”**.  
+   *Expected output*: You should see a verification email sent to your inbox.  
+   *Do you see the “Verify your email” page? If not, check the spam folder and click the “Resend” link.*
 
-**Interactive Check‑In 1**  
-Do you see the domain listed with the green checkmark and **“Add to cart”** button?  
-If not, verify you typed the exact domain and that you are logged into your account. Refresh the page and try again.
+5. Open the verification email, click **“Verify Email”**.  
+6. Return to the browser, you should now be logged into the Hostinger dashboard.  
+7. In the dashboard sidebar, click **“Domains”** → **“Register a Domain”**.  
+8. In the search box, type your desired domain (e.g., **yourbiz.com**) and click **“Search”**.  
+   *Expected output*: List of available domain names and prices.  
+   *Do you see the domain price list? If not, clear your browser cache and refresh.*
 
-6. **Add Domain to Cart**  
-   - Click **“Add to cart”**.  
-   - A sidebar appears confirming the domain and price.  
-   - Click **“Proceed to Checkout”**.
+9. If your chosen domain is available, click **“Add to Cart”** next to it.  
+10. On the cart page, verify the domain name, then click **“Proceed to Checkout”**.  
+11. In the checkout form, fill:  
+    * **Name**: Your full legal name  
+    * **Address**: Street, City, State/Province, Zip, Country  
+    * **Phone**: +1‑555‑123‑4567 (or local code)  
+12. Choose the **1‑year** term (default) and click **“Continue”**.  
+    *Expected output*: Summary of order and total cost.  
+    *Do you see the order summary? If not, ensure all fields are filled and click “Continue” again.*
 
-7. **Configure Domain Options**  
-   - Under **“Add privacy protection?”** toggle **“Yes”** (costs $2.99/year).  
-   - Under **“Add DNS Management?”** toggle **“Yes”** (included).  
-   - Click **“Continue”**.
+13. Select a payment method:  
+    * **Credit Card** – enter card number, expiry, CVV, billing zip.  
+    * **PayPal** – you will be redirected to PayPal to approve payment.  
+    *For this procedure, use **Credit Card**.  
+14. Click **“Pay Now”**.  
+15. Once payment is processed, you will see a confirmation page that says **“Domain Successfully Registered!”** and a confirmation email will be sent.  
 
-8. **Select Payment Plan**  
-   - Choose a 1‑year plan to lock in the lowest price.  
-   - Click **“Continue”**.
+**Error Scenario**  
+If you see **“Domain registration failed – unavailable”** after clicking “Add to Cart”, this means the domain was already taken by another registrar in the interim.  
+*Fix it by:*  
+   1. Returning to the search page (step 8).  
+   2. Selecting a slightly different domain (e.g., **yourbiz.co.uk**).  
+   3. Repeating steps 9‑15.  
 
-9. **Enter Billing Information**  
-   - Fill in:
-     - **Full Name**  
-     - **Address** (City, State, Country)  
-     - **Phone**  
-     - **Payment Method**: Credit Card (Visa/MasterCard)  
-   - Click **“Place Order”**.
+16. Return to the Hostinger dashboard, click **“Domains”** → **“Manage”**.  
+17. Locate your newly registered domain and click the **“Manage”** button.  
+18. In the domain management panel, click **“DNS Settings”** → **“Edit DNS Records”**.  
+19. Add the following A record:  
+    * **Type**: **A** (select from dropdown)  
+    * **Host**: **@**  
+    * **Points to**: **216.239.37.21** (Hostinger’s default IP for shared hosting)  
+    * **TTL**: **3600** (1 hour)  
+    Click **“Save”**.  
+    *Expected output*: Confirmation “DNS record added successfully.”  
 
-10. **Confirm Order**  
-    - Review order summary: Domain name, privacy, DNS, total cost.  
-    - Click **“Confirm Purchase”**.  
-    - You should see a success banner: “Your domain is now registered!”
+20. Click **“Add Record”** again to create a **CNAME** for www:  
+    * **Type**: **CNAME**  
+    * **Host**: **www**  
+    * **Points to**: **@**  
+    * **TTL**: **3600**  
+    Click **“Save”**.  
+    *Do you see the new DNS records listed? If not, wait a few minutes for propagation or clear the cache.*  
 
-**Interactive Check‑In 2**  
-Do you see the success banner with the domain name and registration date?  
-If not, check your email for a domain confirmation from Hostinger. If missing, go back to the dashboard → **“Domains”** → **“Registered Domains”** and verify status.
+**TABLE: HOSTINGER DOMAIN REGISTRATION COST BREAKDOWN**  
 
-11. **Access Domain Management**  
-    - In the dashboard sidebar, click **“Domains”** → **“Registered Domains”**.  
-    - Locate your new domain, click **“Manage”**.
+| Domain Extension | 1‑Year Price | 2‑Year Price | 3‑Year Price | Free Tier (with Hosting) |
+|-------------------|--------------|--------------|--------------|--------------------------|
+| .com | $10.99 | $19.98 | $29.97 | $0 (if you purchase a hosting plan) |
+| .net | $12.99 | $23.96 | $35.95 | $0 (with Hosting) |
+| .biz | $9.99 | $18.98 | $28.97 | $0 (with Hosting) |
+| .co | $13.99 | $25.98 | $37.97 | $0 (with Hosting) |
 
-12. **Set Up WHOIS Privacy Settings**  
-    - Inside the domain panel, click **“WHOIS Privacy”**.  
-    - Toggle **“Enable”** (if not already).  
+**Affiliation Integration Tip**  
+After domain registration, automate
+
+---
+
+## Procedure 1.2: Set Up Email and Workspace in Notion
+
+1. **Open your web browser** and navigate to the Notion sign‑up page:  
+   `https://www.notion.so/signup`.
+
+2. **Click the button labeled “+ Create free account”** (it is a blue button in the upper‑right corner).
+
+3. **Enter your personal email address** in the field that says “Enter your email”.  
+   *Example*: `john.doe@example.com`.  
+   Click **“Continue with Email”**.
+
+4. **Create a strong password** in the field “Password”. Use at least 12 characters, mix of upper/lower case, numbers, and symbols.  
+   Click **“Create password”**.
+
+5. **Verify your email**: Open your inbox, locate the email from Notion titled “Welcome to Notion”, and click **“Verify Email”** inside the email.  
+   Do you see the confirmation message “Your email has been verified”? If not, check the spam folder and repeat step 4.
+
+6. **Return to the browser and refresh the Notion page**. The site should now display the “Create Workspace” prompt.  
+   Click **“Create a new workspace”**.
+
+7. **Name your workspace** in the field “Workspace name”.  
+   *Example*: `Menshly Onboarding Hub`.  
+   Click **“Next”**.
+
+8. **Choose a primary purpose**: select **“For myself”** (you can change it later).  
+   Click **“Next”**.
+
+9. **Select a plan**: click the button that says **“Free”** to start with the free tier.  
+   Click **“Start free”**.
+
+10. **Configure workspace branding**:  
+    - Upload a logo by clicking the **“Upload logo”** button, then select an image file (`logo.png`).  
+    - Set the workspace color by clicking the **“Choose color”** dropdown and selecting **“Blue”**.  
     - Click **“Save”**.  
-    - Expected result: “WHOIS Privacy enabled” message.
+    Do you see the new logo and blue theme? If not, re‑upload the logo and confirm the color selection.
 
-13. **Configure DNS Records**  
-    - Click **“DNS”** tab.  
-    - Add the following A‑record for your future website (optional until you decide on hosting):
-      - **Type:** A  
-      - **Host:** `@`  
-      - **Points to:** `192.0.2.123` (replace with your server IP)  
-      - **TTL:** `1 Hour`  
-    - Click **“Save”**.  
-    - Expected: “Record added” toast.
+11. **Invite your team (optional)**: In the left sidebar, click **“Share”** (top‑right of the workspace).  
+    - In the invite field, type your partner’s email (`partner@example.com`).  
+    - Set permission to **“Can edit”**.  
+    - Click **“Invite”**.  
+    Do you see the message “Invitation sent”? If not, ensure the email format is correct.
 
-14. **Set Up Email Forwarding (Optional)**  
-    - In the domain panel, click **“Email”** → **“Create Email Forwarder”**.  
-    - **From:** `info@youragency.com`  
-    - **To:** `you@personalmail.com`  
-    - Click **“Create”**.  
-    - Expected: “Email forwarder created”.
+12. **Create a new page for onboarding**:  
+    - In the left sidebar, click **“+ New Page”**.  
+    - Title the page **“Client Onboarding Flow”**.  
+    - Click **“Add icon”**, choose a simple icon (e.g., a briefcase), and click **“Save”**.  
+    Expected outcome: A blank page titled “Client Onboarding Flow” appears.
 
-**Interactive Check‑In 3**  
-Do you see the “Email forwarder created” confirmation?  
-If not, ensure you are in the correct domain panel and that the email address is correctly typed.
+13. **Add a table database**:  
+    - In the page, type `/table` and select **“Table – Inline”**.  
+    - Name the table **“Client Leads”**.  
+    - Add columns:  
+      - **Name** (default).  
+      - **Email** (type: “Email”).  
+      - **Status** (type: “Select”; options: “New”, “Contacted”, “Onboarded”).  
+      - **Calendly Link** (type: “URL”).  
+    Expected outcome: A table with four columns appears.
 
-15. **Log Into Make.com for Automation**  
-    - Open a new tab and go to **https://www.make.com**.  
-    - Click **“Sign In”** → use your Hostinger email/password.  
-    - Once logged, set up a scenario to update your domain’s WHOIS privacy automatically if you change ownership (optional but recommended).
+14. **Set up a Gmail account for automated emails**:  
+    - Go to `https://mail.google.com/`.  
+    - Click **“Create account”** (button in the upper‑right).  
+    - Follow the prompts to set up a free Gmail account (`onboarding@menshly.com`).  
+    - Enable **“Allow less secure apps”** in the account settings (Settings → Security → Less secure app access → Turn on).  
+    Expected outcome: Email account ready for SMTP use.
 
-16. **Document Domain Details**  
-    - Open **Notion** (https://www.notion.so).  
-    - Create a new page titled **“Domain Registration – youragency.com”**.  
-    - Add a table with columns: **Field, Value**.  
-    - Fill in:
-      - Domain: `youragency.com
+15. **Create an SMTP relay in [Replit](https://replit.com/refer/egwuokwor)**:  
+    - Visit `https://replit.com/` and sign up for a free account.  
+    - Create a new Repl, choose “Python” template.  
+    - Install the `smtplib` library (already built‑in).  
+    - Add the following code snippet to `main.py`:
 
----
+      ```python
+      import smtplib
+      from email.mime.text import MIMEText
 
-## Procedure 1.2: **Create Beehiiv Account and Connect Your Domain**
+      smtp_server = "smtp.gmail.com"
+      smtp_port = 587
+      smtp_user = "onboarding@menshly.com"
+      smtp_password = "YOUR_APP_PASSWORD"
 
-**Goal:** Sign up for Beehiiv, verify your email, add your own domain to Beehiiv, and confirm the DNS record.  
-**Tools needed:** Browser (Chrome, Edge, or Safari), Beehiiv account, DNS provider dashboard (e.g., Hostinger), Loom for video capture, Notion for logging.
+      msg = MIMEText("Welcome to Menshly!")
+      msg['Subject'] = 'Onboarding Started'
+      msg['From'] = smtp_user
+      msg['To'] = 'client@example.com'
 
-> **Note:** All steps are written for the Beehiiv free tier (2 000 emails/month). If you need higher limits, upgrade at step 17.
+      with smtplib.SMTP(smtp_server, smtp_port) as server:
+          server.starttls()
+          server.login(smtp_user, smtp_password)
+          server.sendmail(smtp_user, [msg['To']], msg.as_string())
+      ```
 
----
+    - Replace `YOUR_APP_PASSWORD` with the App Password you generate in Gmail (Settings → Security → App passwords).  
+    - Run the Repl.  
+    Expected outcome: Console shows `250 2.0.0 OK 12345`.  
+    Do you see the success message? If not, verify the app password and ensure `smtp_port` is 587.
 
-### 1. Open Beehiiv Sign‑Up Page  
-1.1. Launch Chrome.  
-1.2. Go to **https://beehiiv.com/signup**.  
-1.3. **Click** the **“Get Started”** button.  
-1.4. **Fill** the form:  
-- **Full Name:** *Your Name*  
-- **Email:** *your@email.com*  
-- **Password:** *StrongPassword123*  
-1.5. **Check** the box next to **“I agree to Beehiiv’s Terms of Service & Privacy Policy.”**  
-1.6. **Click** **“Create Account.”**
-
-> **Do you see the “Welcome to Beehiiv” dashboard?**  
-> *If not, check that you entered a valid email and password. Try re‑entering the password.*
-
-**Expected output:** Beehiiv greets you with a short onboarding tour. The URL is now **https://beehiiv.com/dashboard**.
-
-### 2. Confirm Your Email Address  
-2.1. Open your inbox.  
-2.2. Find the email titled **“Welcome to Beehiiv – Confirm Your Email.”**  
-2.3. **Click** the **“Confirm Email”** button.  
-2.4. You should be redirected to **https://beehiiv.com/dashboard** with a green banner: *“Email verified.”*  
-
-> **Do you see the green banner?**  
-> *If not, the email may be in Spam. Resend verification from Beehiiv →
+16. **Integrate Calendly into the Notion table**:  
+    - Go to `https://calendly.com/`.  
+    - Click **“Sign up free”**, use the same Gmail address.  
+    - Create a new
 
 ---
 
-## Procedure 1.3: Set Up Loom Account with Email Notifications  
+## Procedure 1.3: Create Core Business Accounts and Calendly
 
-**Goal:** Create a Loom account, enable email notifications for new recordings, and test the notification flow.
-
----
-
-1. **Open Loom Sign‑Up Page**  
-   - Navigate to **https://www.loom.com/signup** in your browser.  
-   - The page loads with a **“Sign up with Google”** button and a **“Use email instead”** link.  
-   - **Click** the **“Use email instead”** link.
-
-2. **Enter Email Address**  
-   - In the field labeled **“Email address”**, type **your‑business‑email@example.com** (replace with your real email).  
-   - **Click** the **“Continue”** button.
-
-3. **Create Password**  
-   - In the **“Password”** field, enter **StrongPass!2024** (must be ≥ 8 characters, include a number, a symbol, and a capital letter).  
-   - In the **“Confirm password”** field, re‑type the same password.  
-   - **Click** the **“Continue”** button.
-
-4. **Agree to Terms**  
-   - Check the box labeled **“I agree to Loom’s Terms of Service and Privacy Policy”**.  
-   - **Click** the **“Create account”** button.  
-
-5. **Verify Email**  
-   - Check your inbox for a Loom verification email.  
-   - **Open** the email, click the **“Verify Email”** button inside.  
-   - The browser should redirect to **https://www.loom.com/home** with a banner that says **“Welcome to Loom!”**.  
-
-**Do you see the “Welcome to Loom!” banner? If not, refresh the page or check your spam folder for the verification email.**
+**Objective:** Establish a professional business infrastructure by creating a dedicated business email, registering a domain, and setting up a Calendly account that is ready for subsequent AI‑driven onboarding automation with Klaviyo and Make.com.
 
 ---
 
-6. **Navigate to Settings**  
-   - In the top‑right corner, click the avatar icon (your initials).  
-   - From the dropdown, **select** **“Settings”**.  
+### 1. Create a Business Email Account on Zoho Mail (Free Tier)
 
-7. **Open Email Notifications Tab**  
-   - On the left sidebar, click **“Email notifications”**.  
-   - The main pane displays a list of notification types.  
+1. Open **https://www.zoho.com/mail/** in Chrome.  
+2. Click the **Sign up for free** button (upper‑right).  
+3. In the dialog, enter **yourbusiness@yourdomain.com** in the *Email ID* field.  
+4. Click **Create Free Account**.  
+5. You will be prompted to verify your domain.  
+   - In the **Domain Verification** section, type **yourdomain.com** (replace with your chosen domain).  
+   - Click **Verify**.  
+   - If the domain exists, Zoho will show a green tick; if not, it will prompt you to create a new domain (skip for now).  
+6. **Interactive Check‑In:** Do you see a green tick next to your domain name?  
+   - If not, ensure you typed the domain correctly.  
+   - If the domain still fails, go to **Step 4** to register a new domain on Hostinger.
 
-8. **Enable Recording Alerts**  
-   - Find **“New recording”** and toggle the switch to **On**.  
-   - Ensure the checkbox next to **“Send me an email when a new recording is created”** is checked.  
-
-9. **Add Additional Recipients**  
-   - In the **“Add email addresses”** field, type **partner‑email@example.com**.  
-   - Press **Enter** to add the address.  
-
-10. **Save Settings**  
-    - Scroll to the bottom and **click** the **“Save”** button.  
-    - A toast notification appears: **“Email notifications updated.”**  
-
-**Do you see the “Email notifications updated.” toast? If not, make sure the toggle is switched on and the address is correctly formatted.**
+*Expected Output:* A confirmation page stating “Domain successfully verified. Your free Zoho Mail account is ready.”  
 
 ---
 
-11. **Test Email Notification**  
-    - Return to the **Home** page.  
-    - **Click** the **“New Recording”** button in the center of the screen.  
+### 2. Register a Domain on Hostinger (Monthly $1.99)
 
-12. **Record a Short Test Clip**  
-    - In the recording dialog, select **“Screen + Camera”**.  
-    - Click **“Start Recording”**.  
-    - Record a 5‑second clip, then click **“Stop Recording”**.  
+7. Navigate to **https://www.hostinger.com/domains**.  
+8. In the search bar, type **yourdomain.com** and click **Search**.  
+9. Click **Add to Cart** next to the domain.  
+10. On the cart page, click **Proceed to Checkout**.  
+11. Sign in or create a Hostinger account using your newly created Zoho email.  
+12. In the **Billing** section, choose **Monthly** and confirm the price **$1.99**.  
+13. Click **Confirm Order** and complete the payment via PayPal or credit card.  
+14. After payment, you will receive a confirmation email from Hostinger.  
+15. **Interactive Check‑In:** Do you see the domain listed under “My Domains” in Hostinger?  
+    - If not, check the email for confirmation or re‑login to Hostinger.  
 
-13. **Confirm Email Receipt**  
-    - Immediately check your inbox.  
-    - You should receive an email titled **“New Loom Recording: Test Clip”** with a link to the recording.  
-
-**If you do not receive the email within 2 minutes, check your spam folder and confirm the email address is correct.**
+*Expected Output:* Domain status “Active” with a DNS management page.
 
 ---
 
-14. **Set Up Make.com Automation (Optional)**  
-    - Go to **https://www.make.com/** and **log in** (free tier: 100 operations/month).  
-    - Click **“Create a new scenario”**.  
+### 3. Configure DNS for Zoho Email
 
-15. **Add Loom Trigger**  
-    - In the scenario editor, click **“Add”** → **“Trigger”**.  
-    - Search for **“Loom”** and select **“New Recording”** trigger.  
-    - Connect your Loom account via the **OAuth** flow.  
+16. In Hostinger, click **Manage** next to your domain.  
+17. Go to **DNS Zone Editor**.  
+18. Add the following TXT record for Zoho verification:  
+    - **Host:** @  
+    - **Value:** `zoho-verification=XXXXX` (replace XXXXX with the token provided in Zoho).  
+19. Add MX records as listed in Zoho’s email setup guide (usually:  
+    - `mx.zoho.com` priority 10  
+    - `mx2.zoho.com` priority 20).  
+20. Save changes.  
+21. **Interactive Check‑In:** Do you see the new TXT and MX records appear in the DNS list?  
+    - If not, refresh the page or wait 5 minutes for propagation.  
 
-16. **Add Beehiiv Action**  
-    - Click **“Add”** → **“Action”** → search for **“Beehiiv”**.  
-    - Select **“Send email”**.  
-    - Map the Loom recording URL field to Beehiiv’s **“URL”** field.  
+*Expected Output:* DNS records displayed; Zoho will later confirm email service is active.
 
-17. **Save and Test Scenario**  
-    - Click **“Save”**.  
-    - Run the scenario manually to ensure data passes correctly.  
+---
 
-18. **Activate Scenario**  
-    - Toggle the switch at the top of the editor to **“On”**.  
-    - A confirmation badge appears: **“Scenario active”**.  
+### 4. Sign Up for Calendly
 
-19. **Verify Automation**  
-    - Create another Loom recording.  
-    - Check Beehiiv for a new subscriber email containing the Loom link.  
+22. Open **https://calendly.com/**.  
+23. Click **Sign up free** in the top‑right corner.  
+24. Choose **Email** as the sign‑up method.  
+25. Enter **yourbusiness@yourdomain.com** and click **Continue**.  
+26. Set a strong password (e.g., `P@ssw0rd!123`).  
+27. Click **Create account**.  
+28. Calendly will send a verification email to Zoho.  
+29. Open the Zoho inbox, click **Verify email**.  
+30. **Interactive Check‑In:** Do you see a confirmation screen saying “Account verified!”?  
+    - If not, check spam or resend verification from Calendly.  
 
-20. **Document Configuration**  
-    - Open **Notion** (
+*Expected Output:* Calendly dashboard with your name and a “Create Event Type” button visible.
+
+---
+
+### 5. Create a Basic Event Type
+
+31. Click **Event Types** in the left sidebar.  
+32. Click **+ New event type** → **One‑to‑One**.  
+33. Enter **“AI Onboarding Intro Call”** in the *Event name* field.  
+34. Set **Location** to **Zoom** (default).  
+35. Click **Continue**.  
+36. In the *Availability* tab, set **Duration** to **30 minutes**.  
+37. Click **Save & Close**.  
+38. **Interactive Check‑In:** Do you see the new event type listed with a green “Active” badge?  
+    - If not, ensure you clicked “Save & Close” and check the Dashboard.  
+
+*Expected Output:* Event type “AI Onboarding Intro Call” appears under “Event Types”.
+
+---
+
+### 6. Create a Calendly API Key
+
+39. In Calendly, click your profile icon → **Integrations**.  
+40. Under **API & Webhooks**, click **Generate API Key**.  
+41. Copy the 32‑character key to clipboard.  
+
 
 ## Check-In: Module 1 Complete
 
-- [ ] **Register Your Business Domain on Hostinger** completed and verified
-- [ ] Create Beehiiv Account and Connect Your Domain completed and verified
-- [ ] Set Up Loom Account with Email Notifications completed and verified
+- [ ] REGISTER YOUR BUSINESS DOMAIN ON HOSTINGER completed and verified
+- [ ] Set Up Email and Workspace in Notion completed and verified
+- [ ] Create Core Business Accounts and Calendly completed and verified
 - [ ] All tools connected and working
 - [ ] No errors or warnings in any dashboard
 
@@ -304,171 +337,272 @@ If not, ensure you are in the correct domain panel and that the email address is
 
 ## Overview
 
-In Module 2 you will assemble the core technology foundation that powers every client deliverable in your AI‑powered content repurposing agency. We will walk you through the exact tools, API keys, and integration settings required to automate content ingestion, transformation, and distribution across newsletters, video, and social feeds. If you skip this module, you’ll be left with fragmented workflows, manual copy‑pasting, and data that never syncs between platforms—leading to duplicated effort, missed deadlines, and a loss of trust with clients. This module guarantees that every piece of content you generate flows seamlessly from your creative hub into Beehiiv, Loom, and any downstream channels, saving you hours of manual labor each month.
+In Module 2 you will assemble the core technology stack that powers every AI‑driven onboarding funnel. This module is the foundation that lets you connect Calendly, Klaviyo, Make.com, and the ancillary tools that transform raw data into a seamless customer journey. By following these steps you will:
 
-The table below lists every tool you must license and connect, the specific purpose it serves in the stack, and the exact features available in the free tier versus the paid tier. All prices are current as of July 2026 and are rounded to the nearest dollar. You’ll need a paid tier for at least Beehiiv and Loom to unlock the API access required for automation.
+1. **Generate secure API keys** for each service.  
+2. **Create a unified data schema** that ensures contact fields flow correctly between Calendly, Make.com, and Klaviyo.  
+3. **Verify bidirectional sync** so that a new booking in Calendly automatically triggers a welcome email, a task in Notion, and a replay in Loom.
 
-| Tool        | Purpose                                               | Free Tier (Limitations)                      | Paid Tier (Cost) |
-|-------------|-------------------------------------------------------|----------------------------------------------|------------------|
-| Beehiiv     | Newsletter creation & distribution                    | 1,000 subscribers, 2 k emails/month         | Pro: $20/month (unlimited) |
-| Loom        | Video recording & sharing                             | 25 min per recording, 5 GB storage           | Pro: $12/month (unlimited) |
-| Make.com    | Automate cross‑app workflows (Webhooks, APIs)         | 500 tasks/month, 15‑min interval             | Unlimited: $29/month |
-| Zapier      | Connect legacy tools & trigger actions                | 100 tasks/month, 15‑min interval             | Unlimited: $19/month |
-| Replit      | Run Python scripts for content transformations       | 500 h/month, 1 GB storage                    | Pro: $7/month (unlimited) |
-| Notion      | Knowledge base & project tracking                     | Unlimited pages, 5 GB file storage           | Personal Pro: $8/month |
-| Grammarly   | Grammar & style checks for all copy                   | 500 words/day, limited features             | Premium: $12/month |
-| ChatGPT     | AI content generation & ideation                      | 3 k tokens/month, no API access             | ChatGPT‑4: $20/month (API) |
-| [ElevenLabs](https://elevenlabs.io/)  | Text‑to‑speech for video narration                   | 1 k characters/day, limited voices          | Pro: $15/month |
-| Canva       | Design assets for newsletters and social posts        | 5 GB storage, 30 templates                  | Pro: $12.99/month |
+Skipping this module means your automation will be fragmented—bookings will go to inboxes, emails will miss personalization tokens, and analytics will be incomplete. A fractured stack leads to lost leads, manual follow‑ups, and a churn rate that climbs faster than your revenue.
 
-**Estimated Time to Complete**  
-Total time required to finish all three procedures in this module: **≈ 3 hours 15 minutes**. This includes 45 minutes for API key generation, 60 minutes for each connection (Make.com, Zapier, Beehiiv, Loom), and 30 minutes for verification and troubleshooting.
+| Tool      | Purpose                                                                 | Free Tier                                         | Paid Tier (Monthly) |
+|-----------|--------------------------------------------------------------------------|---------------------------------------------------|---------------------|
+| Calendly  | Schedule and capture client appointments                               | Unlimited events, 1 calendar, basic branding      | $10 / calendar      |
+| Klaviyo   | Email/SMS marketing automation, segmentation                           | 250 contacts, 500 emails, basic templates        | $20 / 500 contacts  |
+| Make.com  | Visual workflow automation, API integration                            | 1,000 operations, 20 scenarios, 15 min timeout    | $19 / 15,000 ops    |
+| Zapier    | Bridge between non‑API apps, simple logic                              | 5 Zaps, 100 tasks/month                           | $20 / 2,000 tasks   |
+| Notion    | Project tracking, SOPs, knowledge base                                 | Unlimited pages, 5 users, 5,000 blocks            | $8 / user           |
+| Replit    | Quick code snippets, API testing, sandboxed Python scripts             | Unlimited public repos, 500 MB storage            | $7 / private repo   |
 
-By the end of this module you will have a fully wired tech stack that automatically pulls raw content from your client’s source, transforms it into AI‑enhanced formats, and pushes it to newsletters, videos, and social channels—ready for you to scale fast and profit.
+**Estimated time to complete:** 30 minutes
 
----
-
-## Procedure 2.1: Configure Beehiiv API Keys and Map Subscriber Data to Airtable  
-
-1. **Open Beehiiv** – navigate to <https://dashboard.beehiiv.com/login>.  
-   - Click **Sign In** in the upper‑right corner.  
-   - Enter your email and password, then click **Log In**.  
-   - *Expected output:* You are taken to the Beehiiv dashboard home page with the left‑hand navigation panel visible.  
-
-2. **Access API Settings** – on the left‑hand panel, click **Integrations**.  
-   - In the integrations list, find **API** and click the **Configure** button.  
-   - *Expected output:* A modal appears titled “API Keys”.  
-
-3. **Generate an API Key** – in the API modal, click the **Create New Key** button (bolded).  
-   - In the pop‑up, give the key a name “AirtableSync” and click **Generate**.  
-   - Copy the displayed key by clicking the clipboard icon.  
-   - *Expected output:* A new key line appears with a green “Active” badge.  
-
-4. **Store the Key Securely** – paste the key into a password manager (e.g., 1Password).  
-   - Label it “Beehiiv → Airtable” and add a note: “Used for subscriber sync”.  
-   - *Interactive Check‑in:* Do you see the key listed in 1Password? If not, **Re‑generate** the key in Beehiiv and copy it again.  
-
-5. **Create an Airtable Base** – open Airtable at <https://airtable.com/login>.  
-   - Click **Add a base** → **Start from scratch** → name it “Beehiiv Subscribers”.  
-   - *Expected output:* A new base with a single table named “Table 1” appears.  
-
-6. **Set Up Table Fields** – in Table 1, rename it to “Subscribers”.  
-   - Delete the default “Name” field.  
-   - Add the following fields:  
-     - **Email** – type **Email**.  
-     - **First Name** – type **Single line text**.  
-     - **Last Name** – type **Single line text**.  
-     - **Beehiiv ID** – type **Single line text**.  
-   - *Expected output:* Four columns with the specified field types.  
-
-7. **Publish API Credentials** – from the Airtable base top bar, click **Share** → **API**.  
-   - Note the Base ID (e.g., `appXXXXXXXXXXXX`).  
-   - Click **Create API Key** and copy the key.  
-   - *Expected output:* A green “API key created” banner.  
-
-8. **Install Make.com** – go to <https://www.make.com> and click **Sign Up**.  
-   - Use the free tier (10,000 operations/month, $0).  
-   - Verify your email and log in.  
-   - *Expected output:* You land on the dashboard with a “Create new scenario” button.  
-
-9. **Create a New Scenario** – click **Create new scenario** → search for **HTTP** → choose **HTTP > Make a request**.  
-   - Click **Continue**.  
-   - *Expected output:* A blank scenario canvas with an HTTP module.  
-
-10. **Configure Beehiiv Request** – in the HTTP module:  
-    - **Method:** GET  
-    - **URL:** `https://api.beehiiv.com/v1/subscribers`  
-    - **Headers:**  
-      - `Authorization: Bearer <YOUR_BEEHIIV_KEY>`  
-      - `Content-Type: application/json`  
-    - Click **OK**.  
-    - *Expected output:* The module is ready with the URL and headers displayed.  
-
-11. **Test Beehiiv Request** – click the **Run once** button in the upper‑right corner.  
-    - Wait for the response.  
-    - *Expected output:* A JSON payload containing an array of subscriber objects.  
-    - *Interactive Check‑in:* Do you see a JSON array with subscriber data? If not, **Check the API key** – it may be expired or mis‑typed.  
-
-12. **Add Airtable Update Module** – click the plus icon next to the HTTP module → search for **Airtable** → choose **Airtable > Update a record**.  
-    - Click **Continue**.  
-    - *Expected output:* The Airtable module appears on the canvas.  
-
-13. **Configure Airtable Update** – in the Airtable module:  
-    - **Connection:** click
+You will build a single, coherent pipeline that lets you launch AI‑powered onboarding in under an hour—once the stack is in place, the rest of the playbook is a series of click‑throughs, not code.
 
 ---
 
-**Procedure 2.2** — Generation failed due to AI backend unavailability. Please retry later.
+## Procedure 2.1: Connect ChatGPT API and Store Keys in Notion
+
+1. **Open a web browser** and navigate to the OpenAI API portal:  
+   <https://platform.openai.com/account/api-keys>  
+   **Login** with your OpenAI credentials (or create an account if you don’t have one).
+
+2. Click the **bold button** **“+ Create new key”**.  
+   In the popup, give the key a name such as **“Menshly Onboarding Key”** and click **“Create key”**.
+
+3. **Copy** the newly generated key by selecting the key text and pressing **Ctrl+C** (Windows) or **⌘C** (macOS).  
+   The key looks like `sk-XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX`.
+
+4. **Open a new tab** and go to Notion: <https://www.notion.so>.  
+   **Login** to your Notion workspace.
+
+   *Do you see the Notion dashboard with “+ New Page”? If not, refresh the page or check your internet connection.*
+
+5. In the left sidebar, click **“+ New Page”**.  
+   Title the page **“API Keys”** and set the page icon to a 🔑 emoji.
+
+6. Inside the “API Keys” page, click **“Add a database”** → **“Table – Inline”**.  
+   Name the database **“ChatGPT API Keys”**.
+
+7. In the database, click the **“+ Add a property”** button, choose **“Text”** and name it **“API Key”**.
+
+8. Click the **first empty row** under the **“API Key”** column.  
+   Paste the key you copied earlier (**Ctrl+V** / **⌘V**).  
+   The entry should now display a long alphanumeric string.
+
+   *Do you see the new row with the key? If the key is blank, double‑click the cell and paste again.*
+
+9. Click the **three dots** in the top-right of the database and choose **“Copy link to page”**.  
+   Store this URL in your clipboard; it will be used by Make.com to access the database.
+
+10. **Open a new browser tab** and go to Make.com: <https://www.make.com>.  
+    **Login** or sign‑up. (Free tier: 200 operations/month, 1 scenario, 15 min refresh).
+
+11. Click **“Create new scenario”** and name it **“Store ChatGPT Key in Notion”**.
+
+12. In the scenario editor, click **“+ Add another module”**, search for **“Notion”**, and select **“Create a database row”**.
+
+13. Connect your Notion account by clicking **“Add new connection”**.  
+    Follow the OAuth flow: click **“Authorize”**, then **“Allow”**.  
+    In the dialog, choose the workspace that contains the **“ChatGPT API Keys”** database and click **“Finish”**.
+
+14. In the [**Notion module settings**](https://notion.so/), set **Database** to **“ChatGPT API Keys”** (use the dropdown).  
+    For the **Properties** field, click **“Add a property”** → **“API Key”** → **“Text”** and paste the API key into the value box.
+
+15. Click the **green “Run once” button** at the top right of the scenario.  
+    The module will create a new row in the database.  
+    The **output panel** should display JSON similar to:  
+    ```
+    {
+      "id": "some-id",
+      "created_time": "2026-10-10T12:34:56.789Z",
+      "properties": {
+        "API Key": [
+          {
+            "type": "rich_text",
+            "rich_text": [
+              {
+                "plain_text": "sk-XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+              }
+            ]
+          }
+        ]
+      }
+    }
+    ```
+
+   *Do you see a JSON response with “sk-…”? If the key appears truncated, check that you pasted the entire string.*
+
+16. Click **“Save”** in the top right of Make.com to keep the scenario.
+
+17. To **automate future key updates**, add a trigger module:  
+    a. Click **“+ Add another module”** → search **“Notion”** → select **“Watch database items”**.  
+    b. Set **Database** to **“ChatGPT API Keys”** and **Trigger** to **“New or updated rows”**.  
+    c. Connect the same Notion connection used earlier.
+
+18. Click **“Run once”** again to test the trigger.  
+    The scenario should fire, create a new row
 
 ---
 
-## Procedure 2.3: Create a Make.com Zap to Sync Beehiiv Subscribers and Loom Video URLs into Notion
+## Procedure 2.2: Build Your First Make.com Automation Scenario  
 
-1. **Log into Make.com**  
-   - Open your browser and go to **https://www.make.com/en**.  
-   - Click the **LOG IN** button in the top‑right corner.  
-   - Enter your email/username and password, then click **SIGN IN**.  
-   - *Do you see the dashboard with the “Create a new scenario” button? If not, check that you’re logged in.*
+**Goal:** Connect a Calendly booking to a Klaviyo welcome email using Make.com.  
+**Tools:** Make.com (https://www.make.com), Calendly (https://calendly.com), Klaviyo (https://www.klaviyo.com).  
+**Prerequisites:**  
+- Active Calendly account with a “New Meeting” event type.  
+- Active Klaviyo account with a list named “Onboarding Leads”.  
+- API keys: Calendly API token and Klaviyo private API key.  
 
-2. **Create a new scenario**  
-   - On the dashboard, click **CREATE A NEW SCENARIO** (big blue button).  
-   - The scenario editor opens.  
-   - In the search bar, type **Beehiiv** and click the **Beehiiv – New Subscriber (Webhook)** module.  
-   - Click **ADD** to place the module on the canvas.
+> **Tip:** Keep your API keys in a secure password manager.  
 
-3. **Set up Beehiiv webhook**  
-   - In the Beehiiv module settings, click **+ NEW CONNECTION**.  
-   - In the popup, type **Beehiiv** in the search field, click **Beehiiv**, then click **ADD**.  
-   - Copy the **Webhook URL** displayed under the module.  
-   - *Do you see the Webhook URL? If not, double‑click the module to open the settings.*  
-   - Go to your Beehiiv account at **https://app.beehiiv.com** → **Settings** → **Webhooks** → **Add webhook**.  
-   - Paste the Make.com Webhook URL into the **URL** field, set **Event** to “New Subscriber”, and click **Save**.
+---
 
-4. **Add a Loom webhook trigger**  
-   - Back in the Make.com editor, click the plus icon next to the Beehiiv module.  
-   - Search for **Loom** and select **Loom – New Video (Webhook)**.  
-   - Click **ADD**.  
-   - In the Loom module settings, click **+ NEW CONNECTION**.  
-   - In the popup, enter your Loom API key (found at **https://www.loom.com/settings/developer**).  
-   - Click **ADD**.  
-   - Copy the **Webhook URL** shown.  
-   - In Loom, go to **Settings** → **Webhooks** → **Add webhook**, paste the Make.com URL, set **Event** to “Video Created”, and click **Save**.  
-   - *Do you see both Beehiiv and Loom modules on the canvas? If not, refresh the page.*
+### 1. Sign in to Make.com
+1. Open a browser and go to **https://www.make.com**.  
+2. Click the **“Log in”** button in the top‑right corner.  
+3. Enter your email and password, then click **“Log in”**.  
+4. You should see the **Dashboard** page with a blue banner that reads “Welcome to Make.com”.  
 
-5. **Add a Router to separate flows**  
-   - Click the plus icon after the Loom module.  
-   - Search for **Router** and click **ADD**.  
-   - Drag the Router to the right of both trigger modules.  
-   - This will branch the scenario into two paths: **Beehiiv** and **Loom**.
+**Check‑in:** Do you see the Dashboard with the “Welcome to Make.com” banner?  
+If not, ensure you are logged in and that your browser isn’t blocking pop‑ups.
 
-6. **Set up the Beehiiv path**  
-   - Click the **Beehiiv** arrow on the Router.  
-   - Drag a **Notion – Create a database item** module from the left panel.  
-   - Click **ADD**.  
-   - In the Notion module, click **+ NEW CONNECTION**.  
-   - Choose **Notion**, then click **ADD**.  
-   - In the popup, paste your **Notion Integration Token** (found at **https://www.notion.so/my-integrations**).  
-   - Click **ADD**.  
-   - In the module, set **Database ID** to the ID of the database you created in Notion (copy from the URL `https://www.notion.so/.../…?v=…`).  
-   - Map the **Email** field to `{{Beehiiv.Email}}`.  
-   - Map the **Source** field to `"Beehiiv"`.  
-   - Map the **Timestamp** field to `{{currentDate}}` (use the **Date & Time** module if you need to format).
+### 2. Create a New Scenario
+5. In the left‑hand menu, click **“Scenarios”**.  
+6. Click the **“Create a new scenario”** button (green, top‑right).  
+7. The **Scenario Editor** opens with a blank canvas.  
+8. Click the **“+”** icon left of the canvas to add a module.  
 
-7. **Set up the Loom path**  
-   - Click the **Loom** arrow on the Router.  
-   - Drag another **Notion – Create a database item** module.  
-   - Click **ADD**.  
-   - Reuse the same Notion connection.  
-   - Set **Database ID** to the same database.  
-   - Map the **Email** field to `{{Loom.Email}}` (Loom will provide the email of the account that uploaded the video).  
-   - Map the **Loom URL** field to `{{Loom.VideoURL}}`.  
-   - Map the **Source** field
+**Check‑in:** Do you see the “Scenario Editor” with a blank canvas and a “+” icon?  
+If not, refresh the page or log out/in again.
+
+### 3. Add the Calendly Trigger
+9. A modal appears titled “Choose a trigger module”.  
+10. In the search bar type **“Calendly”** and press **Enter**.  
+11. Select **“New booking”** and click **“Create”**.  
+12. In the **“Calendly API token”** field, paste your token (from Calendly’s settings → Integrations → API Key).  
+13. In the **“Event type”** dropdown, choose **“New Meeting”**.  
+14. Click **“Save”**.  
+
+**Check‑in:** Do you see the Calendly trigger module with “New booking” and your token displayed?  
+If the token field is blank, double‑check that you copied the full token without spaces.
+
+### 4. Add a Filter (Optional but Recommended)
+15. Click the **“+”** icon next to the Calendly module.  
+16. Search for **“Filter”** and select the **“Filter”** module.  
+17. In the filter editor, set the rule:  
+   - **Field:** `Event type`  
+   - **Condition:** `equals`  
+   - **Value:** `New Meeting`  
+18. Click **“Save”**.  
+
+**Check‑in:** Do you see a filter with the rule “Event type equals New Meeting”?  
+If the rule isn’t saved, ensure you clicked **“Save”** after editing.
+
+### 5. Add the Klaviyo Action
+19. Click the **“+”** icon after the filter.  
+20. Search for **“Klaviyo”** and select **“Add contact to list”**.  
+21. In the **“Klaviyo API key”** field, paste your private key (found under Klaviyo → Settings → API Keys → Private API Key).  
+22. In the **“List”** dropdown, select **“Onboarding Leads”**.  
+23. In the **“Email”** field, click the dropdown > **“Map a value”** > choose **`Email`** from the Calendly trigger.  
+24. In the **“First name”** field, map **`First name`** from Calendly.  
+25. In the **“Last name”** field, map **`Last name`** from Calendly.  
+26. Click **“Save”**.  
+
+**Check‑in:** Do you see the Klaviyo module with “Add contact to list: Onboarding Leads” and
+
+---
+
+## Procedure 2.3: Configure Vapi Voice Agent and ElevenLabs TTS
+
+1. **Open your web browser** and navigate to **https://app.vapi.io**.  
+   *If you are not already logged in, click **SIGN IN** in the top‑right corner and enter your email/password. If you do not have an account, click **SIGN UP** and create a free tier account (50 calls/month).*
+
+2. Click **GET STARTED** on the Vapi dashboard home screen.  
+   You should see a page titled “Create a Voice Agent.”  
+
+3. In the **Agent Name** field, type **“Onboarding Voice Agent”** and press **ENTER**.  
+   Click **CREATE AGENT** (button appears in blue).  
+
+4. **Do you see the Agent Overview page with a green “Agent Created” banner?**  
+   *If not, refresh the page or verify you have a stable internet connection.*
+
+5. Click **ADD SKILL** (button in the top‑center).  
+   Choose **“Text‑to‑Speech”** from the dropdown and click **SELECT**.  
+
+6. In the **Skill Settings** dialog, set **Language** to **English (US)**, **Voice** to **“Joanna”**, **Speed** to **1.0x**, and **Pitch** to **0 dB**.  
+   Click **SAVE SETTINGS**.  
+
+7. Click **ADD ACTION** in the skill panel.  
+   Select **“Webhook”** and then click **CONFIGURE**.  
+
+8. In the **Webhook URL** field, paste the URL you will generate later in Make.com (placeholder: `https://hook.integromat.com/xxxxxxxx`).  
+   Set **Method** to **POST**, **Content Type** to **application/json**, and leave **Headers** empty.  
+   Click **SAVE**.  
+
+9. **Do you see the Webhook action listed under the skill with a status of “Ready”?**  
+   *If you see “Failed”, check that the URL is correct and that you have saved the webhook in Make.com.*
+
+10. Open a new tab and go to **https://www.elevenlabs.io**.  
+    Log in with your credentials or sign up for the free tier (5 hours/month).  
+
+11. Click **API** in the top navigation bar, then **Create API Key**.  
+    Copy the key displayed and paste it into a secure note (e.g., Notion).  
+
+12. Return to the Vapi tab, click **SETTINGS** (gear icon in the top‑right).  
+    Under **API Keys**, paste the ElevenLabs key into the **Third‑Party Integration** field.  
+    Click **VERIFY**.  
+
+13. **Do you see “Integration Verified” in green?**  
+    *If you see “Invalid Key”, double‑check that you copied the entire key and that you are pasting it into the correct field.*
+
+14. In Vapi, click **TEST CALL** in the Agent Overview.  
+    Type “Hello, this is your onboarding voice agent.” in the prompt field and click **SEND**.  
+
+15. The call should play back with the Joanna voice at normal speed.  
+    If the audio does not play, verify that your speaker is not muted and that your browser has permission to play audio.  
+
+16. Open **https://www.make.com** and log in.  
+    Click **CREATE A SCENARIO** in the top‑center.  
+
+17. Drag the [**Vapi**](https://vapi.ai/) module from the left panel to the canvas.  
+    Select **“Get Agent Message”** event and click **CONNECT**.  
+    Use the Vapi API credentials you created earlier.  
+
+18. Drag a **Webhook** module onto the canvas and connect it to the Vapi module.  
+    Choose **“Catch Hook”** and click **CREATE**.  
+    Copy the generated URL and paste it back into Vapi’s Webhook URL field (step 8).  
+
+19. Add a **Text‑to‑Speech** module from the [**ElevenLabs**](https://elevenlabs.io/) connector.  
+    Map the **Message** field from Vapi to the **Text** input of ElevenLabs.  
+    Set **Voice** to **“Joanna”** and **Speed** to **1.0x**.  
+
+20. Add an **Audio Upload** module from **Google Drive** (free tier).  
+    Map the **Audio File** output from ElevenLabs to the **Upload File** input.  
+    Set the folder to **“Onboarding Audio”** and click **CREATE**.  
+
+21. Click **SAVE** and then **RUN** the scenario.  
+    Vapi should trigger the webhook, ElevenLabs will generate TTS, and the audio file will appear in Google Drive.  
+
+22. **Do you see the audio file in Google Drive with a filename containing the timestamp?**  
+    *If not, check the scenario logs in Make.com for errors such as “Invalid API Key” or “Rate Limit Exceeded.”*  
+
+23. Return to Vapi, click **ADD ACTION** again, select **“Send Email”**, and configure it to send the audio file URL to a test email address.  
+    Verify that the email arrives with the correct attachment link.  
+
+---
+
+### Cost Breakdown Table (Free Tier Limits)
+
+| Tool | Free Tier | Paid Tier (USD) | Free Limit | Paid Limit |
+|------|-----------|-----------------|------------|------------|
+| Vapi | $0 | $29/mo | 50 API calls/month | Unlimited |
+| ElevenLabs | $0 | $
 
 ## Check-In: Module 2 Complete
 
-- [ ] Configure Beehiiv API Keys and Map Subscriber Data to Airtable completed and verified
-- [ ] Set Up Loom API to Auto-Upload Recorded Sessions to Google Drive completed and verified
-- [ ] Create a Make.com Zap to Sync Beehiiv Subscribers and Loom Video URLs into Notion completed and verified
+- [ ] Connect ChatGPT API and Store Keys in Notion completed and verified
+- [ ] Build Your First Make.com Automation Scenario completed and verified
+- [ ] Configure Vapi Voice Agent and ElevenLabs TTS completed and verified
 - [ ] All tools connected and working
 - [ ] No errors or warnings in any dashboard
 
@@ -478,126 +612,137 @@ By the end of this module you will have a fully wired tech stack that automatica
 # MODULE 3: FRAMEWORK
 
 ## Overview  
-In this module you will lock down the operating backbone that turns a raw content idea into a repeatable, scalable AI‑powered repurposing service. We’ll map the entire service delivery lifecycle—from the first client intake email to the final multi‑platform rollout—so you can hit the ground running and maintain razor‑thin margins. Skipping this framework means you’ll be chasing ad‑hoc clients, juggling disjointed tools, and risking inconsistent quality that drives churn and damages your reputation.  
 
-You’ll learn to:  
-1. **Define the Service Blueprint** – break the repurposing process into discrete, automatable stages that map to AI and human tasks.  
-2. **Engineer the Client Onboarding Flow** – design a frictionless intake that captures all necessary content assets, brand guidelines, and output specifications.  
-3. **Set Quality Standards & Feedback Loops** – embed checkpoints that ensure every repurposed asset meets your brand voice and platform best practices, and build a system for rapid iteration.  
+In this module you will master the universal process that turns raw AI ideas into a repeatable, client‑ready onboarding system. We begin by defining a **service delivery framework** that maps each touchpoint—from initial contact to post‑onboarding satisfaction—into discrete, automatable steps. Next, you craft a **client onboarding flow** that leverages Calendly for scheduling and Klaviyo for nurturing, embedding AI‑driven messaging and data capture at every junction. Finally, we establish **quality standards**: metrics, audit checkpoints, and rollback protocols that ensure each deployment meets 99 % uptime and 95 % client satisfaction.
 
-By the end of this module you will have a ready‑to‑deploy workflow that can be duplicated for any niche or content type, allowing you to scale from a 1‑person operation to a full‑blown agency without sacrificing quality or speed.
+Skipping this module means launching unstructured, error‑prone workflows that waste time, frustrate clients, and erode trust. Without a clear framework, you’ll struggle to reproduce success, scale, or bill clients for incremental value. You’ll also miss the crucial automation benefits of Calendly’s event hooks and Klaviyo’s segmentation, leading to lower conversion rates and higher churn.
 
-| Tool | Purpose | Free Tier | Paid Tier |
-|------|---------|-----------|-----------|
-| **Beehiiv** | Newsletter distribution & subscriber analytics | Unlimited free newsletters, 2,500 free subscribers | $15/month (Starter), $30/month (Pro) |
-| **Loom** | Video recording & client demos | Unlimited recording, 5GB storage | $8/month (Pro) |
-| **ChatGPT** | AI content drafting & editing | 3,000 tokens/month | $20/month (ChatGPT‑4) |
-| **Canva** | Visual asset creation & templates | Unlimited design templates, 5GB storage | $12.99/month (Pro) |
-| **Zapier** | Workflow automation between apps | 5,000 tasks/month | $19.99/month (Starter) |
-| **Notion** | Project tracking & docs | Unlimited pages, 1,000 blocks | $8/month (Personal Pro) |
-| **Calendly** | Client scheduling | 1 calendar, 100 meetings/month | $10/month (Professional) |
-| **Hostinger** | Web hosting for demo sites | 1GB storage, 100GB bandwidth | $3.95/month (Basic) |
+| Tool       | Purpose                                            | Free Tier                             | Paid Tier (monthly) |
+|------------|-----------------------------------------------------|---------------------------------------|---------------------|
+| Calendly   | Schedule & trigger onboarding events                | 1 event type, 1 calendar, 5 team members | Pro: $12 (per user) |
+| Klaviyo    | Email nurture, segmentation, and analytics          | 250 contacts, 500 email sends         | Growth: $20 (1‑2k contacts) |
+| Make.com   | Connect Calendly → Klaviyo → database & reports    | 1,000 operations/month                 | Starter: $9 (10,000 ops) |
+| Notion     | Document the framework, store SOPs, & version control| Unlimited pages, 5 users              | Personal: $4 (5 users) |
+| Zapier     | Quick 3‑step automations for prototyping            | 5 zaps, 100 tasks/month               | Starter: $19.99 (750 tasks) |
 
-**Estimated time to complete:** 6–8 hours (including research, template creation, and testing).
+**Estimated time to complete**: 4–5 hours (including research, schema design, and test runs).
 
 ---
 
-## Procedure 3.1: Design Your AI Content Repurposing Service Delivery Blueprint
+## Procedure 3.1: Design Your Service Delivery Framework in Notion
 
-1. **Create a Beehiiv Email List**  
-   - Open **https://beehiiv.com/signup**.  
-   - Click **SIGN UP FREE** (bold).  
-   - Enter your **first name**, **last name**, and **business email** (e.g., `john@contentrepurpose.com`).  
-   - Click **CONTINUE** (bold).  
-   - Verify your email by clicking the activation link in the inbox.  
-   - After activation, log back in at **https://beehiiv.com/login**.  
+1. **Open Notion**  
+   - Navigate to **https://www.notion.so** and click **Login** in the top‑right corner.  
+   - Enter your email and password, then click **Sign in**.  
+   - *Expected result*: You land on the **Workspace Home** page with a sidebar listing **Pages** and **Templates**.
 
-2. **Set Up Your First Newsletter Template**  
-   - On the Beehiiv dashboard, click **CREATE NEW NEWSLETTER** (bold).  
-   - Choose **START FROM SCRATCH**.  
-   - In the editor, click **ADD SECTION** → **HEADER**.  
-   - Upload your logo via **UPLOAD IMAGE** and set **ALT TEXT** to `Repurpose Brand Logo`.  
+2. **Create a New Workspace Page**  
+   - In the sidebar, click **+ Add a page**.  
+   - Set the title to **“AI Onboarding Service Framework”** and press **Enter**.  
+   - In the top toolbar, click **🗂️ Icon** (next to the title) and choose **📁 Folder** to place it under **“Projects”**.  
+   - *Expected result*: A blank page titled *AI Onboarding Service Framework* appears.
 
-3. **Configure Subscription Settings**  
-   - In the left panel, click **SETTINGS** → **SUBSCRIPTIONS**.  
-   - Enable **Double Opt‑In** by toggling the switch to **ON** (bold).  
-   - Set the **Welcome Email** subject to `Welcome to Repurpose!` and body to `Thank you for joining our AI‑powered content hub.`.  
-   - Click **SAVE** (bold).  
+3. **Add a Cover and Icon**  
+   - Hover over the top of the page until the **Add cover** button appears. Click it and select **“AI”** from the gallery.  
+   - Click the default **🗃️** icon next to the title, choose **🤖** from the emoji picker.  
+   - *Expected result*: The page now has an AI cover image and robot icon.
 
-4. **Create a Loom Recording Setup**  
-   - Open **https://www.loom.com/app**.  
-   - Click **SIGN UP** (bold).  
-   - Sign in with the same business email used for Beehiiv.  
-   - On the dashboard, click **NEW VIDEO** → **SCREEN + CAMERA**.  
-   - **Do you see the Loom recording screen with the green record button?** If not, refresh the page and ensure the browser permissions for camera and microphone are granted.  
+4. **Insert a Table of Contents (TOC)**  
+   - Type `/table of contents` and select **Table of contents**.  
+   - It auto‑populates with any headings on the page.  
+   - *Check‑in*: Do you see a **Table of contents** block at the top of the page? If not, click the block menu (three dots) and choose **Table of contents**.  
 
-5. **Draft Your Repurposing Playbook Outline**  
-   - Open **Notion** (https://www.notion.so).  
-   - Click **+ NEW PAGE** → **TEMPLATE** → **DOCUMENT**.  
-   - Title the page `Repurposing Service Delivery Blueprint`.  
-   - Add headings: **1. Client Intake**, **2. Content Extraction**, **3. AI Transformation**, **4. Distribution Channels**, **5. QA & Delivery**.  
+5. **Create Section Headings**  
+   - Type `## 1. Client Intake` and press **Enter**.  
+   - Repeat for `## 2. Onboarding Workflow`, `## 3. AI Tools Stack`, `## 4. KPI Dashboard`, `## 5. Feedback Loop`.  
+   - *Expected result*: Five level‑2 headings appear, automatically added to the TOC.
 
-6. **Generate Content Extraction Prompt**  
-   - In Notion, under **2. Content Extraction**, type:  
-     ```
-     Prompt: “Extract key points from the following transcript (URL: ).”
-     ```  
-   - Leave the URL placeholder for later use.  
+6. **Populate “1. Client Intake” with a Table**  
+   - Type `/table - full page` and select **Table – Full Page**.  
+   - Name the table **“Client Intake Form”**.  
+   - Create columns: **Name** (Title), **Email** (Email), **Onboarding Date** (Date), **Service Package** (Select: Basic, Advanced, Premium).  
+   - Add a row for a test client: *John Doe, john@example.com, 2026‑10‑15, Premium*.  
+   - *Check‑in*: Do you see the table with the columns and test row? If not, ensure the column types match the names exactly.
 
-7. **Set Up Make.com (formerly Integromat)
+7. **Add a Calendar View for “Onboarding Date”**  
+   - Click the `+ Add a view` button in the table header.  
+   - Choose **Calendar**, name it **“Onboarding Calendar”**, and click **Create**.  
+   - *Expected result*: Calendar view shows the test client’s date.
+
+8. **Embed a Calendly Scheduling Link**  
+   - Go to **https://calendly.com** and sign in.  
+   - Click **Create Event Type** → **One‑to‑one**, name it **“Onboarding Call”**.  
+   - Under **When can people book this event?** set the default buffer to **15 min**.  
+   - Copy the **Public link** (e.g., `https://calendly.com/yourname/onboarding-call`).  
+   - Return to Notion, type `/link` and paste the Calendly URL.  
+   - The block will auto‑convert into an embedded Calendly widget.  
+   - *Check‑in*: Do you see a live Calendly widget embedded? If not, click the block’s **•••** and select **Open in new window** to verify the link.
+
+9. **Create a “Klaviyo Email Sequence” Database**  
+   - Type `/database - inline` → **Table - Inline**.  
+   - Name it **“Klaviyo Sequences”**.  
+   - Add columns: **Email Subject** (Title), **Send Day** (Number), **Automation ID** (Rich Text).  
+   - Insert two rows:  
+     - *Welcome Email*, `0`, `k-12345`  
+     - *First Check‑in*, `3`, `k-67890`.  
+   - *Expected result*: Table displays the two sequences.
+
+10. **Set Up Make.com Integration**  
+    - Visit **https://www.make.com** and log in.  
+    - Click **Create a new scenario**.  
+    - Search for **Calendly** in the app list, select **Calendly** → **Trigger** → **Invitee created**.  
+    - Click **Continue** and connect your Calendly account using the OAuth prompt.  
+    - Add a second module: **Klaviyo** → **Add a subscriber**.  
+    - Map fields: **Email** → `invitee.email`, **First name** → `invitee.first_name`.  
+    - Set **List ID** to your onboarding list (e.g., `list-001`).  
+    - Click **Save** and **Run once** to test.  
+    - *Check‑in*: Do
 
 ---
 
-## Procedure 3.2: Create a Structured Client Onboarding Flow for Beehiiv and Loom
+## Procedure 3.2: Build the Client Onboarding Automation Pipeline
 
-1. **Launch your web browser** (Chrome, Edge, or Safari) and navigate to the Beehiiv sign‑up page:  
-   <https://beehiiv.com/signup>  
-2. Click the **bold “Start for free”** button.  
-3. In the pop‑up, **enter** your business email (e.g., `client@example.com`) and a secure password (min. 12 characters, include a number and a symbol).  
-   Then click **bold “Create account”**.  
-4. **Check your inbox** for the Beehiiv verification email. Open it and click the **bold “Verify email”** link.  
-   *Do you see the Beehiiv welcome screen? If not, look in your spam folder or resend the verification link from the Beehiiv dashboard.*  
-   **Expected output:** Beehiiv dashboard home page with a “Your first newsletter” prompt.  
-5. On the dashboard, click **bold “Create new newsletter”**.  
-6. In the “Newsletter name” field, **enter** `[Client Name] Repurposing Hub`.  
-   In the “Primary domain” field, **enter** `repurpose.[client‑domain].com`.  
-   Click **bold “Create”**.  
-7. Beehiiv will guide you through a quick wizard. In the **“Audience”** step, click **bold “Create list”**.  
-   - List name: `Repurposing Clients`  
-   - Description: `Clients for AI‑powered content repurposing services`  
-   Click **bold “Create list”**.  
-8. Back in the newsletter settings, scroll to **“Custom fields”**.  
-   Click **bold “Add field”** and create the following fields (click “Add each” in sequence):  
-   - `Business Name` (text)  
-   - `Industry` (dropdown: “Retail”, “Tech”, “B2B”, “Other”)  
-   - `Preferred Content Formats` (checkboxes: “Blog”, “Video”, “Podcast”, “Social Media”)  
-   Click **bold “Save”**.  
-   *Do you see the custom fields listed? If not, ensure you’re in the “Audience” tab.*  
-9. **Open a new tab** and go to Loom: <https://www.loom.com/>.  
-10. Click **bold “Sign in”** at the top right. If you have no account, click **bold “Get Loom for free”** and follow the prompts to register with the same business email.  
-11. After login, go to the **Dashboard**. Click **bold “Create”** at the top left.  
-12. In the modal, click **bold “Record a video”**.  
-    - Ensure the **“Microphone”** is set to “Built‑in” and **“Camera”** to “Built‑in”.  
-    - Click **bold “Start recording”**.  
-    - Record a **30‑second** introductory video: “Welcome to [Client Name] Repurposing Hub – here’s how we’ll work together.”  
-    - When done, click **bold “Stop”**.  
-    - Click **bold “Save”**.  
-    *Do you see the video thumbnail in your Loom library? If not, refresh the page.*  
-    **Expected output:** Loom video titled “Intro for [Client Name] Repurposing Hub” in your library.  
-13. Click the **three dots** next to the video and select **bold “Share”**.  
-    - In the share modal, click **bold “Copy link”**.  
-    - Paste the link into a new browser tab and verify you can watch the video.  
-14. Create an onboarding intake form in Notion (or Google Forms).  
-    - Open Notion: <https://www.notion.so/> and sign in.  
-    - Create a new page titled **“[Client Name] Onboarding Form”**.  
-    - Add the following **Toggle List** items, each with a sub‑page containing a form:  
-      1. **Business Information** – fields: `Business Name`, `Contact Person`, `Phone Number`, `Email`.  
-      2. **Content Preferences** – fields: `Preferred Formats` (multi
+1. **Open your web browser** and navigate to **https://calendly.com/**.  
+   - If you do not have an account, click the **SIGN UP FREE** button in the top‑right corner.  
+   - Use your Google account or enter your email + password.  
+   - After signing up, you will see the **Calendly Dashboard** – the screen should display “**Your Dashboard**” in the header.
+
+2. **Create the “Client Onboarding Call” event type**  
+   - Click the **+ NEW EVENT TYPE** button in the center of the dashboard.  
+   - Choose **ONE‑TIME**.  
+   - In the form that appears, set **Event name** to “Client Onboarding Call”, **Duration** to 30 minutes, and **Location** to “Calendly Meeting”.  
+   - Click **SAVE & CONTINUE** at the bottom.  
+   - On the next screen, under **Availability**, set “**Everyone**” to “**Mon‑Fri 9 AM‑5 PM (EST)**”.  
+   - Click **SAVE & CONTINUE** again.  
+   - On the final screen, click **FINISH**.  
+   - **Expected output:** The new event type appears in your dashboard list with a green status “Active”.
+
+3. **Configure email reminders**  
+   - In the event type card, click **EDIT INVITEE NOTIFICATIONS**.  
+   - Toggle **Send a reminder email 24 hrs before** to ON.  
+   - Enter the message body: “Hi {{invitee.firstName}}, your onboarding call is tomorrow at {{event.startTime}}. Looking forward to speaking with you!”  
+   - Click **SAVE**.  
+   - **Expected output:** The reminder section shows “24 hrs before” with your custom message displayed.
+
+4. **Open Make.com**  
+   - In a new tab, go to **https://www.make.com/en**.  
+   - Click **LOGIN** in the top-right corner and enter your credentials (or click **SIGN UP FREE** if you need an account).  
+   - Once logged in, you will see the **Dashboard** with a button **+ CREATE SCENARIO**.
+
+5. **Create a new scenario**  
+   - Click **+ CREATE SCENARIO**.  
+   - Search for **Calendly** in the search box and click the icon.  
+   - Select the trigger **“When a new event is scheduled”** and click **ADD**.  
+   - In the module settings, click **ADD** next to **Calendly API key**.  
+   - Open another tab to **https://calendly.com/settings/integrations**.  
+   - Under **API & Webhooks**, click **CREATE API KEY**.  
+   - Copy the generated key and paste it into Make.com's Calendly module field.  
+   - Click **TEST**
 
 ## Check-In: Module 3 Complete
 
-- [ ] Design Your AI Content Repurposing Service Delivery Blueprint completed and verified
-- [ ] Create a Structured Client Onboarding Flow for Beehiiv and Loom completed and verified
+- [ ] Design Your Service Delivery Framework in Notion completed and verified
+- [ ] Build the Client Onboarding Automation Pipeline completed and verified
 - [ ] All tools connected and working
 - [ ] No errors or warnings in any dashboard
 
@@ -606,214 +751,236 @@ By the end of this module you will have a ready‑to‑deploy workflow that can 
 
 # MODULE 4: FIRST BUILD
 
-## Overview  
-In this module you will **launch, manage, and scale an AI‑powered content repurposing agency** using Beehiiv for email newsletters and Loom for video demos. You will walk through every step from client intake to final delivery, deploying real client data to produce a full content kit that spans blog posts, social snippets, audio clips, and email sequences. Skipping this module means you will never validate the entire funnel in production, leaving you blind to real‑world bottlenecks such as format compatibility, brand voice consistency, and delivery timing.  
+## Overview
 
-You will learn to:
+In this module you will **create, optimize, and deploy a fully‑functional AI customer onboarding workflow** that connects Calendly scheduling with Klaviyo email automation, all orchestrated through Make.com. You will learn how to turn a raw client data set into a seamless, self‑service onboarding experience that captures leads, scores them with AI logic, and sends personalized welcome sequences—all without writing a single line of code. This is the core deliverable that will prove your agency’s value to prospects; missing it means you’ll offer generic onboarding services that lack the AI edge your competitors already possess.
 
-1. Capture a client’s brand voice and content themes via a structured intake form.  
-2. Generate a master content list in Notion, then use Make.com to trigger AI tools (ChatGPT, [Fliki AI](https://fliki.ai?referral=noah-wilson-w84be4), ElevenLabs) for text, audio, and video production.  
-3. Assemble the deliverables in Beehiiv, schedule posts automatically, and record walkthroughs in Loom for the client.  
-4. Automate project tracking and billing with Zapier and Stripe.  
+The hands‑on procedures walk you through every step: building a Calendly event flow, feeding attendee data into Make.com, parsing and scoring the data with an AI model, and triggering Klaviyo workflows that nurture each lead. You’ll finish with a live demo scheduled for a real client, complete with analytics dashboards and performance metrics. Skipping this module will leave you unable to showcase a repeatable, AI‑powered onboarding pipeline, and clients will see you as a standard service provider rather than a tech‑savvy revenue generator.
 
-By the end of the module you will have a fully functional, end‑to‑end deliverable that you can present to any prospect, proving the viability and scalability of your agency.
+| Tool     | Purpose                                 | Free Tier                                         | Paid Tier                                 |
+|----------|-----------------------------------------|---------------------------------------------------|-------------------------------------------|
+| Calendly | Schedule & capture new customers        | 1 calendar, 1 event type, basic reporting         | Premium: $49/month (Unlimited calendars)  |
+| Klaviyo | Email automation & segmentation         | 500 contacts, 5,000 sends/month                   | Essentials: $20/month (scales with contacts) |
+| Make.com | Workflow orchestration & AI integration | 100 operations/month, 5 “My Apps”                 | Pro: $39/month (1,000 operations/month)  |
+| Zapier   | Optional redundancy & alternate triggers| 5 apps, 100 tasks/month                           | Starter: $19.99/month (Unlimited tasks)  |
 
-| Tool        | Purpose                                          | Free Tier                          | Paid Tier                               |
-|-------------|--------------------------------------------------|------------------------------------|------------------------------------------|
-| Beehiiv     | Email newsletter creation & automation           | 5 k emails/month, 1 k subscribers | $15/month (10 k emails)                  |
-| Loom        | Video recording & sharing                        | 5 min per recording, 5 GB storage | $12/month (unlimited, 5 min recording)   |
-| Make.com    | Process automation & API orchestration           | 500 operations/month              | $49/month (20 k operations)              |
-| ChatGPT     | AI text generation                               | 3 k tokens/month                  | $20/month (Unlimited)                    |
-| Fliki AI    | Text‑to‑video generation                         | 5 videos/month                    | $29/month (Unlimited)                    |
-| ElevenLabs  | Text‑to‑speech synthesis                         | 5 k characters/month             | $10/month (Unlimited)                    |
-| Notion      | Project management & data storage                | Unlimited pages & blocks           | $4/month (Personal Pro)                  |
-| Zapier      | Integration & workflow automation                | 100 tasks/month                   | $19/month (Unlimited)                    |
-
-**Estimated time to complete:** 6 hours (including data collection, AI processing, and final client delivery).
+**Estimated time to complete:** 4–5 hours.
 
 ---
 
-## Procedure 4.1: **Integrate Beehiiv with Loom for Automated Content Repurposing**
+## Procedure 4.1: Create the Core AI Onboarding Product in Replit  
 
-1. **Create a Beehiiv account**  
-   - Visit <https://beehiiv.com>  
-   - Click on **“Start for free”** (top‑right).  
-   - Fill in **Name**, **Email**, and **Password**.  
-   - Accept the terms and click **“Create account”**.  
-   - Expected result: you land on the “Dashboard – Welcome” screen with a green banner “Your newsletter is ready to go!”.
+**Goal:** Build a fully‑functional AI‑powered customer onboarding system that receives Calendly scheduling data, triggers an OpenAI ChatGPT prompt, and fires a Klaviyo email flow—all hosted on Replit.  
 
-2. **Create a new newsletter**  
-   - In the Beehiiv dashboard, click **“+ New newsletter”** (top‑center).  
-   - Enter **Newsletter name**: *“AI Repurpose Hub”*.  
-   - Select **Primary domain**: *ai-repurpose.com* (use the free sub‑domain Beehiiv offers).  
-   - Click **“Create”**.  
-   - Expected result: a new newsletter overview page with “Drafts”, “Campaigns”, and “Analytics” tabs.
+> **Practical tip:** Keep every file version‑controlled by committing to the built‑in Replit Git.  
 
-3. **Generate a Beehiiv API key**  
-   - Click on your **Profile icon** (top‑right) → **“API Key”**.  
-   - Click **“Generate new key”**.  
-   - Copy the key and paste it into a secure location (e.g., Notion page).  
-   - Expected output: a 32‑character string like *“sk_bbeehiiv_1234567890abcdef”*.
+---
 
-4. **Sign up for a Make.com free account**  
-   - Visit <https://www.make.com>  
-   - Click **“Sign up”** (top‑right).  
-   - Use your Google account or email to sign up.  
-   - Confirm email via the link sent to your inbox.  
-   - Expected result: you are taken to the Make.com **Dashboard – My scenarios**.
+### 1. Set up the Replit project  
+1. Open your browser and go to **https://replit.com**.  
+2. Click **SIGN IN** in the top‑right. Use your Google or GitHub account.  
+3. After login, click **+ CREATE** in the top‑right corner.  
+4. Select **Python** from the language dropdown.  
+5. In the *Name* field, type **ai‑onboarding**.  
+6. Click **CREATE REPL**.  
 
-   **Do you see the “Create new scenario” button?**  
-   If not, refresh the page or check that you’re logged in.  
+> **Do you see a new Replit workspace titled "ai‑onboarding" with a `main.py` file?**  
+> If not, refresh the page or double‑check you’re logged in.  
 
-5. **Create a new scenario**  
-   - Click **“Create new scenario”**.  
-   - In the module search bar, type **“Loom”** and select the **“New Video”** trigger.  
-   - Click **“Add”**.  
-   - Expected result: a trigger node labeled **“Loom – New Video”** appears on the canvas.
+---
 
-6. **Connect your Loom account**  
-   - Click the **“+ Connect a new account”** on the Loom trigger node.  
-   - In the pop‑up, click **“Authorize Loom”**.  
-   - Log in with your Loom credentials (free tier: 5 min per recording).  
-   - Grant permissions, then click **“Allow”**.  
-   - Expected result: the Loom node displays **“Connected to Loom”**.
+### 2. Install required packages  
+1. Click the **Shell** tab at the bottom of the editor.  
+2. Paste the following command and press **Enter**:  
+   ```bash
+   pip install flask openai requests python-dotenv
+   ```  
+3. Wait for the shell to finish. The output should end with `Successfully installed ...`.  
 
-7. **Add OpenAI ChatGPT module**  
-   - Click the plus icon next to the Loom node.  
-   - Search **“ChatGPT”**, select **“Send Prompt”**.  
-   - Click **“Add”**.  
-   - In the “Prompt” field, paste:  
-     ```
-     Generate an email subject and body for a newsletter based on the following transcript:
-     {{Loom.Transcript}}
-     ```
-   - Set **Temperature** to **0.7** and **Max tokens** to **500**.  
+> **Expected output:**  
+> ```text
+> Successfully installed flask==2.2.5 openai==0.27.5 requests==2.31.0 python-dotenv==1.0.0
+> ```  
+
+---
+
+### 3. Create environment variables file  
+1. In the file tree, right‑click **ai‑onboarding** → **New File** → name it **`.env`**.  
+2. Add the following lines, replacing placeholders with your real API keys:  
+   ```dotenv
+   OPENAI_API_KEY=sk-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+   KLAVIYO_API_KEY=YOUR_KLAVIYO_PRIVATE_API_KEY
+   CALENDLY_WEBHOOK_SECRET=YOUR_CALENDLY_WEBHOOK_SECRET
+   ```  
+3. Save the file.  
+
+> **Do you see a `.env` file with the three keys?**  
+> If you see an error “File not found,” re‑create the
+
+---
+
+## Procedure 4.2: BUILD THE DATA PROCESSING PIPELINE WITH MAKE.COM
+
+1. Open your web browser and navigate to **https://www.make.com**.  
+   **Do you see the left‑hand navigation panel with “Dashboard” and “Scenarios”?**  
+   If not, refresh the page or clear your browser cache.
+
+2. Click the **blue “Sign Up” button** in the upper right corner.  
+   - In the modal, choose **“Use Google”** and authenticate with your Google account.  
+   - After authentication, you’ll land on the [**Make.com Dashboard**](https://www.make.com/en/register?pc=menshly).  
+   **Expected output:** A screen showing “Your Scenarios” and a **“Create a new scenario”** button.
+
+3. On the Dashboard, click **“Create a new scenario”**.  
+   - The Scenario editor opens.  
+   - In the search bar at the top, type **“Calendly”** and press **Enter**.  
+   - Click the **Calendly icon** (blue with a calendar).  
+   - Select **“Watch Event”** from the list and click **“Continue”**.  
+   **Do you see the Calendly module set to “Watch Event” with the “Event type” dropdown?**  
+   If not, ensure you are using the latest Make.com plan (Free tier allows 100 operations/month).
+
+4. Click the settings icon (gear) next to the Calendly module.  
+   - In the “Calendly Settings” panel, click **“Add a new connection”**.  
+   - Choose **“API Key”** and click **“Create new key”**.  
+   - Copy the generated key and paste it into the **API Key field**.  
    - Click **“Save”**.  
-   - Expected result: a ChatGPT node labeled **“ChatGPT – Send Prompt”**.
+   **Check‑in:** Do you see “Calendly connection: active” in the module?  
+   If you see “Error: 401 Unauthorized”, it means the key is invalid—re‑generate it on Calendly’s API page and retry.
 
-8. **Add Beehiiv “Create draft” module**  
-   - Click the plus icon next to ChatGPT node.  
-   - Search **“Beehiiv”**, select **“Create draft”**.  
-   - Click **“Add”**.  
-   - In **API
+5. Click **“+ Add another module”** below the Calendly module.  
+   - Search for **“JSON”** and select **“Parse JSON”**.  
+   - Connect the output of Calendly to the input of Parse JSON.  
+   - In the Parse JSON settings, paste the following sample JSON schema (replace with your actual schema if needed):  
+     ```json
+     {
+       "type": "object",
+       "properties": {
+         "event": {"type":"string"},
+         "attendee": {"type":"object","properties": {"email":{"type":"string"}}}
+       }
+     }
+     ```  
+   - Click **“Save”**.  
+   **Expected output:** The Parse JSON module shows “Schema parsed successfully”.
 
+6. Add a third module by clicking **“+ Add another module”**.  
+   - Search for **“Klaviyo”** and pick **“Add Subscriber”**.  
+   - Connect Parse JSON → Klaviyo.  
+   - In Klaviyo settings, click **“Add a new connection”**.  
+   - Choose **“API Key”** and use the **public API key** from your Klaviyo account (found under Account > Settings > API Keys).  
+   - Click **“Save”**.  
+   - Map fields:  
+     - **Email** → **attendee.email** (click the dropdown and select *attendee.email*).  
+     - **First Name** → **attendee.first_name** (if present).  
+     - **List** → choose your onboarding list (e.g., “New Clients”).  
+   **Do you see the Klaviyo module’s field mapping?**  
+   If the list is missing, double‑check the list ID in Klaviyo.
 
+7. Click the **blue “Save” button** at the top right of the Scenario editor.  
+   - Name the scenario **“Calendly → Klaviyo Onboarding”**.  
+   **Expected output:** A notification “Scenario saved successfully”.
+
+8. Turn the scenario on by clicking the **green “Run once” toggle** next to the scenario name.  
+   - In the pop‑up, click **“Run”**.  
+   - Make will poll Calendly for a new event.  
+   **Check‑in:** After a few seconds, does the scenario run log show “Calendly event received”?  
+   If it times out, verify your Calendly webhook URL in your Calendly account settings.
+
+9. Create a test Calendly event:  
+   - Log into **https://calendly.com** with the same
 
 ---
 
-**Support Pollinations.AI:**
+## Procedure 4.3: Deploy and Test the Complete System
 
----
+1. **Log into Calendly**  
+   - URL: `https://calendly.com/`  
+   - Click **Log in** (top‑right).  
+   - Enter your email and password, then click **Log in**.  
+   - **Expected output:** You land on the Calendly dashboard with your scheduled events.
 
-🌸 **Ad** 🌸
-Powered by Pollinations.AI free text APIs. [Support our mission](https://pollinations.ai/redirect/kofi) to keep AI accessible for everyone.
+2. **Create a new “AI Onboarding Call” event**  
+   - Click **+ New event type** (button in the left sidebar).  
+   - Select **One‑on‑one**.  
+   - Click **Create event type**.  
+   - **Expected output:** A new event form appears.
 
----
+3. **Configure event details**  
+   - Title: **AI Onboarding Call**.  
+   - Duration: **30 minutes**.  
+   - Click **Save & next**.  
+   - **Expected output:** Event preview page with “Event details saved”.
 
-## Procedure 4.2: BUILD AN AI‑POWERED REPURPOSING PIPELINE USING REAL CLIENT DATA
+4. **Set availability**  
+   - Under **When can people book this event?** click **Custom**.  
+   - Add working days: Monday‑Friday, 9:00 AM‑5:00 PM (local time).  
+   - Click **Save & next**.  
+   - **Expected output:** Availability calendar shows 10 slots per day.
 
-1. **Open your web browser** and navigate to the Beehiiv dashboard at <https://app.beehiiv.com>.  
-   - Click **Login** in the upper‑right corner.  
-   - Enter your registered email **client@example.com** and password **P@ssw0rd123**.  
-   - Click **Sign In**.  
-   - *Expected output*: Beehiiv homepage with left‑hand menu showing “Dashboard”, “Campaigns”, “Audience”, etc.
-
-2. **Create a new newsletter campaign**.  
-   - In the left menu, click **Campaigns**.  
-   - On the Campaigns page, click the **New Campaign** button (top‑right).  
-   - In the modal, fill **Campaign Name**: “Repurposing Pipeline Test”.  
-   - Set **Schedule** to “Send Immediately”.  
-   - Click **Create**.  
-   - *Expected output*: You are redirected to the campaign editor with a blank canvas titled “Repurposing Pipeline Test”.
-
-3. **Add a placeholder subscriber list**.  
-   - In the campaign editor, click **Audience** in the top toolbar.  
-   - Click **Add List**.  
-   - Enter **List Name**: “Test Clients”.  
-   - Upload a CSV file (use `test_clients.csv` containing two columns: `Email` and `Name`).  
-   - Click **Upload**.  
-   - *Expected output*: A table appears showing two rows of test data.
-
-4. **Insert a reference to the client’s original blog post**.  
-   - In the campaign editor, click the **Text** block icon.  
-   - Paste the URL of the client’s blog: <https://clientblog.com/posts/2024-07-18-launch> into the text block.  
-   - Highlight the URL and click the **Link** icon, then **Open in new tab**.  
+5. **Add a hidden question to capture onboarding data**  
+   - Click **Add question** → **Short answer**.  
+   - Label: **Client ID**.  
+   - Toggle **Make this question required** off.  
+   - Click **Advanced** → **Show on scheduling page** → **Hidden**.  
    - Click **Save**.  
-   - *Check‑In*: Do you see the URL rendered as a clickable link in the preview pane? If not, ensure the URL is wrapped in `<a href="...">`.
+   - **Expected output:** Question appears in the event form but is hidden from the client.
 
-5. **Export the blog content to a Markdown file using Replit**.  
-   - Open a new tab and navigate to <https://replit.com/~>.  
-   - Click **+ Create** → **New Repl**.  
-   - Choose **Python** as the language.  
-   - In the main editor, paste the following script (`blog_to_md.py`):
+6. **Create a webhook for Make.com**  
+   - Click **Integrations** → **Calendly Webhooks**.  
+   - Click **Add webhook**.  
+   - URL: `https://hooks.maker.com/webhook/your‑unique‑id` (replace with your Make.com webhook URL).  
+   - Trigger: **Invitee created**.  
+   - Click **Save**.  
+   - **Expected output:** Webhook status “Active”.
 
-     ```python
-     import requests
-     from bs4 import BeautifulSoup
-     url = "https://clientblog.com/posts/2024-07-18-launch"
-     r = requests.get(url)
-     soup = BeautifulSoup(r.text, "html.parser")
-     article = soup.find("article")
-     markdown = article.get_text(separator="\n\n")
-     with open("blog.md", "w") as f:
-         f.write(markdown)
-     print("Markdown exported to blog.md")
-     ```
+7. **Open Make.com**  
+   - URL: `https://www.make.com/`  
+   - Click **Log in** → enter credentials → **Log in**.  
+   - **Expected output:** Dashboard with “Create a new scenario”.
 
-   - Click **Run**.  
-   - *Expected output*: Terminal displays “Markdown exported to blog.md”.  
-   - Click the **Files** tab, locate `blog.md`, and click **Download**.  
-   - *Check‑In*: Do you see a file named `blog.md` in your local machine? If not, verify the script executed without errors.
+8. **Create a new scenario**  
+   - Click **Create a new scenario**.  
+   - Search and add **Calendly** → **Watch Invitee**.  
+   - Click the Calendly icon, then **Add webhook** → paste the same URL from step 6.  
+   - Click **Save** → **OK**.  
+   - **Expected output:** Trigger module shows “Calendly – Watch Invitee” with “Webhook URL copied”.
 
-6. **Upload the Markdown to [Vapi](https://vapi.ai/) for AI‑driven summarization**.  
-   - Navigate to <https://www.vapi.ai>.  
-   - Click **Dashboard** → **Create Summary**.  
-   - Upload the `blog.md` file.  
-   - In the settings panel, set **Summary Length** to “Medium (300 words)”.  
-   - Click **Generate Summary**.  
-   - *Expected output*: A text box appears with a 300‑word summary.  
-   - Copy the summary to your clipboard.
+9. **Add Klaviyo action**  
+   - Click the plus icon next to the trigger → search **Klaviyo** → **Add contact**.  
+   - Click **Connect** → enter your Klaviyo API key (`https://www.klaviyo.com/account/api-keys`).  
+   - Map fields:  
+     - **First name** → `{{Calendly.invitee.first_name}}`  
+     - **Email** → `{{Calendly.invitee.email}}`  
+     - **Client ID** → `{{Calendly.invitee.custom_questions.Client_ID}}`  
+   - Click **Save**.  
+   - **Expected output:** Action module displays “Klaviyo – Add contact” with mapped fields.
 
-7. **Use Make.com to push the summary into a Loom video script**.  
-   - Open <https://www.make.com> and log in.  
-   - Click **Create new scenario**.  
-   - Add the **Google Drive** module → **Watch File**.  
-   - Set the file path to the folder where you saved the summary (e.g., `Summaries/`).  
-   - Add a **HTTP** module → **Make a request**.  
-   - Set Method to **POST**, URL to **https://api.loom.com/v2
+10. **Add email send step**  
+    - Click plus icon → search **Klaviyo** → **Send email**.  
+    - Choose your welcome email template “Welcome to AI Onboarding”.  
+    - Map **Recipient** → `{{Klaviyo Add contact.email}}`.  
+    - Click **Save**.  
+    - **Expected output:** Email module ready with template preview.
 
----
+11. **Test the scenario**  
+    - Click **Run once**.  
+    - In a new tab, open `https://calendly.com/your‑profile/ai‑onboarding-call` and schedule a test meeting with a dummy email.  
+    - Return to Make.com → **Run once**.  
+    - **Expected output:** Modules run successfully, green check marks on each step.
 
-## Procedure 4.3: LAUNCH AND SCALE YOUR FIRST REPURPOSING CAMPAIGN FOR CLIENT SUCCESS
+> **Check‑in 1**  
+> Do you see the green check marks on the Calendly trigger, Klaviyo add contact, and Klaviyo send email modules?  
+> If not, refresh the scenario, ensure the webhook URL matches, and re‑run the test.
 
-1. **Open the Beehiiv sign‑up page**  
-   - URL: `https://beehiiv.com/signup`  
-   - Click the **“Start for free”** button (centered, blue).  
-   - Expected result: You are taken to the Beehiiv onboarding wizard.  
-   - *Interactive check‑in*: Do you see the “Welcome to Beehiiv” wizard? If not, refresh the page or clear your browser cache.
-
-2. **Create your Beehiiv account**  
-   - Fill “First Name” with **John**.  
-   - Fill “Last Name” with **Doe**.  
-   - Fill “Email” with **john.doe@example.com**.  
-   - Fill “Password” with **StrongPassword123!**.  
-   - Click **“Create Account”**.  
-   - Expected result: Email verification page appears.  
-   - *Check‑in*: Do you see the “Verify your email” page? If not, verify you used a valid email and re‑open the URL.
-
-3. **Verify your email**  
-   - Open your inbox, locate the Beehiiv message, click **“Verify Email”**.  
-   - You should be redirected to Beehiiv’s dashboard.  
-   - Expected dashboard headline: **“Welcome, John!”**.  
-   - *Check‑in*: Do you see the Beehiiv dashboard with “Newsletters” tab? If not, check spam or re‑verify.
-
-4. **Create a
+12. **Verify contact in Klaviyo**  
+    - URL: `https://www.klaviyo.com/account/contacts`  
+    - Search for the dummy email.  
+    - **Expected output:** New contact appears with first name, email, and custom
 
 ## Check-In: Module 4 Complete
 
-- [ ] **Integrate Beehiiv with Loom for Automated Content Repurposing** completed and verified
-- [ ] BUILD AN AI‑POWERED REPURPOSING PIPELINE USING REAL CLIENT DATA completed and verified
-- [ ] LAUNCH AND SCALE YOUR FIRST REPURPOSING CAMPAIGN FOR CLIENT SUCCESS completed and verified
+- [ ] Create the Core AI Onboarding Product in Replit completed and verified
+- [ ] BUILD THE DATA PROCESSING PIPELINE WITH MAKE.COM completed and verified
+- [ ] Deploy and Test the Complete System completed and verified
 - [ ] All tools connected and working
 - [ ] No errors or warnings in any dashboard
 
@@ -824,239 +991,233 @@ Powered by Pollinations.AI free text APIs. [Support our mission](https://pollina
 
 ## Overview
 
-In this module you will learn how to convert curiosity into cash by building a proven pipeline that turns prospects into paying clients for your AI‑powered content repurposing agency. We cover the exact steps to set up a high‑converting landing page, automate outreach via email and social media, and nurture leads until they book a discovery call. Mastering this process is the single biggest driver of revenue growth; without it, you’ll spend endless hours chasing leads that never convert, and your agency will stall at the “idea” stage.
+In the rapidly evolving landscape of customer experience, the ability to attract and convert prospects into paying clients hinges on delivering a frictionless, AI‑driven onboarding journey. MODULE 5 equips you with a step‑by‑step operating system to **design, launch, and refine** customer onboarding workflows that combine Calendly’s scheduling power with Klaviyo’s hyper‑personalized email automation. By mastering these tools, you can turn every first interaction into a revenue‑generating touchpoint, ensuring clients feel guided, valued, and immediately productive from day one.
 
-You will also learn how to integrate Beehiiv and Loom into a seamless customer acquisition flow. Beehiiv’s email newsletter platform will serve as the first touchpoint for inbound leads, while Loom’s video‑capture feature will become your signature demo tool, allowing prospects to see instant value before they commit. We’ll walk you through the exact URLs, button clicks, and content hooks that generate the click‑through rates you need.
+Skipping this module means leaving critical revenue leakage on the table: prospects will linger on a manual sign‑up process, your conversion rates will stagnate, and you’ll miss the chance to scale your services through automated, high‑margin acquisition funnels. The module’s procedures will show you how to set up an instant lead capture landing page, trigger AI‑powered qualification sequences, and nurture leads through a series of targeted, conversational emails that convert at industry‑best rates.
 
-Skipping this module means you’ll miss out on a tested funnel that has already helped 500+ solo entrepreneurs scale to 6‑figures. The result is wasted time, low conversion rates, and a stagnant pipeline. Invest the time now and turn every outreach effort into a revenue‑generating action.
+| Tool         | Purpose                                                    | Free Tier                         | Paid Tier (Monthly) |
+|--------------|------------------------------------------------------------|-----------------------------------|---------------------|
+| Calendly     | Schedule discovery calls, onboarding sessions              | Unlimited meetings, 1 calendar    | Pro: $8 (solo)      |
+| Klaviyo      | Email automation, onboarding sequences, segmentation       | 5,000 contacts, 500 emails       | Growth: $20 (500)   |
+| Make.com     | Connect Calendly ↔ Klaviyo, trigger workflows             | 500 operations/month             | Starter: $9.99      |
+| [Canva](https://www.canva.com/)        | Design lead‑capture landing page graphics                  | Unlimited free templates         | Pro: $12.99         |
+| Notion       | Store lead data, workflow documentation                    | Unlimited pages, guests           | Team: $10 (5 users) |
 
-| Tool          | Purpose                                 | Free Tier                                | Paid Tier (Monthly) |
-|---------------|------------------------------------------|------------------------------------------|---------------------|
-| Beehiiv       | Newsletter & lead capture                | 2,500 contacts, 5,000 sends/month       | $12.50 (Starter)    |
-| Loom          | Video demos & follow‑up videos           | 2,500 minutes/month                     | $12.99 (Personal)   |
-| Make.com      | Automate outreach & lead routing         | 1,000 operations/month                  | $19.00 (Starter)    |
-| Zapier        | Connect Beehiiv, Loom, CRM & email      | 100 tasks/month                          | $19.00 (Starter)    |
-| Notion        | Pipeline & CRM tracker                   | Unlimited pages, guests                 | $4.00 (Personal)    |
-| Canva         | Design landing page graphics             | Unlimited designs, 5GB storage           | $12.99 (Pro)        |
-| Semrush       | Keyword & competitor research            | 1 project, 10 keywords                  | $119.95 (Pro)       |
-| Hostinger     | Domain & hosting for landing page        | 1 GB SSD, 100GB bandwidth               | $3.95 (Single)      |
-| Grammarly     | Copy proofreading & tone checks         | Limited suggestions                      | $12.00 (Premium)    |
-
-**Estimated time to complete the module**: 3 hours 30 minutes (includes setting up the landing page, configuring automations, and testing the pipeline).
+**Estimated time to complete**: 3 hours – 3 hours 45 minutes, including setup, testing, and launch of the first acquisition pipeline.
 
 ---
 
-## Procedure 5.1: Set Up Beehiiv Email List for Targeted Outreach
+## Procedure 5.1: Build a High‑Conversion Landing Page on Shopify
 
-1. **Open a web browser** and navigate to the Beehiiv registration page:  
-   `https://www.beehiiv.com/`.  
-   *Do you see the “Sign up free” button? If not, clear your cache or try incognito mode.*
+1. **Log into Shopify Admin**  
+   - Open your web browser and go to **https://www.shopify.com/login**.  
+   - Enter your email, password, and click the **bold** button **“Log in.”**  
+   - Expected result: You see the Shopify Dashboard with the “Orders” tab highlighted.
 
-2. **Click the button labeled **`Sign up free`** (top‑right corner).**  
-   *Expected output:* A modal pops up with fields for **Email**, **First Name**, **Last Name**, and a **Password** field.
+2. **Create a New Store (if you don’t already have one)**  
+   - Click **bold** “Create a store” on the welcome page.  
+   - Fill “Store name” field **exactly** with `AcmeOnboardingLanding`.  
+   - Choose “No” for “Do you already have a store?” and click **bold** “Start free trial.”  
+   - Wait for the 14‑day free trial confirmation page.  
 
-3. **Fill in the registration form**:  
-   - Email: `yourname@example.com`  
-   - First Name: `YourFirstName`  
-   - Last Name: `YourLastName`  
-   - Password: `StrongPassword123!`  
-   *Check that the password strength indicator shows “Strong.”*  
+3. **Select a Theme**  
+   - From the Dashboard, click **bold** “Online Store” → “Themes.”  
+   - Under “Explore free themes,” click **bold** “Add theme.”  
+   - Choose the **“Debut”** theme (free) and click **bold** “Add to theme library.”  
+   - Expected output: Debut appears in your “Theme library” list.
 
-4. **Select the checkbox “I agree to the Terms of Service and Privacy Policy.”**  
-   *Click the underline of the terms link to ensure you see the full document. Do you see the full Terms? If not, scroll to the bottom of the page.*
+4. **Duplicate the Theme for Editing**  
+   - In the “Theme library,” hover over Debut and click **bold** “Duplicate.”  
+   - Name the duplicate **“AcmeLanding”** in the popup and click **bold** “Duplicate.”  
+   - Do you see the new theme “AcmeLanding” listed? If not, refresh the page and repeat step 4.
 
-5. **Click the bold button **`Create account`**.**  
-   *Expected output:* Beehiiv redirects to the dashboard home screen.  
-   **Interactive Check‑in:** Do you see the Beehiiv dashboard with a welcome banner? If not, refresh the page or log out and back in.
+5. **Activate the Duplicate Theme**  
+   - In the “Theme library,” click **bold** “Actions” → **“Publish.”**  
+   - Confirm by clicking **bold** “Yes, publish.”  
+   - Expected result: The preview pane updates to show the Debut theme with the store URL `https://acmeonboardinglanding.myshopify.com`.
 
-6. **Navigate to the “Audience” tab** via the left‑hand sidebar.  
-   *Hover over “Audience” then click the submenu item **`Email list`**.*  
+6. **Set Up a Dedicated Landing Page**  
+   - From the Dashboard, go to **bold** “Online Store” → “Pages.”  
+   - Click **bold** “Add page.”  
+   - Title the page **“Welcome to Acme Onboarding”** and set the URL handle to `welcome`.  
+   - In the content editor, click **bold** “Show HTML.”  
+   - Paste the following minimal HTML skeleton:
 
-7. **Create a new email list**:  
-   - Click the **`+ New list`** button at the top right.  
-   - In the modal, enter **List name**: `Targeted Outreach Leads`.  
-   - Set **Visibility** to **Private** (default).  
-   - Click **`Create list`**.  
-   *Expected output:* The new list appears in the list table with columns for **List ID**, **Subscribers**, **Created At**.
+   ```html
+   <div id="hero" style="background:url('{{hero_image}}') no-repeat center center; height:600px; color:#fff;">
+     <h1 style="font-size:48px;">Accelerate Your Success</h1>
+   </div>
+   <div id="cta" style="text-align:center; margin-top:50px;">
+     <a href="/apps/calendly" class="btn-primary">Book a Demo</a>
+   </div>
+   ```
 
-8. **Add a custom field for “Company Name”**:  
-   - While on the list page, click **`Settings`** (gear icon).  
-   - In the sidebar, select **`Custom fields`**.  
-   - Click **`Add field`**.  
-   - Field name: `Company Name`  
-   - Field type: **Text**  
-   - Click **`Save`**.  
-   *Check that the field appears in the subscriber table.*
+   - Replace `{{hero_image}}` with the URL of the image you’ll upload in step 7.  
+   - Click **bold** “Save.”  
 
-9. **Import existing contacts via CSV**:  
-   - On the list page, click **`Import`** (cloud upload icon).  
-   - Download the CSV template from the “Download template” link.  
-   - Open the CSV in Notepad or Excel and fill in columns: `Email`, `First Name`, `Last Name`, `Company Name`.  
-   - Return to Beehiiv, click **`Choose file`**, select your CSV, then **`Upload`**.  
-   *Expected output:* A progress bar ends with “Import complete – 150 new subscribers.”  
+7. **Create Hero Image in Canva**  
+   - Open **https://www.canva.com** (free tier: 12 GB storage, 8 design types).  
+   - Click **bold** “Create a design” → **“Custom size.”**  
+   - Set width = 1920 px, height = 1080 px, click **bold** “Create new design.”  
+   - In the left panel, click **bold** “Background” → use a gradient or upload your own via **bold** “Uploads.”  
+   - Add a headline text “Accelerate Your Success” with font **Montserrat**, size = 96 pt, color = #FFFFFF.  
+   - Click **bold** “Share” → **“Download.”**  
+   - Choose **PNG** format, click **bold** “Download.”  
+   - Upload the PNG to Shopify by returning to the page editor, clicking **bold** “Add image.”  
 
-10. **Verify import**:  
-    - Scroll to the bottom of the subscriber table; you should see a row with your inserted email address.  
-    - Click the **`View`** icon next to the row to open the subscriber detail pane.  
-    *Interactive Check‑in:* Do you see the **Company Name** field populated? If not, re‑upload the CSV ensuring column headers match exactly.
+8. **Upload Hero Image to Shopify**  
+   - In the page editor, click the image placeholder in the hero `<div>`.  
+   - Choose **bold** “Upload files.”  
+   - Select the PNG you downloaded from Canva.  
+   - Once uploaded, click **bold** “Insert image.”  
+   - The URL will appear in the editor (e.g., `https://cdn.shopify.com/s/files/1/XXXX/XXXX/...`).  
+   - Replace `{{hero_image}}` in the HTML with this URL.  
+   - Click **bold** “Save.”  
+   - Do you see the hero banner rendered correctly on the preview? If not, double‑check the URL and reload.
 
-11. **Create a new email campaign**:  
-    - From the dashboard home, click **`Campaigns`** (top menu).  
-    - Click **`+ New campaign`**.  
-    - Campaign name: `Welcome to Beehiiv`.  
-    - From dropdown **`Audience`**, select `Targeted Outreach Leads`.  
-    - Click **`Next`**.
-
-12. **Compose the email using the Beehiiv editor**:  
-    - Title field: `Thanks for joining our AI content repurposing community!`  
-    - Body: Type the following copy:  
-      ```
-      Hi {{First Name}},
-
-      Thank you for subscribing to our AI‑powered content repurposing service. In the next few days, you’ll receive a free audit of your current content strategy.
-
-      Stay tuned,
-      Your Name
-      ```  
-    - Click **`Preview`** (eye icon).  
-    *Expected output:* A preview pane showing a rendered email with placeholder variables replaced by sample data.
-
-13. **Add a CTA button**:  
-    - In the editor, click **`Add block`** → **`Button`**.  
-    - Button text: `Schedule a Call`.  
-    - URL: `https://calendly.com/yourname/30min`.  
-    - Set color to **#1A73E8** (Beehiiv blue
+9. **Create Calendly Scheduling Page**  
+   - Open **https://calendly.com** (free tier: 1 event type).  
+   - Click **bold** “New event type.”  
+   - Choose **“One‑on‑one”**, name it **“Onboarding Demo”**, and click **bold** “Continue.”  
+   - Set availability: click **bold** “Edit availability,” select Monday‑Friday, 9 am‑5 pm (your timezone).  
+   - Under “Invitee questions,” add a required field **“Company Name.”**  
+  
 
 ---
 
-## Procedure 5.2: Create a Loom‑Integrated Lead Capture Landing Page
+## Procedure 5.2: Configure Lead Generation with Apollo.io  
 
-1. **Open your web browser** and navigate to **https://www.loom.com/signup**.  
-   - Click the **bold “Sign up with Google”** button.  
-   - Allow Google to grant Loom permission.  
-   - Verify your email by clicking the **“Verify Email”** link in the inbox.  
-   - *Do you see a Loom dashboard with “Welcome to Loom” banner? If not, check your spam folder and re‑click the verification link.*
+1. **Open a Web Browser** – Launch Chrome, Edge, or Firefox.  
+2. **Navigate to Apollo.io** – Type `https://app.apollo.io` into the address bar and press **Enter**.  
+3. **Create an Account** – On the Apollo.io landing page, click **Sign Up** in the upper‑right corner.  
+4. **Fill the Registration Form** –  
+   - **Email**: Enter a valid business email (e.g., `john.doe@menshlyglobal.com`).  
+   - **Password**: Type a secure password (at least 12 characters, mix of upper/lowercase, numbers, and symbols).  
+   - **Company Name**: `Menshly Global`.  
+   - **Industry**: `Consulting`.  
+   - **Number of Employees**: `1`.  
+   Click **Create Account**.  
+5. **Verify Email** – Check your inbox for a verification email from Apollo.io. Click **Verify** inside the email.  
+6. **Login** – Return to `https://app.apollo.io` and click **Login**. Enter the same email and password, then click **Login**.  
+   *Do you see the Apollo.io dashboard with a “Lead Pipeline” tab? If not, check that you used the correct credentials or that your email is verified.*  
 
-2. **Record your intro video**  
-   - Click the **bold “New Recording”** button in the top‑right corner.  
-   - Choose **“Screen & Camera”**.  
-   - In the pop‑up, select the entire **screen** and enable the **camera**.  
-   - Click **“Start Recording”** and narrate a 15‑second pitch: “Grow your reach by repurposing content with AI.”  
-   - Stop recording and click **“Save”**.  
-   - *Do you see the video thumbnail in your Loom library? If not, ensure you have an active internet connection.*
+7. **Set Up a Lead Source** –  
+   - Click **Lead Sources** in the left‑hand navigation.  
+   - Click **Add Lead Source** (button in the upper‑right corner).  
+   - Choose **LinkedIn** from the dropdown.  
+   - Click **Authorize** to grant Apollo.io permission to scrape LinkedIn profiles.  
+   - In the **Source Name** field, type `LinkedIn Prospecting`.  
+   - Click **Save Source**.  
+8. **Create a Lead List** –  
+   - Click **Lists** on the left.  
+   - Click **New List** (bold **New List** button).  
+   - Name the list `Prospecting – 2026Q4`.  
+   - In the [**Description**](https://www.descript.com/) field, type `Leads gathered via Apollo.io LinkedIn source`.  
+   - Click **Create**.  
+9. **Add Leads to the List** –  
+   - Inside the list, click **Add Leads** (bold **Add Leads**).  
+   - Choose **Source** → `LinkedIn Prospecting`.  
+   - Select the top 10 search results by checking the boxes.  
+   - Click **Add Selected**.  
+   *Do you see a confirmation banner that says “10 leads added to Prospecting – 2026Q4”? If not, ensure you selected at least one lead and clicked **Add Selected**.*  
 
-3. **Copy the Loom video link**  
-   - Hover over the video thumbnail, click the **bold “Copy Link”** icon.  
-   - Open **Notepad** and paste the link to keep for later.  
-   - *Do you have the link copied? If not, right‑click the thumbnail and select “Copy link address.”*
+10. **Export Lead Data to CSV** –  
+    - On the list page, click the **Export** icon (three‑dot menu → **Export CSV**).  
+    - In the export dialog, keep default settings: **All Fields** and **All Rows**.  
+    - Click **Export**.  
+    - The file `Prospecting–2026Q4.csv` will download to your default Downloads folder.  
 
-4. **Open a new tab** and go to **https://www.hostinger.com**.  
-   - Click the **bold “Get Started”** button.  
-   - Choose **“Website Builder”** (free tier, $0/month).  
-   - Sign in with your Hostinger email or create a new account.  
-   - *Do you see the Hostinger dashboard with “Website Builder” option? If not, use the “Create a new site” button.*
-
-5. **Create a new website**  
-   - In the dashboard, click **bold “Create New Site”**.  
-   - Enter **“contentrepurposer.com”** as the domain (free subdomain: `contentrepurposer.hostinger.com`).  
-   - Click **bold “Next”**.  
-   - Select the **“Business”** template.  
-   - Click **bold “Start Building”**.  
-   - *Do you see the drag‑and‑drop editor? If not, refresh the page.*
-
-6. **Add a header**  
-   - Drag the **“Header”** module from the left panel to the top of the page.  
-   - In the header settings, click **bold “Edit Text”** and replace placeholder with **“Maximize Your Content Reach”**.  
-   - Click **bold “Save”**.  
-   - *Do you see the updated header? If not, ensure you hit the “Save” button.*
-
-7. **Embed the Loom video**  
-   - Drag the **“Embed”** module below the header.  
-   - In the embed settings, paste the Loom link you copied earlier into the **“Embed URL”** field.  
-   - Set **“Height”** to **400px** and **“Width”** to **100%**.  
-   - Click **bold “Save”**.  
-   - *Do you see the Loom video playing on the page? If not, double‑check the URL.*
-
-8. **Add a lead capture form**  
-   - Drag the **“Form”** module from the left panel below the video.  
-   - In the form settings, click **bold “Add Field”** → **“Name”** (text).  
-   - Add another field: **“Email”** (email).  
-   - Set the **“Success Message”** to “Thanks for signing up! Check your inbox.”  
-   - Click **bold “Save”**.  
-   - *Do you see the form with two fields? If not, ensure you added both fields.*
-
-9. **Publish the page**  
-   - Click the **bold “Publish”** button in the top‑right corner.  
-   - Confirm by clicking **bold “Publish Now”**.  
-   - Copy the live URL `https://contentrepurposer.hostinger.com` for the next step.  
-   - *Do you see the live preview with your video and form? If not, clear browser cache and refresh.*
-
-10. **Create a Zapier account**  
-    - Open a new tab and go to **https://zapier.com**.  
-    - Click **bold “Sign Up”** and create a free account ($0/month).
+11. **Upload CSV to Make.com** –  
+    - Open a new tab and go to `https://www.make.com`.  
+    - Click
 
 ---
 
-## Procedure 5.3: Automate Lead Qualification with Make.com Workflows
+## Procedure 5.3: Create Automated Email Nurture Sequence in Klaviyo  
 
-1. **Create a Lead Database in Notion**  
-   1.1 Open the Notion app (desktop or web) at **https://www.notion.so**.  
-   1.2 Click the **+ Add a page** button in the left sidebar.  
-   1.3 Select **Table – Full page**.  
-   1.4 Rename the table to **“Qualified Leads”**.  
-   1.5 Add the following columns with exact names and types:  
-       - **Name** – Title  
-       - **Email** – Email  
-       - **Company** – Text  
-       - **Industry** – Multi‑select (add options: “Tech”, “Retail”, “Healthcare”, “Finance”, “Education”)  
-       - **Company Size** – Number  
-       - **Lead Source** – Text  
-       - **Qualified?** – Checkbox  
-       - **Notes** – Text  
-   1.6 Click **Share** in the top right, toggle **Share to the web** on, then click **Copy link**.  
-   1.7 Paste the copied link into a text file; you will need it in step 12.
+1. **Open Klaviyo**  
+   *URL:* `https://www.klaviyo.com/signin`  
+   - Click **SIGN IN** (top right).  
+   - Enter your email and password.  
+   - Click **SIGN IN** button.  
+   - *Expected output:* You are taken to the Klaviyo dashboard with the left‑hand navigation panel visible.  
 
-   *Do you see the “Qualified Leads” table with the columns listed? If not, double‑check that each column type matches the description.*
+2. **Create a New List**  
+   - From the dashboard, click **_Lists & Segments_** in the left nav.  
+   - Click the **+ NEW LIST** button (top right).  
+   - In the modal:  
+     - **Name:** `Client Onboarding`  
+     - **Description:** `Subscribers who book a Calendly session.`  
+     - Toggle **_Add subscribers automatically_** OFF.  
+   - Click **_Create List_**.  
+   - *Expected output:* A new list named “Client Onboarding” appears with 0 subscribers.  
 
-2. **Generate an API Key in Beehiiv**  
-   2.1 Log in to your Beehiiv dashboard at **https://app.beehiiv.com**.  
-   2.2 Click your profile icon → **Account Settings**.  
-   2.3 In the **API** tab, click **Create new API key**.  
-   2.4 Name the key **“Make.com Lead Hook”** and click **Generate**.  
-   2.5 Copy the key and paste it into a secure note; you will need it in step 8.  
+3. **Create a Segment for Calendly Bookers**  
+   - Click **_Lists & Segments_** → **+ NEW SEGMENT**.  
+   - In the builder:  
+     - **Segment Name:** `Calendly Bookers`  
+     - **Condition:** `Event` → **_Any event_** → **_Book a Session_** (choose the event name you’ll create in Calendly).  
+   - Click **_Create Segment_**.  
+   - *Expected output:* Segment “Calendly Bookers” shows 0 members.  
 
-   *Do you see the API key displayed? If the key is not shown, ensure you have “Developer” permissions in Beehiiv.*
+4. **Set Up a Make.com Scenario to Push Calendly Bookings to Klaviyo**  
+   - Open a new tab and go to `https://www.make.com/en`.  
+   - Click **SIGN IN** → use your credentials.  
+   - Click **Create a new Scenario**.  
+   - Search for **Calendly** and click the icon.  
+   - Choose the **Watch Event** trigger.  
+   - Click **Connect** → authorize Make to access your Calendly account.  
+   - Select the calendar event “Client Onboarding Call”.  
+   - Click **Continue**.  
+   - Add an action: search for **Klaviyo** → select **Add/Update Subscriber**.  
+   - Connect to Klaviyo → authorize with your API key (found under Settings → Account & Settings → API Keys).  
+   - Map fields:  
+     - Email → `{{Calendly.event.attendee.email}}`  
+     - First Name → `{{Calendly.event.attendee.first_name}}`  
+     - List ID → choose `Client Onboarding`.  
+   - Click **Save** → **Run once** to test.  
+   - *Expected output:* The test shows “Subscriber added to Klaviyo” with the subscriber’s email.  
 
-3. **Create a Beehiiv Webhook for New Subscribers**  
-   3.1 In the Beehiiv dashboard, go to **Settings** → **Webhooks**.  
-   3.2 Click **Add webhook**.  
-   3.3 In the **URL** field, enter the temporary URL **https://hook.make.com/beehiiv‑lead** (you will replace it with the real Make.com webhook URL in step 7).  
-   3.4 Select **Event** → **New subscriber**.  
-   3.5 Toggle **Active** on, then click **Save**.  
+5. **Confirm the Subscriber Appears in Klaviyo**  
+   - Return to Klaviyo → **_Lists & Segments_** → **Client Onboarding** → **Members** tab.  
+   - You should see the new subscriber with the email captured from Calendly.  
+   - *Interactive check‑in:*  
+     - **Do you see the new subscriber listed?**  
+     - **If not,** refresh the page, double‑check the Make.com scenario ran successfully, and ensure the API key is correct.  
 
-   *Do you see the webhook listed with status “Active”? If not, verify the URL format.*
+---
 
-4. **Set Up a Make.com Account**  
-   4.1 Open **https://www.make.com/en/**.  
-   4.2 Click **Sign up** in the upper right.  
-   4.3 Choose the **Free** plan (3 operations/month, 200 records/month).  
-   4.4 Verify your email and log in.  
-   4.5 In the dashboard, click **Create a new scenario**.  
+**[Continue with email nurture flow creation]**
 
-   *Do you see the “Create a new scenario” button? If you see only “+ New scenario”, click that instead.*
+6. **Create a New Flow**  
+   - In Klaviyo, click **Flows** in the left nav.  
+   - Click **+ NEW FLOW** → choose **_Start from Scratch_**.  
+   - Name the flow `Onboarding Nurture`.  
+   - Click **_Create Flow_**.  
+   - *Expected output:* You’re taken to the flow canvas with a blank canvas.  
 
-5. **Add a Beehiiv Trigger in Make.com**  
-   5.1 In the scenario editor, click the plus icon (**+**) to add a module.  
-   5.2 Search for **“Webhooks”** and select **“Custom webhook”**.  
-   5.3 Click **Create a new webhook**.  
-   5.4 Name it **“Beehiiv Lead Hook”** and click **Save**.  
-   5
+7. **Add a Trigger**  
+   - Drag the **_Trigger_** node from the left panel onto the canvas.  
+   - In the dialog:  
+     - **Trigger Type:** `Segment` → choose `Calendly Bookers`.  
+   - Click **Save**.  
+   - *Expected output:* A trigger node labeled “Calendly Bookers” appears connected to the rest of the flow.  
+
+8. **Add First Email (Welcome Email)**  
+   - Drag a **_Send Email_** node onto the canvas, connect it to the trigger.  
+   - Click the node → **Edit Email**.  
+   - In the email editor:  
+     - **Subject:** `Welcome to Your New Service!`  
+     - **From Name:** `Your Company`  
+     - **From Email:** `support@yourcompany.com`  
+     - **Body:** Use Canva to design a simple welcome banner:  
+       - Open `https://www.canva.com/create/email-
 
 ## Check-In: Module 5 Complete
 
-- [ ] Set Up Beehiiv Email List for Targeted Outreach completed and verified
-- [ ] Create a Loom‑Integrated Lead Capture Landing Page completed and verified
-- [ ] Automate Lead Qualification with Make.com Workflows completed and verified
+- [ ] Build a High‑Conversion Landing Page on Shopify completed and verified
+- [ ] Configure Lead Generation with Apollo.io completed and verified
+- [ ] Create Automated Email Nurture Sequence in Klaviyo completed and verified
 - [ ] All tools connected and working
 - [ ] No errors or warnings in any dashboard
 
@@ -1066,163 +1227,190 @@ Skipping this module means you’ll miss out on a tested funnel that has already
 # MODULE 6: DELIVERY
 
 ## Overview  
-MODULE 6 is the fulcrum of your AI‑powered content repurposing agency. It teaches you how to *consistently* hand off polished, platform‑ready assets to clients while maintaining a 95 %+ on‑time delivery rate. You’ll design a repeatable pipeline that turns raw media into 10‑platform bundles, set up automated quality checkpoints, and create bullet‑proof client communication templates that reduce churn and boost referrals.  
+Module 6 is the linchpin that turns your AI‑powered onboarding designs into live, revenue‑generating services. By mastering this section you learn how to orchestrate end‑to‑end workflows that greet every new customer with a smooth, personalized experience—no manual touch required. Skipping this module means delivering half‑finished integrations, leaving clients frustrated, and losing repeat business. Every click, API call, and email blast must be vetted through our quality checkpoints, ensuring that your clients receive consistent, error‑free onboarding flows that drive retention and upsell opportunities.
 
-Skipping this module is a recipe for missed deadlines, unhappy clients, and lost revenue. Without a structured delivery system, you’ll spend hours re‑editing content, chasing feedback, and juggling last‑minute changes. The result is low margins, burnout, and a brand that can’t scale. By mastering the delivery process, you free up creative bandwidth, command higher fees, and position your agency as a reliable partner for high‑growth businesses.
+We will build a delivery pipeline that includes a repeatable deployment routine, a clear set of acceptance criteria, and a library of client‑facing communication templates. You’ll also learn how to use data‑driven dashboards to monitor live performance, trigger alerts on anomalies, and iterate quickly. The end result is a turnkey system that you can hand off to clients with confidence, while still retaining the ability to tweak and expand the workflows on demand.
 
-| Tool        | Purpose                                         | Free Tier (Limits)                                      | Paid Tier (Monthly)                          |
-|-------------|-------------------------------------------------|--------------------------------------------------------|--------------------------------------------|
-| Beehiiv     | Newsletter distribution & subscriber management | 500 subscribers, 10 k emails/month                    | Basic: $15 (1 k subscribers), Pro: $30 (5 k subscribers) |
-| Loom        | Video recording & client demos                  | 25 min per recording, 5 GB storage                     | Unlimited: $10/seat (unlimited storage)   |
-| Make.com    | Workflow automation between tools               | 1 000 operations/month, 5 task runners                 | Pro: $49 (5 000 ops/month, 20 runners)    |
-| Replit      | Quick AI script prototyping & execution         | Unlimited public projects, 500 MB storage              | Hacker: $7 (private repos, 2 GB storage)  |
-| Canva       | Visual asset creation & brand templates         | 5 GB storage, 30 templates                             | Pro: $12.99 (100 GB, premium templates)   |
-| Zapier      | Integration between SaaS tools                  | 5 Zaps, 100 tasks/month                                | Starter: $19 (20 Zaps, 750 tasks/month)   |
+| Tool | Purpose | Free Tier | Paid Tier |
+|------|---------|-----------|-----------|
+| Calendly | Scheduling & automated calendar invites | 1 event type, 5 team members | $8/month (Pro) |
+| Klaviyo | Email & SMS onboarding automation | 250 contacts, 500 emails/month | $20/month (Starter) |
+| Make.com | Low‑code workflow orchestration | 1,000 operations/month | $29/month (Starter) |
+| Replit | Code sandbox for quick script tests | Unlimited public projects | $7/month (Hacker) |
+| Zapier | Connectivity between Calendly/Klaviyo and other apps | 5 Zaps, 100 tasks/month | $19.99/month (Starter) |
+| Microsoft Excel | Data export & analysis | Free (online) | $6/month (Office 365 Personal) |
 
-**Estimated Time to Complete Module 6:** 3 – 4 hours (including pipeline design, template drafting, and tool setup).
-
----
-
-## Procedure 6.1: Set Up Loom Recording for AI Content Repurposing
-
-1. **Open your browser and go to https://www.loom.com/**.  
-   - If you are not already logged in, click the **LOG IN** button on the top right.  
-   - Enter your email and password, then click **SIGN IN**.
-
-2. **Create a new Loom account (if you haven’t already)**  
-   - Click the **SIGN UP** button on the landing page.  
-   - Choose **FREE** plan, enter your email, create a password, and click **SIGN UP**.  
-   - Verify your email via the link sent to your inbox.  
-   - After verification, you will land on the Loom dashboard.
-
-3. **Install the Loom Chrome Extension**  
-   - Go to https://chromewebstore.google.com/detail/loom-for-chrome/  
-   - Click **ADD TO CHROME**; confirm by clicking **ADD EXTENSION** in the pop‑up.  
-   - Once installed, the Loom icon appears in the top‑right corner of Chrome.
-
-4. **Configure Loom Recording Settings**  
-   - Click the Loom icon, then click **NEW VIDEO**.  
-   - In the recording window, ensure the following:  
-     - **Video Quality** set to **HD 720p**.  
-     - **Audio Source** is your **Microphone**.  
-     - **Video Source** is **Screen + Camera** (camera on the right).  
-     - **Background** is set to **Blur**.  
-   - The preview should display your screen and your video feed.  
-   - **Do you see the camera preview and the microphone icon?** If not, click **MORE OPTIONS** → **Enable camera** and **Enable microphone**.  
-
-5. **Generate a Script with ChatGPT**  
-   - Open a new tab and go to https://chat.openai.com.  
-   - Log in with the same credentials you use for Loom.  
-   - In the chat, type:  
-     > “Write a 90‑second script for repurposing an article about ‘AI‑powered content repurposing’ into a short video.”  
-   - Copy the response and paste it into a new Google Docs document for reference during recording.  
-
-6. **Record the Video**  
-   - Return to the Loom recording window.  
-   - Click the **START RECORDING** button (red circle).  
-   - Read the script from your Google Docs while recording.  
-   - When finished, click **STOP**.  
-   - Loom will automatically generate a video link.  
-
-7. **Edit the Video in Loom**  
-   - On the Loom editor page, click **TRIM** (left of the timeline).  
-   - Drag the handles to remove the first 3 seconds and the last 2 seconds.  
-   - Click **SAVE**.  
-   - Click **PREVIEW** to ensure the trim looks correct.  
-
-8. **Add a Thumbnail using Canva**  
-   - Go to https://www.canva.com/create/thumbnail/  
-   - Click **USE THIS TEMPLATE**.  
-   - Upload your Loom video thumbnail by clicking **UPLOADS** → **UPLOAD FILES** → select the image from your local drive.  
-   - Drag the image to the template, adjust cropping, and click **DOWNLOAD** → **PNG**.  
-
-9. **Attach Thumbnail to Loom Video**  
-   - Return to the Loom editor page.  
-   - Click **THUMBNAIL** → **UPLOAD** → select the PNG you just downloaded.  
-   - Click **APPLY**.  
-
-10. **Publish the Video**  
-    - Click **SAVE & SHARE**.  
-    - In the sharing options, set **Visibility** to **Public** (so the URL can be embedded
+Estimated Time to Complete: **7–9 hours** (includes setting up integrations, creating templates, and performing end‑to‑end testing).
 
 ---
 
-## Procedure 6.2: Build Beehiiv Email Sequences for Repurposed Content
+## Procedure 6.1: Deploy the Product to Production on Hostinger
 
-1. **Open a web browser** (Chrome, Edge, or Safari).  
-   Visit the Beehiiv login page: **https://app.beehiiv.com/login**.  
-   In the **Email** field, type your agency’s registered email.  
-   In the **Password** field, type your password.  
-   Click the **bold** button labeled **“Sign In.”**  
-   *Expected output:* Beehiiv dashboard with the “+ New Newsletter” button visible.
+1. **Log in to Hostinger**  
+   - Open your browser and go to **https://www.hostinger.com**.  
+   - Click **Login** in the top‑right corner.  
+   - Enter your **username** and **password** then click ****LOGIN**.  
+   - *Expected result*: You should see the **hPanel dashboard** with a green “Welcome” banner.
 
-2. **Create a new newsletter**  
-   On the dashboard, click the **bold** button **“+ New Newsletter.”**  
-   In the pop‑up, enter **Newsletter Name:** “RepurposePro Series.”  
-   Choose **Domain:** “repurposepro.beehiiv.com” (or your custom domain).  
-   Click **bold** “Create.”  
-   *Expected output:* Confirmation banner “Newsletter created” and a new “RepurposePro Series” tab.
+2. **Create a new web hosting plan**  
+   - In the left sidebar, click **Web Hosting** → **Add New**.  
+   - Choose the **Business Starter** plan (starts at **$1.99/month** with 10 GB SSD, 50 GB transfer).  
+   - Click **Select** → **Proceed to Checkout**.  
+   - Enter payment details and click ****PAY**.  
+   - *Interactive Check‑in*: Do you see the new hosting plan listed under “My Hosting”? If not, refresh the page or contact Hostinger support.  
 
-3. **Add an audience list**  
-   Inside the newsletter workspace, click **bold** “Audience.”  
-   Click **bold** “+ New List.”  
-   Enter **List Name:** “Repurpose Clients.”  
-   In the “Import Contacts” field, paste the CSV of your client emails.  
-   Click **bold** “Import.”  
-   *Expected output:* “12,000 contacts imported” banner and list count displayed.
+3. **Launch the hPanel for the new site**  
+   - In the **My Hosting** section, click the **Launch** button next to your new plan.  
+   - The hPanel opens in a new tab.  
+   - *Expected result*: Home page of hPanel with “Welcome to your new hosting plan” banner.  
 
-4. **Create the first email in the sequence**  
-   Click **bold** “Sequences” in the left sidebar.  
-   Click **bold** “+ New Sequence.”  
-   Name it “Week 1 – Video Repurpose.”  
-   Click **bold** “Add Email.”  
+4. **Create a MySQL database**  
+   - In hPanel, find **Databases** → **MySQL Databases**.  
+   - In **Create new database**, type **onboarding_db** then click ****Create**.  
+   - Under **Add user to database**, enter user **onboard_user** with password **StrongPass!23** and click ****Create**.  
+   - *Interactive Check‑in*: Do you see “onboarding_db” listed? If not, double‑check the name or try creating again.
 
-5. **Draft the email content**  
-   In the email editor, click **bold** “Use AI” and select **ChatGPT** from the dropdown.  
-   Copy the prompt:  
-   *“Write a 200‑word email that introduces a new repurposed video, includes a hook, and invites recipients to watch the Loom recording.”*  
-   Paste into the prompt box and click **bold** “Generate.”  
-   When ChatGPT returns the draft, review and click **bold** “Save Draft.”  
-   *Expected output:* Email body populated with the generated text.  
-   **Do you see the generated email content?** If not, verify that you are connected to the ChatGPT API under **Settings > Integrations > OpenAI** and that your API key is active.  
+5. **Upload website files via FTP**  
+   - Open **FileZilla** (free, 0 GB data transfer per month).  
+   - In the top menu, click **File** → **Site Manager** → **New Site**.  
+   - Set **Host** to your Hostinger domain (e.g., **example.com**).  
+   - **Protocol**: **SFTP - SSH File Transfer Protocol**.  
+   - **Logon Type**: **Normal**.  
+   - **User**: **your_hostinger_ssh_user** (found in hPanel → **SSH Access**).  
+   - **Password**: your SSH password.  
+   - Click **Connect**.  
+   - Drag your project folder from the local pane to the `/public_html/` folder.  
+   - *Expected result*: All files appear in `/public_html/` with a green check mark.  
 
-6. **Attach the Loom recording**  
-   Open **Loom** (free tier) at **https://www.loom.com/**.  
-   Click **bold** “New Recording.”  
-   Choose **“Screen + Camera.”**  
-   Record a 2‑minute demo of repurposing a blog post into a 30‑second teaser.  
-   Click **bold** “Finish.”  
-   In Loom, click **bold** “Share” → **“Embed”** → copy the embed code.  
-   Return to Beehiiv, click **bold** “Insert Video.”  
-   Paste the embed code into the editor and click **bold** “Insert.”  
-   *Expected output:* Loom video preview within the email draft.  
+6. **Set file permissions**  
+   - In FileZilla, select all uploaded files.  
+   - Right‑click → **File Permissions…**.  
+   - Set numeric value to **644** for files and **755** for folders.  
+   - Click **OK**.  
+   - *Interactive Check‑in*: Do you see the permission numbers change? If not, try refreshing FileZilla.  
 
-7. **Add a call‑to‑action (CTA) button**  
-   In the editor, click **bold** “Button.”  
-   Set **Button Text:** “Watch Full Teaser.”  
-   Set **URL:** “https://repurposepro.beehiiv.com/full‑teaser.”  
-   Click **bold** “Save.”  
+7. **Edit the `.env` configuration**  
+   - In hPanel, open **File Manager** → `/public_html/`.  
+   - Click **Edit** on the `.env` file.  
+   - Replace placeholders:  
+     ```
+     DB_HOST=localhost
+     DB_DATABASE=onboarding_db
+     DB_USERNAME=onboard_user
+     DB_PASSWORD=StrongPass!23
+     ```
+   - Click **Save**.  
+   - *Expected result*: The `.env` file shows the new credentials.  
 
-8. **Configure sequence timing**  
-   Click **bold** “Schedule.”  
-   Set **Send Time:** “Monday at 10:00 AM (US East Coast).”  
-   Click **bold** “Apply.”  
+8. **Install Composer dependencies (via SSH)**  
+   - In hPanel, click **Terminal**.  
+   - In the terminal, run:  
+     ```
+     cd public_html
+     composer install --no-dev
+     ```
+   - *Interactive Check‑in*: If you see “Installing dependencies…”, the command is running. If you see an error “composer: command not found”, you must install Composer first (see Hostinger docs).  
 
-9. **Set up an automated trigger via Zapier**  
-   Open **Zapier** at **https://zapier.com/app/dashboard**.  
-   Click **bold** “Make a Zap.”  
-   For **Trigger App**, choose **“New Subscriber”** in Beehiiv (select from the list).  
-   Click **bold** “Continue.”  
-   Connect your Beehiiv account using the API key from **Beehiiv > Settings > API Keys**.  
-   Click **bold** “Test Trigger.”  
-   *Expected output:* “1 test subscriber found.”  
+9. **Run database migrations**  
+   - Still in the terminal, execute:  
+     ```
+     php artisan migrate
+     ```
+   - *Expected result*: “Migrated: 12 tables”.  
 
-10. **Add an action to
+10. **Configure DNS**  
+    - In hPanel, go to **Domains** → **DNS**.  
+    - Point the **A record** for `@` to Hostinger’s IP (e.g., `165.227.165.165`).  
+    - Set **TTL** to **3600**.  
+    - Add an **ALIAS** record for **www** pointing to `@`.  
+    - *Interactive Check‑in*: Do you see the new records? If not, double‑check the IP address.
+
+11. **Enable Let’s Encrypt SSL**  
+    - In hPanel, click **SSL** → **Let’s Encrypt**.  
+    - Select your domain, tick the box for **Force HTTPS**, then click ****Install**.  
+    - *Expected result
+
+---
+
+## Procedure 6.2: Build Quality Assurance and Client Communication Templates
+
+1. **Navigate to Calendly**  
+   - Open your browser and go to **https://calendly.com/**.  
+   - If you are not logged in, click **“Log in”** in the upper‑right corner and enter your credentials.  
+
+2. **Create a New Event Type**  
+   - Click the blue **“+ New Event Type”** button on the dashboard.  
+   - Choose **“One‑time event”** and click **“Continue”**.  
+
+3. **Define Event Details**  
+   - **Event name**: type *“AI Onboarding Call”*.  
+   - **Location**: select **“Zoom”** (Calendly will auto‑populate a Zoom link).  
+   - **Duration**: set to **30 minutes**.  
+   - Click **“Continue”**.  
+
+4. **Add Custom Questions**  
+   - In the **“Invitee questions”** section, click **“Add question”**.  
+   - **Question type**: choose **“Multiple choice”**.  
+   - **Question text**: *“What is your company’s primary industry?”*.  
+   - Add two options: *“Tech”* and *“Retail”*.  
+   - Click **“Save”**.  
+
+5. **Set Up Email Confirmation**  
+   - Under **“Notifications & Cancellation policy”**, toggle **“Send a confirmation email”** to **ON**.  
+   - In the **“Email body”** field, paste:  
+     ```
+     Hi {{invitee.firstName}},
+     
+     Thanks for scheduling your AI Onboarding Call.  
+     Your call is confirmed for {{invitee.eventDateTime}}.  
+     
+     Regards,  
+     [Your Name]
+     ```  
+   - Click **“Save & Close”**.  
+
+   **Do you see the “AI Onboarding Call” event listed under your scheduled events?**  
+   If not, go back to the dashboard and verify the event is **published** (look for the green status badge).  
+
+6. **Open Klaviyo**  
+   - In a new tab, go to **https://www.klaviyo.com/**.  
+   - Log in or create an account using your email.  
+
+7. **Create a New List**  
+   - Click **“Lists & Segments”** in the left sidebar.  
+   - Press the **blue “+ New List”** button.  
+   - **Name**: *“AI Onboarding Leads”*.  
+   - Click **“Create List”**.  
+
+8. **Import Contacts (Optional)**  
+   - If you already have a CSV of leads, click **“Import Contacts”**.  
+   - Upload the file, map columns (e.g., **First Name**, **Last Name**, **Email**), and click **“Import”**.  
+
+9. **Create an Email Template**  
+   - Navigate to **“Email Templates”** → **“Create Template”**.  
+   - Choose **“Drag & Drop”**.  
+
+10. **Design the Template**  
+    - Drag a **Text block** onto the canvas.  
+    - Insert the following content:  
+      ```
+      Subject: Welcome to Your AI Onboarding Journey
+      Body:
+      Hi {{firstName}},
+      
+      Thank you for scheduling your AI Onboarding Call. Your session is set for {{eventDateTime}}.  
+      
+      In the meantime, please review the attached onboarding guide (link).  
+      
+      Best,  
+      [Your Name]
+      ```  
+    - Replace **{{
 
 ## Check-In: Module 6 Complete
 
-- [ ] Set Up Loom Recording for AI Content Repurposing completed and verified
-- [ ] Build Beehiiv Email Sequences for Repurposed Content completed and verified
+- [ ] Deploy the Product to Production on Hostinger completed and verified
+- [ ] Build Quality Assurance and Client Communication Templates completed and verified
 - [ ] All tools connected and working
 - [ ] No errors or warnings in any dashboard
 
@@ -1233,645 +1421,106 @@ Skipping this module is a recipe for missed deadlines, unhappy clients, and lost
 
 ## Overview
 
-In Module 7 you transition your AI‑powered content‑repurposing agency from a solo operation into a scalable, margin‑optimized business. The module is split into three tightly‑wired procedures: 1) hiring your first contractor, 2) building SOPs for delegation, and 3) performing a detailed margin analysis. By mastering these steps you create a repeatable, high‑margin workflow that can accommodate more clients without a proportional rise in labor costs. If you skip this module, your agency will remain a bottlenecked “one‑person show” that can’t take on high‑volume contracts, will see thin profit margins, and will be ill‑prepared for rapid market demand spikes.
+Module 7 equips you to transition from a solo AI‑onboarding operator to a scalable service organization. You’ll learn how to design and automate end‑to‑end onboarding workflows using Calendly for scheduling and Klaviyo for email nurturing, then extend those flows with Make.com to connect data across your stack. The module breaks down the entire scaling journey: hiring your first contractor, authoring SOPs for delegation, and rigorously analyzing margins to ensure every dollar invested drives revenue. If you skip this module, your funnel will remain a one‑person bottleneck, limiting growth, inflating costs, and compromising client experience.
 
-The scaling playbook teaches you how to use AI and automation to delegate creative tasks, set clear quality checkpoints, and track revenue per project. You’ll learn how to feed content into Beehiiv for email marketing, capture client demos with Loom, and orchestrate the entire pipeline with Make.com. You’ll also learn to model profits per repurposed piece, so you can price confidently and protect your margins as you grow.
+You’ll also tackle the practicalities of scaling: defining role responsibilities, creating clear handover documents, and setting up automated performance dashboards. The learning culminates in a margin analysis worksheet that compares projected revenue against fixed and variable costs, allowing you to set realistic pricing tiers and forecast profitability. By the end, you’ll have a repeatable, low‑overhead system that can be replicated for multiple clients without sacrificing quality.
 
-| Tool          | Purpose                                                                 | Free Tier (limits)                                                                          | Paid Tier (monthly) |
-|---------------|--------------------------------------------------------------------------|---------------------------------------------------------------------------------------------|---------------------|
-| Beehiiv      | Email newsletter distribution & analytics                                 | 1,000 subscribers, 1 000 emails per month                                                    | $12 / month for 10 k subscribers |
-| Loom         | Video recording & sharing for client demos and internal review           | 3 min per recording, 5 GB total storage                                                      | $10 / month for unlimited recording |
-| Make.com     | Automate workflows (content upload → Beehiiv → Slack → Notion)             | 500 operations/month, 5 GB storage                                                         | $19 / month for 15 000 operations |
-| Notion       | SOP repository, project tracking, client handoff                         | Unlimited pages, 5 GB file storage                                                          | $8 / user for advanced blocks |
-| Canva        | Quick visual asset creation for repurposed content                        | 5 templates/month, 1 GB storage                                                             | $12 / month for Pro plan |
-| ChatGPT‑4     | Drafting, rewriting, and generating content outlines                     | 3 k tokens/day, 1 000 queries/month                                                        | $20 / month for unlimited usage |
-| ElevenLabs   | Text‑to‑speech for audio versions of repurposed content                 | 3 h per month, 5 + voice options                                                            | $10 / month for unlimited usage |
+| Tool       | Purpose                                  | Free Tier                 | Paid Tier (Typical)                     |
+|------------|------------------------------------------|---------------------------|-----------------------------------------|
+| Calendly   | Appointment scheduling & sync            | 1 event type, 2 users     | Pro: $10/month per user                 |
+| Klaviyo    | Email marketing & automation             | 250 contacts, 500 emails | Starter: $20/month for 500 contacts    |
+| Make.com   | Workflow automation & API integration    | 500 operations/month      | Basic: $29/month for 25k operations    |
+| ChatGPT    | Content creation & copy editing          | 3,000 tokens/day          | Plus: $20/month for 100k tokens        |
 
-**Estimated time to complete Module 7:** 8 – 10 hours (including all three procedures). This is a full‑scale operational shift; invest the time now to avoid the hidden costs of manual scaling later.
+**Estimated time to complete Module 7:** **3 – 4 hours** (includes hiring SOPs, workflow setup, and margin analysis).
 
 ---
 
-## Procedure 7.1: Recruit Your First AI Content Specialist Contractor
+## Procedure 7.1: Hire Your First Contractor on Upwork
 
-1. **Open Apollo.io**  
-   - URL: https://app.apollo.io  
-   - Click **“Log In”** in the top‑right corner.  
-   - Enter your registered email and password.  
-   - Click **“Sign In”**.  
-   *Expected output:* Dashboard with “Leads” tab highlighted.
+1. **Open the Upwork website**  
+   - URL: https://www.upwork.com/  
+   - In the top right corner, click the button labeled **“Sign Up”**.  
+   - Select **“I’m a client”** and click **“Continue”**.  
+   - Fill in the email, password, and company name fields.  
+   - Click **“Create account”**.  
+   - Expected result: You should see the Upwork dashboard with the “Find Talent” tab highlighted.  
 
-2. **Create a New Lead Search**  
-   - In the left‑hand menu, click **“Leads”**.  
-   - Click the **“+ New Search”** button.  
-   - In the “Keywords” field, type **“AI content specialist”**.  
-   - In the “Filters” panel, check **“Contractor”** and **“Remote”**.  
-   - Click **“Search”** at the bottom of the panel.  
-   *Expected output:* List of 200+ profiles.
+2. **Verify your email**  
+   - Check your inbox for the Upwork verification email.  
+   - Click the **“Verify Email”** link inside the email.  
+   - You should be redirected to the Upwork dashboard with a green “Email Verified” banner.  
 
-3. **Export Top 10 Profiles**  
-   - Click the **“Select All”** checkbox at the top of the list.  
-   - Click the **“Export”** button (icon of a download arrow).  
-   - Choose **“CSV”**.  
-   - Click **“Export”**.  
-   *Expected output:* CSV file named `apollo_ai_content_specialists.csv` downloaded to your computer.
+3. **Add a payment method**  
+   - Hover over your profile picture and click **“Account Settings”**.  
+   - Navigate to **“Billing & Invoices”** → **“Add a payment method”**.  
+   - Choose **“Credit Card”**, enter your card details, and click **“Save”**.  
+   - Expected result: Your card status shows “Verified”.  
 
-4. **Launch Notion**  
-   - URL: https://www.notion.so  
-   - Click **“Log In”** and sign in with your credentials.  
-   - In the left sidebar, click **“+ New Page”**.  
-   - Title the page **“AI Content Specialist Pipeline”**.  
-   - Select **“Table – Full Page”** from the template options.  
-   *Expected output:* Empty table with columns: Name, Email, LinkedIn, Status, Notes.
-
-5. **Import CSV into Notion**  
-   - Inside the table, click **“+ Add a page”** below the first row.  
-   - Choose **“Upload a file”**.  
-   - Drag `apollo_ai_content_specialists.csv` or click **“Browse”** to locate it.  
-   - Click **“Open”**.  
-   *Expected output:* Table populated with 10 rows of candidate data.  
-
-**Check‑in 1**  
-Do you see a table with 10 candidate rows in Notion?  
-If not, re‑open the CSV file to ensure it contains 10 records.  
-
-6. **Create a Zapier Workflow**  
-   - URL: https://zapier.com/app/start  
-   - Click **“Make a Zap”**.  
-   - For the **Trigger App**, search for **“Notion”** and select **“New Database Item”**.  
-   - Connect your Notion account (click **“Connect an Account”**) and authorize Zapier.  
-   - Choose the database **“AI Content Specialist Pipeline”**.  
-   - Click **“Continue”**.  
-   *Expected output:* Trigger set to fire on each new Notion item.  
-
-7. **Add Email Action via Gmail**  
-   - Click **“+ Action”**.  
-   - Search for **“Gmail”** and select **“Send Email”**.  
-   - Connect your Gmail account.  
-   - In the “To” field, map **“Email”** from the Notion trigger.  
-   - In the “Subject,” type **“We’re excited to connect – AI Content Specialist”**.  
-   - In the “Body,” write:
+4. **Create a new job posting**  
+   - Click **“Post a Job”** in the top menu.  
+   - Enter the job title: **“AI Onboarding Workflow Designer (Calendly + Klaviyo)”**.  
+   - In the “Job description” field, paste the following:  
      ```
-     Hi {{Name}},
-     
-     Thank you for your interest in our AI Content Specialist role. We’d love to schedule a quick 15‑minute interview on Calendly. Please pick a time that works for you: https://calendly.com/youragency/15min
-     
-     Looking forward to speaking with you!
-     
-     Best,
-     <Your Name>
+     We need a contractor to design, optimize, and deploy an AI‑powered customer onboarding workflow using Calendly for scheduling and Klaviyo for email automation. Must have experience with Make.com (Integromat) for integration and be able to produce a step‑by‑step SOP. Deliverables include a functional workflow, SOP document, and a short video walkthrough (use Loom).  
+     ```  
+   - Set the budget to **$300–$500**.  
+   - Set the duration to **4–6 weeks**.  
+   - Click **“Post Job”**.  
+
+5. **Interact with candidates**  
+   - After posting, go to the **“Jobs”** tab, then **“All Jobs”** → **“Clicks”**.  
+   - Sort by **“New”** to see the newest proposals.  
+   - For each proposal, click **“Message”**.  
+   - Send a templated message:  
      ```
-   - Click **“Continue”**.  
-   *Expected output:* Email template ready to send.  
+     Hi [Name],  
+     Your profile looks great. Could you share a brief example of a Calendly‑Klaviyo workflow you’ve built?  
+     Thanks!  
+     ```  
 
-8. **Test the Zap**  
-   - Click **“Test & Review”**.  
-   - Zapier will pull the first Notion record and send a test email.  
-   - Open Gmail and verify the email appears in **Sent**.  
-   *Expected output:* Test email with correct recipient, subject, and body.  
+6. **Screen candidates**  
+   - Create a Google Sheet (use Google Sheets free tier).  
+   - In column A, list candidate names.  
+   - In column B, note their hourly rate.  
+   - In column C, mark **“Calendly+Klaviyo”** skill if confirmed.  
+   - Use the **“Sort range”** → **“Sort by column B”** (ascending) to prioritize cost.  
 
-9. **Turn the Zap On**  
-   - Click the toggle switch in the top right to **“On”**.  
-   *Expected output:* Zap status changes to “Running”.  
-
-10. **Schedule a Loom Demo**  
-    - Open Loom: https://www.loom.com  
-    - Click **“New Recording”**.  
-    - Choose **“
-
----
-
-## Procedure 7.2: Document SOPs for Delegating Loom Production Tasks
-
-1. **Open Loom**  
-   - Navigate to https://www.loom.com/ in Chrome.  
-   - Click the **“Login”** button at the top right.  
-   - Sign in with your corporate Google account.  
-   **Check‑in**: Do you see the Loom dashboard with your profile picture?  
-   If not, ensure you are using the correct Google account; click **“Switch account”**.
-
-2. **Create a Loom Channel for the Agency**  
-   - Click **“Channels”** in the left‑hand menu.  
-   - Press **“New Channel”** (blue button).  
-   - In the dialog, type **“Agency‑Content‑Repurposing”** and click **“Create”**.  
-   - In the channel settings, click **“Add Members”**, type the email of the production team, and hit **“Invite”**.  
-   **Check‑in**: Do you see the new channel name in your channel list?  
-   If not, refresh the page; the channel should appear immediately.
-
-3. **Record a Standard Loom Template**  
-   - In the channel, click **“New Recording”** (green button).  
-   - On the recording pop‑up, choose **“Screen + Cam”**.  
-   - Click **“Record”** (red button).  
-   - Record a 30‑second demo that shows how to upload a blog post to Beehiiv.  
-   - When finished, click **“Stop”** (red button).  
-   - On the post‑recording screen, click **“Save to channel”** and confirm by selecting the **“Agency‑Content‑Repurposing”** channel.  
-   **Expected Output**: The video thumbnail appears in the channel list with the title “Beehiiv Upload Demo”.
-
-4. **Publish the SOP in Notion**  
-   - Open https://www.notion.so/ and log in.  
-   - Create a new page titled **“Loom Production SOP”**.  
-   - Use the **“Template”** button to add a **“Table of Contents”** block.  
-   - Add a database table with columns: *Step*, *Action*, *Tool*, *URL*, *Notes*.  
-   - Populate the first row:  
-     - *Step*: 1  
-     - *Action*: “Create Loom Channel”  
-     - *Tool*: Loom  
-     - *URL*: https://www.loom.com/channels  
-     - *Notes*: “Use channel name ‘Agency‑Content‑Repurposing’”.  
-   **Check‑in**: Do you see the table with the header row?  
-   If not, click the **“+ Add a block”** button and choose **“Table – Inline”**.
-
-5. **Add Loom Recording Link to the SOP**  
-   - In Loom, open the newly created video.  
-   - Click **“Share”** (orange button).  
-   - Copy the **“Link”** field.  
-   - Return to Notion, locate the row for *Step 3*, and paste the link into the *URL* column.  
-   - Add a note: “This link will be used for all future repurposing demos.”  
-   **Check‑in**: Do you see the video link in Notion?  
-   If not, ensure you copied the full URL starting with `https://www.loom.com/share/`.
-
-6. **Set Up Zapier Automation to Notify Slack**  
-   - Go to https://zapier.com/ and log in.  
-   - Click **“Make a Zap”**.  
-   - Set **Trigger App**: Loom.  
-   - Choose event **“New Video in Channel”**.  
-   - Connect your Loom account and select the **“Agency‑Content‑Repurposing”** channel.  
-   **Check‑in**: Do you see the list of events?  
-   If not, click **“Refresh Tokens”** in the account settings.
-
-7. **Configure the Zapier Action**  
-   - Set **Action App**: Slack.  
-   - Choose event **“Send Channel Message”**.  
-   - Connect your Slack workspace.  
-   - In the message setup, select channel **#loom‑alerts**.  
-   - In the *Message Text* field, insert the following Markdown:  
+7. **Schedule interviews**  
+   - Open **Calendly** (https://calendly.com/).  
+   - Click **“New Event Type”** → **“One‑to‑One”**.  
+   - Title: **“Upwork Contractor Interview”**.  
+   - Set duration to **30 min** and pick the next available time slot.  
+   - Click **“Done”** and copy the invitation link.  
+   - In the candidate’s message, paste the link and say:  
      ```
-     🎥 New Loom video uploaded: {{Video Title}}  
-     Link: {{Video
+     Please book a 30‑minute interview slot here: [link].  
+     ```  
+
+8. **Conduct the interview**  
+   - Join the interview via Zoom (free tier).  
+   - Ask:  
+     - “How many Calendly‑Klaviyo workflows have you built?”  
+     - “Show me a recent workflow (you can use a screen share).”  
+     - “What integration tool do you use? (Make.com or Zapier)?”  
+   - Record the call with **Loom** (https://www.loom.com/).  
+   - After recording, download the video and upload it to **Google Drive**.  
+
+9. **Evaluate technical skills**  
+   - Review the candidate’s Loom video.  
+   - Open the **Make.com** (https://www.make.com/) dashboard.  
+   - Check if the candidate has used **“Scenario”** with **“Calendly”** and **“Klaviyo”** modules.  
+   - Expected output: A functioning scenario that triggers on Calendly event creation and sends a welcome email via Klaviyo.  
+
+10. **Select a contractor**  
+    - In the Google Sheet, add a new column **“Score”**.  
+    - Score each candidate on:  
+      - Calendly skill (1–5)  
+      - Klaviyo skill (1–5)  
+      - Integration expertise (1–5)  
+      - Budget fit (1–5)  
+    - Sum the scores.  
 
----
-
-## Procedure 7.3: CALCULATE PROJECT MARGINS USING BEEHIV ANALYTICS
-
-1. **Open a web browser** and navigate to the Beehiiv dashboard analytics page:  
-   `https://beehiiv.com/dashboard/analytics`.  
-   *Expected output:* Beehiiv analytics home with tabs “Overview”, “Performance”, “Revenue”, “Audience”.
-
-2. **Log in** using your Agency credentials.  
-   - Click the **Login** button in the top‑right corner.  
-   - Enter your *Agency Email* and *Password* into the fields labeled **Email** and **Password**.  
-   - Click **Login**.  
-   *Expected output:* Redirect to the analytics dashboard.  
-
-3. **Select the project** you want to analyze.  
-   - In the left sidebar, click the drop‑down labeled **Project Selector**.  
-   - From the list, click on the project name **“Client X - Monthly Repurposing”**.  
-   *Expected output:* Dashboard refreshes to show metrics for the selected project.  
-
-4. **Navigate to the Revenue tab**.  
-   - Click the **Revenue** tab, located next to “Performance” and “Audience”.  
-   *Do you see the Revenue tab now? If not, refresh the page or clear your cache.*  
-
-5. **Set the date range** to match the billing cycle.  
-   - Click the date picker in the top‑right corner.  
-   - Choose **Custom** and set **Start Date** to **01‑01‑2026** and **End Date** to **31‑01‑2026**.  
-   - Click **Apply**.  
-   *Expected output:* Revenue chart updates to show January 2026 data.  
-
-6. **Export the revenue data**.  
-   - In the top‑right of the Revenue chart, click the **Export** button (icon of a downward arrow).  
-   - Select **CSV** from the dropdown.  
-   - Click **Download**.  
-   *Expected output:* A file named `beehiiv_revenue_jan_2026.csv` appears in your downloads folder.  
-
-7. **Open the downloaded CSV in Excel** (or Google Sheets).  
-   - Double‑click the file.  
-   - Verify the columns: `Date`, `Page Views`, `Clicks`, `Revenue`, `Cost of Goods Sold (COGS)`.  
-   *Do you see the COGS column? If not, verify the project settings in Beehiiv under “Cost Settings”.*  
-
-8. **Calculate the gross margin**.  
-   - In a new column **Gross Margin %**, enter the formula:  
-     `= (Revenue - COGS) / Revenue`.  
-   - Format the column as a percentage with two decimal places.  
-   *Expected output:* Gross margin percentages for each day of the month.  
-
-9. **Create a summary table**.  
-   - In a separate sheet, create headers: `Total Revenue`, `Total COGS`, `Total Gross Margin %`.  
-   - Use `=SUM(Revenue)` for Total Revenue, `=SUM(COGS)` for Total COGS.  
-   - Calculate Total Gross Margin % with `= (Total Revenue - Total COGS) / Total Revenue`.  
-   *Do you see the total values? If calculations return #DIV/0! this means Revenue is zero; check your data import.*  
-
-10. **Import the summary into Notion** for client reporting.  
-    - Open `https://www.notion.so` and navigate to the project database.  
-    - Click **New** → **Template** → **Table**.  
-    - Copy the summary table and paste into the new Notion table.  
-    - Click **Sync** to save.  
-    *Expected output:* A Notion page titled “Client X - Jan 2026 Margin Summary” with the table embedded.  
-
-11. **Create a Loom recording of the margin analysis**.  
-    - Open `https://www.loom.com`.  
-    - Click **New Recording** → **Screen + Cam**.  
-    - Select the Excel window and your webcam.  
-    - Click **Start**.  
-    - Walk through steps 1‑9, pausing to explain each calculation.  
-    - Click **Stop** and give the video a title “Jan 2026 Margin Breakdown”.  
-    - Click **Save**.  
-    *Expected output:* Loom video link in your clipboard.  
-
-12. **Share the Loom video with the client**.  
-    - In Notion, open the “Client X - Jan 2026 Margin Summary” page.  
-    - Click **+** → **Embed** → paste the Loom URL.  
-    - Click **Embed**.  
-    *If you see an error “Embed not supported”, this is because the Loom link is set to private. Fix it by setting the Loom video to “Anyone with the link can view” in Loom’s sharing settings.*  
-
-13. **Schedule a review call via Calendly**.  
-    - Go to `https://calendly.com`.  
-    - Click **Create Event** → **One‑to‑One**.  
-    - Set the event name “Margin Review – Client X”.  
-    - In the description, paste the Loom link.  
-    - Set the duration to **30 minutes**.  
-    - Click **Save & Publish**.  
-    - Copy the event
-
-## Check-In: Module 7 Complete
-
-- [ ] Recruit Your First AI Content Specialist Contractor completed and verified
-- [ ] Document SOPs for Delegating Loom Production Tasks completed and verified
-- [ ] CALCULATE PROJECT MARGINS USING BEEHIV ANALYTICS completed and verified
-- [ ] All tools connected and working
-- [ ] No errors or warnings in any dashboard
-
-
----
-
-# MODULE 8: ADVANCED PATTERNS
-
-## Overview  
-Module 8 is the strategic crescendo of your AI‑powered content repurposing agency. Here we transition from core automation to premium, high‑margin services that turn one‑off gigs into steady, recurring revenue streams. You’ll learn how to bundle content bundles, launch a subscription‑based newsletter on Beehiiv, and upsell Loom‑recorded masterclasses that generate passive income. If you skip this module, you’ll stay trapped in a manual‑work‑heavy cycle, unable to scale pricing or attract high‑ticket clients. The techniques taught here are the difference between a 5‑figure side hustle and a 7‑figure enterprise.
-
-The module is designed for a focused 12‑hour sprint: 4 hours for strategy mapping, 4 hours for productizing, and 4 hours for setting up recurring revenue mechanics. Each session builds on the last, ensuring you can immediately launch a pilot high‑ticket offer and iterate based on real data.
-
-| Tool       | Purpose                                               | Free Tier                               | Paid Tier (Monthly) |
-|------------|--------------------------------------------------------|----------------------------------------|---------------------|
-| Beehiiv    | Email newsletter platform for subscriptions           | Unlimited free newsletters, 100 subscribers | $29 (Starter)       |
-| Loom       | Video recording for on‑demand content                | 5 min recording limit, 3 GB storage     | $12 (Pro)           |
-| ChatGPT    | AI content drafting and repurposing                   | 3 million tokens/month                 | $20 (ChatGPT‑Plus)  |
-| Zapier     | Automate workflow between Beehiiv, Loom, and invoicing | 100 tasks/month                        | $19 (Starter)       |
-| Canva      | Design visuals for newsletters and social posts       | Unlimited free features, 5 GB storage  | $12 (Pro)           |
-| ElevenLabs | Voice‑over generation for Loom videos                | 5 minutes/day                          | $10 (Starter)       |
-
-**Estimated Time to Complete:** 12 hours total (divided into 4‑hour blocks).
-
----
-
-## Procedure 8.1: LAUNCH A TIERED MONTHLY RETAINER FOR AI REPURPOSING SERVICES  
-
-1. **Visit Beehiiv**  
-   - Open your browser and go to **https://beehiiv.com/**.  
-   - Click **SIGN UP** in the top‑right corner.  
-   - On the registration page, fill in:  
-     - *Email*: your business email (e.g., owner@youragency.com)  
-     - *Password*: a strong password (e.g., `B3hHi1v2026!`)  
-     - *Company name*: `YourAgencyName`  
-   - Click **CREATE ACCOUNT**.  
-
-2. **Verify Email**  
-   - Open your inbox, locate the Beehiiv confirmation email.  
-   - Click the **VERIFY EMAIL** link.  
-   - Browser should redirect to `https://app.beehiiv.com/`.  
-
-3. **Set Up Newsletter Template**  
-   - In the Beehiiv dashboard, click **TEMPLATES** (left sidebar).  
-   - Click **+ NEW TEMPLATE**.  
-   - Choose **"Starter"** template, then **NEXT**.  
-   - In the editor, replace the placeholder text with:  
-     - *Header*: `AI Repurposing Monthly Retainer`  
-     - *Body*: placeholder “Your AI‑generated content goes here.”  
-   - Click **SAVE TEMPLATE**.  
-
-4. **Create Subscription Plans**  
-   - In the dashboard, click **PLANS** → **+ NEW PLAN**.  
-   - Create three plans:  
-
-     | Plan | Monthly Price | Features |
-     |------|---------------|----------|
-     | Basic | $49 | 5 video scripts, 1 blog post, 30‑second podcast snippet |
-     | Pro | $99 | 10 video scripts, 3 blog posts, 1 podcast, 5 social posts |
-     | Enterprise | $199 | 20 video scripts, 10 blog posts, 3 podcasts, 15 social posts, priority support |
-
-   - For each plan, click **SET PRICE** → enter the exact amount, then **SAVE**.  
-
-5. **Enable Payment Processor**  
-   - Go to **SETTINGS** → **PAYMENTS**.  
-   - Click **CONNECT** next to **Stripe**.  
-   - Enter your Stripe account credentials (API keys from Stripe dashboard).  
-   - Confirm by clicking **AUTHORIZE**.  
-
-**Do you see the three subscription plans listed under PLANS? If not, check that you saved each plan and that the Stripe connection is active.**
-
-6. **Create a Loom Recording for Prospect Pitch**  
-   - Open a new tab, go to **https://loom.com/**.  
-   - Click **SIGN IN** (use your Google account).  
-   - Click **NEW RECORDING** → select **Screen + Camera**.  
-   - Record a 2‑minute demo explaining the repurposing workflow.  
-   - When finished, click **STOP**.  
-
-7. **Export Loom Link**  
-   - After upload, Loom displays **Share**.  
-   - Click **COPY LINK**; the URL looks like `https://www.loom.com/share/abcd1234`.  
-
-8. **Set Up Zapier Automation**  
-   - Open **https://zapier.com/**.  
-   - Click **LOG IN**; use the same Google credentials.  
-   - Click **MAKE A ZAP** at the top right.  
-
-9. **Trigger: New Beehiiv Subscriber**  
-   - Search for **Beehiiv** in the trigger app list; select **New Subscriber**.  
-   - Connect your Beehiiv account (API key from Beehiiv > Settings > API).  
-   - Click **TEST TRIGGER**; you should see a sample subscriber record.  
-
-10. **Action: Send Loom Pitch via Email**  
-    - Click **+ ADD ACTION** → search for **Email by Zapier**.  
-    - Choose **Send Outbound Email**.  
-    - Fill fields:  
-      - *To*: `{{New Subscriber.email}}`  
-      - *Subject*: `Your AI Repurposing Retainer Awaits`  
-      - *Body*: `Hi {{New Subscriber.first_name}},\n\nThank you for subscribing! Watch this quick demo: https://www.loom.com/share/abcd1234\n\nBest,\nYourAgencyName`  
-    - Click **TEST & REVIEW**; verify the email appears in the test inbox.  
-
-11. **Turn On the Zap**  
-    - Toggle the switch to **ON**.  
-    - A confirmation banner should display “Zap is live.”  
-
-**Do you see the Zap icon in green with “Zap is live”? If not, ensure the trigger and action are both tested successfully before toggling on.**
-
-12. **Create a Make.com Scenario (Optional for Advanced Automation)**  
-    - Open **https://www.make.com/**.  
-    - Click **SIGN IN**; use your Google credentials.  
-    - Click **+ CREATE** → **New Scenario**.  
-    - Add **Beehiiv** as the trigger: “New Subscriber.”  
-    - Add [**Make.com → Action**](https://www.make.com/en/register?pc=menshly): “Send Email” (Make’s built‑in email module).  
-    - Map fields exactly as in Zapier.  
-    - Click **RUN** once to test; check the email received.  
-    - Save the scenario and activate it.  
-
-13. **Set Up Pricing Page on Your Agency Website**  
-    - Log into your website builder (e.g., Shopify or Hostinger site).  
-    - Create a new page titled “Monthly Retainer Plans.”  
-    - Embed the Beehiiv checkout
-
----
-
-## Procedure 8.2: Automate High‑Value Upsell Sequences in Beehiiv with Loom Video Templates
-
-1. **Open Beehiiv**  
-   - Navigate to <https://app.beehiiv.com>.  
-   - Log in with your credentials.  
-   - Expected result: Beehiiv dashboard with “Your newsletters” panel.
-
-2. **Create a New Upsell List**  
-   - Click the **+** icon in the top‑right corner.  
-   - Select **“List”** from the dropdown.  
-   - In the **List name** field, type **“Upsell‑Prospects”**.  
-   - Click ****Save** button**.  
-   - Check that the new list appears under “Your lists”.
-
-3. **Add a Custom Field for Upsell Status**  
-   - In the **Upsell‑Prospects** list, click **“Settings”**.  
-   - Go to **“Custom fields”** tab.  
-   - Click **“Add field”**.  
-   - Set **Field label** to **“Upsell Stage”** and **Field type** to **“Dropdown”**.  
-   - Add options: **“Intro”, “Offer”, “Purchase”**.  
-   - Click ****Save field**.  
-   - Expected: Dropdown appears in subscriber card.
-
-4. **Create a Loom Video Template**  
-   - Open Loom at <https://www.loom.com>.  
-   - Sign in or create an account.  
-   - Click **“Create”** > **“Screen + Camera”**.  
-   - Record a 30‑second teaser: “Hey [Name], unlock premium content with our exclusive upsell.”  
-   - Stop recording, then click **“Save”**.  
-   - Rename the video to **“Upsell Teaser”**.  
-   - Expected output: Video thumbnail appears in your Loom library.
-
-5. **Retrieve Loom Video Share Link**  
-   - Hover over the **“Upsell Teaser”** video.  
-   - Click the **three‑dot menu** > **“Share”**.  
-   - In the popup, click **“Copy link”**.  
-   - Paste the link into a clipboard manager to keep handy.  
-   - Expected: URL looks like `https://www.loom.com/share/xxxxxxxxxxxx`.
-
-> **Do you see the “Copy link” button?**  
-> If not, ensure you are in the **“Share”** modal. Click the **“Share”** button again or refresh the page.
-
-6. **Create a Beehiiv Email Template for Upsell**  
-   - Return to Beehiiv.  
-   - Click **“Templates”** in the left sidebar.  
-   - Click **“+ New template”**.  
-   - Name the template **“Upsell Email”**.  
-   - In the editor, click **“Insert Video”** (icon looks like a play button).  
-   - Paste the Loom link from step 5 into the **“Video URL”** field.  
-   - Add a CTA button: type **“Buy Now”** and link to **`https://yourshop.com/upsell`**.  
-   - Click ****Save**.
-
-7. **Set Up a Beehiiv Automation**  
-   - Go to **“Automations”** > **“Add new automation”**.  
-   - Trigger: **“Subscriber joins list”** → **“Upsell‑Prospects”**.  
-   - Condition: **“Custom field ‘Upsell Stage’ equals ‘Intro’”**.  
-   - Action: **“Send email”** → **“Upsell Email”**.  
-   - Set **“Delay”** to **0 minutes**.  
-   - Click ****Save**.  
-   - Expected: Automation appears in the list.
-
-8. **Create a Zapier Workflow for Stage Update**  
-   - Open Zapier at <https://zapier.com>.  
-   - Click **“Make a Zap”**.  
-   - **Trigger App**: Beehiiv → **Trigger Event**: “New Subscriber”.  
-   - Connect your Beehiiv account via the API key (found in Beehiiv > Settings > API).  
-   - **Test Trigger** to confirm connection.  
-   - **Action App**: Beehiiv → **Action Event**: “Update Subscriber”.  
-   - Map **“List”** to **“Upsell‑Prospects”**.  
-   - Set **“Upsell Stage”** to **“Offer”**.  
-   - Click ****Test & Continue**.  
-   - Expected: Zap shows “1 subscriber updated”.
-
-> **Do you see the “Test & Continue” button?**  
-> If not, your Beehiiv API key may be invalid. Re‑generate in Beehiiv > Settings > API.
-
-9. **Add a Follow‑Up Email After 3 Days**  
-   - In Beehiiv, create a new template called **“Upsell Follow‑Up”**.  
-   - Include a Loom video that explains benefits of the upsell.  
-   - In **“Automations”**, add a new automation:  
-     - Trigger: **“Subscriber joins list”** → **“Upsell‑Prospects”**.  
-     - Condition: **“Custom field ‘Upsell Stage’ equals ‘Offer’”**.  
-     - Action: **“Send email after delay”
-
-## Check-In: Module 8 Complete
-
-- [ ] LAUNCH A TIERED MONTHLY RETAINER FOR AI REPURPOSING SERVICES completed and verified
-- [ ] Automate High‑Value Upsell Sequences in Beehiiv with Loom Video Templates completed and verified
-- [ ] All tools connected and working
-- [ ] No errors or warnings in any dashboard
-
-
----
-
-# MODULE 9: FINANCIAL OPERATIONS
-
-## Overview  
-In Module 9 you will master the financial side of an AI‑powered content repurposing agency. Accurate revenue tracking, strategic price hikes, and professional proposal templates are the backbone of sustainable growth. Without a clear financial dashboard, you risk over‑charging clients, under‑billing, or missing cash‑flow gaps that can cripple the agency. Delaying this module means operating in the dark—no KPI visibility, no data‑driven decisions, and no scalable contract framework.
-
-You will build a live dashboard that pulls sales data from Beehiiv, Loom, and your payment processor. You will learn how to implement tiered pricing models that reflect the value delivered by AI‑generated assets, and you will create template proposals that convert prospects into paying clients while protecting your margins. By the end of this module, you will have a repeatable system for measuring profitability, forecasting revenue, and automating proposal generation—all essential for scaling beyond the solo‑founder stage.
-
-| Tool           | Purpose                                 | Free Tier                            | Paid Tier                     |
-|----------------|------------------------------------------|--------------------------------------|-------------------------------|
-| Beehiiv        | Email newsletter revenue & analytics     | 5,000 subscribers, 10 k emails/month | $20/month (pro plan)          |
-| Loom           | Video content creation & client demos    | Unlimited recordings, 5 min limit   | $12/month (Pro)               |
-| Notion         | Proposal templates & contract storage    | Unlimited pages, 1 GB file storage   | $8/month per user             |
-| Zapier         | Automate data sync between tools         | 5 tasks/month, 20 zaps              | $19/month (Starter)           |
-| ElevenLabs     | Audio narration for repurposed content   | 5 min per month                      | $14/month (Pro)               |
-
-**Estimated time to complete**: 4 hours (incl. dashboard setup, pricing model design, and proposal template creation).
-
----
-
-## Procedure 9.1: Create a Revenue Tracking Dashboard in Notion
-
-1. **Open Notion** – type `https://www.notion.so` into your browser’s address bar and hit **Enter**.  
-2. **Log In** – click the **Login** button in the upper‑right corner, enter your email and password, then click **Continue**.  
-3. **Create a New Page** – click the **+ New Page** button on the left sidebar.  
-4. **Name the Page** – type `Revenue Dashboard – AI Repurposing Agency` in the title field and press **Enter**.  
-5. **Add a Database** – in the blank page, click **+ Add a new block**, then select **Table – Inline** from the menu.  
-   *Expected result:* A new table appears with columns `Name`, `Tags`, `Created`, and `Last edited`.  
-
-   **Do you see the new table?** If not, refresh the page or click **+ Add a new block** again.  
-
-6. **Rename Columns** – hover over the `Name` column, click the three dots, choose **Rename**, and type `Client`.  
-7. **Add Columns** – click the **+ Add a property** button, then choose the following:
-   - **Date** – type `Date`  
-   - **Service** – select **Select** → add options `Video Editing`, `Blog Repurposing`, `Social Media Post`, `Podcast Transcript`  
-   - **Amount** – choose **Number** → set format to **Currency** → select `USD`  
-   - **Currency** – choose **Select** → add option `USD`  
-   - **Status** – choose **Select** → add options `Pending`, `Paid`, `Cancelled`  
-   - **Notes** – choose **Text**  
-
-   **Do you see all the new columns?** If any column is missing, repeat step 7.  
-
-8. **Create a Formula for Total Revenue** – click **+ Add a property**, choose **Formula**, name it `Revenue`.  
-   In the formula field, paste:  
-   ```
-   if(prop("Status") == "Paid", prop("Amount"), 0)
-   ```  
-   This will convert paid amounts into a revenue figure.  
-
-9. **Add a Running Total** – click **+ Add a property**, choose **Formula**, name it `Cumulative Revenue`.  
-   Paste:  
-   ```
-   sum(slice(prop("Revenue"), 0, index(prop("Client"))))
-   ```  
-   This calculates a running total across rows.  
-
-10. **Set Up a Filter for Paid Items** – click **Filter** above the table, choose **Add a filter**, set `Status` **is** `Paid`.  
-    *Expected result:* The table now only shows rows where the status is Paid.  
-
-    **Do you see only paid rows?** If the table still shows all rows, click **Filter** again and confirm the condition.  
-
-11. **Create a Monthly View** – click **+ Add a view** → choose **Table** → name it `Monthly`.  
-    Add a filter: `Date` **is within** `This month`.  
-    Add a sort: `Date` **ascending**.  
-
-12. **Create a Summary Page** – in the left sidebar, click **+ New Page**, title it `Revenue Summary – AI Repurposing Agency`.  
-    In the new page, type `/Table` and select **Table – Full Page** → name it `Summary Table`.  
-
-13. **Add Rollup Properties** – in `Summary Table`, click **+ Add a property**, choose **Rollup** →  
-    - **Name**: `Total Monthly Revenue`  
-    - **Relation**: link to the original `Revenue Dashboard` table  
-    - **Rollup property**: `Revenue`  
-    - **Calculate**: `Sum`  
-
-    Repeat for `Total Cumulative Revenue` using the `Cumulative Revenue` column.  
-
-14. **Embed a Chart** – click **/Chart** → choose **ChartBlocks** (free tier: 3 charts/month).  
-    Select `Bar Chart`, configure X‑axis as `Date`, Y‑axis as `Total Monthly Revenue`, and
-
----
-
-## Procedure 9.2: Draft Automated Pricing Increase Proposal Templates
-
-1. **Open Notion**  
-   - URL: https://www.notion.so  
-   - Click the **+ New Page** button in the left sidebar.  
-   - Name the page **Pricing Increase Proposal Templates** and press **Enter**.
-
-2. **Create a database table**  
-   - In the new page, type `/table` and select **Table – Inline**.  
-   - Rename the table header to **Template Library**.  
-   - Add the following columns:  
-     - **Template Name** (Title)  
-     - **Created Date** (Date)  
-     - **Template Content** (Text)
-
-3. **Add a new entry**  
-   - Click **+ New** in the table.  
-   - In the **Template Name** field, type **Standard Pricing Increase**.
-
-4. **Open a new Notion block for draft content**  
-   - In the **Template Content** cell, click **Add a block** and type `/toggle`.  
-   - Title the toggle **Draft**.  
-   - *Check‑in:* Do you see the **Toggle** block? If not, refresh the page or re‑type `/toggle`.  
-
-5. **Launch ChatGPT**  
-   - URL: https://chat.openai.com  
-   - Click the **New Chat** button in the top left.
-
-6. **Prepare the prompt**  
-   - In the chat input box, paste the following exact prompt:  
-     ```
-     Write a professional pricing increase proposal template for an AI content repurposing agency.  
-     Include sections: Executive Summary, Current Pricing, Proposed Increase, Value Add, Timeline, Call to Action.  
-     Use bullet points and tables.  
-     ```
-   - Ensure no extra whitespace at the end.
-
-7. **
-
-## Check-In: Module 9 Complete
-
-- [ ] Create a Revenue Tracking Dashboard in Notion completed and verified
-- [ ] Draft Automated Pricing Increase Proposal Templates completed and verified
-- [ ] All tools connected and working
-- [ ] No errors or warnings in any dashboard
-
-
----
-
-# MODULE 10: LAUNCH PLAN
-
-## Overview  
-Module 10 is the definitive launch playbook that turns your AI‑powered content repurposing agency from an idea into a cash‑generating operation in just 30 days. It delivers a day‑by‑day execution calendar, a granular action plan, and a systematic framework for securing your first paying client. Skipping this module means you’ll spend weeks guessing which tools to use, how to automate the workflow, and when to pitch. You’ll waste hours on trial‑and‑error, miss the critical “burn‑in” period that builds trust with early adopters, and ultimately lose the momentum that turns a solo entrepreneur into a scalable agency.
-
-The launch plan is engineered for speed and precision. Every day is an executable task with clear deliverables, deadlines, and success metrics. By the end of day 30 you will have a fully functional content‑repurposing pipeline, an active client pipeline, and a repeatable revenue model that scales from a single project to a portfolio. If you skip this module, you’ll struggle to prove ROI to prospects, and you’ll likely stall at the “no‑client” plateau.
-
-Below is a concise inventory of the essential tools, their core purpose, and the pricing you’ll encounter during the first month. All tools are chosen for their free‑tier viability and seamless integration into the launch workflow.
-
-| Tool          | Purpose                                 | Free Tier                               | Paid Tier (Monthly) |
-|---------------|-----------------------------------------|-----------------------------------------|---------------------|
-| Beehiiv       | Newsletter distribution & analytics    | 0 $ (up to 5 k subscribers, 2 k msg/day) | 49 $ (Pro) |
-| Loom          | Video creation & client demos           | 0 $ (30 min recording, 1 GB storage)     | 8 $ (Starter) |
-| Make.com      | Workflow automation between SaaS         | 0 $ (500 operations)                    | 49 $ (Starter) |
-| Replit        | Quick script prototyping (Python/JS)     | 0 $ (unlimited)                         | 7 $ (Hacker) |
-| Vapi          | Text‑to‑speech conversion               | 0 $ (10 min/day)                        | 5 $ (Starter) |
-| Fliki AI      | AI‑generated video from text             | 0 $ (10 min/day)                        | 29 $ (Pro) |
-| Canva         | Visual asset creation                    | 0 $ (limited templates)                 | 12.99 $ (Pro) |
-| ChatGPT‑4     | Content ideation & drafting              | 0 $ (free tier)                         | 20 $ (Plus) |
-| ElevenLabs    | High‑quality AI voice synthesis          | 0 $ (5 k characters/month)              | 49 $ (Pro) |
-| Klaviyo       | Email marketing & automation             | 0 $ (500 contacts)                      | 19 $ (Starter) |
-| Zapier        | Connect apps & automate tasks            | 0 $ (100 tasks/mo)                      | 19.99 $ (Starter) |
-| Apollo.io     | Lead generation & outreach               | 0 $ (50 credits)                        | 99 $ (Starter) |
-| Notion        | Project & client management              | 0 $ (basic)                             | 8 $ (Personal Pro) |
-| Midjourney    | AI image generation                      | 0 $ (trial)                             | 10 $ (Standard) |
-| Grammarly     | Writing quality & plagiarism check       | 0 $ (basic)                             | 12 $ (Premium) |
-
-**Estimated time to complete Module 10:** 3 hours total (reading, tool setup, and initial workflow construction).
 
 
 
@@ -1886,282 +1535,621 @@ Powered by Pollinations.AI free text APIs. [Support our mission](https://pollina
 
 ---
 
-## Procedure 10.1: Publish Your First AI Repurposing Case Study on Beehiiv
+## Procedure 7.2: Build SOPs for Task Delegation in Notion
 
-1. **Open a browser** and go to **https://beehiiv.com/**.  
-   *You should see Beehiiv’s homepage with a bright “Start free trial” button in the top‑right corner.*  
+1. **Open** your web browser and navigate to **https://www.notion.so**.  
+   - Log in with your credentials.  
+   - If you are new, sign up with your email, then click **“Create a free account”**.  
+   - Expected result: You see the Notion dashboard with a left‑hand sidebar.
 
-2. **Click the button labeled **_**Start free trial**_**.  
-   *A modal pops up asking for your email and password.*  
+2. In the sidebar, click the **“+ New page”** button (bottom left).  
+   - Title the page **“Task Delegation SOP”** and press **Enter**.  
+   - Click the icon left of the title and choose the **“Table”** template from the dropdown.  
+   - Expected result: A new full‑width table appears titled **“Task Delegation SOP”**.
 
-3. **Enter your email** in the field marked “Email address” and **choose a secure password** in the field labeled “Password”.  
-   *Example password: `BeeHiiv2026!` – 12 characters, uppercase, lowercase, number, special symbol.*  
+3. Rename the first column header from **“Name”** to **“Task”** by clicking the header, typing **“Task”**, and pressing **Enter**.  
+   - Add a second column by clicking the **“+ Add a property”** button on the right.  
+   - Select **“Select”** and name it **“Status”**.  
+   - Add a third property, choose **“Person”**, name it **“Assignee”**.  
+   - Add a fourth property, choose **“Date”**, name it **“Due Date”**.  
+   - Expected result: Four columns labeled Task, Status, Assignee, Due Date.
 
-4. **Check the box** that says “I agree to the Terms & Conditions” and then **click the button labeled **_**Create account**_**.  
-   *You should see a confirmation banner: “Welcome! Check your inbox for a verification email.”*  
+4. Create a new row for the first task:  
+   - Click **“+ New”** at the bottom of the table.  
+   - In the **Task** cell, type **“Create onboarding workflow for client X”**.  
+   - In **Status**, select **“Not Started”**.  
+   - In **Assignee**, type the name of the team member and select from the list.  
+   - In **Due Date**, click the calendar icon, pick **today + 7 days**, and press **Enter**.  
+   - Expected result: Row populated with the task details and colored status tag **Not Started**.
 
-5. **Open your email inbox** (Gmail, Outlook, etc.) and click the verification link from Beehiiv.  
-   *If you don’t see the email, check your spam folder. If still missing, click the “Resend verification” link on Beehiiv.*  
+5. **Do you see** the row you just created with all four columns filled? **If not,** verify each field was entered correctly and that you pressed **Enter** after each entry.  
 
-> **Do you see the “Welcome” banner after clicking “Create account”?**  
-> If not, refresh the page and try again.  
+6. Click the **three dots** (**⋮**) in the top-right corner of the page and select **“Template”** → **“Create new template.”**  
+   - Name the template **“Task”**.  
+   - In the template editor, click **“+ Add a property”** and add a **“Checkbox”** property called **“Completed”**.  
+   - Add a **“Rich Text”** property called **“Notes.”**  
+   - Click **“Save”** and then **“Close.”**  
+   - Expected result: A template named “Task” appears in the page sidebar.
 
-6. **Log back into Beehiiv** using the same email and password.  
-   *The dashboard should load with a sidebar titled “Campaigns”, “Analytics”, “Settings”.*  
+7. **Do you see** the new “Task” template listed? **If not,** ensure you clicked **“Save”** before closing the editor.
 
-7. **Navigate to the “Campaigns” tab** in the sidebar and click the button labeled **_**New Campaign**_**.  
+8. Open your browser and go to **https://www.make.com**.  
+   - Sign in or sign up for a free account.  
+   - In the dashboard, click **“Create new scenario.”**  
+   - Search for **“Calendly”** in the app list, click it, and choose **“New Event”** trigger.  
+   - Follow the prompts to connect your Calendly account (click **“Add a connection”**, paste the API key, then click **“Authorize.”**)  
+   - Expected result: A scenario canvas with a **Calendly > New Event** box.
 
-8. **Select “Newsletter”** from the dropdown menu that appears.  
-   *You’ll be prompted to choose a template; pick “Standard” (the default).*
+9. Drag a **“HTTP”** module from the left panel to the canvas.  
+   - Configure it to send a **POST** request to **https://api.notion.com/v1/pages**.  
+   - In the request body, paste the following JSON template, replacing placeholders with variable names from the Calendly trigger:
 
-9. **Name the campaign** “AI Repurposing Case Study” in the “Campaign Name” field, then **click the button labeled **_**Create**_**.  
-
-10. **Enter the subject line** in the “Subject line” field:  
-   `🚀 How We Repurposed 10x Content with AI – Real Results`  
-   *Press “Enter” to save.*  
-
-11. **Input preview text** (appears in inbox preview) in the “Preview text” field:  
-   `Discover the step‑by‑step workflow that cut our content creation time by 70%`.  
-
-12. **Click the “+ Add content block” button** (below the email editor).  
-   *Choose the block type “Rich text” and click “Add”.*  
-
-13. **Generate the case study body** using ChatGPT:  
-    - Open a new tab and go to **https://chat.openai.com/**.  
-    - Click **Create new chat**.  
-    - Paste the prompt:  
-      ```
-      Write a 600‑word case study about a small agency that used AI to repurpose 10 pieces of content into 30 posts across LinkedIn, Twitter, and Medium. Include metrics, benefits, and a call‑to‑action. Use a friendly tone.
-      ```  
-    - Press “Enter” to send.  
-    - Copy the generated text.  
-
-14. **Paste the copied text** into the Beehiiv rich‑text block.  
-    *The text should appear with basic formatting (headings, bold, bullet lists).*  
-
-> **Do you see the pasted case study text formatted in Beehiiv?**  
-> If not, ensure the cursor is inside the block and try a second paste.  
-
-15. **Create a supporting image** with Canva:  
-    - Open a new tab, go to **https://www.canva.com/**.  
-    - Click **Create a design** → “Custom dimensions”.  
-    - Enter width `1200 px`, height `628 px`, then click **Create new design**.  
-    - Use the “Elements” tab to add a rectangle background, upload a relevant photo (e.g., a laptop), and add text “AI Repurposing Success”.  
-    - Click **Download** → “PNG”.  
-    - Return to Beehiiv and click **Upload image** in the rich‑text block, then select the PNG file.  
-
-16. **Record a short Loom video** summarizing the case study:  
-    - Open a new tab, go to **https://www.loom.com/**.
+   ```json
+   {
+     "parent": { "database_id": "YOUR_NOTION_DATABASE_ID" },
+     "properties": {
+       "
 
 ---
 
-## Procedure 10.2: Pitch Repurposing Services to 10 Prospects via Loom Video  
+## Procedure 7.3: Run a Margin Analysis and Pricing Review
 
-1. **Open your web browser** and navigate to **https://www.loom.com**.  
-   - Click the **“Sign In”** button in the top‑right corner.  
-   - Enter your email **(yourname@example.com)** and password, then click **“Log in”**.  
-   - **Expected output:** Loom dashboard with “New video” button visible.  
+1. **Open Notion**  
+   - Visit **https://www.notion.so**.  
+   - Click **SIGN IN** in the top‑right corner and enter your credentials.  
+   - Once logged in, click **+ NEW PAGE** on the left sidebar.  
+   - Name the page **“Margin Analysis & Pricing Review”** and set the icon to a calculator emoji (⚙️).  
+   - Do you see the new page with the title “Margin Analysis & Pricing Review”? If not, refresh the browser or re‑login.
 
-2. Click on **“New video”**.  
-   - Select the **“Screen + Camera”** option.  
-   - In the settings panel, set the camera to the **“Front”** facing mode, and turn on the **“Grid”** view.  
-   - Check the **“Microphone”** icon is green (audio enabled).  
-   - **Check‑in:** Do you see the Loom recording window with a green microphone icon? If not, ensure your microphone is connected and permissions are granted in your OS settings.  
+2. **Create a Database**  
+   - In the new page, type **/table full page** and select **Table – Full Page**.  
+   - Click **+ ADD A COLUMN** five times to add the following columns:  
+     1. **Product Name** (Title type)  
+     2. **SKU** (Text)  
+     3. **Cost Price** (Number, format: Currency)  
+     4. **Selling Price** (Number, format: Currency)  
+     5. **Margin %** (Formula)  
+     6. **Status** (Select: “Under Review”, “Approved”, “Rejected”)  
+   - For the **Margin %** column, click **+ Add a property → Formula** and paste:  
+     `round((prop("Selling Price") - prop("Cost Price")) / prop("Selling Price") * 100, 2) & " %"`  
+   - Do you see the six columns with the formula applied? If not, ensure the formula syntax matches exactly.
 
-3. **Open Notion** (https://www.notion.so) in a new tab.  
-   - Open the “Prospect List” database you created in Module 9.  
-   - Copy the first prospect’s **Name** (“Acme Corp”) and **LinkedIn URL** (“https://linkedin.com/in/acme”).  
-   - Paste the LinkedIn URL into the Loom video description box.  
-   - **Check‑in:** Do you see the LinkedIn URL in the Loom description? If not, manually type it in.  
+3. **Import Existing Product Data**  
+   - Export your existing product list from Shopify as a CSV.  
+   - In Notion, click **⋮** in the top‑right of the table → **Merge with CSV**.  
+   - Upload the CSV file and map the columns to the database fields.  
+   - After import, you should see rows populated with product names, SKUs, costs, and selling prices.  
+   - If the import shows blank cells, double‑check that the CSV headers match the Notion column names exactly.
 
-4. In Loom, **click “Record”** to start the video.  
-   - Deliver a concise 90‑second pitch:  
-     1. Introduce yourself and your agency.  
-     2. Highlight the problem: “Your content is under‑used.”  
-     3. Explain the solution: “AI‑powered repurposing across 5 platforms.”  
-     4. Call to action: “Let’s schedule a quick 15‑min demo.”  
-   - Use the **“Pause”** button if you need to collect a thought, then **“Resume.”**  
-   - **Check‑in:** Do you hear yourself clearly and see your screen? If not, adjust mic volume in Loom settings.  
+4. **Calculate Margins**  
+   - The **Margin %** column will auto‑calculate for each row.  
+   - Scan the table for any **Margin %** values below 20%.  
+   - Highlight those rows by clicking the row selector, then clicking **⋮ → Highlight** and choosing a red color.  
+   - Do you see the red‑highlighted rows with low margins? If not, verify the formula in step 2.
 
-5. **Stop recording** and click **“Save”**.  
-   - Loom will automatically generate a shareable link.  
-   - In the **“Share”** modal, click **“Copy Link”**.  
-   - **Expected output:** Clipboard contains a URL like “https://www.loom.com/share/abcdef123456”.  
+5. **Set Up a Klaviyo Email Template**  
+   - Open **https://www.klaviyo.com** and sign in.  
+   - Click **EMAILS** → **Create Email** → choose **HTML**.  
+   - Name the email **“Pricing Review – Action Needed”**.  
+   - In the email body, paste the following HTML snippet:  
+     ```html
+     <h2>Pricing Review for <b>{{ product_name }}</b></h2>
+     <p>Current Selling Price: ${{ selling_price }}</p>
+     <p>Cost Price: ${{ cost_price }}</p>
+     <p>Margin: {{ margin_percent }}</p>
+     <p>Please review and adjust pricing if margin < 20%.</p>
+     ```  
+   - Save the template.  
+   - Do you see the new email template with the placeholder variables? If not, double‑check the variable names.
 
-6. **Open your email client** (Gmail).  
-   - Click **“Compose”**.  
-   - In the “To” field, paste the prospect’s email (**contact@acmecorp.com**).  
-   - Subject: **“Quick Pitch: Repurpose Your Content Faster”**.  
-   - Body:  
-     ```
-     Hi Name,
-     
-     I’m [Your Name] from [Agency]. I’ve created a short Loom video that shows how we can help your brand repurpose content across LinkedIn, YouTube, Instagram, TikTok, and Twitter in half the time.
-     
-     Watch here: [Paste Loom link]
-     
-     Let’s schedule a 15‑min strategy call. Please pick a slot: https://calendly.com/yourname/15min
-     
-     Best,
-     [Your Name]
-     ```
-   - Click **“Send.”**  
+6. **Create a Make.com Scenario to Pull Data from Notion**  
+   - Visit **https://www.make.com** and log in.  
+   - Click **CREATE** → **Scenario**.  
+   - Click **+** to add a module and search for **Notion → Database Items**.  
+   - Select the database “Margin Analysis & Pricing Review”.  
+   - In the module settings, set **Filter** to `prop("Margin %") < 20`.  
+   - Click **+** again, search for **Klaviyo → Send Email**.  
+   - Map the fields:  
+     - `product_name` → **Product Name**  
+     - `selling_price` → **Selling Price**  
+     - `cost_price` → **Cost Price**  
+     - `margin_percent` → **Margin %**  
+   - Click **RUN** once to test.  
+   - Expected output: A single email is sent to the address set in Klaviyo for each low‑margin product.  
+   - If you see **“Invalid API Key”** in the Notion module, it means your Notion integration key is wrong. Fix it by revisiting the Notion integration in the Settings → Integrations → New Integration, copying the new key, and pasting it into the Make.com module.
 
-7. **Open Calendly** (https://calendly.com) in a new tab.  
-   - Ensure your schedule is set to **“Business Hours”** (9 AM – 5 PM PT).  
-   - Verify the event type “15‑min strategy call” is active.  
-   - **Check‑in:** Do you see the event type with the correct time zone? If not, adjust under “Event Types.”  
+7. **Schedule the Scenario**  
+   - Click the clock icon in the upper right of the Make.com scenario.  
+   - Set the schedule to **Every Friday at 10 AM UTC**.  
+   - Confirm by
 
-8. Repeat steps 3‑7 for the remaining **9 prospects**.  
-   - Keep the Loom video content identical; only update the prospect’s name, email, and LinkedIn URL.  
-   - **Check‑in:** After sending the 10th email, confirm you have 10 “Sent” items in Gmail.  
+## Check-In: Module 7 Complete
 
-9. **Log into Beehiiv** (https://app.beehiiv.com).  
-   - Navigate to **“Campaigns → New Campaign.”**  
-   - Title: **“Repurposing Pitch Follow‑up.”**  
-   - In the email body, paste the same content as in step 6, but toggle the **“Dynamic personalization”** feature to insert prospect names automatically.  
-   - Click **“Send Test.”**  
-   - Verify the test email renders correctly on desktop and mobile.  
-   - **Expected output:** Beehiiv shows a “✅ Sent” status for the test.  
+- [ ] Hire Your First Contractor on Upwork completed and verified
+- [ ] Build SOPs for Task Delegation in Notion completed and verified
+- [ ] Run a Margin Analysis and Pricing Review completed and verified
+- [ ] All tools connected and working
+- [ ] No errors or warnings in any dashboard
 
-10. **Create a Zapier Zap** (https://zapier.com) to automate future pitches:  
-
-| Step | Action | Details | Expected Result |
-|------|--------|---------|-----------------|
-| 1 | Trigger | **“New Email in Gmail”** (label “Prospect Pitch”) | New email detected |
-| 2 | Action | **“Create Loom Video”** (via Loom API) | Video link generated |
-| 3 | Action | **“Send Email”** (via Gmail) | Email sent with Loom link |
-
-   - Set the Gmail trigger to filter emails with the label “Prospect Pitch.”  
-   - In the Loom action, use the **“API Key”** from Loom settings.  
-   - In the Gmail action, map the Loom link field to the email body.  
-   - Turn the Zap **“ON.”**  
-
-11. **Monitor** the Zapier dashboard for **“Task history.”**  
-   - Confirm no errors appear.  
-   - **Check‑in:** If you see “Error: 401 Unauthorized,” this means your Loom API key expired. Re‑generate a key in Loom → Settings → API.  
-
-12. **Track responses** using **Notion**
 
 ---
 
-## Procedure 10.3: Launch Paid Subscription Offers Using Beehiiv's Email Automation
+# MODULE 8: ADVANCED PATTERNS
 
-1. **Navigate to Beehiiv**  
-   Open your browser and go to `https://app.beehiiv.com`.  
-   You should see the Beehiiv dashboard with a blue header bar labeled **“Beehiiv Dashboard.”**  
-   *Do you see the dashboard? If not, refresh the page or clear your browser cache.*
+## Overview
 
-2. **Create a new account**  
-   Click the **“Sign up”** button in the top‑right corner.  
-   In the sign‑up form, enter:  
-   - **Email**: `yourname@yourdomain.com`  
-   - **Password**: `StrongPass123!`  
-   - **Confirm Password**: same as above  
-   Click **“Create account.”**  
-   *You should receive a confirmation email; click the link inside to verify.*
+In this module you will master the art of building, fine‑tuning, and monetizing AI‑driven customer onboarding workflows that combine Calendly’s scheduling precision with Klaviyo’s marketing automation depth. You will learn how to layer sophisticated triggers, conditional logic, and AI‑generated content to deliver a frictionless, personalized onboarding experience for each new customer. The result is a repeatable, scalable service that can be sold as a high‑ticket offering or added as a recurring revenue stream to your existing funnel.
 
-3. **Verify your domain**  
-   In the dashboard, select **“Settings”** from the left menu → **“Domain Settings.”**  
-   Click **“Add Domain.”**  
-   Enter: `yourdomain.com` and click **“Add.”**  
-   Follow the on‑screen DNS instructions to add a TXT record to your DNS provider.  
-   After adding, return to Beehiiv and click **“Verify.”**  
-   *You should see a green checkmark next to your domain.*
+Skipping this module means you’ll miss the opportunity to lock in clients with a seamless, data‑rich onboarding process that keeps churn rates low and upsell potential high. Without the advanced patterns you’ll be limited to basic triggers and static emails, which many competitors already provide for free. By the end of the module you’ll be able to package these workflows as a turnkey product, upsell premium AI enhancements, and generate predictable monthly revenue from a single client.
 
-4. **Create a new publication**  
-   Back in the dashboard, click **“New Publication.”**  
-   Fill in:  
-   - **Publication Name**: `AI Repurpose Pro`  
-   - **Primary Email**: `newsletter@yourdomain.com`  
-   Click **“Create.”**  
-   *You’ll land on the publication’s settings page.*
+| Tool | Purpose | Free Tier | Paid Tier |
+|------|---------|-----------|-----------|
+| Calendly | Appointment scheduling, calendar sync, and webhook triggers | Unlimited free events, 1 calendar integration | Pro ($8/mo billed annually) – 10 calendars, custom branding, integrations |
+| Klaviyo | Email & SMS automation, segmentation, AI‑powered content | Unlimited contacts, 500 emails/month | Growth ($20/mo billed annually) – 2,000 emails/mo, advanced segmentation |
+| Make.com | Low‑code automation, multi‑step workflows, API integration | 1,200 operations/month | Starter ($9/mo) – 12,000 ops, advanced connectors |
+| Replit | Coding sandbox for custom scripts | Unlimited use, 500 MB storage | Pro ($7/mo) – 2 GB storage, private repos |
+| ElevenLabs | AI voice generation for onboarding scripts | 5 hours free | Starter ($15/mo) – 20 hours, higher quality voices |
 
-5. **Set up a paid tier**  
-   In the left menu, click **“Subscribers.”**  
-   Click **“Create Tier.”**  
-   Configure:  
-   - **Tier Name**: `Premium Content Pack`  
-   - **Price**: `$29.99/month`  
-   - **Billing Frequency**: **Monthly**  
-   - **Trial Period**: `7 days` (optional)  
-   Click **“Save Tier.”**  
-   *Do you see your new tier listed with a green badge? If not, double‑check the pricing field.*
-
-**Check‑in 1**  
-Do you see the “Premium Content Pack” tier with a green badge?  
-If not, verify that the price field ends with `.99` and that the billing frequency is set to **Monthly**. Retry saving.
+**Estimated Time to Complete:** 3 hours 45 minutes (includes tool setup, workflow design, testing, and packaging for sale).
 
 ---
 
-6. **Create a welcome email**  
-   From the left menu, click **“Email Templates.”**  
-   Click **“New Template.”**  
-   Choose **“HTML”** and name it **“Welcome to Premium.”**  
-   Paste the following boilerplate into the editor:  
+## Procedure 8.1: Create a High‑Ticket Consulting Package
 
-   ```
-   <h1>Welcome, {{ subscriber.first_name }}!</h1>
-   <p>Thank you for subscribing to Premium Content Pack. You now have instant access to AI‑generated repurposed assets.</p>
-   <a href="{{ subscriber.payment_link }}">Activate Your Subscription</a>
-   ```  
+1. **Open a web browser** and go to the Calendly homepage:  
+   <https://calendly.com>.  
+2. **Click the blue button** that says **“Sign up”** (top right).  
+   - Enter your **email** (e.g., `you@yourdomain.com`), **first name**, **last name**, and **password**.  
+   - Click **“Create account”**.  
+3. **Confirm your email** by clicking the link sent to your inbox.  
+4. **Log in** again to Calendly.  
+   - You should see the **Dashboard** with a “Welcome” banner and an **“Add event type”** button.  
+   - **Do you see the “Add event type” button?** If not, ensure you’re on the **Calendly.com** domain and refresh the page.  
 
-   Click **“Save.”**  
-   *You should see a preview pane on the right.*
+**Expected Output:** You should now be on Calendly’s main dashboard, ready to create a new event.
 
-7. **Add a subscription form**  
-   In the left menu, click **“Forms.”**  
-   Click **“New Form.”**  
-   Drag a **“Sign‑Up”** widget onto the canvas.  
-   In the widget settings, set:  
-   - **Publication**: `AI Repurpose Pro`  
-   - **Tier**: `Premium Content Pack`  
-   - **Post‑signup Redirect**: `https://yourdomain.com/thank-you`  
-   Click **“Save Form.”**  
-   *You will receive a shortcode like `[beehiiv_form id="123"]`.*
+5. **Click the bold button** **“Add event type”**.  
+6. **Choose “One‑on‑one”** and click **“Next”**.  
+7. **Enter the event title** “High‑Ticket Consulting Call”.  
+   - Set **location** to “Zoom” (Calendly will auto‑create a Zoom link).  
+   - Set **duration** to **30 minutes**.  
+   - Click **“Done”**.  
+8. **Under “Availability”** set **“Every weekday, 10 AM – 4 PM”**.  
+   - Click **“Save… and add questions”**.  
 
-8. **Embed the form in your site**  
-   Open your website editor (e.g., WordPress, Webflow).  
-   Create a new page titled **“Subscribe.”**  
-   Paste the shortcode `[beehiiv_form id="123"]` into the page content.  
-   Publish the page.  
-   *Visit `https://yourdomain.com/subscribe` to see the form render.*
+**Check‑in 1:**  
+Do you see the “Add questions” screen with default “Name” and “Email” fields? If not, click **“Edit questions”** in the top right corner.
 
-9. **Create a subscription confirmation email**  
-   In Beehiiv, go back to **“Email Templates.”**  
-   Click **“New Template.”**  
-   Name it **“Subscription Confirmation.”**  
-   Use the following snippet:  
+9. **Add a new question**:  
+   - Click **“+ Add question”**.  
+   - Set **label** to **“Company”**.  
+   - Choose **“Single line answer”**.  
+   - Toggle **“Required”** on.  
+   - Click
 
-   ```
-   <h2>Subscription Confirmed!</h2>
-   <p>Hi {{ subscriber.first_name }}, your subscription is now active.</p>
-   <p>Access your content here: <a href="https://yourdomain.com/premium">Premium Hub</a></p>
-   ```  
+---
 
-   Click **“Save.”**  
-   *Ensure the template appears under “Active.”
+## Procedure 8.2: Deploy Subscription Onboarding Workflow
 
-10. **Set up automation to send welcome and confirmation emails**  
-    In the left menu, click **“Automation.”**  
-    Click **“New Zap.”**  
-    **Trigger**:  
-    - App: **Beehiiv**  
-    - Event: **New Subscriber**  
-    **Action**:  
-    - App: **Beehiiv**  
-    - Event: **Send Email**  
-    - Template: **Welcome to Premium**  
-    Click **“Test & Continue.”**  
-    *You should see a test subscriber in the preview.*
+**Objective:** Create a seamless AI‑powered onboarding funnel that uses Calendly to schedule a kickoff call, Klaviyo to nurture the lead, and Shopify to sell and manage subscription tiers. Follow each instruction exactly; this is the only path to a functioning recurring‑revenue engine.
 
-**Check‑
+---
+
+### 1. Set Up the Shopify Subscription Product
+
+1. Open your web browser and go to **https://www.shopify.com**.  
+2. Log in with your merchant credentials.  
+3. From the Admin dashboard, click **Products** → **All products** → **Add product** (button in the top‑right).  
+4. In the product form, type **Premium AI Onboarding Package** in the **Title** field.  
+5. In the **Description** box, paste the following (copy exactly, including line breaks):
+
+```
+Subscribe to our AI‑powered customer onboarding system.  
+Monthly fee: $29.  
+Features:  
+ • 1‑on‑1 kickoff call via Calendly  
+ • Customized onboarding checklist in Klaviyo  
+ • Unlimited AI‑generated welcome emails  
+```
+
+6. Under **Pricing**, click **Set price** → **Price**: **$29.00**.  
+7. Click the **+** icon next to **Compare at price** and set it to **$39.00**.  
+8. Scroll to **Inventory** → **Track quantity** → **No** (unlimited).  
+9. Drag the **Product image** placeholder to add a banner image from your local drive.  
+10. Click **Save product** (bottom‑right).  
+
+**Expected Result:** A new product page titled “Premium AI Onboarding Package” appears in the product list with a price of $29.00.
+
+---
+
+#### Check‑In 1  
+**Do you see the new product listed under “All products” with the correct price?**  
+*If not,* verify you are on the correct store and that you clicked **Save product**. In Shopify, the product will appear immediately upon saving.
+
+---
+
+### 2. Enable Shopify Subscriptions
+
+11. From the Admin menu, navigate to **Apps** → **Find more apps**.  
+12. Search for “Shopify Subscriptions” and click **Add app**.  
+13. In the app installation dialog, click **Install app**.  
+14. Once installed, open the app and click **Create plan** → **Monthly**.  
+15. In the plan editor, set **Plan name** to **Premium AI Onboarding** and **Price** to **$29.00**.  
+16. Under **Billing details**, set **Trial period** to **7 days**.  
+17. Click **Save plan**.  
+
+**Expected Result:** The subscription plan “Premium AI Onboarding” is now available in the Shopify product page under **Variants** → **Add variant** → **Subscription**.
+
+---
+
+#### Check‑In 2  
+**Do you see the “Subscription” variant added to the product?**  
+*If not,* ensure you are in the product’s variant section and that the Shopify Subscriptions app is active. Try refreshing the page.
+
+---
+
+### 3. Create a Calendly Event Type for the Kickoff Call
+
+18. Open a new tab and go to **https://calendly.com**.  
+19. Log in or sign up for the free tier.  
+20. On the dashboard, click **Event types** → **New event type** → **One‑on‑one**.  
+21. Name the event **AI Onboarding Kickoff**.  
+22. Set **Location** to **Zoom** (you must have a Zoom account linked).  
+23. In the **Availability** tab, set a default slot of **30‑minute appointments**.  
+24. Under **Invitee Questions**, add a single field: **Company Name** (short answer).  
+25. Click **Save & close**.  
+
+**Expected Result:** A new Calendly event URL appears in the **Event types** list.
+
+---
+
+#### Check
+
+## Check-In: Module 8 Complete
+
+- [ ] Create a High‑Ticket Consulting Package completed and verified
+- [ ] Deploy Subscription Onboarding Workflow completed and verified
+- [ ] All tools connected and working
+- [ ] No errors or warnings in any dashboard
+
+
+---
+
+# MODULE 9: FINANCIAL OPERATIONS
+
+## Overview
+
+This module equips you with the financial infrastructure necessary to monetize AI‑driven onboarding workflows. You’ll learn how to set up a revenue‑tracking dashboard that captures every dollar earned from Calendly appointments and Klaviyo email campaigns, how to implement dynamic pricing models for tiered onboarding packages, and how to generate professional proposal and contract templates that close deals faster. The focus is on turning your service into a scalable, data‑driven revenue generator rather than a one‑off engagement.
+
+Skipping this module will leave you with a beautiful onboarding system that earns no money or, worse, operates on an untracked cash flow that blinds you to profitability. Without real‑time financial metrics you’ll be unable to justify pricing increases, negotiate with clients, or forecast growth. In short, you’ll be “flying blind” while competitors build automated revenue engines that keep money in the bank.
+
+| Tool        | Purpose                                                  | Free Tier | Paid Tier (monthly) |
+|-------------|----------------------------------------------------------|-----------|---------------------|
+| Calendly    | Schedule client onboarding appointments                  | Unlimited 5 events, 1 calendar | $10 (Pro) – unlimited events, advanced features |
+| Klaviyo     | Automate onboarding email sequences & revenue tracking  | 500 contacts, 3,000 emails | $20 (Starter) – 3,000 contacts |
+| Make.com    | Orchestrate workflows between Calendly, Klaviyo, and accounting | 500 operations | $49 (Pro) – 5,000 operations |
+| Notion      | Store proposal templates and contract boilerplates       | Unlimited pages & databases | $8 (Personal Pro) – advanced integrations |
+| Hostinger   | Host a simple static website for invoices & contracts   | 100 GB bandwidth | $3.95 (Single Shared) – 100 GB bandwidth |
+
+Estimated time to complete this module: **3.5 – 4 hours** (including dashboard setup, pricing model calibration, and template generation).
+
+---
+
+## Procedure 9.1: BUILD a Live Revenue Dashboard in Notion with Make.com  
+
+1. **Open your web browser** → navigate to https://www.notion.so/.  
+   - If you are not yet a Notion user, click **SIGN UP** (top‑right), enter your email, confirm, and log in.  
+   - **Expected output:** You are on the Notion home screen with the left‑hand sidebar showing “Workspace”, “Friends”, “Templates”, etc.  
+
+2. **Create a new database** → click the **+ NEW PAGE** button at the bottom of the sidebar, then select **Table – Full page**.  
+   - Title the page **“Live Revenue Dashboard”** and press **ENTER**.  
+   - **Check‑in:** Do you see a blank table with columns *Name*, *Tags*, *Created*? If not, scroll down until the table appears.  
+
+3. **Add required columns** →  
+   - Click the header of **Name**, rename it to **Client**.  
+   - Click the **+** icon to the right of the last column and select **Date** → rename to **Date**.  
+   - Add a **Number** column → rename to **Revenue**.  
+   - Add a **Text** column → rename to **Notes**.  
+   - **Expected output:** The table now has four columns: Client, Date, Revenue, Notes.  
+
+4. **Save the database URL** → click the **•••** menu in the top‑right corner of the page and select **Copy link**.  
+   - Store this URL in a secure note for later use.  
+   - **Check‑in:** Do you see the link copied to your clipboard? If not, click **Copy link** again.  
+
+5. **Open Make.com** → go to https://www.make.com/en.  
+   - Click **SIGN IN** if you already have an account; otherwise click **SIGN UP** and register with your email.  
+   - **Pricing note:** Free tier → 100 operations/month, 1 scenario, 5‑minute delay. Paid plan starts at $25/month for 2,000 operations.  
+
+6. **Create a new scenario** → click **CREATE** → **NEW SCENARIO**.  
+   - **Check‑in:** Do you see the blank canvas with a plus (+) icon in the center? If not, refresh the page.  
+
+7. **Add Calendly trigger** → click the **+** icon, type “Calendly” in the search bar, select **Calendly – Webhook** → choose **When a new event is scheduled**.  
+   - Click **CONNECT** → paste your Calendly API key (found under *Integrations → API Key* in your Calendly account).  
+   - **Expected output:** The Calendly module appears on the canvas, showing “Calendly – When a new event is scheduled.”  
+
+8. **Set Calendly webhook** → click the Calendly module, then **Configure**.  
+   - Choose **Event type** → “All event types”.  
+   - Set **Trigger type** → “Event scheduled”.  
+   - Click **SAVE**.  
+   - **Check‑in:** Do you see the module with “Event scheduled” next to it? If not, ensure the correct trigger is selected.  
+
+9. **Add Make.com HTTP request to fetch event details** → click the **+** icon next to Calendly module → search for **HTTP** → select **Make –
+
+---
+
+## Procedure 9.2: Create Proposal Templates and Automated Billing with Stripe
+
+1. **Open Stripe Dashboard**  
+   - URL: https://dashboard.stripe.com/login  
+   - Click **LOGIN** (top‑right).  
+   - Enter your registered email and password.  
+   - Click **SIGN IN**.  
+   *Do you see the Stripe Dashboard home page with the “Products” tab on the left? If not, re‑login or clear browser cache.*
+
+2. **Create a New Product for Proposals**  
+   - In the left sidebar, click **Products**.  
+   - Click **+ NEW** (top‑right).  
+   - In the **Product name** field, type `Onboarding Proposal`.  
+   - Optional: Add a short description “Automated proposal and billing for new clients.”  
+   - Click **SAVE PRODUCT** (bottom).  
+   *Expected output: The product appears under “Products” with a status of “Active.”*
+
+3. **Add a One‑Time Price**  
+   - While viewing the product, click **+ ADD PRICE**.  
+   - Set **Price type** to **One‑time**.  
+   - In **Amount**, enter `150.00`.  
+   - Currency: `USD`.  
+   - Click **SAVE PRICE**.  
+   *Result: A price ID (e.g., `price_1Y7cNq2eZvKYloBf...`) is generated.*
+
+4. **Create a Stripe Checkout Session URL**  
+   - In the browser, go to https://dashboard.stripe.com/test/checkout.  
+   - Click **CREATE CHECKOUT SESSION** (top‑right).  
+   - For **Payment method types**, leave defaults.  
+   - In **Line items**, click **+ ADD ITEM**.  
+   - Field **Price**: paste the price ID from step 3.  
+   - Field **Quantity**: `1`.  
+   - Click **CREATE**.  
+   - Copy the **Session URL** displayed (e.g., `https://checkout.stripe.com/pay/cs_test_...`).  
+   *Do you see the Session URL? If not, ensure the price ID is correct.*
+
+5. **Set Up Stripe Billing for Invoices**  
+   - In the left sidebar, click **Billing** → **Invoices**.  
+   - Click **+ CUSTOMIZE** (top‑right).  
+   - In **Invoice template**, set **Logo URL** to your company logo (e.g., `https://example.com/logo.png`).  
+   - Set **Footer** to “Thank you for choosing Menshly Global.”  
+   - Click **SAVE**.  
+   *Expected output: Invoice preview shows the new logo and footer.*
+
+6. **Create Klaviyo Email List**  
+   - Open a new tab: https://www.klaviyo.com/login  
+   - Click **SIGN IN** (top‑right).  
+   - Enter credentials, click **LOGIN**.  
+   - In the dashboard, click **Lists & Segments** → **Create List**.  
+   - Name the list `New Onboarding Clients`.  
+   - Click **CREATE LIST**.  
+   *Do you see the new list in the sidebar? If not, refresh the page.*
+
+7. **Build a Proposal Email Template in Klaviyo
+
+## Check-In: Module 9 Complete
+
+- [ ] BUILD a Live Revenue Dashboard in Notion with Make.com completed and verified
+- [ ] Create Proposal Templates and Automated Billing with Stripe completed and verified
+- [ ] All tools connected and working
+- [ ] No errors or warnings in any dashboard
+
+
+---
+
+# MODULE 10: LAUNCH PLAN
+
+## Overview
+
+In this module you will build a fully automated AI‑powered customer onboarding workflow that leverages Calendly for scheduling, Klaviyo for email automation, and Make.com for orchestrating the data flow between them. The day‑by‑day execution calendar will guide you through every step—from setting up the Calendly event types, to scripting the welcome email content in Klaviyo, to testing the entire flow in Make.com. By the end of 30 days you will have a proven, repeatable system that can deliver an onboarding experience to a new client in under 48 hours, with a clear path to upsell or cross‑sell.
+
+Skipping this module means you’ll launch without a validated onboarding process, risking lost leads, inconsistent customer communication, and a diluted brand experience. It also removes the opportunity to capture early data on customer behavior, which is essential for iterative improvement and future personalization. The structured timeline ensures you allocate the right amount of time to each tool’s configuration, reduce costly trial‑and‑error, and hit the first paying client before the end of the month.
+
+**Tools Needed**
+
+| Tool        | Purpose                                                     | Free Tier                                | Paid Tier (Lowest) |
+|-------------|-------------------------------------------------------------|------------------------------------------|--------------------|
+| Calendly    | Schedule onboarding calls, set up automated reminders       | 1 calendar, 1 user, basic branding       | Professional – $10 / month |
+| Klaviyo     | Send welcome emails, drip campaigns, track engagement      | 250 contacts, 500 emails/month           | Starter – $20 / month |
+| Make.com    | Orchestrate data between Calendly, Klaviyo, and other APIs | 1,000 operations/month, 5 apps          | Basic – $9 / month   |
+| Zapier      | Quick fallback integration for edge cases                  | 5 zaps, 100 tasks/month                  | Starter – $19.99 / month |
+| Notion      | Project planning, task board, documentation                | Unlimited pages, guests                  | Personal Pro – $4 / month |
+| Loom        | Record walkthroughs for clients and internal training      | 25 min per recording, 5 recordings/month | Business – $12 / month |
+
+**Estimated Time to Complete**
+
+- **Planning & Setup**: 3 hours (spread across 5 days)
+- **Configuration & Testing**: 8 hours (spread across 10 days)
+- **Launch & First Client**: 2 days (day 15–16)
+- **Iterative Refinement**: 4 days (day 20–24)
+
+Total: **≈ 17 days of focused work** within the 30‑day framework.
+
+---
+
+## Procedure 10.1: Configure Calendly to Trigger Klaviyo Workflow
+
+**Objective:** Set up Calendly to send a webhook to Make.com, which then pushes the attendee data into a Klaviyo workflow. This will automate the first‑touch onboarding email to every new customer.
+
+---
+
+### Step‑by‑Step Instructions
+
+1. **Open Calendly**  
+   - Launch a browser and go to **https://calendly.com**.  
+   - Click the **blue “Log in” button** in the upper‑right corner.  
+   - Enter your credentials and click **“Log in”** again.  
+   - *Expected output:* You see your dashboard with a list of event types.
+
+2. **Create a New Event Type**  
+   - Click **“New event type”** (orange button).  
+   - Choose **“One‑on‑one”** and click **“Continue”**.  
+   - In the “Event name” field, type **“AI Onboarding Call”**.  
+   - Set **Duration** to **30 minutes** and click **“Continue”**.  
+   - *Expected output:* You are on the “Invitee Questions” page.
+
+3. **Add Custom Questions**  
+   - Click **“Add a question”** (green plus icon).  
+   - Choose **“Short answer”**.  
+   - Label it **“Customer Name”** and toggle **“Required”** on.  
+   - Repeat to add **“Email Address”** (short answer, required).  
+   - Click **“Done”**.  
+   - *Expected output:* Two new questions appear in the list.
+
+4. **Set Availability**  
+   - Click **“Availability”** tab.  
+   - Toggle **“Busy times”** off.  
+   - Set **“Working hours”** to **9 AM – 5 PM** (your local time).  
+   - Click **“Save & Close”**.  
+   - *Expected output:* Event type saved and visible in the dashboard.
+
+5. **Check‑in**  
+   - **Do you see “AI Onboarding Call” listed under your event types?**  
+   - *If not,* scroll down or refresh the page. If still missing, go back to **Step 1** and ensure you saved the event correctly.
+
+6. **Generate a Calendly Webhook URL**  
+   - In the Calendly dashboard, click **“Integrations”** top‑right.  
+   - Click **“Webhooks”** (under “Automation”).  
+   - Click **“Add webhook”** (green button).  
+   - In the **“Webhook URL”** field, temporarily paste **`https://www.make.com/placeholder`** and click **“Save”**.  
+   - *Expected output:* Webhook created with “Status: Pending”.
+
+7. **Copy Webhook ID**  
+   - After saving, hover over the new webhook row and click the **three‑dot menu** → **“Copy webhook ID”**.  
+   - Store this ID in a safe place (we’ll need it in Make.com).  
+   - *Expected output:* Clipboard contains a string like `wh_1234abcd`.
+
+8. **Open Make.com**  
+   - In a new tab, go to **https://www.make.com/en**.  
+   - Click **“Sign up for free”** (top‑right).  
+   - Enter your email, click **“Get Started”**, and confirm via the email link.  
+   - *Expected output:* You are directed to the Make.com dashboard.
+
+9. **Create a New Scenario**  
+   - Click **“Create a new scenario”** (purple button).  
+   - In the search bar, type **“Calendly”** and click the **Calendly icon**.  
+   - Choose the **“Watch Events”** trigger.  
+   - Click **“Continue”**.  
+   - *Expected output:* Calendly trigger added to the canvas.
+
+10. **Configure Calendly Trigger**  
+    - Click the **Calendly trigger module**.  
+    - In the “Webhook
+
+---
+
+**Procedure 10.2** — Generation failed due to AI backend unavailability. Please retry later.
+
+---
+
+## Procedure 10.3: **Launch First Live Onboarding Workflow to Capture New Clients**
+
+> **Goal:** Deploy an end‑to‑end AI‑powered onboarding system that automatically captures new clients through Calendly, syncs them into Klaviyo, and fires a welcome email with a scheduling CTA.
+
+---
+
+### Step 1 – Create the Calendly Event
+
+1. Open a browser and go to **https://calendly.com/**.  
+2. Click **SIGN IN** (top‑right) and enter your credentials.  
+3. Once logged in, click **EVENT TYPES** on the left sidebar.  
+4. Click **+ NEW EVENT TYPE** (top‑right).  
+5. Select **ONE‑ON‑ONE** and click **CREATE**.  
+6. In the **Event Name** field, type **“AI Onboarding Call”**.  
+7. In **Location**, choose **Zoom** (Calendly will auto‑generate a Zoom link).  
+8. Set **Duration** to **30** minutes.  
+9. Click **SAVE & CLOSE** (bottom).  
+
+> **Check‑in 1** – Do you see a new event type titled “AI Onboarding Call” listed in your dashboard?  
+> *If not, confirm you’re logged into the correct Calendly account and that you clicked **SAVE & CLOSE**.*
+
+---
+
+### Step 2 – Add Custom Questions for Lead Capture
+
+10. In the “AI Onboarding Call” event, click **EDIT** (pencil icon).  
+11. Under **Invitee Questions**, click **+ ADD A QUESTION**.  
+12. Choose **“Email”** from the dropdown, set to **Required**.  
+13. Click **+ ADD A QUESTION** again, choose **“Phone”** (Optional).  
+14. Click **SAVE** (top).  
+
+> **Expected Output:** The event page now shows two new fields (Email, Phone) that will appear when a user schedules the call.  
+
+---
+
+### Step 3 – Configure Confirmation Emails
+
+15. Still in the event editor, scroll to **Notifications & Cancellation Policy**.  
+16. Click **Edit Email Confirmation** (link).  
+17. In the editor, replace the default subject with **“Your AI Onboarding Call is Confirmed”**.  
+18. In the body, add a friendly message:  
+    ```
+    Hi {{invitee.firstName}},
+    Your onboarding call is scheduled for {{invitee.eventStartTime}}.
+    Click below to join: {{invitee.eventLocation}}
+    ```
+19. Click **SAVE & CLOSE**.  
+
+> **Check‑in 2** – Do you see the updated subject line and body in the preview pane?  
+> *If the subject didn’t change, double‑check you edited the correct email template.*
+
+---
+
+### Step 4 – Set Up a Klaviyo Account
+
+20. Open a new tab and go to **https://www.klaviyo.com/**.  
+21. Click **SIGN UP** (top‑right).  
+22. Enter your email, first name, and a password.  
+23. Choose **“I’m a small business owner”** and click **GET STARTED**.  
+24. Verify your email via the link Klaviyo sends.  
+
+> **Expected Output:** You’re now in the Klaviyo dashboard, free tier (10,000 emails/month, 250 contacts).  
+
+---
+
+### Step 5 – Create a List for Onboarding Leads
+
+25. In Klaviyo, click **Lists & Segments** from the left menu.  
+26. Click **CREATE LIST** (top‑right).  
+27. Name the list **“Onboarding Leads”** and click **SAVE**.  
+
+> **Check‑in 3** – Do you see “Onboarding Leads” under your lists?  
+> *If not, refresh the page and confirm you clicked **SAVE**.*
+
+---
+
+### Step 6 – Build a Welcome Flow
+
+28. Click **Flows** on the left sidebar.  
+29. Click **+ CREATE FLOW** (top‑right).  
+30. Choose **“Trigger”** → **“New Subscriber”** and select the **“Onboarding Leads”** list.  
+31. Click **CONTINUE**.  
+
+---
+
+### Step 7 – Add an Email Message
+
+32. Drag the **EMAIL** block to the canvas.  
+33. Click **CONFIGURE EMAIL**.  
+34. Set **Subject** to **“Welcome to Your AI Onboarding”**.  
+35. In the body, insert a personalized greeting:  
+    ```
+    Hi {{ first_name }},
+    Thank you for scheduling your AI onboarding call.  
+    ```
+36. Add a button:  
+    - **Text:** “Schedule Your
 
 ## Check-In: Module 10 Complete
 
-- [ ] Publish Your First AI Repurposing Case Study on Beehiiv completed and verified
-- [ ] Pitch Repurposing Services to 10 Prospects via Loom Video completed and verified
-- [ ] Launch Paid Subscription Offers Using Beehiiv's Email Automation completed and verified
+- [ ] Configure Calendly to Trigger Klaviyo Workflow completed and verified
+- [ ] Design AI-Driven Welcome Email Sequence in Klaviyo completed and verified
+- [ ] **Launch First Live Onboarding Workflow to Capture New Clients** completed and verified
 - [ ] All tools connected and working
 - [ ] No errors or warnings in any dashboard
 
@@ -2170,117 +2158,120 @@ If not, verify that the price field ends with `.99` and that the billing frequen
 
 # APPENDIX A: COMPLETE TOOL REFERENCE
 
+Below is a definitive, no‑fluff reference for every tool that powers the AI‑driven customer onboarding workflow.  Treat this as your cheat‑sheet: read it, memorize the limits, and know exactly when to hit “upgrade” so your automation never stalls.
+
 | Tool | Purpose | Free Tier | Paid Tier | When to Upgrade |
-|------|---------|-----------|-----------|------------------|
-| Make.com | Automation | 1,000 ops/mo | $9/mo | 10,000+ ops/mo |
-| ChatGPT | AI Assistant | Free | $20/mo | API integration |
-| Notion | Workspace | Free | $8/mo | Team collaboration |
-| Canva | Design | Free | $13/mo | Brand kit needed |
-| Apollo.io | Sales Intel | Free | $49/mo | 100+ leads/mo |
-| Hostinger | Hosting | $1.99/mo | $3.95/mo | Custom domain needed |
-| Klaviyo | Email Marketing | 250 contacts | $20/mo | 500+ contacts |
-| Shopify | E-commerce | 3-day trial | $29/mo | Product sales |
-| Replit | Cloud IDE | Free | $7/mo | Private repos |
-| Vapi | Voice AI | 5 calls/mo | $15/mo | Production use |
+|------|---------|-----------|-----------|-----------------|
+| **Hostinger** | Domain registration & low‑cost web hosting | No free tier – but the **Starter** plan starts at **$1.99 / mo** (1 GB storage, 1 TB bandwidth, 1 domain) | **Starter** $1.99 / mo – 10 GB storage, 10 TB bandwidth, 10 domains | When you need more than 1 GB storage or 1 TB bandwidth, or want to host multiple domains. |
+| **Notion** | Knowledge base, SOPs, and data storage | Unlimited pages, 5,000 blocks, 1 GB file upload | **Personal Pro** $4 / mo (unlimited blocks, 5 GB upload) | Upgrade when your SOP archive exceeds 5,000 blocks or 1 GB storage. |
+| **Zoho Mail** | Business email, integrated with Hostinger DNS | 5 users, 5 GB per user, IMAP/SMTP | **Mail Lite** $1 / user / mo (10 GB per user, unlimited users) | When you exceed 5 users or need >5 GB per mailbox. |
+| **Calendly** | Scheduling & Calendly API | 1 user, 1 event type, 60‑min meetings | **Pro** $12 / mo (5 users, unlimited event types, 24‑hour buffer) | Upgrade when you need more than 1 user or more than 1 event type per calendar. |
+| **Make.com (formerly Integromat)** | Automation platform for API triggers | 1,000 operations/month, 2 active scenarios, 1 GB storage | **Starter** $9 / mo (10,000 ops, 4 scenarios, 10 GB) | When your workflow exceeds 1,000 operations or you need more than 2 scenarios. |
+| **Vapi** | Voice‑to‑text & text‑to‑voice API | 500 calls/month, 10 min total | **Starter** $0.01 / min (unlimited calls) | Upgrade when your call volume exceeds 500 per month or you need the premium voice library. |
+| **ElevenLabs** | AI TTS with neural voices | 1,000 characters/month, 5 voices | **Premium** $15 / mo (25,000 characters, 10 voices, priority support) | When you need to generate >1,
 
+# APPENDIX B: THE COMPLETE SOP INDEX  
 
-# APPENDIX B: THE COMPLETE SOP INDEX
+The following index is the definitive reference for every Standard Operating Procedure (SOP) that powers our playbook on building, optimizing, and deploying AI‑driven customer onboarding workflows with Calendly and Klaviyo. Each entry is tagged with a unique SOP number, a concise procedure title, the module category, an explicit difficulty level, and an estimated completion time. Use this table as a master checklist to verify that every component of the onboarding pipeline is fully configured before you move to the next stage.  
 
 | SOP # | Procedure | Category | Difficulty | Est. Time |
-|-------|-----------|----------|------------|----------|
-| 1.1 | Register Domain | Foundation | Easy | 30 min |
-| 1.2 | Set Up Workspace | Foundation | Easy | 20 min |
-| 1.3 | Create Business Accounts | Foundation | Easy | 30 min |
-| 2.1 | Connect ChatGPT API | Tech Stack | Medium | 45 min |
-| 2.2 | Build Make.com Scenario | Tech Stack | Medium | 60 min |
-| 2.3 | Configure Voice Agent | Tech Stack | Hard | 60 min |
-| 4.1 | Build Core Product | First Build | Hard | 2 hrs |
-| 5.1 | Build Landing Page | Client Acquisition | Medium | 1 hr |
-| 7.1 | Hire Contractor | Scaling | Medium | 45 min |
-| 10.1 | Configure Demo Scheduling | Launch Plan | Easy | 30 min |
+|-------|-----------|----------|------------|-----------|
+| 1.1 | Register Your Business Domain on Hostinger | Foundation | Easy | 15 min |
+| 1.2 | Set Up Email and Workspace in Notion | Foundation | Easy | 30 min |
+| 1.3 | Create Core Business Accounts and Calendly | Foundation | Medium | 45 min |
+| 2.1 | Connect ChatGPT API and Store Keys in Notion | Tech Stack | Medium | 30 min |
+| 2.2 | Build Your First Make.com Automation Scenario | Tech Stack | Hard | 1 hr |
+| 2.3 | Configure Vapi Voice Agent and ElevenLabs TTS | Tech Stack | Hard | 1 hr |
+| 3.1 | Design Your Service Delivery Framework in Notion | Framework | Medium | 45 min |
+| 3.2 | Build the Client Onboarding Automation Pipeline | Framework | Hard | 1 hr 30 min |
+| 4.1 | Create the Core AI Onboarding Product in Replit | First Build | Medium | 1 hr |
+| 4.2 | Build the Data Processing Pipeline with Make.com | First Build | Hard | 1 hr 30 min |
+| 4.3 | Deploy and Test the Complete System | First Build | Hard | 2 hr |
+| 5.1 | Build a High‑Conversion Landing Page on Shopify | Client Acquisition | Medium | 1 hr |
+| 5.2 | Configure Lead Generation with Apollo.io | Client Acquisition | Medium | 45 min |
+| 5.3 | Create Automated Email Nurture Sequence in Klaviyo | Client Acquisition | Medium | 1 hr |
+| 6.1 | Deploy the Product to Production on Hostinger | Delivery | Medium | 30 min |
+| 6.2 | Build Quality Assurance and Client Communication Templates | Delivery
 
+# APPENDIX C: THE REVENUE CALCULATOR  
 
-# APPENDIX C: THE REVENUE CALCULATOR  
+## 1. SET‑UP THE CALCULATOR IN NOTION  
+1. Open **Notion** → click **+ New Page** → name it **“Revenue Calculator – AI Onboarding”**.  
+2. In the new page, click **+ Add a database** → pick **Table – Inline**.  
+3. Rename the table to **“Monthly Projections”**.  
+4. Add the following columns with the exact types:  
 
-**Purpose** – This appendix equips you with a concrete, step‑by‑step method to forecast cash flow, evaluate pricing strategy, and determine the exact month you will recover your initial investment when launching your AI‑powered content repurposing agency with Beehiiv and Loom.  
-**Scope** – All figures are derived from the modules above and assume a linear growth trajectory, a single AI content specialist contractor, and a 12‑month horizon.  
+| Column Name | Type | Notes |
+|-------------|------|-------|
+| **Month** | Title | e.g., “Month 1” |
+| **Clients** | Number | Integer |
+| **Revenue** | Formula | `prop("Clients") * prop("Price per Client")` |
+| **Expenses** | Formula | `prop("Tool Costs") + prop("Marketing") + prop("Contractor")` |
+| **Profit** | Formula | `prop("Revenue") - prop("Expenses")` |
 
----
+5. Insert a second database on the same page titled **“Pricing Tiers”**. Add these columns:  
 
-## 1. Assumptions  
+| Column | Type | Notes |
+|--------|------|-------|
+| **Tier** | Title | “Basic”, “Pro”, “Enterprise” |
+| **Price** | Number | USD |
+| **Deliverables** | Text | Description |
+| **Margin** | Formula | `((prop("Price") - prop("Cost per Tier")) / prop("Price")) * 100` |
 
-| Item | Value | Source |
-|------|-------|--------|
-| **Initial Setup Cost** | $2,300 | Hostinger domain ($9), Beehiiv Starter ($0), Loom Pro ($12 / mo × 1 mo), Make.com Basic ($19 / mo), Notion Pro ($8 / mo), Replit Hobby ($0) |
-| **Monthly Fixed Costs** | $1,200 | Loom Pro ($12 / mo), Make.com Basic ($19 / mo), Notion Pro ($8 / mo), Hostinger VPS ($25 / mo), Email Marketing (Beehiiv Starter – free) |
-| **Contractor Salary** | $1,000 / mo | 1 AI specialist at $50 / hr × 20 hrs |
-| **Variable Cost per Client** | $200 | AI content creation (OpenAI GPT‑4, $0.03 / k tokens) + Loom recording (1 hr) + Beehiiv email send (free tier) |
-| **Client Acquisition Cost (CAC)** | $150 | Beehiiv targeted outreach + Loom landing page (Make.com workflow) |
-| **Initial Client Base** | 5 clients | Module 5, first outreach batch |
-| **Monthly Client Growth** | +2 clients | Organic lead generation + upsell |
-| **Pricing Tier A** | $1,200 / mo | Full repurposing of 5 blog posts + 3 videos |
-| **Pricing Tier B** | $2,000 / mo | Full repurposing of 10 blog posts + 6 videos |
-| **Pricing Tier C** | $3,000 / mo | Full repurposing of 20 blog posts + 12 videos + 1 Loom‑powered webinar |
-| **Revenue Mix** | 60% Tier A, 30% Tier B, 10% Tier C | Derived from client survey in Module 3 |
-| **Discount Rate** | 15% | For early‑stage SaaS businesses |
-| **Tax Rate** | 25% | Federal + state (approx.) |
-| **Currency** | USD | Standard US market |
+6. Insert a third database titled **“Break‑Even Analysis”**. Add these columns:  
 
-> **Check‑In**: Do you have the same cost figures for your host, AI service, and contractor? If not, adjust the table above accordingly before proceeding.
+| Column | Type | Notes |
+|--------|------|-------|
+| **Cumulative Revenue** | Formula | `sum(prop("Revenue") for all rows up to current)` |
+| **Cumulative Expenses** | Formula | `sum(prop("Expenses") for all rows up to current)` |
+| **Cumulative Profit** | Formula | `sum(prop("Profit") for all rows up to current)` |
+| **Break‑Even Point** | Formula | `if(prop("Cumulative Profit") >= 0, "YES", "NO")` |
 
----
+**Interactive Check‑In:**  
+Do you see the three databases correctly created? If not, verify that you selected the exact column types listed above. Changing a column type after entries will corrupt formulas – delete and recreate if necessary.
 
-## 2. Revenue Projection Table  
+## 2. ENTER YOUR BASELINE ASSUMPTIONS  
+1. In the **Monthly Projections** table, add four rows labeled **Month 1**, **Month 3**, **Month 6**, **Month 12**.  
+2. For each row, fill **Clients** with the projected new clients for that month (see Module 5 for acquisition rates).  
+3. Add a new property in the table called **Price per Client** (Number) and set it to **$200** (one‑time onboarding fee).  
+4. Add **Tool Costs** (Number) and input the monthly recurring costs:  
 
-The table below projects revenue, clients, expenses, and profit for Months 1, 3, 6, and 12. All figures are rounded to the nearest dollar.
+| Tool | Monthly Cost |
+|------|--------------|
+| Hostinger Domain | $1.99 |
+| Calendly Pro | $10.00 |
+| Klaviyo (500 contacts) | $20.00 |
+| Make.com (10,000 ops) | $49.00 |
+| **Total Tool Costs** | $80.99 |
 
-| Month | Clients | Revenue | Fixed Costs | Variable Costs | Total Expenses | Profit |
-|-------|---------|---------|-------------|----------------|----------------|--------|
-| 1 | 5 | $6,000 | $1,200 | $1,000 | $2,200 | $3,800 |
-| 3 | 9 | $10,800 | $1,200 | $1,800 | $3,000 | $7,800 |
-| 6 | 15 | $18,000 | $1,200 | $3,000 | $4,200 | $13,800 |
-| 12 | 27 | $32,400 | $1,200 | $5,400 | $6,600 | $25,800 |
+5. Add **Marketing** (Number) and set it to **$300** per month for paid ads and lead‑gen tools.  
+6. Add **Contractor** (Number) and set it to **$0** for Month 1, **$400** for Month 3 (first contractor), **$800** for Month 6, **$1,200** for Month 12.  
+7. The **Expenses** formula will automatically sum these three fields.  
+8. The **Revenue** formula will output **Clients × $200**.  
 
-**How the numbers were calculated**  
-1. **Clients** – Start with 5, add 2 per month.  
-2. **Revenue** – Multiply clients by weighted average tier price:  
-   Weighted Avg = (0.60 × $1,200) + (0.30 × $2,000) + (0.10 × $3,000) = $1,400.  
-   Revenue = Clients × $1,400.  
-3. **Variable Costs** – Contractor salary + (Clients × $200).  
-4. **Profit** – Revenue – (Fixed Costs + Variable Costs).  
+**Expected Output (Month 1):**  
+- Clients: 10  
+- Revenue: 10 × 200 = **$2,000**  
+- Expenses: 80.99 + 300 + 0 = **$380.99**  
+- Profit: 2,000 – 380.99 = **$1,619.01**
 
-> **Check‑In**: Do the client numbers match your growth expectations? If you foresee faster growth, adjust the “Monthly Client Growth” assumption and recalc the table.
+Do you see the correct numbers appear in the table? If the formulas are not calculating, double‑check that the column names match exactly and that the formula syntax uses `prop("Column Name")` with correct capitalization.
 
----
+## 3. CALCULATE REVENUE PROJECTIONS  
+| Month | Clients | Revenue | Expenses | Profit |
+|-------|---------|---------|----------|--------|
+| 1 | 10 | $2,000 | $380.99 | $1,619.01 |
+| 3 | 25 | $5,000 | $490.99 | $4,509.01 |
+| 6 | 50 | $10,000 | $680.99 | $9,319.01 |
+| 12 | 120 | $24,000 | $1,180.99 | $22,819.01 |
 
-## 3. Pricing Tier Table  
+*How the numbers were derived
 
-| Tier | Price/Month | Deliverables | AI Work Hours | Loom Hours | Margin % |
-|------|-------------|--------------|---------------|------------|----------|
-| A | $1,200 | 5 blog posts → 5 podcasts → 3 videos | 8 hrs | 2 hrs | 55% |
-| B | $2,000 | 10 blog posts → 10 podcasts → 6 videos | 16 hrs | 4 hrs | 60% |
-| C | $3,000 | 20 blog posts → 20 podcasts → 12 videos + 1 webinar | 32 hrs | 8 hrs | 65% |
-
-**Margin Calculation**  
-Margin % = (Price – Variable Cost) ÷ Price.  
-Variable Cost = Contractor salary (per client) + AI token cost (≈$0.03 / k tokens × 50 k tokens ≈ $1.50 per client).  
-For Tier A:  
-Variable Cost per client ≈ $200 (fixed) + $1.50 (AI) = $201.50.  
-Margin = ($1,200 – $201.50) ÷ $1,200 = 55%.
-
-> **Check‑In**: Verify that the AI token cost aligns with your current OpenAI pricing. If you use a different provider (e.g., ElevenLabs for voice), update the variable cost accordingly.
-
----
-
-## 4
-
-For the free step-by-step guide, see our [implementation guide]({< ref "/intelligence/build-an-ai-proposal-writing-service-with-chatgpt-the-complete-step-by-step-guid.md" >}).
+For the free step-by-step guide, see our [implementation guide]({< ref "/intelligence/build-an-ai-bookkeeping-automation-with-zapier-the-complete-step-by-step-guide.md" >}).
 
 
 ## Recommended Tools
 
 These are the tools we recommend for building and scaling AI automation businesses:
 
-- **[Beehiiv](https://beehiiv.com/)** — Newsletter platform — grow and monetize your email list
-- **[Canva](https://www.canva.com/)** — Design anything — social graphics, presentations, videos with AI
 - **[Make.com](https://www.make.com/en/register?pc=menshly)** — Visual automation platform — connect any app without code
