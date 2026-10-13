@@ -6,6 +6,7 @@ readTime: "16 MIN"
 excerpt: "Details coming soon. Check back for updates on this section."
 image: "/images/articles/opportunities/how-to-launch-an-ai-powered-translation-and-localization-service-in-2026-earn-60.png"
 heroImage: "/images/heroes/opportunities/how-to-launch-an-ai-powered-translation-and-localization-service-in-2026-earn-60.png"
+relatedGuide: "/intelligence/build-an-ai-content-localization-service-with-google-translate-the-complete-step/"
 ---
 
 
