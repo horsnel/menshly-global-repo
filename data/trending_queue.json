@@ -1,24 +1,6 @@
 {
-  "last_updated": "2026-10-13T17:25:03.419971+00:00",
+  "last_updated": "2026-10-14T13:21:44.677524+00:00",
   "topics": [
-    {
-      "topic": "How to start an AI voice agent business with Vapi in 2026",
-      "context": "With the rise of voice assistants, the demand for AI voice agents is increasing. Solo entrepreneurs can use tools like Vapi and Bland.ai to offer automated voice services to clients.",
-      "keywords": [
-        "AI voice agent",
-        "Vapi",
-        "Bland.ai"
-      ],
-      "affiliates": [
-        "Vapi",
-        "Bland.ai",
-        "ElevenLabs"
-      ],
-      "opportunity_angle": "How to launch an AI voice agent business with Vapi in 2026 (earn $8,000/month)",
-      "intelligence_angle": "Create, deploy, and optimize AI voice agents with Vapi and Bland.ai",
-      "playbook_angle": "Design, build, and automate AI voice workflows with Vapi and ElevenLabs",
-      "discovered_at": "2026-05-01T09:43:23.616094+00:00"
-    },
     {
       "topic": "How to start an AI HR/recruitment automation business in 2026",
       "context": "With the rise of AI, HR and recruitment automation is becoming increasingly popular. Solo entrepreneurs can use tools like Zapier and LinkedIn to offer automated HR and recruitment services to clients.",
@@ -3722,6 +3704,10 @@
     {
       "topic": "How to start an AI-powered translation and localization service in 2026",
       "used_at": "2026-10-12T17:22:32.542007+00:00"
+    },
+    {
+      "topic": "How to start an AI voice agent business with Vapi in 2026",
+      "used_at": "2026-10-14T13:21:44.677506+00:00"
     }
   ]
 }
