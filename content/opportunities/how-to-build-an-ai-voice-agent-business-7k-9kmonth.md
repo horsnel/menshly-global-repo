@@ -6,6 +6,7 @@ readTime: "16 MIN"
 excerpt: "Details coming soon. Check back for updates on this section."
 image: "/images/articles/opportunities/how-to-launch-an-ai-voice-agent-business-with-vapi-in-2026-earn-8000month.png"
 heroImage: "/images/heroes/opportunities/how-to-launch-an-ai-voice-agent-business-with-vapi-in-2026-earn-8000month.png"
+relatedGuide: "/intelligence/build-an-ai-voice-agent-system-with-vapi-the-complete-step-by-step-guide/"
 ---
 
 
