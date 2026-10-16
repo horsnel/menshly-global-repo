@@ -1,24 +1,6 @@
 {
-  "last_updated": "2026-10-15T14:43:58.572323+00:00",
+  "last_updated": "2026-10-16T13:04:59.184708+00:00",
   "topics": [
-    {
-      "topic": "How to start an AI HR/recruitment automation business in 2026",
-      "context": "With the rise of AI, HR and recruitment automation is becoming increasingly popular. Solo entrepreneurs can use tools like Zapier and LinkedIn to offer automated HR and recruitment services to clients.",
-      "keywords": [
-        "AI HR/recruitment automation",
-        "Zapier",
-        "LinkedIn"
-      ],
-      "affiliates": [
-        "Zapier",
-        "LinkedIn",
-        "Indeed"
-      ],
-      "opportunity_angle": "How to launch an AI HR/recruitment automation business in 2026 (earn $9,000/month)",
-      "intelligence_angle": "Automate, screen, and optimize HR and recruitment tasks with Zapier and LinkedIn",
-      "playbook_angle": "Design, build, and deploy AI HR/recruitment automation workflows with Zapier and Indeed",
-      "discovered_at": "2026-05-01T09:43:23.616110+00:00"
-    },
     {
       "topic": "How to start an AI customer support automation business in 2026",
       "context": "With the rise of AI, customer support automation is becoming increasingly popular. Solo entrepreneurs can use tools like ChatGPT and ManyChat to offer automated customer support services to clients.",
@@ -3708,6 +3690,10 @@
     {
       "topic": "How to start an AI voice agent business with Vapi in 2026",
       "used_at": "2026-10-14T13:21:44.677506+00:00"
+    },
+    {
+      "topic": "How to start an AI HR/recruitment automation business in 2026",
+      "used_at": "2026-10-16T13:04:59.184666+00:00"
     }
   ]
 }
