@@ -6,6 +6,7 @@ readTime: "16 MIN"
 excerpt: "Details coming soon. Check back for updates on this section."
 image: "/images/articles/opportunities/how-to-launch-an-ai-hrrecruitment-automation-business-in-2026-earn-9000month.png"
 heroImage: "/images/heroes/opportunities/how-to-launch-an-ai-hrrecruitment-automation-business-in-2026-earn-9000month.png"
+relatedPlaybook: "/playbooks/the-ai-hr-automation-playbook-25-steps-to-15kmonth/"
 ---
 
 

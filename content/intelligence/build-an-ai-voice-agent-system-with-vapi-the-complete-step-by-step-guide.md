@@ -8,6 +8,7 @@ excerpt: "In this hands‑on guide you will build a fully‑functional AI voice 
 image: "/images/articles/intelligence/create-deploy-and-optimize-ai-voice-agents-with-vapi-and-blandai.png"
 heroImage: "/images/heroes/intelligence/create-deploy-and-optimize-ai-voice-agents-with-vapi-and-blandai.png"
 relatedOpportunity: "/opportunities/how-to-build-an-ai-voice-agent-business-7k-9kmonth/"
+relatedPlaybook: "/playbooks/the-ai-hr-automation-playbook-25-steps-to-15kmonth/"
 ---
 
 In this hands‑on guide you will build a fully‑functional AI voice agent platform that can be deployed, monitored, and continuously optimized for maximum revenue. By the end of the walkthrough you will own a production‑ready system that leverages Vapi’s voice‑to‑text and text‑to‑speech APIs, integrates with Bland.ai’s conversational models, and exposes a simple REST endpoint for your own applications or a Shopify store. No code‑first frameworks or vendor lock‑in—just a clean, modular stack that you can extend with Zapier, Replit, or Loom for demos.
