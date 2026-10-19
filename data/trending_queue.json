@@ -1,24 +1,6 @@
 {
-  "last_updated": "2026-10-17T10:38:32.429647+00:00",
+  "last_updated": "2026-10-19T15:46:29.685430+00:00",
   "topics": [
-    {
-      "topic": "How to start an AI customer support automation business in 2026",
-      "context": "With the rise of AI, customer support automation is becoming increasingly popular. Solo entrepreneurs can use tools like ChatGPT and ManyChat to offer automated customer support services to clients.",
-      "keywords": [
-        "AI customer support automation",
-        "ChatGPT",
-        "ManyChat"
-      ],
-      "affiliates": [
-        "ChatGPT",
-        "ManyChat",
-        "Dialogflow"
-      ],
-      "opportunity_angle": "How to launch an AI customer support automation business in 2026 (earn $10,000/month)",
-      "intelligence_angle": "Create, deploy, and optimize AI customer support agents with ChatGPT and ManyChat",
-      "playbook_angle": "Design, build, and automate AI customer support workflows with ChatGPT and Dialogflow",
-      "discovered_at": "2026-05-01T09:43:23.616122+00:00"
-    },
     {
       "topic": "How to start an AI contract and proposal writing service in 2026",
       "context": "With the rise of AI, contract and proposal writing automation is becoming increasingly popular. Solo entrepreneurs can use tools like Loom and Grammarly to offer automated contract and proposal writing services to clients.",
@@ -3698,6 +3680,10 @@
     {
       "topic": "How to start an AI HR/recruitment automation business in 2026",
       "used_at": "2026-10-17T10:38:32.429601+00:00"
+    },
+    {
+      "topic": "How to start an AI customer support automation business in 2026",
+      "used_at": "2026-10-19T15:46:29.685400+00:00"
     }
   ]
 }
