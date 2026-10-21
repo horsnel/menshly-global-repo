@@ -1,24 +1,6 @@
 {
-  "last_updated": "2026-10-20T14:47:27.366530+00:00",
+  "last_updated": "2026-10-21T13:30:04.717623+00:00",
   "topics": [
-    {
-      "topic": "How to start an AI contract and proposal writing service in 2026",
-      "context": "With the rise of AI, contract and proposal writing automation is becoming increasingly popular. Solo entrepreneurs can use tools like Loom and Grammarly to offer automated contract and proposal writing services to clients.",
-      "keywords": [
-        "AI contract and proposal writing",
-        "Loom",
-        "Grammarly"
-      ],
-      "affiliates": [
-        "Loom",
-        "Grammarly",
-        "ProposalKit"
-      ],
-      "opportunity_angle": "How to launch an AI contract and proposal writing service in 2026 (earn $12,000/month)",
-      "intelligence_angle": "Create, edit, and optimize contracts and proposals with Loom and Grammarly",
-      "playbook_angle": "Design, build, and automate AI contract and proposal writing workflows with Loom and ProposalKit",
-      "discovered_at": "2026-05-01T09:43:23.616133+00:00"
-    },
     {
       "topic": "How to start an AI image generation agency in 2026",
       "context": "With the rise of AI, image generation automation is becoming increasingly popular. Solo entrepreneurs can use tools like Midjourney and Canva to offer automated image generation services to clients.",
@@ -3684,6 +3666,10 @@
     {
       "topic": "How to start an AI customer support automation business in 2026",
       "used_at": "2026-10-19T15:46:29.685400+00:00"
+    },
+    {
+      "topic": "How to start an AI contract and proposal writing service in 2026",
+      "used_at": "2026-10-21T13:30:04.717606+00:00"
     }
   ]
 }
