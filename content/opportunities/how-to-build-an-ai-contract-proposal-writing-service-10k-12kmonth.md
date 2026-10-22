@@ -6,6 +6,7 @@ readTime: "16 MIN"
 excerpt: "Details coming soon. Check back for updates on this section."
 image: "/images/articles/opportunities/how-to-launch-an-ai-contract-and-proposal-writing-service-in-2026-earn-12000mont.png"
 heroImage: "/images/heroes/opportunities/how-to-launch-an-ai-contract-and-proposal-writing-service-in-2026-earn-12000mont.png"
+relatedGuide: "/intelligence/build-an-ai-contract-and-proposal-editor-with-grammarly-the-complete-step-by-ste/"
 ---
 
 
