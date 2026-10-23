@@ -1,24 +1,6 @@
 {
-  "last_updated": "2026-10-22T14:55:02.683346+00:00",
+  "last_updated": "2026-10-23T13:10:13.463624+00:00",
   "topics": [
-    {
-      "topic": "How to start an AI image generation agency in 2026",
-      "context": "With the rise of AI, image generation automation is becoming increasingly popular. Solo entrepreneurs can use tools like Midjourney and Canva to offer automated image generation services to clients.",
-      "keywords": [
-        "AI image generation",
-        "Midjourney",
-        "Canva"
-      ],
-      "affiliates": [
-        "Midjourney",
-        "Canva",
-        "Adobe"
-      ],
-      "opportunity_angle": "How to launch an AI image generation agency in 2026 (earn $15,000/month)",
-      "intelligence_angle": "Create, edit, and optimize images with Midjourney and Canva",
-      "playbook_angle": "Design, build, and automate AI image generation workflows with Midjourney and Adobe",
-      "discovered_at": "2026-05-01T09:43:23.616142+00:00"
-    },
     {
       "topic": "How to start an AI video editing services business in 2026",
       "context": "With the rise of AI, video editing automation is becoming increasingly popular. Solo entrepreneurs can use tools like Luma and InVideo to offer automated video editing services to clients.",
@@ -3670,6 +3652,10 @@
     {
       "topic": "How to start an AI contract and proposal writing service in 2026",
       "used_at": "2026-10-21T13:30:04.717606+00:00"
+    },
+    {
+      "topic": "How to start an AI image generation agency in 2026",
+      "used_at": "2026-10-23T13:10:13.463592+00:00"
     }
   ]
 }
