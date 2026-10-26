@@ -1,24 +1,6 @@
 {
-  "last_updated": "2026-10-23T13:10:13.463624+00:00",
+  "last_updated": "2026-10-26T14:52:31.168251+00:00",
   "topics": [
-    {
-      "topic": "How to start an AI video editing services business in 2026",
-      "context": "With the rise of AI, video editing automation is becoming increasingly popular. Solo entrepreneurs can use tools like Luma and InVideo to offer automated video editing services to clients.",
-      "keywords": [
-        "AI video editing",
-        "Luma",
-        "InVideo"
-      ],
-      "affiliates": [
-        "Luma",
-        "InVideo",
-        "Adobe"
-      ],
-      "opportunity_angle": "How to launch an AI video editing services business in 2026 (earn $18,000/month)",
-      "intelligence_angle": "Create, edit, and optimize videos with Luma and InVideo",
-      "playbook_angle": "Design, build, and automate AI video editing workflows with Luma and Adobe",
-      "discovered_at": "2026-05-01T09:43:23.616152+00:00"
-    },
     {
       "topic": "How to start an AI SEO agency with Semrush in 2026",
       "context": "With the rise of AI, SEO automation is becoming increasingly popular. Solo entrepreneurs can use tools like Semrush and Ahrefs to offer automated SEO services to clients.",
@@ -3656,6 +3638,10 @@
     {
       "topic": "How to start an AI image generation agency in 2026",
       "used_at": "2026-10-23T13:10:13.463592+00:00"
+    },
+    {
+      "topic": "How to start an AI video editing services business in 2026",
+      "used_at": "2026-10-26T14:52:31.168228+00:00"
     }
   ]
 }
