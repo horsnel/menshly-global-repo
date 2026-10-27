@@ -6,6 +6,7 @@ readTime: "16 MIN"
 excerpt: "Details coming soon. Check back for updates on this section."
 image: "/images/articles/opportunities/how-to-launch-an-ai-video-editing-services-business-in-2026-earn-18000month.png"
 heroImage: "/images/heroes/opportunities/how-to-launch-an-ai-video-editing-services-business-in-2026-earn-18000month.png"
+relatedGuide: "/intelligence/build-an-ai-video-production-service-with-invideo-the-complete-step-by-step-guid/"
 ---
 
 
