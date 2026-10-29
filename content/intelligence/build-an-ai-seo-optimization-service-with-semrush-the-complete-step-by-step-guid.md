@@ -1,790 +1,760 @@
 ---
 title: "Build an AI SEO Optimization Service with Semrush: The Complete Step-by-Step Guide"
-date: 2026-09-29
+date: 2026-10-29
 category: "Implementation"
-difficulty: "ADVANCED"
+difficulty: "INTERMEDIATE"
 readTime: "25 MIN"
-excerpt: "**Prerequisites**"
-image: "/images/articles/intelligence/monitor-create-and-optimize-online-search-results-with-semrush.png"
-heroImage: "/images/heroes/intelligence/monitor-create-and-optimize-online-search-results-with-semrush.png"
-relatedOpportunity: "/opportunities/how-to-build-an-ai-reputation-management-business-5k-30kmonth/"
+excerpt: "Before you dive into building the AI‑driven SEO optimization service, make sure you have the following accounts, tools, and resources in place. The table below summarizes each item, its purpose, the c..."
+image: "/images/articles/intelligence/optimize-analyze-and-improve-seo-with-semrush-and-ahrefs.png"
+heroImage: "/images/heroes/intelligence/optimize-analyze-and-improve-seo-with-semrush-and-ahrefs.png"
+relatedOpportunity: "/opportunities/how-to-build-an-ai-seo-agency-10k-20kmonth/"
 ---
 
 
 
-## Prerequisites
+## Prerequisites  
 
-**Prerequisites**
+Before you dive into building the AI‑driven SEO optimization service, make sure you have the following accounts, tools, and resources in place. The table below summarizes each item, its purpose, the cost you’ll incur, and the free‑tier limits available.  
 
-Before you dive into building an AI‑driven SEO optimization service, you need to set up a handful of accounts and tools. Each item below is essential for data ingestion, workflow automation, and content creation. The steps below are broken into quick, 10‑15‑minute chunks, so you can finish the entire prerequisites phase in under 2 hours.
+| Tool          | Purpose                                                    | Cost (Monthly) | Free Tier Limit |
+|---------------|-------------------------------------------------------------|----------------|-----------------|
+| Semrush       | Keyword research, site audit, backlink analysis            | $119.95 / month | 10 keyword queries/day |
+| Ahrefs        | Backlink profile, SERP analysis, content gap discovery      | $102.00 / month | 5,000 site‑audit clicks |
+| Notion        | Project planning, documentation, SOPs                       | $8.00 / month (Team) | Unlimited pages, 5 GB file storage |
+| Zapier        | Automate data pulls between Semrush/Ahrefs and your AI pipeline | $19.99 / month | 5 000 tasks |
+| Replit        | Cloud IDE for running the AI model and data pipelines       | $5.00 / month (Pro) | 100 MB storage, 1 GB RAM |
+| Google Analytics | Track traffic & conversions after optimization          | Free | Unlimited |
+| **Total Upfront Cost** | | **$254.94 / month** | — |
 
-- [**Semrush**](https://www.semrush.com/) – Sign up at <https://www.semrush.com> and select the **Standard** plan ($119.95 / month).  
-  - *Setup*: Click **Get Started** → choose **Standard** → enter billing info → confirm.  
-  - *Project*: Create a new project for your target domain (click **Projects** → **+ New Project** → enter domain).
+### Step‑by‑step checklist  
+1. **Create a Semrush account**  
+   - Go to `https://www.semrush.com/register`.  
+   - Choose the “Pro” plan.  
+   - After payment, navigate to **Project → New Project** and name it `AI‑SEO‑Service`.  
+   - Do you see the “Add domain” field? It should appear under “Project dashboard”.  
+   - Add your first client domain.  
 
-- [**Replit**](https://replit.com/refer/egwuokwor) – Create a free account at <https://replit.com> and upgrade to the **Hacker** plan ($7 / month).  
-  - *Setup*: Click **New Repl** → choose **Python** → name the repl “SEO‑Automation”.  
-  - *Enable GitHub*: In the left sidebar, click **Version control** → **Connect to GitHub** → authorize.
+2. **Create an Ahrefs account**  
+   - Visit `https://ahrefs.com/signup`.  
+   - Pick the “Lite” plan.  
+   - Once logged in, click **Site Explorer** → **Enter URL** and input the same client domain.  
 
-- **Zapier** – Sign up at <https://zapier.com> and pick the **Starter** plan ($19.99 / month).  
-  - *Setup*: Click **Make a Zap** → add **Semrush** as trigger → connect your Semrush account → test trigger.
+3. **Set up a Notion workspace**  
+   - Sign up at `https://www.notion.so`.  
+   - Create a new workspace called `SEO Service SOPs`.  
+   - Add a page titled “Client Intake Flow” and share it with your team.  
 
-- [**Notion**](https://notion.so/) – Create a workspace at <https://www.notion.so> (free tier).  
-  - *Setup*: Click **Add a page** → select **Database – Table** → name it “SEO‑Tasks”.
+4. **Configure Zapier**  
+   - Go to `https://zapier.com/app/dashboard`.  
+   - Click **Make a Zap**.  
+   - **Trigger**: Semrush → `Keyword Gap` → `New Result`.  
+   - **Action**: Replit → `Run a script`.  
+   - Test the Zap to ensure data passes correctly.  
 
-- **Optional (but recommended)**: [**Grammarly**](https://grammarly.com/) for content polishing (free tier) and [**Canva**](https://www.canva.com/) for visual assets (free tier).
+5. **Spin up a Replit project**  
+   - Log in at `https://replit.com`.  
+   - Click **+ New Repl** → select `Python` → name it `seo_ai_pipeline`.  
+   - Add the following `requirements.txt` entries:  
+     ```
+     requests==2.31.0
+     pandas==2.2.0
+     openai==1.14.0
+     ```
+   - Save.  
 
-**Total upfront cost**:  
-$119.95 (Semrush) + $19.99 (Zapier) + $7.00 (Replit) = **$146.94 per month**.  
-(If you’re only testing, use free tiers to keep the upfront cost $0.)
+6. **Install Google Analytics tracking**  
+   - In the client’s website, add the GA4 global site tag (`gtag.js`).  
+   - Verify via the **Real‑Time** report that data is flowing.  
 
-| Tool        | Purpose                            | Cost (per month) | Free Tier Limit                                |
-|-------------|-------------------------------------|------------------|------------------------------------------------|
-| Semrush     | Keyword research & SERP monitoring | $119.95          | 7‑day trial, 1 project, 2,000 queries          |
-| Replit      | Cloud IDE for AI scripts           | $7.00            | 500 MB storage, 1 GB RAM                       |
-| Zapier      | Automation between tools           | $19.99           | 100 tasks, 5 Zaps, 2 min update time           |
-| Notion      | Project tracking                   | $0               | 5 MB file upload, unlimited pages              |
+**Estimated time to complete all prerequisites**: ~2 hours (including account verification and initial tests). This groundwork ensures your AI SEO service runs smoothly from day one.
 
-*Time required*:  
-- Semrush: 15 min  
-- Replit: 10 min  
-- Zapier: 10 min  
-- Notion: 5 min  
-
-You’re now ready to start building the AI SEO pipeline.
-
-## Step 1: Setup and Configuration  
-*(≈ 520 words)*  
-
-Below is a step‑by‑step, 10‑minute‑to‑30‑minute routine that leaves you with a ready‑to‑run repository, a verified Semrush API key, and the first hooks to Make.com and Zapier. Every command, UI path, and expected artifact is spelled out so you can copy‑paste and confirm success immediately.
+## Step 1 – Setup and Configuration  
+**Goal:** Create a reproducible project skeleton, secure API credentials, and verify connectivity to Semrush and Ahrefs.  
+**Estimated time:** 20–30 minutes
 
 ---
 
-### 1.1 Create the Project Skeleton  
-1. Open a terminal on macOS/Linux or PowerShell on Windows.  
-2. Create the root folder:  
+### 1. Create the project directory
 
 ```bash
+# Open a shell (e.g., Bash on macOS/Linux, PowerShell on Windows)
 mkdir ai-seo-service
 cd ai-seo-service
 ```
 
-3. Initialise a Git repo (you can skip this if you prefer another VCS):  
+**Check‑in:**  
+> Do you see a folder named `ai-seo-service` in your file explorer?  
+> If not, make sure you have write permissions in the current path.
+
+---
+
+### 2. Define the directory layout
+
+```bash
+mkdir -p src/data logs config
+touch src/index.js config/config.json
+```
+
+| Folder | Purpose |
+|--------|---------|
+| `src`  | Source code |
+| `data` | Raw API dumps |
+| `logs` | Runtime logs |
+| `config` | Static configuration files |
+
+**Check‑in:**  
+> Do you now see `src`, `data`, `logs`, and `config` sub‑folders?  
+> If `config` is missing, run `mkdir config` again.
+
+---
+
+### 3. Initialise a Git repository
 
 ```bash
 git init
+echo "# AI‑SEO‑Service" > README.md
+git add .
+git commit -m "Initial project scaffold"
 ```
 
-4. Create the following folder structure:  
+**Expected output:**  
+
+```
+Initialized empty Git repository in /.../ai-seo-service/.git/
+[master (root-commit) 1a2b3c4] Initial project scaffold
+ 4 files changed, 10 insertions(+)
+ create mode 100644 README.md
+ create mode 100644 config/config.json
+ create mode 100644 src/index.js
+ create mode 100644 src/data
+ create mode 100644 logs
+```
+
+**Check‑in:**  
+> Do you see the commit message “Initial project scaffold” in `git log`?  
+> If you get “fatal: not a git repository,” verify you’re in `ai-seo-service`.
+
+---
+
+### 4. Install Node.js and dependencies
+
+1. **Install Node 20** (if not already installed).  
+   *macOS (Homebrew):* `brew install node@20`  
+   *Windows:* download the installer from <https://nodejs.org/en/download/>.  
+
+2. **Create a `package.json`** and install runtime libs:
 
 ```bash
-mkdir -p config scripts data logs
+npm init -y
+npm install axios dotenv
 ```
 
-> **Check‑in**: Do you see a folder named `logs` inside `ai-seo-service`?  
-> If not, re‑run the `mkdir -p` command; the error will read `cannot create directory 'logs': Permission denied`. This usually means you’re not in the correct user context; switch to your own user or prepend `sudo`.
+**Check‑in:**  
+> Run `node -v` – you should see something like `v20.5.0`.  
+> Run `npm ls axios dotenv` – both should resolve to the installed versions.
+
+
+
+## Step 2: Build the Core System
+
+**Step 2 – Build the Core System**
+
+In this step we assemble the runtime environment that will pull data from Semrush and Ahrefs, persist it, and expose a clean REST API for your AI‑driven SEO layer. We’ll use [**Replit**](https://replit.com/refer/egwuokwor) to host the code, [**Semrush**](https://www.semrush.com/) and **Ahrefs** for data, [**Make.com**](https://www.make.com/en/register?pc=menshly) to trigger the pipeline, and **Zapier** to surface the results in a reporting dashboard.  
 
 ---
 
-### 1.2 Create a Python Virtual Environment  
-The service will be written in Python 3.10.  
+### 2.1  Create the Replit Project
 
-```bash
-python3.10 -m venv .venv
-source .venv/bin/activate   # on Windows: .venv\Scripts\activate
+1. Open <https://replit.com> and log in.  
+2. Click **+ Create** > **New Repl**.  
+3. Select **Node.js** as the template.  
+4. Name the project **ai‑seo‑service** and click **Create Repl**.  
+
+> **Interactive Check‑in** – Do you see the code editor with a file called `index.js`? The top bar should display “Node.js” and a “Run” button. If you’re not in the correct template, click **Tools** → **Change language** → **Node.js**.
+
+---
+
+### 2.2  Store API Keys in Secrets
+
+1. In the Replit sidebar, click the **Secrets (Environment variables)** icon (shield).  
+2. Add the following keys:
+
+| Key | Value |
+|-----|-------|
+| SEMRUSH_API_KEY | `<your‑sems­rush‑api‑key>` |
+| AHREFS_API_KEY | `<your‑ahrefs‑api‑key>` |
+| DATABASE_URL | `postgres://user:pass@localhost:5432/seo_db` |
+
+> **Interactive Check‑in** – Do you see a list of three entries with the names above? The values should be blank. After adding each key, confirm the **✓** icon appears.
+
+---
+
+### 2.3  Scaffold the Project Files
+
+Create the following files in the editor:
+
+| File | Purpose |
+|------|---------|
+| `package.json` | Project metadata + dependencies |
+| `index.js` | Express server entry point |
+| `services/seo.js` | Helper for calling Semrush & Ahrefs |
+| `db/index.js` | PostgreSQL connection pool |
+| `routes/seo.js` | API route definitions |
+
+**`package.json`** – Replace the auto‑generated content with:
+
+```json
+{
+  "name": "ai-seo-service",
+  "version": "1.0.0",
+  "description": "Automated SEO data ingestion for AI services",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "node-fetch": "^3.3.1",
+    "pg": "^8.11.0",
+    "dotenv": "^16.4.5"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  }
+}
 ```
 
-5. Verify the interpreter:  
+Run **npm install** by clicking the “Run” button; Replit will install the dependencies automatically.
 
-```bash
-python --version
+> **Interactive Check‑in** – Do you see a new folder `node_modules` appear? The `package.json` should no longer contain the placeholder content.
+
+---
+
+### 2.4  Implement the Database Layer
+
+Create **`db/index.js`** with:
+
+```js
+const { Pool } = require('pg');
+const pool = new Pool({
+  connectionString: process.env.DATABASE_URL
+});
+
+module.exports = {
+  query: (text, params) => pool.query(text, params)
+};
 ```
 
-> **Expected output**: `Python 3.10.x`  
-> If you see `Python 3.8.x`, you’re using the system interpreter. Install Python 3.10 from the official site or use Homebrew (`brew install python@3.10`) and retry.
+> **Interactive Check‑in** – Do you see the `Pool` constructor with `connectionString`? The `process.env.DATABASE_URL` should resolve to the secret you set earlier.
 
 ---
 
-### 1.3 Install the Semrush API Wrapper  
-The wrapper is `semrush-api` (pip package).  
+### 2.5  Build the SEO Service Wrapper
 
-```bash
-pip install semrush-api
+Create **`services/seo.js`**:
+
+```js
+const fetch = require('node-fetch');
+
+// Semrush Domain Overview
+async function fetchSemrush(domain) {
+  const url = `https://api.semrush.com/analytics/v1/domain/overview?key=${process.env.SEMRUSH_API_KEY}&display_limit=10&export_columns=Dn,Dq,Ur,Oc,Oa,Tm,Te,Ti,To,Co,Ko,Bo,Fa,Da,Pa,Sa,Si,Ti,To&domain=${domain}`;
+  const res = await fetch(url);
+  if (!res.ok) throw new Error(`Semrush error: ${res.statusText}`);
+  const text = await res.text();
+  // CSV parsing omitted for brevity; return raw text
+  return text;
+}
+
+// Ahrefs Backlink Overview
+async function fetchAhrefs(domain) {
+  const url = `https://apiv2.ahrefs.com?token=${process.env.AHREFS_API_KEY}&target=${domain}&output=json&from=backlinks&limit=10`;
+  const res = await fetch(url);
+  if (!res.ok) throw new Error(`Ahrefs error: ${res.statusText}`);
+  return res.json();
+}
+
+module.exports = { fetchSemrush, fetchAhrefs };
 ```
 
-> **Check‑in**: After installation, run `pip list | grep semrush` and you should see `semrush-api    0.1.4`.  
-> If you see an `ERROR: Could not find a version that satisfies the requirement semrush-api`, run `pip install --upgrade pip` first.
+> **Interactive Check‑in** – Do you see the `fetchSemrush` function call the correct Semrush endpoint? The
 
----
+## Step 3: Test and Validate
 
-### 1.4 Register a Semrush Account and Obtain an API Key  
-1. Navigate to <https://www.semrush.com/api> in your browser.  
-2. If you do not have an account, click **Create Free Account** → complete the sign‑up wizard.  
-3. In the top‑right menu, click your username → **API Settings**.  
-4. On the API Settings page, click **Generate API Key**.  
-5. Copy the 32‑character alphanumeric key that appears.
+### Step 3 – Test and Validate  
 
-> **Check‑in**: Do you see a field labeled “API Key” containing a 32‑character string?  
-> If not, you might be on the wrong page; hover over the **API** tab in the left sidebar and click **API Settings**.
+Below is a rigorous, 10‑minute test routine that guarantees the AI‑driven SEO service is pulling, processing, and outputting data correctly. Follow the checklist exactly; any deviation must be resolved before moving to production.
 
----
+#### 3.1 Verify API Connectivity  
 
-### 1.5 Store the Key Securely  
-Create a `.env` file in the project root:
-
-```bash
-touch .env
-```
-
-Edit `.env` with your favourite editor (e.g., Nano, VS Code, or Replit’s editor) and add:
-
-```
-SEM_API_KEY=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-SEM_API_URL=https://api.semr
-
-## Step 2: Build the Core System  
-*(Build the automated pipeline that pulls Semrush data, enriches it with AI, and surfaces actionable insights.)*  
-
-Below is a fully‑worked, copy‑paste‑ready configuration. Every line is purpose‑driven, every setting is explicit, and after each major block you’ll find a check‑in that forces you to confirm you’re in the right place.
-
----
-
-### 2.1 Create a Semrush API Key  
-
-1. Log into your Semrush account at **app.semrush.com**.  
-2. Click the **“API”** tab in the top‑navigation bar.  
-3. In the side‑panel, click **“Generate new key”**.  
-4. In the modal, set **“Key name”** to **“AI‑SEO‑Service‑Key”** and leave all other defaults.  
-5. Click **“Create key”**.  
-6. Copy the 32‑character key that appears and store it in a secure vault (e.g., **1Password**).
-
-**Check‑in**:  
-- Do you see a green banner that says “Key created successfully”?  
-- If you don’t, go back and ensure you’re on the **API** tab, not the **Billing** section.
-
-| Setting | Value |
-|---------|-------|
-| Semrush API Key | `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx` |
-| Key name | `AI‑SEO‑Service‑Key` |
-
----
-
-### 2.2 Spin Up a Replit Project  
-
-1. Open **replit.com** and sign in.  
-2. Click **“+ New Repl”**.  
-3. In the “Create a new repl” dialog:  
-   - **Language**: **Python** (select “Python (3.11)” from the dropdown).  
-   - **Template**: **“Python (with dependencies)”**.  
-   - **Name**: **“semrush‑ai‑pipeline”**.  
-4. Click **“Create Repl”**.  
-5. In the **Packages** pane on the left, search for **`semrush-api`** and click the **"+"** icon to add it.  
-6. Repeat for **`openai`** and **`notion-client`**.  
-7. In the **Shell** tab, run the following to confirm installation:
-
-   ```bash
-   pip freeze | grep semrush
-   pip freeze | grep openai
-   pip freeze | grep notion-client
-   ```
-
-   Expected output:
-
-   ```
-   semrush-api==2.1.0
-   openai==0.27.0
-   notion-client==1.1.0
-   ```
-
-**Check‑in**:  
-- Do you see the three packages listed in the shell output?  
-- If `pip freeze` shows an older version of `semrush-api`, click **"Refresh"** in the Packages pane.
-
----
-
-### 2.3 Pull Organic Keyword Data from Semrush  
-
-Create a file named **`fetch_keywords.py`** and paste:
-
-```python
-import os
-import json
-from semrush_api import Semrush
-
-# === 2.3.1 Set API credentials ===
-semrush = Semrush(api_key=os.getenv("SEMRUSH_API_KEY"))
-
-# === 2.3.2 Define target domain ===
-TARGET_DOMAIN = "example.com"
-
-# === 2.3.3 Request organic keywords ===
-response = semrush.keywords_overview(
-    keyword=TARGET_DOMAIN,
-    database="us",
-    type="domain"
-)
-
-# === 2.3.4 Persist JSON to file ===
-with open("organic_keywords.json", "w") as f:
-    json.dump(response, f, indent=2)
-
-print("Organic keyword data saved to organic_keywords.json")
-```
-
-**How to run**:
-
-1. In the Replit shell, export the Semrush key:
-
-   ```bash
-   export SEMRush_API_KEY="xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
-   ```
-
-2. Run the script:
-
-   ```bash
-   python fetch_keywords.py
-   ```
-
-**Expected output**:
-
-```
-Organic keyword data saved to organic_keywords.json
-```
-
-Open **organic_keywords.json
-
-
-
----
-
-**Support Pollinations.AI:**
-
----
-
-🌸 **Ad** 🌸
-Powered by Pollinations.AI free text APIs. [Support our mission](https://pollinations.ai/redirect/kofi) to keep AI accessible for everyone.
-
-## Step 3: Test and Validate  
-*(Estimated effort: 20 min)*  
-
-Below is a clinical, “run‑it‑first” routine that guarantees your Semrush‑powered SEO service is behaving as expected. Each sub‑step contains a concrete command, the exact UI path you’ll see, and the literal output you should verify. If anything diverges, the error‑handling section tells you the root cause and the fix.
-
-### 3.1 Verify API Connectivity
-
-1. **Open Replit**  
-   - Click **Create → Repl** → language: **Python 3** → name: `semrush-test`.  
-   - In the top‑right corner, click **Add file** → `requirements.txt` and add:  
-     ```
-     requests==2.32.0
-     ```
-
-2. **Create the test script**  
-   - Open `main.py` and paste:  
-     ```python
-     import os, requests, json
-
-     API_KEY = os.getenv("SEMRUSH_KEY")
-     DOMAIN   = "example.com"
-     endpoint = f"https://api.semrush.com/analytics/v1?key={API_KEY}&type=domain_ranks&export_columns=Dn,Rk"
-
-     r = requests.get(endpoint)
-     print(f"Status: {r.status_code}")
-     print(r.json())
-     ```
-
-3. **Set the environment variable**  
-   - Click **Add secret** → key: `SEMRUSH_KEY` → value: *your Semrush API key*.  
-   - Run the repl (`▶` button).  
-   - **Expected output**:  
-     ```
-     Status: 200
-     {'export_columns': 'Dn,Rk', 'rows': [{'Dn': 'example.com', 'Rk': '1'}]}
-     ```
-   - **Check‑in**: Do you see a 200 status code and a JSON object with `Dn` and `Rk`? If not, proceed to the error section.
-
-### 3.2 Validate Keyword Rank Extraction
-
-1. **Use Zapier to pull Semrush data into Notion**  
-   - In **Zapier**, create a new Zap:  
-     - Trigger: **Schedule by Zapier** → Every 12 hrs.  
-     - Action: **Webhooks by Zapier** → Custom Request → Method: `GET` → URL: *same endpoint as above* → Headers: `Accept: application/json`.  
-   - Test the Zap; you should receive a 200 response and a JSON payload.  
-   - **Expected output**: JSON array with at least one row where `Rk` is an integer ≤ 100.
-
-2. **Push the data to Notion**  
-   - Action: **Notion** → Create Database Item → Database: “Keyword Ranks”.  
-   - Map `Dn` → “Domain”, `Rk` → “Rank”.  
-   - Run the Zap manually.  
-   - **Check‑in**: In the Notion database, the new entry should appear with the correct domain and rank.
-
-### 3.3 Test Content Generation & Voice Synthesis
-
-1. **Generate a snippet with ChatGPT**  
-   - In Replit, add:  
-     ```python
-     from openai import OpenAI
-     client = OpenAI(api_key=os.getenv("OPENAI_KEY"))
-     prompt = "Write a 200‑word FAQ about AI SEO for example.com."
-     response = client.chat.completions.create(
-         model="gpt-4o-mini",
-         messages=[{"role":"user","content":prompt}]
-     )
-     print(response.choices[0].message.content)
-     ```
-   - Verify the output contains the keyword “AI SEO”.
-
-2. **Convert the snippet to speech with ElevenLabs**  
-   - Add:  
-     ```python
-     import elevenlabs
-     elevenlabs.api_key = os.getenv("ELEVENLABS_KEY")
-     audio = elevenlabs.generate(
-         text=response.choices[0].message.content,
-         voice="Rachel"
-     )
-     with open("faq.mp3","wb") as f: f.write(audio)
-     ```
-   - Run the script.  
-   - **Check‑in**: A file `faq.mp3` appears in your Replit file list; play it to confirm intelligible speech.
-
-### 3.4 Error Scenarios & Fixes
-
-| Error | Likely Cause | Fix |
-|-------|--------------|-----|
-| `requests.exceptions.SSLError` | HTTPS endpoint blocked by corporate firewall | Add `verify=False` to `requests.get()` temporarily; then whitelist the URL in your firewall. |
-| `{'error': 'Invalid API key'}` | Wrong Semrush key | Double‑check the key in Replit secrets; regenerate a key in Semrush dashboard → API → “Create new key”. |
-| `{'error': 'Rate limit exceeded'}` | Over‑used API quota | In Semrush, upgrade your plan or add a delay (`time.sleep(60)`) between requests. |
-| ElevenLabs returns empty file | `api_key` not set | Ensure `ELEVENLABS_KEY` is in Replit secrets; verify with `print(elevenlabs.api_key)` before calling `generate()`. |
-
-### 3.5 5‑Point Test Checklist
-
-1. **API Connectivity** – 200 status code and JSON payload with `Dn` and `Rk`.  
-2. **Zapier‑Notion Sync** – New row appears in Notion with correct values.  
-3. **Content Generation** – ChatGPT output contains target keyword and meets length requirement.  
-4. **Voice Synthesis** – `faq.mp3` is > 0 bytes and audibly correct.  
-5. **No Errors** – No exceptions in Replit console; all API calls return
-
-## Step 4: Add Advanced Features
-
-# Step 4: Add Advanced Features  
-**Goal:** Turn the core prototype into a production‑grade service by adding AI‑driven enrichment, resilient error handling, and a clean routing layer. We’ll also hook the workflow into Make.com for scheduled runs and deploy the finished stack to Hostinger.  
-**Estimated time:** 20 – 30 minutes (per sub‑task).  
-
----
-
-## 4.1 Add AI‑Enrichment to SEO Data
-
-1. **Create a new helper module**  
-   * In Replit, click the **+** icon → **Add file** → name it `enrich.py`.  
-   * Insert the following code:  
+1. **Open Replit** (https://replit.com) → *Create new Repl → Python*.  
+2. In the *main.py* file paste the following snippet:
 
    ```python
+   import requests, json
+
+   API_KEY = "YOUR_SEMRUSH_API_KEY"
+   DOMAIN  = "example.com"
+
+   url = f"https://api.semrush.com/analytics/v1?key={API_KEY}&type=domain_ranks&display_limit=1&export_columns=Dn,Rk,Or,Ot,Oc,Ad,Adt"
+   r = requests.get(url)
+   print(r.status_code)
+   print(r.headers['Content-Type'])
+   print(json.dumps(r.json(), indent=2))
+   ```
+
+3. Hit **Run**.  
+   - **Expected**:  
+     ```
+     200
+     application/json
+     {
+       "status": "ok",
+       "results": [
+         {
+           "Dn": "example.com",
+           "Rk": 123,
+           "Or": 45678,
+           ...
+         }
+       ]
+     }
+     ```
+   - **Interactive Check‑in**: Do you see `200` and the JSON snippet? If not, check that `API_KEY` is correct and that the domain is reachable.  
+   - **Common error**: `401 Unauthorized` → Your API key is invalid. Re‑generate the key in the Semrush dashboard → *My Account → API* and replace the value in the script.
+
+#### 3.2 Validate Ahrefs Integration  
+
+1. Open **Make.com** → *Create new Scenario*.  
+2. Add *Webhooks by Make* → *Custom Webhook* → *Receive a Webhook* → name it `AhrefsCheck`.  
+3. Add *HTTP* → *Make a request* →  
+   - **Method**: GET  
+   - **URL**: `https://apiv2.ahrefs.com?token=YOUR_AHREFS_TOKEN&target=example.com&output=json&from=backlinks`  
+4. Connect the webhook to the HTTP request.  
+5. Save and **Run once**.  
+   - **Expected**: In the *HTTP* module output you should see `"status": "ok"` and a non‑empty `"backlinks"` array.  
+   - **Interactive Check‑in**: If you see `"status": "error"`, confirm the token and that the domain is indexed by Ahrefs.
+
+#### 3.3 Test Data Pipeline  
+
+1. In Replit, extend the script to combine Semrush keyword data with Ahrefs backlink counts:
+
+   ```python
+   # Assume 'semrush_data' and 'ahrefs_data' are already fetched
+   semrush_keywords = semrush_data['results'][0]['keywords']  # example field
+   backlinks = {b['url']: b['link_count'] for b in ahrefs_data['backlinks']}
+
+   # Merge
+   for kw in semrush_keywords:
+       kw['backlinks'] = backlinks.get(kw['keyword'], 0)
+   print(json.dumps(semrush_keywords[:3], indent=2))
+   ```
+
+2. Run the script.  
+   - **Expected**: Three keyword objects, each containing a `backlinks` integer.  
+   - **Error case**: If the merge produces `None`, a mismatch in field names exists. Verify the JSON schema in the API docs and adjust the key names accordingly.
+
+#### 3.4 Performance & Rate‑Limit Checks  
+
+| Test | Expected Outcome | Fix if Wrong |
+|------|------------------|-------------|
+| **Semrush API call** | Status 200 within 2 s | If >5 s, enable *Rate Limiting* in Replit’s `.replit` → `run = "python main.py"` and add `time.sleep(1)` between calls. |
+| **Ahrefs API call** | Status 200, `backlinks` > 0 | If 0, your token may be on the free tier. Upgrade or use a different domain. |
+| **Data consistency** | Keyword counts match between services | Re‑align field names; check for typos in `export_columns`. |
+| **Error handling** | No `500` or `429` errors | If `429`, implement exponential back‑off (`time.sleep(2**attempt)`). |
+| **Output JSON** | Well‑formed JSON | Run `python -m json.tool output.json` to validate. |
+
+#### 3.5 5‑Point Test Checklist  
+
+1. **API Authentication** – Confirm both Semrush and Ahrefs tokens return `200 OK`.  
+2. **Data Integrity** – Keyword objects contain `rank`, `search_volume`, and `backlinks`.  
+3. **Rate‑Limit Adherence** – No `429` responses; total runtime < 10 s for 50 keywords.  
+4. **Error Logging** – All failures are captured in a `logs.txt` file with timestamps.  
+5. **Output Quality** – The final JSON is syntactically correct and can be consumed by downstream modules (e.g., a Shopify product feed).
+
+Once all five items are green, your AI SEO optimization pipeline is ready for deployment. If any point fails, resolve the specific error before proceeding to Step 4 (Automation & Delivery).
+
+## Step 4 – Add Advanced Features  
+*Production‑grade enrichment, error handling, routing, and automation*  
+
+Below we layer three critical capabilities on top of the core AI‑SEO engine built in Steps 1‑3. Each sub‑step is broken into 10‑15 minute chunks. At the end of every chunk you’ll perform an interactive check‑in to confirm you’re in the right place.
+
+---
+
+### 4.1 AI Enrichment with ChatGPT & [Vapi](https://vapi.ai/)
+
+1. **Create a new Python module** `ai_enrich.py` in your Replit workspace.  
+2. **Add dependencies** to `requirements.txt`:
+   ```
+   openai==0.27.5
+   requests==2.31.0
+   ```
+3. **Insert the following code** (copy‑paste exactly):
+   ```python
+   import openai
    import os
-   from openai import OpenAI
 
-   client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
+   openai.api_key = os.getenv("OPENAI_API_KEY")
 
-   def generate_meta(description, keywords):
-       prompt = f"""
-       You are an SEO specialist.  
-       Given the page description: "{description}" and the keyword list: {keywords},  
-       produce a 155‑char meta description and a 70‑char title.  
-       Return JSON: {{ "title": "...", "meta_description": "..." }}.
-       """
-       response = client.chat.completions.create(
+   def summarize_seo_report(report_text: str) -> str:
+       prompt = f"Summarize this SEO report for a client in 2–3 sentences: {report_text}"
+       resp = openai.ChatCompletion.create(
            model="gpt-4o-mini",
            messages=[{"role":"user","content":prompt}],
-           temperature=0.7,
-           max_tokens=200,
+           temperature=0.4,
+           max_tokens=120
        )
-       return response.choices[0].message.content
+       return resp.choices[0].message.content.strip()
+
+   def voice_over(text: str) -> bytes:
+       # Vapi voice synthesis endpoint
+       url = "https://api.vapi.ai/v1/synthesize"
+       headers = {"Authorization": f"Bearer {os.getenv('VAPI_API_KEY')}"}
+       payload = {"voice":"en-US-Wavenet-D","text":text}
+       r = requests.post(url, json=payload, headers=headers)
+       r.raise_for_status()
+       return r.content
    ```
-
-   * **Interactive Check‑in:** Open `enrich.py`. Do you see the `generate_meta` function with the OpenAI call? If not, ensure you typed `client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))` exactly as shown.
-
-2. **Add environment variable**  
-   * Click the **Gear** icon → **Secrets**.  
-   * Add key `OPENAI_API_KEY` and paste your ChatGPT API key.  
-   * Click **Save**.  
-
-   * **Interactive Check‑in:** In the Secrets panel, do you see `OPENAI_API_KEY` listed? If it’s missing, repeat the step.
-
-3. **Wire enrichment into the core flow**  
-   * Open `app.py` (the FastAPI entry point).  
-   * Near the top, add:  
-
-   ```python
-   from enrich import generate_meta
-   ```
-
-   * Locate the route that returns Semrush data (`/api/search`).  
-   * Immediately after retrieving the raw `semrush_response`, call enrichment:  
-
-   ```python
-   meta = generate_meta(
-       description=semrush_response["description"],
-       keywords=semrush_response["keywords"]
-   )
-   enriched_data = {**semrush_response, **meta}
-   return enriched_data
-   ```
-
-   * **Interactive Check‑in:** Open the `/api/search` route. Do you now see `meta = generate_meta(...)` and the merged dictionary? If the call is missing, double‑check the import line.
+4. **Set environment variables** in Replit’s Secrets panel: `OPENAI_API_KEY`, `VAPI_API_KEY`.  
+   *Check‑in:* Do you see the “Secrets” icon next to your repo name? You should see both keys listed.  
+   *If not*, click **Add new secret** and paste the values from your OpenAI & Vapi dashboards.
 
 ---
 
-## 4.2 Implement Robust Error Handling
+### 4.2 Robust Error Handling & Logging
 
-1. **Wrap external calls**  
-   * In `app.py`, modify the Semrush request block:  
-
+1. **Create a `utils.py` module** with a decorator:
    ```python
    import logging
-   from fastapi import HTTPException
+   import functools
+   from typing import Callable
 
-   logger = logging.getLogger("uvicorn.error")
+   logging.basicConfig(level=logging.INFO, filename='seo_service.log',
+                       format='%(asctime)s %(levelname)s %(message)s')
 
-   try:
-       semrush_response = call_semrush_api(...)
-   except Exception as exc:
-       logger.error(f"Semrush API error: {exc}")
-       raise HTTPException(status_code=502, detail="Search engine data unavailable")
+   def safe_call(fn: Callable) -> Callable:
+       @functools.wraps(fn)
+       def wrapper(*args, **kwargs):
+           try:
+               return fn(*args, **kwargs)
+           except Exception as e:
+               logging.error(f"Error in {fn.__name__}: {e}", exc_info=True)
+               raise
+       return wrapper
    ```
-
-   * **Interactive Check‑in:** Search for `logger.error` in your code. Do you see it inside the `except` block? If not, add it.
-
-2. **Set up a global exception handler**  
-   * Add at the bottom of `app.py`:  
-
-   ```python
-   @app.exception_handler(Exception)
-   async def global_exception_handler(request, exc):
-       logger.exception("Unhandled exception")
-       return JSONResponse(
-           status_code=500,
-           content={"detail": "Internal server error. Please try again later."}
-       )
-   ```
-
-   * **Interactive Check‑in:** Do you see the `@app.exception_handler` decorator? Confirm the `JSONResponse` import at the top (`from fastapi.responses import JSONResponse`).
+2. **Wrap all external API calls** (Semrush, Ahrefs, OpenAI, Vapi) with `@safe_call`.  
+   *Check‑in:* Open `seo_service.log`. You should see entries like `INFO:root:<function name> started`.  
+   *If you see `Traceback` instead of `ERROR`, the decorator wasn’t applied. Re‑add it.*
 
 ---
 
-## 4.3 Expose a Clean Routing Layer
+### 4.3 API Routing via Make.com
 
-1. **Create a dedicated router**  
-   * Add file `routes/search.py`.  
-   * Populate with:  
+1. **Log into Make.com** and create a new Scenario.  
+2. **Add a “Webhooks by Make” trigger** → “Custom webhook”. Copy the generated URL.  
+   *Check‑in:* Do you see a green “Webhook URL” box? This is the endpoint your Replit app will POST to.  
+3. **Add an “HTTP” module** → “Make a request”. Set method to `POST`, URL to your Replit app’s `/handle_webhook` endpoint. Map the webhook payload to the request body.  
+4. **Add a “Klaviyo” action** → “Add or Update Contact” → map relevant fields (email, report).  
+   *Check‑in:* You should see a “Klaviyo” icon and a mapping UI. Map `{{request.email}}` to Klaviyo’s email field.  
+5. **Save and Activate** the scenario.  
+   *Error:* If the scenario fails with “Connection timed out”, verify your Replit app is publicly reachable (use ngrok or Replit’s built‑in URL).  
 
+---
+
+### 4.4 Automated Email & Voice Report Delivery
+
+1. **In Replit, add a new endpoint** `/send_report`:
    ```python
-   from fastapi import APIR
+   from flask import Flask, request, jsonify
+   from ai_enrich import summarize_seo_report, voice_over
+   import base64
 
-## Step 5: Deploy to Production
+   app = Flask(__name__)
 
-### Step 5: Deploy to Production
+   @app.route("/send
 
-Deploying the AI‑SEO service to a reliable, scalable environment is the final hurdle before you can start selling. In this section we’ll walk you through a full CI/CD pipeline that pushes your code from GitHub to a production server on **Hostinger** using **Replit** as your local IDE, [**Make.com**](https://www.make.com/en/register?pc=menshly) for “watch‑and‑auto‑deploy” logic, and **Semrush API** for live data.  The entire process can be completed in 10–12 minutes if you follow the steps exactly.
+## Step 5: Deploy to Production
 
-#### 5.1. Prepare the Repository
+Below is a turnkey deployment workflow that takes the fully‑tested AI‑SEO engine from your local or Replit workspace and places it behind a secure, scalable web service on **Hostinger**. The flow uses **Make.com** for post‑deploy notifications, **Zapier** for email alerts, and [**ElevenLabs**](https://elevenlabs.io/) for a short “deployment complete” voice cue that you can play locally to confirm success.
 
-1. **Create a new GitHub repo** called `ai-seo-optimizer`.
-   - `git init`
-   - `git add .`
-   - `git commit -m "Initial commit"`
-   - `git branch -M main`
-   - `git remote add origin https://github.com/<YOUR_GH_USERNAME>/ai-seo-optimizer.git`
-   - `git push -u origin main`
+> **Prerequisites**  
+> • A Hostinger Premium Cloud plan (USD $5/month)  
+> • A domain pointing to Hostinger’s nameservers  
+> • A GitHub repo containing the project (already pushed after Step 4)  
+> • API keys for Semrush, Ahrefs, and ElevenLabs stored in Replit’s Secrets
 
-   *Check‑in:* Do you see a green “✓” under the *main* branch on GitHub? If not, ensure you’re logged in to GitHub and that the remote URL is correct.
-
-2. **Add a .env file** (never commit it). In **Replit** open the Shell and run:
-
-   ```bash
-   echo "SEM_API_KEY=YOUR_SEMRUSH_KEY" > .env
-   echo "HOSTINGER_SSH_USER=root" >> .env
-   echo "HOSTINGER_SSH_HOST=ssh.hostinger.com" >> .env
-   echo "HOSTINGER_SSH_KEY=~/.ssh/id_rsa" >> .env
-   ```
-
-   *Check‑in:* Verify that the `.env` file contains the four lines above. If any line is missing, re‑create it.
-
-3. **Add a Dockerfile** in the repo root:
-
-   ```
-   FROM python:3.11-slim
-   WORKDIR /app
-   COPY requirements.txt .
-   RUN pip install --no-cache-dir -r requirements.txt
-   COPY . .
-   EXPOSE 5000
-   CMD ["gunicorn", "--bind", "0.0.0.0:5000", "app:app"]
-   ```
-
-   *Check‑in:* The Dockerfile should be 12 lines exactly. The `CMD` points to `app:app` – adjust if your entry point differs.
-
-4. **Add requirements.txt** with:
-
-   ```
-   Flask==2.3.2
-   gunicorn==20.1.0
-   requests==2.31.0
-   python-dotenv==1.0.0
-   ```
-
-   *Check‑in:* Do you see `Flask` version `2.3.2`? If you see a different version, replace it.
-
-#### 5.2. Configure Make.com for Auto‑Deploy
-
-1. **Create a new Make.com scenario**:
-   - Trigger: *GitHub > Watch Pushes* → Connect your GitHub account and select the `ai-seo-optimizer` repo.
-   - Action: *SSH > Execute a command* → Connect to your Hostinger server (use the SSH credentials from the `.env` file).
-
-2. **Set the SSH command**:
-
-   ```bash
-   cd /home/ai-seo
-   git pull origin main
-   docker build -t ai-seo-optimizer .
-   docker stop ai-seo-optimizer || true
-   docker rm ai-seo-optimizer || true
-   docker run -d --name ai-seo-optimizer -p 80:5000 ai-seo-optimizer
-   ```
-
-   *Check‑in:* The command above pulls the latest code, rebuilds the image, restarts the container, and maps port 80 to the Flask app. If you see “Error: Authentication failed” in the Make.com logs, double‑check your SSH key in the Hostinger control panel.
-
-#### 5.3. Deploy Manually (Optional)
-
-If you prefer a manual push:
-
-```bash
-# From Replit Shell
-docker build -t ai-seo-optimizer .
-docker run -d --name ai-seo-optimizer -p 80:5000 ai-seo-optimizer
+### 1. Create a Dockerfile in the Repo Root  
+```dockerfile
+# Dockerfile
+FROM python:3.12-slim
+WORKDIR /app
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+COPY . .
+CMD ["python", "app/main.py"]
 ```
+*Check:* The Dockerfile should be at `/repo/Dockerfile`.  
+*Tip:* Run `docker build -t seo-service .` locally to confirm no syntax errors.
 
-*Check‑in:* After running, open `http://<HOSTINGER_DOMAIN>/health` (your app should expose a `/health` route returning `{"status":"ok"}`). If you see a 404, confirm that the route exists in `app.py`.
+### 2. Build and Push the Image to Docker Hub  
+```bash
+docker login
+docker build -t menshly/seo-service:latest .
+docker push menshly/seo-service:latest
+```
+*Error:* If you see `Error: repository menshly/seo-service not found`, create the repo via Docker Hub UI.
 
-#### 5.4. Verify Production Health
+### 3. Log Into Hostinger Control Panel  
+1. Open `https://www.hostinger.com/cpanel/login`.  
+2. Enter your Hostinger username and password.  
+3. Click **Login**.  
+*Check:* You should see the cPanel dashboard with **Docker** under “Software”.
 
-1. **Curl test**:
+### 4. Deploy the Container Using Hostinger Docker Manager  
+1. Click **Docker** → **Create Container**.  
+2. In the **Repository** field, type `menshly/seo-service:latest`.  
+3. Set **Container Name** to `seo-service`.  
+4. Under **Ports**, map `80` → `80`.  
+5. In **Environment Variables**, add:  
+   - `SEM_API_KEY=[Semrush key]`  
+   - `AHREFS_KEY=[Ahrefs key]`  
+   - `ELEVENLABS_KEY=[ElevenLabs key]`  
+6. Click **Create**.  
+*Check:* After 2–3 minutes the status should read **Running**.  
+*Tip:* If the container fails, click **Logs** to view the error stack.
 
-   ```bash
-   curl -I http://<HOSTINGER_DOMAIN>/health
-   ```
+### 5. Configure Domain Routing  
+1. In cPanel, click **Domains** → **Addon Domains**.  
+2. Add your domain (e.g., `ai-seo.menshly.com`) pointing to the `seo-service` container.  
+3. Ensure **Use cPanel’s default web root** is unchecked; set **Document Root** to `/app`.  
+*Check:* Visiting `https://ai-seo.menshly.com/health` should return `{"status":"ok"}`.
 
-   Expected response headers:
+### 6. Setup HTTPS with Let’s Encrypt  
+1. Go to **SSL/TLS** → **AutoSSL**.  
+2. Select **Let’s Encrypt** and run on the addon domain.  
+3. Verify that the lock icon appears next to the URL.  
+*Error:* If you see `Failed to issue certificate`, ensure the domain’s DNS A‑record points to Hostinger’s IP.
 
-   ```
-   HTTP/1.1 200 OK
-   Content-Type: application/json
-   ```
+### 7. Automate Post‑Deploy Notifications with Make.com  
+1. In Make.com, create a new scenario.  
+2. Trigger: **Webhooks** → **Custom webhook**.  
+3. In your Docker Hub repo, enable **Webhooks** → **Push events** → set URL to the webhook URL.  
+4. Add an action: **Zapier** → **Send Email** (or **Calendly** notification).  
+5. Map `repository` and `ref` fields to the email body.  
+6. Save and turn the scenario on.  
+*Check:* A push to the repo should trigger an email: “Deployment of `seo-service` succeeded”.
 
-   *Check‑in:* The status line should read `200 OK`. If it’s `503`, the container failed to start – check Docker logs (`docker logs ai-seo-optimizer`).
+### 8. Verify With a Quick API Call  
+```bash
+curl -s https://ai-seo.menshly.com/api/keywords?term=AI+SEO | jq .
+```
+You should see a JSON array of keyword suggestions.  
+*Error:* If you receive `404 Not Found`, double‑check the route paths in `app/main.py` and rebuild the container.
 
-2. **Semrush API call** (replace `<DOMAIN>` with your test domain):
+### 9. Voice Confirmation (optional)  
+Run locally:  
+```bash
+elevenlabs-cli speak "Deployment successful for the AI SEO service" --voice "Rachel"
+```
+You’ll hear the spoken confirmation, a quick sanity check that your ElevenLabs key works.
 
-   ```bash
-   curl -X GET "https://api.semrush.com/analytics/v1?key=${SEM_API_KEY}&type=domain_ranks&domain=<DOMAIN>&display_limit=10" -H "Accept: application/json"
-   ```
+### 10. Final Checklist  
+| Item | Expected Result | Action if Failed |
+|------|-----------------|-----------------|
+| Container status | Running | Re‑push image |
+| Domain HTTPS | ✔️ | Restart AutoSSL |
+| Health endpoint | `{"status":"ok"}` | Inspect logs |
+| Make.com webhook | Email received | Verify webhook URL |
+| API response | JSON payload | Re‑deploy code |
 
-   Expected JSON contains `"rank"` and `"position"` fields. If you get `{"error":"Invalid API key"}`, verify the key in `.env`.
-
-#### 5.5. Zero‑Downtime Deploy
-
-To avoid service interruption, add a health‑check in Hostinger’s control panel:
-
-1. Go to **Panel > Web > Docker > Container Management**.
-2. Click **Add Container** → name `ai-seo-optimizer`.
-3. Set **Restart Policy** to **Always**.
-4. Under **Health Check**, set:
-
-   - **Type**: HTTP
-   - **URL**: `/health`
-   - **Interval**: 30s
-   - **Retries**: 3
-
-   *Check‑in:* Hostinger will now automatically restart the container if `/health` returns non‑200. If you see “Health check failed” repeatedly, ensure the health route is defined correctly.
-
-####
+Once every check passes, your AI‑SEO optimization service is live and ready for clients. You can now proceed to the **Pricing & Sales** section to define tiers and craft a copy‑paste pitch, or expose the endpoint to external partners via the **ActiveCampaign** integration.
 
 ## Step 6: Scale and Grow  
-*(300‑400 words – 1 min 30 sec ≈ 200 words)**  
 
-1. **Create a reusable automation skeleton**  
-   - **Tool**: *Make.com* (Automation platform)  
-   - **Scenario**: “Client On‑Boarding → Semrush → ActiveCampaign → Slack”.  
-   - **Exact steps**:  
-     1. In Make.com, click **Create a new scenario** → **Webhooks by Make** → **Custom webhook** → **Add**. Label it **“New Client Hook”**.  
-     2. Click **Save and copy the URL**.  
-     3. In your front‑end (Replit → `app.py`), add a POST endpoint `/webhook` that forwards the JSON payload to the copied URL.  
-        ```python
-        import requests, os
-        @app.post("/webhook")
-        async def webhook(data: dict):
-            resp = requests.post(os.getenv("MAKE_WEBHOOK_URL"), json=data)
-            return {"status": resp.status_code}
-        ```  
-        *Check‑in*: “Do you see a `200 OK` response when you POST test data? If not, verify the webhook URL in the environment variable.”  
-     4. Back in Make.com, add a **Semrush API** module → **GET** → `https://api.semrush.com/analytics/api/v1/keywords?keyword={{Keyword}}&api_key={{SEMRUSH_KEY}}`.  
-        - Set **Query**: `keyword={{Keyword}}` (Pull from incoming webhook).  
-        - Set **Headers**: `Accept: application/json`.  
-        - Store results in a variable `semrushResult`.  
-     5. Add **ActiveCampaign** → **Update a Contact** → map `semrushResult` fields to custom fields: `SEO Rank`, `Competitive Density`.  
-        - API key: `{{ACTIVECAMPAIGN_KEY}}`.  
-     6. Add **Slack** → **Send a message** → “✅ New SEO report generated for {{ClientName}}”.  
-   - **Pricing**: Make.com 6‑month plan $59.80 (~$10/month).  
+| Milestone | Clients | Key Automation | Avg. Monthly Revenue | Margin Goal |
+|-----------|---------|----------------|----------------------|-------------|
+| 1 | 1–5 | Manual reporting | $1 200 | 35 % |
+| 2 | 6–10 | Make.com + Zapier workflows | $3 500 | 40 % |
+| 3 | 11–20 | Dedicated Replit AI stack + Midjourney | $8 000 | 45 % |
+| 4 | 21–50 | Full‑stack automation (Semrush + Ahrefs + Apollo.io) | $18 000 | 50 % |
+| 5 | 51+ | Outsourced content & voice (Vapi + ElevenLabs) | $35 000 | 55 % |
 
-2. **Hiring plan for 10+ clients**  
-   - **Phase 1 (1–3 clients)**: Single AI‑specialised engineer (you).  
-   - **Phase 2 (4–6 clients)**: Hire a part‑time *Data Analyst* on Upwork for $25/hr.  
-     - *Tool*: *Notion* → create a “Client Pipeline” database.  
-     - Add a *Formula* property `Monthly Revenue` = `#Clients × $2,000`.  
-   - **Phase 3 (7–10 clients)**: Bring on a *Senior SEO Strategist* at $70k/yr.  
-     - *Tool*: *Calendly* → schedule 30‑min strategy calls (integration with Slack).  
+---
 
-3. **Margin improvements**  
-   - **Automate reporting**: Use *[Fliki AI](https://fliki.ai?referral=noah-wilson-w84be4)* to convert Semrush JSON into video briefs (price $0.01 per minute).  
-   - **Voice summaries**: Feed reports to *ElevenLabs* (API key `{{ELEVEN_KEY}}`) → synthesize a 2‑minute audio summary.  
-   - **Cost per report**:  
-     - Make.com: $10/month ÷ 300 reports = $0.03/report  
-     - Fliki AI: $0.01/report  
-     - ElevenLabs: $0.02/report  
-     - Total ≈ $0.06/report → profit margin > 70 %.  
+### 1. Standardize the On‑boarding Flow (15 min)
 
-4. **Scale milestones table**  
+1. **Create a new Notion database** called `Client On‑board`.  
+   - Add columns: `Client Name`, `Domain`, `Start Date`, `Status`, `SEO Score`.  
+   - Set the “Status” column to the **Select** type and add the options: *New*, *In‑Progress*, *Completed*.
 
-| Milestone | Clients | Monthly Revenue | Key Automation | Tool Licenses |
-|-----------|---------|-----------------|----------------|---------------|
-| 1–3       | 3       | $6,000          | Basic Make.com scenario | Make.com Basic ($12.50/mo) |
-| 4–6       | 6       | $12,000         | Add ActiveCampaign sync | ActiveCampaign Starter ($15/mo) |
-| 7–10      | 10      | $20,000         | Full video‑voice pipeline | Fliki AI ($30/mo), ElevenLabs ($40/mo) |
+2. **Set up a Make.com scenario** that triggers when a new row is added.  
+   - **Trigger**: “New Row in Database” → Notion  
+     - *Workspace*: `Your workspace`  
+     - *Database*: `Client On‑board`  
+   - **Action**: “Create Spreadsheet Row” → Google Sheets  
+     - *Spreadsheet*: `Client On‑board Log`  
+     - Map the same columns.  
 
-5. **Error scenarios**  
-   - *If* Make.com returns `401 Unauthorized`, *then* the Semrush API
+   *Do you see the “Create Spreadsheet Row” action?*  
+   *If not, go back to the “Actions” tab and search for “Google Sheets” → “Create a Spreadsheet Row.”*
+
+3. **Error scenario** – If Make.com shows “Notion API error: 401 Unauthorized”, ensure your Notion integration token is active and has “Read” and “Write” permissions for the database.  
+
+---
+
+### 2. Automate the SEO Audit Report (20 min)
+
+1. **Open Semrush** → *Projects* → *Add new project*.  
+   - **Project name**: `{{Client Name}} SEO Audit`  
+   - **Domain**: `{{Client Domain}}`  
+   - **Project URL**: leave blank.  
+
+2. **Create a Zapier zap** to export the audit to a PDF.  
+   - **Trigger**: “New Project” (Semrush) → *Semrush* app.  
+   - **Action**: “Create Document” → *DocuSign* (or Google Docs if you prefer).  
+     - *Template*: “SEO Audit Report” with placeholders for *Domain*, *Organic Traffic*, *Backlinks*, *Keyword Gap*.  
+
+3. **Add a “Send Email” action** (Gmail).  
+   - **To**: `{{Client Email}}`  
+   - **Subject**: “Your Monthly SEO Audit”  
+   - **Body**: “Hi {{Client Name}}, your audit is attached.”  
+   - **Attachment**: the PDF created in the previous step.  
+
+   *Do you see the “Create Document” action?*  
+   *If the Zap runs but the PDF is empty, double‑check that the Semrush API token has “View” access to the project.*
+
+---
+
+### 3. Hire Specialized Talent (30 min)
+
+| Role | Tools | Hiring Plan | Salary Range |
+|------|-------|-------------|--------------|
+| SEO Analyst | Semrush, Ahrefs | Start with a contract freelancer via **Upwork** → filter for “SEO Analyst” | $30–$45/hr |
+| AI Content Writer | Replit, Midjourney, [Grammarly](https://grammarly.com/) | Post a “Remote AI Writer” role on **LinkedIn** → Use Apollo.io to outreach | $40–$60/hr |
+| Voice Agent Developer | Vapi, ElevenLabs | Use **Replit** to host a starter repo; ask for GitHub portfolio | $50–$70/hr |
+
+**Checklist**  
+- Create a job posting in Notion → `Job Postings` database.  
+- Attach a copy‑paste interview script that asks for:  
+  - `Semrush/SERP data interpretation`  
+  - `Python 3.10` proficiency  
+  - `Experience with Make.com/Zapier`  
+
+**Error scenario** – If candidate resumes come back with “Semrush API”, verify that your Semrush API key is valid. Generate a new key in Semrush → *Account* → *API Keys*.
+
+---
+
+### 4. Upsell AI‑Generated Video Content (15 min)
+
+1. **Set up [Fliki AI](https://fliki.ai?referral=noah-wilson-w84be4)** → *Create a new project* → `SEO Video Series`.  
+   - **Template**: “Keyword‑Focused Overview”  
+   - **Audio**: Choose “English Male – 1.0”  
+   - **Export**: MP4 to Google Drive folder `Client Videos`.  
+
+2. **Automate the upload** using Zapier:  
+   - **Trigger**: New File in Google Drive → *Google Drive*  
+   - **Action**: “Send Email” → Gmail → “Your Video is Ready” with the
 
 ## Cost Breakdown
 
-| Item | Free Tier | Paid Tier | When to Upgrade |
-|------|-----------|-----------|-----------------|
-| **Semrush Pro** | 10 keyword positions, 5 domains, 5,000 keyword queries per month | $119.95 / mo (Pro) | When you need >10 domains or >5 k keyword queries per month |
-| **Semrush Guru** | 20 keyword positions, 10 domains, 10,000 keyword queries | $229.95 / mo | Hit 15 k queries or need historical data |
-| **Semrush Business** | 30 keyword positions, 25 domains, 20,000 keyword queries | $449.95 / mo | >20 k queries or need enterprise API access |
-| **Replit Cloud IDE (Pro)** | 1 GB RAM, 1 GB SSD, 1 CPU | $7 / mo per user | When you need >2 GB RAM or multi‑user workspace |
-| **Hostinger Unlimited Plan** | 1 GB SSD, 1 TB bandwidth | $10.95 / mo | When you exceed 1 GB of storage or need more than 1 TB bandwidth |
-| **Make.com (Automation)** | 250 tasks/mo, 5 integrations | $49 / mo | When you need >250 tasks or >5 integrations |
-| **Buffer Pro** | 3 publishing queues, 10 schedules | $15 / mo | When you exceed 10 schedules or need premium analytics |
-| **Zapier Starter** | 100 tasks/mo, 5 Zaps | $19.99 / mo | When you hit >100 tasks or need more Zaps |
-| [**ElevenLabs Voice Synthesis**](https://elevenlabs.io/) | 5 h raw audio, 1 voice | $15 / mo | When you need >5 h or multiple voices |
-| **Klaviyo Free** | 500 contacts, 5 k emails/mo | $20 / mo | When contacts >500 or emails >5 k |
+| Item                              | Free Tier | Paid Tier (Monthly) | When to Upgrade |
+|-----------------------------------|-----------|---------------------|-----------------|
+| **Semrush** (SEO toolkit)         | 10 reports/month, limited keyword research | **Pro**: $119.95 /mo | When you need >10 keyword reports or to keep a >3‑month keyword history |
+| **Ahrefs** (backlink & keyword data) | 7‑day free trial | **Lite**: $99 /mo | Once you exceed the 7‑day trial or need >10,000 backlink checks/day |
+| **Replit** (AI‑automation IDE)    | Unlimited code, no AI integrations | **Pro**: $5 /mo (AI + private repos) | When you start running production‑grade scripts for clients |
+| **Make.com** (workflow automation) | 500 operations/month | **Starter**: $49 /mo | When your automation exceeds 500 ops or needs premium connectors |
+| **Zapier** (app automation)       | 100 tasks/mo | **Starter**: $19.99 /mo | When you need >100 tasks or premium app access |
+| [**Notion**](https://notion.so/) (project tracker)      | Unlimited pages | **Personal Pro**: $8 /mo | When you need team sharing or advanced permissions |
+| **Hostinger** (hosting for API & site) | 50 GB SSD, 1 TB bandwidth | **Premium**: $3.95 /mo | When you need more than 50 GB or 1 TB bandwidth |
+| **ChatGPT‑API** (content generation) | 3 M tokens free (subscription) | **Standard**: $20 /mo (approx. 10 M tokens) | When your monthly token usage >3 M or needs higher priority |
 
 ### Monthly Cost Analysis
 
-| Scale | Total Paid Cost | Notes |
-|-------|-----------------|-------|
-| **Solo** (1 client, 1 domain) | **$129.95** | Pro Semrush + Replit Pro + Hostinger Unlimited + Make.com Basic |
-| **5 Clients** (5 domains, 5 users) | **$1,019.90** | 1 Business Semrush + 5 Replit Pro + 1 Hostinger Unlimited + 1 Make.com Pro |
-| **10+ Clients** (10 domains, 10 users) | **$2,099.80** | 1 Business Semrush + 10 Replit Pro + 1 Hostinger Unlimited + 1 Make.com Pro |
+| Scale             | Total Monthly Cost | Notes |
+|-------------------|--------------------|-------|
+| **Solo** (1 client) | $119.95 (Semrush) + $99 (Ahrefs) + $5 (Replit) + $49 (Make.com) + $19.99 (Zapier) + $8 (Notion) + $3.95 (Hostinger) + $20 (ChatGPT) = **$384.89** | All tools at their lowest paid tiers; enough for one client’s full SEO audit, keyword research, and automation. |
+| **5 Clients** | $119.95 + $99 + $5 + $49 + $19.99 + $8 + $3.95 + $20 = **$384.89** | Same tiers work; you simply add more query volume to each tool. |
+| **10+ Clients** | Upgrade to **Semrush Advanced** $229.95 + **Ahrefs Standard** $179 + **Replit Pro** $5 + **Make.com Growth** $99 + **Zapier Professional** $49.99 + **Notion Team** $12 + **Hostinger Premium** $3.95 + **ChatGPT Standard** $50 = **$708.89** | Paid tiers give you more API calls, larger backlink limits, and higher automation throughput to keep all 10+ client reports on schedule. |
 
-#### How to Reach These Figures
+**Key Takeaways**
 
-1. **Semrush** – Log in, go to *Subscription → Upgrade*. Select *Business* for the 10‑client tier. Confirm payment via Stripe (annual billing auto‑renewal).  
-2. **Replit** – In the dashboard, click *Account → Upgrade*. Pick *Pro*. Enter card details; the plan activates immediately.  
-3. **Hostinger** – From the control panel, select *Hosting → New Hosting* → *Unlimited*. Follow the wizard, enter domain, choose *Month‑to‑Month* billing.  
-4. **Make.com** – In the *Dashboard → Plans*, click *Upgrade*. Select *Pro*; the interface will show you the new task limit.  
-5. **Buffer** – In *Dashboard → Upgrade*, choose *Pro* for 10 schedules.  
-6. **Zapier** – In *Settings → Plan*, click *Upgrade* → *Starter*.  
-7. **ElevenLabs** – Navigate to *Dashboard → Pricing*, click *Upgrade* → *Starter*.  
+- Use the **free tiers** only for proof‑of‑concept or a single test client; the cost‑effective path for a growing service is to move to the **Pro** tier of Semrush and Ahrefs early.
+- **Replit** and **Make.com** stack together to automate report generation and push results to **Notion** or **Zapier** for client handoff.
+- The **ChatGPT‑API** cost is token‑based; monitor usage via the OpenAI dashboard and scale your **Standard** plan if you hit >10 M tokens/month.
 
-> **Error scenario**: If you see “Limit reached” on any plan, you’re hitting the free tier cap. Upgrade the specific tool or consider consolidating domains to stay within the current tier.
-
-With these exact configurations, you can scale from a solo operation to a 10‑client SaaS with predictable monthly spend, ensuring every AI‑driven SEO task stays within budget.
+With these numbers, you can predict cash flow, set client pricing, and decide when to tier‑up each tool without surprises.
 
 ## Production Checklist
 
-Before launching the AI‑driven SEO service, run through the following 10 items. Each item is a concrete, measurable gate that must be passed.
+Before you launch the AI‑SEO service, run through the following items to ensure every component delivers as expected. Each item is specific, testable, and uses the exact tools and settings outlined in this guide.
 
-1. **Semrush Project Alignment** – In Semrush, open **Projects → [Your Project] → Settings**. Ensure *Target Location* is **United States** and *Language* is **English**. Verify that the Project ID displayed matches the `PROJECT_ID` in your Replit environment variable.
+- [ ] **Semrush API Key** – In the Semrush dashboard, navigate to *API → API Keys*. Copy the 32‑character key into your environment file (`SEMRUSH_API_KEY`). Run `curl https://api.semrush.com?key=$SEMRUSH_API_KEY&action=domain_rating&domain=example.com`. You should receive a JSON payload containing `"domain_rating"`. A `403` indicates an invalid key; rotate it immediately.
 
-2. **Keyword Inventory Validation** – In Semrush Keyword Magic Tool, run a query for **“AI SEO services”**. The top 5 results must each have **search volume ≥ 5,000**. Export the list to `keywords.csv` and confirm the file contains at least **50 rows**.
+- [ ] **Ahrefs Access Token** – Log into Ahrefs, go to *Account → API → Generate Token*. The token must be 40 characters. Store it in `.env` as `AHREFS_TOKEN`. Test with `curl https://apiv2.ahrefs.com?token=$AHREFS_TOKEN&from=domain_rating&target=example.com`. Expect a JSON response with the `"domain_rating"` field.
 
-3. **Backlink Health Check** – In Semrush Site Audit, verify that the *Disavow List* contains **≤ 5 domains** and that the *Total Backlinks* count is **≥ 200**. If more than 5 disallowed domains appear, add them to the disavow file and re‑run the audit.
+- [ ] **Make.com Automation** – Open the Make.com scenario *“SEO Audit Pipeline”*. Verify the last module is *Send Slack Notification → Channel #seo‑audit*. Confirm the schedule is set to **02:00 UTC daily**. If the module is disabled, enable it and re‑run the scenario manually to see a test notification.
 
-4. **Make.com Automation Trigger** – Open Make.com → **Scenario: Daily Keyword Rank**. Confirm the trigger time is set to **06:00 UTC**. The Google Sheets action must append a new row with `rank_change ≤ 0.5%`. If the sheet shows a rank drop > 0.5%, flag the keyword for manual review.
+- [ ] **Replit Deployment** – In the Replit workspace, execute `python main.py --test`. The console should print `SEO Audit Completed – Status 200`. If you see an `ImportError`, check `requirements.txt` for missing packages such as `requests`.
 
-5. **Replit API Endpoint Test** – From a terminal, run  
-   ```bash
-   curl -X GET https://api.menshly.com/semrush/keywords -H "Authorization: Bearer $API_KEY"
-   ```  
-   Expect a **200 OK** response and JSON containing `keywords`. If you receive a **500** error, check the `SEM_API_KEY` variable in the Replit secrets panel.
+- [ ] **PostgreSQL Schema** – Connect to the database and run `SELECT COUNT(*) FROM seo_reports;`. You should see at least one row populated by the test audit. Verify the column `seo_score` is of type `numeric` and not null.
 
-6. **AI Content Prompt Accuracy** – In Replit, open `prompt.py`. The prompt template should read:  
-   ```text
-   “Generate a 200‑word article on [keyword] using headings and bullets.”
-   ```  
-   Run the script with `keyword=‘AI SEO’` and confirm the output contains an `<h1>` tag and no `<script>` tags.
+- [ ] **Klaviyo Email Trigger** – In Klaviyo, create a workflow *“Client Report Email”*. Set the trigger to the *“New SEO Report”* event. In the email template, confirm the dynamic tag `{{seo_score}}` renders a number when previewing.
 
-7. **ElevenLabs Voice Parameters** – In the ElevenLabs dashboard, create a synthesis job with **Voice “Joanna”** and **Speed 1.0**. The exported MP3 size must be **≤ 5 MB**. If larger, reduce speed to 0.9 and re‑run.
+- [ ] **ElevenLabs Voice Summary** – Use the ElevenLabs console to synthesize the sentence “SEO score is 85.” Download the resulting MP3. The file length should be under 10 seconds and the format `.mp3`. Any larger file indicates an issue with the voice model selection.
 
-8. **Klaviyo Email Schedule** – In Klaviyo, open the “SEO Update” flow. The campaign should be set to send at **12:00 PM PST** and include the dynamic link `{{ content_url }}`. Enable the preview mode and confirm the link resolves to the landing page.
+- [ ] **Snowflake Logging** – Query the `seo_logs` table: `SELECT * FROM seo_logs ORDER BY timestamp DESC LIMIT 5;`. Ensure columns `timestamp`, `client_id`, and `status` exist and the latest timestamp is within the last 5 minutes. Missing columns or stale timestamps signal a logging failure.
 
-9. **Hostinger HTTPS & Content Verification** – Run `curl -I https://yourdomain.com` from a Linux shell. Expect headers:  
-   ```
-   HTTP/2 200
-   Content-Type: text/html; charset=UTF-8
-   Strict-Transport-Security: max-age=31536000; includeSubDomains
-   ```  
-   Open the URL in a browser; the new AI‑generated article must be visible on the landing page.
-
-10. **GA4 Tag Confirmation** – Open Chrome DevTools → Network → filter for `collect`. Reload the landing page and verify a request to `https://www.google-analytics.com/g/collect` contains `client_id` and `uid`. If missing, re‑insert the `gtag('config', 'G‑XXXXXX')` snippet in the `<head>` of `index.html`.
-
-> **Do you see a 200 OK header?** If not, revisit the Hostinger SSL configuration.  
-> **Do you see the expected number of keywords in the CSV?** If fewer than 50, re‑run the Semrush export.  
-
-Once all ten items return the expected outputs, the service is ready for production.
+- [ ] **Client Dashboard (Glide)** – Open the Glide app, navigate to the *Client Dashboard* page. The SEO trend line should reflect the latest audit data. If the chart is blank, clear the browser cache and reload
 
 ## What to Do Next
 
-**1. Automate Reporting with Make.com & Semrush API**  
-Create a Make.com scenario that pulls the “Organic Search Positions” report every 24 h.  
-- In Make.com, add a **HTTP Request** module → *Method*: GET → *URL*: `https://api.semrush.com/analytics/positions?key=YOUR_API_KEY&domain=YOURDOMAIN.com&database=us&export_columns=Ph,Po,Or,Ot,Oc,Dt,Nd`  
-- Set **Headers**: `Accept: application/json`  
-- Add a **JSON Parse** module to extract `Ph` (position) and `Po` (on‑page score).  
-- Output the data to a **Google Sheets** tab titled *Daily SERP Snapshot*.  
-- Schedule the scenario to run at 02:00 UTC daily.  
-If the API returns `{"error":"Exceeded request limit"}`, reduce the frequency to 48 h or upgrade your Semrush plan.  
+**Automate Keyword Expansion with Make.com**  
+Create a Make.com scenario that pulls your Semrush keyword list every 24 h.  
+1. In Make.com, add a **“Webhooks → Custom webhook”** trigger.  
+2. Set the URL to your Semrush API endpoint:  
+   `https://api.semrush.com/analytics/v1/keywords?key=YOUR_KEY&domain=YOURDOMAIN.com`  
+3. Map the returned JSON to a **Google Sheets → Update rows** action.  
+4. Add a **Delay → 5 min** step before the next query to avoid rate limits.  
+Do you see a “Webhook received” event? You should see a JSON payload with `keyword` and `volume`. If you get a `403` error, check that your Semrush API key is active and that the domain is whitelisted.
 
-**2. Deploy AI‑Generated Content with Replit & Shopify**  
-Spin up a Replit project (free tier, $5/mo for GPU) and clone the repo from <https://github.com/menshly/ai-content-engine>.  
-- In `config.json`, set `API_KEY_SEMRUSH` and `API_KEY_OPENAI`.  
-- Run `npm install` → `npm run generate` which calls ChatGPT to produce 3‑paragraph meta descriptions for each product page.  
-- Push the JSON output to Shopify via the **Shopify Admin API** (`POST /admin/api/2024-01/products.json`).  
-- In Shopify, create a **Custom App** → *API Credentials*: `Scopes: read_products,write_products`.  
-- Use the app’s access token in Replit to authenticate the POST request.  
+**Leverage Ahrefs API for Backlink Health Dashboards**  
+Spin up a Replit container running Python with the Ahrefs SDK.  
+```python
+from ahrefs import Ahrefs
+api = Ahrefs(api_key='YOUR_AHREFS_KEY')
+report = api.backlinks(domain='YOURDOMAIN.com', limit=100)
+```
+Export `report` to a CSV and pipe it into a Flask app that serves `/backlinks`.  
+Do you see `/backlinks` returning JSON? You should see `anchor_text`, `ref_domain`, and `traffic`. If you see `429 Too Many Requests`, increase the sleep interval between API calls.
 
-**3. Voice‑Enabled SERP Insights via [Vapi](https://vapi.ai/) & ElevenLabs**  
-Build a Vapi voice agent that answers “What’s my current search position?”  
-- In Vapi, set up a **Webhook** pointing to <https://replit.app/api/v1/serp>.  
-- In the webhook, query Semrush API as above, then use ElevenLabs’ TTS endpoint:  
-  `POST https://api.elevenlabs.io/v1/text-to-speech?voice=Matthew&speed=1.0` with JSON body `{"text":"Your page for \"mens fashion\" is currently at position 4."}`  
-- Return the MP3 to Vapi for playback.  
+**Integrate Voice Summaries with ElevenLabs**  
+Generate weekly executive summaries via ChatGPT.  
+1. Prompt ChatGPT:  
+   “Summarize the last week’s keyword performance and backlink health in 3‑minute audio.”  
+2. Feed the text into ElevenLabs’ `synthesize` endpoint:  
+   `https://api.elevenlabs.io/v1/text-to-speech?voice=Matthew&text=YOUR_SUMMARY_TEXT`  
+3. Store the MP3 in an S3 bucket and send a link via Zapier to your client portal.  
+Do you see the MP3 URL? If the audio is garbled, switch the voice to “Emma” for better clarity.
 
-**4. Amplify Visibility with Buffer & Canva**  
-Create a Canva template for SERP‑highlight cards.  
-- In Canva, design a 1080×1080 PNG with placeholders for *Keyword*, *Position*, *Change*.  
-- In Buffer, schedule a weekly post on LinkedIn:  
-  - *Content*: “Check out our latest SERP performance for #MensFashion!”  
-  - *Image*: export from Canva.  
-  - *Post Time*: 10 AM EST every Friday.  
+**Set Up Real‑Time Alerting with Klaviyo**  
+Trigger a Klaviyo campaign when a keyword drops below 50 % of its average volume.  
+1. In Make.com, add a **“Filter”** after the Semrush webhook: `volume < (average_volume * 0.5)`.  
+2. Use the **“Klaviyo → Send Email”** action, mapping the keyword and new volume.  
+3. Include a CTA to the custom dashboard you built.  
+Do you see the email in Klaviyo’s test mode? If you get a “Recipient not found” error, add the client’s email to the Klaviyo list first.
 
-**5. Continuous Learning with Notion & ChatGPT**  
-Set up a Notion database *SEO Knowledge Base*.  
-- Add properties: *Keyword*, *SERP Rank*, *Insights*, *Next Action*.  
-- Use ChatGPT (via the “ChatGPT” integration in Notion) to auto‑populate *Insights* by running `summarize SERP data`.  
-- Reference our guide on “Leveraging AI for Local SEO” <https://menshly.com/ai-local-seo> for next‑step keyword expansions.  
+**Publish Video Reports with Fliki AI**  
+Create engaging visual reports that recap SEO metrics.  
+1. Export your dashboard’s PNG from [Canva](https://www.canva.com/) and upload to Fliki AI.  
+2. Use Fliki’s “Create Video” wizard, selecting the “Business Analyst” template.  
+3. Add a voice‑over generated by ElevenLabs (see above).  
+4. Publish the video to Loom, then embed it in your client’s portal.  
+Do you see the video preview in Fliki? The final MP4 should be under 200 MB; if it exceeds, reduce the resolution to 720p.  
 
-These actions build a closed‑loop system that not only monitors but also adapts your SEO strategy in real time, turning raw data into actionable revenue growth.
+For deeper integration ideas, read our article on **[Automating SEO Workflows with Zapier and Make.com](https://menshly.com/seo-automation-workflows)** and explore our **[AI‑Powered Video Marketing with Fliki and Canva](https://menshly.com/ai-video-marketing)** series.
 
-Ready to understand the full business opportunity? Read our [opportunity deep-dive]({< ref "/opportunities/how-to-build-an-ai-reputation-management-business-5k-30kmonth.md" >}).
+Ready to understand the full business opportunity? Read our [opportunity deep-dive]({< ref "/opportunities/how-to-build-an-ai-seo-agency-10k-20kmonth.md" >}).
 
 
 ## Recommended Tools

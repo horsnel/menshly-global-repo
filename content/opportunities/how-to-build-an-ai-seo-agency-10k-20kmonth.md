@@ -6,6 +6,7 @@ readTime: "16 MIN"
 excerpt: "Details coming soon. Check back for updates on this section."
 image: "/images/articles/opportunities/how-to-launch-an-ai-seo-agency-with-semrush-in-2026-earn-20000month.png"
 heroImage: "/images/heroes/opportunities/how-to-launch-an-ai-seo-agency-with-semrush-in-2026-earn-20000month.png"
+relatedGuide: "/intelligence/build-an-ai-seo-optimization-service-with-semrush-the-complete-step-by-step-guid/"
 ---
 
 
