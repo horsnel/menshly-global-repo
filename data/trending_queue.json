@@ -1,24 +1,6 @@
 {
-  "last_updated": "2026-10-29T16:42:43.353641+00:00",
+  "last_updated": "2026-10-30T14:52:07.650605+00:00",
   "topics": [
-    {
-      "topic": "How to start an AI newsletter business with Beehiiv in 2026",
-      "context": "With the rise of AI, newsletter automation is becoming increasingly popular. Solo entrepreneurs can use tools like Beehiiv and Substack to offer automated newsletter services to clients.",
-      "keywords": [
-        "AI newsletter business",
-        "Beehiiv",
-        "Substack"
-      ],
-      "affiliates": [
-        "Beehiiv",
-        "Substack",
-        "Mailchimp"
-      ],
-      "opportunity_angle": "How to launch an AI newsletter business with Beehiiv in 2026 (earn $22,000/month)",
-      "intelligence_angle": "Create, edit, and optimize newsletters with Beehiiv and Substack",
-      "playbook_angle": "Design, build, and automate AI newsletter workflows with Beehiiv and Mailchimp",
-      "discovered_at": "2026-05-01T09:43:23.616171+00:00"
-    },
     {
       "topic": "How to start an AI email marketing business with Klaviyo in 2026",
       "context": "With the rise of AI, email marketing automation is becoming increasingly popular. Solo entrepreneurs can use tools like Klaviyo and ActiveCampaign to offer automated email marketing services to clients.",
@@ -3628,6 +3610,10 @@
     {
       "topic": "How to start an AI SEO agency with Semrush in 2026",
       "used_at": "2026-10-28T14:57:00.244600+00:00"
+    },
+    {
+      "topic": "How to start an AI newsletter business with Beehiiv in 2026",
+      "used_at": "2026-10-30T14:52:07.650588+00:00"
     }
   ]
 }
