@@ -8,6 +8,7 @@ excerpt: "Before you dive into building the AI‑driven SEO optimization service
 image: "/images/articles/intelligence/optimize-analyze-and-improve-seo-with-semrush-and-ahrefs.png"
 heroImage: "/images/heroes/intelligence/optimize-analyze-and-improve-seo-with-semrush-and-ahrefs.png"
 relatedOpportunity: "/opportunities/how-to-build-an-ai-seo-agency-10k-20kmonth/"
+relatedPlaybook: "/playbooks/the-ai-newsletter-automation-playbook-25-steps-to-20kmonth/"
 ---
 
 
