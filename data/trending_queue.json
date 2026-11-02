@@ -1,24 +1,6 @@
 {
-  "last_updated": "2026-10-31T12:19:41.965886+00:00",
+  "last_updated": "2026-11-02T18:04:53.185644+00:00",
   "topics": [
-    {
-      "topic": "How to start an AI email marketing business with Klaviyo in 2026",
-      "context": "With the rise of AI, email marketing automation is becoming increasingly popular. Solo entrepreneurs can use tools like Klaviyo and ActiveCampaign to offer automated email marketing services to clients.",
-      "keywords": [
-        "AI email marketing business",
-        "Klaviyo",
-        "ActiveCampaign"
-      ],
-      "affiliates": [
-        "Klaviyo",
-        "ActiveCampaign",
-        "Mailchimp"
-      ],
-      "opportunity_angle": "How to launch an AI email marketing business with Klaviyo in 2026 (earn $25,000/month)",
-      "intelligence_angle": "Create, edit, and optimize email campaigns with Klaviyo and ActiveCampaign",
-      "playbook_angle": "Design, build, and automate AI email marketing workflows with Klaviyo and Mailchimp",
-      "discovered_at": "2026-05-01T09:43:23.616180+00:00"
-    },
     {
       "topic": "How to start an AI lead generation business with Apollo in 2026",
       "context": "With the rise of AI, lead generation automation is becoming increasingly popular. Solo entrepreneurs can use tools like Apollo and PhantomBuster to offer automated lead generation services to clients.",
@@ -3618,6 +3600,10 @@
     {
       "topic": "How to start an AI newsletter business with Beehiiv in 2026",
       "used_at": "2026-10-31T12:19:41.965832+00:00"
+    },
+    {
+      "topic": "How to start an AI email marketing business with Klaviyo in 2026",
+      "used_at": "2026-11-02T18:04:53.185576+00:00"
     }
   ]
 }
