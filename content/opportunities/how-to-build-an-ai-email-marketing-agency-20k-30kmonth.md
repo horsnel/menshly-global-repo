@@ -6,6 +6,7 @@ readTime: "16 MIN"
 excerpt: "Details coming soon. Check back for updates on this section."
 image: "/images/articles/opportunities/how-to-launch-an-ai-email-marketing-business-with-klaviyo-in-2026-earn-25000mont.png"
 heroImage: "/images/heroes/opportunities/how-to-launch-an-ai-email-marketing-business-with-klaviyo-in-2026-earn-25000mont.png"
+relatedGuide: "/intelligence/build-an-ai-email-campaign-manager-with-klaviyo-the-complete-step-by-step-guide/"
 ---
 
 
