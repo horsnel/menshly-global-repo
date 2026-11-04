@@ -1,24 +1,6 @@
 {
-  "last_updated": "2026-11-03T17:37:07.122522+00:00",
+  "last_updated": "2026-11-04T16:00:29.090973+00:00",
   "topics": [
-    {
-      "topic": "How to start an AI lead generation business with Apollo in 2026",
-      "context": "With the rise of AI, lead generation automation is becoming increasingly popular. Solo entrepreneurs can use tools like Apollo and PhantomBuster to offer automated lead generation services to clients.",
-      "keywords": [
-        "AI lead generation business",
-        "Apollo",
-        "PhantomBuster"
-      ],
-      "affiliates": [
-        "Apollo",
-        "PhantomBuster",
-        "HubSpot"
-      ],
-      "opportunity_angle": "How to launch an AI lead generation business with Apollo in 2026 (earn $28,000/month)",
-      "intelligence_angle": "Find, qualify, and optimize leads with Apollo and PhantomBuster",
-      "playbook_angle": "Design, build, and automate AI lead generation workflows with Apollo and HubSpot",
-      "discovered_at": "2026-05-01T09:43:23.616190+00:00"
-    },
     {
       "topic": "How to start an AI copywriting agency in 2026",
       "context": "With the rise of AI, copywriting automation is becoming increasingly popular. Solo entrepreneurs can use tools like AI Writer and Content Blossom to offer automated copywriting services to clients.",
@@ -3604,6 +3586,10 @@
     {
       "topic": "How to start an AI email marketing business with Klaviyo in 2026",
       "used_at": "2026-11-02T18:04:53.185576+00:00"
+    },
+    {
+      "topic": "How to start an AI lead generation business with Apollo in 2026",
+      "used_at": "2026-11-04T16:00:29.090941+00:00"
     }
   ]
 }
