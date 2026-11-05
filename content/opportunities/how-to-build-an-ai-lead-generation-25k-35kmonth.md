@@ -6,6 +6,7 @@ readTime: "16 MIN"
 excerpt: "Details coming soon. Check back for updates on this section."
 image: "/images/articles/opportunities/how-to-launch-an-ai-lead-generation-business-with-apollo-in-2026-earn-28000month.png"
 heroImage: "/images/heroes/opportunities/how-to-launch-an-ai-lead-generation-business-with-apollo-in-2026-earn-28000month.png"
+relatedGuide: "/intelligence/build-an-ai-lead-qualification-service-with-apollo-the-complete-step-by-step-gui/"
 ---
 
 
