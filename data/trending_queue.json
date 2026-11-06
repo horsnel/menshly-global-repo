@@ -1,24 +1,6 @@
 {
-  "last_updated": "2026-11-05T17:53:29.730652+00:00",
+  "last_updated": "2026-11-06T15:41:26.267765+00:00",
   "topics": [
-    {
-      "topic": "How to start an AI copywriting agency in 2026",
-      "context": "With the rise of AI, copywriting automation is becoming increasingly popular. Solo entrepreneurs can use tools like AI Writer and Content Blossom to offer automated copywriting services to clients.",
-      "keywords": [
-        "AI copywriting agency",
-        "AI Writer",
-        "Content Blossom"
-      ],
-      "affiliates": [
-        "AI Writer",
-        "Content Blossom",
-        "WordLift"
-      ],
-      "opportunity_angle": "How to launch an AI copywriting agency in 2026 (earn $30,000/month)",
-      "intelligence_angle": "Create, edit, and optimize copy with AI Writer and Content Blossom",
-      "playbook_angle": "Design, build, and automate AI copywriting workflows with AI Writer and WordLift",
-      "discovered_at": "2026-05-01T09:43:23.616199+00:00"
-    },
     {
       "topic": "How to start an AI data analysis services business in 2026",
       "context": "With the rise of AI, data analysis automation is becoming increasingly popular. Solo entrepreneurs can use tools like Google Data Studio and Tableau to offer automated data analysis services to clients.",
@@ -3590,6 +3572,10 @@
     {
       "topic": "How to start an AI lead generation business with Apollo in 2026",
       "used_at": "2026-11-04T16:00:29.090941+00:00"
+    },
+    {
+      "topic": "How to start an AI copywriting agency in 2026",
+      "used_at": "2026-11-06T15:41:26.267734+00:00"
     }
   ]
 }
