@@ -6,6 +6,7 @@ readTime: "16 MIN"
 excerpt: "Details coming soon. Check back for updates on this section."
 image: "/images/articles/opportunities/how-to-launch-an-ai-copywriting-agency-in-2026-earn-30000month.png"
 heroImage: "/images/heroes/opportunities/how-to-launch-an-ai-copywriting-agency-in-2026-earn-30000month.png"
+relatedPlaybook: "/playbooks/api-credentials/"
 ---
 
 

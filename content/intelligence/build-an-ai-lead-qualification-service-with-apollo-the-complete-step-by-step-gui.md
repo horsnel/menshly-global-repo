@@ -8,6 +8,7 @@ excerpt: "In this guide you will build a fully automated lead qualification serv
 image: "/images/articles/intelligence/find-qualify-and-optimize-leads-with-apollo-and-phantombuster.png"
 heroImage: "/images/heroes/intelligence/find-qualify-and-optimize-leads-with-apollo-and-phantombuster.png"
 relatedOpportunity: "/opportunities/how-to-build-an-ai-lead-generation-25k-35kmonth/"
+relatedPlaybook: "/playbooks/api-credentials/"
 ---
 
 In this guide you will build a fully automated lead qualification service that pulls raw prospects from Apollo, enriches and scores them with PhantomBuster, and delivers a ready‑to‑contact list to your sales team—all within a single, repeatable pipeline. By the end of the walkthrough you will have a production‑ready workflow that can ingest thousands of leads per hour, apply AI‑driven scoring, and push the highest‑quality prospects straight into your CRM or email marketing stack.  
