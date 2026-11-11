@@ -1,24 +1,6 @@
 {
-  "last_updated": "2026-11-10T17:32:14.937272+00:00",
+  "last_updated": "2026-11-11T15:54:10.285328+00:00",
   "topics": [
-    {
-      "topic": "How to start an AI data analysis services business in 2026",
-      "context": "With the rise of AI, data analysis automation is becoming increasingly popular. Solo entrepreneurs can use tools like Google Data Studio and Tableau to offer automated data analysis services to clients.",
-      "keywords": [
-        "AI data analysis services business",
-        "Google Data Studio",
-        "Tableau"
-      ],
-      "affiliates": [
-        "Google Data Studio",
-        "Tableau",
-        "Power BI"
-      ],
-      "opportunity_angle": "How to launch an AI data analysis services business in 2026 (earn $32,000/month)",
-      "intelligence_angle": "Analyze, visualize, and optimize data with Google Data Studio and Tableau",
-      "playbook_angle": "Design, build, and automate AI data analysis workflows with Google Data Studio and Power BI",
-      "discovered_at": "2026-05-01T09:43:23.616209+00:00"
-    },
     {
       "topic": "How to start an AI customer support automation business with ChatGPT in 2026",
       "context": "With the rise of AI, customer support automation is becoming increasingly popular. Solo entrepreneurs can use tools like ChatGPT and ManyChat to offer automated customer support services to clients.",
@@ -3580,6 +3562,10 @@
     {
       "topic": "How to start an AI copywriting agency in 2026",
       "used_at": "2026-11-07T13:12:02.216738+00:00"
+    },
+    {
+      "topic": "How to start an AI data analysis services business in 2026",
+      "used_at": "2026-11-11T15:54:10.285298+00:00"
     }
   ]
 }
