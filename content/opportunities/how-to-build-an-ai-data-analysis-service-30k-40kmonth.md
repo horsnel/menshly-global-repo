@@ -6,6 +6,7 @@ readTime: "16 MIN"
 excerpt: "Details coming soon. Check back for updates on this section."
 image: "/images/articles/opportunities/how-to-launch-an-ai-data-analysis-services-business-in-2026-earn-32000month.png"
 heroImage: "/images/heroes/opportunities/how-to-launch-an-ai-data-analysis-services-business-in-2026-earn-32000month.png"
+relatedGuide: "/intelligence/build-an-ai-data-analytics-service-with-tableau-the-complete-step-by-step-guide/"
 ---
 
 
