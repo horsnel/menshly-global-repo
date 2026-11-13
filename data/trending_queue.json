@@ -1,24 +1,6 @@
 {
-  "last_updated": "2026-11-12T17:57:45.799192+00:00",
+  "last_updated": "2026-11-13T15:58:42.662805+00:00",
   "topics": [
-    {
-      "topic": "How to start an AI customer support automation business with ChatGPT in 2026",
-      "context": "With the rise of AI, customer support automation is becoming increasingly popular. Solo entrepreneurs can use tools like ChatGPT and ManyChat to offer automated customer support services to clients.",
-      "keywords": [
-        "AI customer support automation business",
-        "ChatGPT",
-        "ManyChat"
-      ],
-      "affiliates": [
-        "ChatGPT",
-        "ManyChat",
-        "Dialogflow"
-      ],
-      "opportunity_angle": "How to launch an AI customer support automation business with ChatGPT in 2026 (earn $35,000/month)",
-      "intelligence_angle": "Create, deploy, and optimize AI customer support agents with ChatGPT and ManyChat",
-      "playbook_angle": "Design, build, and automate AI customer support workflows with ChatGPT and Dialogflow",
-      "discovered_at": "2026-05-01T09:43:23.616219+00:00"
-    },
     {
       "topic": "How to start an AI sales automation business with HubSpot in 2026",
       "context": "With the rise of AI, sales automation is becoming increasingly popular. Solo entrepreneurs can use tools like HubSpot and Pipedrive to offer automated sales services to clients.",
@@ -3566,6 +3548,10 @@
     {
       "topic": "How to start an AI data analysis services business in 2026",
       "used_at": "2026-11-11T15:54:10.285298+00:00"
+    },
+    {
+      "topic": "How to start an AI customer support automation business with ChatGPT in 2026",
+      "used_at": "2026-11-13T15:58:42.662780+00:00"
     }
   ]
 }
