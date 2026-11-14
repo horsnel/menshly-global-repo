@@ -8,6 +8,7 @@ excerpt: "*Section content pending review.*"
 image: "/images/articles/intelligence/analyze-visualize-and-optimize-data-with-google-data-studio-and-tableau.png"
 heroImage: "/images/heroes/intelligence/analyze-visualize-and-optimize-data-with-google-data-studio-and-tableau.png"
 relatedOpportunity: "/opportunities/how-to-build-an-ai-data-analysis-service-30k-40kmonth/"
+relatedPlaybook: "/playbooks/the-ai-customer-support-automation-playbook-25-steps-to-30kmonth/"
 ---
 
 

@@ -6,6 +6,7 @@ readTime: "16 MIN"
 excerpt: "Details coming soon. Check back for updates on this section."
 image: "/images/articles/opportunities/how-to-launch-an-ai-customer-support-automation-business-with-chatgpt-in-2026-ea.png"
 heroImage: "/images/heroes/opportunities/how-to-launch-an-ai-customer-support-automation-business-with-chatgpt-in-2026-ea.png"
+relatedPlaybook: "/playbooks/the-ai-customer-support-automation-playbook-25-steps-to-30kmonth/"
 ---
 
 
