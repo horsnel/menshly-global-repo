@@ -1,24 +1,6 @@
 {
-  "last_updated": "2026-11-14T13:44:22.358618+00:00",
+  "last_updated": "2026-11-16T18:01:23.402698+00:00",
   "topics": [
-    {
-      "topic": "How to start an AI sales automation business with HubSpot in 2026",
-      "context": "With the rise of AI, sales automation is becoming increasingly popular. Solo entrepreneurs can use tools like HubSpot and Pipedrive to offer automated sales services to clients.",
-      "keywords": [
-        "AI sales automation business",
-        "HubSpot",
-        "Pipedrive"
-      ],
-      "affiliates": [
-        "HubSpot",
-        "Pipedrive",
-        "Salesforce"
-      ],
-      "opportunity_angle": "How to launch an AI sales automation business with HubSpot in 2026 (earn $38,000/month)",
-      "intelligence_angle": "Automate, qualify, and optimize sales with HubSpot and Pipedrive",
-      "playbook_angle": "Design, build, and automate AI sales workflows with HubSpot and Salesforce",
-      "discovered_at": "2026-05-01T09:43:23.616229+00:00"
-    },
     {
       "topic": "How to start an AI marketing automation business with Marketo in 2026",
       "context": "With the rise of AI, marketing automation is becoming increasingly popular. Solo entrepreneurs can use tools like Marketo and Pardot to offer automated marketing services to clients.",
@@ -3556,6 +3538,10 @@
     {
       "topic": "How to start an AI customer support automation business with ChatGPT in 2026",
       "used_at": "2026-11-14T13:44:22.358586+00:00"
+    },
+    {
+      "topic": "How to start an AI sales automation business with HubSpot in 2026",
+      "used_at": "2026-11-16T18:01:23.402674+00:00"
     }
   ]
 }
