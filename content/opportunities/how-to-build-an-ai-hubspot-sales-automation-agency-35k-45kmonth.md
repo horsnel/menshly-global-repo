@@ -6,6 +6,7 @@ readTime: "16 MIN"
 excerpt: "Details coming soon. Check back for updates on this section."
 image: "/images/articles/opportunities/how-to-launch-an-ai-sales-automation-business-with-hubspot-in-2026-earn-38000mon.png"
 heroImage: "/images/heroes/opportunities/how-to-launch-an-ai-sales-automation-business-with-hubspot-in-2026-earn-38000mon.png"
+relatedGuide: "/intelligence/build-an-ai-sales-automation-with-hubspot-the-complete-step-by-step-guide/"
 ---
 
 
