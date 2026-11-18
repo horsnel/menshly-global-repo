@@ -1,24 +1,6 @@
 {
-  "last_updated": "2026-11-17T18:58:45.766817+00:00",
+  "last_updated": "2026-11-18T16:57:10.147672+00:00",
   "topics": [
-    {
-      "topic": "How to start an AI marketing automation business with Marketo in 2026",
-      "context": "With the rise of AI, marketing automation is becoming increasingly popular. Solo entrepreneurs can use tools like Marketo and Pardot to offer automated marketing services to clients.",
-      "keywords": [
-        "AI marketing automation business",
-        "Marketo",
-        "Pardot"
-      ],
-      "affiliates": [
-        "Marketo",
-        "Pardot",
-        "HubSpot"
-      ],
-      "opportunity_angle": "How to launch an AI marketing automation business with Marketo in 2026 (earn $40,000/month)",
-      "intelligence_angle": "Automate, analyze, and optimize marketing with Marketo and Pardot",
-      "playbook_angle": "Design, build, and automate AI marketing workflows with Marketo and HubSpot",
-      "discovered_at": "2026-05-01T09:43:23.616239+00:00"
-    },
     {
       "topic": "How to start an AI supply chain optimization consulting business in 2026",
       "context": "With the rise of AI, supply chain optimization is becoming increasingly popular. Solo entrepreneurs can use tools like SAP and Oracle to offer automated supply chain optimization services to clients.",
@@ -3542,6 +3524,10 @@
     {
       "topic": "How to start an AI sales automation business with HubSpot in 2026",
       "used_at": "2026-11-16T18:01:23.402674+00:00"
+    },
+    {
+      "topic": "How to start an AI marketing automation business with Marketo in 2026",
+      "used_at": "2026-11-18T16:57:10.147640+00:00"
     }
   ]
 }
