@@ -6,6 +6,7 @@ readTime: "16 MIN"
 excerpt: "Details coming soon. Check back for updates on this section."
 image: "/images/articles/opportunities/how-to-launch-an-ai-marketing-automation-business-with-marketo-in-2026-earn-4000.png"
 heroImage: "/images/heroes/opportunities/how-to-launch-an-ai-marketing-automation-business-with-marketo-in-2026-earn-4000.png"
+relatedGuide: "/intelligence/build-an-ai-marketing-automation-service-with-marketo-the-complete-step-by-step-/"
 ---
 
 
