@@ -1,24 +1,6 @@
 {
-  "last_updated": "2026-11-19T18:54:07.973092+00:00",
+  "last_updated": "2026-11-20T16:44:42.748037+00:00",
   "topics": [
-    {
-      "topic": "How to start an AI supply chain optimization consulting business in 2026",
-      "context": "With the rise of AI, supply chain optimization is becoming increasingly popular. Solo entrepreneurs can use tools like SAP and Oracle to offer automated supply chain optimization services to clients.",
-      "keywords": [
-        "AI supply chain optimization consulting business",
-        "SAP",
-        "Oracle"
-      ],
-      "affiliates": [
-        "SAP",
-        "Oracle",
-        "Microsoft Dynamics"
-      ],
-      "opportunity_angle": "How to launch an AI supply chain optimization consulting business in 2026 (earn $45,000/month)",
-      "intelligence_angle": "Analyze, optimize, and improve supply chain with SAP and Oracle",
-      "playbook_angle": "Design, build, and automate AI supply chain optimization workflows with SAP and Microsoft Dynamics",
-      "discovered_at": "2026-05-01T09:43:23.616249+00:00"
-    },
     {
       "topic": "How to start an AI legal document automation business in 2026",
       "context": "With the rise of AI, legal document automation is becoming increasingly popular. Solo entrepreneurs can use tools like LawGeex and ContractBook to offer automated legal document services to clients.",
@@ -3528,6 +3510,10 @@
     {
       "topic": "How to start an AI marketing automation business with Marketo in 2026",
       "used_at": "2026-11-18T16:57:10.147640+00:00"
+    },
+    {
+      "topic": "How to start an AI supply chain optimization consulting business in 2026",
+      "used_at": "2026-11-20T16:44:42.748006+00:00"
     }
   ]
 }
