@@ -6,6 +6,7 @@ readTime: "16 MIN"
 excerpt: "Details coming soon. Check back for updates on this section."
 image: "/images/articles/opportunities/how-to-launch-an-ai-supply-chain-optimization-consulting-business-in-2026-earn-4.png"
 heroImage: "/images/heroes/opportunities/how-to-launch-an-ai-supply-chain-optimization-consulting-business-in-2026-earn-4.png"
+relatedPlaybook: "/playbooks/the-ai-supply-chain-optimization-playbook-30-steps-to-60kmonth/"
 ---
 
 

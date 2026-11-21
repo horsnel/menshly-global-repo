@@ -8,6 +8,7 @@ excerpt: "*Section content pending review.*"
 image: "/images/articles/intelligence/automate-analyze-and-optimize-marketing-with-marketo-and-pardot.png"
 heroImage: "/images/heroes/intelligence/automate-analyze-and-optimize-marketing-with-marketo-and-pardot.png"
 relatedOpportunity: "/opportunities/how-to-build-an-ai-marketing-automation-agency-30k-50kmonth/"
+relatedPlaybook: "/playbooks/the-ai-supply-chain-optimization-playbook-30-steps-to-60kmonth/"
 ---
 
 
