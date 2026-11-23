@@ -1,24 +1,6 @@
 {
-  "last_updated": "2026-11-21T14:48:32.835002+00:00",
+  "last_updated": "2026-11-23T19:48:55.827793+00:00",
   "topics": [
-    {
-      "topic": "How to start an AI legal document automation business in 2026",
-      "context": "With the rise of AI, legal document automation is becoming increasingly popular. Solo entrepreneurs can use tools like LawGeex and ContractBook to offer automated legal document services to clients.",
-      "keywords": [
-        "AI legal document automation business",
-        "LawGeex",
-        "ContractBook"
-      ],
-      "affiliates": [
-        "LawGeex",
-        "ContractBook",
-        "DocuSign"
-      ],
-      "opportunity_angle": "How to launch an AI legal document automation business in 2026 (earn $48,000/month)",
-      "intelligence_angle": "Create, edit, and optimize legal documents with LawGeex and ContractBook",
-      "playbook_angle": "Design, build, and automate AI legal document workflows with LawGeex and DocuSign",
-      "discovered_at": "2026-05-01T09:43:23.616260+00:00"
-    },
     {
       "topic": "How to start an AI freelance arbitrage business in 2026",
       "context": "With the rise of AI, freelance arbitrage is becoming increasingly popular. Solo entrepreneurs can use tools like Upwork and Freelancer to offer automated freelance services to clients.",
@@ -3518,6 +3500,10 @@
     {
       "topic": "How to start an AI supply chain optimization consulting business in 2026",
       "used_at": "2026-11-21T14:48:32.834969+00:00"
+    },
+    {
+      "topic": "How to start an AI legal document automation business in 2026",
+      "used_at": "2026-11-23T19:48:55.827777+00:00"
     }
   ]
 }
