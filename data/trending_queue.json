@@ -1,24 +1,6 @@
 {
-  "last_updated": "2026-11-24T20:31:16.822958+00:00",
+  "last_updated": "2026-11-25T18:24:50.853231+00:00",
   "topics": [
-    {
-      "topic": "How to start an AI freelance arbitrage business in 2026",
-      "context": "With the rise of AI, freelance arbitrage is becoming increasingly popular. Solo entrepreneurs can use tools like Upwork and Freelancer to offer automated freelance services to clients.",
-      "keywords": [
-        "AI freelance arbitrage business",
-        "Upwork",
-        "Freelancer"
-      ],
-      "affiliates": [
-        "Upwork",
-        "Freelancer",
-        "Fiverr"
-      ],
-      "opportunity_angle": "How to launch an AI freelance arbitrage business in 2026 (earn $50,000/month)",
-      "intelligence_angle": "Find, qualify, and optimize freelance opportunities with Upwork and Freelancer",
-      "playbook_angle": "Design, build, and automate AI freelance workflows with Upwork and Fiverr",
-      "discovered_at": "2026-05-01T09:43:23.616271+00:00"
-    },
     {
       "topic": "How to start an AI contract writing agency in 2026",
       "context": "AI contract writing is a growing need for businesses, and solo entrepreneurs can capitalize on this trend with the right tools. ChatGPT and other LLMs are making it possible to automate contract writing.",
@@ -3504,6 +3486,10 @@
     {
       "topic": "How to start an AI legal document automation business in 2026",
       "used_at": "2026-11-23T19:48:55.827777+00:00"
+    },
+    {
+      "topic": "How to start an AI freelance arbitrage business in 2026",
+      "used_at": "2026-11-25T18:24:50.853201+00:00"
     }
   ]
 }
