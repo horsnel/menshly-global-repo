@@ -6,6 +6,7 @@ readTime: "16 MIN"
 excerpt: "Details coming soon. Check back for updates on this section."
 image: "/images/articles/opportunities/how-to-launch-an-ai-freelance-arbitrage-business-in-2026-earn-50000month.png"
 heroImage: "/images/heroes/opportunities/how-to-launch-an-ai-freelance-arbitrage-business-in-2026-earn-50000month.png"
+relatedGuide: "/intelligence/build-an-ai-freelance-opportunity-finder-with-upwork-the-complete-step-by-step-g/"
 ---
 
 
