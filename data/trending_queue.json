@@ -1,24 +1,6 @@
 {
-  "last_updated": "2026-11-26T19:26:26.382730+00:00",
+  "last_updated": "2026-11-27T17:50:13.308559+00:00",
   "topics": [
-    {
-      "topic": "How to start an AI contract writing agency in 2026",
-      "context": "AI contract writing is a growing need for businesses, and solo entrepreneurs can capitalize on this trend with the right tools. ChatGPT and other LLMs are making it possible to automate contract writing.",
-      "keywords": [
-        "AI contract writing",
-        "LLM",
-        "ChatGPT"
-      ],
-      "affiliates": [
-        "ChatGPT",
-        "Make.com",
-        "Loom"
-      ],
-      "opportunity_angle": "How to Start an AI Contract Writing Agency in 2026 (Generate $10K/Month)",
-      "intelligence_angle": "Research, Create, and Optimize AI Contract Writing with ChatGPT",
-      "playbook_angle": "Build, Scale, and Automate AI Contract Writing with Make.com and Loom",
-      "discovered_at": "2026-05-06T10:13:51.247525+00:00"
-    },
     {
       "topic": "How to start an AI podcast editing and production agency in 2026",
       "context": "The rise of podcasting has created a need for high-quality editing and production services. AI can help with tasks such as audio editing and transcription, making it possible for solo entrepreneurs to offer these services.",
@@ -3490,6 +3472,10 @@
     {
       "topic": "How to start an AI freelance arbitrage business in 2026",
       "used_at": "2026-11-25T18:24:50.853201+00:00"
+    },
+    {
+      "topic": "How to start an AI contract writing agency in 2026",
+      "used_at": "2026-11-27T17:50:13.308537+00:00"
     }
   ]
 }
