@@ -6,6 +6,7 @@ readTime: "16 MIN"
 excerpt: "Details coming soon. Check back for updates on this section."
 image: "/images/articles/opportunities/how-to-start-an-ai-contract-writing-agency-in-2026-generate-10kmonth.png"
 heroImage: "/images/heroes/opportunities/how-to-start-an-ai-contract-writing-agency-in-2026-generate-10kmonth.png"
+relatedPlaybook: "/playbooks/the-ai-contract-writing-playbook-25-steps-to-5mmonth/"
 ---
 
 

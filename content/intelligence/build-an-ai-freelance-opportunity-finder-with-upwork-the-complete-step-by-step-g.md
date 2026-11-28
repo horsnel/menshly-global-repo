@@ -8,6 +8,7 @@ excerpt: "*Section content pending review.*"
 image: "/images/articles/intelligence/find-qualify-and-optimize-freelance-opportunities-with-upwork-and-freelancer.png"
 heroImage: "/images/heroes/intelligence/find-qualify-and-optimize-freelance-opportunities-with-upwork-and-freelancer.png"
 relatedOpportunity: "/opportunities/how-to-build-an-ai-freelance-arbitrage-20k-50kmonth/"
+relatedPlaybook: "/playbooks/the-ai-contract-writing-playbook-25-steps-to-5mmonth/"
 ---
 
 
